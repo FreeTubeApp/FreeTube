@@ -91,6 +91,19 @@ const actions = {
       console.error(errMessage)
     }
   },
+
+  async removeExpiredSearchHistory({ commit, rootState }) {
+    try {
+      const lifetimeSeconds = rootState.settings.watchHistoryLifetimeSeconds
+      if (lifetimeSeconds <= 0) { return 0 }
+
+      await DBSearchHistoryHandlers.deleteOlderThan(lifetimeSeconds)
+
+      commit('removeFromSearchHistoryOlderThan', lifetimeSeconds)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
 }
 
 const mutations = {
@@ -108,6 +121,13 @@ const mutations = {
 
   removeSearchHistoryEntryFromList(state, _id) {
     state.searchHistoryEntries = state.searchHistoryEntries.filter((searchHistoryEntry) => searchHistoryEntry._id !== _id)
+  },
+
+  removeFromSearchHistoryOlderThan(state, seconds) {
+    const cutoff = Date.now() - seconds * 1000
+    state.searchHistoryEntries = state.searchHistoryEntries.filter(
+      (entry) => entry.lastUpdatedAt > cutoff
+    )
   }
 }
 

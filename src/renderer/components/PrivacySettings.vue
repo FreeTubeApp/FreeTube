@@ -43,6 +43,85 @@
       />
     </FtFlexBox>
     <br>
+    <h4
+      class="groupTitle"
+    >
+      {{ t('Settings.Privacy Settings.Watch History Expiration') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <div class="switchColumn">
+        <FtToggleSwitch
+          :label="$t('Settings.Privacy Settings.Clean Watch History')"
+          compact
+          :default-value="watchHistoryEraserEnabled"
+          :disabled="!rememberHistory || lifetimeOption === 'forever'"
+          @change="handleWatchHistoryEraserChange"
+        />
+      </div>
+      <div class="switchColumn">
+        <FtToggleSwitch
+          :label="$t('Settings.Privacy Settings.Clean Search History')"
+          compact
+          :default-value="searchHistoryEraserEnabled"
+          :disabled="!rememberHistory || lifetimeOption === 'forever'"
+          @change="handleSearchHistoryEraserChange"
+        />
+      </div>
+    </div>
+    <FtFlexBox>
+      <FtSelect
+        :placeholder="$t('Settings.Privacy Settings.Watch History Lifetime')"
+        :value="lifetimeOption"
+        :select-names="lifetimeOptionTranslations"
+        :select-values="lifetimeOptions"
+        :icon="['fas', 'clock']"
+        :tooltip="$t('Settings.Privacy Settings.Watch History Lifetime Tooltip')"
+        :disabled="!rememberHistory"
+        @change="handleLifetimeChange"
+      />
+      <FtInput
+        :placeholder="$t('Settings.Privacy Settings.Custom Lifetime Days')"
+        label="Days"
+        input-type="number"
+        show-label
+        :show-action-button="false"
+        :value="String(lifetimeDays)"
+        :disabled="!rememberHistory || lifetimeOption === 'forever'"
+        @input="handleLifetimeDaysChange"
+      />
+      <FtInput
+        :placeholder="$t('Settings.Privacy Settings.Custom Lifetime Hours')"
+        label="Hours"
+        input-type="number"
+        show-label
+        :show-action-button="false"
+        :value="String(lifetimeHours)"
+        :disabled="!rememberHistory || lifetimeOption === 'forever'"
+        @input="handleLifetimeHoursChange"
+      />
+      <FtInput
+        :placeholder="$t('Settings.Privacy Settings.Custom Lifetime Minutes')"
+        label="Minutes"
+        input-type="number"
+        show-label
+        :show-action-button="false"
+        :value="String(lifetimeMinutes)"
+        :disabled="!rememberHistory || lifetimeOption === 'forever'"
+        @input="handleLifetimeMinutesChange"
+      />
+    </FtFlexBox>
+    <FtFlexBox>
+      <FtInput
+        :placeholder="$t('Settings.Privacy Settings.Timer Interval')"
+        input-type="number"
+        show-label
+        :show-action-button="false"
+        :value="String(expiryTimerInterval)"
+        :disabled="!rememberHistory || lifetimeOption === 'forever'"
+        @input="handleTimerIntervalChange"
+      />
+    </FtFlexBox>
+    <br>
     <FtFlexBox>
       <FtButton
         :label="$t('Settings.Privacy Settings.Clear Search History and Cache')"
@@ -72,6 +151,15 @@
         :icon="['fas', 'trash']"
         @click="showRemovePlaylistsPrompt = true"
       />
+      <FtFlexBox>
+        <FtButton
+          :label="$t('Settings.Privacy Settings.Delete Expired History Now')"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          :icon="['fas', 'trash']"
+          @click="handleDeleteExpiredNow"
+        />
+      </FtFlexBox>
     </FtFlexBox>
     <FtPrompt
       v-if="showSearchCachePrompt"
@@ -114,6 +202,7 @@ import { useI18n } from 'vue-i18n'
 
 import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
+import FtInput from './FtInput/FtInput.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSelect from './FtSelect/FtSelect.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
@@ -185,6 +274,154 @@ const watchedProgressSavingMode = computed(() => store.getters.getWatchedProgres
  */
 function updateWatchedProgressSavingMode(value) {
   store.dispatch('updateWatchedProgressSavingMode', value)
+}
+
+/** @type {{ readonly [key: string]: number }} */
+const lifetimeOptionsTable = Object.freeze({
+  forever: 0,
+  '1hour': 60 * 60,
+  '24hours': 60 * 60 * 24,
+  '7days': 60 * 60 * 24 * 7,
+  '30days': 60 * 60 * 24 * 30,
+})
+
+const lifetimeOptions = Object.keys(lifetimeOptionsTable).concat('custom')
+const lifetimeOptionTranslations = computed(() => [
+  t('Settings.Privacy Settings.Lifetime Options.Forever'),
+  t('Settings.Privacy Settings.Lifetime Options.1 Hour'),
+  t('Settings.Privacy Settings.Lifetime Options.24 Hours'),
+  t('Settings.Privacy Settings.Lifetime Options.7 Days'),
+  t('Settings.Privacy Settings.Lifetime Options.30 Days'),
+  t('Settings.Privacy Settings.Lifetime Options.Custom')
+])
+
+/** @type {import('vue').ComputedRef<string>} */
+const lifetimeOption = computed(() => {
+  const lifetimeSeconds = store.getters.getWatchHistoryLifetimeSeconds
+  return Object.entries(lifetimeOptionsTable).find(
+    ([_, seconds]) => seconds === lifetimeSeconds
+  )?.[0] ?? 'custom'
+})
+
+/** @type {import('vue').ComputedRef<number>} */
+const lifetimeDays = computed(() => Math.floor(store.getters.getWatchHistoryLifetimeSeconds / 86400))
+
+/** @type {import('vue').ComputedRef<number>} */
+const lifetimeHours = computed(() => Math.floor((store.getters.getWatchHistoryLifetimeSeconds % 86400) / 3600))
+
+/** @type {import('vue').ComputedRef<number>} */
+const lifetimeMinutes = computed(() => Math.floor((store.getters.getWatchHistoryLifetimeSeconds % 3600) / 60))
+
+/**
+ * @param {string} value
+ */
+function handleLifetimeChange(value) {
+  if (value === 'custom') {
+    // If coming from 'forever' (0), seed the custom fields with a sensible default
+    // so that selecting Custom is not a silent no-op
+    if (store.getters.getWatchHistoryLifetimeSeconds === 0) {
+      updateCustomLifetime(30, 0, 0)
+    } else {
+      updateCustomLifetime(lifetimeDays.value, lifetimeHours.value, lifetimeMinutes.value)
+    }
+  } else {
+    store.dispatch('updateWatchHistoryLifetimeSeconds', lifetimeOptionsTable[value])
+  }
+
+  // A non-forever lifetime requires at least one eraser to be enabled
+  if (lifetimeOptionsTable[value] > 0 && !store.getters.getWatchHistoryEraserEnabled && !store.getters.getSearchHistoryEraserEnabled) {
+    store.dispatch('updateWatchHistoryEraserEnabled', true)
+    store.dispatch('updateSearchHistoryEraserEnabled', true)
+  }
+}
+
+/**
+ * @param {string} value
+ */
+function handleLifetimeDaysChange(value) {
+  updateCustomLifetime(parseInt(value, 10), lifetimeHours.value, lifetimeMinutes.value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleLifetimeHoursChange(value) {
+  updateCustomLifetime(lifetimeDays.value, parseInt(value, 10), lifetimeMinutes.value)
+}
+
+/**
+ * @param {string} value
+ */
+function handleLifetimeMinutesChange(value) {
+  updateCustomLifetime(lifetimeDays.value, lifetimeHours.value, parseInt(value, 10))
+}
+
+/**
+ * @param {number} days
+ * @param {number} hours
+ * @param {number} minutes
+ */
+function updateCustomLifetime(days, hours, minutes) {
+  const d = isNaN(days) ? 0 : days
+  const h = isNaN(hours) ? 0 : hours
+  const m = isNaN(minutes) ? 0 : minutes
+  const totalSeconds = d * 86400 + h * 3600 + m * 60
+  store.dispatch('updateWatchHistoryLifetimeSeconds', totalSeconds)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const watchHistoryEraserEnabled = computed(() => store.getters.getWatchHistoryEraserEnabled)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const searchHistoryEraserEnabled = computed(() => store.getters.getSearchHistoryEraserEnabled)
+
+/**
+ * @param {boolean} value
+ */
+async function handleWatchHistoryEraserChange(value) {
+  await store.dispatch('updateWatchHistoryEraserEnabled', value)
+  ensureLifetimeActive()
+}
+
+/**
+ * @param {boolean} value
+ */
+async function handleSearchHistoryEraserChange(value) {
+  await store.dispatch('updateSearchHistoryEraserEnabled', value)
+  ensureLifetimeActive()
+}
+
+/**
+ * If both erasers are disabled, reset lifetime to 'forever'
+ */
+function ensureLifetimeActive() {
+  if (!store.getters.getWatchHistoryEraserEnabled && !store.getters.getSearchHistoryEraserEnabled) {
+    store.dispatch('updateWatchHistoryLifetimeSeconds', 0)
+  }
+}
+
+/** @type {import('vue').ComputedRef<number>} */
+const expiryTimerInterval = computed(() => store.getters.getWatchHistoryEraseTimerIntervalSeconds)
+
+/**
+ * @param {string} value
+ */
+function handleTimerIntervalChange(value) {
+  const num = parseInt(value, 10)
+  if (isNaN(num) || num < 60) {
+    showToast(t('Settings.Privacy Settings.Timer Interval Too Short'))
+    return
+  }
+  store.dispatch('updateWatchHistoryEraseTimerIntervalSeconds', num)
+}
+
+async function handleDeleteExpiredNow() {
+  if (store.getters.getWatchHistoryEraserEnabled) {
+    await store.dispatch('removeExpiredWatchHistory')
+  }
+  if (store.getters.getSearchHistoryEraserEnabled) {
+    await store.dispatch('removeExpiredSearchHistory')
+  }
 }
 
 const showSearchCachePrompt = ref(false)

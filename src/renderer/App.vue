@@ -196,6 +196,16 @@ onMounted(async () => {
       store.dispatch('getExternalPlayerCmdArgumentsData')
     }
 
+    // History expiry cleanup on startup
+    if (store.getters.getWatchHistoryEraserEnabled) {
+      store.dispatch('removeExpiredWatchHistory')
+    }
+    if (store.getters.getSearchHistoryEraserEnabled) {
+      store.dispatch('removeExpiredSearchHistory')
+    }
+    // Setup timer trigger
+    setupHistoryEraserTrigger()
+
     dataReady.value = true
 
     setTimeout(() => {
@@ -220,6 +230,7 @@ onBeforeUnmount(() => {
   document.removeEventListener('dragstart', handleDragStart)
   document.removeEventListener('click', handleClick)
   document.removeEventListener('auxclick', handleAuxClick)
+  cleanupHistoryEraserTrigger()
 })
 
 /** @type {import('vue').ComputedRef<string>} */
@@ -589,6 +600,46 @@ loadLocale('en-US')
 
 /** @type {import('vue').ComputedRef<string>} */
 const currentInvidiousInstanceUrl = computed(() => store.getters.getCurrentInvidiousInstanceUrl)
+
+let historyEraserTimerId = null
+
+function setupHistoryEraserTrigger() {
+  cleanupHistoryEraserTrigger()
+
+  const lifetime = store.getters.getWatchHistoryLifetimeSeconds
+  if (lifetime <= 0) { return }
+
+  const timerInterval = store.getters.getWatchHistoryEraseTimerIntervalSeconds
+  if (timerInterval <= 0) { return }
+  historyEraserTimerId = setInterval(() => {
+    if (store.getters.getWatchHistoryEraserEnabled) {
+      store.dispatch('removeExpiredWatchHistory')
+    }
+    if (store.getters.getSearchHistoryEraserEnabled) {
+      store.dispatch('removeExpiredSearchHistory')
+    }
+  }, timerInterval * 1000)
+}
+
+function cleanupHistoryEraserTrigger() {
+  if (historyEraserTimerId !== null) {
+    clearInterval(historyEraserTimerId)
+    historyEraserTimerId = null
+  }
+}
+
+// Watch expiry settings to re-setup trigger when they change
+watch(
+  () => [
+    store.getters.getWatchHistoryLifetimeSeconds,
+    store.getters.getWatchHistoryEraseTimerIntervalSeconds,
+    store.getters.getWatchHistoryEraserEnabled,
+    store.getters.getSearchHistoryEraserEnabled
+  ],
+  () => {
+    setupHistoryEraserTrigger()
+  }
+)
 
 /**
  * Transforms dragged in-app URLs into YouTube ones, so they they can be dragged into other applications.

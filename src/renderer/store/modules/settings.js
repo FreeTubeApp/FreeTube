@@ -249,6 +249,10 @@ const state = {
   rememberSearchHistory: true,
   // 'auto', 'semi-auto', 'never'
   watchedProgressSavingMode: 'auto',
+  watchHistoryLifetimeSeconds: 0,
+  watchHistoryEraserEnabled: true,
+  searchHistoryEraserEnabled: true,
+  watchHistoryEraseTimerIntervalSeconds: 15 * 60,
   saveVideoHistoryWithLastViewedPlaylist: true,
   showFamilyFriendlyOnly: false,
   sponsorBlockShowSkippedToast: true,
@@ -534,6 +538,10 @@ const customActions = {
             commit('updateRecordLastViewedPlaylistIdInHistoryCache', data)
             break
 
+          case SyncEvents.HISTORY.DELETE_WATCH_HISTORY_OLDER_THAN:
+            commit('removeFromWatchHistoryOlderThan', data)
+            break
+
           case SyncEvents.GENERAL.DELETE:
             commit('removeFromHistoryCacheById', data)
             break
@@ -565,6 +573,10 @@ const customActions = {
 
           case SyncEvents.GENERAL.DELETE_ALL:
             commit('setSearchHistoryEntries', [])
+            break
+
+          case SyncEvents.HISTORY.DELETE_SEARCH_HISTORY_OLDER_THAN:
+            commit('removeFromSearchHistoryOlderThan', data)
             break
 
           default:

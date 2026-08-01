@@ -535,6 +535,24 @@ Settings:
     Remove All Playlists: Remove All Playlists
     All playlists have been removed: All playlists have been removed
     Are you sure you want to remove all your playlists?: Are you sure you want to remove all your playlists?
+    Watch History Expiration: Watch History Expiration
+    Clean Watch History: Clean Watch History
+    Clean Search History: Clean Search History
+    Watch History Lifetime: Watch History Lifetime
+    Watch History Lifetime Tooltip: Set to forever to never delete watch history
+    Timer Interval: Timer Interval (seconds)
+    Timer Interval Too Short: Timer interval must be at least 60 seconds
+    Delete Expired History Now: Delete Expired History Now
+    Lifetime Options:
+      Forever: Forever
+      1 Hour: 1 Hour
+      24 Hours: 24 Hours
+      7 Days: 7 Days
+      30 Days: 30 Days
+      Custom: Custom
+    Custom Lifetime Days: Days
+    Custom Lifetime Hours: Hours
+    Custom Lifetime Minutes: Minutes
   Subscription Settings:
     Subscription Settings: Subscription
     Fetch Feeds from RSS: Fetch Feeds from RSS

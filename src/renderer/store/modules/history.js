@@ -101,6 +101,19 @@ const actions = {
       console.error(errMessage)
     }
   },
+
+  async removeExpiredWatchHistory({ commit, rootState }) {
+    try {
+      const lifetimeSeconds = rootState.settings.watchHistoryLifetimeSeconds
+      if (lifetimeSeconds <= 0) { return 0 }
+
+      await DBHistoryHandlers.deleteOlderThan(lifetimeSeconds)
+
+      commit('removeFromWatchHistoryOlderThan', lifetimeSeconds)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
 }
 
 const mutations = {
@@ -162,6 +175,18 @@ const mutations = {
     }
 
     delete state.historyCacheById[videoId]
+  },
+
+  removeFromWatchHistoryOlderThan(state, seconds) {
+    const cutoff = Date.now() - seconds * 1000
+    state.historyCacheSorted = state.historyCacheSorted.filter(record => {
+      if (record.timeWatched < cutoff) {
+        delete state.historyCacheById[record.videoId]
+        return false
+      }
+
+      return true
+    })
   }
 }
 

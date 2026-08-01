@@ -1736,6 +1736,15 @@ function runApp() {
           )
           return null
 
+        case DBActions.HISTORY.DELETE_WATCH_HISTORY_OLDER_THAN:
+          await baseHandlers.history.deleteOlderThan(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.DELETE_WATCH_HISTORY_OLDER_THAN, data }
+          )
+          return null
+
         case DBActions.GENERAL.DELETE:
           await baseHandlers.history.delete(data)
           syncOtherWindows(
@@ -1986,6 +1995,15 @@ function runApp() {
             IpcChannels.SYNC_SEARCH_HISTORY,
             event,
             { event: SyncEvents.GENERAL.DELETE_ALL }
+          )
+          return null
+
+        case DBActions.HISTORY.DELETE_SEARCH_HISTORY_OLDER_THAN:
+          await baseHandlers.searchHistory.deleteOlderThan(data)
+          syncOtherWindows(
+            IpcChannels.SYNC_SEARCH_HISTORY,
+            event,
+            { event: SyncEvents.HISTORY.DELETE_SEARCH_HISTORY_OLDER_THAN, data }
           )
           return null
 
