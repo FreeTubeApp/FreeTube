@@ -270,7 +270,7 @@ const LIGHT_BASE_THEMES = [
   'everforestLightMedium',
   'everforestLightLow',
   'gruvboxLight',
-  'solarizedLight'
+  'solarizedLight',
 ]
 
 const DARK_BASE_THEMES = [
