@@ -365,6 +365,31 @@ Settings:
     Screenshot: {}
     Player Settings: Oynadıcı
     Play Next Video: Tövsiyə Olunan Videoları Avtomatik Oynat
+    Autoplay Playlists: Pleylist Videolarını Avtomatik Oynat
+    Autoplay Videos: Videoları Avtomatik Başlat
+    Turn on Subtitles by Default: Titrləri Standart Olaraq Aktivləşdir
+    Proxy Videos Through Invidious: Videoları Invidious Vasitəsilə Proksilə
+    Default Viewing Mode:
+      Theater: Teatr
+      Default Viewing Mode: İlkin Baxış Rejimi
+      Full Screen: Tam Ekran
+      Picture in Picture: Şəkil içində Şəkil
+      External Player: Xarici Oynadıcı ({externalPlayerName})
+      Full Window (Always On): Tam Pəncərə (Həmişə Aktiv)
+      Full Screen (Always On): Tam Ekran (Həmişə Aktiv)
+      Tooltip: Əksər ilkin baxış rejimləri yalnız hər baxış sessiyasının əvvəlində tətbiq edilir. Sessiya ərzində edilən dəyişikliklər o bitənədək saxlanılır. Həmişə aktiv baxış rejimləri isə əvvəlki videoda baxış rejimi dəyişdirilsə belə, hər yeni videoya keçdiyinizdə tətbiq olunur.
+    Scroll Volume Over Video Player: Səs Səviyyəsini Video Oynadıcı Üzərindən Sürüşdür
+    Scroll Playback Rate Over Video Player: Video Oynadıcı Üzərindən Oynatma Sürətini Sürüşdür
+    Skip by Scrolling Over Video Player: Video Oynadıcı Üzərində Sürüşdürərək Ötür
+    Display Play Button In Video Player: Video Oynadıcıda Oynatma Düyməsini Göstər
+    Enter Fullscreen on Display Rotate: Ekran Çevriləndə Tam Ekrana Keç
+    Next Video Interval: Avtomatik Oynatma Gerisayım Taymeri
+    Autoplay Interruption Timer: Avtomatik Oynatma Fasiləsi Taymeri
+    Fast-Forward / Rewind Interval: Sürətli İrəli / Geri Çevirmə İntervalı
+    Default Volume: İlkin Səs Səviyyəsi
+    Default Playback Rate: İlkin Oynatma Sürəti
+    Max Video Playback Rate: Ən Yüksək Video Oynatma Sürəti
+    Video Playback Rate Interval: Video Oynatma Sürəti Aralığı
   SponsorBlock Settings: {}
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
