@@ -585,7 +585,7 @@ export async function getLocalVideoInfo(id) {
  * @param {string} id
  */
 export async function getLocalComments(id) {
-  const innertube = await createInnertube()
+  const innertube = await createInnertube({ generateSessionLocally: false })
   return innertube.getComments(id)
 }
 

@@ -70,7 +70,7 @@
     "vue-observe-visibility": "^2.0.0-alpha.1",
     "vue-router": "^5.2.0",
     "vuex": "^4.1.0",
-    "youtubei.js": "^17.2.0"
+    "youtubei.js": "github:LuanRT/YouTube.js#main"
   },
   "devDependencies": {
     "@babel/core": "^8.0.1",
@@ -78,6 +78,7 @@
     "@double-great/stylelint-a11y": "^3.5.0",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.5.1",
+    "@magda/tree-kill": "1.2.3",
     "@stylistic/eslint-plugin": "^5.10.0",
     "babel-loader": "^10.1.1",
     "copy-webpack-plugin": "^14.0.0",
@@ -111,7 +112,6 @@
     "stylelint-high-performance-animation": "^2.0.0",
     "stylelint-use-logical-spec": "^5.0.1",
     "terser": "^5.49.0",
-    "@magda/tree-kill": "1.2.3",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
     "webpack": "^5.109.2",

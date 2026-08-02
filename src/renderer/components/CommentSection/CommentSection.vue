@@ -689,8 +689,8 @@ async function getCommentDataLocal(more = false) {
 async function getCommentRepliesLocal(index) {
   try {
     const comment = commentData.value[index]
-    /** @type {import('youtubei.js').YTNodes.CommentThread} */
-    const commentThread = replyTokens.get(comment.id)
+    /** @type {import('youtubei.js').YTNodes.CommentThread | null} */
+    let commentThread = replyTokens.get(comment.id)
 
     if (commentThread == null) {
       replyTokens.delete(comment.id)
@@ -699,11 +699,13 @@ async function getCommentRepliesLocal(index) {
     }
 
     if (comment.replies.length > 0) {
-      await commentThread.getContinuation()
-      comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))
+      commentThread = await commentThread.getContinuation()
+      comment.replies = comment.replies.concat(commentThread.replies.map(({ comment }) => parseLocalComment(comment)))
     } else {
-      await commentThread.getReplies()
-      comment.replies = commentThread.replies.map(reply => parseLocalComment(reply))
+      if (!commentThread.is_prepopulated) {
+        await commentThread.getReplies()
+      }
+      comment.replies = commentThread.replies?.map(({ comment }) => parseLocalComment(comment)) ?? []
     }
 
     if (commentThread.has_continuation) {
