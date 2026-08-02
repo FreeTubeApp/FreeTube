@@ -157,6 +157,7 @@ export default defineComponent({
       // This should never be saved into history
       /** @type {number|null} */
       oneTimeTimestamp: null,
+      oneTimePaused: null,
       playNextTimeout: null,
       playNextCountDownIntervalId: null,
       blockVideoAutoplay: false,
@@ -348,7 +349,7 @@ export default defineComponent({
     this.autoplayNextRecommendedVideo = this.autoplayNextRecommendedVideoByDefault
     this.autoplayNextPlaylistVideo = this.autoplayNextPlaylistVideoByDefault
 
-    this.checkIfTimestamp()
+    this.checkPlaybackState()
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
   },
   mounted: function () {
@@ -370,7 +371,7 @@ export default defineComponent({
       this.videoPlayerLoaded = false
       this.activeFormat = this.defaultVideoFormat
 
-      this.checkIfTimestamp()
+      this.checkPlaybackState()
       this.checkIfPlaylist()
       this.setViewingModeOnRouteChange()
 
@@ -1324,6 +1325,14 @@ export default defineComponent({
       // Only used one time = remove after use
       this.oneTimeTimestamp = null
 
+      // Pause the player if it was previously paused before the SABR reload
+      if (this.oneTimePaused) {
+        // Directly calling player.pause as the isPaused() check in this.pausePlayer prevents the player
+        //   from pausing immediately after reload
+        this.$refs.player.pause()
+        this.oneTimePaused = null
+      }
+
       // will trigger again if you switch formats or change legacy quality
       // Check isUpcoming to avoid marking upcoming videos as watched if the user has only watched the trailer
       if (!this.videoPlayerLoaded && !this.isUpcoming) {
@@ -1392,12 +1401,14 @@ export default defineComponent({
       this.watchingPlaylist = this.selectedUserPlaylist != null
     },
 
-    checkIfTimestamp: function () {
+    checkPlaybackState: function () {
       const oneTimeTimestamp = parseInt(this.$route.query.oneTimeTimestamp)
       this.oneTimeTimestamp = isNaN(oneTimeTimestamp) || oneTimeTimestamp < 0 ? null : oneTimeTimestamp
 
       const timestamp = parseInt(this.$route.query.timestamp)
       this.timestamp = isNaN(timestamp) || timestamp < 0 ? null : timestamp
+
+      this.oneTimePaused = this.$route.query.oneTimePaused === 'true'
     },
 
     handleFormatChange: function (format) {
@@ -1956,19 +1967,23 @@ export default defineComponent({
       showToast('Reloading player according to SABR request')
 
       const timestamp = this.getTimestamp()
-      if (timestamp > 0) {
-        // Reload at the middle should restart at current timestamp
-        try {
-          await this.$router.replace({
-            path: this.$route.path,
-            query: { ...this.$route.query, oneTimeTimestamp: timestamp },
-          })
-        } catch (failure) {
-          if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
-            // Already on route with same timestamp, allow reloadView to run instead
-          } else {
-            throw failure
-          }
+      const paused = this.$refs.player?.isPaused() ?? false
+
+      // Reload at the middle should continue with the same playback state
+      try {
+        await this.$router.replace({
+          path: this.$route.path,
+          query: {
+            ...this.$route.query,
+            ...(timestamp > 0 ? { oneTimeTimestamp: timestamp } : {}),
+            oneTimePaused: paused
+          },
+        })
+      } catch (failure) {
+        if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
+          // Already on route with same playback state, allow reloadView to run instead
+        } else {
+          throw failure
         }
       }
       await this.reloadView()
