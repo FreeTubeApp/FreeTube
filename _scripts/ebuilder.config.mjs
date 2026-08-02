@@ -81,6 +81,10 @@ export default {
   toolsets: {
     appimage: '1.0.3'
   },
+
+  // NOTE: this exists purely for local development builds, we will not provide support for flatpaks built this way!
+  // This is here if unofficial builds need to be made
+  /*
   flatpak: {
     // install flatpak builder
     // install electron app from flathub. Ex: flatpak install flathub org.electronjs.Electron2.BaseApp/x86_64/25.08
@@ -101,6 +105,7 @@ export default {
     runtimeVersion: '25.08',
     baseVersion: '25.08',
   },
+  */
   mac: {
     category: 'public.app-category.utilities',
     icon: '_icons/iconMac.icns',
