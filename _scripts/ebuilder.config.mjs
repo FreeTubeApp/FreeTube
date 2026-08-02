@@ -53,11 +53,6 @@ export default {
     category: 'AudioVideo;Video;Player;Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman', 'flatpak'],
-    // desktop: {
-    //   entry: {
-    //     'Comment[fr]': ''
-    //   }
-    // },
   },
   // See the following issues for more information
   // https://github.com/jordansissel/fpm/issues/1503
