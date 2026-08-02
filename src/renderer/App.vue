@@ -450,6 +450,7 @@ async function handleYoutubeLink(href, { doCreateNewWindow = false } = {}) {
       } else if (result.urlType === 'clip') {
         const clipResult = await getClip(result.clipId)
         videoId = clipResult.videoId
+        timestamp = clipResult.startTime
       }
 
       const query = {}

@@ -402,6 +402,7 @@ function goToSearch(queryText, { event }) {
         } else if (result.urlType === 'clip') {
           const clipResult = await getClip(result.clipId)
           videoId = clipResult.videoId
+          timestamp = clipResult.startTime
         }
 
         const query = {}

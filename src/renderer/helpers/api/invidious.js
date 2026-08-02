@@ -2,7 +2,8 @@ import store from '../../store/index'
 import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
-import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { FormatUtils, Misc, Player, Utils } from 'youtubei.js'
+import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -861,11 +862,16 @@ export async function getHashtagInvidious(hashtag, page = 1) {
 }
 
 export async function getClipInvidious(clipId) {
-  // todo: invidious does have a clip endpoint for the api but
-  // it currently makes an expensive get_video request that we might want to avoid.
-  // https://github.com/iv-org/invidious/pull/5871
   const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
-  return response
+
+  const parsedParams = ClipParams.decode(decodeURIComponent(Utils.base64ToU8(response.params)))
+  return {
+    videoId: response.videoId,
+    startTime: parsedParams.clipParamsData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamsData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamsData.clipTitle,
+    clipMetadata: parsedParams.clipParamsData.clipMetadata
+  }
 }
 
 /**

@@ -1,4 +1,5 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, Session, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
 import Autolinker from 'autolinker'
 import { parseLooseJSON } from 'bgutils-js/utils'
 
@@ -2494,10 +2495,13 @@ export async function getLocalClip(clipId) {
 
   const videoId = clipResponse?.payload?.videoId
 
-  // todo: figure out how we should parse additional properties from payload params protobuf
-  // const params = clipResponse?.payload.params
+  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(clipResponse.payload.params)))
 
   return {
-    videoId // todo: parse params like done in Invidious?
+    videoId,
+    startTime: parsedParams.clipParamsData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamsData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamsData.clipTitle,
+    clipMetadata: parsedParams.clipParamsData.clipMetadata
   }
 }
