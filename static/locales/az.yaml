@@ -362,7 +362,22 @@ Settings:
     Hide FreeTube Header Logo: FreeTube Başlıq Simvolunu Gizlət
     Secondary Color Theme: İkinci Dərəcəli Rəng Koloriti
   Player Settings:
-    Screenshot: {}
+    Screenshot:
+      Enable: Ekran Görüntüsünü Aktivləşdir
+      Mode: Ekran Görüntüsü Rejimi
+      Modes:
+        Ask Path: Saxlanılacağı Qovluğu Soruş
+        Save To Folder: Qovluqda Saxla
+        Clipboard: Buferə Köçür
+      Format Label: Ekran Görüntüsü Formatı
+      Quality Label: Ekran Görüntüsü Keyfiyyəti
+      Folder Label: Ekran Görüntüsü Qovluğu
+      Folder Button: Qovluq Seç
+      File Name Label: Fayl Adı Şablonu
+      File Name Tooltip: Aşağıdakı dəyişənləri istifadə edə bilərsiniz. %Y İl 4 rəqəm. %M Ay 2 rəqəm. %D Gün 2 rəqəm. %H Saat 2 rəqəm. %N Dəqiqə 2 rəqəm. %S Saniyə 2 rəqəm. %T Millisaniyə 3 rəqəm. %s Video Saniyə. %t Video Millisaniyə 3 rəqəm. %i Video ID.
+      Error:
+        Forbidden Characters: Qadağan Olunmuş Simvollar
+        Empty File Name: Boş Fayl Adı
     Player Settings: Oynadıcı
     Play Next Video: Tövsiyə Olunan Videoları Avtomatik Oynat
     Autoplay Playlists: Pleylist Videolarını Avtomatik Oynat
@@ -390,9 +405,47 @@ Settings:
     Default Playback Rate: İlkin Oynatma Sürəti
     Max Video Playback Rate: Ən Yüksək Video Oynatma Sürəti
     Video Playback Rate Interval: Video Oynatma Sürəti Aralığı
+    Default Video Format:
+      Default Video Format: İlkin Video Formatı
+      Dash Formats: DASH Formatları
+      Legacy Formats: Köhnə Formatlar
+      Audio Formats: Səs Formatları
+    Default Quality:
+      Default Quality: İlkin Keyfiyyət
+      Auto: Avtomatik
+      144p: 144p
+      240p: 240p
+      360p: 360p
+      480p: 480p
+      720p: 720p
+      1080p: 1080p
+      1440p: 1440p
+      4k: 4k
+      8k: 8k
   SponsorBlock Settings: {}
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
+  External Player Settings:
+    External Player Settings: Xarici Oynadıcı
+    External Player: Xarici Oynadıcı
+    Ignore Unsupported Action Warnings: Dəstəklənməyən Fəaliyyət Xəbərdarlıqlarına Məhəl Qoyma
+    Ignore Default Arguments: İlkin Arqumentlərə Məhəl Qoyma
+    Custom External Player Executable: Fərdi Xarici Oynadıcı İcra Olunan Faylı
+    Custom External Player Arguments: Fərdi Xarici Oynadıcı Arqumentləri
+    Players:
+      None:
+        Name: Heç biri
+  Privacy Settings:
+    Privacy Settings: Məxfilik
+    Remember History: Baxış Tarixçəsini Xatırla
+    Remember Search History: Axtarış Tarixçəsini Xatırla
+    Save Watched Progress: Baxılmış Gedişatı Saxla
+    Watched Progress Saving Mode:
+      Modes:
+        Auto: Avtomatik
+        Semi-auto: Yarı-avtomatik
+        Never: Heç vaxt
+      Tooltip: Avtomatik = Video bitdikdə və səhv baş verdikdə (məsələn, sürət məhdudlaşdırılıb və baxış sessiyası bitdikdə) hər video səhifəsi çıxışında saxla. Yarı avtomatik = Video səhifəsindən çıxış istisna olmaqla, Avtomatik Olaraq və video oynadıcı altında yerləşən Baxış Gedişatını Saxla düyməsi vasitəsilə irəliləyişi əl ilə saxlaya bilərsiniz.
 Channel:
   Videos:
     Videos: Videolar
