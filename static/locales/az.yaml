@@ -446,6 +446,57 @@ Settings:
         Semi-auto: Yarı-avtomatik
         Never: Heç vaxt
       Tooltip: Avtomatik = Video bitdikdə və səhv baş verdikdə (məsələn, sürət məhdudlaşdırılıb və baxış sessiyası bitdikdə) hər video səhifəsi çıxışında saxla. Yarı avtomatik = Video səhifəsindən çıxış istisna olmaqla, Avtomatik Olaraq və video oynadıcı altında yerləşən Baxış Gedişatını Saxla düyməsi vasitəsilə irəliləyişi əl ilə saxlaya bilərsiniz.
+    Save Watched Videos With Last Viewed Playlist: Baxılmış Videoları Son İzlənilmiş Pleylistilə Saxla
+    Clear Search History and Cache: Axtarış Tarixçəsini və Keşi Sil
+    Are you sure you want to clear out your search history and cache?: Axtarış tarixçənizi və keşinizi təmizləmək istədiyinizə əminsinizmi?
+    Search history and cache have been cleared: Axtarış tarixçəsi və keş təmizləndi
+    Remove Watch History: Baxış Tarixçəsini Təmizlə
+    Are you sure you want to remove your entire watch history?: Bütün baxış tarixçənizi silmək istədiyinizə əminsinizmi?
+    Watch history has been cleared: Baxış tarixçəsi təmizləndi
+    Remove All Subscriptions / Profiles: Bütün Abunəlikləri / Profilləri Sil
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bütün abunəlikləri və profilləri silmək istədiyinizə əminsiniz? Bu, geri alına bilməz.
+    Remove All Playlists: Bütün Pleylistləri Sil
+    All playlists have been removed: Bütün pleylistlər silindi
+    Are you sure you want to remove all your playlists?: Bütün pleylistlərinizi silmək istədiyinizə əminsiniz?
+  Subscription Settings:
+    Subscription Settings: Abunəlik
+    Fetch Feeds from RSS: Axını RSS-dən Əldə Et
+    Fetch Automatically: Axını Avtomatik Əldə Et
+    'Limit the number of videos displayed for each channel': Hər kanal üçün göstərilən videoların sayını məhdudlaşdır
+    To: To
+    Confirm Before Unsubscribing: Abunəlikdən Çıxmazdan Əvvəl Təsdiqlə
+  Distraction Free Settings:
+    Distraction Free Settings: Diqqəti Yayındırmama
+    Sections:
+      Side Bar: Yan Cizgi
+      Subscriptions Page: Abunəliklər Səhifəsi
+      Channel Page: Kanal Səhifəsi
+      Watch Page: Baxış Səhifəsi
+      General: Ümumi
+    Hide Video Views: Video Baxışlarını Gizlət
+    Hide Video Likes And Dislikes: Video Bəyənmələrini və Bəyənməmələrini Gizlət
+    Hide Channel Subscribers: Kanal Abunəçilərini Gizlət
+    Hide Comment Likes: Şərh Bəyənmələrini Gizlət
+    Hide Recommended Videos: Tövsiyə Olunan Videoları Gizlət
+    Hide Trending Videos: Trend Videoları Gizlət
+    Hide Popular Videos: Məşhur Videoları Gizlət
+    Hide Playlists: Pleylistləri Gizlət
+    Hide Live Chat: Canlı Söhbəti Gizlət
+    Hide Active Subscriptions: Aktiv Abunəlikləri Gizlət
+    Hide Video Description: Video Açıqlamasını Gizlət
+    Hide Comments: Şərhləri Gizlət
+    Hide Profile Pictures in Comments: Şərhlərdəki Profil Şəkillərini Gizlət
+    Display Titles Without Excessive Capitalisation: Başlıqları Həddindən Artıq Böyük Hərflər Və Durğu İşarələri Olmadan Göstər
+    Hide Live Streams: Canlı Yayımları Gizlət
+    Hide Upcoming Premieres: Yaxınlaşan Premyeraları Gizlət
+    Hide Sharing Actions: Paylaşım Fəaliyyətlərini Gizlət
+    Hide Videos on Watch: Baxış Zamanı Videoları Gizlə
+    Hide Chapters: Bölmələri Gizlət
+    Hide Channels: Kanallardan Videoları Gizlət
+    Hide Channels Placeholder: Kanal ID-si
+    Hide Channels Invalid: Təqdim edilən Kanal ID-si etibarsız idi
+    Hide Subscriptions Posts: Abunəlik Elanlarını Gizlət
+    Show Added Items: Əlavə Olunmuş Elementləri Göstər
 Channel:
   Videos:
     Videos: Videolar
