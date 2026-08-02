@@ -863,6 +863,7 @@ export async function getHashtagInvidious(hashtag, page = 1) {
 export async function getClipInvidious(clipId) {
   // todo: invidious does have a clip endpoint for the api but
   // it currently makes an expensive get_video request that we might want to avoid.
+  // https://github.com/iv-org/invidious/pull/5871
   const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
   return response
 }
