@@ -1675,7 +1675,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       title: video.title.text?.trim(),
       author: video.author?.name ?? channelName,
       authorId: (video.author?.id != null && video.author.id !== 'N/A') ? video.author.id : channelId,
-      collaboratorIds: video.author?.collaborators ?? [],
+      collaboratorIds: video.author?.collaborators.map(collaborator => collaborator.renderer_context?.command_context?.on_tap?.payload?.browseId) ?? [],
       viewCount: video.views.text == null ? null : extractNumberFromString(video.views.text),
       published,
       lengthSeconds: isLive ? '' : Utils.timeToSeconds(video.duration.text),
@@ -1734,7 +1734,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       title: video.title.text?.trim(),
       author: video.author.name !== 'N/A' ? video.author.name : channelName,
       authorId: video.author.id !== 'N/A' ? video.author.id : channelId,
-      collaboratorIds: video.author.collaborators.map(collaborator => collaborator.id),
+      collaboratorIds: video.author.collaborators.map(collaborator => collaborator.renderer_context?.command_context?.on_tap?.payload?.browseId),
       description: video.description,
       viewCount,
       published,
@@ -1912,6 +1912,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
 
       const maybeCollaborators = lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.command?.inline_content?.custom_content?.items
+        .filter(item => item.renderer_context?.command_context?.on_tap?.metadata?.page_type === 'WEB_PAGE_TYPE_CHANNEL')
       let collaboratorIds = []
       if (maybeCollaborators) {
         collaboratorIds = maybeCollaborators.map(item => item.renderer_context?.command_context?.on_tap?.payload?.browseId)
