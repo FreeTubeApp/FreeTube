@@ -79,34 +79,12 @@ jobs:
       with:
         persist-credentials: false
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 #v7.0.0
+    - name: Install pnpm and Node.js ${{ matrix.node-version }}
+      uses: pnpm/setup@4f13ee5aab1d5632c834b3d81877f68f8b80f337
       with:
-        node-version: ${{ matrix.node-version }}
-        package-manager-cache: false
-
-    - name: Install pnpm
-      uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 #v6.0.9
-      with:
-        version: 10
-        cache: false
-
-    - name: Get pnpm cache directory
-      id: cache_dir
-      shell: bash
-      run: |
-        {
-          echo 'cache_dir<<EOF'
-          pnpm store path
-          echo EOF
-        } >> "$GITHUB_OUTPUT"
-
-    - name: Restore pnpm cache
-      id: restore_cache
-      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 #v6.1.0
-      with:
-        key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
-        path: ${{ steps.cache_dir.outputs.cache_dir }}
+        runtime: node@${{ matrix.node-version }}
+        version: 11
+        cache: true
 
     - run: pnpm run ci
       shell: bash
@@ -358,11 +336,3 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.version }}-mac-arm64.7z
         path: build/freetube-${{ steps.versionNumber.outputs.version }}-arm64-mac.7z
-
-    - name: Save pnpm cache
-      uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 #v6.1.0
-      # Only save the cache if we weren't able to restore an existing one above
-      if: steps.restore_cache.outputs.cache-primary-key != steps.restore_cache.outputs.cache-matched-key
-      with:
-        key: ${{ steps.restore_cache.outputs.cache-primary-key }}
-        path: ${{ steps.cache_dir.outputs.cache_dir }}
