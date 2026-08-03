@@ -261,7 +261,7 @@ const activePlaylists = computed(() => {
   })
 })
 
-const playlistIdsContainingVideosToBeAdded = computed(() => {
+const getPlaylistIdsFiltered = (filter) => {
   /** @type {Set<string>} */
   const ids = new Set()
 
@@ -270,29 +270,24 @@ const playlistIdsContainingVideosToBeAdded = computed(() => {
   allPlaylists.value.forEach((playlist) => {
     const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
 
-    if (toBeAddedToPlaylistVideoIdList_.some((vid) => playlistVideoIdSet.has(vid))) {
+    if (filter(toBeAddedToPlaylistVideoIdList_, playlistVideoIdSet)) {
       ids.add(playlist._id)
     }
   })
 
   return ids
+}
+
+const playlistIdsContainingVideosToBeAdded = computed(() => {
+  return getPlaylistIdsFiltered((videoIdsToAdd, playlistVideoIds) =>
+    videoIdsToAdd.some((videoId) => playlistVideoIds.has(videoId))
+  )
 })
 
 const playlistIdsContainingAllVideosToBeAdded = computed(() => {
-  /** @type {Set<string>} */
-  const ids = new Set()
-
-  const toBeAddedToPlaylistVideoIdList_ = toBeAddedToPlaylistVideoIdList.value
-
-  allPlaylists.value.forEach((playlist) => {
-    const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
-
-    if (toBeAddedToPlaylistVideoIdList_.every((vid) => playlistVideoIdSet.has(vid))) {
-      ids.add(playlist._id)
-    }
-  })
-
-  return ids
+  return getPlaylistIdsFiltered((videoIdsToAdd, playlistVideoIds) =>
+    videoIdsToAdd.every((videoId) => playlistVideoIds.has(videoId))
+  )
 })
 
 const anyPlaylistContainsVideosToBeAdded = computed(() => {
