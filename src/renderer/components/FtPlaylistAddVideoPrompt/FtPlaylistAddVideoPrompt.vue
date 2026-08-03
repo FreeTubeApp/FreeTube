@@ -278,6 +278,23 @@ const playlistIdsContainingVideosToBeAdded = computed(() => {
   return ids
 })
 
+const playlistIdsContainingAllVideosToBeAdded = computed(() => {
+  /** @type {Set<string>} */
+  const ids = new Set()
+
+  const toBeAddedToPlaylistVideoIdList_ = toBeAddedToPlaylistVideoIdList.value
+
+  allPlaylists.value.forEach((playlist) => {
+    const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
+
+    if (toBeAddedToPlaylistVideoIdList_.every((vid) => playlistVideoIdSet.has(vid))) {
+      ids.add(playlist._id)
+    }
+  })
+
+  return ids
+})
+
 const anyPlaylistContainsVideosToBeAdded = computed(() => {
   return playlistIdsContainingVideosToBeAdded.value.size > 0
 })
@@ -340,7 +357,7 @@ watch(addingDuplicateVideosEnabled, (val) => {
     // Only care when addingDuplicateVideosEnabled disabled
     // Remove disabled playlists
     selectedPlaylistIdList.value = selectedPlaylistIdList.value.filter(playlistId => {
-      return !playlistIdsContainingVideosToBeAdded.value.has(playlistId)
+      return !playlistIdsContainingAllVideosToBeAdded.value.has(playlistId)
     })
   }
 })
@@ -443,7 +460,7 @@ function playlistDisabled(playlistId) {
     return false
   }
 
-  return playlistIdsContainingVideosToBeAdded.value.has(playlistId)
+  return playlistIdsContainingAllVideosToBeAdded.value.has(playlistId)
 }
 </script>
 
