@@ -286,7 +286,7 @@ export async function getLocalPlaylistContinuation(playlist) {
 }
 
 /**
- * Callback for adding two numbers.
+ * Callback for processing a Local playlist.
  *
  * @callback untilEndOfLocalPlayListCallback
  * @param {import('youtubei.js').YT.Playlist} playlist

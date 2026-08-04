@@ -295,9 +295,15 @@ const selectedUserPlaylistVideos = computed(() => selectedUserPlaylist.value?.vi
 const selectedUserPlaylistVideoCount = computed(() => selectedUserPlaylistVideos.value.length)
 
 const moreVideoDataAvailable = computed(() => {
-  return isUserPlaylistRequested.value
-    ? userPlaylistVisibleLimit.value < sometimesFilteredUserPlaylistItems.value.length
-    : continuationData.value !== null
+  if (isUserPlaylistRequested.value) {
+    return userPlaylistVisibleLimit.value < sometimesFilteredUserPlaylistItems.value.length
+  }
+
+  if (infoSource.value === 'invidious') {
+    return playlistItems.value.length < videoCount.value
+  }
+
+  return continuationData.value !== null
 })
 
 const processedVideoSearchQuery = computed(() => videoSearchQuery.value.trim().toLowerCase())
@@ -668,7 +674,7 @@ function getNextPage() {
       isLoadingMore.value = false
     })
   } else if (infoSource.value === 'invidious') {
-    console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+    getNextPageInvidious()
   }
 }
 
@@ -701,6 +707,16 @@ async function getNextPageLocal() {
   if (shouldGetNextPage) {
     getNextPageLocal()
   }
+}
+
+async function getNextPageInvidious() {
+  isLoadingMore.value = true
+
+  const index = playlistItems.value.length
+  const result = await invidiousGetPlaylistInfo(playlistId.value, index)
+  playlistItems.value.push(...result.videos)
+
+  isLoadingMore.value = false
 }
 
 const canMoveVideos = computed(() => {
@@ -1075,6 +1091,7 @@ onBeforeRouteLeave((to) => {
       continuationData: continuationData.value
         ? extractLocalCacheablePlaylistContinuation(continuationData.value)
         : null,
+      videoCount: videoCount.value,
     })
   }
 

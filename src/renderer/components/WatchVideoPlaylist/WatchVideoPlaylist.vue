@@ -174,7 +174,7 @@ import {
   parseLocalPlaylistVideo,
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
-import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { invidiousGetPlaylistInfo, fetchAllInvidiousPlaylistVideos } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 const props = defineProps({
@@ -581,20 +581,22 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
   channelName.value = cachedPlaylist.channelName
   channelId.value = cachedPlaylist.channelId
 
-  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || cachedPlaylist.continuationData === null) {
-    playlistItems.value = cachedPlaylist.items
-  } else {
-    const videos = cachedPlaylist.items
-
+  const videos = cachedPlaylist.items
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+    const videoCount = cachedPlaylist.videoCount
+    if (videos.length < videoCount) {
+      const remainingVideos = await fetchAllInvidiousPlaylistVideos(cachedPlaylist.id, videos.length)
+      videos.push(...remainingVideos)
+    }
+  } else if (cachedPlaylist.continuationData !== null) {
     const continuationData = await getLocalCachedFeedContinuation('playlist', cachedPlaylist.continuationData)
     videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
 
     await untilEndOfLocalPlayList(continuationData, (p) => {
       videos.push(...p.items.map(parseLocalPlaylistVideo))
     }, { runCallbackOnceFirst: false })
-
-    playlistItems.value = videos
   }
+  playlistItems.value = videos
 
   isLoading.value = false
 }
@@ -653,7 +655,11 @@ async function getPlaylistInformationInvidious() {
     channelName.value = result.author
     channelId.value = result.authorId
 
-    playlistItems.value = result.videos
+    const videos = result.videos
+    const remainingVideos = await fetchAllInvidiousPlaylistVideos(result.playlistId, videos.length)
+    videos.push(...remainingVideos)
+
+    playlistItems.value = videos
 
     isLoading.value = false
   } catch (err) {
