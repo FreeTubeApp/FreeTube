@@ -217,6 +217,14 @@
   display: none;
 }
 
+:deep(.ultrawide-mode-button) {
+  display: none;
+}
+
+.ftVideoPlayer:fullscreen :deep(.ultrawide-mode-button) {
+  display: revert;
+}
+
 .fullWindow {
   position: absolute !important;
   max-width: initial !important;
