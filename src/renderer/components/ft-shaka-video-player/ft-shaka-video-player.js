@@ -10,6 +10,7 @@ import { LegacyQualitySelection } from './player-components/LegacyQualitySelecti
 import { ScreenshotButton } from './player-components/ScreenshotButton'
 import { StatsButton } from './player-components/StatsButton'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
+import { UltraWideModeButton } from './player-components/UltraWideModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
 import { SkipButton } from './player-components/SkipButton'
 import {
@@ -829,6 +830,7 @@ export default defineComponent({
           'ft_screenshot',
           'picture_in_picture',
           'ft_full_window',
+          'ft_ultrawide_mode',
           'recenter_vr',
           'toggle_stereoscopic',
         ]
@@ -843,6 +845,7 @@ export default defineComponent({
           'overflow_menu',
           'picture_in_picture',
           'ft_theatre_mode',
+          'ft_ultrawide_mode',
           'ft_full_window',
           'fullscreen'
         )
@@ -884,6 +887,11 @@ export default defineComponent({
       if (!useVrMode.value) {
         removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'recenter_vr')
         removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'toggle_stereoscopic')
+      }
+
+      if (window.screen.width / window.screen.height <= 16 / 9) {
+        removeFromArrayIfExists(uiConfig.controlPanelElements, 'ft_ultrawide_mode')
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'ft_ultrawide_mode')
       }
 
       if (!props.watchingPlaylist) {
@@ -1846,6 +1854,24 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_theatre_mode', new TheatreModeButtonFactory())
     }
 
+    function registerUltraWideModeButton() {
+      events.addEventListener('toggleUltrawideMode', () => {
+        toggleUltrawideMode_()
+      })
+
+      /**
+       * @implements {shaka.extern.IUIElement.Factory}
+       */
+      class UltraWideModeButtonFactory {
+        create(rootElement, controls) {
+          return new UltraWideModeButton(events, rootElement, controls)
+        }
+      }
+
+      shakaControls.registerElement('ft_ultrawide_mode', new UltraWideModeButtonFactory())
+      shakaOverflowMenu.registerElement('ft_ultrawide_mode', new UltraWideModeButtonFactory())
+    }
+
     function registerFullWindowButton() {
       events.addEventListener('setFullWindow', (/** @type {CustomEvent} */ event) => {
         if (event.detail) {
@@ -1998,6 +2024,9 @@ export default defineComponent({
 
       shakaControls.registerElement('ft_theatre_mode', null)
       shakaOverflowMenu.registerElement('ft_theatre_mode', null)
+
+      shakaControls.registerElement('ft_ultrawide_mode', null)
+      shakaOverflowMenu.registerElement('ft_ultrawide_mode', null)
 
       shakaControls.registerElement('ft_full_window', null)
       shakaOverflowMenu.registerElement('ft_full_window', null)
@@ -2264,6 +2293,23 @@ export default defineComponent({
       seekBySeconds(dist, true)
     }
 
+    function toggleUltrawideMode_() {
+      const root = document.documentElement.style
+      const current = root.getPropertyValue('--ultra-wide-mode')
+      const video_ = video.value
+      let active = false
+      if (current && current !== 'scale(1)') {
+        root.setProperty('--ultra-wide-mode', 'scale(1)')
+      } else {
+        const scale = (window.screen.width * video_.videoHeight) / (window.screen.height * video_.videoWidth)
+        if (scale > 1) {
+          root.setProperty('--ultra-wide-mode', `scale(${scale.toFixed(3)})`)
+          active = true
+        }
+      }
+      events.dispatchEvent(new CustomEvent('setUltrawideMode', { detail: active }))
+    }
+
     // Blur player buttons to remove :focus-visible state, preventing tooltips from staying visible
     const buttonWithTooltipClasses = [
       'shaka-play-button',
@@ -2350,16 +2396,7 @@ export default defineComponent({
           // Toggle proportional zoom to fill screen width, cropping top/bottom
           if (ui.getControls().isFullScreenEnabled() && document.fullscreenElement !== null) {
             event.preventDefault()
-            const root = document.documentElement.style
-            const current = root.getPropertyValue('--ultra-wide-mode')
-            if (current && current !== 'scale(1)') {
-              root.setProperty('--ultra-wide-mode', 'scale(1)')
-            } else {
-              const scale = (window.screen.width * video_.videoHeight) / (window.screen.height * video_.videoWidth)
-              if (scale > 1) {
-                root.setProperty('--ultra-wide-mode', `scale(${scale.toFixed(3)})`)
-              }
-            }
+            toggleUltrawideMode_()
           }
           break
         case 'escape':
@@ -2725,6 +2762,10 @@ export default defineComponent({
     }
 
     function fullscreenChangeHandler() {
+      if (!document.fullscreenElement) {
+        document.documentElement.style.setProperty('--ultra-wide-mode', 'scale(1)')
+        events.dispatchEvent(new CustomEvent('setUltrawideMode', { detail: false }))
+      }
       nextTick(showOverlayControls)
     }
 
@@ -2811,6 +2852,7 @@ export default defineComponent({
       registerAutoplayToggle()
 
       registerTheatreModeButton()
+      registerUltraWideModeButton()
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
