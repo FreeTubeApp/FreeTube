@@ -158,7 +158,7 @@ const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
-/** @type {import('vue').Ref<import('./FtComment.vue').Comment[]>} */
+/** @type {import('vue').ShallowRef<import('../FtComment/FtComment.vue').Comment[]>} */
 const commentData = shallowRef([])
 
 /** @type {import('youtubei.js').YT.Comments | undefined} */
@@ -280,11 +280,11 @@ async function getMoreComments() {
 }
 
 /**
- * @param {import('./FtComment.vue').Comment} comment
- * @param {boolean} commentShowReplies
+ * @param {import('../FtComment/FtComment.vue').Comment} comment
+ * @param {boolean} showReplies
  */
-function toggleCommentRepliesLinkText(comment, commentShowReplies) {
-  if (commentShowReplies) {
+function toggleCommentRepliesLinkText(comment, showReplies) {
+  if (showReplies) {
     return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
   }
 
