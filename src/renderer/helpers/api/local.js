@@ -1,4 +1,4 @@
-import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, ProtoUtils, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { SEARCH_CHAR_LIMIT } from '../../../constants'
 
@@ -445,9 +445,11 @@ export async function getLocalVideoInfo(id) {
 
   if (process.env.IS_ELECTRON) {
     try {
+      const visitorId = ProtoUtils.decodeVisitorData(webInnertube.session.context.client.visitorData).id
+
       contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        JSON.stringify(webInnertube.session.context)
+        visitorId
       )
 
       webInnertube.session.player.po_token = contentPoToken

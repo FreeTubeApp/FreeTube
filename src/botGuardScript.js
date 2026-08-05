@@ -1,5 +1,5 @@
 import { BotGuardClient } from 'bgutils-js/botguard'
-import { buildURL, GOOG_API_KEY } from 'bgutils-js/utils'
+import { buildURL, GOOG_API_KEY, parseLooseJSON } from 'bgutils-js/utils'
 import { WebPoMinter } from 'bgutils-js/webpo'
 
 // This script has it's own webpack config, as it gets passed as a string to Electron's evaluateJavaScript function
@@ -8,34 +8,33 @@ import { WebPoMinter } from 'bgutils-js/webpo'
 /**
  * Based on: https://github.com/LuanRT/BgUtils/blob/main/examples/node/innertube-challenge-fetcher-example.ts
  * @param {string} videoId
- * @param {import('youtubei.js').Session['context']} context
+ * @param {string} visitorId
  */
-export default async function (videoId, context) {
+export default async function (videoId, visitorId) {
   const requestKey = 'O43z0dpjhgX20SCx4KAo'
 
-  const challengeResponse = await fetch(
-    'https://www.youtube.com/youtubei/v1/att/get?prettyPrint=false&alt=json',
-    {
-      method: 'POST',
-      headers: {
-        Accept: '*/*',
-        'Content-Type': 'application/json',
-        'X-Goog-Visitor-Id': context.client.visitorData,
-        'X-Youtube-Client-Version': context.client.clientVersion,
-        'X-Youtube-Client-Name': '1'
-      },
-      body: JSON.stringify({
-        engagementType: 'ENGAGEMENT_TYPE_UNBOUND',
-        context
-      }),
+  const htmlResponse = await fetch(`https://www.youtube.com/watch?v=${videoId}&bpctr=9999999999&has_verified=1`, {
+    headers: {
+      'X-Cookie': `VISITOR_INFO1_LIVE=${visitorId}`
     }
-  )
+  })
+  const htmlPage = await htmlResponse.text()
 
-  if (!challengeResponse.ok) {
-    throw new Error(`Request to ${challengeResponse.url} failed with status ${challengeResponse.status}\n${await challengeResponse.text()}`)
+  const ytConfig = htmlPage.match(/ytcfg\.set\(({.+?})\);/s)?.[1]
+  if (!ytConfig) {
+    throw new Error('Could not find ytcfg in the HTML page')
   }
 
-  const challengeData = await challengeResponse.json()
+  window.yt = { config_: JSON.parse(ytConfig) } // BotGuard reads the EVENT_ID field
+
+  const initialAttestationData = htmlPage.match(/window\.ytAtN\(\s*({[\s\S]*?})\s*\)/)
+
+  if (!initialAttestationData) {
+    throw new Error('Could not find challenge in the HTML page')
+  }
+
+  const initialAttestationDataJson = parseLooseJSON(initialAttestationData[1])
+  const challengeData = initialAttestationDataJson.R
 
   if (!challengeData.bgChallenge) {
     throw new Error('Failed to get BotGuard challenge')
