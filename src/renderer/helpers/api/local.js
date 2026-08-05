@@ -71,9 +71,9 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
- * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
+ * @param {ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
- * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
+ * @param {import('youtubei.js').Types.FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
 async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
@@ -172,7 +172,7 @@ function serializeContinuation(continuationItemOrView, actions) {
  * @template {import('youtubei.js').YTNodes} N
  * @param {import('youtubei.js').Mixins.Feed} feed
  * @param {import('youtubei.js').YTNodeConstructor<N>[]} types
- * @return {N}
+ * @returns {N}
  */
 function extractFeedContinuation(feed, types) {
   let continuationItem
@@ -2032,39 +2032,36 @@ export function mapLocalLegacyFormat(format) {
  * The complete Triforce, or one or more components of the Triforce.
  * @typedef {object} LocalComment
  * @property {string} id
- * @property {string} dataType
- * @property {string} authorLink
+ * @property {'local'} dataType
  * @property {string} author
  * @property {string} authorId
  * @property {string} authorThumb
- * @property {boolean} isPinned
- * @property {boolean} isOwner
- * @property {boolean} isMember
+ * @property {number} likes
  * @property {string} text
+ * @property {string} time
  * @property {boolean} isHearted
+ * @property {boolean} isMember
+ * @property {boolean} isOwner
+ * @property {boolean} isPinned
  * @property {boolean} hasOwnerReplied
  * @property {boolean} hasReplyToken
- * @property {CommentThread} replyToken
- * @property {boolean} showReplies
- * @property {LocalComment[]} replies
+ * @property {YTNodes.CommentThread} replyToken
+ * @property {number} replyLevel
  * @property {string} memberIconUrl
- * @property {string} time
- * @property {number} likes
  * @property {number} numReplies
  */
 /**
- * @param {import('youtubei.js').YTNodes.CommentView} comment
- * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
- * @return LocalComment
+ * @param {YTNodes.CommentView} comment
+ * @param {YTNodes.CommentThread} commentThread
+ * @returns {LocalComment}
  */
 export function parseLocalComment(comment, commentThread = undefined) {
+  const replyToken = commentThread ?? null
   let hasOwnerReplied = false
-  let replyToken = null
   let hasReplyToken = false
 
   if (commentThread?.has_replies) {
     hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
-    replyToken = commentThread
     hasReplyToken = true
   }
 
@@ -2073,7 +2070,6 @@ export function parseLocalComment(comment, commentThread = undefined) {
   return {
     id: comment.comment_id,
     dataType: 'local',
-    authorLink: comment.author.id,
     author: comment.author.name,
     authorId: comment.author.id,
     authorThumb: comment.author.best_thumbnail.url,
@@ -2085,12 +2081,11 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasOwnerReplied,
     hasReplyToken,
     replyToken,
-    showReplies: false,
-    replies: [],
+    replyLevel: comment.reply_level ?? 0,
     memberIconUrl: comment.is_member ? comment.member_badge.url : '',
     time: getRelativeTimeFromDate(calculatePublishedDate(comment.published_time.replace('(edited)', '').trim()), false),
     likes: comment.like_count,
-    numReplies: parseLocalSubscriberCount(comment.reply_count)
+    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y) : 0
   }
 }
 
@@ -2136,7 +2131,7 @@ export function parseLocalSubscriberCount(text) {
 
 /**
  * Parse community posts
- * @param {import('youtubei.js').YTNodes.BackstagePost[] | import('youtubei.js').YTNodes.SharedPost[] | import('youtubei.js').YTNodes.Post[] } posts
+ * @param {YTNodes.BackstagePost[] | YTNodes.SharedPost[] | YTNodes.Post[] } posts
  */
 export function parseLocalCommunityPosts(posts) {
   const foundIds = []
@@ -2160,7 +2155,7 @@ export function parseLocalCommunityPosts(posts) {
 
 /**
  * Parse community post
- * @param {import('youtubei.js').YTNodes.BackstagePost} post
+ * @param {YTNodes.BackstagePost} post
  */
 function parseLocalCommunityPost(post) {
   let replyCount = post.action_buttons?.reply_button?.text ?? null
