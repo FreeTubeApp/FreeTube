@@ -43,11 +43,12 @@ let firstTime = true
  * as the BotGuard stuff accesses the global `document` and `window` objects and also requires making some requests.
  * So we definitely don't want it running in the same places as the rest of the FreeTube code with the user data.
  * @param {string} videoId
- * @param {string} visitorId
+ * @param {string} challengeData
+ * @param {string} ytConfig
  * @param {string|undefined} proxyUrl
  * @returns {Promise<string>}
  */
-export function generatePoToken(videoId, visitorId, proxyUrl) {
+export function generatePoToken(videoId, challengeData, ytConfig, proxyUrl) {
   if (firstTime) {
     firstTime = false
     enqueueAsyncFunction(sharedInit)
@@ -65,7 +66,7 @@ export function generatePoToken(videoId, visitorId, proxyUrl) {
   // - https://github.com/FreeTubeApp/FreeTube/issues/8640
   // - https://github.com/electron/electron/pull/46131
   // - https://github.com/electron/electron/commit/bac2f46ba981cc1763c0485cec44813c1d07fa18
-  const potokenPromise = enqueueAsyncFunction(internalGeneratePotoken, videoId, visitorId, proxyUrl)
+  const potokenPromise = enqueueAsyncFunction(internalGeneratePotoken, videoId, challengeData, ytConfig, proxyUrl)
 
   // schedule the cleanup separately,
   // so that we can return the potoken without having to wait until the cleanup is done
@@ -91,11 +92,7 @@ async function sharedInit() {
   theSession.setUserAgent(session.defaultSession.getUserAgent())
 
   theSession.webRequest.onBeforeSendHeaders({
-    urls: [
-      'https://www.google.com/js/*',
-      'https://www.youtube.com/youtubei/*',
-      'https://www.youtube.com/watch?*'
-    ]
+    urls: ['https://www.google.com/js/*', 'https://www.youtube.com/youtubei/*']
   }, ({ requestHeaders, url }, callback) => {
     if (url.startsWith('https://www.youtube.com/youtubei/')) {
       // make InnerTube requests work with the fetch function
@@ -106,9 +103,6 @@ async function sharedInit() {
       requestHeaders['Sec-Fetch-Site'] = 'same-origin'
       requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
       requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
-    } else if (url.startsWith('https://www.youtube.com/watch?')) {
-      requestHeaders.Cookie = requestHeaders['X-Cookie']
-      delete requestHeaders['X-Cookie']
     } else {
       requestHeaders['Sec-Fetch-Dest'] = 'script'
       requestHeaders['Sec-Fetch-Site'] = 'cross-site'
@@ -119,12 +113,8 @@ async function sharedInit() {
     callback({ requestHeaders })
   })
 
-  theSession.webRequest.onHeadersReceived({ urls: ['https://*/*'] }, ({ url, responseHeaders }, callback) => {
+  theSession.webRequest.onHeadersReceived({ urls: ['https://*/*'] }, ({ responseHeaders }, callback) => {
     if (responseHeaders) {
-      if (url.startsWith('https://www.youtube.com/watch?')) {
-        delete responseHeaders['set-cookie']
-      }
-
       // eslint-disable-next-line n/no-callback-literal
       callback({
         responseHeaders: {
@@ -156,11 +146,12 @@ async function sharedInit() {
 
 /**
  * @param {string} videoId
- * @param {string} visitorId
+ * @param {string} challengeData
+ * @param {string} ytConfig
  * @param {string|undefined} proxyUrl
  * @returns {Promise<string>}
  */
-async function internalGeneratePotoken(videoId, visitorId, proxyUrl) {
+async function internalGeneratePotoken(videoId, challengeData, ytConfig, proxyUrl) {
   let webContentsView
 
   try {
@@ -214,7 +205,7 @@ async function internalGeneratePotoken(videoId, visitorId, proxyUrl) {
       }
     })
 
-    const script = cachedScript.replace('FT_PARAMS', `"${videoId}","${visitorId}"`)
+    const script = cachedScript.replace('FT_PARAMS', `"${videoId}",${challengeData},${ytConfig}`)
 
     return await webContentsView.webContents.executeJavaScript(script)
   } finally {

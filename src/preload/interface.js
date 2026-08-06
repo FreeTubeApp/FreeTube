@@ -118,11 +118,12 @@ export default {
 
   /**
    * @param {string} videoId
-   * @param {string} context
+   * @param {string} challengeData
+   * @param {string} ytConfig
    * @returns {Promise<string>}
    */
-  generatePoToken: (videoId, context) => {
-    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
+  generatePoToken: (videoId, challengeData, ytConfig) => {
+    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, challengeData, ytConfig)
   },
 
   chooseDefaultFolder: () => {
