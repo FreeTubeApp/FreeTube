@@ -55,10 +55,11 @@
         :id="'comment' + index"
         :key="comment.id"
         :comment="comment"
+        :channel-name="channelName"
+        :channel-thumbnail="channelThumbnail"
         :autoload-this-reply-level="false"
         :can-fallback-to-invidious="canFallbackToInvidious"
         :get-invidious-comment-replies="getInvidiousCommentReplies"
-        :toggle-comment-replies-link-text="toggleCommentRepliesLinkText"
       />
     </div>
     <div
@@ -277,26 +278,6 @@ async function getMoreComments() {
 
     isMoreCommentsLoading.value = false
   }
-}
-
-/**
- * @param {import('../FtComment/FtComment.vue').Comment} comment
- * @param {boolean} showReplies
- */
-function toggleCommentRepliesLinkText(comment, showReplies) {
-  if (showReplies) {
-    return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
-  }
-
-  if (comment.hasOwnerReplied) {
-    if (comment.numReplies > 1) {
-      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: comment.numReplies, channelName: props.channelName })
-    }
-
-    return t('Comments.View 1 reply from {channelName}', { channelName: props.channelName })
-  }
-
-  return t('Comments.View {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
 }
 
 /**

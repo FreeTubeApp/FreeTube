@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauende
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
+    Replies Remaining: "{' '}(1 verbleibend) | {' '}({count} verbleibend)"
 Search / Go to URL: Suchen / URL öffnen
   # In Filter Button
 Search Filters:
@@ -896,7 +897,7 @@ Comments:
   Hearted: Gefällt mir
   Subscribed: Abonniert
   There are no comments available for this post: Keine Kommentare für diesen Beitrag vorhanden
-  Hide {replyCount} replies: 1 Antwort ausblenden | {replyCount} Antworten ausblenden
+  Hide Replies: Antworten ausblenden
   View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
   View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
   Loading replies: Antworten laden...

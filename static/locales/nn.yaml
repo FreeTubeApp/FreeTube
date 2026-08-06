@@ -34,6 +34,7 @@ Global:
     Channel Count: 1 kanal | {count} kanalar
     Subscriber Count: 1 abonnent | {count} abonnentar
     View Count: 1 visning | {count} visningar
+    Replies Remaining: "{' '}(1 igjen) | {' '}({count} igjen)"
   Shorts: Shorts-videoer
   Live: Direkte
   Posts: Innlegg
@@ -569,6 +570,7 @@ Comments:
   Member: Medlem
   Hearted: Likt
   View {replyCount} replies: Vis {replyCount} svar
+  Hide Replies: Skjul svar
 Up Next: 'Neste'
 
 #Tooltips

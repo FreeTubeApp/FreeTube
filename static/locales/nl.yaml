@@ -40,6 +40,7 @@ Global:
     Channel Count: 1 kanaal | {count} kanalen
     Like Count: 1 vind ik leuk | {count} vind ik leuks
     Comment Count: 1 commentaar | {count} commentaren
+    Replies Remaining: "{' '}(1 resterend) | {' '}({count} resterend)"
   Posts: Posts
 Search / Go to URL: 'Zoeken / Ga naar URL'
   # In Filter Button
@@ -871,7 +872,7 @@ Comments:
   View {replyCount} replies: '1 reactie bekijken | {replyCount} reacties bekijken'
   Subscribed: Geabonneerd
   There are no comments available for this post: Er zijn geen reacties beschikbaar voor deze post
-  Hide {replyCount} replies: 1 reactie verbergen | Verberg {replyCount} reacties
+  Hide Replies: Reacties verbergen
   View 1 reply from {channelName}: Bekijk 1 reactie van {channelName}
   View {replyCount} replies from {channelName} and others: '{replyCount} reacties van {channelName} en anderen bekijken'
 Up Next: 'Volgende'

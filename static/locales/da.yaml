@@ -36,6 +36,7 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Comment Count: 1 kommentar | {count} kommentarer
     Like Count: 1 kan lide | {count} kan lide
+    Replies Remaining: "{' '}(1 tilbage) | {' '}({count} tilbage)"
   Posts: Opslag
   Live: Live
   Sort By: Sortér efter
@@ -897,6 +898,9 @@ Comments:
   View {replyCount} replies: Se {replyCount} svar
   Hearted: Hjerte
   There are no comments available for this post: Der er ingen tilgængelige kommentarer til dette opslag
+  Hide Replies: Skjul svar
+  View 1 reply from {channelName}: Se 1 svar fra {channelName}
+  View {replyCount} replies from {channelName} and others: Se {replyCount} svar fra {channelName} og andre
 Up Next: 'Næste'
 
 # Toast Messages

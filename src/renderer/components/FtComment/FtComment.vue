@@ -107,7 +107,7 @@
         @keydown.enter.space.prevent="toggleCommentReplies(index)"
       >
         <span>
-          {{ toggleCommentRepliesLinkText(comment, showReplies) }}
+          {{ toggleCommentRepliesText }}
         </span>
       </span>
       <span
@@ -129,10 +129,11 @@
         :id="id + '-' + replyIndex"
         :key="replyIndex"
         :comment="reply"
+        :channel-name="channelName"
+        :channel-thumbnail="channelThumbnail"
         :autoload-this-reply-level="reply.replyLevel && !autoloadThisReplyLevel"
         :can-fallback-to-invidious="canFallbackToInvidious"
         :get-invidious-comment-replies="getInvidiousCommentReplies"
-        :toggle-comment-replies-link-text="toggleCommentRepliesLinkText"
       />
       <div
         v-if="replyToken && !repliesLoading"
@@ -142,7 +143,7 @@
         @click="getCommentReplies()"
         @keydown.enter.space.prevent="getCommentReplies()"
       >
-        <span>{{ $t("Comments.Show More Replies") }}</span>
+        <span>{{ showMoreRepliesText }}</span>
       </div>
       <div
         v-else-if="replyToken && repliesLoading"
@@ -188,6 +189,14 @@ const props = defineProps({
     type: Object,
     required: true
   },
+  channelName: {
+    type: String,
+    required: true
+  },
+  channelThumbnail: {
+    type: String,
+    required: true
+  },
   autoloadThisReplyLevel: {
     type: Boolean
   },
@@ -198,11 +207,6 @@ const props = defineProps({
   },
   canFallbackToInvidious: {
     type: Boolean,
-    required: true
-  },
-  toggleCommentRepliesLinkText: {
-    /** @type {PropType<(comment: Comment, currentToggleState: boolean) => string>} */
-    type: Function,
     required: true
   }
 })
@@ -246,6 +250,29 @@ const subscribedChannelIds = computed(() => {
 function isSubscribedToChannel(channelId) {
   return subscribedChannelIds.value.has(channelId)
 }
+
+const showMoreRepliesText = computed(() => {
+  const numLoadedReplies = replies.value.reduce((sum, reply) => sum + 1 + reply.numReplies, 0)
+  const count = props.comment.numReplies - numLoadedReplies
+  return t('Comments.Show More Replies') + t('Global.Counts.Replies Remaining', { count }, count)
+})
+
+const toggleCommentRepliesText = computed(() => {
+  const { channelName, comment: { hasOwnerReplied, numReplies: replyCount } } = props
+  if (showReplies.value) {
+    return t('Comments.Hide Replies', { replyCount }, replyCount)
+  }
+
+  if (hasOwnerReplied) {
+    if (replyCount > 1) {
+      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount, channelName })
+    }
+
+    return t('Comments.View 1 reply from {channelName}', { channelName: channelName })
+  }
+
+  return t('Comments.View {replyCount} replies', { replyCount }, replyCount)
+})
 
 onMounted(() => {
   if (!props.autoloadThisReplyLevel || !props.comment.numReplies) return
