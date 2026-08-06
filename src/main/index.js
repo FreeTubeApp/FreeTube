@@ -306,6 +306,12 @@ function runApp() {
     app.commandLine.appendSwitch('disable-http-cache')
   }
 
+  const DISABLE_HARDWARE_ACCELERATION_PATH = `${userDataPath}/experiment-disable-hardware-acceleration`
+  const disableHardwareAcceleration = existsSync(DISABLE_HARDWARE_ACCELERATION_PATH)
+  if (disableHardwareAcceleration) {
+    app.commandLine.appendSwitch('disable-gpu')
+  }
+
   const PLAYER_CACHE_PATH = `${userDataPath}/player_cache`
 
   // See: https://stackoverflow.com/questions/45570589/electron-protocol-handler-not-working-on-windows
@@ -1559,6 +1565,28 @@ function runApp() {
     } else {
       // create an empty file
       const handle = await asyncFs.open(REPLACE_HTTP_CACHE_PATH, 'w')
+      await handle.close()
+    }
+
+    relaunch()
+  })
+
+  ipcMain.handle(IpcChannels.GET_DISABLE_HARDWARE_ACCELERATION, (event) => {
+    if (isFreeTubeUrl(event.senderFrame.url)) {
+      return disableHardwareAcceleration
+    }
+  })
+
+  ipcMain.once(IpcChannels.TOGGLE_DISABLE_HARDWARE_ACCELERATION, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    if (disableHardwareAcceleration) {
+      await asyncFs.rm(DISABLE_HARDWARE_ACCELERATION_PATH)
+    } else {
+      // create an empty file
+      const handle = await asyncFs.open(DISABLE_HARDWARE_ACCELERATION_PATH, 'w')
       await handle.close()
     }
 

@@ -693,6 +693,7 @@ Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+    Disable Hardware Acceleration: Disable Hardware Acceleration
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
@@ -1106,6 +1107,7 @@ Tooltips:
       your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
+    Disable Hardware Acceleration: Disables GPU hardware acceleration. May fix graphical issues, but will probably perform worse.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.
