@@ -262,6 +262,32 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
+const LIGHT_BASE_THEMES = [
+  'light',
+  'pastelPink',
+  'catppuccinLatte',
+  'everforestLightHard',
+  'everforestLightMedium',
+  'everforestLightLow',
+  'gruvboxLight',
+  'solarizedLight',
+]
+
+const DARK_BASE_THEMES = [
+  'dark',
+  'black',
+  'nordic',
+  'hotPink',
+  'catppuccinFrappe',
+  'catppuccinMocha',
+  'dracula',
+  'everforestDarkHard',
+  'everforestDarkMedium',
+  'everforestDarkLow',
+  'gruvboxDark',
+  'solarizedDark',
+]
+
 export {
   IpcChannels,
   DBActions,
@@ -276,4 +302,6 @@ export {
   SEARCH_RESULTS_DISPLAY_LIMIT,
   MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
   ABOUT_BITCOIN_ADDRESS,
+  LIGHT_BASE_THEMES,
+  DARK_BASE_THEMES,
 }
