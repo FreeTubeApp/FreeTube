@@ -75,7 +75,7 @@
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@babel/preset-env": "^8.0.2",
-    "@double-great/stylelint-a11y": "^3.5.0",
+    "@double-great/stylelint-a11y": "^3.5.1",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.5.1",
     "@stylistic/eslint-plugin": "^5.10.0",
@@ -101,7 +101,7 @@
     "json-minimizer-webpack-plugin": "^5.0.1",
     "lefthook": "^2.1.10",
     "mini-css-extract-plugin": "^2.10.2",
-    "postcss": "^8.5.23",
+    "postcss": "^8.5.25",
     "postcss-scss": "^4.0.9",
     "sass": "^1.102.0",
     "sass-loader": "^17.0.0",
