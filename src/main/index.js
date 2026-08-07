@@ -28,6 +28,7 @@ import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { handleOpenInExternalPlayer } from './externalPlayer'
+import { handleDownloadVideo } from './download'
 import { generatePoToken } from './poTokenGenerator'
 import { isFreeTubeUrl } from './utils'
 
@@ -1433,6 +1434,94 @@ function runApp() {
     return result.filePaths[0]
   }
 
+  /**
+   * @param {string} settingId
+   * @param {string} value
+   */
+  async function persistAndSyncSetting(settingId, value) {
+    await baseHandlers.settings.upsert(settingId, value)
+
+    const syncPayload = {
+      event: SyncEvents.GENERAL.UPSERT,
+      data: {
+        _id: settingId,
+        value
+      }
+    }
+
+    BrowserWindow.getAllWindows().forEach((window) => {
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      }
+    })
+  }
+
+  ipcMain.on(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne('ytdlpOutputDirectory'))?.value
+
+    const dialogOptions = {
+      defaultPath: typeof currentPath === 'string' && currentPath.length > 0 ? currentPath : app.getPath('downloads'),
+      properties: ['openDirectory']
+    }
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+    const result = window
+      ? await dialog.showOpenDialog(window, dialogOptions)
+      : await dialog.showOpenDialog(dialogOptions)
+
+    if (result.canceled) {
+      return
+    }
+
+    await persistAndSyncSetting('ytdlpOutputDirectory', result.filePaths[0])
+  })
+
+  /**
+   * @param {import('electron').IpcMainEvent} event
+   * @param {string} settingId
+   */
+  async function chooseExecutable(event, settingId) {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne(settingId))?.value
+
+    const dialogOptions = {
+      defaultPath: typeof currentPath === 'string' && currentPath.length > 0 ? currentPath : undefined,
+      properties: ['openFile'],
+      ...(process.platform === 'win32' && {
+        filters: [
+          { name: 'Executables', extensions: ['exe'] },
+          { name: 'All Files', extensions: ['*'] }
+        ]
+      })
+    }
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+    const result = window
+      ? await dialog.showOpenDialog(window, dialogOptions)
+      : await dialog.showOpenDialog(dialogOptions)
+
+    if (result.canceled) {
+      return
+    }
+
+    await persistAndSyncSetting(settingId, result.filePaths[0])
+  }
+
+  ipcMain.on(IpcChannels.CHOOSE_YTDLP_EXECUTABLE, async (event) => {
+    await chooseExecutable(event, 'ytdlpExecutable')
+  })
+
+  ipcMain.on(IpcChannels.CHOOSE_FFMPEG_EXECUTABLE, async (event) => {
+    await chooseExecutable(event, 'ffmpegExecutable')
+  })
+
   ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
@@ -1571,6 +1660,8 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, handleOpenInExternalPlayer)
+
+  ipcMain.handle(IpcChannels.DOWNLOAD_VIDEO, handleDownloadVideo)
 
   ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, (event) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {

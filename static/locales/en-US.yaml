@@ -507,6 +507,18 @@ Settings:
     Players:
       None:
         Name: None
+  External Downloader Settings:
+    External Downloader Settings: External Downloader
+    yt-dlp Readme: yt-dlp Readme
+    yt-dlp Executable Path: yt-dlp Executable Path
+    Download yt-dlp: Download yt-dlp
+    ffmpeg Executable Path: ffmpeg Executable Path
+    Download FFmpeg: Download FFmpeg
+    Choose Executable: Choose Executable
+    Output Directory: Output Directory
+    Choose Output Directory: Choose Output Directory
+    Video - Custom Arguments: Video - Custom Arguments
+    Audio - Custom Arguments: Audio - Custom Arguments
   Privacy Settings:
     Privacy Settings: Privacy
     Remember History: Remember Watch History
@@ -858,6 +870,17 @@ Video:
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
+  Download Video: Download Video
+  Download:
+    Video: Video
+    Audio: Audio
+    Include Timestamp: Include Timestamp
+    Start Time: Start Time
+    End Time: End Time
+  Video download has started: Video download has started
+  Audio download has started: Audio download has started
+  Video download failed, please configure the External Downloader Settings: Video download
+    failed, please configure the External Downloader Settings
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
@@ -1092,6 +1115,20 @@ Tooltips:
       Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
+  External Downloader Settings:
+    yt-dlp Executable Path: By default, FreeTube will assume that yt-dlp can be found
+      via the PATH environment variable. If needed, a custom path to the yt-dlp executable
+      can be set here.
+    ffmpeg Executable Path: The path to the ffmpeg executable, passed to yt-dlp via its
+      --ffmpeg-location option. ffmpeg is required by yt-dlp for merging separate video
+      and audio streams and for extracting audio-only downloads. If left empty, yt-dlp
+      will use its own default lookup behavior.
+    Output Directory: The directory yt-dlp should save downloaded videos to, passed via
+      yt-dlp's -o/--output option. If left empty, yt-dlp's own default output location is used.
+    Video - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
+      when downloading a video.
+    Audio - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
+      when downloading audio only. The -x/--extract-audio flag is always added automatically.
   Distraction Free Settings:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
