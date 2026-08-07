@@ -139,3 +139,22 @@
     inset-inline: 0 auto;
   }
 }
+
+.downloadOptions {
+  padding-inline: 12px;
+  padding-block-start: 12px;
+  min-inline-size: 220px;
+}
+
+.downloadButtons {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  max-inline-size: min-content;
+  min-inline-size: 150px;
+}
+
+.downloadButtons .action {
+  padding: 6px;
+  white-space: initial;
+}
