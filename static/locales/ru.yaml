@@ -38,6 +38,7 @@ Global:
     Channel Count: 1 канал | {count} канала(ов)
     Comment Count: 1 комментарий | {count} комментариев
     Like Count: 1 лайк | {count} лайков
+    Replies Remaining: "{' '}(осталось 1) | {' '}(осталось {count})"
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -879,7 +880,7 @@ Comments:
   Hearted: С сердечком
   Subscribed: Подписан(а)
   There are no comments available for this post: Для этой записи нет доступных комментариев
-  Hide {replyCount} replies: Скрыть 1 ответ | Скрыть {replyCount} ответа(ов)
+  Hide Replies: Скрыть ответы
   View 1 reply from {channelName}: Смотреть 1 ответ от {channelName}
   View {replyCount} replies from {channelName} and others: Смотреть {replyCount} ответа(ов) от {channelName} и других
 Up Next: 'Следующий'

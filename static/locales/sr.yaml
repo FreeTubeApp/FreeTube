@@ -36,6 +36,7 @@ Global:
     Channel Count: 1 канал | {count} канала
     Comment Count: 1 коментар | {count} коментара
     Like Count: 1 свиђање | {count} свиђања
+    Replies Remaining: "{' '}(преостало 1) | {' '}(преостало {count})"
   Live: Уживо
   Posts: Постови
   Shorts: Кратки
@@ -919,6 +920,7 @@ Comments:
   There are no more comments for this video: Нема више коментара за овај видео снимак
   Newest first: Најновије прво
   There are no comments available for this post: Нема доступних коментара за ову објаву
+  Hide Replies: Сакриј одговоре
 Share:
   Invidious Embed URL copied to clipboard: Invidious уграђени URL је копиран у привремену меморију
   Share Channel: Дели канал

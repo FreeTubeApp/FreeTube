@@ -40,6 +40,7 @@ Global:
     Channel Count: 1 canal | {count} canais
     Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentários | {count} comentários
+    Replies Remaining: "{' '}(1 restante) | {' '}({count} restantes)"
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} está disponível! Clique aqui para mais informações.
 Download From Site: Descarregar do site
 
@@ -924,7 +925,7 @@ Comments:
   Hearted: Favorito
   Subscribed: Subscrito
   There are no comments available for this post: Não existem comentários para esta publicação
-  Hide {replyCount} replies: Esconder 1 resposta | Esconder {replyCount} respostas
+  Hide Replies: Esconder respostas
   View 1 reply from {channelName}: Ver 1 resposta de {channelName}
   View {replyCount} replies from {channelName} and others: Ver {replyCount} respostas de {channelName} e outros
 Up Next: Próximo

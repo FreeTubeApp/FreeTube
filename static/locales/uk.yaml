@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 глядач | {count} глядачів
     Like Count: 1 вподобання | {count} вподобань
     Comment Count: 1 коментар | {count} коментарів
+    Replies Remaining: "{' '}(залишилося 1) | {' '}(залишилося {count})"
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
 
@@ -924,7 +925,7 @@ Comments:
   View {replyCount} replies: Переглянути 1 відповідь | Переглянути {replyCount} відповідей
   Subscribed: Слідкують
   There are no comments available for this post: Коментарі для цього поста відсутні
-  Hide {replyCount} replies: Приховати 1 відповідь | Приховати {replyCount} відповідей
+  Hide Replies: Приховати відповіді
   View 1 reply from {channelName}: Переглянути 1 відповідь від {channelName}
   View {replyCount} replies from {channelName} and others: Переглянути {replyCount} відповідей від {channelName} та інших
 Up Next: 'Далі'

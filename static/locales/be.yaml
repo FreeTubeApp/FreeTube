@@ -44,6 +44,7 @@ Global:
     Subscriber Count: '1 падпісчык | {count} падпісчыкаў'
     View Count: '1 прагляд | {count} праглядаў'
     Watching Count: '1 глядач | {count} гледачоў'
+    Replies Remaining: "{' '}(засталося 1) | {' '}(засталося {count})"
 
 # Search Bar
     Like Count: 1 лайк | {count} лайкаў
@@ -918,6 +919,7 @@ Comments:
   Subscribed: 'Падпісан'
   Hearted: 'З сэрцам'
   There are no comments available for this post: Да гэтай публікацыі няма каментарыяў
+  Hide Replies: Схаваць адказы
 Up Next: 'Далей'
 
 #Tooltips

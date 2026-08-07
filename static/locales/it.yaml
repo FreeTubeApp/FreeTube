@@ -41,6 +41,7 @@ Global:
     Watching Count: 1 spettatore | {count} spettatori
     Comment Count: 1 commento | {count} commenti
     Like Count: 1 mi piace | {count} mi piace
+    Replies Remaining: "{' '}(1 rimanente) | {' '}({count} rimanenti)"
 Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -897,7 +898,7 @@ Comments:
   View {replyCount} replies: Visualizza 1 risposta | Visualizza {replyCount} risposte
   Subscribed: Iscritto
   There are no comments available for this post: Non ci sono commenti disponibili per questo post
-  Hide {replyCount} replies: Nascondi 1 risposta | Nascondi {replyCount} risposte
+  Hide Replies: Nascondi risposte
   View 1 reply from {channelName}: Visualizza 1 risposta da {channelName}
   View {replyCount} replies from {channelName} and others: Visualizza {replyCount} risposte da {channelName} e altri
   Loading replies: Caricamento risposte...

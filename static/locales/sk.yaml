@@ -34,6 +34,7 @@ Global:
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
+    Replies Remaining: "{' '}(zostáva 1) | {' '}(zostáva {count})"
   Live: Naživo
   Posts: Príspevky
   Shorts: Krátke
@@ -892,7 +893,7 @@ Comments:
   There are no comments available for this post: Pre tento príspevok nie sú dostupné žiadne komentáre
   View {replyCount} replies from {channelName} and others: Zobraziť {replyCount} odpovedí od {channelName} a ostatných
   View 1 reply from {channelName}: Zobraziť 1 odpoveď od {channelName}
-  Hide {replyCount} replies: Skryť 1 odpoveď | Skryť odpovede v počte {replyCount}
+  Hide Replies: Skryť odpovede
   View {replyCount} replies: Zobraziť 1 odpoveď | Zobraziť {replyCount} odpovedí
   Loading replies: Načítanie odpovedí...
 Up Next: 'Ďalšie'
