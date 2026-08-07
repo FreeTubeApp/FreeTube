@@ -445,10 +445,7 @@ export async function getLocalVideoInfo(id) {
 
   if (process.env.IS_ELECTRON) {
     try {
-      contentPoToken = await window.ftElectron.generatePoToken(
-        id,
-        JSON.stringify(webInnertube.session.context)
-      )
+      contentPoToken = await window.ftElectron.generatePoToken(id)
 
       webInnertube.session.player.po_token = contentPoToken
     } catch (error) {

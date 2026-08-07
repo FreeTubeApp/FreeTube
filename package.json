@@ -57,7 +57,7 @@
     "@fortawesome/vue-fontawesome": "^3.3.3",
     "@seald-io/nedb": "^4.1.2",
     "autolinker": "^4.1.5",
-    "bgutils-js": "^4.0.2",
+    "bgutils-js": "^4.0.3",
     "dompurify": "^3.4.12",
     "electron-context-menu": "^4.1.2",
     "googlevideo": "^4.1.1",

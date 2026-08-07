@@ -118,11 +118,10 @@ export default {
 
   /**
    * @param {string} videoId
-   * @param {string} context
    * @returns {Promise<string>}
    */
-  generatePoToken: (videoId, context) => {
-    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
+  generatePoToken: (videoId) => {
+    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId)
   },
 
   chooseDefaultFolder: () => {

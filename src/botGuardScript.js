@@ -1,5 +1,5 @@
 import { BotGuardClient } from 'bgutils-js/botguard'
-import { buildURL, GOOG_API_KEY } from 'bgutils-js/utils'
+import { buildURL, GOOG_API_KEY, parseLooseJSON } from 'bgutils-js/utils'
 import { WebPoMinter } from 'bgutils-js/webpo'
 
 // This script has it's own webpack config, as it gets passed as a string to Electron's evaluateJavaScript function
@@ -8,34 +8,33 @@ import { WebPoMinter } from 'bgutils-js/webpo'
 /**
  * Based on: https://github.com/LuanRT/BgUtils/blob/main/examples/node/innertube-challenge-fetcher-example.ts
  * @param {string} videoId
- * @param {import('youtubei.js').Session['context']} context
  */
-export default async function (videoId, context) {
+export default async function (videoId) {
   const requestKey = 'O43z0dpjhgX20SCx4KAo'
 
-  const challengeResponse = await fetch(
-    'https://www.youtube.com/youtubei/v1/att/get?prettyPrint=false&alt=json',
-    {
-      method: 'POST',
-      headers: {
-        Accept: '*/*',
-        'Content-Type': 'application/json',
-        'X-Goog-Visitor-Id': context.client.visitorData,
-        'X-Youtube-Client-Version': context.client.clientVersion,
-        'X-Youtube-Client-Name': '1'
-      },
-      body: JSON.stringify({
-        engagementType: 'ENGAGEMENT_TYPE_UNBOUND',
-        context
-      }),
+  // YouTube binds WEB attestation challenges to the page's yt.config_.EVENT_ID.
+  const pageResponse = await fetch('https://www.youtube.com/', {
+    headers: {
+      Accept: '*/*',
+      'Accept-Language': 'en-US,en;q=0.7'
     }
-  )
+  })
 
-  if (!challengeResponse.ok) {
-    throw new Error(`Request to ${challengeResponse.url} failed with status ${challengeResponse.status}\n${await challengeResponse.text()}`)
+  if (!pageResponse.ok) {
+    throw new Error(`Request to ${pageResponse.url} failed with status ${pageResponse.status}`)
   }
 
-  const challengeData = await challengeResponse.json()
+  const pageHtml = await pageResponse.text()
+  const ytConfigText = pageHtml.match(/ytcfg\.set\(({.+?})\);/s)?.[1]
+  const initialAttestationText = pageHtml.match(/window\.ytAtN\(\s*({[\s\S]*?})\s*\)/)?.[1]
+
+  if (!ytConfigText || !initialAttestationText) {
+    throw new Error('Could not find the page-bound attestation data')
+  }
+
+  window.yt = { config_: JSON.parse(ytConfigText) }
+
+  const challengeData = parseLooseJSON(initialAttestationText).R
 
   if (!challengeData.bgChallenge) {
     throw new Error('Failed to get BotGuard challenge')
