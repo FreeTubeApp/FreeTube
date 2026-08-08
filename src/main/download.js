@@ -85,6 +85,34 @@ export async function getExecutableVersions(ytdlpExecutable, ffmpegExecutable) {
 }
 
 /**
+ * Terminal emulators to try on Linux, in order, along with how each one
+ * expects the command to run to be passed.
+ * @type {{ name: string, buildArgs: (executable: string, args: string[]) => string[] }[]}
+ */
+const LINUX_TERMINALS = [
+  { name: 'x-terminal-emulator', buildArgs: (executable, args) => ['-e', executable, ...args] },
+  { name: 'gnome-terminal', buildArgs: (executable, args) => ['--', executable, ...args] },
+  { name: 'konsole', buildArgs: (executable, args) => ['-e', executable, ...args] },
+  { name: 'xfce4-terminal', buildArgs: (executable, args) => ['-x', executable, ...args] },
+  { name: 'kitty', buildArgs: (executable, args) => [executable, ...args] },
+  { name: 'alacritty', buildArgs: (executable, args) => ['-e', executable, ...args] },
+  { name: 'xterm', buildArgs: (executable, args) => ['-e', executable, ...args] },
+]
+
+/**
+ * @returns {Promise<{ name: string, buildArgs: (executable: string, args: string[]) => string[] } | null>}
+ */
+async function findLinuxTerminal() {
+  for (const terminal of LINUX_TERMINALS) {
+    if (await findExecutableOnPath(terminal.name)) {
+      return terminal
+    }
+  }
+
+  return null
+}
+
+/**
  * @typedef {'ok' | 'invalid' | 'not-configured' | 'error'} DownloadVideoResult
  */
 
@@ -157,28 +185,37 @@ export async function handleDownloadVideo(event, payload) {
 
   args.push(videoUrl)
 
-  return new Promise((resolve) => {
-    let child
+  if (process.platform === 'win32') {
+    // cmd /k only strips quotes if they enclose the whole string, so wrap it twice
+    const innerCommand = [executable, ...args].map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
 
-    if (process.platform === 'win32') {
-      // cmd /k only strips quotes if they enclose the whole string, so wrap it twice
-      const innerCommand = [executable, ...args].map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
-      child = spawn('cmd.exe', ['/c', 'start', '""', '/wait', 'cmd.exe', '/k', `"${innerCommand}"`], {
-        detached: true,
-        stdio: 'ignore',
-        windowsVerbatimArguments: true
-      })
-    } else if (process.platform === 'darwin') {
-      child = spawn('open', ['-a', 'Terminal', '-n', '--args', executable, ...args], {
-        detached: true,
-        stdio: 'ignore'
-      })
-    } else {
-      child = spawn('x-terminal-emulator', ['-e', executable, ...args], {
-        detached: true,
-        stdio: 'ignore'
-      })
-    }
+    return spawnAndAwait('cmd.exe', ['/c', 'start', '""', '/wait', 'cmd.exe', '/k', `"${innerCommand}"`], {
+      windowsVerbatimArguments: true
+    })
+  }
+
+  if (process.platform === 'darwin') {
+    return spawnAndAwait('open', ['-a', 'Terminal', '-n', '--args', executable, ...args])
+  }
+
+  const terminal = await findLinuxTerminal()
+
+  if (!terminal) {
+    return 'error'
+  }
+
+  return spawnAndAwait(terminal.name, terminal.buildArgs(executable, args))
+}
+
+/**
+ * @param {string} command
+ * @param {string[]} args
+ * @param {import('node:child_process').SpawnOptionsWithoutStdio} [extraOptions]
+ * @returns {Promise<DownloadVideoResult>}
+ */
+function spawnAndAwait(command, args, extraOptions) {
+  return new Promise((resolve) => {
+    const child = spawn(command, args, { detached: true, stdio: 'ignore', ...extraOptions })
 
     child.once('error', () => {
       resolve('error')
