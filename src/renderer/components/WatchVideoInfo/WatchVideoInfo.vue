@@ -149,7 +149,7 @@
             <div class="downloadButtons">
               <FtButton
                 class="action"
-                :icon="['fas', 'file-video']"
+                :icon="['fas', 'video']"
                 :label="t('Video.Download.Video')"
                 @click="handleDownload('video')"
               />
