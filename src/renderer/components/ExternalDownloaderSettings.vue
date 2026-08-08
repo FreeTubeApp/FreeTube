@@ -2,81 +2,108 @@
   <FtSettingsSection
     :title="t('Settings.External Downloader Settings.External Downloader Settings')"
   >
-    <FtFlexBox class="versionsRow">
-      <p
-        v-if="versionsText"
-        class="versionsText"
-      >
-        {{ versionsText }}
-      </p>
+    <FtFlexBox class="readmeRow">
       <FtButton
         :label="t('Settings.External Downloader Settings.yt-dlp Readme')"
         :icon="['fas', 'external-link-alt']"
         @click="openYtdlpReadme"
       />
     </FtFlexBox>
-    <FtFlexBox class="settingsFlexStart460px">
-      <FtInput
-        :placeholder="t('Settings.External Downloader Settings.yt-dlp Executable Path')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="ytdlpExecutable"
-        :tooltip="t('Tooltips.External Downloader Settings.yt-dlp Executable Path')"
-        @input="updateYtdlpExecutable"
-      />
-      <div class="buttonPair">
-        <FtButton
-          class="centerButton"
-          :label="t('Settings.External Downloader Settings.Choose Executable')"
-          @click="chooseYtdlpExecutable"
-        />
-        <FtButton
-          class="centerButton"
-          :label="t('Settings.External Downloader Settings.Download yt-dlp')"
-          :icon="['fas', 'download']"
-          @click="openYtdlpReleases"
-        />
-      </div>
-    </FtFlexBox>
-    <FtFlexBox class="settingsFlexStart460px">
-      <FtInput
-        :placeholder="t('Settings.External Downloader Settings.ffmpeg Executable Path')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="ffmpegExecutable"
-        :tooltip="t('Tooltips.External Downloader Settings.ffmpeg Executable Path')"
-        @input="updateFfmpegExecutable"
-      />
-      <div class="buttonPair">
-        <FtButton
-          class="centerButton"
-          :label="t('Settings.External Downloader Settings.Choose Executable')"
-          @click="chooseFfmpegExecutable"
-        />
-        <FtButton
-          class="centerButton"
-          :label="t('Settings.External Downloader Settings.Download FFmpeg')"
-          :icon="['fas', 'download']"
-          @click="openFfmpegReleases"
+    <FtFlexBox class="settingsFlexStart460px pathRow">
+      <div class="inputWithCustomLabel">
+        <p class="customLabel">
+          {{ t('Settings.External Downloader Settings.yt-dlp Executable Path') }}
+          <FtTooltip
+            class="selectTooltip"
+            position="bottom"
+            :tooltip="t('Tooltips.External Downloader Settings.yt-dlp Executable Path')"
+          />
+          <a
+            class="downloadLink"
+            :aria-label="t('Settings.External Downloader Settings.Download yt-dlp')"
+            :title="t('Settings.External Downloader Settings.Download yt-dlp')"
+            href="javascript:void(0)"
+            @click="openYtdlpReleases"
+          >
+            <FontAwesomeIcon :icon="['fas', 'download']" />
+          </a>
+          <span
+            v-if="ytdlpVersion"
+            class="versionText"
+          >{{ ytdlpVersion }}</span>
+        </p>
+        <FtInput
+          :placeholder="t('Settings.External Downloader Settings.yt-dlp Executable Path')"
+          :show-action-button="false"
+          :show-label="false"
+          :value="ytdlpExecutable"
+          @input="updateYtdlpExecutable"
         />
       </div>
-    </FtFlexBox>
-    <FtFlexBox class="settingsFlexStart460px">
-      <FtInput
-        :placeholder="t('Settings.External Downloader Settings.Output Directory')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="ytdlpOutputDirectory"
-        :tooltip="t('Tooltips.External Downloader Settings.Output Directory')"
-        @input="updateYtdlpOutputDirectory"
-      />
       <FtButton
-        class="centerButton"
-        :label="t('Settings.External Downloader Settings.Choose Output Directory')"
+        class="folderButton"
+        :icon="['fas', 'folder-open']"
+        :title="t('Settings.External Downloader Settings.Choose Executable')"
+        @click="chooseYtdlpExecutable"
+      />
+    </FtFlexBox>
+    <FtFlexBox class="settingsFlexStart460px pathRow">
+      <div class="inputWithCustomLabel">
+        <p class="customLabel">
+          {{ t('Settings.External Downloader Settings.ffmpeg Executable Path') }}
+          <FtTooltip
+            class="selectTooltip"
+            position="bottom"
+            :tooltip="t('Tooltips.External Downloader Settings.ffmpeg Executable Path')"
+          />
+          <a
+            class="downloadLink"
+            :aria-label="t('Settings.External Downloader Settings.Download FFmpeg')"
+            :title="t('Settings.External Downloader Settings.Download FFmpeg')"
+            href="javascript:void(0)"
+            @click="openFfmpegReleases"
+          >
+            <FontAwesomeIcon :icon="['fas', 'download']" />
+          </a>
+          <span
+            v-if="ffmpegVersion"
+            class="versionText"
+          >{{ ffmpegVersion }}</span>
+        </p>
+        <FtInput
+          :placeholder="t('Settings.External Downloader Settings.ffmpeg Executable Path')"
+          :show-action-button="false"
+          :show-label="false"
+          :value="ffmpegExecutable"
+          @input="updateFfmpegExecutable"
+        />
+      </div>
+      <FtButton
+        class="folderButton"
+        :icon="['fas', 'folder-open']"
+        :title="t('Settings.External Downloader Settings.Choose Executable')"
+        @click="chooseFfmpegExecutable"
+      />
+    </FtFlexBox>
+    <FtFlexBox class="settingsFlexStart460px pathRow">
+      <div class="inputWithCustomLabel">
+        <FtInput
+          :placeholder="t('Settings.External Downloader Settings.Output Directory')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="ytdlpOutputDirectory"
+          :tooltip="t('Tooltips.External Downloader Settings.Output Directory')"
+          @input="updateYtdlpOutputDirectory"
+        />
+      </div>
+      <FtButton
+        class="folderButton"
+        :icon="['fas', 'folder-open']"
+        :title="t('Settings.External Downloader Settings.Choose Output Directory')"
         @click="chooseYtdlpOutputDirectory"
       />
     </FtFlexBox>
-    <FtFlexBox>
+    <FtFlexBox class="customArgsRow">
       <FtInput
         :placeholder="t('Settings.External Downloader Settings.Video - Custom Arguments')"
         :show-action-button="false"
@@ -85,8 +112,6 @@
         :tooltip="t('Tooltips.External Downloader Settings.Video - Custom Arguments')"
         @input="updateYtdlpVideoCustomArgs"
       />
-    </FtFlexBox>
-    <FtFlexBox>
       <FtInput
         :placeholder="t('Settings.External Downloader Settings.Audio - Custom Arguments')"
         :show-action-button="false"
@@ -100,6 +125,7 @@
 </template>
 
 <script setup>
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
@@ -107,9 +133,10 @@ import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtInput from './FtInput/FtInput.vue'
 import FtButton from './FtButton/FtButton.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
+import FtTooltip from './FtTooltip/FtTooltip.vue'
 
 import store from '../store/index'
-import { openExternalLink } from '../helpers/utils'
+import { debounce, openExternalLink } from '../helpers/utils'
 
 const { t } = useI18n()
 
@@ -133,11 +160,13 @@ const ytdlpAudioCustomArgs = computed(() => store.getters.getYtdlpAudioCustomArg
  */
 function updateYtdlpExecutable(value) {
   store.dispatch('updateYtdlpExecutable', value)
+  debouncedRefreshVersions()
 }
 
-function chooseYtdlpExecutable() {
+async function chooseYtdlpExecutable() {
   if (process.env.IS_ELECTRON) {
-    window.ftElectron.chooseYtdlpExecutable()
+    await window.ftElectron.chooseYtdlpExecutable()
+    await refreshVersions()
   }
 }
 
@@ -146,11 +175,13 @@ function chooseYtdlpExecutable() {
  */
 function updateFfmpegExecutable(value) {
   store.dispatch('updateFfmpegExecutable', value)
+  debouncedRefreshVersions()
 }
 
-function chooseFfmpegExecutable() {
+async function chooseFfmpegExecutable() {
   if (process.env.IS_ELECTRON) {
-    window.ftElectron.chooseFfmpegExecutable()
+    await window.ftElectron.chooseFfmpegExecutable()
+    await refreshVersions()
   }
 }
 
@@ -193,7 +224,8 @@ function openFfmpegReleases() {
   openExternalLink('https://github.com/yt-dlp/FFmpeg-Builds/releases')
 }
 
-const versionsText = ref('')
+const ytdlpVersion = ref('')
+const ffmpegVersion = ref('')
 
 async function refreshVersions() {
   if (!process.env.IS_ELECTRON) {
@@ -201,17 +233,11 @@ async function refreshVersions() {
   }
 
   const { ytdlp, ffmpeg } = await window.ftElectron.getDownloaderExecutableVersions()
-
-  const parts = []
-  if (ytdlp) {
-    parts.push(`yt-dlp ${ytdlp}`)
-  }
-  if (ffmpeg) {
-    parts.push(`ffmpeg ${ffmpeg}`)
-  }
-
-  versionsText.value = parts.join(' · ')
+  ytdlpVersion.value = ytdlp || ''
+  ffmpegVersion.value = ffmpeg || ''
 }
+
+const debouncedRefreshVersions = debounce(refreshVersions, 500)
 
 onMounted(async () => {
   if (!process.env.IS_ELECTRON) {
@@ -238,18 +264,44 @@ onMounted(async () => {
   z-index: 1;
 }
 
-.buttonPair {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 10px;
+.readmeRow {
+  justify-content: flex-start;
 }
 
-.versionsRow {
+.customArgsRow {
+  align-items: flex-start;
+}
+
+.pathRow {
+  align-items: flex-end;
+}
+
+.inputWithCustomLabel {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.customLabel {
+  margin-block: 0 5px;
+  margin-inline: 0;
+  display: flex;
   align-items: center;
 }
 
-.versionsText {
+.folderButton {
+  min-inline-size: 0;
+  padding: 12px;
+  margin-block-end: 10px;
+}
+
+.downloadLink {
+  color: var(--primary-text-color);
+  margin-inline-start: 8px;
+}
+
+.versionText {
   color: var(--tertiary-text-color);
-  margin: 0;
+  margin-inline-start: 8px;
+  font-size: 0.85em;
 }
 </style>
