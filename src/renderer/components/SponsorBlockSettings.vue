@@ -49,7 +49,7 @@
           :disabled="sponsorBlockExcludedChannelsDisabled"
           :disabled-msg="t('Settings.SponsorBlock Settings.Excluded Channels.Disabled Message')"
           :label="t('Settings.SponsorBlock Settings.Excluded Channels.Excluded Channels')"
-          :tag-name-placeholder="t('Settings.SponsorBlock Settings.Excluded Channels.Placeholder')"
+          :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
           :tag-list="sponsorBlockExcludedChannels"
           :tooltip="t('Settings.SponsorBlock Settings.Excluded Channels.Tooltip')"
           :validate-tag-name="checkYoutubeChannelId"
@@ -227,15 +227,15 @@ function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
 }
 
 function handleInvalidChannel() {
-  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.Invalid Channel'))
+  showToast(t('Settings.Distraction Free Settings.Hide Channels Invalid'))
 }
 
 function handleChannelAPIError() {
-  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.API Error'))
+  showToast(t('Settings.Distraction Free Settings.Hide Channels API Error'))
 }
 
 function handleChannelsExists() {
-  showToast(t('Settings.SponsorBlock Settings.Excluded Channels.Already Exists'))
+  showToast(t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
 }
 
 /**
