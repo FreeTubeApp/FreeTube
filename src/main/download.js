@@ -1,8 +1,88 @@
-import { spawn } from 'node:child_process'
+import { execFile, spawn } from 'node:child_process'
+import { access, constants } from 'node:fs/promises'
+import { promisify } from 'node:util'
 import { settings } from '../datastores/handlers/base'
 import { isFreeTubeUrl } from './utils'
 
+const execFileAsync = promisify(execFile)
+
 const ID_REGEX = /^[\w-]+$/
+
+/**
+ * @param {string} path
+ * @returns {Promise<boolean>}
+ */
+async function isExecutable(path) {
+  try {
+    await access(path, constants.X_OK)
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * @param {string} name
+ * @returns {Promise<string | null>}
+ */
+export async function findExecutableOnPath(name) {
+  try {
+    const { stdout } = process.platform === 'win32'
+      ? await execFileAsync('where', [name])
+      : await execFileAsync('which', [name])
+
+    return stdout.split(/\r?\n/)[0].trim() || null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * @param {string} name
+ * @param {string} currentPath
+ * @returns {Promise<string | null>}
+ */
+export async function resolveExecutable(name, currentPath) {
+  if (currentPath.length > 0 && await isExecutable(currentPath)) {
+    return currentPath
+  }
+
+  return findExecutableOnPath(name)
+}
+
+/**
+ * @param {string} executable
+ * @param {string[]} versionArgs
+ * @returns {Promise<string | null>}
+ */
+async function getVersion(executable, versionArgs) {
+  if (executable.length === 0 || !await isExecutable(executable)) {
+    return null
+  }
+
+  try {
+    const { stdout } = await execFileAsync(executable, versionArgs)
+    return stdout.split(/\r?\n/)[0].trim() || null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * @param {string} ytdlpExecutable
+ * @param {string} ffmpegExecutable
+ * @returns {Promise<{ ytdlp: string | null, ffmpeg: string | null }>}
+ */
+export async function getExecutableVersions(ytdlpExecutable, ffmpegExecutable) {
+  const [ytdlp, ffmpeg] = await Promise.all([
+    getVersion(ytdlpExecutable, ['--version']),
+    getVersion(ffmpegExecutable, ['-version'])
+  ])
+
+  const ffmpegVersion = ffmpeg?.match(/ffmpeg version (\S+)/)?.[1] ?? ffmpeg
+
+  return { ytdlp, ffmpeg: ffmpegVersion }
+}
 
 /**
  * @typedef {'ok' | 'invalid' | 'not-configured' | 'error'} DownloadVideoResult

@@ -28,7 +28,7 @@ import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { handleOpenInExternalPlayer } from './externalPlayer'
-import { handleDownloadVideo } from './download'
+import { getExecutableVersions, handleDownloadVideo, resolveExecutable } from './download'
 import { generatePoToken } from './poTokenGenerator'
 import { isFreeTubeUrl } from './utils'
 
@@ -1662,6 +1662,37 @@ function runApp() {
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, handleOpenInExternalPlayer)
 
   ipcMain.handle(IpcChannels.DOWNLOAD_VIDEO, handleDownloadVideo)
+
+  ipcMain.handle(IpcChannels.FIND_EXECUTABLE_ON_PATH, async (event, name, settingId) => {
+    if (
+      !isFreeTubeUrl(event.senderFrame.url) ||
+      typeof name !== 'string' || !/^[\w-]+$/.test(name) ||
+      typeof settingId !== 'string' || !['ytdlpExecutable', 'ffmpegExecutable'].includes(settingId)
+    ) {
+      return null
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne(settingId))?.value || ''
+
+    const resolvedPath = await resolveExecutable(name, currentPath)
+
+    if (resolvedPath && resolvedPath !== currentPath) {
+      await persistAndSyncSetting(settingId, resolvedPath)
+    }
+
+    return resolvedPath
+  })
+
+  ipcMain.handle(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return { ytdlp: null, ffmpeg: null }
+    }
+
+    const ytdlpExecutable = (await baseHandlers.settings._findOne('ytdlpExecutable'))?.value || ''
+    const ffmpegExecutable = (await baseHandlers.settings._findOne('ffmpegExecutable'))?.value || ''
+
+    return getExecutableVersions(ytdlpExecutable, ffmpegExecutable)
+  })
 
   ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, (event) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {

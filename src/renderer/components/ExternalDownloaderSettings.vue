@@ -2,7 +2,13 @@
   <FtSettingsSection
     :title="t('Settings.External Downloader Settings.External Downloader Settings')"
   >
-    <FtFlexBox>
+    <FtFlexBox class="versionsRow">
+      <p
+        v-if="versionsText"
+        class="versionsText"
+      >
+        {{ versionsText }}
+      </p>
       <FtButton
         :label="t('Settings.External Downloader Settings.yt-dlp Readme')"
         :icon="['fas', 'external-link-alt']"
@@ -94,7 +100,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
@@ -186,6 +192,44 @@ function openYtdlpReleases() {
 function openFfmpegReleases() {
   openExternalLink('https://github.com/yt-dlp/FFmpeg-Builds/releases')
 }
+
+const versionsText = ref('')
+
+async function refreshVersions() {
+  if (!process.env.IS_ELECTRON) {
+    return
+  }
+
+  const { ytdlp, ffmpeg } = await window.ftElectron.getDownloaderExecutableVersions()
+
+  const parts = []
+  if (ytdlp) {
+    parts.push(`yt-dlp ${ytdlp}`)
+  }
+  if (ffmpeg) {
+    parts.push(`ffmpeg ${ffmpeg}`)
+  }
+
+  versionsText.value = parts.join(' · ')
+}
+
+onMounted(async () => {
+  if (!process.env.IS_ELECTRON) {
+    return
+  }
+
+  const resolvedYtdlp = await window.ftElectron.resolveExecutablePath('yt-dlp', 'ytdlpExecutable')
+  if (resolvedYtdlp && resolvedYtdlp !== ytdlpExecutable.value) {
+    store.dispatch('updateYtdlpExecutable', resolvedYtdlp)
+  }
+
+  const resolvedFfmpeg = await window.ftElectron.resolveExecutablePath('ffmpeg', 'ffmpegExecutable')
+  if (resolvedFfmpeg && resolvedFfmpeg !== ffmpegExecutable.value) {
+    store.dispatch('updateFfmpegExecutable', resolvedFfmpeg)
+  }
+
+  await refreshVersions()
+})
 </script>
 
 <style scoped>
@@ -198,5 +242,14 @@ function openFfmpegReleases() {
   display: flex;
   flex-wrap: nowrap;
   gap: 10px;
+}
+
+.versionsRow {
+  align-items: center;
+}
+
+.versionsText {
+  color: var(--tertiary-text-color);
+  margin: 0;
 }
 </style>

@@ -144,6 +144,22 @@ export default {
   },
 
   /**
+   * @param {string} name
+   * @param {'ytdlpExecutable' | 'ffmpegExecutable'} settingId
+   * @returns {Promise<string | null>}
+   */
+  resolveExecutablePath: (name, settingId) => {
+    return ipcRenderer.invoke(IpcChannels.FIND_EXECUTABLE_ON_PATH, name, settingId)
+  },
+
+  /**
+   * @returns {Promise<{ ytdlp: string | null, ffmpeg: string | null }>}
+   */
+  getDownloaderExecutableVersions: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS)
+  },
+
+  /**
    * @param {string} filename
    * @param {ArrayBuffer} contents
    * @returns {Promise<boolean>}
