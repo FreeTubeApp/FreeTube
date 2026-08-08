@@ -104,22 +104,26 @@
       />
     </FtFlexBox>
     <FtFlexBox class="customArgsRow">
-      <FtInput
-        :placeholder="t('Settings.External Downloader Settings.Video - Custom Arguments')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="ytdlpVideoCustomArgs"
-        :tooltip="t('Tooltips.External Downloader Settings.Video - Custom Arguments')"
-        @input="updateYtdlpVideoCustomArgs"
-      />
-      <FtInput
-        :placeholder="t('Settings.External Downloader Settings.Audio - Custom Arguments')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="ytdlpAudioCustomArgs"
-        :tooltip="t('Tooltips.External Downloader Settings.Audio - Custom Arguments')"
-        @input="updateYtdlpAudioCustomArgs"
-      />
+      <div class="inputWithCustomLabel">
+        <FtInput
+          :placeholder="t('Settings.External Downloader Settings.Video - Custom Arguments')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="ytdlpVideoCustomArgs"
+          :tooltip="t('Tooltips.External Downloader Settings.Video - Custom Arguments')"
+          @input="updateYtdlpVideoCustomArgs"
+        />
+      </div>
+      <div class="inputWithCustomLabel">
+        <FtInput
+          :placeholder="t('Settings.External Downloader Settings.Audio - Custom Arguments')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="ytdlpAudioCustomArgs"
+          :tooltip="t('Tooltips.External Downloader Settings.Audio - Custom Arguments')"
+          @input="updateYtdlpAudioCustomArgs"
+        />
+      </div>
     </FtFlexBox>
   </FtSettingsSection>
 </template>
@@ -270,6 +274,7 @@ onMounted(async () => {
 
 .customArgsRow {
   align-items: flex-start;
+  gap: 20px;
 }
 
 .pathRow {
