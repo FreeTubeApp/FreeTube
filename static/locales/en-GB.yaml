@@ -194,6 +194,8 @@ User Playlists:
   The playlist has been successfully exported: The playlist has been successfully exported
   TotalTimePlaylist: 'Total time: {duration}'
   Export list of URLs: Export list of URLs
+  Move Video to the Top: Move Video to the Top
+  Move Video to the Bottom: Move Video to the Bottom
 History:
   # On History Page
   History: 'History'
@@ -429,6 +431,9 @@ Settings:
       Picture in Picture: Picture in Picture
       External Player: External Player ({externalPlayerName})
       Theater: Cinema
+      Full Window (Always On): Full Window (Always On)
+      Full Screen (Always On): Full Screen (Always On)
+      Tooltip: Most default viewing modes are only applied at the start of each watch session. Changes made during the session persist until it ends. Always-on viewing modes are applied whenever you switch to a new video, regardless of any viewing mode changes made when viewing the previous video.
   External Player Settings:
     External Player Settings: External Player
     External Player: External Player
@@ -514,6 +519,15 @@ Settings:
     Export search history: Export search history
     All search history has been successfully imported: All search history has been successfully imported
     All search history has been successfully exported: All search history has been successfully exported
+    Settings File: Settings File
+    Import Settings: Import Settings
+    Export Settings: Export Settings
+    Settings Tooltip: Settings that are OS/user-specific or experimental cannot be exported or imported (e.g., proxy, external player, screenshot folder...)
+    All settings have been successfully imported: All settings have been successfully imported
+    All settings have been successfully exported: All settings have been successfully exported
+    Setting object has insufficient data, skipping item: Setting object has insufficient data, skipping item
+    Unknown setting key: 'Unknown setting key: {key}'
+    Non-transferable setting key: 'Non-transferable setting key: {key}'
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
     Hide Popular Videos: Hide Popular Videos
@@ -746,6 +760,7 @@ Channel:
   Courses:
     Courses: Courses
     This channel does not currently have any courses: This channel does not currently have any courses
+  View All: View All
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -930,6 +945,7 @@ Comments:
   Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
   View 1 reply from {channelName}: View 1 reply from {channelName}
   View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
+  Loading replies: Loading replies...
 Up Next: 'Up Next'
 Description:
   Expand Description: '...more'
