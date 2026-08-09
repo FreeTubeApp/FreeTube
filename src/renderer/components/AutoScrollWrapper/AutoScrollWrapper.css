@@ -20,3 +20,22 @@
 .bottomZone {
   inset-block-start: calc(100% - var(--zone-height));
 }
+
+/* width <= 680px = list view = video item height 125px = cannot have drag zone too high */
+@media only screen and (width >= 681px) and (height >= 768px) {
+  .hotZone {
+    --usable-zone-height: 100px;
+  }
+}
+
+@media only screen and (width >= 681px) and (height >= 1080px) {
+  .hotZone {
+    --usable-zone-height: 120px;
+  }
+}
+
+@media only screen and (width >= 681px) and (height >= 1440px) {
+  .hotZone {
+    --usable-zone-height: 150px;
+  }
+}
