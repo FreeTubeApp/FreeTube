@@ -517,8 +517,9 @@ async function handleDownload(mode) {
       break
     case 'not-configured':
     case 'error':
-      showToast(t('Video.Video download failed, please configure the External Downloader Settings'))
-      router.push({ path: '/settings', query: { section: 'external-downloader' } })
+      showToast(t('Video.Download failed - Click to open External Downloader settings'), 10000, () => {
+        router.push({ path: '/settings', query: { section: 'external-downloader' } })
+      })
       break
   }
 }

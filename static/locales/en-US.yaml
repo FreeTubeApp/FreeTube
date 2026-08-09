@@ -879,8 +879,8 @@ Video:
     End Time: End Time
   Video download has started: Video download has started
   Audio download has started: Audio download has started
-  Video download failed, please configure the External Downloader Settings: Video download
-    failed, please configure the External Downloader Settings
+  Download failed - Click to open External Downloader settings: Download failed - Click
+    to open External Downloader settings
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
@@ -1124,7 +1124,7 @@ Tooltips:
       and audio streams and for extracting audio-only downloads. If left empty, yt-dlp
       will use its own default lookup behavior.
     Output Directory: The directory yt-dlp should save downloaded videos to, passed via
-      yt-dlp's -o/--output option. If left empty, yt-dlp's own default output location is used.
+      yt-dlp's -o/--output option. Defaults to your Downloads folder.
     Video - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
       when downloading a video.
     Audio - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp

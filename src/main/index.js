@@ -1456,6 +1456,22 @@ function runApp() {
     })
   }
 
+  ipcMain.handle(IpcChannels.RESOLVE_YTDLP_OUTPUT_DIRECTORY, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return null
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne('ytdlpOutputDirectory'))?.value
+
+    if (typeof currentPath === 'string' && currentPath.length > 0) {
+      return currentPath
+    }
+
+    const defaultPath = app.getPath('downloads')
+    await persistAndSyncSetting('ytdlpOutputDirectory', defaultPath)
+    return defaultPath
+  })
+
   ipcMain.on(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY, async (event) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return

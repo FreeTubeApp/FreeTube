@@ -1,3 +1,4 @@
+import { app } from 'electron'
 import { execFile, spawn } from 'node:child_process'
 import { access, constants } from 'node:fs/promises'
 import { promisify } from 'node:util'
@@ -147,7 +148,7 @@ export async function handleDownloadVideo(event, payload) {
   }
 
   /** @type {string} */
-  const outputDirectory = (await settings._findOne('ytdlpOutputDirectory'))?.value || ''
+  const outputDirectory = (await settings._findOne('ytdlpOutputDirectory'))?.value || app.getPath('downloads')
 
   /** @type {string} */
   const ffmpegExecutable = (await settings._findOne('ffmpegExecutable'))?.value || ''
@@ -159,11 +160,7 @@ export async function handleDownloadVideo(event, payload) {
 
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`
 
-  const args = []
-
-  if (outputDirectory.length > 0) {
-    args.push('-o', `${outputDirectory}/%(title)s.%(ext)s`)
-  }
+  const args = ['-o', `${outputDirectory}/%(title)s.%(ext)s`]
 
   if (ffmpegExecutable.length > 0) {
     args.push('--ffmpeg-location', ffmpegExecutable)
