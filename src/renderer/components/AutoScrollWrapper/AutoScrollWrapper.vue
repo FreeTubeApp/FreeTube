@@ -66,7 +66,7 @@ function clearScrollDirection() {
  * @param {'up' | 'down'} direction
  */
 function scroll(direction) {
-  const SPEED = 6
+  const SPEED = 18
 
   if (direction === 'up') {
     globalThis.scrollBy(0, -SPEED)
