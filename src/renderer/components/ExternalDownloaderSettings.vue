@@ -258,6 +258,11 @@ onMounted(async () => {
     store.dispatch('updateFfmpegExecutable', resolvedFfmpeg)
   }
 
+  const resolvedOutputDirectory = await window.ftElectron.resolveYtdlpOutputDirectory()
+  if (resolvedOutputDirectory && resolvedOutputDirectory !== ytdlpOutputDirectory.value) {
+    store.dispatch('updateYtdlpOutputDirectory', resolvedOutputDirectory)
+  }
+
   await refreshVersions()
 })
 </script>

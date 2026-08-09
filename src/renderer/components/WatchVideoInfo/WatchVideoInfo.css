@@ -146,6 +146,11 @@
   min-inline-size: 220px;
 }
 
+.downloadOptions :deep(.ft-input) {
+  background-color: var(--bg-color);
+  border: 1px solid var(--tertiary-text-color);
+}
+
 .downloadButtons {
   display: flex;
   flex-direction: column;

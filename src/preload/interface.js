@@ -146,6 +146,13 @@ export default {
     ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY)
   },
 
+  /**
+   * @returns {Promise<string | null>}
+   */
+  resolveYtdlpOutputDirectory: () => {
+    return ipcRenderer.invoke(IpcChannels.RESOLVE_YTDLP_OUTPUT_DIRECTORY)
+  },
+
   chooseYtdlpExecutable: () => {
     ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_EXECUTABLE)
   },
