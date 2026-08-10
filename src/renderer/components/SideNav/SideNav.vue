@@ -191,6 +191,7 @@
           v-for="channel in activeSubscriptions"
           :key="channel.id"
           :to="`/channel/${channel.id}`"
+          :class="enableChannelLinks ? '' : 'disabledIcon'"
           class="navChannel channelLink mobileHidden"
           :title="channel.name"
           role="button"
