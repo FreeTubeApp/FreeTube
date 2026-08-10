@@ -12,7 +12,7 @@
     >
       <div
         v-if="data.type === 'quiz'"
-        class="option quiz-option"
+        class="option"
         :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
       >
         <span class="empty-circle">
@@ -27,7 +27,7 @@
       </div>
       <div
         v-else
-        class="option poll-option"
+        class="option"
       >
         <span class="empty-circle" />
         <img

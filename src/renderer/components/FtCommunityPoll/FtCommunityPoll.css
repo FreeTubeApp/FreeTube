@@ -55,11 +55,6 @@
   background-color: #78da71;
 }
 
-.incorrect-option {
-  border-color: #dd4e4e;
-  border-width: 2px;
-}
-
 .reveal-answer {
   justify-content: center;
   cursor: pointer;
