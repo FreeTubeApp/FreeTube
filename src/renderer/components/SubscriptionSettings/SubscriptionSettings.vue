@@ -78,8 +78,6 @@ function updateUseRssFeeds(value) {
   const max = value ? 15 : 30
   if (onlyShowLatestFromChannelNumber.value > max) {
     updateOnlyShowLatestFromChannelNumber(max)
-  } else if (!value && onlyShowLatestFromChannelNumber.value === 15) {
-    updateOnlyShowLatestFromChannelNumber(max)
   }
 }
 
