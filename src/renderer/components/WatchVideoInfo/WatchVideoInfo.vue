@@ -112,7 +112,7 @@
             @click="handleExternalPlayer"
           />
           <FtIconButton
-            v-if="USING_ELECTRON"
+            v-if="USING_ELECTRON && downloadEnabled"
             :title="t('Video.Download Video')"
             :icon="['fas', 'download']"
             theme="secondary"
@@ -121,7 +121,7 @@
             <div class="downloadOptions">
               <FtFlexBox>
                 <FtToggleSwitch
-                  :label="t('Video.Download.Include Timestamp')"
+                  :label="t('Video.Download.Timespan')"
                   :compact="true"
                   :default-value="downloadIncludeTimestamp"
                   @change="updateDownloadIncludeTimestamp"
@@ -389,6 +389,9 @@ const historyEntryExists = computed(() => store.getters.getHistoryCacheById[prop
 /** @type {import('vue').ComputedRef<string>} */
 const externalPlayer = computed(() => store.getters.getExternalPlayer)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const downloadEnabled = computed(() => store.getters.getYtdlpDownloadEnabled)
+
 /** @type {import('vue').ComputedRef<number>} */
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
 
@@ -515,6 +518,10 @@ async function handleDownload(mode) {
         ? t('Video.Audio download has started')
         : t('Video.Video download has started'))
       break
+    case 'cancelled':
+      // user closed the folder picker, nothing to report
+      break
+    case 'disabled':
     case 'not-configured':
     case 'error':
       showToast(t('Video.Download failed - Click to open External Downloader settings'), 10000, () => {

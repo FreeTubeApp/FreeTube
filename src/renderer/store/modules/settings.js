@@ -189,8 +189,9 @@ const state = {
   externalPlayerIgnoreDefaultArgs: false,
   externalPlayerCustomArgs: '[]',
   showAddedExternalPlayerCustomArgs: true,
+  ytdlpDownloadEnabled: false,
+  ytdlpDownloadMode: 'prompt_folder',
   ytdlpExecutable: '',
-  ffmpegExecutable: '',
   ytdlpOutputDirectory: '',
   ytdlpVideoCustomArgs: '',
   ytdlpAudioCustomArgs: '',
@@ -447,7 +448,6 @@ export const NON_TRANSFERABLE_SETTINGS = new Set([
   'showAddedExternalPlayerCustomArgs',
   // ExternalDownloaderSettings
   'ytdlpExecutable',
-  'ffmpegExecutable',
   'ytdlpOutputDirectory',
   'ytdlpVideoCustomArgs',
   'ytdlpAudioCustomArgs',

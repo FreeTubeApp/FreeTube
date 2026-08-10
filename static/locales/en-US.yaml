@@ -509,12 +509,15 @@ Settings:
         Name: None
   External Downloader Settings:
     External Downloader Settings: External Downloader
+    Enable Downloads: Enable Downloads
     yt-dlp Readme: yt-dlp Readme
     yt-dlp Executable Path: yt-dlp Executable Path
     Download yt-dlp: Download yt-dlp
-    ffmpeg Executable Path: ffmpeg Executable Path
-    Download FFmpeg: Download FFmpeg
     Choose Executable: Choose Executable
+    Output Directory Mode: Output Directory Mode
+    Output Directory Modes:
+      Ask Path: Ask Path
+      Save To Folder: Save To Folder
     Output Directory: Output Directory
     Choose Output Directory: Choose Output Directory
     Video - Custom Arguments: Video - Custom Arguments
@@ -874,7 +877,7 @@ Video:
   Download:
     Video: Video
     Audio: Audio
-    Include Timestamp: Include Timestamp
+    Timespan: Timespan
     Start Time: Start Time
     End Time: End Time
   Video download has started: Video download has started
@@ -1119,12 +1122,10 @@ Tooltips:
     yt-dlp Executable Path: By default, FreeTube will assume that yt-dlp can be found
       via the PATH environment variable. If needed, a custom path to the yt-dlp executable
       can be set here.
-    ffmpeg Executable Path: The path to the ffmpeg executable, passed to yt-dlp via its
-      --ffmpeg-location option. ffmpeg is required by yt-dlp for merging separate video
-      and audio streams and for extracting audio-only downloads. If left empty, yt-dlp
-      will use its own default lookup behavior.
+    Output Directory Mode: Ask Path will prompt you to choose a folder every time you download.
+      Save To Folder lets you set one folder to always download to.
     Output Directory: The directory yt-dlp should save downloaded videos to, passed via
-      yt-dlp's -o/--output option. Defaults to your Downloads folder.
+      yt-dlp's -o/--output option.
     Video - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
       when downloading a video.
     Audio - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp

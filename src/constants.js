@@ -47,9 +47,7 @@ const IpcChannels = {
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
   CHOOSE_YTDLP_OUTPUT_DIRECTORY: 'choose-ytdlp-output-directory',
-  RESOLVE_YTDLP_OUTPUT_DIRECTORY: 'resolve-ytdlp-output-directory',
   CHOOSE_YTDLP_EXECUTABLE: 'choose-ytdlp-executable',
-  CHOOSE_FFMPEG_EXECUTABLE: 'choose-ffmpeg-executable',
   FIND_EXECUTABLE_ON_PATH: 'find-executable-on-path',
   GET_DOWNLOADER_EXECUTABLE_VERSIONS: 'get-downloader-executable-versions',
 

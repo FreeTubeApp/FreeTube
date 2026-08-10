@@ -131,28 +131,23 @@ export default {
     ipcRenderer.send(IpcChannels.CHOOSE_DEFAULT_FOLDER)
   },
 
+  /**
+   * @returns {Promise<string | null>}
+   */
   chooseYtdlpOutputDirectory: () => {
-    ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY)
+    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY)
   },
 
   /**
    * @returns {Promise<string | null>}
    */
-  resolveYtdlpOutputDirectory: () => {
-    return ipcRenderer.invoke(IpcChannels.RESOLVE_YTDLP_OUTPUT_DIRECTORY)
-  },
-
   chooseYtdlpExecutable: () => {
-    ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_EXECUTABLE)
-  },
-
-  chooseFfmpegExecutable: () => {
-    ipcRenderer.send(IpcChannels.CHOOSE_FFMPEG_EXECUTABLE)
+    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_EXECUTABLE)
   },
 
   /**
    * @param {string} name
-   * @param {'ytdlpExecutable' | 'ffmpegExecutable'} settingId
+   * @param {'ytdlpExecutable'} settingId
    * @returns {Promise<string | null>}
    */
   resolveExecutablePath: (name, settingId) => {
@@ -160,7 +155,7 @@ export default {
   },
 
   /**
-   * @returns {Promise<{ ytdlp: string | null, ffmpeg: string | null }>}
+   * @returns {Promise<{ ytdlp: string | null }>}
    */
   getDownloaderExecutableVersions: () => {
     return ipcRenderer.invoke(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS)
