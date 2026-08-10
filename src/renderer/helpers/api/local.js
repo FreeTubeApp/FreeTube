@@ -1,4 +1,4 @@
-import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, Session, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
 import { parseLooseJSON } from 'bgutils-js/utils'
 
@@ -7,6 +7,7 @@ import { PlayerCache } from './PlayerCache'
 import {
   CHANNEL_HANDLE_REGEX,
   calculatePublishedDate,
+  deepCopy,
   escapeHTML,
   extractNumberFromString,
   getChannelPlaylistId,
@@ -379,8 +380,9 @@ export async function getLocalSearchContinuation(continuationData) {
 
 /**
  * @param {string} videoId
+ * @param {(input, init) => Promise<Response>} fetchFunc
  */
-async function getWatchHTMLWatchPage(videoId) {
+async function getWatchHTMLWatchPage(videoId, fetchFunc) {
   // This returns session/tracking cookies but they get removed in onHeadersReceived in the main process before they are saved by Electron
   const htmlResponse = await fetch(`https://www.youtube.com/watch?v=${videoId}&bpctr=9999999999&has_verified=1`,
     {
@@ -401,18 +403,21 @@ async function getWatchHTMLWatchPage(videoId) {
 
   const ytConfig = JSON.parse(ytConfigStr)
 
-  const initialAttestationData = htmlPage.match(/window\.ytAtN\(\s*({[\s\S]*?})\s*\)/)
+  const initialAttestationDataMatch = htmlPage.match(/window\.ytAtN\(\s*({[\s\S]*?})\s*\)/)
 
-  if (!initialAttestationData) {
+  if (!initialAttestationDataMatch) {
     // required for botguard
     throw new Error('Could not find challenge in the HTML page')
   }
 
-  const initialAttestationDataJson = parseLooseJSON(initialAttestationData[1])
-  const challengeData = initialAttestationDataJson.R
+  let initialAttestationData
 
-  if (!challengeData?.bgChallenge) {
-    throw new Error('Failed to get BotGuard challenge')
+  try {
+    initialAttestationData = parseLooseJSON(initialAttestationDataMatch[1])
+  } catch (e) {
+    const error = new Error('Failed to parse the initial attestation data', { cause: e })
+    console.error(error, initialAttestationDataMatch[1])
+    throw error
   }
 
   /** @type {string | undefined} */
@@ -448,13 +453,58 @@ async function getWatchHTMLWatchPage(videoId) {
     console.warn('Could not find /next response in the HTML page')
   }
 
+  const session = buildSessionFromYtConfig(ytConfig, fetchFunc)
+
   return {
     ytConfig,
-    challengeData,
+    initialAttestationData,
+    session,
     playerId,
     playerResponse,
     nextResponse
   }
+}
+
+/**
+ * @param {object} ytConfig
+ * @param {(input, init) => Promise<Response>} fetchFunc
+ */
+function buildSessionFromYtConfig(ytConfig, fetchFunc) {
+  const context = deepCopy(ytConfig.INNERTUBE_CONTEXT)
+
+  if (context.clickTracking) {
+    delete context.clickTracking
+  }
+
+  context.client.timeZone ??= Intl.DateTimeFormat().resolvedOptions().timeZone
+  context.client.screenDensityFloat ??= 1
+  context.client.screenHeightPoints ??= 1440
+  context.client.screenPixelDensity ??= 1
+  context.client.timeZone ??= 2560
+  context.client.utcOffsetMinutes ??= -Math.floor((new Date()).getTimezoneOffset())
+  context.client.memoryTotalKbytes ??= '8000000'
+
+  context.client.mainAppWebInfo ??= {
+    graftUrl: Constants.URLS.YT_BASE,
+    pwaInstallabilityStatus: 'PWA_INSTALLABILITY_STATUS_UNKNOWN',
+    webDisplayMode: 'WEB_DISPLAY_MODE_BROWSER',
+    isWebNativeShareAvailable: true
+  }
+
+  context.client.configInfo ??= {}
+  context.client.configInfo.coldConfigData ??= ytConfig.RAW_COLD_CONFIG_GROUP?.configData
+  context.client.configInfo.coldHashData ??= ytConfig.SERIALIZED_COLD_HASH_DATA
+  context.client.configInfo.hotHashData ??= ytConfig.SERIALIZED_HOT_HASH_DATA
+
+  context.user = {
+    enableSafetyMode: false,
+    lockedSafetyMode: false,
+  }
+
+  return new Session(
+    context, ytConfig.INNERTUBE_API_KEY, ytConfig.INNERTUBE_API_VERSION,
+    0, undefined, undefined, undefined, fetchFunc
+  )
 }
 
 /**
@@ -477,7 +527,29 @@ export async function getLocalVideoInfo(id) {
   let responseTime = Date.now()
   let totalAdTimeMilliseconds = 0
 
-  const htmlExtracts = await getWatchHTMLWatchPage(id)
+  const fetchFunc = async (input, init) => {
+    if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
+      return fetch(input, init)
+    }
+
+    const response = await fetch(input, init)
+    const responseText = await response.text()
+
+    responseTime = Date.now()
+
+    const json = JSON.parse(responseText)
+
+    totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(json)
+
+    // Need to return a new response object, as you can only read the response body once.
+    return new Response(responseText, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers
+    })
+  }
+
+  const htmlExtracts = await getWatchHTMLWatchPage(id, fetchFunc)
   responseTime = Date.now()
 
   const player = await Player.create(
@@ -495,7 +567,8 @@ export async function getLocalVideoInfo(id) {
     try {
       contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        JSON.stringify(htmlExtracts.challengeData),
+        JSON.stringify(htmlExtracts.session.context),
+        JSON.stringify(htmlExtracts.initialAttestationData),
         JSON.stringify(htmlExtracts.ytConfig)
       )
 
@@ -508,79 +581,44 @@ export async function getLocalVideoInfo(id) {
 
   let playerResponse
   let nextResponse
-  let context
+  const context = htmlExtracts.session.context
 
   if (htmlExtracts.playerResponse) {
     totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(htmlExtracts.playerResponse)
 
     playerResponse = { data: htmlExtracts.playerResponse }
-
-    context = htmlExtracts.ytConfig.INNERTUBE_CONTEXT
+  } else {
+    playerResponse = await htmlExtracts.session.actions.execute('/player', {
+      videoId: id,
+      racyCheckOk: true,
+      contentCheckOk: true,
+      playbackContext: {
+        contentPlaybackContext: {
+          vis: 0,
+          splay: false,
+          lactMilliseconds: '-1',
+          signatureTimestamp: player.signature_timestamp
+        }
+      },
+      serviceIntegrityDimensions: {
+        poToken: contentPoToken
+      }
+    })
   }
 
   if (htmlExtracts.nextResponse) {
     nextResponse = { data: htmlExtracts.nextResponse }
-  }
-
-  if (!playerResponse || !nextResponse) {
-    const webInnertube = await createInnertube({
-      generateSessionLocally: false,
-      fetchFunc: async (input, init) => {
-        if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
-          return fetch(input, init)
-        }
-
-        const response = await fetch(input, init)
-        const responseText = await response.text()
-
-        responseTime = Date.now()
-
-        const json = JSON.parse(responseText)
-
-        totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(json)
-
-        // Need to return a new response object, as you can only read the response body once.
-        return new Response(responseText, {
-          status: response.status,
-          statusText: response.statusText,
-          headers: response.headers
-        })
-      }
+  } else {
+    nextResponse = await htmlExtracts.session.actions.execute('/next', {
+      videoId: id,
+      racyCheckOk: true,
+      contentCheckOk: true
     })
-
-    context = webInnertube.session.context
-
-    if (!playerResponse) {
-      playerResponse = await webInnertube.actions.execute('/player', {
-        videoId: id,
-        racyCheckOk: true,
-        contentCheckOk: true,
-        playbackContext: {
-          contentPlaybackContext: {
-            vis: 0,
-            splay: false,
-            lactMilliseconds: '-1',
-            signatureTimestamp: player.signature_timestamp
-          }
-        },
-        serviceIntegrityDimensions: {
-          poToken: contentPoToken
-        }
-      })
-    }
-
-    if (!nextResponse) {
-      nextResponse = await webInnertube.actions.execute('/next', {
-        videoId: id,
-        racyCheckOk: true,
-        contentCheckOk: true
-      })
-    }
   }
 
   const cpn = Utils.generateRandomString(16)
 
-  const info = new YT.VideoInfo([playerResponse, nextResponse], undefined, cpn)
+  const info = new YT.VideoInfo([playerResponse, nextResponse], htmlExtracts.session.actions, cpn)
 
   // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
   // Legacy format requires this

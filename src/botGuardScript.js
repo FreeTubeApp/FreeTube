@@ -8,19 +8,53 @@ import { WebPoMinter } from 'bgutils-js/webpo'
 /**
  * Based on: https://github.com/LuanRT/BgUtils/blob/main/examples/node/innertube-challenge-fetcher-example.ts
  * @param {string} videoId
- * @param {object} challengeData
+ * @param {import('youtubei.js').Session['context']} context
+ * @param {object} initialAttestationData
  * @param {object} ytConfig
  */
-export default async function (videoId, challengeData, ytConfig) {
+export default async function (videoId, context, initialAttestationData, ytConfig) {
   const requestKey = 'O43z0dpjhgX20SCx4KAo'
 
-  window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID field
+  let challengeData = initialAttestationData.R
 
   if (!challengeData.bgChallenge) {
     throw new Error('Failed to get BotGuard challenge')
   }
 
-  let interpreterUrl = challengeData.bgChallenge.interpreterUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+  let interpreterUrl = challengeData.bgChallenge.interpreterUrl?.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+
+  if (!interpreterUrl) {
+    const challengeResponse = await fetch(
+      'https://www.youtube.com/youtubei/v1/att/get?prettyPrint=false&alt=json',
+      {
+        method: 'POST',
+        headers: {
+          Accept: '*/*',
+          'Content-Type': 'application/json',
+          'X-Goog-Visitor-Id': context.client.visitorData,
+          'X-Youtube-Client-Version': context.client.clientVersion,
+          'X-Youtube-Client-Name': '1'
+        },
+        body: JSON.stringify({
+          engagementType: 'ENGAGEMENT_TYPE_UNBOUND',
+          eacrToken: initialAttestationData.T,
+          context
+        }),
+      }
+    )
+
+    if (!challengeResponse.ok) {
+      throw new Error(`Request to ${challengeResponse.url} failed with status ${challengeResponse.status}\n${await challengeResponse.text()}`)
+    }
+
+    challengeData = await challengeResponse.json()
+
+    if (!challengeData.bgChallenge) {
+      throw new Error('Failed to get BotGuard challenge')
+    }
+
+    interpreterUrl = challengeData.bgChallenge.interpreterUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+  }
 
   if (interpreterUrl.startsWith('//')) {
     interpreterUrl = `https:${interpreterUrl}`
@@ -30,6 +64,7 @@ export default async function (videoId, challengeData, ytConfig) {
   const interpreterJavascript = await bgScriptResponse.text()
 
   if (interpreterJavascript) {
+    window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID field
     // eslint-disable-next-line no-new-func
     new Function(interpreterJavascript)()
   } else {

@@ -599,6 +599,9 @@ function runApp() {
         requestHeaders['Sec-Fetch-Mode'] = 'navigate'
         requestHeaders['Sec-Fetch-Site'] = 'none'
         requestHeaders['Sec-Fetch-User'] = '?1'
+        requestHeaders.Cookie = requestHeaders.Cookie
+          ? requestHeaders.Cookie + `;PREF=tz=${Intl.DateTimeFormat().resolvedOptions().timeZone.replace('/', '.')}`
+          : ''
       } else if (url === 'https://www.youtube.com/sw.js_data' || url.startsWith('https://www.youtube.com/api/timedtext')) {
         requestHeaders.Referer = 'https://www.youtube.com/sw.js'
         requestHeaders['Sec-Fetch-Site'] = 'same-origin'
@@ -1300,9 +1303,9 @@ function runApp() {
     })
   })
 
-  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (event, videoId, challengeData, ytConfig) => {
+  ipcMain.handle(IpcChannels.GENERATE_PO_TOKEN, (event, videoId, context, initialAttestationData, ytConfig) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {
-      return generatePoToken(videoId, challengeData, ytConfig, proxyUrl)
+      return generatePoToken(videoId, context, initialAttestationData, ytConfig, proxyUrl)
     }
   })
 
