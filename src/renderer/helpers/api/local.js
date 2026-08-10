@@ -1824,6 +1824,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
     }
     case 'SHORT':
+    case 'STATION':
     case 'VIDEO': {
       let publishedText
       let lengthSeconds = ''
@@ -1839,7 +1840,8 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
 
       /** @type {YTNodes.ThumbnailBottomOverlayView | undefined } */
-      const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
+      const thumbnailBottomOverlayView = lockupView.content_image?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView) ??
+        lockupView.content_image?.primary_thumbnail?.overlays?.firstOfType(YTNodes.ThumbnailBottomOverlayView)
 
       if (thumbnailBottomOverlayView) {
         if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
