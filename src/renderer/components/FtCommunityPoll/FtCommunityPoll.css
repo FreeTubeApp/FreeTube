@@ -12,7 +12,7 @@
   float: inline-start;
   block-size: 10px;
   position: relative;
-  inline-size: 10px;
+  min-inline-size: 10px;
 }
 
 .filled-circle {
