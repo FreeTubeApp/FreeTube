@@ -390,7 +390,7 @@ export default defineComponent({
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
-    const shouldUseSponsorBlockOnChannel = computed(() => {
+    const shouldSkipSponsorBlockSegmentsOnChannel = computed(() => {
       return useSponsorBlock.value && !sponsorBlockExcludedChannels.value.some(c => c.name === props.channelId)
     })
 
@@ -401,7 +401,7 @@ export default defineComponent({
 
     const sponsorSkips = computed(() => {
       // save some work when sponsorblock is disabled
-      if (!shouldUseSponsorBlockOnChannel.value) {
+      if (!useSponsorBlock.value) {
         return {}
       }
 
@@ -530,6 +530,10 @@ export default defineComponent({
      * @param {number} currentTime
      */
     function skipSponsorBlockSegments(currentTime) {
+      if (!shouldSkipSponsorBlockSegmentsOnChannel.value) {
+        return
+      }
+
       const { autoSkip } = sponsorSkips.value
 
       if (autoSkip.size === 0) {
@@ -1056,7 +1060,7 @@ export default defineComponent({
         createChapterMarkers()
       }
 
-      if (shouldUseSponsorBlockOnChannel.value && sponsorBlockSegments.length > 0) {
+      if (useSponsorBlock.value && sponsorBlockSegments.length > 0) {
         let duration
         if (hasLoaded.value) {
           const seekRange = player.seekRange()
@@ -1255,7 +1259,7 @@ export default defineComponent({
           updateStats()
         }
 
-        if (shouldUseSponsorBlockOnChannel.value && sponsorBlockSegments.length > 0 && canSeek()) {
+        if (useSponsorBlock.value && sponsorBlockSegments.length > 0 && canSeek()) {
           skipSponsorBlockSegments(currentTime)
         }
       }
@@ -2852,7 +2856,7 @@ export default defineComponent({
         forceAspectRatio.value = firstFormat.width / firstFormat.height < 1.5
       }
 
-      if (shouldUseSponsorBlockOnChannel.value && sponsorSkips.value.seekBar.length > 0) {
+      if (useSponsorBlock.value && sponsorSkips.value.seekBar.length > 0) {
         setupSponsorBlock()
       }
 
