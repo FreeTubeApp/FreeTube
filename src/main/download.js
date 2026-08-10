@@ -1,6 +1,7 @@
-import { app } from 'electron'
+import { app, BrowserWindow, dialog } from 'electron'
 import { execFile, spawn } from 'node:child_process'
 import { access, constants } from 'node:fs/promises'
+import { normalize } from 'node:path'
 import { promisify } from 'node:util'
 import { settings } from '../datastores/handlers/base'
 import { isFreeTubeUrl } from './utils'
@@ -71,37 +72,31 @@ async function getVersion(executable, versionArgs) {
 
 /**
  * @param {string} ytdlpExecutable
- * @param {string} ffmpegExecutable
- * @returns {Promise<{ ytdlp: string | null, ffmpeg: string | null }>}
+ * @returns {Promise<{ ytdlp: string | null }>}
  */
-export async function getExecutableVersions(ytdlpExecutable, ffmpegExecutable) {
-  const [ytdlp, ffmpeg] = await Promise.all([
-    getVersion(ytdlpExecutable, ['--version']),
-    getVersion(ffmpegExecutable, ['-version'])
-  ])
+export async function getExecutableVersions(ytdlpExecutable) {
+  const ytdlp = await getVersion(ytdlpExecutable, ['--version'])
 
-  const ffmpegVersion = ffmpeg?.match(/ffmpeg version (\S+)/)?.[1] ?? ffmpeg
-
-  return { ytdlp, ffmpeg: ffmpegVersion }
+  return { ytdlp }
 }
 
 /**
  * Terminal emulators to try on Linux, in order, along with how each one
  * expects the command to run to be passed.
- * @type {{ name: string, buildArgs: (executable: string, args: string[]) => string[] }[]}
+ * @type {{ name: string, buildArgs: (shellCommand: string) => string[] }[]}
  */
 const LINUX_TERMINALS = [
-  { name: 'x-terminal-emulator', buildArgs: (executable, args) => ['-e', executable, ...args] },
-  { name: 'gnome-terminal', buildArgs: (executable, args) => ['--', executable, ...args] },
-  { name: 'konsole', buildArgs: (executable, args) => ['-e', executable, ...args] },
-  { name: 'xfce4-terminal', buildArgs: (executable, args) => ['-x', executable, ...args] },
-  { name: 'kitty', buildArgs: (executable, args) => [executable, ...args] },
-  { name: 'alacritty', buildArgs: (executable, args) => ['-e', executable, ...args] },
-  { name: 'xterm', buildArgs: (executable, args) => ['-e', executable, ...args] },
+  { name: 'x-terminal-emulator', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
+  { name: 'gnome-terminal', buildArgs: (shellCommand) => ['--', 'sh', '-c', shellCommand] },
+  { name: 'konsole', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
+  { name: 'xfce4-terminal', buildArgs: (shellCommand) => ['-x', 'sh', '-c', shellCommand] },
+  { name: 'kitty', buildArgs: (shellCommand) => ['sh', '-c', shellCommand] },
+  { name: 'alacritty', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
+  { name: 'xterm', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
 ]
 
 /**
- * @returns {Promise<{ name: string, buildArgs: (executable: string, args: string[]) => string[] } | null>}
+ * @returns {Promise<{ name: string, buildArgs: (shellCommand: string) => string[] } | null>}
  */
 async function findLinuxTerminal() {
   for (const terminal of LINUX_TERMINALS) {
@@ -114,7 +109,43 @@ async function findLinuxTerminal() {
 }
 
 /**
- * @typedef {'ok' | 'invalid' | 'not-configured' | 'error'} DownloadVideoResult
+ * @param {string} path
+ * @returns {Promise<boolean>}
+ */
+async function hasWriteAccess(path) {
+  try {
+    await access(path, constants.W_OK)
+    return true
+  } catch {
+    return false
+  }
+}
+
+/**
+ * @param {import('electron').WebContents} webContents
+ * @param {string | undefined} [defaultPath]
+ * @returns {Promise<string | null>}
+ */
+async function promptForOutputDirectory(webContents, defaultPath) {
+  const dialogOptions = {
+    defaultPath: typeof defaultPath === 'string' && defaultPath.length > 0 ? defaultPath : app.getPath('downloads'),
+    properties: ['openDirectory']
+  }
+
+  const window = BrowserWindow.fromWebContents(webContents)
+  const result = window
+    ? await dialog.showOpenDialog(window, dialogOptions)
+    : await dialog.showOpenDialog(dialogOptions)
+
+  if (result.canceled) {
+    return null
+  }
+
+  return result.filePaths[0]
+}
+
+/**
+ * @typedef {'ok' | 'invalid' | 'not-configured' | 'disabled' | 'cancelled' | 'error'} DownloadVideoResult
  */
 
 /**
@@ -137,6 +168,13 @@ export async function handleDownloadVideo(event, payload) {
     return 'invalid'
   }
 
+  /** @type {boolean} */
+  const downloadEnabled = (await settings._findOne('ytdlpDownloadEnabled'))?.value || false
+
+  if (!downloadEnabled) {
+    return 'disabled'
+  }
+
   const hasValidStartTime = typeof startTime === 'number' && startTime >= 0
   const hasValidEndTime = typeof endTime === 'number' && endTime > 0
 
@@ -148,10 +186,23 @@ export async function handleDownloadVideo(event, payload) {
   }
 
   /** @type {string} */
-  const outputDirectory = (await settings._findOne('ytdlpOutputDirectory'))?.value || app.getPath('downloads')
+  const downloadMode = (await settings._findOne('ytdlpDownloadMode'))?.value || 'prompt_folder'
 
   /** @type {string} */
-  const ffmpegExecutable = (await settings._findOne('ffmpegExecutable'))?.value || ''
+  const storedOutputDirectory = (await settings._findOne('ytdlpOutputDirectory'))?.value || ''
+
+  const canUseStoredDirectory = downloadMode === 'default_folder' && storedOutputDirectory.length > 0 &&
+    await hasWriteAccess(normalize(storedOutputDirectory))
+
+  // Either "always ask" mode, or the stored folder is unset/no longer writable
+  // (e.g. a Flatpak-portal-granted folder that got revoked) - prompt for one.
+  const outputDirectory = canUseStoredDirectory
+    ? storedOutputDirectory
+    : await promptForOutputDirectory(event.sender, storedOutputDirectory)
+
+  if (!outputDirectory) {
+    return 'cancelled'
+  }
 
   const customArgsSettingId = mode === 'audio' ? 'ytdlpAudioCustomArgs' : 'ytdlpVideoCustomArgs'
 
@@ -161,10 +212,6 @@ export async function handleDownloadVideo(event, payload) {
   const videoUrl = `https://www.youtube.com/watch?v=${videoId}`
 
   const args = ['-o', `${outputDirectory}/%(title)s.%(ext)s`]
-
-  if (ffmpegExecutable.length > 0) {
-    args.push('--ffmpeg-location', ffmpegExecutable)
-  }
 
   if (hasValidStartTime || hasValidEndTime) {
     const start = hasValidStartTime ? startTime : 0
@@ -182,17 +229,25 @@ export async function handleDownloadVideo(event, payload) {
 
   args.push(videoUrl)
 
+  const fullCommand = [executable, ...args]
+
   if (process.platform === 'win32') {
+    // echo doesn't parse quotes, so the display line is only quoted where a part has a space
+    const displayCommand = fullCommand.map(part => part.includes(' ') ? `"${part}"` : part).join(' ')
     // cmd /k only strips quotes if they enclose the whole string, so wrap it twice
-    const innerCommand = [executable, ...args].map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
+    const runCommand = fullCommand.map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
+    const innerCommand = `echo ${displayCommand} && ${runCommand}`
 
     return spawnAndAwait('cmd.exe', ['/c', 'start', '""', '/wait', 'cmd.exe', '/k', `"${innerCommand}"`], {
       windowsVerbatimArguments: true
     })
   }
 
+  const shellCommand = `echo ${quoteForShellDisplay(fullCommand)} && exec ${quoteForShell(fullCommand)}`
+
   if (process.platform === 'darwin') {
-    return spawnAndAwait('open', ['-a', 'Terminal', '-n', '--args', executable, ...args])
+    const appleScript = `tell application "Terminal" to do script ${quoteForAppleScript(shellCommand)}`
+    return spawnAndAwait('osascript', ['-e', appleScript])
   }
 
   const terminal = await findLinuxTerminal()
@@ -201,7 +256,31 @@ export async function handleDownloadVideo(event, payload) {
     return 'error'
   }
 
-  return spawnAndAwait(terminal.name, terminal.buildArgs(executable, args))
+  return spawnAndAwait(terminal.name, terminal.buildArgs(shellCommand))
+}
+
+/**
+ * @param {string[]} parts
+ * @returns {string}
+ */
+function quoteForShell(parts) {
+  return parts.map(part => `'${part.replaceAll("'", "'\\''")}'`).join(' ')
+}
+
+/**
+ * @param {string[]} parts
+ * @returns {string}
+ */
+function quoteForShellDisplay(parts) {
+  return parts.map(part => part.includes(' ') ? `'${part}'` : part).join(' ')
+}
+
+/**
+ * @param {string} command
+ * @returns {string}
+ */
+function quoteForAppleScript(command) {
+  return `"${command.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`
 }
 
 /**
