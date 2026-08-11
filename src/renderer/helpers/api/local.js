@@ -1,11 +1,13 @@
-import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, Session, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
 import Autolinker from 'autolinker'
-import { SEARCH_CHAR_LIMIT } from '../../../constants'
+import { parseLooseJSON } from 'bgutils-js/utils'
 
+import { SEARCH_CHAR_LIMIT } from '../../../constants'
 import { PlayerCache } from './PlayerCache'
 import {
   CHANNEL_HANDLE_REGEX,
   calculatePublishedDate,
+  deepCopy,
   escapeHTML,
   extractNumberFromString,
   getChannelPlaylistId,
@@ -377,6 +379,135 @@ export async function getLocalSearchContinuation(continuationData) {
 }
 
 /**
+ * @param {string} videoId
+ * @param {(input, init) => Promise<Response>} fetchFunc
+ */
+async function getWatchHTMLWatchPage(videoId, fetchFunc) {
+  // This returns session/tracking cookies but they get removed in onHeadersReceived in the main process before they are saved by Electron
+  const htmlResponse = await fetch(`https://www.youtube.com/watch?v=${videoId}&bpctr=9999999999&has_verified=1`,
+    {
+      headers: {
+        // We need to be able to parse the localised strings in the /next response data (e.g. view counts and published dates)
+        'Accept-Language': 'en-US'
+      }
+    }
+  )
+
+  const htmlPage = await htmlResponse.text()
+
+  const ytConfigStr = htmlPage.match(/ytcfg\.set\(({.+?})\);/s)?.[1]
+  if (!ytConfigStr) {
+    // required for botguard
+    throw new Error('Could not find ytcfg in the HTML page')
+  }
+
+  const ytConfig = JSON.parse(ytConfigStr)
+
+  const initialAttestationDataMatch = htmlPage.match(/window\.ytAtN\(\s*({[\s\S]*?})\s*\)/)
+
+  if (!initialAttestationDataMatch) {
+    // required for botguard
+    throw new Error('Could not find challenge in the HTML page')
+  }
+
+  let initialAttestationData
+
+  try {
+    initialAttestationData = parseLooseJSON(initialAttestationDataMatch[1])
+  } catch (e) {
+    const error = new Error('Failed to parse the initial attestation data', { cause: e })
+    console.error(error, initialAttestationDataMatch[1])
+    throw error
+  }
+
+  /** @type {string | undefined} */
+  let playerId = ytConfig.PLAYER_JS_URL?.match(/player\/([^/]+)\//)?.[1]
+
+  playerId ??= htmlPage.match(/<script[^>]+src="[^">]+player\/([^/]+)\/[^"]+\/base.js"/)?.[1]
+
+  const playerResponseStr = htmlPage.match(/ytInitialPlayerResponse\s*=\s*(\{.+?\});/)?.[1]
+  let playerResponse
+
+  // not fatal if it is missing as we can retrieve it from Innertube ourselves
+  if (playerResponseStr) {
+    try {
+      playerResponse = JSON.parse(playerResponseStr)
+    } catch (e) {
+      console.warn('/player response extracted from the HTML page is invalid JSON', e)
+    }
+  } else {
+    console.warn('Could not find /player response in the HTML page')
+  }
+
+  const nextResponseStr = htmlPage.match(/(?:window\s*\[\s*["']ytInitialData["']\s*\]|ytInitialData)\s*=\s*(\{.+?\});/)?.[1]
+  let nextResponse
+
+  // not fatal if it is missing as we can retrieve it from Innertube ourselves
+  if (nextResponseStr) {
+    try {
+      nextResponse = JSON.parse(nextResponseStr)
+    } catch (e) {
+      console.warn('/next response extracted from the HTML page is invalid JSON', e)
+    }
+  } else {
+    console.warn('Could not find /next response in the HTML page')
+  }
+
+  const session = buildSessionFromYtConfig(ytConfig, fetchFunc)
+
+  return {
+    ytConfig,
+    initialAttestationData,
+    session,
+    playerId,
+    playerResponse,
+    nextResponse
+  }
+}
+
+/**
+ * @param {object} ytConfig
+ * @param {(input, init) => Promise<Response>} fetchFunc
+ */
+function buildSessionFromYtConfig(ytConfig, fetchFunc) {
+  const context = deepCopy(ytConfig.INNERTUBE_CONTEXT)
+
+  if (context.clickTracking) {
+    delete context.clickTracking
+  }
+
+  context.client.timeZone ??= Intl.DateTimeFormat().resolvedOptions().timeZone
+  context.client.screenDensityFloat ??= 1
+  context.client.screenHeightPoints ??= 1440
+  context.client.screenPixelDensity ??= 1
+  context.client.screenWidthPoints ??= 2560
+  context.client.utcOffsetMinutes ??= -Math.floor((new Date()).getTimezoneOffset())
+  context.client.memoryTotalKbytes ??= '8000000'
+
+  context.client.mainAppWebInfo ??= {
+    graftUrl: Constants.URLS.YT_BASE,
+    pwaInstallabilityStatus: 'PWA_INSTALLABILITY_STATUS_UNKNOWN',
+    webDisplayMode: 'WEB_DISPLAY_MODE_BROWSER',
+    isWebNativeShareAvailable: true
+  }
+
+  context.client.configInfo ??= {}
+  context.client.configInfo.coldConfigData ??= ytConfig.RAW_COLD_CONFIG_GROUP?.configData
+  context.client.configInfo.coldHashData ??= ytConfig.SERIALIZED_COLD_HASH_DATA
+  context.client.configInfo.hotHashData ??= ytConfig.SERIALIZED_HOT_HASH_DATA
+
+  context.user = {
+    enableSafetyMode: false,
+    lockedSafetyMode: false,
+  }
+
+  return new Session(
+    context, ytConfig.INNERTUBE_API_KEY, ytConfig.INNERTUBE_API_VERSION,
+    0, undefined, undefined, undefined, fetchFunc
+  )
+}
+
+/**
  * @param {string} id
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
@@ -391,54 +522,41 @@ export async function getLocalSearchContinuation(continuationData) {
  * }>}
  */
 export async function getLocalVideoInfo(id) {
-  let responseTime = Date.now()
+  let responseTime
   let totalAdTimeMilliseconds = 0
 
-  const webInnertube = await createInnertube({
-    withPlayer: true,
-    generateSessionLocally: false,
-    fetchFunc: async (input, init) => {
-      if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
-        return fetch(input, init)
-      }
-
-      const response = await fetch(input, init)
-
-      const responseText = await response.text()
-
-      responseTime = Date.now()
-
-      const json = JSON.parse(responseText)
-
-      if (Array.isArray(json.adSlots)) {
-        for (const adSlot of json.adSlots) {
-          if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
-            const instreamVideoAdRenderer = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
-              ?.renderingContent?.instreamVideoAdRenderer
-
-            if (instreamVideoAdRenderer) {
-              if (typeof instreamVideoAdRenderer.skipOffsetMilliseconds === 'number') {
-                totalAdTimeMilliseconds += instreamVideoAdRenderer.skipOffsetMilliseconds
-              } else if (instreamVideoAdRenderer.playerVars) {
-                const match = instreamVideoAdRenderer.playerVars.match(/length_seconds=([\d.]+)/)
-
-                if (match) {
-                  totalAdTimeMilliseconds += parseFloat(match[1]) * 1000
-                }
-              }
-            }
-          }
-        }
-      }
-
-      // Need to return a new response object, as you can only read the response body once.
-      return new Response(responseText, {
-        status: response.status,
-        statusText: response.statusText,
-        headers: response.headers
-      })
+  const fetchFunc = async (input, init) => {
+    if (!(input.url?.startsWith('https://www.youtube.com/youtubei/v1/player'))) {
+      return fetch(input, init)
     }
-  })
+
+    const response = await fetch(input, init)
+    const responseText = await response.text()
+
+    responseTime = Date.now()
+
+    const json = JSON.parse(responseText)
+
+    totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(json)
+
+    // Need to return a new response object, as you can only read the response body once.
+    return new Response(responseText, {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers
+    })
+  }
+
+  const htmlExtracts = await getWatchHTMLWatchPage(id, fetchFunc)
+  responseTime = Date.now()
+
+  const player = await Player.create(
+    process.env.IS_ELECTRON ? new PlayerCache() : new UniversalCache(false),
+    (input, init) => fetch(input, init),
+    undefined,
+    // If we found the player ID in the HTML we can pass it in to save one request inside Player.create()
+    htmlExtracts.playerId
+  )
 
   // based on the videoId
   let contentPoToken
@@ -447,23 +565,64 @@ export async function getLocalVideoInfo(id) {
     try {
       contentPoToken = await window.ftElectron.generatePoToken(
         id,
-        JSON.stringify(webInnertube.session.context)
+        JSON.stringify(htmlExtracts.session.context),
+        JSON.stringify(htmlExtracts.initialAttestationData),
+        JSON.stringify(htmlExtracts.ytConfig)
       )
 
-      webInnertube.session.player.po_token = contentPoToken
+      player.po_token = contentPoToken
     } catch (error) {
       console.error('Local API, poToken generation failed', error)
       throw error
     }
   }
 
-  const info = await webInnertube.getInfo(id, { po_token: contentPoToken })
+  let playerResponse
+  let nextResponse
+  const context = htmlExtracts.session.context
+
+  if (htmlExtracts.playerResponse) {
+    totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(htmlExtracts.playerResponse)
+
+    playerResponse = { data: htmlExtracts.playerResponse }
+  } else {
+    playerResponse = await htmlExtracts.session.actions.execute('/player', {
+      videoId: id,
+      racyCheckOk: true,
+      contentCheckOk: true,
+      playbackContext: {
+        contentPlaybackContext: {
+          vis: 0,
+          splay: false,
+          lactMilliseconds: '-1',
+          signatureTimestamp: player.signature_timestamp
+        }
+      },
+      serviceIntegrityDimensions: {
+        poToken: contentPoToken
+      }
+    })
+  }
+
+  if (htmlExtracts.nextResponse) {
+    nextResponse = { data: htmlExtracts.nextResponse }
+  } else {
+    nextResponse = await htmlExtracts.session.actions.execute('/next', {
+      videoId: id,
+      racyCheckOk: true,
+      contentCheckOk: true
+    })
+  }
+
+  const cpn = Utils.generateRandomString(16)
+
+  const info = new YT.VideoInfo([playerResponse, nextResponse], htmlExtracts.session.actions, cpn)
 
   // Some time would be used for parsing and maybe additional requests so end time should be calculated sooner to reduce actual waiting time
   // Legacy format requires this
   const adEndTimeUnixMs = responseTime + totalAdTimeMilliseconds
 
-  let { clientName, clientVersion, osName, osVersion } = webInnertube.session.context.client
+  let { clientName, clientVersion, osName, osVersion } = context.client
 
   let hasTrailer = info.has_trailer
   let trailerIsAgeRestricted = info.getTrailerInfo() === null
@@ -475,12 +634,12 @@ export async function getLocalVideoInfo(id) {
   ) {
     try {
       const webEmbeddedInnertube = await createInnertube({ clientType: ClientType.WEB_EMBEDDED })
-      webEmbeddedInnertube.session.context.client.visitorData = webInnertube.session.context.client.visitorData
+      webEmbeddedInnertube.session.context.client.visitorData = context.client.visitorData
 
       const videoId = hasTrailer && trailerIsAgeRestricted ? info.playability_status.error_screen.video_id : id
 
       // getBasicInfo needs the signature timestamp (sts) from inside the player
-      webEmbeddedInnertube.session.player = webInnertube.session.player
+      webEmbeddedInnertube.session.player = player
 
       const bypassedInfo = await webEmbeddedInnertube.getBasicInfo(videoId, { client: 'WEB_EMBEDDED', po_token: contentPoToken })
 
@@ -530,8 +689,6 @@ export async function getLocalVideoInfo(id) {
   }
 
   if (info.streaming_data) {
-    const player = webInnertube.session.player
-
     await decipherFormats(info.streaming_data.formats, player)
 
     if (info.streaming_data.server_abr_streaming_url) {
@@ -541,7 +698,7 @@ export async function getLocalVideoInfo(id) {
     if (info.streaming_data.dash_manifest_url) {
       info.streaming_data.dash_manifest_url = await decipherManifestUrl(
         info.streaming_data.dash_manifest_url,
-        webInnertube.session.player,
+        player,
         contentPoToken,
         true
       )
@@ -550,7 +707,7 @@ export async function getLocalVideoInfo(id) {
     if (info.streaming_data.hls_manifest_url) {
       info.streaming_data.hls_manifest_url = await decipherManifestUrl(
         info.streaming_data.hls_manifest_url,
-        webInnertube.session.player,
+        player,
         contentPoToken,
         false
       )
@@ -579,6 +736,36 @@ export async function getLocalVideoInfo(id) {
     clientInfo,
     adEndTimeUnixMs,
   }
+}
+
+/**
+ * @type {object}
+ */
+function extractTotalAdTimeMilliseconds(json) {
+  let totalAdTimeMilliseconds = 0
+
+  if (Array.isArray(json.adSlots)) {
+    for (const adSlot of json.adSlots) {
+      if (adSlot.adSlotRenderer?.adSlotMetadata?.triggerEvent === 'SLOT_TRIGGER_EVENT_BEFORE_CONTENT') {
+        const instreamVideoAdRenderer = adSlot.adSlotRenderer.fulfillmentContent?.fulfilledLayout?.playerBytesAdLayoutRenderer
+          ?.renderingContent?.instreamVideoAdRenderer
+
+        if (instreamVideoAdRenderer) {
+          if (typeof instreamVideoAdRenderer.skipOffsetMilliseconds === 'number') {
+            totalAdTimeMilliseconds += instreamVideoAdRenderer.skipOffsetMilliseconds
+          } else if (instreamVideoAdRenderer.playerVars) {
+            const match = instreamVideoAdRenderer.playerVars.match(/length_seconds=([\d.]+)/)
+
+            if (match) {
+              totalAdTimeMilliseconds += parseFloat(match[1]) * 1000
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return totalAdTimeMilliseconds
 }
 
 /**

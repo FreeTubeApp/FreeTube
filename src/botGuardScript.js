@@ -1,4 +1,6 @@
-import { BG, buildURL, GOOG_API_KEY } from 'bgutils-js'
+import { BotGuardClient } from 'bgutils-js/botguard'
+import { buildURL, GOOG_API_KEY } from 'bgutils-js/utils'
+import { WebPoMinter } from 'bgutils-js/webpo'
 
 // This script has it's own webpack config, as it gets passed as a string to Electron's evaluateJavaScript function
 // in src/main/poTokenGenerator.js
@@ -7,39 +9,52 @@ import { BG, buildURL, GOOG_API_KEY } from 'bgutils-js'
  * Based on: https://github.com/LuanRT/BgUtils/blob/main/examples/node/innertube-challenge-fetcher-example.ts
  * @param {string} videoId
  * @param {import('youtubei.js').Session['context']} context
+ * @param {object} initialAttestationData
+ * @param {object} ytConfig
  */
-export default async function (videoId, context) {
+export default async function (videoId, context, initialAttestationData, ytConfig) {
   const requestKey = 'O43z0dpjhgX20SCx4KAo'
 
-  const challengeResponse = await fetch(
-    'https://www.youtube.com/youtubei/v1/att/get?prettyPrint=false&alt=json',
-    {
-      method: 'POST',
-      headers: {
-        Accept: '*/*',
-        'Content-Type': 'application/json',
-        'X-Goog-Visitor-Id': context.client.visitorData,
-        'X-Youtube-Client-Version': context.client.clientVersion,
-        'X-Youtube-Client-Name': '1'
-      },
-      body: JSON.stringify({
-        engagementType: 'ENGAGEMENT_TYPE_UNBOUND',
-        context
-      }),
-    }
-  )
-
-  if (!challengeResponse.ok) {
-    throw new Error(`Request to ${challengeResponse.url} failed with status ${challengeResponse.status}\n${await challengeResponse.text()}`)
-  }
-
-  const challengeData = await challengeResponse.json()
+  let challengeData = initialAttestationData.R
 
   if (!challengeData.bgChallenge) {
     throw new Error('Failed to get BotGuard challenge')
   }
 
-  let interpreterUrl = challengeData.bgChallenge.interpreterUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+  let interpreterUrl = challengeData.bgChallenge.interpreterUrl?.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+
+  if (!interpreterUrl) {
+    const challengeResponse = await fetch(
+      'https://www.youtube.com/youtubei/v1/att/get?prettyPrint=false&alt=json',
+      {
+        method: 'POST',
+        headers: {
+          Accept: '*/*',
+          'Content-Type': 'application/json',
+          'X-Goog-Visitor-Id': context.client.visitorData,
+          'X-Youtube-Client-Version': context.client.clientVersion,
+          'X-Youtube-Client-Name': '1'
+        },
+        body: JSON.stringify({
+          engagementType: 'ENGAGEMENT_TYPE_UNBOUND',
+          eacrToken: initialAttestationData.T,
+          context
+        }),
+      }
+    )
+
+    if (!challengeResponse.ok) {
+      throw new Error(`Request to ${challengeResponse.url} failed with status ${challengeResponse.status}\n${await challengeResponse.text()}`)
+    }
+
+    challengeData = await challengeResponse.json()
+
+    if (!challengeData.bgChallenge) {
+      throw new Error('Failed to get BotGuard challenge')
+    }
+
+    interpreterUrl = challengeData.bgChallenge.interpreterUrl.privateDoNotAccessOrElseTrustedResourceUrlWrappedValue
+  }
 
   if (interpreterUrl.startsWith('//')) {
     interpreterUrl = `https:${interpreterUrl}`
@@ -49,16 +64,17 @@ export default async function (videoId, context) {
   const interpreterJavascript = await bgScriptResponse.text()
 
   if (interpreterJavascript) {
+    window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID field
     // eslint-disable-next-line no-new-func
     new Function(interpreterJavascript)()
   } else {
     throw new Error('Could not load VM.')
   }
 
-  const botGuard = await BG.BotGuardClient.create({
+  const botGuard = await BotGuardClient.create({
     program: challengeData.bgChallenge.program,
     globalName: challengeData.bgChallenge.globalName,
-    globalObj: window
+    globalObject: window
   })
 
   const webPoSignalOutput = []
@@ -80,7 +96,7 @@ export default async function (videoId, context) {
     throw new Error('Could not get integrity token')
   }
 
-  const integrityTokenBasedMinter = await BG.WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
+  const integrityTokenBasedMinter = await WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
 
   return await integrityTokenBasedMinter.mintAsWebsafeString(videoId)
 }

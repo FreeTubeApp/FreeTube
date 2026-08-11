@@ -33,8 +33,8 @@ importers:
         specifier: ^4.1.5
         version: 4.1.5
       bgutils-js:
-        specifier: ^3.2.0
-        version: 3.2.0
+        specifier: ^4.0.3
+        version: 4.0.3
       dompurify:
         specifier: ^3.4.11
         version: 3.4.11
@@ -1883,8 +1883,8 @@ packages:
   batch@0.6.1:
     resolution: {integrity: sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==}
 
-  bgutils-js@3.2.0:
-    resolution: {integrity: sha512-CacO15JvxbclbLeCAAm9DETGlLuisRGWpPigoRvNsccSCPEC4pwYwA2g2x/pv7Om/sk79d4ib35V5HHmxPBpDg==}
+  bgutils-js@4.0.3:
+    resolution: {integrity: sha512-nvhrzqRYqFcC3AJbf1fENc/jzyMk95wH9UC9ruQzTZCq+itYWuHi2a9leK/bC1lLfi+R4a28wJZxpD5KiTFf+w==}
 
   birpc@2.9.0:
     resolution: {integrity: sha512-KrayHS5pBi69Xi9JmvoqrIgYGDkD6mcSe/i6YKi3w5kekCLzrX4+nawcXqrj2tIp50Kw/mT/s3p+GVK0A0sKxw==}
@@ -7096,7 +7096,7 @@ snapshots:
 
   batch@0.6.1: {}
 
-  bgutils-js@3.2.0: {}
+  bgutils-js@4.0.3: {}
 
   birpc@2.9.0: {}
 
