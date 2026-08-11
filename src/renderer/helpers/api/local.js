@@ -480,7 +480,7 @@ function buildSessionFromYtConfig(ytConfig, fetchFunc) {
   context.client.screenDensityFloat ??= 1
   context.client.screenHeightPoints ??= 1440
   context.client.screenPixelDensity ??= 1
-  context.client.timeZone ??= 2560
+  context.client.screenWidthPoints ??= 2560
   context.client.utcOffsetMinutes ??= -Math.floor((new Date()).getTimezoneOffset())
   context.client.memoryTotalKbytes ??= '8000000'
 
