@@ -522,9 +522,7 @@ function buildSessionFromYtConfig(ytConfig, fetchFunc) {
  * }>}
  */
 export async function getLocalVideoInfo(id) {
-  // This is a false positive, the variable is definitely used below
-  // eslint-disable-next-line no-useless-assignment
-  let responseTime = Date.now()
+  let responseTime
   let totalAdTimeMilliseconds = 0
 
   const fetchFunc = async (input, init) => {
