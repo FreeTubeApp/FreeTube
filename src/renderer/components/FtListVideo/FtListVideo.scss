@@ -1,5 +1,7 @@
 @use '../../scss-partials/ft-list-item';
 
+$grab-bar-padding: 1em;
+
 .thumbnailLink:hover {
   outline: 3px solid var(--side-nav-hover-color);
 }
@@ -11,7 +13,19 @@
   user-select: none;
 
   // Space a bit from the thumbnail.
-  padding-block: 1em;
+  padding-block: $grab-bar-padding;
+
+  svg {
+    // Make icon appears more centered from default `-0.125em` from FA style
+    vertical-align: -0.15em;
+  }
+}
+
+.ft-list-video:has(.grabBar) {
+  // Only grid mode has `.grabBar`
+  // Make top & bottom padding look consistent
+  /* stylelint-disable-next-line declaration-property-value-no-unknown */
+  padding-block: 0 $grab-bar-padding;
 }
 
 .draggable:not(.draggable:only-child):focus .grabBar,
