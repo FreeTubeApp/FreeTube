@@ -3,6 +3,9 @@
     <div
       v-if="hotZoneShown"
       class="hotZone topZone"
+      :class="{
+        grid: isGridMode,
+      }"
       @dragenter="setScrollDirection('up')"
       @dragleave="clearScrollDirection"
     />
@@ -12,6 +15,9 @@
     <div
       v-if="hotZoneShown"
       class="hotZone bottomZone"
+      :class="{
+        grid: isGridMode,
+      }"
       @dragenter="setScrollDirection('down')"
       @dragleave="clearScrollDirection"
     />
@@ -23,6 +29,10 @@ import { ref, watch, onWatcherCleanup } from 'vue'
 
 const props = defineProps({
   hotZoneEnabled: {
+    type: Boolean,
+    default: false,
+  },
+  isGridMode: {
     type: Boolean,
     default: false,
   },

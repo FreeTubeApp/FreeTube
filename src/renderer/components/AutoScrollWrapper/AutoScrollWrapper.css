@@ -12,12 +12,26 @@
 
 .topZone {
   /* top nav height manually inspected to be 60px */
-  --zone-height: calc(var(--usable-zone-height) + 60px);
+  --zone-height: calc(var(--usable-zone-height) + 60px + var(--zone-height-spacing-top-for-header));
+
+  /* Must have `px` suffix or `calc()` won't work */
+  --zone-height-spacing-top-for-header: 100px;
 
   inset-block-start: 0;
 }
 
+.topZone.grid {
+  /* grid mode top playlist header manually inspected to be ~120px */
+  --zone-height-spacing-top-for-header: 160px;
+}
+
 .bottomZone {
+  inset-block-start: calc(100% - var(--zone-height));
+}
+
+.bottomZone.grid {
+  --zone-height: calc(var(--usable-zone-height) + 80px);
+
   inset-block-start: calc(100% - var(--zone-height));
 }
 
@@ -25,17 +39,5 @@
 @media only screen and (width >= 681px) and (height >= 768px) {
   .hotZone {
     --usable-zone-height: 100px;
-  }
-}
-
-@media only screen and (width >= 681px) and (height >= 1080px) {
-  .hotZone {
-    --usable-zone-height: 120px;
-  }
-}
-
-@media only screen and (width >= 681px) and (height >= 1440px) {
-  .hotZone {
-    --usable-zone-height: 150px;
   }
 }
