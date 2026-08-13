@@ -10,7 +10,7 @@
     </div>
     <FtInput
       ref="tagNameInput"
-      :disabled="disabled"
+      :disabled="disabled || isUpdating"
       :placeholder="tagNamePlaceholder"
       :label="label"
       :min-input-length="minInputLength"
@@ -83,7 +83,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { useId, useTemplateRef } from 'vue'
+import { useId, useTemplateRef, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtInput from '../FtInput/FtInput.vue'
@@ -145,33 +145,43 @@ const id = useId()
 
 const tagNameInput = useTemplateRef('tagNameInput')
 
+const isUpdating = ref(false)
+
 /**
  * @param {string} text
  */
 async function updateTags(text) {
-  if (props.areChannelTags) {
-    await updateChannelTags(text)
-    return
+  if (isUpdating.value) return
+
+  isUpdating.value = true
+
+  try {
+    if (props.areChannelTags) {
+      await updateChannelTags(text)
+      return
+    }
+
+    // add tag and update tag list
+    const trimmedText = text.trim()
+
+    if (props.minInputLength > trimmedText.length) {
+      showToast(t('Trimmed input must be at least N characters long', { length: props.minInputLength }, props.minInputLength))
+      return
+    }
+
+    if (props.tagList.includes(trimmedText)) {
+      showToast(t('Tag already exists', { tagName: trimmedText }))
+      return
+    }
+
+    const newList = props.tagList.slice()
+    newList.push(trimmedText)
+    emit('change', newList)
+    // clear input box
+    tagNameInput.value.clear()
+  } finally {
+    isUpdating.value = false
   }
-
-  // add tag and update tag list
-  const trimmedText = text.trim()
-
-  if (props.minInputLength > trimmedText.length) {
-    showToast(t('Trimmed input must be at least N characters long', { length: props.minInputLength }, props.minInputLength))
-    return
-  }
-
-  if (props.tagList.includes(trimmedText)) {
-    showToast(t('Tag already exists', { tagName: trimmedText }))
-    return
-  }
-
-  const newList = props.tagList.slice()
-  newList.push(trimmedText)
-  emit('change', newList)
-  // clear input box
-  tagNameInput.value.clear()
 }
 
 /**

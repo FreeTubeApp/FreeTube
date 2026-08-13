@@ -22,6 +22,7 @@ updates:
           - "neostandard"
           - "@intlify/eslint-plugin-vue-i18n"
           - "@stylistic/eslint-plugin"
+          - "globals"
       stylelint:
         patterns:
           - "stylelint"

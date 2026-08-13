@@ -115,29 +115,13 @@ The first build with a green check mark is the latest build.
 > [!IMPORTANT]
 > You will need to have a GitHub account to download these builds.
 
-### Unofficial Downloads
-> [!WARNING]
-> These builds are maintained by the community. While they should be safe, download at your own risk. There may be issues with using these versus the official builds. Any issues specific with these builds should be sent to their respective maintainer. Make sure you always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
+### Projects maintained by individual FreeTube team members
+> [!IMPORTANT]
+> The following are related projects maintained by individual members of the FreeTube team. While they are not part of the main FreeTube project, they may be useful to FreeTube users. There may be issues when using these projects compared to the official builds. Any issues specific to these builds should be reported to their respective maintainers. Make sure you always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
 
-* Arch User Repository (AUR): [Download](https://aur.archlinux.org/packages/freetube-bin/)
-
-* Chocolatey: [Download](https://chocolatey.org/packages/freetube/)
+* Homebrew FreeTube (Apple Silicon only): [Install](https://github.com/PikachuEXE/homebrew-FreeTube)
 
 * FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
-
-* Homebrew Formulae (Mac only): [Download for Apple Silicon](https://github.com/PikachuEXE/homebrew-FreeTube)
-
-* Nix Packages: [Download](https://search.nixos.org/packages?query=freetube)
-
-* PortableApps (Windows Only): [Download](https://github.com/rddim/FreeTubePortable/releases) and [Source Code](https://github.com/rddim/FreeTubePortable)
-
-* Scoop (Windows Only): [Usage](https://github.com/ScoopInstaller/Scoop)
-
-* Snap: [Download](https://snapcraft.io/freetube) and [Source Code](https://git.launchpad.net/freetube)
-
-* WAPT: [Download](https://wapt.tranquil.it/store/en/tis-freetube)
-
-* Windows Package Manager (winget): [Usage](https://docs.microsoft.com/en-us/windows/package-manager/winget/)
 
 ## Contributing
 Thank you very much to the [People and Projects](https://docs.freetubeapp.io/credits/) that make FreeTube possible!

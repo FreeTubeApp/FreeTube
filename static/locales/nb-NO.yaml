@@ -190,6 +190,8 @@ User Playlists:
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   TotalTimePlaylist: 'Total tid: {duration}'
   Export list of URLs: Eksporter liste over URL-er
+  Move Video to the Top: Flytt videoen til toppen
+  Move Video to the Bottom: Flytt videoen til bunnen
 History:
   # On History Page
   History: 'Historikk'
@@ -409,7 +411,9 @@ Settings:
       Quality Label: Skjermbildekvalitet
       Modes:
         Ask Path: Spør om hvor ting skal lagres
+        Save To Folder: Lagre i mappe
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned, i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer. %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t videomillisekunder, i tre siffer. %i video-ID.
+      Mode: Skjermbildemodus
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
     Scroll Playback Rate Over Video Player: Juster avspillingshastighet ved rulling over videoavspiller
     Video Playback Rate Interval: Intervall for videoavspillingshastighet
@@ -421,6 +425,7 @@ Settings:
       Theater: Teater
       Picture in Picture: Bilde-i-bilde
       External Player: Ekstern avspiller ({externalPlayerName})
+      Full Screen (Always On): Fullskjerm (Alltid på)
     Autoplay Interruption Timer: Automatisk avspilling avbruddstidtaker
   Privacy Settings:
     Privacy Settings: 'Personvern'
