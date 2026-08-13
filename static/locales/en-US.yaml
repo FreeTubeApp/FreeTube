@@ -479,6 +479,9 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+    Default Language:
+      Default Language: Default Audio Language
+      System Language: Use System Locale
     Screenshot:
       Enable: Enable Screenshot
       Mode: Screenshot Mode

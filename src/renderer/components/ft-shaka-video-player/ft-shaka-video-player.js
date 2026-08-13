@@ -290,6 +290,33 @@ export default defineComponent({
       return parseInt(value)
     })
 
+    /** @type {import('vue').ComputedRef<string>} */
+    const defaultAudioLanguage = computed(() => store.getters.getDefaultAudioLanguage)
+
+    /** @type {import('vue').ComputedRef<string>} */
+    const preferredAudioLanguage = computed(() => {
+      return defaultAudioLanguage.value === 'system' ? locale.value : defaultAudioLanguage.value
+    })
+
+    /**
+     * Filters the given variants to the user's preferred audio language, falling back to the main audio track.
+     * @param {shaka.extern.Variant[]} variants
+     * @returns {shaka.extern.Variant[]}
+     */
+    function filterVariantsByPreferredLanguage(variants) {
+      const languageVariants = variants.filter((variant) => {
+        return shaka.util.LanguageUtils.areLanguageCompatible(preferredAudioLanguage.value, variant.language)
+      })
+
+      if (languageVariants.length > 0) {
+        const mainVariants = languageVariants.filter(variant => variant.audioRoles.includes('main'))
+        return mainVariants.length > 0 ? mainVariants : languageVariants
+      }
+
+      const mainVariants = variants.filter(variant => variant.audioRoles.includes('main'))
+      return mainVariants.length > 0 ? mainVariants : variants
+    }
+
     /** @type {import('vue').ComputedRef<boolean>} */
     const enterFullscreenOnDisplayRotate = computed(() => {
       return store.getters.getEnterFullscreenOnDisplayRotate
@@ -634,7 +661,11 @@ export default defineComponent({
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
-        preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : []
+        preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : [],
+
+        // The default language to prefer for the audio track.
+        // 'system' uses FreeTube's active locale, which shaka-player matches by prefix.
+        preferredAudioLanguage: preferredAudioLanguage.value
       }
     }
 
@@ -1462,12 +1493,7 @@ export default defineComponent({
       if (label) {
         variants = variants.filter(variant => variant.label === label)
       } else if (hasMultipleAudioTracks.value) {
-        // default audio track
-        const filteredVariants = variants.filter(variant => variant.audioRoles.includes('main'))
-        // Sometimes there is nothing marked as main, don't filter in this case
-        if (filteredVariants.length > 0) {
-          variants = filteredVariants
-        }
+        variants = filterVariantsByPreferredLanguage(variants)
       }
 
       const isPortrait = variants[0].height > variants[0].width
@@ -2906,8 +2932,7 @@ export default defineComponent({
               let variants = player.getVariantTracks()
 
               if (hasMultipleAudioTracks.value) {
-                // default audio track
-                variants = variants.filter(variant => variant.audioRoles.includes('main'))
+                variants = filterVariantsByPreferredLanguage(variants)
               }
 
               const highestBandwidth = Math.max(...variants.map(variant => variant.audioBandwidth))
@@ -3164,12 +3189,7 @@ export default defineComponent({
                 if (label) {
                   variants = variants.filter(variant => variant.label === label)
                 } else if (variants.length > 1) {
-                  // default audio track
-                  const filteredVariants = variants.filter(variant => variant.audioRoles.includes('main'))
-                  // Sometimes there is nothing marked as main, don't filter in this case
-                  if (filteredVariants.length > 0) {
-                    variants = filteredVariants
-                  }
+                  variants = filterVariantsByPreferredLanguage(variants)
                 }
 
                 let chosenVariant
