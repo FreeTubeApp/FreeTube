@@ -65,11 +65,16 @@ jobs:
         persist-credentials: false
 
     # Do not restore the pnpm cache, to avoid cache poisoning affecting releases
-    - name: Install pnpm and Node.js ${{ matrix.node-version }}
-      uses: pnpm/setup@4f13ee5aab1d5632c834b3d81877f68f8b80f337
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 #v7.0.0
       with:
-        runtime: node@${{ matrix.node-version }}
-        version: 11
+        node-version: ${{ matrix.node-version }}
+        package-manager-cache: false
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 #v6.0.9
+      with:
+        version: 10
         cache: false
 
     - run: pnpm run ci
