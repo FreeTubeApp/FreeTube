@@ -241,9 +241,8 @@ const showProgressBarPreview = ref(false)
 const previewPosition = ref(0)
 const previewVideoIndex = ref(1)
 const windowWidth = ref(window.innerWidth)
-const savedScrollTop = ref(0)
-const lastScrolledVideoId = ref(null)
-
+let savedScrollTop = 0
+let lastScrolledVideoId = null
 let prevVideoBeforeDeletion = null
 let getPlaylistInfoRun = false
 
@@ -480,16 +479,16 @@ function getPlaylistInfoWithDelay() {
 
 function saveScrollState() {
   if (playlistItemsWrapper.value) {
-    savedScrollTop.value = playlistItemsWrapper.value.scrollTop
-    lastScrolledVideoId.value = props.videoId
+    savedScrollTop = playlistItemsWrapper.value.scrollTop
+    lastScrolledVideoId = props.videoId
   }
 }
 
 function restoreScrollState() {
-  if (lastScrolledVideoId.value !== props.videoId) {
+  if (lastScrolledVideoId !== props.videoId) {
     scrollToCurrentVideo()
   } else if (playlistItemsWrapper.value) {
-    playlistItemsWrapper.value.scrollTop = savedScrollTop.value
+    playlistItemsWrapper.value.scrollTop = savedScrollTop
   }
 }
 
