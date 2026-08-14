@@ -40,7 +40,7 @@ export function getProxyUrl(uri) {
 export async function invidiousFetch(url, retried = false) {
   const authorization = store.getters.getCurrentInvidiousInstanceAuthorization
 
-  const init = authorization
+  const init = authorization && !retried
     ? {
         headers: {
           Authorization: authorization
