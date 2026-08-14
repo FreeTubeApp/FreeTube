@@ -35,19 +35,28 @@ export function getProxyUrl(uri) {
 
 /**
  * @param {string | URL} url
+ * @param {boolean} [retried] internal, used to prevent infinite retries
  */
-export function invidiousFetch(url) {
+export async function invidiousFetch(url, retried = false) {
   const authorization = store.getters.getCurrentInvidiousInstanceAuthorization
 
-  if (authorization) {
-    return fetch(url, {
-      headers: {
-        Authorization: authorization
+  const init = authorization
+    ? {
+        headers: {
+          Authorization: authorization
+        }
       }
-    })
-  } else {
-    return fetch(url)
+    : undefined
+
+  const response = await fetch(url, init)
+
+  // A bad auth token can cause 401/403, so retry once without it
+  if (!retried && (response.status === 401 || response.status === 403) && String(url).includes('/api/v1/')) {
+    console.warn('Invidious API auth failure, retrying once without authorization', response.status)
+    return await invidiousFetch(url, true)
   }
+
+  return response
 }
 
 function invidiousAPICall({ resource, id = '', params = {}, doLogError = true, subResource = '' }) {
