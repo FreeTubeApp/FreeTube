@@ -454,7 +454,7 @@ Channel:
   Subscribe: '구독'
   Unsubscribe: '구독 취소'
   Channel has been removed from your subscriptions: '채널이 구독에서 제거되었습니다'
-  Removed subscription from {count} other channel(s): '{count}개의 다른 채널에서 구독을 제거했습니다'
+  Removed subscription from {count} other channel(s): '다른 {count}개의 채널에서 구독을 제거했습니다'
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'

@@ -260,7 +260,7 @@ const showMoreRepliesText = computed(() => {
 const toggleCommentRepliesText = computed(() => {
   const { channelName, comment: { hasOwnerReplied, numReplies: replyCount } } = props
   if (showReplies.value) {
-    return t('Comments.Hide Replies', { replyCount }, replyCount)
+    return t('Comments.Hide Replies')
   }
 
   if (hasOwnerReplied) {

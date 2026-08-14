@@ -35,6 +35,7 @@ Global:
     Like Count: 1 ŝato | {count} ŝatoj
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
+    Replies Remaining: "{' '}(restas 1) | {' '}(restas {count})"
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
@@ -996,7 +997,7 @@ Comments:
   Top comments: Plej bonaj komentoj
   Newest first: Plej novaj unue
   View {replyCount} replies: Vidi 1 respondon | Vidi {replyCount} respondojn
-  Hide {replyCount} replies: Kaŝi 1 respondon | Kaŝi {replyCount} respondojn
+  Hide Replies: Kaŝi respondojn
   View 1 reply from {channelName}: Vidi 1 respondon de {channelName}
   View {replyCount} replies from {channelName} and others: Vidi {replyCount} respondojn de {channelName} kaj aliaj
   Show More Replies: Montri pli da respondoj
