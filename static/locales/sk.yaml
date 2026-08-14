@@ -826,7 +826,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
-  Popout Live Chat: Popout Chat
+  Popout Live Chat: Vyskakovací chat
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
 Playlist:
   #& About
@@ -903,8 +903,8 @@ Local API Error (Click to copy): 'Chyba lokálneho API (kliknite pre kopírovani
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknite pre kopírovanie)'
 Falling back to Invidious API: 'Návrat k Invidious API'
 Falling back to Local API: 'Návrat k lokálnemu API'
-Loop is now disabled: 'Slučka je teraz vypnutá'
-Loop is now enabled: 'Slučka je teraz zapnutá'
+Loop is now disabled: 'Opakovanie videa je teraz vypnuté'
+Loop is now enabled: 'Opakovanie videa je teraz zapnuté'
 Shuffle is now disabled: 'Zamiešanie je teraz vypnuté'
 Shuffle is now enabled: 'Zamiešanie je teraz zapnuté'
 Playing Next Video: 'Prehrávanie nasledujúceho videa'

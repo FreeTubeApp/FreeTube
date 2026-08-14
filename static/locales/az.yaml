@@ -497,6 +497,17 @@ Settings:
     Hide Channels Invalid: Təqdim edilən Kanal ID-si etibarsız idi
     Hide Subscriptions Posts: Abunəlik Elanlarını Gizlət
     Show Added Items: Əlavə Olunmuş Elementləri Göstər
+    Hide Channels Already Exists: Kanal ID-si artıq var
+    Hide Featured Channels: Seçilmiş Kanalları Gizlət
+    Hide Channels Disabled Message: Bəzi kanallar ID vasitəsilə bloklandı və emal edilmədi. Bu ID-lər yenilənərkən xüsusiyyət bloklanır
+    Hide Channel Playlists: Kanal "Pleylistləri" Panelini Gizlət
+    Hide Channel Posts: Kanal "Elanları" Panelini Gizlət
+    Hide Channel Home: Kanal "Əsas Səhifə" Panelini Gizlət
+    Hide Channel Shorts: Kanal "Shorts" Panelini Gizlət
+    Hide Channel Podcasts: Kanal "Podkastlar" Panelini Gizlət
+    Hide Channel Releases: Kanal "Buraxılışlar" Panelini Gizlət
+    Hide Channel Courses: Kanal "Kurslar" Panelini Gizlət
+    Hide Videos, Playlists and Channels Containing Text: Mətn Olan Videoları, Pleylistləri və Kanalları Gizlət
 Channel:
   Videos:
     Videos: Videolar

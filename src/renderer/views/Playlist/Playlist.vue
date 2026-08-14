@@ -453,6 +453,23 @@ function getPlaylistInfo() {
 
 const getPlaylistInfoDebounce = debounce(getPlaylistInfo, 100)
 
+function resetState() {
+  isLoading.value = true
+  playlistTitle.value = ''
+  playlistDescription.value = ''
+  firstVideoId.value = ''
+  playlistThumbnail.value = ''
+  viewCount.value = 0
+  videoCount.value = 0
+  lastUpdated.value = undefined
+  channelName.value = ''
+  channelThumbnail.value = ''
+  channelId.value = ''
+  infoSource.value = 'local'
+  playlistItems.value = []
+  continuationData.value = null
+}
+
 async function getPlaylistLocal() {
   try {
     const result = await getLocalPlaylist(playlistId.value)
@@ -588,7 +605,10 @@ function parseUserPlaylist(playlist) {
 }
 
 // react to route changes...
-watch(playlistId, getPlaylistInfoDebounce)
+watch(playlistId, () => {
+  resetState()
+  getPlaylistInfoDebounce()
+})
 
 watch(userPlaylistsReady, () => {
   // Fetch from local store when playlist data ready
@@ -598,12 +618,22 @@ watch(userPlaylistsReady, () => {
 })
 
 // Fetch from local store when current user playlist changed
-watch(selectedUserPlaylist, getPlaylistInfoDebounce)
+watch(selectedUserPlaylist, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 // Re-fetch from local store when current user playlist updated
-watch(selectedUserPlaylistLastUpdatedAt, getPlaylistInfoDebounce)
+watch(selectedUserPlaylistLastUpdatedAt, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 watch(selectedUserPlaylistVideoCount, async () => {
+  if (!isUserPlaylistRequested.value) { return }
+
   // Monitoring `selectedUserPlaylistVideos` makes this function called
   // Even when the same array object is returned
   // So length is monitored instead
