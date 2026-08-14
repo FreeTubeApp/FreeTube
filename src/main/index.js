@@ -46,6 +46,7 @@ if (process.argv.includes('--version')) {
     app.exit()
   } else {
     baseHandlers.loadDatastores()
+    baseHandlers.scheduleDatastoreCompaction()
     runApp()
   }
 }

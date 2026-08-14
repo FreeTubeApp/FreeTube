@@ -400,6 +400,19 @@ function compactAllDatastores() {
   ])
 }
 
+const COMPACTION_INTERVAL_MS = 60 * 60 * 1000
+
+/** Compact the datastores every hour so they don't grow forever. */
+function scheduleDatastoreCompaction() {
+  const timer = setInterval(() => {
+    compactAllDatastores()
+  }, COMPACTION_INTERVAL_MS)
+
+  timer.unref?.()
+
+  return timer
+}
+
 export {
   Settings as settings,
   History as history,
@@ -410,4 +423,5 @@ export {
 
   loadDatastores,
   compactAllDatastores,
+  scheduleDatastoreCompaction,
 }
