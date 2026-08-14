@@ -84,7 +84,11 @@ export async function handleOpenInExternalPlayer(event, payload) {
   const customArgs = (await settings._findOne('externalPlayerCustomArgs'))?.value || '[]'
 
   if (typeof customArgs === 'string' && customArgs !== '[]') {
-    args.push(...JSON.parse(customArgs))
+    try {
+      args.push(...JSON.parse(customArgs))
+    } catch (error) {
+      console.error('Failed to parse externalPlayerCustomArgs, ignoring it', error)
+    }
   } else if (!ignoreDefaultArgs && Array.isArray(cmdArgs.defaultCustomArguments)) {
     args.push(...cmdArgs.defaultCustomArguments)
   }
