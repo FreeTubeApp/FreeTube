@@ -34,7 +34,6 @@ Global:
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
-    Replies Remaining: "{' '}(zostáva 1) | {' '}(zostáva {count})"
   Live: Naživo
   Posts: Príspevky
   Shorts: Krátke

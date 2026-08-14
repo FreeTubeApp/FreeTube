@@ -41,7 +41,6 @@ Global:
     Video Count: 1 video | {count} videoer
     View Count: 1 visning | {count} visninger
     Like Count: 1 liker | {count} liker
-    Replies Remaining: "{' '}(1 igjen) | {' '}({count} igjen)"
 Search / Go to URL: 'Søk / gå til nettadresse'
   # In Filter Button
 Search Filters:

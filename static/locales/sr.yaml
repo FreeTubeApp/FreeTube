@@ -36,7 +36,6 @@ Global:
     Channel Count: 1 канал | {count} канала
     Comment Count: 1 коментар | {count} коментара
     Like Count: 1 свиђање | {count} свиђања
-    Replies Remaining: "{' '}(преостало 1) | {' '}(преостало {count})"
   Live: Уживо
   Posts: Постови
   Shorts: Кратки

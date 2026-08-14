@@ -38,7 +38,6 @@ Global:
     Channel Count: 1 канал | {count} канала(ов)
     Comment Count: 1 комментарий | {count} комментариев
     Like Count: 1 лайк | {count} лайков
-    Replies Remaining: "{' '}(осталось 1) | {' '}(осталось {count})"
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:

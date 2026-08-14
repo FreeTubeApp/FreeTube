@@ -41,7 +41,6 @@ Global:
     Channel Count: 1 kanal | {count} kanala
     Comment Count: 1 komentar | {count} komentara
     Like Count: 1 lajk | {count} lajkova
-    Replies Remaining: "{' '}(preostalo 1) | {' '}(preostalo {count})"
 Search / Go to URL: 'Pretraži / Idi na URL'
   # In Filter Button
 Search Filters:

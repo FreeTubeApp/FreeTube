@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 глядач | {count} глядачів
     Like Count: 1 вподобання | {count} вподобань
     Comment Count: 1 коментар | {count} коментарів
-    Replies Remaining: "{' '}(залишилося 1) | {' '}(залишилося {count})"
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
 Download From Site: 'Завантажити з сайту'
 

@@ -35,7 +35,6 @@ Global:
     Like Count: 1 ŝato | {count} ŝatoj
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
-    Replies Remaining: "{' '}(restas 1) | {' '}(restas {count})"
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'

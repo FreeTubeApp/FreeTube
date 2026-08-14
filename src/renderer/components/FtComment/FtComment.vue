@@ -1,5 +1,6 @@
 <template>
   <div
+    :id="id"
     class="comment"
   >
     <component
@@ -140,8 +141,8 @@
         class="showMoreReplies"
         role="button"
         tabindex="0"
-        @click="getCommentReplies()"
-        @keydown.enter.space.prevent="getCommentReplies()"
+        @click="getCommentReplies"
+        @keydown.enter.space.prevent="getCommentReplies"
       >
         <span>{{ showMoreRepliesText }}</span>
       </div>
@@ -198,7 +199,8 @@ const props = defineProps({
     required: true
   },
   autoloadThisReplyLevel: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   getInvidiousCommentReplies: {
     /** @type {PropType<(replyToken: string) => Promise<{commentData: InvidiousComment[], continuation?: string} | null>>} */
@@ -258,17 +260,19 @@ const showMoreRepliesText = computed(() => {
 })
 
 const toggleCommentRepliesText = computed(() => {
-  const { channelName, comment: { hasOwnerReplied, numReplies: replyCount } } = props
+  const channelName = props.channelName
+  const replyCount = props.comment.numReplies
+
   if (showReplies.value) {
     return t('Comments.Hide Replies')
   }
 
-  if (hasOwnerReplied) {
+  if (props.comment.hasOwnerReplied) {
     if (replyCount > 1) {
       return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount, channelName })
     }
 
-    return t('Comments.View 1 reply from {channelName}', { channelName: channelName })
+    return t('Comments.View 1 reply from {channelName}', { channelName })
   }
 
   return t('Comments.View {replyCount} replies', { replyCount }, replyCount)
