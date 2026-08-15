@@ -358,7 +358,7 @@ async function doRequest(
         switch (part.type) {
           case UMPPartId.STREAM_PROTECTION_STATUS: {
             const streamProtectionStatus = decodePart(part, StreamProtectionStatus)
-            if (streamProtectionStatus.status === 3) {
+            if (streamProtectionStatus.status === 2 || streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
             break
@@ -566,12 +566,17 @@ async function doRequest(
     currentState.abortStatus.finished = false
     return doRequest(operationInputs, currentState)
   } else if (invalidPoToken) {
-    throw new ShakaError(
-      ShakaError.Severity.CRITICAL,
-      ShakaError.Category.NETWORK,
-      ShakaError.Code.HTTP_ERROR,
+    // A rejected token cannot recover within this SABR session. Requesting a
+    // player reload causes the watch page to fetch fresh HTML and generate a
+    // new page-bound token while preserving the current playback timestamp.
+    currentState.sabrStreamState.playerReloadRequested = true
+    if (!currentState.abortController.signal.aborted) {
+      currentState.abortController.abort()
+      currentState.eventEmitter.emit('reload')
+    }
+    throw createRecoverableNetworkError(
+      ShakaError.Code.OPERATION_ABORTED,
       operationInputs.uri,
-      new Error('Invalid PO token'),
       operationInputs.requestType,
     )
   } else if (error) {
