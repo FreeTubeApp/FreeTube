@@ -319,7 +319,7 @@ async function getCommentDataLocal(more = false) {
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
-    if (err.message.includes('Comments page did not have any content')) {
+    if (err.message.includes('The comments page did not have any content')) {
       // For videos without any comment (comment disabled?)
       // e.g. https://youtu.be/8NBSwDEf8a8
       commentData.value = []
