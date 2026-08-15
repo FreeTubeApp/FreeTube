@@ -1125,6 +1125,7 @@ onBeforeRouteLeave((to) => {
     store.commit('setCachedPlaylist', {
       id: playlistId.value,
       title: playlistTitle.value,
+      totalVideoCount: videoCount,
       channelName: channelName.value,
       channelId: channelId.value,
       items: sortedPlaylistItems.value,
