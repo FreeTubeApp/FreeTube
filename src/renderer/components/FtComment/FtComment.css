@@ -1,5 +1,42 @@
 .comment {
   padding: 15px;
+  position: relative;
+  z-index: 0;
+}
+
+.comment::before {
+  z-index: -1;
+  content: '';
+  inset-block: 0;
+  inset-inline-start: -1px;
+  inline-size: 45px;
+  border-inline-end: 2px solid var(--scrollbar-color);
+  position: absolute;
+}
+
+.comment:first-child::before {
+  inset-block-start: 45px;
+}
+
+.comment:last-child:not(:has(>.commentReplies))::before {
+  block-size: 15px;
+}
+
+.comment:last-child > .commentReplies > *::after {
+  content: '';
+  border-inline-start: 2px solid var(--card-bg-color);
+  inline-size: 45px;
+  inset-block: 0;
+  inset-inline-start: -1px;
+  position: absolute;
+}
+
+.comment:last-child > .commentReplies > *:first-child::after {
+  inset-block-start: 47px;
+}
+
+.commentReplies > .comment:first-child::before {
+  border-block-start: 2px solid var(--scrollbar-color);
 }
 
 .commentThumbnail {
@@ -151,13 +188,15 @@
 }
 
 .showMoreReplies {
-  margin-inline-start: 30px;
+  padding-inline-start: 22.5px;
+  position: relative;
   font-size: 15px;
   cursor: pointer;
   text-decoration: underline;
 }
 
 .loadingMoreReplies {
-  margin-inline-start: 30px;
+  padding-inline-start: 22.5px;
+  position: relative;
   font-size: 15px;
 }

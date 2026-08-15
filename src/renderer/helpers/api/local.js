@@ -2450,7 +2450,7 @@ export async function getLocalCommunityPost(postId, channelId) {
  * @param {string} channelId
  */
 export async function getLocalCommunityPostComments(postId, channelId) {
-  const innertube = await createInnertube()
+  const innertube = await createInnertube({ generateSessionLocally: false })
 
   return await innertube.getPostComments(postId, channelId)
 }
