@@ -34,6 +34,7 @@
 @media only screen and (width <= 1000px) {
   .commentSort {
     float: none;
+    margin-block: 15px;
   }
 }
 

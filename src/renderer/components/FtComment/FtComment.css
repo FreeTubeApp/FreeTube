@@ -1,7 +1,47 @@
 .comment {
-  padding: 15px;
+  --comment-thumb-size: 60px;
+  --comment-thumb-font-size: calc(var(--comment-thumb-size) * 0.4);
+  --comment-padding-block: 15px;
+  --comment-padding-inline: 15px;
+  --thread-line-padding-block: calc(var(--comment-thumb-size) / 2 + var(--comment-padding-block));
+  --thread-line-padding-inline: calc(var(--comment-thumb-size) / 2 + var(--comment-padding-inline));
+
+  padding-block: var(--comment-padding-block);
+  padding-inline: var(--comment-padding-inline);
   position: relative;
   z-index: 0;
+}
+
+.commentReplies {
+  margin-inline-start: calc(var(--comment-thumb-size) / 2);
+  padding-block-start: var(--comment-padding-block);
+}
+
+.commentReplies .comment {
+  --comment-thumb-size: 50px;
+
+  padding-inline-end: 0;
+}
+
+.commentReplies .comment:last-child {
+  padding-block-end: 0;
+}
+
+@media only screen and (width <= 680px) {
+  .comment {
+    --comment-thumb-size: 30px;
+    --comment-thumb-font-size: calc(var(--comment-thumb-size) * 0.6);
+    --comment-padding-block: 10px;
+    --comment-padding-inline: 10px;
+
+    margin-inline: -10px;
+  }
+
+  .commentReplies .comment {
+    --comment-thumb-size: 20px;
+
+    margin-inline: 0;
+  }
 }
 
 .comment::before {
@@ -9,34 +49,34 @@
   content: '';
   inset-block: 0;
   inset-inline-start: -1px;
-  inline-size: 45px;
+  inline-size: var(--thread-line-padding-inline);
   border-inline-end: 2px solid var(--scrollbar-color);
   position: absolute;
 }
 
 .comment:first-child::before {
-  inset-block-start: 44px;
+  inset-block-start: calc(var(--thread-line-padding-block) - 1px);
 }
 
 .comment:last-child::before {
-  inset-block-end: 26px; /* 15px padding + 1em margin from .commentLikeCount */
+  inset-block-end: calc(var(--comment-padding-block) + 11px);
 }
 
 .comment:last-child:not(:has(>.commentReplies))::before {
-  block-size: 15px;
+  block-size: var(--comment-padding-block);
 }
 
 .comment:last-child > .commentReplies > *::after {
   content: '';
   border-inline-start: 2px solid var(--card-bg-color);
-  inline-size: 45px;
+  inline-size: var(--thread-line-padding-inline);
   inset-block: 0;
   inset-inline-start: -1px;
   position: absolute;
 }
 
 .comment:last-child > .commentReplies > *:first-child::after {
-  inset-block-start: 46px;
+  inset-block-start: calc(var(--thread-line-padding-block) + 1px);
 }
 
 .commentReplies > .comment:first-child::before {
@@ -45,8 +85,8 @@
 
 .commentThumbnail {
   float: inline-start;
-  inline-size: 60px;
-  block-size: 60px;
+  block-size: var(--comment-thumb-size);
+  inline-size: var(--comment-thumb-size);
   border-radius: 200px;
 }
 
@@ -55,9 +95,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  inline-size: 60px;
-  block-size: 60px;
-  font-size: 20px;
+  block-size: var(--comment-thumb-size);
+  inline-size: var(--comment-thumb-size);
+  font-size: var(--comment-thumb-font-size);
   line-height: 1em;
   color: rgb(0 0 0);
   background-color: rgb(235 160 172);
@@ -67,7 +107,7 @@
 .commentAuthorWrapper {
   font-weight: bold;
   font-size: 14px;
-  margin-inline-start: 68px;
+  margin-inline-start: calc(var(--comment-thumb-size) + 8px);
   margin-block-start: 0;
   overflow-wrap: break-word;
 }
@@ -88,7 +128,7 @@
   font-size: 14px;
   /* stylelint-disable-next-line liberty/use-logical-spec */
   margin-left: -10px;
-  margin-inline-start: 70px;
+  margin-inline-start: calc(var(--comment-thumb-size) + 10px);
   overflow-wrap: break-word;
 }
 
@@ -103,7 +143,7 @@
   font-weight: normal;
   font-size: 12px;
   margin-block: 0 5px;
-  margin-inline-start: 68px;
+  margin-inline-start: calc(var(--comment-thumb-size) + 8px);
 }
 
 .commentDate {
@@ -128,7 +168,7 @@
 
 .commentLikeCount {
   font-size: 11px;
-  margin-inline-start: 70px;
+  margin-inline-start: calc(var(--comment-thumb-size) + 10px);
   margin-block-start: 0;
 }
 
@@ -182,21 +222,8 @@
   color: var(--title-color);
 }
 
-.commentReplies {
-  margin-inline-start: 30px;
-  padding-block-start: 15px;
-}
-
-.commentReplies .comment {
-  padding-inline-end: 0;
-}
-
-.commentReplies .comment:last-child {
-  padding-block-end: 0;
-}
-
 .showMoreReplies {
-  padding-inline-start: 22.5px;
+  padding-inline-start: calc(var(--thread-line-padding-inline) / 2);
   position: relative;
   font-size: 15px;
   cursor: pointer;
@@ -204,7 +231,7 @@
 }
 
 .loadingMoreReplies {
-  padding-inline-start: 22.5px;
+  padding-inline-start: calc(var(--thread-line-padding-inline) / 2);
   position: relative;
   font-size: 15px;
 }
