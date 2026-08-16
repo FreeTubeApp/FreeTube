@@ -100,7 +100,7 @@
         />
       </span>
       <span
-        v-if="comment.numReplies > 0 && !repliesLoading"
+        v-if="showReplies || comment.numReplies > 0 && !repliesLoading"
         class="commentMoreReplies"
         role="button"
         tabindex="0"

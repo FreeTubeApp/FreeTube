@@ -15,7 +15,11 @@
 }
 
 .comment:first-child::before {
-  inset-block-start: 45px;
+  inset-block-start: 44px;
+}
+
+.comment:last-child::before {
+  inset-block-end: 26px; /* 15px padding + 1em margin from .commentLikeCount */
 }
 
 .comment:last-child:not(:has(>.commentReplies))::before {
@@ -32,7 +36,7 @@
 }
 
 .comment:last-child > .commentReplies > *:first-child::after {
-  inset-block-start: 47px;
+  inset-block-start: 46px;
 }
 
 .commentReplies > .comment:first-child::before {
@@ -181,6 +185,10 @@
 .commentReplies {
   margin-inline-start: 30px;
   padding-block-start: 15px;
+}
+
+.commentReplies .comment {
+  padding-inline-end: 0;
 }
 
 .commentReplies .comment:last-child {
