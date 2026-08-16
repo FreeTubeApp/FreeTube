@@ -1911,12 +1911,9 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         author = lockupView.metadata?.metadata?.metadata_rows[0].metadata_parts?.[0].avatar_stack.text?.text
       }
 
-      const maybeCollaborators = lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.command?.inline_content?.custom_content?.items
+      const maybeCollaboratorIds = lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.command?.inline_content?.custom_content?.items
         .filter(item => item.renderer_context?.command_context?.on_tap?.metadata?.page_type === 'WEB_PAGE_TYPE_CHANNEL')
-      let collaboratorIds = []
-      if (maybeCollaborators) {
-        collaboratorIds = maybeCollaborators.map(item => item.renderer_context?.command_context?.on_tap?.payload?.browseId)
-      }
+        .map(item => item.renderer_context?.command_context?.on_tap?.payload?.browseId)
 
       return {
         type: 'video',
@@ -1924,7 +1921,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         title: lockupView.metadata.title.text?.trim(),
         author,
         authorId: lockupView.metadata.image?.renderer_context?.command_context?.on_tap?.payload.browseId ?? channelId,
-        collaboratorIds,
+        collaboratorIds: maybeCollaboratorIds ?? [],
         viewCount,
         published: calculatePublishedDate(publishedText, liveNow, isUpcoming, premiereDate),
         lengthSeconds,
