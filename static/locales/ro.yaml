@@ -117,10 +117,10 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă de redare
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Creat recent
+    LatestCreatedFirst: Data la care a fost creat (Cel mai nou)
     NameAscending: A-Z
     LatestUpdatedFirst: Actualizat recent
-    EarliestCreatedFirst: Cel mai devreme creat
+    EarliestCreatedFirst: Data la care a fost creat (Cel mai vechi)
     LatestPlayedFirst: Redate recent
     EarliestUpdatedFirst: Cea mai recentă actualizare
     EarliestPlayedFirst: Cele mai recent redate
@@ -135,7 +135,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoclipuri vor fi adăugate'
     Toast:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de redare.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video(uri) adăugat(e) la un playlist | Video(uri) adăugat(e) la playlistul {playlistCount}"
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videoclipuri deja adăugate'
     Search in Playlists: Caută in listele de redare
@@ -191,6 +191,9 @@ User Playlists:
   The playlist has been successfully exported: Lista de redare a fost exportată cu succes
   Quick Bookmark Enabled: Marcaj rapid activat
   TotalTimePlaylist: 'Timp total: {duration}'
+  Move Video to the Top: Mută videoclipul sus
+  Move Video to the Bottom: Mută videoclipul jos
+  Export list of URLs: Exportare listă de URLuri
 History:
   # On History Page
   History: 'Istoric'
@@ -199,8 +202,8 @@ History:
   Search bar placeholder: Căutare în istoric
   Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Case Sensitive Search: ­Căutare sensibilă la majuscule
-  DateOldestHistory: Începând cu primul vizionat
-  DateNewestHistory: Începând cu ultimul vizionat
+  DateOldestHistory: Data la care a fost vizionat (Cel mai vechi)
+  DateNewestHistory: Data la care a fost vizionat (Cel mai nou)
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -272,6 +275,7 @@ Settings:
       Everforest Light Medium: Everforest Lumină Mediu
       Everforest Light Low: Everforest Lumină scăzută
       Catppuccin Frappe: Catnip Frappe
+      Catppuccin Latte: Tema Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -357,6 +361,8 @@ Settings:
       Everforest Light Aqua: Aqua deschis Everforest
       Everforest Light Blue: Everforest Albastru deschis
       Everforest Light Purple: Everforest violet deschis
+      Catppuccin Latte Mauve: Tema Catppuccin Latte Mauve
+      Catppuccin Latte Red: Tema Catppuccin Latte Red
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala interfeței utilizatorului (UI)
@@ -419,6 +425,8 @@ Settings:
       Theater: Teatru
       Full Screen: Ecran complet
       Picture in Picture: Imagine în imagine
+      Full Window (Always On): Fereastră întreagă (Mereu Pornit)
+      Full Screen (Always On): Ecran complet (Mereu pornit)
     Autoplay Interruption Timer: Temporizator de întrerupere a redării automate
   Privacy Settings:
     Privacy Settings: 'Confidențialitate'
