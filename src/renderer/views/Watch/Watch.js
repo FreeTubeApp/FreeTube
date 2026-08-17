@@ -58,6 +58,9 @@ import { useI18n } from 'vue-i18n'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
+// Cap on consecutive SABR-triggered player reloads for the same video, to avoid reloading forever
+// when the underlying SABR error keeps recurring on every fresh session (e.g. YouTube-side issue, VPN misroute)
+const MAX_CONSECUTIVE_SABR_RELOADS = 5
 const UNAVAILABLE_VIDEO_THUMBNAILS = {
   light: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video.png',
   dark: 'https://www.youtube.com/img/desktop/unavailable/unavailable_video_dark_theme.png'
@@ -101,6 +104,8 @@ export default defineComponent({
       startNextVideoInPip: false,
       isLoading: true,
       firstLoad: true,
+      // Consecutive reloads triggered by onPlayerReloadRequested for the current video, reset once it plays successfully
+      sabrReloadCount: 0,
       useTheatreMode: false,
       videoPlayerLoaded: false,
       isFamilyFriendly: false,
@@ -1321,6 +1326,9 @@ export default defineComponent({
     },
 
     handleVideoLoaded: function () {
+      // Playback recovered, so this is no longer a reload loop
+      this.sabrReloadCount = 0
+
       // Only used one time = remove after use
       this.oneTimeTimestamp = null
 
@@ -1953,6 +1961,18 @@ export default defineComponent({
     },
 
     async onPlayerReloadRequested() {
+      this.sabrReloadCount++
+
+      if (this.sabrReloadCount > MAX_CONSECUTIVE_SABR_RELOADS) {
+        if (this.$refs.player) {
+          await this.destroyPlayer()
+        }
+
+        this.errorMessage = this.t('Video.SabrReloadLoop')
+        this.customErrorIcon = ['fas', 'arrows-rotate']
+        return
+      }
+
       showToast('Reloading player according to SABR request')
 
       const timestamp = this.getTimestamp()

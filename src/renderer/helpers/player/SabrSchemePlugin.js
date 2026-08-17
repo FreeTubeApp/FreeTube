@@ -55,6 +55,7 @@ const ShakaError = shaka.util.Error
  * @property {number} cumulativeBackOffTimeMs
  * @property {number} cumulativeBackOffRequested
  * @property {number} cumulativeRetryDueToNextRequestPolicy
+ * @property {number} cumulativeRedirectRetries
  */
 /**
  * @typedef SabrStreamState
@@ -294,6 +295,7 @@ async function doRequest(
   let segmentComplete = false
   let shouldRetry = false
   let shouldRetryDueToNextRequestPolicy = false
+  let shouldRetryDueToRedirect = false
 
   let invalidPoToken = false
   let error
@@ -326,7 +328,11 @@ async function doRequest(
         shouldReloadDueToBackoffLoop = true
       }
     }
-    if (shouldReloadDueToBackoffLoop || currentState.cumulativeRetryDueToNextRequestPolicy >= 100) {
+    if (
+      shouldReloadDueToBackoffLoop ||
+      currentState.cumulativeRetryDueToNextRequestPolicy >= 100 ||
+      currentState.cumulativeRedirectRetries >= 100
+    ) {
       // Fire fake reload event due to detecting retry loop
       currentState.sabrStreamState.playerReloadRequested = true
       if (!currentState.abortController.signal.aborted) {
@@ -374,8 +380,9 @@ async function doRequest(
             const sabrRedirect = decodePart(part, SabrRedirect)
             if (!sabrRedirect) break
 
-            currentState.sabrUrl = sabrRedirect.url
+            currentState.sabrStreamState.sabrUrl = sabrRedirect.url
             shouldRetry = true
+            shouldRetryDueToRedirect = true
             break
           }
           case UMPPartId.MEDIA_HEADER: {
@@ -535,6 +542,10 @@ async function doRequest(
     if (shouldRetryDueToNextRequestPolicy) {
       // Only count on actual retry to avoid counting false positive (when segmentComplete
       currentState.cumulativeRetryDueToNextRequestPolicy += 1
+    }
+    if (shouldRetryDueToRedirect) {
+      // Same false-positive guard as above, applied to SABR_REDIRECT so redirect chains can't retry forever uncounted
+      currentState.cumulativeRedirectRetries += 1
     }
 
     const { sabrContexts, unsentSabrContexts } = prepareSabrContexts(currentState.sabrStreamState)
@@ -829,6 +840,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       cumulativeBackOffTimeMs: 0,
       cumulativeBackOffRequested: 0,
       cumulativeRetryDueToNextRequestPolicy: 0,
+      cumulativeRedirectRetries: 0,
     }
 
     const pendingRequest = doRequest(opInputs, currentState)
