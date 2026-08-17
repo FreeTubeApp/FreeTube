@@ -1903,6 +1903,11 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         author = maybeAuthorText
       }
 
+      // I think this is only used for stations at the moment
+      if (author == null) {
+        author = lockupView.metadata?.metadata?.metadata_rows[0].metadata_parts?.[0].avatar_stack.text?.text
+      }
+
       return {
         type: 'video',
         videoId: lockupView.content_id,
