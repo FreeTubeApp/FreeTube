@@ -616,7 +616,7 @@ function parseInvidiousCommentData(response) {
     return {
       id: comment.commentId,
       authorLink: comment.authorId,
-      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
+      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail),
       author: comment.author,
       likes: comment.likeCount,
       text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
