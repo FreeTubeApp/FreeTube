@@ -60,6 +60,7 @@
         :autoload-this-reply-level="false"
         :can-fallback-to-invidious="canFallbackToInvidious"
         :get-invidious-comment-replies="getInvidiousCommentReplies"
+        @timestamp-event="onTimestamp"
       />
     </div>
     <div
@@ -153,6 +154,14 @@ const props = defineProps({
     default: true,
   }
 })
+
+const emit = defineEmits(['timestamp-event'])
+/**
+ * @param {number} timestamp
+ */
+function onTimestamp(timestamp) {
+  emit('timestamp-event', timestamp)
+}
 
 const isLoading = ref(false)
 const isMoreCommentsLoading = ref(false)

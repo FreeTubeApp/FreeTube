@@ -135,6 +135,7 @@
         :autoload-this-reply-level="reply.replyLevel && !autoloadThisReplyLevel"
         :can-fallback-to-invidious="canFallbackToInvidious"
         :get-invidious-comment-replies="getInvidiousCommentReplies"
+        @timestamp-event="onTimestamp"
       />
       <div
         v-if="replyToken && !repliesLoading"
