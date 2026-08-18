@@ -145,7 +145,7 @@
         @click="getCommentReplies"
         @keydown.enter.space.prevent="getCommentReplies"
       >
-        <span>{{ showMoreRepliesText }}</span>
+        <span>{{ t('Comments.Show More Replies') }}{{ numRepliesRemainingText }}</span>
       </div>
       <div
         v-else-if="replyToken && repliesLoading"
@@ -254,10 +254,11 @@ function isSubscribedToChannel(channelId) {
   return subscribedChannelIds.value.has(channelId)
 }
 
-const showMoreRepliesText = computed(() => {
+const numRepliesRemainingText = computed(() => {
+  if (props.comment.numReplies >= 1000) return ''
   const numLoadedReplies = replies.value.reduce((sum, reply) => sum + 1 + reply.numReplies, 0)
   const count = props.comment.numReplies - numLoadedReplies
-  return t('Comments.Show More Replies') + t('Global.Counts.Replies Remaining', { count }, count)
+  return t('Global.Counts.Replies Remaining', { count }, count)
 })
 
 const toggleCommentRepliesText = computed(() => {
@@ -276,7 +277,7 @@ const toggleCommentRepliesText = computed(() => {
     return t('Comments.View 1 reply from {channelName}', { channelName })
   }
 
-  return t('Comments.View {replyCount} replies', { replyCount }, replyCount)
+  return t('Comments.View {replyCount} replies', { replyCount: `${replyCount >= 1000 ? '~' : ''}${replyCount}` }, replyCount)
 })
 
 onMounted(() => {

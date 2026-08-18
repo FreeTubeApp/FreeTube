@@ -2272,7 +2272,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     memberIconUrl: comment.member_badge?.url ?? '',
     time: getRelativeTimeFromDate(calculatePublishedDate((comment.published_time ?? '').replace('(edited)', '').trim()) ?? 0, false),
     likes: parseLocalSubscriberCount(comment.like_count?.trim() || '0'),
-    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y?.trim() || '0') : 0
+    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y ?? '0') : 0
   }
 }
 
