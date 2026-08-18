@@ -12,23 +12,18 @@
 }
 
 .alertButton {
-  padding: 10px;
+  padding-inline: 1em;
   border-radius: 100%;
   border-style: none;
   background-color: transparent;
   color: var(--primary-text-color);
   font-size: 1em;
-  line-height: 1em;
   transition: background 0.2s ease-in;
 }
 
 .alertButton:hover {
   background-color: var(--card-bg-color);
   cursor: pointer;
-}
-
-.alertButtonIcon {
-  inline-size: 1em;
 }
 
 .playlistItemsCard {

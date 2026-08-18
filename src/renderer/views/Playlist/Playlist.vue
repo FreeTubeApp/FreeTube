@@ -69,8 +69,7 @@
           @click="handleCloseAlert"
         >
           <FontAwesomeIcon
-            class="alertButtonIcon"
-            :icon="['fas', 'times-circle']"
+            :icon="['fas', 'times']"
           />
         </button>
       </FtFlexBox>
