@@ -64,6 +64,10 @@
   border-block-start: 2px solid var(--scrollbar-color);
 }
 
+.commentReplies > .comment:last-child::before {
+  inset-block-end: 11px; /* padding-block-end: 0 */
+}
+
 .commentReplies > *:last-child::after {
   content: '';
   border-inline-start: 2px solid var(--card-bg-color);
