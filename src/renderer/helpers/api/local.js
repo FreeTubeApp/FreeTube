@@ -2232,14 +2232,14 @@ export function mapLocalLegacyFormat(format) {
  * @property {boolean} isPinned
  * @property {boolean} hasOwnerReplied
  * @property {boolean} hasReplyToken
- * @property {YTNodes.CommentThread} replyToken
+ * @property {(YTNodes.CommentThread | Misc.CommentsContinuation)?} replyToken
  * @property {number} replyLevel
  * @property {string} memberIconUrl
  * @property {number} numReplies
  */
 /**
  * @param {YTNodes.CommentView} comment
- * @param {YTNodes.CommentThread} commentThread
+ * @param {YTNodes.CommentThread | undefined} commentThread
  * @returns {LocalComment}
  */
 export function parseLocalComment(comment, commentThread = undefined) {
@@ -2248,18 +2248,18 @@ export function parseLocalComment(comment, commentThread = undefined) {
   let hasReplyToken = false
 
   if (commentThread?.has_replies) {
-    hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
+    hasOwnerReplied = !!commentThread.comment_replies_data?.has_channel_owner_replied
     hasReplyToken = true
   }
 
-  const commentTextRuns = comment.voice_reply_container?.transcript_text ? comment.voice_reply_container.transcript_text.runs : comment.content.runs
+  const commentTextRuns = comment.voice_reply_container?.transcript_text?.runs ?? comment.content?.runs ?? []
 
   return {
     id: comment.comment_id,
     dataType: 'local',
-    author: comment.author.name,
-    authorId: comment.author.id,
-    authorThumb: comment.author.best_thumbnail.url,
+    author: comment.author?.name ?? '',
+    authorId: comment.author?.id ?? '',
+    authorThumb: comment.author?.best_thumbnail?.url ?? '',
     isPinned: comment.is_pinned,
     isOwner: !!comment.author_is_channel_owner,
     isMember: !!comment.is_member,
@@ -2269,10 +2269,10 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasReplyToken,
     replyToken,
     replyLevel: comment.reply_level ?? 0,
-    memberIconUrl: comment.is_member ? comment.member_badge.url : '',
-    time: getRelativeTimeFromDate(calculatePublishedDate(comment.published_time.replace('(edited)', '').trim()), false),
-    likes: comment.like_count,
-    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y) : 0
+    memberIconUrl: comment.member_badge?.url ?? '',
+    time: getRelativeTimeFromDate(calculatePublishedDate((comment.published_time ?? '').replace('(edited)', '').trim()) ?? 0, false),
+    likes: parseLocalSubscriberCount(comment.like_count?.trim() || '0'),
+    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y?.trim() || '0') : 0
   }
 }
 
@@ -2318,15 +2318,24 @@ export function parseLocalSubscriberCount(text) {
 
 /**
  * Parse community posts
- * @param {YTNodes.BackstagePost[] | YTNodes.SharedPost[] | YTNodes.Post[] } posts
+ * @param {YTNodes.BackstagePost[] | YTNodes.SharedPost[] | YTNodes.Post[]} posts
  */
 export function parseLocalCommunityPosts(posts) {
+  /** @type {string[]} */
   const foundIds = []
   // `posts` includes the SharedPost's attached post for some reason so we need to filter that out.
   // see: https://github.com/FreeTubeApp/FreeTube/issues/3252#issuecomment-1546675781
   // we don't currently support SharedPost's so that is also filtered out
+  /**
+   * @param {typeof posts[0]} post
+   * @return {post is YTNodes.SharedPost}
+   */
+  function isSharedPost(post) {
+    return post.type === 'SharedPost'
+  }
+
   for (const post of posts) {
-    if (post.type === 'SharedPost') {
+    if (isSharedPost(post)) {
       // `original_post` can be null if it was deleted
       if (post.original_post) {
         foundIds.push(post.original_post.id)

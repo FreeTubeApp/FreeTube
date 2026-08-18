@@ -440,8 +440,10 @@ export async function invidiousGetVideoInformation(videoId) {
  * @property {boolean} isMember
  * @property {boolean} isOwner
  * @property {boolean} isPinned
+ * @property {false} hasOwnerReplied
  * @property {boolean} hasReplyToken
  * @property {string} replyToken
+ * @property {0} replyLevel
  * @property {string} memberIconUrl
  * @property {number} numReplies
  */
@@ -457,6 +459,7 @@ export async function invidiousGetVideoInformation(videoId) {
  *     authorThumbnail: string,
  *     authorIsChannelOwner: boolean,
  *     isSponsor: boolean,
+ *     sponsorIconUrl?: string,
  *     likeCount: number,
  *     creatorHeart?: object,
  *     isPinned: boolean,
@@ -595,7 +598,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 }
 
 /**
- * @param {string} url
+ * @param {string?} url
  * @param {string?} currentInstance
  * @returns {string?}
  */
@@ -618,12 +621,12 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
 }
 
 /**
- * @param {string} url
+ * @param {string?} url
  * @param {string?} currentInstance
  * @returns {string}
  */
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
-  return url.replaceAll('/ggpht/', `${currentInstance}/ggpht/`)
+  return url?.replaceAll('/ggpht/', `${currentInstance}/ggpht/`) ?? ''
 }
 
 /**
@@ -636,18 +639,20 @@ function parseInvidiousCommentData(response) {
       id: comment.commentId,
       dataType: 'invidious',
       authorId: comment.authorId,
-      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail),
+      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail) ?? '',
       author: comment.author,
       likes: comment.likeCount,
       text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
       isOwner: comment.authorIsChannelOwner,
       isPinned: comment.isPinned,
       numReplies: comment.replies?.replyCount ?? 0,
+      hasOwnerReplied: false,
       hasReplyToken: !!comment.replies?.continuation,
       replyToken: comment.replies?.continuation ?? '',
+      replyLevel: 0,
       isHearted: comment.creatorHeart !== undefined,
       isMember: comment.isSponsor,
-      memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl),
+      memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl ?? null) ?? '',
       time: getRelativeTimeFromDate(comment.published * 1000, false)
     }
   })

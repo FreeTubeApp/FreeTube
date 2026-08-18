@@ -77,7 +77,7 @@
         <FontAwesomeIcon
           :icon="['fas', 'thumbs-up']"
         />
-        {{ comment.likes }}
+        {{ comment.likes || '' }}
       </template>
       <span
         v-if="comment.isHearted"
@@ -104,8 +104,8 @@
         class="commentMoreReplies"
         role="button"
         tabindex="0"
-        @click="toggleCommentReplies(index)"
-        @keydown.enter.space.prevent="toggleCommentReplies(index)"
+        @click="toggleCommentReplies"
+        @keydown.enter.space.prevent="toggleCommentReplies"
       >
         <span>
           {{ toggleCommentRepliesText }}
@@ -132,7 +132,7 @@
         :comment="reply"
         :channel-name="channelName"
         :channel-thumbnail="channelThumbnail"
-        :autoload-this-reply-level="reply.replyLevel && !autoloadThisReplyLevel"
+        :autoload-this-reply-level="!!reply.replyLevel && !autoloadThisReplyLevel"
         :can-fallback-to-invidious="canFallbackToInvidious"
         :get-invidious-comment-replies="getInvidiousCommentReplies"
         @timestamp-event="onTimestamp"
@@ -308,23 +308,37 @@ async function getCommentReplies() {
 
 async function getCommentRepliesLocal() {
   try {
-    /** @type {LocalComment['replyToken']} */
-    let commentThread = replyToken.value
-
+    let commentThread = /** @type {LocalComment['replyToken']} */ (replyToken.value)
     if (commentThread == null) return
 
-    if (replies.value.length > 0) {
+    /**
+     * @typedef {Awaited<ReturnType<
+     *   NonNullable<typeof commentThread>['getContinuation']
+     * >>} CommentsContinuation
+     */
+    /**
+     * @param {NonNullable<typeof commentThread>} _
+     * @return {_ is CommentsContinuation}
+     */
+    function isContinuation(_) {
+      return replies.value.length > 0
+    }
+
+    /** @param {CommentsContinuation['replies']} subThreads */
+    function processReplies(subThreads) {
+      return subThreads.reduce((replies, subThread) => {
+        return subThread.comment ? replies.concat(parseLocalComment(subThread.comment, subThread)) : replies
+      }, /** @type {LocalComment[]} */ ([]))
+    }
+
+    if (isContinuation(commentThread)) {
       commentThread = await commentThread.getContinuation()
-      replies.value = replies.value.concat(commentThread.replies.map(subThread => {
-        return parseLocalComment(subThread.comment, subThread)
-      }))
+      replies.value = replies.value.concat(processReplies(commentThread.replies))
     } else {
       if (!commentThread.is_prepopulated) {
         await commentThread.getReplies()
       }
-      replies.value = commentThread.replies?.map(subThread => {
-        return parseLocalComment(subThread.comment, subThread)
-      }) ?? []
+      replies.value = commentThread.replies ? processReplies(commentThread.replies) : []
     }
 
     if (commentThread.has_continuation) {
