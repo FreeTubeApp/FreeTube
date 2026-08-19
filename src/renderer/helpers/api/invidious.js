@@ -598,14 +598,12 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 }
 
 /**
- * @param {string?} url
+ * @param {string | undefined | null} url
  * @param {string?} currentInstance
- * @returns {string?}
+ * @returns {string}
  */
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
-  if (url == null) {
-    return null
-  }
+  if (!url) return ''
 
   if (currentInstance === null) {
     currentInstance = getCurrentInstanceUrl()
@@ -621,7 +619,7 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
 }
 
 /**
- * @param {string?} url
+ * @param {string | undefined | null} url
  * @param {string?} currentInstance
  * @returns {string}
  */
@@ -639,7 +637,7 @@ function parseInvidiousCommentData(response) {
       id: comment.commentId,
       dataType: 'invidious',
       authorId: comment.authorId,
-      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail) ?? '',
+      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail),
       author: comment.author,
       likes: comment.likeCount,
       text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
@@ -652,7 +650,7 @@ function parseInvidiousCommentData(response) {
       replyLevel: 0,
       isHearted: comment.creatorHeart !== undefined,
       isMember: comment.isSponsor,
-      memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl ?? null) ?? '',
+      memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl),
       time: getRelativeTimeFromDate(comment.published * 1000, false)
     }
   })
