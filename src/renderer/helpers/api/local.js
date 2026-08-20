@@ -73,9 +73,9 @@ if (process.env.SUPPORTS_LOCAL_API) {
  * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
- * @param {ClientType} options.clientType use an alterate client
+ * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
- * @param {import('youtubei.js').Types.FetchFunction} options.fetchFunc optional custom fetch function
+ * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
  * @returns the Innertube instance
  */
 async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
@@ -174,7 +174,7 @@ function serializeContinuation(continuationItemOrView, actions) {
  * @template {import('youtubei.js').YTNodes} N
  * @param {import('youtubei.js').Mixins.Feed} feed
  * @param {import('youtubei.js').YTNodeConstructor<N>[]} types
- * @returns {N}
+ * @return {N}
  */
 function extractFeedContinuation(feed, types) {
   let continuationItem
@@ -2238,9 +2238,9 @@ export function mapLocalLegacyFormat(format) {
  * @property {number} numReplies
  */
 /**
- * @param {YTNodes.CommentView} comment
- * @param {YTNodes.CommentThread | undefined} commentThread
- * @returns {LocalComment}
+ * @param {import('youtubei.js').YTNodes.CommentView} comment
+ * @param {import('youtubei.js').YTNodes.CommentThread | undefined} commentThread
+ * @return {LocalComment}
  */
 export function parseLocalComment(comment, commentThread = undefined) {
   const replyToken = commentThread ?? null
@@ -2318,24 +2318,15 @@ export function parseLocalSubscriberCount(text) {
 
 /**
  * Parse community posts
- * @param {YTNodes.BackstagePost[] | YTNodes.SharedPost[] | YTNodes.Post[]} posts
+ * @param {import('youtubei.js').YTNodes.BackstagePost[] | import('youtubei.js').YTNodes.SharedPost[] | import('youtubei.js').YTNodes.Post[] } posts
  */
 export function parseLocalCommunityPosts(posts) {
-  /** @type {string[]} */
   const foundIds = []
   // `posts` includes the SharedPost's attached post for some reason so we need to filter that out.
   // see: https://github.com/FreeTubeApp/FreeTube/issues/3252#issuecomment-1546675781
   // we don't currently support SharedPost's so that is also filtered out
-  /**
-   * @param {typeof posts[0]} post
-   * @return {post is YTNodes.SharedPost}
-   */
-  function isSharedPost(post) {
-    return post.type === 'SharedPost'
-  }
-
   for (const post of posts) {
-    if (isSharedPost(post)) {
+    if (post.type === 'SharedPost') {
       // `original_post` can be null if it was deleted
       if (post.original_post) {
         foundIds.push(post.original_post.id)
@@ -2351,7 +2342,7 @@ export function parseLocalCommunityPosts(posts) {
 
 /**
  * Parse community post
- * @param {YTNodes.BackstagePost} post
+ * @param {import('youtubei.js').YTNodes.BackstagePost} post
  */
 function parseLocalCommunityPost(post) {
   let replyCount = post.action_buttons?.reply_button?.text ?? null
