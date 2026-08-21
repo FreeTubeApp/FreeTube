@@ -1518,6 +1518,7 @@ export default defineComponent({
 
       /** @type {object[]} */
       const legacyFormats = props.legacyFormats
+      if (legacyFormats.length === 0) { return }
 
       const isPortrait = legacyFormats[0].height > legacyFormats[0].width
 
@@ -2830,7 +2831,7 @@ export default defineComponent({
             forceAspectRatio.value = firstVariant.width / firstVariant.height < 1.5
           }
         })
-      } else {
+      } else if (props.legacyFormats.length > 0) {
         // force the player aspect ratio to 16:9 to avoid overflowing the layout, when the video is too tall
 
         const firstFormat = props.legacyFormats[0]
