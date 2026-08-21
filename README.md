@@ -116,12 +116,12 @@ The first build with a green check mark is the latest build.
 > You will need to have a GitHub account to download these builds.
 
 ### Projects maintained by individual FreeTube team members
-> [!IMPORTANT]
-> The following are related projects maintained by individual members of the FreeTube team. While they are not part of the main FreeTube project, they may be useful to FreeTube users. There may be issues when using these projects compared to the official builds. Any issues specific to these builds should be reported to their respective maintainers. Make sure you always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
-
 * Homebrew FreeTube (Apple Silicon only): [Install](https://github.com/PikachuEXE/homebrew-FreeTube)
 
 * FreeTubeAndroid (FreeTube port for Android and PWA): [Download](https://github.com/MarmadileManteater/FreeTubeAndroid/releases) and [Source Code](https://github.com/MarmadileManteater/FreeTubeAndroid)
+
+> [!IMPORTANT]
+> These projects are related to FreeTube and are maintained by individual members of the FreeTube team. While they are not part of the main FreeTube project, they may be useful to FreeTube users. There may be issues when using these projects compared to the official builds. Any issues specific to these builds should be reported to their respective maintainers. Make sure you always try an [official download](https://github.com/freetubeapp/freetube/#official-downloads) before reporting your issue to us!
 
 ## Contributing
 Thank you very much to the [People and Projects](https://docs.freetubeapp.io/credits/) that make FreeTube possible!
