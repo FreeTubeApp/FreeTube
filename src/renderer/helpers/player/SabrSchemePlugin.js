@@ -374,7 +374,7 @@ async function doRequest(
             const sabrRedirect = decodePart(part, SabrRedirect)
             if (!sabrRedirect) break
 
-            currentState.sabrUrl = sabrRedirect.url
+            currentState.sabrStreamState.sabrUrl = sabrRedirect.url
             shouldRetry = true
             break
           }
