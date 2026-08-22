@@ -698,11 +698,11 @@ function runApp() {
 
           // Electron doesn't allow certain headers to be set:
           // https://www.electronjs.org/docs/latest/api/client-request#requestsetheadername-value
-          // also blacklist Origin and Referrer as we don't want to let YouTube know about them
-          const blacklistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
+          // also denylist Origin and Referrer as we don't want to let YouTube know about them
+          const denylistedHeaders = ['content-length', 'host', 'trailer', 'te', 'upgrade', 'cookie2', 'keep-alive', 'transfer-encoding', 'origin', 'referrer']
 
           for (const header of Object.keys(request.headers)) {
-            if (!blacklistedHeaders.includes(header.toLowerCase())) {
+            if (!denylistedHeaders.includes(header.toLowerCase())) {
               newRequest.setHeader(header, request.headers[header])
             }
           }
