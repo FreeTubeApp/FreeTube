@@ -68,7 +68,7 @@ const { setSettingsSearchQuery } = useSettingsSearch()
 
 const handleSettingsSearchInput = debounce((value) => {
   setSettingsSearchQuery(value)
-}, 400)
+}, 200)
 
 /**
  * @param {PointerEvent | KeyboardEvent} event
