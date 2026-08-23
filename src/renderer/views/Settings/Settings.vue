@@ -260,7 +260,7 @@ function navigateToSection(sectionType) {
       })?.$el
       sectionElement.scrollIntoView()
 
-      const sectionHeading = sectionElement.firstChild.firstChild
+      const sectionHeading = sectionElement.firstElementChild.firstElementChild
       sectionHeading.tabIndex = 0
       sectionHeading.focus()
       sectionHeading.tabIndex = -1
