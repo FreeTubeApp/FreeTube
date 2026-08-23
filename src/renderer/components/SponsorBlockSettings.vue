@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="sponsor-block"
     :title="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
   >
     <FtFlexBox class="settingsFlexStart500px">

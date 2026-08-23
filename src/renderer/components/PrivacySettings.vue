@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="privacy"
     :title="$t('Settings.Privacy Settings.Privacy Settings')"
   >
     <div class="switchColumnGrid">

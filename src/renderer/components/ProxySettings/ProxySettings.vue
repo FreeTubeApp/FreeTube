@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="proxy"
     :title="$t('Settings.Proxy Settings.Proxy Settings')"
   >
     <FtFlexBox class="settingsFlexStart500px">

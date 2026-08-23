@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="experimental"
     :title="$t('Settings.Experimental Settings.Experimental Settings')"
   >
     <p class="experimental-warning">

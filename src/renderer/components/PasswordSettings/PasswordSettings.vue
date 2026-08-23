@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="password"
     :title="$t('Settings.Password Settings.Password Settings')"
   >
     <FtFlexBox

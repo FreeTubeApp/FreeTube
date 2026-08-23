@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="external-player"
     :title="$t('Settings.External Player Settings.External Player Settings')"
   >
     <FtFlexBox>

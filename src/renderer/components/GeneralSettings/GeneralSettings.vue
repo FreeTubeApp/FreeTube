@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="general"
     :title="t('Settings.General Settings.General Settings')"
   >
     <div class="switchColumnGrid">

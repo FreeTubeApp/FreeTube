@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="parental-control"
     :title="$t('Settings.Parental Control Settings.Parental Control Settings')"
   >
     <div class="switchColumnGrid">

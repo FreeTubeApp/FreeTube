@@ -1,5 +1,6 @@
 <template>
   <FtSettingsSection
+    id="player"
     :title="t('Settings.Player Settings.Player Settings')"
   >
     <div class="switchColumnGrid">
