@@ -96,6 +96,8 @@
             @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
             @move-video-up="moveVideoUp"
             @move-video-down="moveVideoDown"
+            @move-video-to-the-top="moveVideoToTheTop"
+            @move-video-to-the-bottom="moveVideoToTheBottom"
             @remove-from-playlist="removeVideoFromPlaylist"
           />
           <TransitionGroup
@@ -129,6 +131,8 @@
               @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
               @move-video-up="moveVideoUp"
               @move-video-down="moveVideoDown"
+              @move-video-to-the-top="moveVideoToTheTop"
+              @move-video-to-the-bottom="moveVideoToTheBottom"
               @remove-from-playlist="removeVideoFromPlaylist"
             />
           </TransitionGroup>
@@ -449,6 +453,23 @@ function getPlaylistInfo() {
 
 const getPlaylistInfoDebounce = debounce(getPlaylistInfo, 100)
 
+function resetState() {
+  isLoading.value = true
+  playlistTitle.value = ''
+  playlistDescription.value = ''
+  firstVideoId.value = ''
+  playlistThumbnail.value = ''
+  viewCount.value = 0
+  videoCount.value = 0
+  lastUpdated.value = undefined
+  channelName.value = ''
+  channelThumbnail.value = ''
+  channelId.value = ''
+  infoSource.value = 'local'
+  playlistItems.value = []
+  continuationData.value = null
+}
+
 async function getPlaylistLocal() {
   try {
     const result = await getLocalPlaylist(playlistId.value)
@@ -584,7 +605,10 @@ function parseUserPlaylist(playlist) {
 }
 
 // react to route changes...
-watch(playlistId, getPlaylistInfoDebounce)
+watch(playlistId, () => {
+  resetState()
+  getPlaylistInfoDebounce()
+})
 
 watch(userPlaylistsReady, () => {
   // Fetch from local store when playlist data ready
@@ -594,12 +618,22 @@ watch(userPlaylistsReady, () => {
 })
 
 // Fetch from local store when current user playlist changed
-watch(selectedUserPlaylist, getPlaylistInfoDebounce)
+watch(selectedUserPlaylist, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 // Re-fetch from local store when current user playlist updated
-watch(selectedUserPlaylistLastUpdatedAt, getPlaylistInfoDebounce)
+watch(selectedUserPlaylistLastUpdatedAt, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 watch(selectedUserPlaylistVideoCount, async () => {
+  if (!isUserPlaylistRequested.value) { return }
+
   // Monitoring `selectedUserPlaylistVideos` makes this function called
   // Even when the same array object is returned
   // So length is monitored instead
@@ -714,6 +748,10 @@ function moveVideoUp(videoId, playlistItemId) {
     return video.videoId === videoId && video.playlistItemId === playlistItemId
   })
 
+  if (index === -1) {
+    return
+  }
+
   if (index === 0) {
     showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved up."]'))
     return
@@ -749,12 +787,98 @@ function moveVideoDown(videoId, playlistItemId) {
     return video.videoId === videoId && video.playlistItemId === playlistItemId
   })
 
+  if (index === -1) {
+    return
+  }
+
   if (index + 1 >= playlistItems_.length) {
     showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
     return
   }
 
   [playlistItems_[index], playlistItems_[index + 1]] = [playlistItems_[index + 1], playlistItems_[index]]
+
+  const playlist = {
+    playlistName: playlistTitle.value,
+    protected: selectedUserPlaylist.value.protected,
+    description: playlistDescription.value,
+    videos: deepCopy(playlistItems_),
+    _id: playlistId.value
+  }
+
+  try {
+    store.dispatch('updatePlaylist', playlist)
+    playlistItems.value = playlistItems_
+  } catch (e) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+    console.error(e)
+  }
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheTop(videoId, playlistItemId) {
+  const playlistItems_ = playlistItems.value.slice()
+
+  const index = playlistItems_.findIndex((video) => {
+    return video.videoId === videoId && video.playlistItemId === playlistItemId
+  })
+
+  if (index === -1) {
+    return
+  }
+
+  if (index === 0) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved up."]'))
+    return
+  }
+
+  const videoObject = playlistItems_[index]
+  playlistItems_.splice(index, 1)
+  playlistItems_.unshift(videoObject)
+
+  const playlist = {
+    playlistName: playlistTitle.value,
+    protected: selectedUserPlaylist.value.protected,
+    description: playlistDescription.value,
+    videos: deepCopy(playlistItems_),
+    _id: playlistId.value
+  }
+
+  try {
+    store.dispatch('updatePlaylist', playlist)
+    playlistItems.value = playlistItems_
+  } catch (e) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["There was an issue with updating this playlist."]'))
+    console.error(e)
+  }
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheBottom(videoId, playlistItemId) {
+  const playlistItems_ = playlistItems.value.slice()
+
+  const index = playlistItems_.findIndex((video) => {
+    return video.videoId === videoId && video.playlistItemId === playlistItemId
+  })
+
+  if (index === -1) {
+    return
+  }
+
+  if (index === playlistItems_.length - 1) {
+    showToast(t('User Playlists.SinglePlaylistView.Toast["This video cannot be moved down."]'))
+    return
+  }
+
+  const videoObject = playlistItems_[index]
+  playlistItems_.splice(index, 1)
+  playlistItems_.push(videoObject)
 
   const playlist = {
     playlistName: playlistTitle.value,

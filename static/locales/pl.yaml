@@ -187,6 +187,8 @@ User Playlists:
   The playlist has been successfully exported: Lista odtwarzania została pomyślnie wyeksportowana
   TotalTimePlaylist: 'Całkowita długość: {duration}'
   Export list of URLs: Eksportuj listę adresów URL
+  Move Video to the Top: Przenieś film na początek
+  Move Video to the Bottom: Przenieś film na koniec
 History:
   # On History Page
   History: 'Historia'
@@ -422,6 +424,9 @@ Settings:
       External Player: Zewnętrzny odtwarzacz ({externalPlayerName})
       Default Viewing Mode: Domyślny tryb odtwarzania
       Full Screen: Cały ekran
+      Full Window (Always On): Pełne okno (zawsze włączone)
+      Full Screen (Always On): Pełny ekran (zawsze włączony)
+      Tooltip: Większość z domyślnych trybów wyświetlania jest stosowana na początku każdego seansu. Zmiany zastosowane podczas seansu obowiązują do jego końca. Tryby „zawsze włączone” są stosowane za każdym razem, gdy przełączysz się do nowego filmu, cofając każdą zmianę trybu wyświetlania zastosowaną w poprzednim filmie.
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
@@ -463,13 +468,13 @@ Settings:
     Unable to read file: Nie można odczytać pliku
     All watched history has been successfully exported: Cała historia oglądania została pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą ilość danych, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą ilość danych. Pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
     Invalid subscriptions file: Nieprawidłowy plik subskrypcji
     All subscriptions have been successfully imported: Wszystkie subskrypcje zostały z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą ilość danych, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą ilość danych. Pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -482,7 +487,7 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”, pomijam element
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”. Pomijam element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
     History File: Plik historii
@@ -497,6 +502,15 @@ Settings:
     Export search history: Wyeksportuj historię wyszukiwania
     All search history has been successfully imported: Cała historia wyszukiwania została pomyślnie zaimportowana
     All search history has been successfully exported: Cała historia wyszukiwania została pomyślnie wyeksportowana
+    Settings File: Plik ustawień
+    Import Settings: Zaimportuj ustawienia
+    Export Settings: Wyeksportuj ustawienia
+    Settings Tooltip: Ustawienia, które są specyficzne dla systemu albo dla każdego użytkownika, oraz ustawienie eksperymentalne, nie mogą zostać ani wyeksportowane, ani zaimportowane (n.p. ustawienia proxy, ustawienia zewnętrznego odtwarzacza, lokalizacja folderu zapisu zrzutów ekranu)
+    All settings have been successfully imported: Wszystkie ustawienia zostały z powodzeniem zaimportowane
+    All settings have been successfully exported: Wszystkie ustawienia zostały z powodzeniem wyeksportowane
+    Setting object has insufficient data, skipping item: Obiekt ustawień ma niewystarczającą ilość danych. Pomijam element
+    Unknown setting key: 'Nieznany klucz ustawień: {key}'
+    Non-transferable setting key: 'Klucz ustawień niepodlegający przeniesieniu: {key}'
   Distraction Free Settings:
     Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -620,7 +634,6 @@ About:
   Website: Strona internetowa
   Credits: Zasługi
   FAQ: FAQ
-  Email: E-mail
   Beta: Beta
   Donate: Wesprzyj
   Help: Pomoc
@@ -702,6 +715,7 @@ Channel:
   Courses:
     Courses: Kursy
     This channel does not currently have any courses: Na tym kanale nie ma obecnie żadnych kursów
+  View All: Zobacz wszystkie
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -869,7 +883,6 @@ Mini Player: 'Mini odtwarzacz'
 Comments:
   Comments: 'Komentarze'
   Click to View Comments: 'Kliknij, aby zobaczyć komentarze'
-  Getting comment replies, please wait: 'Pobieranie odpowiedzi do komentarza, proszę poczekać'
   Hide Comments: 'Schowaj komentarze'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Nie ma żadnych komentarzy odnośnie tego filmu'
@@ -887,6 +900,7 @@ Comments:
   Hide {replyCount} replies: Ukryj 1 odpowiedź | Ukryj {replyCount} odpowiedzi
   View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
   View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
+  Loading replies: Wczytywanie odpowiedzi...
 Up Next: 'Następne'
 
 # Toast Messages

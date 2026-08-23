@@ -433,7 +433,6 @@ About:
   #& About
 #On Channel Page
   Website: Sitio web
-  Email: Correo electrónico
   Mastodon: Mastodon
   Source code: Código fuente
   Beta: Beta
@@ -576,7 +575,6 @@ Mini Player: 'Mini reproductor'
 Comments:
   Comments: 'Comentarios'
   Click to View Comments: 'Presione para Ver Comentarios'
-  Getting comment replies, please wait: 'Recibiendo respuestas de comentarios, por favor espere'
   Hide Comments: 'Esconde comentarios'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'No hay comentarios disponibles para este video'

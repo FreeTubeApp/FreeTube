@@ -619,7 +619,6 @@ About:
   room rules: κανόνες δωματίου
   Chat on Matrix: Συνομιλία στο Matrix
   Mastodon: Μάστοντον
-  Email: Ηλεκτρονικό ταχυδρομείο
   Website: Ιστότοπος
   Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν δημοσιεύσετε
   GitHub issues: Προβλήματα GitHub
@@ -905,7 +904,6 @@ Mini Player: 'Μικρή πλατφόρμα αναπαραγωγής'
 Comments:
   Comments: 'Σχόλια'
   Click to View Comments: 'Κάντε κλικ για να δείτε σχόλια'
-  Getting comment replies, please wait: 'Λήψη απαντήσεων σε σχόλια, παρακαλώ περιμένετε'
   Hide Comments: 'Απόκρυψη σχολίων'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Δεν υπάρχουν διαθέσιμα σχόλια γι αυτό το βίντεο'

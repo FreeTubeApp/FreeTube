@@ -19,6 +19,7 @@
         :data="shownResults"
       />
       <FtAutoLoadNextPageWrapper
+        v-if="!isNextPageLoading"
         @load-next-page="nextPage"
       >
         <div
@@ -26,8 +27,7 @@
           role="button"
           tabindex="0"
           @click="nextPage"
-          @keydown.enter.prevent="nextPage"
-          @keydown.space.prevent="nextPage"
+          @keydown.enter.space.prevent="nextPage"
         >
           <FontAwesomeIcon :icon="['fas', 'search']" /> {{ t("Search Filters.Fetch more results") }}
         </div>
@@ -66,6 +66,7 @@ const { t } = useI18n()
 const route = useRoute()
 
 const isLoading = ref(false)
+const isNextPageLoading = ref(false)
 const apiUsed = ref('local')
 const searchSettings = ref({})
 const searchPage = ref(1)
@@ -226,7 +227,7 @@ async function performSearchLocal(payload) {
 
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
-      performSearchInvidious(payload)
+      await performSearchInvidious(payload)
     } else {
       isLoading.value = false
     }
@@ -267,7 +268,7 @@ async function getNextpageLocal(payload) {
 
     if (backendPreference.value === 'local' && backendFallback.value) {
       showToast(t('Falling back to Invidious API'))
-      performSearchInvidious(payload)
+      await performSearchInvidious(payload)
     } else {
       isLoading.value = false
     }
@@ -322,7 +323,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
 
     if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
       showToast(t('Falling back to Local API'))
-      performSearchLocal(payload)
+      await performSearchLocal(payload)
     } else {
       isLoading.value = false
       // TODO: Show toast with error message
@@ -330,7 +331,11 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
   }
 }
 
-function nextPage() {
+async function nextPage() {
+  if (isNextPageLoading.value) return
+
+  isNextPageLoading.value = true
+
   const payload = {
     query: processedQuery.value,
     searchSettings: searchSettings.value,
@@ -342,14 +347,16 @@ function nextPage() {
   if (apiUsed.value === 'local') {
     if (nextPageRef.value !== null) {
       showToast(t('Search Filters["Fetching results. Please wait"]'))
-      getNextpageLocal(payload)
+      await getNextpageLocal(payload)
     } else {
       showToast(t('Search Filters.There are no more results for this search'))
     }
   } else {
     showToast(t('Search Filters["Fetching results. Please wait"]'))
-    performSearchInvidious(payload)
+    await performSearchInvidious(payload)
   }
+
+  isNextPageLoading.value = false
 }
 
 function replaceShownResults(history) {

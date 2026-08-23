@@ -119,13 +119,14 @@
     >
       <FtFlexBox class="settingsFlexStart460px">
         <FtInput
+          ref="currentInvidiousInstanceInput"
           :placeholder="t('Settings.General Settings.Current Invidious Instance')"
           :show-action-button="false"
           :show-label="true"
           :value="currentInvidiousInstance"
           :data-list="invidiousInstancesList"
           :tooltip="t('Tooltips.General Settings.Invidious Instance')"
-          @input="handleInvidiousInstanceInput"
+          @blur="handleInvidiousInstanceBlur"
         />
       </FtFlexBox>
       <FtFlexBox>
@@ -166,7 +167,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, onBeforeUnmount, ref } from 'vue'
+import { computed, onMounted, onBeforeUnmount, ref, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -180,8 +181,10 @@ import FtButton from '../FtButton/FtButton.vue'
 import store from '../../store/index'
 
 import allLocales from '../../../../static/locales/activeLocales.json'
-import { debounce, randomArrayItem, showToast } from '../../helpers/utils'
+import { randomArrayItem, showToast } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
+
+const currentInvidiousInstanceInputRef = useTemplateRef('currentInvidiousInstanceInput')
 
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SUPPORTS_LOCAL_API = !!process.env.SUPPORTS_LOCAL_API
@@ -458,21 +461,20 @@ onBeforeUnmount(() => {
   }
 })
 
-const setCurrentInvidiousInstanceBounce = debounce((/** @type {string} */instance) => {
-  store.commit('setCurrentInvidiousInstance', instance)
-}, 500)
-
 /**
  * @param {string} input
  */
-function handleInvidiousInstanceInput(input) {
+function handleInvidiousInstanceBlur(input) {
   let instance = input
   // If NOT something like https:// (1-2 slashes), remove trailing slash
   if (!/^https?:\/{1,2}$/.test(input)) {
-    instance = input.replace(/\/$/, '')
+    instance = input.replace(/\/+$/, '')
   }
 
-  setCurrentInvidiousInstanceBounce(instance)
+  store.commit('setCurrentInvidiousInstance', instance)
+  if (instance !== input) {
+    currentInvidiousInstanceInputRef.value?.setText(instance)
+  }
 }
 
 /** @type {import('vue').ComputedRef<string>} */

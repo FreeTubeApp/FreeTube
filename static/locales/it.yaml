@@ -167,10 +167,10 @@ User Playlists:
     New Playlist Name: Nuovo nome della playlist
   This playlist currently has no videos.: Questa playlist attualmente non contiene video.
   Add to Playlist: Aggiungi alla playlist
-  Move Video Down: Sposta il video in basso
+  Move Video Down: Sposta il video giù
   Playlist Name: Nome della playlist
   Remove Watched Videos: Rimuovi i video guardati
-  Move Video Up: Sposta il video in alto
+  Move Video Up: Sposta il video su
   Cancel: Annulla
   Delete Playlist: Elimina playlist
   Create New Playlist: Crea nuova playlist
@@ -190,6 +190,8 @@ User Playlists:
   The playlist has been successfully exported: La playlist è stata esportata correttamente
   TotalTimePlaylist: 'Tempo totale: {duration}'
   Export list of URLs: Esporta l'elenco degli URL
+  Move Video to the Top: Sposta il video in alto
+  Move Video to the Bottom: Sposta il video in basso
 History:
   # On History Page
   History: 'Cronologia'
@@ -425,6 +427,9 @@ Settings:
       External Player: Lettore esterno ({externalPlayerName})
       Default Viewing Mode: Modalità di visualizzazione predefinita
       Theater: Teatro
+      Full Window (Always On): Finestra intera (sempre attiva)
+      Full Screen (Always On): Schermo intero (sempre attivo)
+      Tooltip: La maggior parte delle modalità di visualizzazione predefinite viene applicata solo all'inizio di ogni sessione di visione. Le modifiche apportate durante la sessione permangono fino alla sua conclusione. Le modalità di visualizzazione sempre attive vengono applicate ogni volta che si passa a un nuovo video, indipendentemente dalle modifiche apportate alla modalità di visualizzazione durante la visione del video precedente.
   Privacy Settings:
     Privacy Settings: 'Privacy'
     Remember History: 'Ricorda la Cronologia delle visualizzazioni'
@@ -500,6 +505,15 @@ Settings:
     Export search history: Esporta cronologia ricerche
     All search history has been successfully imported: Tutta la cronologia ricerche è stata importata correttamente
     All search history has been successfully exported: Tutta la cronologia ricerche è stata esportata correttamente
+    Settings File: File delle impostazioni
+    Import Settings: Importa le impostazioni
+    Export Settings: Esporta le impostazioni
+    All settings have been successfully imported: Tutte le impostazioni sono state importate con sucesso
+    All settings have been successfully exported: Tutte le impostazioni sono state esportate con sucesso
+    Settings Tooltip: Le impostazioni specifiche del sistema operativo/utente o quelle sperimentali non possono essere esportate o importate (ad esempio, proxy, lettore esterno, cartella degli screenshot...)
+    Setting object has insufficient data, skipping item: L'oggetto delle impostazioni ha dati insufficienti, elemento saltato
+    Unknown setting key: 'Chiave delle impostazioni sconosciuta: {key}'
+    Non-transferable setting key: 'Chiave delle impostazioni non trasferibile: {key}'
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -523,16 +537,16 @@ Settings:
     Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
-    Hide Channel Shorts: Nascondi i "Video brevi" del canale
+    Hide Channel Playlists: Nascondi la scheda Playlist del canale
+    Hide Channel Shorts: Nascondi i Video brevi del canale
     Sections:
       General: Generale
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
       Subscriptions Page: Pagina delle iscrizioni
-    Hide Channel Podcasts: Nascondi la scheda "Podcast" del canale
-    Hide Channel Releases: Nascondi la scheda "Rilasci" del canale
+    Hide Channel Podcasts: Nascondi la scheda Podcast del canale
+    Hide Channel Releases: Nascondi la scheda Rilasci del canale
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
@@ -543,10 +557,10 @@ Settings:
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito. Controlla di nuovo se l'ID è corretto.
     Hide Videos, Playlists and Channels Containing Text: Nascondi i video e le playlist contenenti il testo
     Hide Videos, Playlists and Channels Containing Text Placeholder: Parola, frammento di parola o frase
-    Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
+    Hide Channel Home: Nascondi la scheda Pagina iniziale del canale
     Show Added Items: Mostra elementi aggiunti
-    Hide Channel Courses: Nascondi la scheda "Corsi" del canale
-    Hide Channel Posts: Nascondi la scheda "Post" del canale
+    Hide Channel Courses: Nascondi la scheda Corsi del canale
+    Hide Channel Posts: Nascondi la scheda Post del canale
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
@@ -631,7 +645,6 @@ About:
   room rules: regole stanza
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
-  Email: E-mail
   Website: Sito web
   Please check for duplicates before posting: Controlla se ci sono duplicati prima di pubblicare
   Source code: Codice sorgente
@@ -702,6 +715,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Questo canale al momento non ha corsi
     Courses: Corsi
+  View All: Vedi tutto
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'
@@ -869,7 +883,6 @@ Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
   Click to View Comments: 'Fai clic per vedere i commenti'
-  Getting comment replies, please wait: 'Sto scaricando le risposte ai commenti, per favore attendi'
   Hide Comments: 'Nascondi i commenti'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Non ci sono commenti disponibili per questo video'
@@ -887,6 +900,7 @@ Comments:
   Hide {replyCount} replies: Nascondi 1 risposta | Nascondi {replyCount} risposte
   View 1 reply from {channelName}: Visualizza 1 risposta da {channelName}
   View {replyCount} replies from {channelName} and others: Visualizza {replyCount} risposte da {channelName} e altri
+  Loading replies: Caricamento risposte...
 Up Next: 'Prossimi video'
 
 # Toast Messages

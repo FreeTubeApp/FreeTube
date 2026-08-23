@@ -71,6 +71,8 @@ Search Filters:
   Search Filters: 'Soekfilters'
   Prioritize:
     Most Relevant: 'Mees relevant'
+    Prioritize: Prioritiseer
+    Popularity: Gewildheid
   Time:
     Time: 'Tyd'
     Any Time: 'Enige tyd'
@@ -97,12 +99,12 @@ Search Filters:
     Subtitles: 'Onderskrifte'
     Creative Commons: 'Creative-Commons'
     3D: '3D'
-    Live: ''
-    4K: ''
+    Live: 'Regstreeks'
+    4K: '4K'
     360 Video: ''
-    Location: ''
-    HDR: ''
-    VR180: ''
+    Location: 'Ligging'
+    HDR: 'HDR'
+    VR180: 'VR180'
   # On Search Page
   Search Results: ''
   Fetching results. Please wait: ''
@@ -111,7 +113,7 @@ Search Filters:
 # Sidebar
 Subscriptions:
     # On Subscriptions Page
-  Subscriptions: ''
+  Subscriptions: 'Intekeninge'
   # channels that were likely deleted
   Error Channels: ''
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: ''
@@ -133,7 +135,7 @@ Channels:
   Unsubscribe Prompt: ''
 Trending:
   Trending: ''
-  Gaming: ''
+  Gaming: 'Speletjies'
   Trending Tabs: ''
   Sports: Sport
 Most Popular: 'Mees Populêr'
@@ -245,7 +247,7 @@ History:
   Case Sensitive Search: ''
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Instellings'
   Sort Settings Sections (A-Z): ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
   General Settings:
@@ -649,7 +651,6 @@ About:
   GitHub issues: 'GitHub-probleme'
   Please check for duplicates before posting: 'Gaan na vir duplikate voor u dit plaas'
   Website: 'Webwerf'
-  Email: 'E-pos'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Klets op Matrix'
   room rules: 'kamerreëls'
@@ -758,6 +759,8 @@ Channel:
   Home:
     Home: Tuis
     View Playlist: Bekyk afspeellys
+  Courses:
+    Courses: Kursusse
 Video:
   More Options: 'Nog opsies'
   Mark As Watched: 'Markeer as gekyk'

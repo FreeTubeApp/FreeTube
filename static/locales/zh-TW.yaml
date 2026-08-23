@@ -187,6 +187,8 @@ User Playlists:
   The playlist has been successfully exported: 播放清單已成功匯出
   TotalTimePlaylist: '總時長: {duration}'
   Export list of URLs: 匯出 URL 清單
+  Move Video to the Top: 將影片移至頂部
+  Move Video to the Bottom: 將影片移至底部
 History:
   # On History Page
   History: '觀看紀錄'
@@ -422,6 +424,9 @@ Settings:
       Full Screen: 全螢幕
       Picture in Picture: 畫中畫
       External Player: 外部播放器（{externalPlayerName}）
+      Full Window (Always On): 全視窗（一律開啟）
+      Full Screen (Always On): 全螢幕（一律開啟）
+      Tooltip: 大多數預設觀看模式僅在每次觀看工作階段開始時套用。在該工作階段期間所做的變更將持續生效，直到工作階段結束為止。而「一律開啟」的觀看模式則會在您切換至新影片時自動套用，無論您在觀看前一部影片時曾如何變更觀看模式。
   Subscription Settings:
     Subscription Settings: '訂閱'
     Fetch Feeds from RSS: 從RSS擷取推送
@@ -472,9 +477,9 @@ Settings:
     Profile object has insufficient data, skipping item: 設定檔物件資料不足，正在跳過項目
     Export History: 匯出觀看紀錄
     Import History: 匯入觀看紀錄
-    Export NewPipe: 匯出NewPipe
-    Export YouTube: 匯出YouTube
-    Export FreeTube: 匯出FreeTube
+    Export NewPipe: 匯出 NewPipe
+    Export YouTube: 匯出 YouTube
+    Export FreeTube: 匯出 FreeTube
     Export Subscriptions: 匯出訂閱
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
@@ -497,6 +502,15 @@ Settings:
     Export search history: 匯出搜尋歷史紀錄
     All search history has been successfully imported: 已成功匯入所有搜尋歷史紀錄
     All search history has been successfully exported: 已成功匯出所有搜尋歷史紀錄
+    Settings File: 設定檔
+    Import Settings: 匯入設定
+    Export Settings: 匯出設定
+    Settings Tooltip: 特定於作業系統或使用者，或是實驗性的設定無法匯出或匯入（例如：代理伺服器、外部播放器、螢幕截圖資料夾⋯⋯）
+    All settings have been successfully imported: 所有設定皆已成功匯入
+    All settings have been successfully exported: 所有設定皆已成功匯出
+    Setting object has insufficient data, skipping item: 設定物件的資料不足，將跳過該項目
+    Unknown setting key: 未知的設定鍵：{key}
+    Non-transferable setting key: 無法轉移的設定鍵：{key}
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾
@@ -620,7 +634,6 @@ About:
   Website: 網站
   Credits: 貢獻者
   FAQ: 常見問題
-  Email: 電子郵件
   Beta: 測試版
   Donate: 捐款
   Help: 說明
@@ -702,6 +715,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: 該頻道目前還沒有任何課程
     Courses: 課程
+  View All: 檢視全部
 Video:
   Open in YouTube: '在 YouTube 中開啟'
   Copy YouTube Link: '複製 YouTube 連結'
@@ -869,7 +883,6 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: '這個影片沒有留言'
@@ -887,6 +900,7 @@ Comments:
   Hide {replyCount} replies: 隱藏 1 則回覆 | 隱藏 {replyCount} 則回覆
   View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
+  Loading replies: 正在載入回覆⋯⋯
 Up Next: '觀看其他類似影片'
 
 # Toast Messages

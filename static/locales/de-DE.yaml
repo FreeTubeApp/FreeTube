@@ -187,6 +187,8 @@ User Playlists:
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
   TotalTimePlaylist: 'Gesamtzeit: {duration}'
   Export list of URLs: Liste der URLs exportieren
+  Move Video to the Top: Video nach oben verschieben
+  Move Video to the Bottom: Video nach unten verschieben
 History:
   # On History Page
   History: Verlauf
@@ -423,6 +425,9 @@ Settings:
       External Player: Externer Player ({externalPlayerName})
       Full Screen: Vollbild
       Default Viewing Mode: Standard-Ansichtsmodus
+      Full Window (Always On): Volles Fenster (Immer Ein)
+      Full Screen (Always On): Vollbild (Immer Ein)
+      Tooltip: Die meisten Standardanzeigemodi werden nur zu Beginn jeder Videoschausitzung angewendet. Die während der Sitzung vorgenommenen Änderungen bestehen bis zum Ende. Immer eingeschaltete Anzeigemodi werden angewendet, wenn Sie zu einem neuen Video wechseln, unabhängig davon, ob der Anzeigemodus beim Betrachten des vorherigen Videos geändert wird.
   Subscription Settings:
     Subscription Settings: Abo
     Fetch Feeds from RSS: Abos via RSS abrufen
@@ -627,7 +632,6 @@ About:
   Website: Website
   Credits: Danksagungen
   FAQ: Häufig gestellte Fragen
-  Email: E-Mail
   Beta: Beta
   Donate: Spenden
   Help: Hilfe
@@ -878,7 +882,6 @@ Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare
   Click to View Comments: Kommentare anzeigen
-  Getting comment replies, please wait: Antworten auf Kommentare werden geladen, bitte warten
   Hide Comments: Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: Keine Kommentare zu diesem Video vorhanden
@@ -896,6 +899,7 @@ Comments:
   Hide {replyCount} replies: 1 Antwort ausblenden | {replyCount} Antworten ausblenden
   View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
   View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
+  Loading replies: Antworten laden...
 Up Next: Nächster Titel
 
 # Toast Messages

@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Филтери претраге'
   Prioritize:
     Most Relevant: 'Најрелевантније'
+    Prioritize: Приоритет има
+    Popularity: Популарност
   Time:
     Time: 'Време'
     Any Time: 'Било које време'
@@ -106,6 +108,7 @@ Trending:
   Trending: 'У тренду'
   Gaming: Видео игре
   Trending Tabs: Картице у тренду
+  Sports: Спорт
 Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:
@@ -610,7 +613,6 @@ About:
   GitHub issues: 'Пријава проблема на GitHub-у'
   Please check for duplicates before posting: 'Проверите да ли има дупликата пре објављивања'
   Website: 'Веб-сајт'
-  Email: 'Имејл'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Ћаскање на Matrix-у'
   room rules: 'правила собе'
@@ -906,7 +908,6 @@ Comments:
   Click to View Comments: Кликни да видиш коментаре
   Top comments: Топ коментари
   Subscribed: Пратите
-  Getting comment replies, please wait: Набављање одговора на коментаре, сачекајте
   Load More Comments: Учитај више коментара
   Hide Comments: Сакриј коментаре
   Show More Replies: Прикажи више одговора

@@ -51,6 +51,7 @@ Search Filters:
   Prioritize:
     Most Relevant: 'Mest relevante'
     Popularity: Popularitet
+    Prioritize: Prioriter
   Time:
     Time: 'Tid'
     Any Time: 'Altid'
@@ -605,7 +606,6 @@ About:
   room rules: reglerne for rummet
   Chat on Matrix: Chat på Matrix
   Mastodon: Mastodon
-  Email: E-mail
   Website: Websted
   Please check for duplicates before posting: Kontrollér venligst for duplikater før opslag
   GitHub issues: GitHub-problemer
@@ -883,7 +883,6 @@ Mini Player: 'Miniafspiller'
 Comments:
   Comments: 'Kommentarer'
   Click to View Comments: 'Klik for at vise kommentarer'
-  Getting comment replies, please wait: 'Henter kommentarsvar; vent venligst'
   There are no more comments for this video: 'Der er ikke flere kommentarer til denne video'
   Hide Comments: 'Skjul kommentarer'
   # Context: View 10 Replies, View 1 Reply

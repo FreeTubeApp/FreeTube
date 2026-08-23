@@ -36,11 +36,12 @@
       </FtFlexBox>
       <FtFlexBox>
         <FtInput
+          ref="sponsorBlockUrlInput"
           :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
           :show-action-button="false"
           :show-label="true"
           :value="sponsorBlockUrl"
-          @input="handleUpdateSponsorBlockUrl"
+          @blur="handleUpdateSponsorBlockUrl"
         />
       </FtFlexBox>
       <FtFlexBox
@@ -48,11 +49,12 @@
       >
         <FtInput
           v-if="useDeArrowThumbnails"
+          ref="deArrowThumbnailGeneratorUrl"
           :placeholder="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
           :show-action-button="false"
           :show-label="true"
           :value="deArrowThumbnailGeneratorUrl"
-          @input="handleUpdateDeArrowThumbnailGeneratorUrl"
+          @blur="handleUpdateDeArrowThumbnailGeneratorUrl"
         />
       </FtFlexBox>
 
@@ -70,7 +72,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, useTemplateRef } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
@@ -109,6 +111,9 @@ const useDeArrowThumbnails = computed(() => store.getters.getUseDeArrowThumbnail
 /** @type {import('vue').ComputedRef<string>} */
 const deArrowThumbnailGeneratorUrl = computed(() => store.getters.getDeArrowThumbnailGeneratorUrl)
 
+const sponsorBlockUrlInputRef = useTemplateRef('sponsorBlockUrlInput')
+const deArrowThumbnailGeneratorUrlRef = useTemplateRef('deArrowThumbnailGeneratorUrl')
+
 /**
  * @param {boolean} value
  */
@@ -141,14 +146,24 @@ function handleUpdateSponsorBlockShowSkippedToast(value) {
  * @param {string} value
  */
 function handleUpdateSponsorBlockUrl(value) {
-  store.dispatch('updateSponsorBlockUrl', cleanupUrl(value))
+  const cleanValue = cleanupUrl(value)
+  store.dispatch('updateSponsorBlockUrl', cleanValue)
+
+  if (cleanValue !== value) {
+    sponsorBlockUrlInputRef.value?.setText(cleanValue)
+  }
 }
 
 /**
  * @param {string} value
  */
 function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
-  store.dispatch('updateDeArrowThumbnailGeneratorUrl', cleanupUrl(value))
+  const cleanValue = cleanupUrl(value)
+  store.dispatch('updateDeArrowThumbnailGeneratorUrl', cleanValue)
+
+  if (cleanValue !== value) {
+    deArrowThumbnailGeneratorUrlRef.value?.setText(cleanValue)
+  }
 }
 
 /**
@@ -156,7 +171,7 @@ function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
  */
 function cleanupUrl(url) {
   return url
-    .replace(/\/$/, '')
+    .replace(/\/+$/, '')
     .replace(/\/api$/, '')
 }
 </script>

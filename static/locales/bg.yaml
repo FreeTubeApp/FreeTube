@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: 'Bulgarian'
+Locale Name: 'Български'
 
 # Webkit Menu Bar
 File: 'Файл'
@@ -193,6 +193,8 @@ User Playlists:
   The playlist has been successfully exported: Плейлистът беше успешно експортиран
   TotalTimePlaylist: 'Общо време: {duration}'
   Export list of URLs: Експортиране на списък с URL адреси
+  Move Video to the Top: Премести най-отгоре
+  Move Video to the Bottom: Премести най-отдолу
 History:
   # On History Page
   History: 'История'
@@ -408,6 +410,8 @@ Settings:
       Quality Label: Качество
       Modes:
         Ask Path: Питане за папка за запазване
+        Save To Folder: Запиши в папка
+        Clipboard: Копирай в Клипборда
       Folder Label: Папка
       File Name Label: Модел за име на файл
       Error:
@@ -416,6 +420,7 @@ Settings:
       File Name Tooltip: Можете да използвате променливите по-долу. %Y - година - 4 цифри. %M - месец - 2 цифри. %D - ден - 2 цифри. %H - час - 2 цифри. %N - минути - 2 цифри. %S - секунди - 2 цифри. %T - милисекунди - 3 цифри. %s - видеосекунди. %t - видео милисекунди - 3 цифри. %i ID на видеото.
       Format Label: Формат
       Folder Button: Избор на папка
+      Mode: Режим на екранна снимка
     Enter Fullscreen on Display Rotate: Режим на цял екран при завъртане на дисплея
     Skip by Scrolling Over Video Player: Превъртане над видео плейъра
     Autoplay Interruption Timer: Таймер за прекъсване на автоматичното възпроизвеждане
@@ -425,6 +430,9 @@ Settings:
       Theater: Широк екран
       Default Viewing Mode: Режим на гледане по подразбиране
       Picture in Picture: Картина в картината
+      Full Window (Always On): Пълен прозорец (Винаги включен)
+      Full Screen (Always On): Пълен екран (винаги включен)
+      Tooltip: Повечето режими на гледане по подразбиране се прилагат само в началото на всяка сесия на гледане. Промените, направени по време на сесията, се запазват до нейния край. Режимите на гледане „Винаги включено“ се прилагат всеки път, когато превключите към ново видео, независимо от промените в режима на гледане, направени при гледането на предишното видео.
   Privacy Settings:
     Privacy Settings: 'Поверителност'
     Remember History: 'Запазване на историята с гледания'
@@ -500,6 +508,15 @@ Settings:
     Export search history: Изнасяне на история с търсения
     All search history has been successfully imported: Цялата история на търсенията е внесена успешно
     All search history has been successfully exported: Цялата история на търсенията е изнесена успешно
+    Settings File: Файл с настройки
+    Import Settings: Импорт на настройките
+    Export Settings: Експорт на настройките
+    Settings Tooltip: Настройки, специфични за ОС/потребител или експериментални, не могат да бъдат експортирани или импортирани (напр. прокси, външен плейър, папка за скрийншотове...).
+    All settings have been successfully imported: Всички настройки са успешно импортирани
+    All settings have been successfully exported: Всички настройки са успешно експортирани
+    Setting object has insufficient data, skipping item: Обектът на настройка няма достатъчно данни, пропускане на елемент
+    Unknown setting key: 'Непознат ключ за настройка: {key}'
+    Non-transferable setting key: 'Непрехвърляем ключ за настройка: {key}'
   Distraction Free Settings:
     Hide Live Chat: Скриване на чата на живо
     Hide Popular Videos: Скриване на популярните видеа
@@ -597,6 +614,7 @@ Settings:
     Show Family Friendly Only: Показване само за семейства
     Hide Search Bar: Скриване на лентата за търсене
     Hide Uploader on Watch page: Скриване името на канала от страницата за гледане
+    Disable Channel Links: Деактивиране на връзките към канали
   Experimental Settings:
     Experimental Settings: Експериментални
     Replace HTTP Cache: Замяна на HTTP кеша
@@ -621,7 +639,6 @@ About:
   room rules: Правилата за общуване
   Chat on Matrix: Чат в Matrix
   Mastodon: Mastodon
-  Email: Електронна поща
   Website: Уебсайт
   Please check for duplicates before posting: Моля, проверете за дубликати преди публикуване
   GitHub issues: GitHub проблеми
@@ -742,6 +759,7 @@ Channel:
   Courses:
     Courses: Курсове
     This channel does not currently have any courses: В момента този канал няма никакви курсове
+  View All: Виж всичко
 Video:
   Mark As Watched: 'Отбелязване като гледано'
   Remove From History: 'Премахване от историята'
@@ -858,6 +876,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставащо време за реклама преди видеото: {remindingTimeSeconds} сек'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставащо време за отлагане на SABR: {remindingTimeSeconds} сек'
+  Private: Частни видеоклипове не могат да се гледат във FreeTube, тъй като изискват влизане в Google и собственост върху видеото.
 Playlist:
   #& About
   View Full Playlist: 'Преглед на пълен плейлист'
@@ -908,7 +927,6 @@ Mini Player: 'Мини плейър'
 Comments:
   Comments: 'Коментари'
   Click to View Comments: 'Щракнете, за да видите коментарите'
-  Getting comment replies, please wait: 'Получаване на отговори на коментара, моля изчакайте'
   There are no more comments for this video: 'Към това видео няма повече коментари'
   Hide Comments: 'Скриване на коментарите'
   # Context: View 10 Replies, View 1 Reply
@@ -926,6 +944,7 @@ Comments:
   Hide {replyCount} replies: Скриване на 1 отговор | Скриване на {replyCount} отговора
   View 1 reply from {channelName}: Преглед на 1 отговор от {channelName}
   View {replyCount} replies from {channelName} and others: Преглед на {replyCount} отговора от {channelName} и други
+  Loading replies: Зареждане на отговорите...
 Up Next: 'Следващ'
 
 # Toast Messages
@@ -1113,3 +1132,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: '{''|''}'
 Compact side navigation: Компактно странично меню
 Expand side navigation: Разгърни страничното меню
+Screenshot Clipboard Success: Запазена екранна снимка в клипборда
+Screenshot Clipboard Error: Копирането на екранната снимка в клипборда не бе успешно

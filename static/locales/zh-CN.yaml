@@ -187,6 +187,8 @@ User Playlists:
   The playlist has been successfully exported: 成功导出播放清单
   TotalTimePlaylist: 总时间：{duration}
   Export list of URLs: 导出 URL 列表
+  Move Video to the Top: 移动视频到顶部
+  Move Video to the Bottom: 移动视频到底部
 History:
   # On History Page
   History: '历史记录'
@@ -422,6 +424,9 @@ Settings:
       External Player: 外部播放器({externalPlayerName})
       Theater: 影院
       Full Screen: 全屏
+      Full Window (Always On): 整个窗口（始终开启）
+      Full Screen (Always On): 整个屏幕（始终开启）
+      Tooltip: 多数默认观看模式仅在每个观看会话开始时应用。会话期间所做的更改持续到会话结束。每当切换到新视频时应用“始终开启”观看模式，不论观看上个视频时做了什么观看模式更改。
   Subscription Settings:
     Subscription Settings: '订阅'
     Fetch Feeds from RSS: 从RSS摘取推送
@@ -497,6 +502,15 @@ Settings:
     Export search history: 导出搜索历史
     All search history has been successfully imported: 成功导入了所有搜索历史
     All search history has been successfully exported: 成功导出了所有搜索历史
+    Settings File: 设置文件
+    Import Settings: 导入设置
+    Export Settings: 导出设置
+    Settings Tooltip: 无法导出或导入特定系统/用户的设置或实验性设置（如代理、外部播放器、屏幕截图文件夹…）
+    All settings have been successfully imported: 成功导入了所有设置
+    All settings have been successfully exported: 成功导出了所有设置
+    Setting object has insufficient data, skipping item: 设置对象数据不足，跳过项目
+    Unknown setting key: 未知的设置键：{key}
+    Non-transferable setting key: 不可传输的设置键：{key}
   Distraction Free Settings:
     Hide Popular Videos: 隐藏流行视频
     Hide Trending Videos: 隐藏热门视频
@@ -620,7 +634,6 @@ About:
   Source code: 源代码
   Beta: 测试版
   Website: 网站
-  Email: 电子邮件
   Donate: 捐款
   Credits: 贡献者
   Translate: 翻译
@@ -702,6 +715,7 @@ Channel:
   Courses:
     Courses: 课程
     This channel does not currently have any courses: 此频道当前没有任何课程
+  View All: 查看全部
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
@@ -869,7 +883,6 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '评论'
   Click to View Comments: '点击观看评论'
-  Getting comment replies, please wait: '获取评论中，请稍候'
   Hide Comments: '隐藏评论'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: '这个视频没有评论'
@@ -887,6 +900,7 @@ Comments:
   Hide {replyCount} replies: 隐藏 1 条回复| 隐藏 {replyCount} 条回复
   View 1 reply from {channelName}: 查看 1 条来自 {channelName}的回复
   View {replyCount} replies from {channelName} and others: 查看 {replyCount} 条来自 {channelName} 和其他频道的回复
+  Loading replies: 正在加载回复…
 Up Next: 'Up Next'
 
 # Toast Messages

@@ -49,6 +49,8 @@ Search Filters:
   Search Filters: 'Filtre de căutare'
   Prioritize:
     Most Relevant: 'Cele mai relevante'
+    Prioritize: Bigyang-priyoridad
+    Popularity: Kasikatan
   Time:
     Time: 'Timp'
     Any Time: 'Oricând'
@@ -600,7 +602,6 @@ About:
   About: 'Despre'
   #& About
   Mastodon: Mastodon
-  Email: E-mail
   Donate: Donează
   these people and projects: aceste persoane și proiecte
   Credits: Credite
@@ -885,7 +886,6 @@ Mini Player: 'Mini Player'
 Comments:
   Comments: 'Comentarii'
   Click to View Comments: 'Faceți clic pentru a vedea comentariile'
-  Getting comment replies, please wait: 'Se obțin răspunsurile comentariului, vă rugăm să așteptați'
   There are no more comments for this video: 'Nu mai există niciun comentariu pentru acest videoclip'
   Hide Comments: 'Ascundeți comentariile'
   # Context: View 10 Replies, View 1 Reply

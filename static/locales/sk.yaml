@@ -187,6 +187,8 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: Playlist {playlistName} bol úspešne vytvorený.
     New Playlist Name: Názov nového playlistu
   Export list of URLs: Exportovať zoznam adries URL
+  Move Video to the Top: Presunúť video na začiatok
+  Move Video to the Bottom: Presunúť video na koniec
 History:
   # On History Page
   History: 'História'
@@ -422,6 +424,9 @@ Settings:
       Full Screen: Celá obrazovka
       Default Viewing Mode: Predvolený režim zobrazenia
       Theater: Kino
+      Full Window (Always On): Celé okno (vždy zapnuté)
+      Full Screen (Always On): Celá obrazovka (vždy zapnuté)
+      Tooltip: Väčšina predvolených režimov prehrávania sa uplatňuje len na začiatku každej relácie pozerania. Zmeny vykonané počas relácie zostávajú zachované až do jej ukončenia. Režimy prehrávania, ktoré sú vždy zapnuté, sa uplatňujú vždy, keď prejdete na nové video, bez ohľadu na akékoľvek zmeny režimu prehrávania vykonané pri pozeraní predchádzajúceho videa.
   Subscription Settings:
     Subscription Settings: 'Odber'
     Fetch Feeds from RSS: Načítať kanály z RSS
@@ -468,6 +473,15 @@ Settings:
     Playlist File: Súbor playlistov
     History File: Súbor histórie
     Subscription File: Súbor odberov
+    Settings File: Súbor nastavení
+    Import Settings: Importovať nastavenia
+    Export Settings: Exportovať nastavenia
+    All settings have been successfully imported: Všetky nastavenia boli úspešne importované
+    All settings have been successfully exported: Všetky nastavenia boli úspešne exportované
+    Settings Tooltip: Nastavenia, ktoré sú špecifické pre OS/používateľa, alebo sú experimentálne, nie je možné exportovať ani importovať (napr. proxy, externý prehrávač, priečinok so snímkami obrazovky...)
+    Setting object has insufficient data, skipping item: Objekt nastavenia nemá dostatočné údaje, položka sa preskočí
+    Unknown setting key: 'Neznámy kľúč nastavenia: {key}'
+    Non-transferable setting key: 'Neprenositeľný kľúč nastavenia: {key}'
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -628,7 +642,6 @@ About:
   room rules: pravidlá miestností
   Chat on Matrix: Napíšte nám na Matrix-e
   Mastodon: Komunikačná platforma Mastodon
-  Email: Elektronická pošta
   Website: Webstránka
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
   Discussions: Diskusie
@@ -696,6 +709,7 @@ Channel:
   Channel Tabs: Karty kanálov
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Tento kanál je obmedzený vekom a momentálne nemôže byť pozeraný vo FreeTube.
   This channel does not exist: Tento kanál neexistuje
+  View All: Zobraziť všetko
 Video:
   Mark As Watched: 'Označiť ako pozerané'
   Remove From History: 'Odstrániť z histórie'
@@ -811,7 +825,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
-  Popout Live Chat: Popout Chat
+  Popout Live Chat: Vyskakovací chat
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
 Playlist:
   #& About
@@ -863,7 +877,6 @@ Mini Player: 'Mini prehrávač'
 Comments:
   Comments: 'Komentáre'
   Click to View Comments: 'Kliknutím zobrazíte komentáre'
-  Getting comment replies, please wait: 'Získavanie odpovedí na komentáre, čakajte prosím'
   Hide Comments: 'Skryť komentáre'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Pre toto video nie sú dostupné žiadne komentáre'
@@ -881,6 +894,7 @@ Comments:
   View 1 reply from {channelName}: Zobraziť 1 odpoveď od {channelName}
   Hide {replyCount} replies: Skryť 1 odpoveď | Skryť odpovede v počte {replyCount}
   View {replyCount} replies: Zobraziť 1 odpoveď | Zobraziť {replyCount} odpovedí
+  Loading replies: Načítanie odpovedí...
 Up Next: 'Ďalšie'
 
 # Toast Messages
@@ -888,8 +902,8 @@ Local API Error (Click to copy): 'Chyba lokálneho API (kliknite pre kopírovani
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknite pre kopírovanie)'
 Falling back to Invidious API: 'Návrat k Invidious API'
 Falling back to Local API: 'Návrat k lokálnemu API'
-Loop is now disabled: 'Slučka je teraz vypnutá'
-Loop is now enabled: 'Slučka je teraz zapnutá'
+Loop is now disabled: 'Opakovanie videa je teraz vypnuté'
+Loop is now enabled: 'Opakovanie videa je teraz zapnuté'
 Shuffle is now disabled: 'Zamiešanie je teraz vypnuté'
 Shuffle is now enabled: 'Zamiešanie je teraz zapnuté'
 Playing Next Video: 'Prehrávanie nasledujúceho videa'

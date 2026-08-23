@@ -11,8 +11,7 @@
       :aria-controls="id + 'list'"
       @click="toggleProfileList"
       @mousedown="handleIconMouseDown"
-      @keydown.space.prevent="toggleProfileList"
-      @keydown.enter.prevent="toggleProfileList"
+      @keydown.enter.space.prevent="toggleProfileList"
     >
       <div
         class="initial"

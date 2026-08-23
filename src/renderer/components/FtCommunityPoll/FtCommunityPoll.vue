@@ -12,7 +12,7 @@
     >
       <div
         v-if="data.type === 'quiz'"
-        class="option quiz-option"
+        class="option"
         :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
       >
         <span class="empty-circle">
@@ -27,7 +27,7 @@
       </div>
       <div
         v-else
-        class="option poll-option"
+        class="option"
       >
         <span class="empty-circle" />
         <img
@@ -49,8 +49,7 @@
       tabindex="0"
       role="button"
       @click="revealAnswer = !revealAnswer"
-      @keydown.enter.prevent="revealAnswer = !revealAnswer"
-      @keydown.space.prevent="revealAnswer = !revealAnswer"
+      @keydown.enter.space.prevent="revealAnswer = !revealAnswer"
     >
       <div
         v-if="!revealAnswer"

@@ -8,8 +8,7 @@
       tabindex="0"
       role="status"
       @click="performAction(toast)"
-      @keydown.enter.prevent="performAction(toast)"
-      @keydown.space.prevent="performAction(toast)"
+      @keydown.enter.space.prevent="performAction(toast)"
     >
       <p class="message">
         {{ toast.message }}

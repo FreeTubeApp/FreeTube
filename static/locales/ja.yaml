@@ -187,6 +187,8 @@ User Playlists:
   Export Playlist: この再生リストをエクスポート
   TotalTimePlaylist: '合計時間: {duration}'
   Export list of URLs: URL のリストをエクスポート
+  Move Video to the Top: 動画を一番上に移動
+  Move Video to the Bottom: 動画を一番下に移動
 History:
   # On History Page
   History: '履歴'
@@ -422,6 +424,9 @@ Settings:
       Picture in Picture: 子画面表示
       Full Screen: フルスクリーン
       External Player: 外部プレーヤー ({externalPlayerName})
+      Full Window (Always On): ウィンドウ全体 (常にオン)
+      Full Screen (Always On): 全画面 (常にオン)
+      Tooltip: ほとんどのデフォルトの視聴モードは、各視聴セッションの開始時にのみ適用されます。セッション中に変更を加えた場合、その変更はセッションが終了するまで維持されます。一方、「常に有効」な視聴モードは、前の動画の視聴時にモードを変更していたかどうかにかかわらず、新しい動画に切り替えるたびに適用されます。
   Subscription Settings:
     Subscription Settings: '登録チャンネル'
     Fetch Feeds from RSS: RSS から情報取得
@@ -496,6 +501,15 @@ Settings:
     Export search history: 検索履歴のエクスポート
     All search history has been successfully imported: すべての検索履歴が正常にインポートされました
     All search history has been successfully exported: すべての検索履歴が正常にエクスポートされました
+    Settings File: 設定ファイル
+    Import Settings: 設定のインポート
+    Export Settings: 設定のエクスポート
+    Settings Tooltip: OSやユーザー固有の設定、あるいは実験的な設定は、エクスポートやインポートを行うことができません（例：プロキシ、外部プレーヤー、スクリーンショットの保存先フォルダーなど）
+    All settings have been successfully imported: すべての設定が正常にインポートされました
+    All settings have been successfully exported: すべての設定が正常にエクスポートされました
+    Setting object has insufficient data, skipping item: 設定オブジェクトのデータが不十分です。この項目をスキップします
+    Unknown setting key: '不明な設定キー : {key}'
+    Non-transferable setting key: '転送できない設定キー : {key}'
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -620,7 +634,6 @@ About:
   room rules: ルームの規則
   Chat on Matrix: Matrix でチャット
   Mastodon: マストドン
-  Email: メールアドレス
   Website: ウェブサイト
   Please check for duplicates before posting: 投稿する前に重複を確認してください
   GitHub issues: GitHub の課題
@@ -698,6 +711,7 @@ Channel:
   Courses:
     Courses: コース
     This channel does not currently have any courses: このチャンネルには現在コースはありません
+  View All: すべて表示
 Video:
   Open in YouTube: 'YouTube で表示'
   Copy YouTube Link: 'YouTube リンクのコピー'
@@ -865,7 +879,6 @@ Mini Player: 'ミニプレーヤー'
 Comments:
   Comments: 'コメント'
   Click to View Comments: 'コメント表示'
-  Getting comment replies, please wait: 'コメント返信を取得中。お待ちください'
   Hide Comments: 'コメント非表示'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'この動画にはコメントがありません'
@@ -883,6 +896,7 @@ Comments:
   Hide {replyCount} replies: 1 件の返信を非表示にする | {replyCount} 件の返信を非表示にする
   View 1 reply from {channelName}: '{channelName} からの 1 件の返信を見る'
   View {replyCount} replies from {channelName} and others: '{channelName} や他のユーザーからの {replyCount} 件の返信を見る'
+  Loading replies: 返信を読み込み中...
 Up Next: '次の動画'
 
 # Toast Messages

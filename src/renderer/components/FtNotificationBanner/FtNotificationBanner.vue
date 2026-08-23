@@ -6,8 +6,7 @@
     :title="message"
     :aria-describedby="id"
     @click="handleClick"
-    @keydown.enter.prevent="handleClick"
-    @keydown.space.prevent="handleClick"
+    @keydown.enter.space.prevent="handleClick"
   >
     <p
       :id="id"

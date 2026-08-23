@@ -71,6 +71,7 @@ Search Filters:
   Search Filters: 'வடிப்பான்களைத் தேடுங்கள்'
   Prioritize:
     Most Relevant: 'மிகவும் பொருத்தமானது'
+    Popularity: பிரபலம்
   Time:
     Time: 'நேரம்'
     Any Time: 'எந்த நேரத்திலும்'
@@ -243,6 +244,8 @@ User Playlists:
       There was an issue with creating the playlist.: 'பிளேலிச்ட்டை உருவாக்குவதில் சிக்கல் இருந்தது.'
   TotalTimePlaylist: 'மொத்த நேரம்: {duration}'
   Export list of URLs: முகவரிகளின் பட்டியலை ஏற்றுமதி
+  Move Video to the Top: வீடியோவை மேலே நகர்த்தவும்
+  Move Video to the Bottom: வீடியோவை கீழே நகர்த்தவும்
 History:
   # On History Page
   History: 'வரலாறு'
@@ -478,6 +481,8 @@ Settings:
       Full Screen: முழுத் திரை
       Picture in Picture: படத்தில் படம்
       External Player: வெளிப்புற பிளேயர் ({externalPlayerName})
+      Full Window (Always On): முழுச் சாளரம் (எப்போதும் இயங்கும்)
+      Full Screen (Always On): முழுத் திரை (எப்போதும் இயங்கும்)
   External Player Settings:
     External Player Settings: 'வெளிப்புற பிளேயர்'
     External Player: 'வெளிப்புற பிளேயர்'
@@ -683,7 +688,6 @@ About:
   GitHub issues: 'அறிவிலிமையம் சிக்கல்கள்'
   Please check for duplicates before posting: 'இடுகையிடுவதற்கு முன் நகல்களை சரிபார்க்கவும்'
   Website: 'வலைத்தளம்'
-  Email: 'மின்னஞ்சல்'
   Mastodon: 'மாச்டோடன்'
   Chat on Matrix: 'மேட்ரிக்சில் அரட்டை'
   room rules: 'அறை விதிகள்'
@@ -1000,7 +1004,6 @@ Mini Player: 'மினி பிளேயர்'
 Comments:
   Comments: 'கருத்துகள்'
   Click to View Comments: 'கருத்துகளைக் காண சொடுக்கு செய்க'
-  Getting comment replies, please wait: 'கருத்து பதில்களைப் பெறுதல், தயவுசெய்து காத்திருங்கள்'
   There are no more comments for this video: 'இந்த வீடியோவுக்கு இனி கருத்துகள் இல்லை'
   Hide Comments: 'கருத்துகளை மறைக்கவும்'
   Top comments: 'சிறந்த கருத்துகள்'

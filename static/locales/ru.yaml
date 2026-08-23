@@ -622,7 +622,6 @@ About:
   room rules: правила комнаты
   Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
-  Email: Электронная почта
   Website: Сайт
   Report a problem: Сообщить о проблеме
   FAQ: ЧАВО
@@ -866,7 +865,6 @@ Mini Player: 'Мини-проигрыватель'
 Comments:
   Comments: 'Комментарии'
   Click to View Comments: 'Нажмите, чтобы просмотреть комментарии'
-  Getting comment replies, please wait: 'Получение ответов на комментарии, пожалуйста, подождите'
   Hide Comments: 'Скрыть комментарии'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'К этому видео нет комментариев'
@@ -1073,7 +1071,7 @@ KeyboardShortcutPrompt:
       Playback: 'Видео: Воспроизведение'
       General: 'Видео: Общее'
   Show Keyboard Shortcuts: Показать сочетания клавиш
-  History Backward: Перейти на одну страницу
+  History Backward: Вернуться на одну страницу
   Keyboard Shortcuts: Ярлыки клавиатуры
   History Forward: Переместить одну страницу
   New Window: Создать новое окно

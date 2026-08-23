@@ -13,9 +13,6 @@ jobs:
       (contains(github.event.pull_request.base.ref, 'development') || contains(github.event.pull_request.base.ref, 'RC'))
     runs-on: ubuntu-slim
 
-    permissions:
-      contents: write
-
     steps:
     - name: Auto Merge PR
       shell: bash

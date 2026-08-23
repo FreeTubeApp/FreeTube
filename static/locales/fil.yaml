@@ -30,6 +30,7 @@ Search Filters:
   Search Filters: 'Mga filter ng paghahanap'
   Prioritize:
     Most Relevant: 'Pinakanakakaugnay'
+    Prioritize: Prioriter
   Time:
     Time: 'Oras'
     Any Time: 'Kahit anuman oras'
@@ -58,6 +59,11 @@ Search Filters:
     Features: Mga Feature
     Location: Lokasyon
     HD: HD
+    Creative Commons: Creative Commons
+    3D: 3D
+    4K: 4K
+    HDR: HDR
+    VR180: VR180
   There are no more results for this search: Wala nang resulta sa search na ito
 Subscriptions:
     # On Subscriptions Page
@@ -67,6 +73,7 @@ Subscriptions:
 Trending:
   Trending: 'Nagte-trend'
   Gaming: Laro
+  Sports: Palakasan
 Most Popular: 'Pinakasikat'
 Settings:
   # On Settings Page
@@ -97,10 +104,13 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
+  Settings: Mga Setting
 Channel:
   Videos:
     Videos: Mga video
   Playlists: {}
+  Courses:
+    Courses: Mga Kurso
 Download From Site: I-download mula sa website
 Open New Window: buksan ang bagong window
 New Window: Bagong window

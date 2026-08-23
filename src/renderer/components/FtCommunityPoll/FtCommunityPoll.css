@@ -12,7 +12,7 @@
   float: inline-start;
   block-size: 10px;
   position: relative;
-  inline-size: 10px;
+  min-inline-size: 10px;
 }
 
 .filled-circle {
@@ -53,11 +53,6 @@
 
 .correct-option .filled-circle {
   background-color: #78da71;
-}
-
-.incorrect-option {
-  border-color: #dd4e4e;
-  border-width: 2px;
 }
 
 .reveal-answer {

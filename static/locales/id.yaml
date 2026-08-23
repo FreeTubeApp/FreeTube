@@ -626,7 +626,6 @@ About:
   room rules: aturan kamar
   Chat on Matrix: Mengobrol di Matrix
   Mastodon: mastodon
-  Email: Surel
   Website: Situs web
   Please check for duplicates before posting: Silakan periksa duplikat sebelum melaporkan
   GitHub issues: Isu GitHub
@@ -913,7 +912,6 @@ Mini Player: 'Pemutar Kecil'
 Comments:
   Comments: 'Komentar'
   Click to View Comments: 'Klik untuk Melihat Komentar'
-  Getting comment replies, please wait: 'Memuat balasan komentar, harap tunggu'
   Hide Comments: 'Sembunyikan Komentar'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Tidak ada komentar tersedia untuk video ini'

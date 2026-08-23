@@ -57,6 +57,8 @@ Search Filters:
   Search Filters: 'Meklēšanas atlase'
   Prioritize:
     Most Relevant: 'Visatbilstošākie'
+    Prioritize: Prioritātes
+    Popularity: Popularitāte
   Time:
     Time: 'Vecums'
     Any Time: 'Jebkurā laikā'
@@ -534,7 +536,6 @@ About:
   GitHub issues: 'GitHub problēmas'
   Please check for duplicates before posting: 'Lūdzu pārbaudi dublikātus pirms publicēšanas'
   Website: 'Vietne'
-  Email: 'E-pasts'
   Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'
   room rules: 'istabas noteikumi'
@@ -775,7 +776,6 @@ Mini Player: ''
 Comments:
   Comments: 'Komentāri'
   Click to View Comments: 'Rādīt komentārus'
-  Getting comment replies, please wait: 'Notiek komentāra atbilžu ielāde, lūdzu, uzgaidiet'
   There are no more comments for this video: 'Šim video nav vairāk komentāru'
   Hide Comments: 'Paslēpt komentārus'
   Top comments: 'Populārākos augšgalā'

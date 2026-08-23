@@ -14,6 +14,8 @@ import {
   ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
   SEARCH_CHAR_LIMIT,
+  LIGHT_BASE_THEMES,
+  DARK_BASE_THEMES,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -628,6 +630,7 @@ function runApp() {
         }
       }
 
+      // eslint-disable-next-line n/no-callback-literal
       callback({ requestHeaders })
     })
 
@@ -649,6 +652,7 @@ function runApp() {
         delete responseHeaders['reporting-endpoints']
       }
 
+      // eslint-disable-next-line n/no-callback-literal
       callback({ responseHeaders })
     })
 
@@ -744,6 +748,7 @@ function runApp() {
           redirectURL += `#${details.webContents.id}`
         }
 
+        // eslint-disable-next-line n/no-callback-literal
         callback({
           redirectURL
         })
@@ -751,6 +756,14 @@ function runApp() {
 
       // --- end of `if experimentsDisableDiskCache` ---
     }
+
+    try {
+      const baseTheme = await baseHandlers.settings._findOne('baseTheme')
+
+      if (baseTheme?.value) {
+        updateThemeSource(baseTheme.value)
+      }
+    } catch {}
 
     await createWindow()
 
@@ -990,7 +1003,6 @@ function runApp() {
       // It will be shown later when ready via `ready-to-show` event
       show: showWindowNow,
       backgroundColor: windowBackground,
-      darkTheme: nativeTheme.shouldUseDarkColors,
       icon: process.env.NODE_ENV === 'development'
         ? path.join(__dirname, '../../_icons/iconColor.png')
         : path.join(__dirname, '../_icons/iconColor.png'),
@@ -1640,6 +1652,14 @@ function runApp() {
     }
   })
 
+  function updateThemeSource(baseTheme) {
+    nativeTheme.themeSource = LIGHT_BASE_THEMES.includes(baseTheme)
+      ? 'light'
+      : (DARK_BASE_THEMES.includes(baseTheme)
+          ? 'dark'
+          : 'system')
+  }
+
   // ************************************************* //
   // DB related IPC calls
   // *********** //
@@ -1688,6 +1708,9 @@ function runApp() {
                 trayOnMinimize = data.value
                 if (!trayOnMinimize) { showHiddenWindows() }
               }
+              break
+            case 'baseTheme':
+              updateThemeSource(data.value)
               break
 
             default:

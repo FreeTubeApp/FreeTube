@@ -1812,7 +1812,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       if (thumbnailBottomOverlayView) {
         if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
-        } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text.toLowerCase() === 'upcoming')) {
+        } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text?.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
           for (const row of lockupView.metadata.metadata.metadata_rows) {
@@ -2332,7 +2332,11 @@ export function parseLocalCommunityPosts(posts) {
   // we don't currently support SharedPost's so that is also filtered out
   for (const post of posts) {
     if (post.type === 'SharedPost') {
-      foundIds.push(post.original_post.id, post.id)
+      // `original_post` can be null if it was deleted
+      if (post.original_post) {
+        foundIds.push(post.original_post.id)
+      }
+      foundIds.push(post.id)
     }
   }
 

@@ -158,6 +158,7 @@
 
 :deep(.sponsorBlockMarker) {
   background-color: var(--primary-color);
+  mix-blend-mode: screen;
 }
 
 :deep(.chapterMarker) {
@@ -216,6 +217,14 @@
   display: none;
 }
 
+:deep(.ultrawide-mode-button) {
+  display: none;
+}
+
+.ftVideoPlayer:fullscreen :deep(.ultrawide-mode-button) {
+  display: revert;
+}
+
 .fullWindow {
   position: absolute !important;
   max-width: initial !important;
@@ -226,6 +235,14 @@
 .fullWindow > .player {
   width: 100%;
   height: 100%;
+}
+
+:root {
+  --ultra-wide-mode: scale(1);
+}
+
+.ftVideoPlayer:fullscreen .player {
+  transform: var(--ultra-wide-mode); 
 }
 
 /* added to the body element */

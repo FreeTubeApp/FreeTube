@@ -186,6 +186,8 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Jam estas ludlisto kun tiu ĉi nomo. Bonvolu elekti alian nomon.
       Playlist {playlistName} has been successfully created.: La ludlisto {playlistName} estis sukcese kreita.
       There was an issue with creating the playlist.: Estis problemo dum la kreado de la ludlisto.
+  Move Video to the Top: Movi videaĵon al la supro
+  Move Video to the Bottom: Movi videaĵon al la malsupro
 History:
   # On History Page
   History: 'Historio'
@@ -373,6 +375,9 @@ Settings:
       Full Screen: Plenekrane
       Picture in Picture: Bildenbildo
       External Player: Ekstera ludilo ({externalPlayerName})
+      Full Window (Always On): Plenfenestre (ĉiam ŝaltita)
+      Full Screen (Always On): Plenekrane (ĉiam ŝaltita)
+      Tooltip: La plejparto de la defaŭltaj spektoreĝimoj nur estas aplikataj je la komenco de ĉiu seanco de spektado. Ŝanĝoj dum iu seanco persistas ĝis la fino de tiu. La "ĉiam ŝaltita"-aj spektoreĝimoj estas aplikataj kiam oni ekspektas novan videaĵon malgraŭ iu ajn ŝanĝo dum la spektado de la antaŭa.
     Scroll Volume Over Video Player: Ŝanĝi laŭtecon per rulumi sur ludilo
     Scroll Playback Rate Over Video Player: Ŝanĝi ludrapidon per rulumi sur ludilo
     Skip by Scrolling Over Video Player: Salti per rulumi sur ludilo
@@ -537,7 +542,7 @@ Settings:
     History object has insufficient data, skipping item: Historia objekto havas nesufiĉajn datumojn, elemento estos saltita
     All watched history has been successfully imported: Videaĵa historio estis sukcese enportita
     All watched history has been successfully exported: Videaĵa historio estis sukcese elportita
-    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos ŝaltita
+    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos saltita
     All playlists has been successfully imported: Ĉiuj ludlistoj estis sukcese enportitaj
     All playlists has been successfully exported: Ĉiuj ludlistoj estis sukcese elportitaj
     All search history has been successfully imported: Serĉa historio estis sukcese enportita
@@ -547,6 +552,15 @@ Settings:
     Unknown data key: Nekonata datuma ŝlosilo
     How do I import my subscriptions?: Kiel mi enportas miajn abonojn?
     Manage Subscriptions: Administri abonojn
+    Settings File: Agordodosiero
+    Import Settings: Enporti agordojn
+    Export Settings: Elporti agordojn
+    Settings Tooltip: Agordoj kiuj estas eksperimentaj aŭ nur por specifaj operaciumoj aŭ uzantoj nek elporteblas nek enporteblas (ekz. prokurilo, ekstera ludilo, dosierujo por ekrankopioj...)
+    All settings have been successfully imported: Ĉiuj agordoj estis sukcese enportitaj
+    All settings have been successfully exported: Ĉiuj agordoj estis sukcese elportitaj
+    Setting object has insufficient data, skipping item: Agorda objekto havas nesufiĉajn datumojn, elemento estos saltita
+    Unknown setting key: 'Nekonata agorda ŝlosilo: {key}'
+    Non-transferable setting key: 'Netransdonebla agorda ŝlosilo: {key}'
   Proxy Settings:
     Proxy Settings: Prokurilo
     Proxy Warning: FreeTube ne provizas prokurilon, sed ĝi kapablas konektiĝi al ekstera prokurilo, ekzemple prokurilo sur via maŝino kiel Tor aŭ ekstera prokurilo kiel SOCKS5 provizita de kelkaj VPR-oj. Se ŝaltita, certigu ke via prokurilo/Tor estas ĝuste agordita, aŭ FreeTube ne povos venigi iun ajn datumon.
@@ -601,7 +615,6 @@ Settings:
 About:
   #On About page
   Website: Retejo
-  Email: Retpoŝto
   About: Pri
   Beta: Beta
   Source code: Fontkodo
@@ -685,6 +698,7 @@ Channel:
     Reveal Answers: Montri respondojn
     Hide Answers: Kaŝi respondojn
     Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
+  View All: Montri ĉion
 Video:
   IP block: YouTube blokis vian IP-adreson por spekti videaĵojn. Bonvolu provi ŝanĝiĝi de VPN aŭ prokurilo.
   MembersOnly: Videaĵoj nur por membroj ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj pagitan membrecon de la publikiganta kanalo.
@@ -977,7 +991,6 @@ Mini Player: Ludileto
 Comments:
   Comments: Komentoj
   Click to View Comments: Alklaku por vidi komentojn
-  Getting comment replies, please wait: Venigado de respondoj, bonvolu atendi
   There are no more comments for this video: Ne estas pli da komentoj por tiu ĉi videaĵo
   Hide Comments: Kaŝi komentojn
   Top comments: Plej bonaj komentoj
@@ -994,6 +1007,7 @@ Comments:
   Member: Membro
   Subscribed: Abonata
   Hearted: Koro
+  Loading replies: Ŝargado de respondoj...
 Up Next: Sekve
 Description:
   Expand Description: '...pli'

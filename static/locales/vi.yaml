@@ -616,7 +616,6 @@ About:
   #& About
 #On Channel Page
   Mastodon: Mastodon
-  Email: Email
   Source code: Mã nguồn
   FAQ: Câu hỏi thường gặp
   Report a problem: Báo cáo sự cố
@@ -868,7 +867,6 @@ Mini Player: 'Trình phát Mini'
 Comments:
   Comments: 'Bình luận'
   Click to View Comments: 'Nhấn để xem bình luận'
-  Getting comment replies, please wait: 'Đang lấy trả lời bình luận, vui lòng chờ'
   Hide Comments: 'Ẩn bình luận'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Không có bình luận nào cho video này'

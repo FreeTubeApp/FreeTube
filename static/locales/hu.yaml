@@ -195,6 +195,8 @@ User Playlists:
   The playlist has been successfully exported: Lejátszási lista sikeresen exportálva lett
   TotalTimePlaylist: 'Teljes időtartam: {duration}'
   Export list of URLs: Webcímek listába történő exportálása
+  Move Video to the Top: Videó áthelyezése az elejére
+  Move Video to the Bottom: Videó áthelyezése a végére
 History:
   # On History Page
   History: 'Előzmények'
@@ -430,6 +432,9 @@ Settings:
       Picture in Picture: Kép a képben
       External Player: Külső lejátszó ({externalPlayerName})
       Default Viewing Mode: Alapértelmezett nézetmód
+      Full Window (Always On): Teljes ablak (mindig bekapcsolva)
+      Full Screen (Always On): Teljes képernyő (mindig bekapcsolva)
+      Tooltip: Az alapértelmezett megjelenítési módok többsége csak az egyes megtekintési munkamenetek kezdetén lesz alkalmazva. A munkamenet során végzett módosítások a munkamenet végéig érvényben maradnak. A mindig alkalmazott megjelenítési módok minden új videóra ismét érvényesülnek, függetlenül attól, hogy az előző videó megtekintése közben módosult-e a megjelenítési mód.
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
     Remember History: 'Megtekintési előzmények megjegyzése'
@@ -637,15 +642,14 @@ About:
   Donate: Adakozás
   Credits: Köszönetnyilvánítások
   Translate: Fordítás
-  room rules: szobaszabályok
+  room rules: szobaszabályzat
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
-  Email: E-mail
   Website: Weboldal
-  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már azonos
-  GitHub issues: GitHub hibajegyek
+  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már hasonló
+  GitHub issues: GitHub-hibajegyek
   Help: Súgó
-  GitHub releases: GitHub kiadások
+  GitHub releases: GitHub-kiadások
   Downloads / Changelog: Letöltések / Változáslista
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
@@ -656,7 +660,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
   Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
-  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
+  FreeTube is made possible by {creditsPageLink}: A FreeTube {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -928,7 +932,6 @@ Mini Player: 'Minilejátszó'
 Comments:
   Comments: 'Hozzászólások'
   Click to View Comments: 'Hozzászólások megtekintése'
-  Getting comment replies, please wait: 'Hozzászólásra adott válaszok beolvasása, várjon'
   There are no more comments for this video: 'Ehhez a videóhoz nincsenek további hozzászólások'
   Hide Comments: 'Hozzászólások elrejtése'
   # Context: View 10 Replies, View 1 Reply
@@ -946,6 +949,7 @@ Comments:
   Hide {replyCount} replies: 1 válasz elrejtése | {replyCount} válasz elrejtése
   View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
   View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
+  Loading replies: Válaszok betöltése...
 Up Next: 'Következő'
 
 # Toast Messages

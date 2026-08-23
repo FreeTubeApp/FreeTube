@@ -183,6 +183,12 @@
   color: var(--title-color);
 }
 
+.commentLoadingMoreReplies {
+  font-size: 11px;
+  margin-inline-start: 5px;
+  color: var(--title-color);
+}
+
 .commentReplies {
   margin-inline-start: 30px;
 }
@@ -192,6 +198,11 @@
   font-size: 15px;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.loadingMoreReplies {
+  margin-inline-start: 30px;
+  font-size: 15px;
 }
 
 .getMoreComments {

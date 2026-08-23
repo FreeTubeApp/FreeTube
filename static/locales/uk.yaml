@@ -615,7 +615,7 @@ Settings:
   Sort Settings Sections (A-Z): Сортувати розділи налаштувань (А-Я)
 About:
   #On About page
-  About: 'Про додаток'
+  About: 'Про програму'
   #& About
   Donate: Підтримати
   these people and projects: цим людям та проєктам
@@ -624,7 +624,6 @@ About:
   room rules: правила кімнати
   Chat on Matrix: Чат у Matrix
   Mastodon: Mastodon
-  Email: Електронна пошта
   Website: Вебсайт
   Please check for duplicates before posting: Будь ласка, перевірте наявність повторів перед публікацією
   GitHub issues: Проблеми на GitHub
@@ -911,7 +910,6 @@ Mini Player: 'Мініпрогравач'
 Comments:
   Comments: 'Коментарі'
   Click to View Comments: 'Клацніть, щоб переглянути коментарі'
-  Getting comment replies, please wait: 'Отримання відповідей на коментарі, зачекайте'
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
   Hide Comments: 'Приховати коментарі'
   Top comments: 'Найпопулярніші коментарі'
@@ -1071,7 +1069,7 @@ KeyboardShortcutPrompt:
       Playback: 'Відео: Відтворення'
       General: 'Відео: Загальні'
     App:
-      Situational: 'Додаток: Ситуаційне'
+      Situational: 'Програма: Ситуаційне'
       General: 'Додаток: Загальне'
   Show Keyboard Shortcuts: Показати клавіатурні скорочення
   History Backward: Повернутися на одну сторінку назад

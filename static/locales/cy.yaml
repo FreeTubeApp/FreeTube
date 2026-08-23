@@ -211,6 +211,8 @@ User Playlists:
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
   Export list of URLs: Allforio'r rhestr o URLau
+  Move Video to the Top: Symud Fideo i'r Brig
+  Move Video to the Bottom: Symud Fideo i'r Gwaelod
 History:
   # On History Page
   History: 'Hanes'
@@ -447,6 +449,9 @@ Settings:
       Picture in Picture: Llun mewn Llun
       External Player: Chwaraewr Allanol ({externalPlayerName})
       Theater: Theatr
+      Full Window (Always On): Ffenestr Lawn (Ymlaen o Hyd)
+      Full Screen (Always On): Sgrin Lawn (Ymlaen o Hyd)
+      Tooltip: Mae'r rhan fwyaf o foddau gwylio arferol yn cael eu gosod ar ddechrau pob sesiwn gwylio. Bydd newidiadau sy'n cael eu gwneud yn ystod y sesiwn yn parhau tan ei ddiwedd. Mae moddau gwylio ymlaen o hyd yn cael eu gosod pryd bynnag fyddwch yn newid i fideo newydd, beth bynnag am unrhyw newidiadau moddau gwylio sydd wedi'u gwneud wrth wylio'r fideo blaenorol.
   External Player Settings:
     External Player Settings: 'Chwaraewr Allanol'
     External Player: 'Chwaraewr Allanol'
@@ -579,6 +584,15 @@ Settings:
     Export search history: Allforio hanes chwilio
     All search history has been successfully imported: Mae'r holl hanes chwilio wedi'i fewnforio'n llwyddiannus
     All search history has been successfully exported: Mae'r holl hanes chwilio wedi'i allforio'n llwyddiannus
+    Settings File: Ffeil Gosodiadau
+    Import Settings: Gosodiadau Mewnforio
+    Export Settings: Gosodiadau Allforio
+    Settings Tooltip: Does dim modd allforio neu fewnforio gosodiadau sy'n benodol i system weithredu/unigolyn neu arbrofol (e.e., dirprwy, chwaraewr allanol, ffolder llun sgrin...)
+    All settings have been successfully imported: Mae'r holl osodiadau wedi'u mewnforio'n llwyddiannus
+    All settings have been successfully exported: Mae'r holl osodiadau wedi'u allforio'n llwyddiannus
+    Setting object has insufficient data, skipping item: Does gan wrthrych y gosodiad ddim ddigon o ddata, yn ei hepgor
+    Unknown setting key: 'Allwedd gosodiad anhysbys: {key}'
+    Non-transferable setting key: 'Allwedd gosodiad anhrosglwyddadwy: {key}'
   Proxy Settings:
     Proxy Settings: 'Dirprwy'
     Enable Tor / Proxy: 'Galluogi Tor/Dirprwy'
@@ -647,7 +661,6 @@ About:
   GitHub issues: 'Materion GitHub'
   Please check for duplicates before posting: 'Gwirio am ddyblygiadau cyn postio'
   Website: 'Gwefan'
-  Email: 'E-bost'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Sgwrsio ar Matrix'
   room rules: 'rheolau ystafell'
@@ -763,6 +776,7 @@ Channel:
   Courses:
     Courses: Cyrsiau
     This channel does not currently have any courses: Nid oes gan y sianel hon unrhyw gyrsiau ar hyn o bryd
+  View All: Gweld y Cyfan
 Video:
   Mark As Watched: 'Marcio wedi''i Wylio'
   Remove From History: 'Dileu o''r Hanes'
@@ -937,7 +951,6 @@ Mini Player: 'Chwaraewr Bach'
 Comments:
   Comments: 'Sylwadau'
   Click to View Comments: 'Cliciwch i Weld Sylwadau'
-  Getting comment replies, please wait: 'Yn derbyn atebion sylwadau, arhoswch'
   There are no more comments for this video: 'Nid oes mwy o sylwadau ar gyfer y fideo hwn'
   Hide Comments: 'Cuddio Sylwadau'
   Top comments: 'Sylwadau poblogaidd'
@@ -955,6 +968,7 @@ Comments:
   Hide {replyCount} replies: Cuddio 1 ateb | Cuddio {replyCount} ateb
   View 1 reply from {channelName}: Gweld 1 ateb gan {channelName}
   View {replyCount} replies from {channelName} and others: Gweld {replyCount} ateb gan {channelName} ac eraill
+  Loading replies: Yn llwytho atebion...
 Up Next: 'Nesaf'
 
 #Tooltips

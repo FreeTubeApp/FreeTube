@@ -190,6 +190,8 @@ User Playlists:
   The playlist has been successfully exported: La playlist se ha exportado correctamente
   TotalTimePlaylist: 'Duración total: {duration}'
   Export list of URLs: Exportar lista de URLs
+  Move Video to the Top: Mover vídeo al principio
+  Move Video to the Bottom: Mover vídeo al final
 History:
   # On History Page
   History: 'Historial'
@@ -623,7 +625,6 @@ About:
   room rules: reglas de la sala
   Chat on Matrix: Chat en Matrix
   Mastodon: Mastodon (red social)
-  Email: Correo electrónico
   Website: Sitio web
   Please check for duplicates before posting: Por favor, antes de publicar asegúrate de no duplicar temas
   GitHub issues: Sugerencias en GitHub
@@ -910,7 +911,6 @@ Mini Player: 'Minirreproductor'
 Comments:
   Comments: 'Comentarios'
   Click to View Comments: 'Pulse para ver comentarios'
-  Getting comment replies, please wait: 'Obteniendo las respuestas. Espere'
   Hide Comments: 'Ocultar comentarios'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Aún no hay comentarios'

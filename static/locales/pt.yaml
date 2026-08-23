@@ -613,9 +613,8 @@ About:
   #On About page
   About: 'Acerca'
   #& About
-  FAQ: FAQ
+  FAQ: Perguntas frequentes
   Website: Página web
-  Email: E-mail
   Donate: Doar
   these people and projects: estas pessoas e projetos
   Credits: Créditos
@@ -908,7 +907,6 @@ Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
   Click to View Comments: 'Clicar para ver os comentários'
-  Getting comment replies, please wait: 'A obter respostas ao comentário, por favor aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Este vídeo não tem comentários'

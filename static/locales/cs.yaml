@@ -193,6 +193,8 @@ User Playlists:
   The playlist has been successfully exported: Playlist byl úspěšně exportován
   TotalTimePlaylist: 'Celkový čas: {duration}'
   Export list of URLs: Exportovat seznam adres URL
+  Move Video to the Top: Přesunout video na začátek
+  Move Video to the Bottom: Přesunout video na konec
 History:
   # On History Page
   History: 'Historie'
@@ -429,6 +431,9 @@ Settings:
       Full Screen: Celá obrazovka
       External Player: Externí přehrávač ({externalPlayerName})
       Picture in Picture: Obraz v obraze
+      Full Window (Always On): Celé okno (vždy zapnuto)
+      Full Screen (Always On): Celá obrazovka (vždy zapnuto)
+      Tooltip: Nejvíce výchozí režimy sledování jsou použity pouze na začátku každé relace sledování. Změny provedené během relace se zachovají do jejího konce. Režimy s popisem „vždy zapnuto“ budou použity vždy, když přepnete na nové video, nezávisle na změnách režimu sledování provedených během sledování předchozího videa.
   Privacy Settings:
     Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii sledování'
@@ -638,7 +643,6 @@ About:
   room rules: pravidla místnosti
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
-  Email: E-mail
   Website: Webové stránky
   FAQ: Často kladené dotazy
   FreeTube Wiki: Wiki FreeTube
@@ -927,7 +931,6 @@ Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'
   Click to View Comments: 'Kliknutím zobrazíte komentáře'
-  Getting comment replies, please wait: 'Načítání odpovědí na komentář, čekejte prosím'
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Hide Comments: 'Skrýt komentáře'
   Top comments: 'Nejlepší komentáře'
@@ -945,6 +948,7 @@ Comments:
   Hide {replyCount} replies: Skrýt 1 odpověď | Skrýt {replyCount} odpovědí
   View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
   View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
+  Loading replies: Načítání odpovědí…
 Up Next: 'Další'
 
 #Tooltips

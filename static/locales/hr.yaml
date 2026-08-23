@@ -27,7 +27,7 @@ Forward: 'Naprijed'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videa'
-  Shorts: Shorts videozapisi
+  Shorts: Kratka videa
   Live: Uživo
   Posts: Objave
   Sort By: Redoslijed
@@ -190,6 +190,8 @@ User Playlists:
   The playlist has been successfully exported: Zbirka je uspješno izvezena
   TotalTimePlaylist: 'Ukupno vrijeme: {duration}'
   Export list of URLs: Izvezi popisa URL-ova
+  Move Video to the Top: Premjesti video skroz gore
+  Move Video to the Bottom: Premjesti video skroz dolje
 History:
   # On History Page
   History: 'Povijest'
@@ -371,7 +373,7 @@ Settings:
     Play Next Video: 'Automatski reproduciraj preporučena videa'
     Turn on Subtitles by Default: 'Standardno uključi titlove'
     Autoplay Videos: 'Pokreni videa automatski'
-    Proxy Videos Through Invidious: 'Koristi Invidious kao posrednika videa'
+    Proxy Videos Through Invidious: 'Koristi Invidious kao proxy videa'
     Autoplay Playlists: 'Automatski reproduciraj videa zbirki'
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
@@ -411,8 +413,11 @@ Settings:
       Folder Button: Odaberi mapu
       Modes:
         Ask Path: Zatraži mapu za spremanje
+        Save To Folder: Spremi u mapu
+        Clipboard: Kopiraj u međuspremnik
       File Name Label: Format imena datoteke
       File Name Tooltip: Možeš koristiti sljedeće varijable. %Y godina 4 znamenke. %M mjesec 2 znamenke. %D dan 2 znamenke. %H sat 2 znamenke. %N minuta 2 znamenke. %S sekunda 2 znamenke. %T milisekunda 3 znamenke. %s video sekunda. %t milisekunda videa 3 znamenke. %i ID videa.
+      Mode: Modus snimanja ekrana
     Enter Fullscreen on Display Rotate: Koristi cjeloekranski prikaz pri okretanju ekrana
     Skip by Scrolling Over Video Player: Preskoči pomicanjem preko video playera
     Autoplay Interruption Timer: Timer za prekidanje automatske reprodukcije
@@ -422,6 +427,9 @@ Settings:
       Full Screen: Cijeli ekran
       Picture in Picture: Slika u slici
       External Player: Eksterni player ({externalPlayerName})
+      Full Window (Always On): Cijeli prozor (uvijek uključeno)
+      Full Screen (Always On): Cijeli ekran (uvijek uključeno)
+      Tooltip: Većina standardnih modusa gledanja primjenjuje se samo na početku svake sesije gledanja. Učinjene promjene tijekom sesije ostaju do njenog završetka. Modusi gledanja „Uvijek uključeno” primjenjuju se svaki put kada prijeđeš na novi video, bez obzira na bilo koje učinjene promjene u modusa gledanja tijekom gledanja prethodnog videa.
   Privacy Settings:
     Privacy Settings: 'Privatnost'
     Remember History: 'Zapamti povijest gledanja'
@@ -497,6 +505,15 @@ Settings:
     Export search history: Izvezi povijesti pretraživanja
     All search history has been successfully imported: Sva povijest pretraživanja je uspješno uvezena
     All search history has been successfully exported: Sva povijest pretraživanja je uspješno izvezena
+    Settings File: Datoteka postavki
+    Import Settings: Uvezi postavke
+    Export Settings: Izvezi postavke
+    Settings Tooltip: Postavke koje su specifične za OS/korisnika ili koje su eksperimentalne se ne mogu se izvesti ili uvesti (npr. proxy, vanjski player, mapa sa snimkama ekrana …)
+    All settings have been successfully imported: Sve postavke su uspješno uvezene
+    All settings have been successfully exported: Sve postavke su uspješno izvezene
+    Setting object has insufficient data, skipping item: Objekt postavke nema dovoljno podataka, stavka se preskače
+    Unknown setting key: 'Nepoznati ključ postavke: {key}'
+    Non-transferable setting key: 'Neprenosivi ključ postavke: {key}'
   Distraction Free Settings:
     Hide Trending Videos: Sakrij videa u trendu
     Hide Recommended Videos: Sakrij preporučena videa
@@ -548,21 +565,21 @@ Settings:
   The app needs to restart for changes to take effect. Restart and apply change?: Promjene će se primijeniti nakon ponovnog pokeretanja programa. Ponovo pokrenuti program?
   Proxy Settings:
     Country: Zemlja
-    Error getting network information. Is your proxy configured properly?: Greška pri dohvaćanju mrežnih podataka. Je li tvoj posrednik pravilno konfiguriran?
+    Error getting network information. Is your proxy configured properly?: Greška pri dohvaćanju mrežnih podataka. Je li tvoj proxy pravilno konfiguriran?
     City: Grad
     Region: Regija
     Ip: IP
     Your Info: Tvoji podaci
-    Test Proxy: Provjeri posrednika
-    Clicking on Test Proxy will send a request to: Pritiskom gumba „Provjeri posrednika” šalje se zahtjev na
-    Proxy Port Number: Broj priključka posrednika
-    Proxy Host: Računalo posrednika
-    Proxy Protocol: Protokol posrednika
-    Enable Tor / Proxy: Aktiviraj Tor/Posrednik
-    Proxy Settings: Posrednik
+    Test Proxy: Testiraj proxy
+    Clicking on Test Proxy will send a request to: Pritiskom gumba „Testiraj proxy” šalje se zahtjev na
+    Proxy Port Number: Proxy broj porta
+    Proxy Host: Proxy računalo
+    Proxy Protocol: Proxy protokol
+    Enable Tor / Proxy: Aktiviraj Tor/Proxy
+    Proxy Settings: Proxy
     Proxy Warning: FreeTube nema ugrađeni proxy, ali se može povezati s eksternim proxyjem, poput onog koji radi na tvom računalu poput Tor-a ili eksternog proxyja, poput SOCKS5 proxyja koji pružaju neki VPN-ovi. Ako je aktiviran, provjeri je li tvoj proxy/Tor pravilno konfiguriran, inače FreeTube neće moći dohvatiti nikoje podatke.
-    Proxy Username: Korisničko ime za proxy
-    Proxy Password: Lozinka za proxy
+    Proxy Username: Proxy korisničko ime
+    Proxy Password: Proxy lozinka
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Obavijesti kad se preskoči segment sponzora
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL API-a za blokiranja sponzora (standardno je https://sponsor.ajay.app)
@@ -594,6 +611,7 @@ Settings:
     Hide Search Bar: Sakrij traku pretrage
     Show Family Friendly Only: Prikaži samo prikladne za obitelji
     Hide Uploader on Watch page: Sakrij prenositelja na stranici gledanja
+    Disable Channel Links: Deaktiviraj poveznice kanala
   Experimental Settings:
     Warning: Ovo su eksperimentalne postavke. Kad su aktivirane mogu prouzročiti prekid programa. Preporučujemo spremanje sigurnosnih kopija. Koristi na vlastitu odgovornost!
     Experimental Settings: Eksperimentalno
@@ -615,7 +633,6 @@ About:
   Website: Web-stranica
   Credits: Zasluge
   FAQ: Često postavljena pitanja
-  Email: E-adresa
   Beta: Beta
   Donate: Doniraj
   Help: Pomoć
@@ -739,6 +756,7 @@ Channel:
   Courses:
     Courses: Tečajevi
     This channel does not currently have any courses: Ovaj kanal trenutno nema tečajeve
+  View All: Prikaži sve
 Video:
   Mark As Watched: 'Označi kao pogledano'
   Remove From History: 'Ukloni iz povijesti'
@@ -855,6 +873,7 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Oglas završava za: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Preostalo vrijeme prije ponovnog pokušaja: {remindingTimeSeconds} s'
+  Private: Privatna videa se ne mogu gledati na FreeTubeu jer zahtijevaju prijavu na Google i vlasništvo nad videom.
 Playlist:
   #& About
   View Full Playlist: 'Pogledaj cijelu zbirku'
@@ -905,7 +924,6 @@ Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
   Click to View Comments: 'Pritisni za prikaz komentara'
-  Getting comment replies, please wait: 'Preuzimaju se odgovori na komentare. Pričekaj'
   Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Za ovaj video nema komentara'
@@ -923,6 +941,7 @@ Comments:
   Hide {replyCount} replies: Sakrij 1 odgovor | Sakrij {replyCount} odgovora
   View 1 reply from {channelName}: Pogledaj 1 odgovor od {channelName}
   View {replyCount} replies from {channelName} and others: Pogledaj {replyCount} odgovora od {channelName} i drugih
+  Loading replies: Učitavanje odgovora …
 Up Next: 'Sljedeći'
 
 # Toast Messages
@@ -991,7 +1010,7 @@ Search Bar:
   Remove: Ukloni
 Are you sure you want to open this link?: Stvarno želiš otvoriti ovu poveznicu?
 Screenshot Success: Snimka ekrana je spremljena
-Screenshot Error: Neuspjela snimka ekrana. {error}
+Screenshot Error: Snimka ekrana nije uspjela. {error}
 New Window: Novi prozor
 Channels:
   Channels: Kanali
@@ -1112,3 +1131,5 @@ Autoplay Interruption Timer: Automatska reprodukcija je prekinuta zbog {autoplay
 shortcutLabelSeparator: ｜
 Compact side navigation: Sažmi bočnu navigaciju
 Expand side navigation: Proširi bočnu navigaciju
+Screenshot Clipboard Success: Snimka ekrana je spremljena u međuspremnik
+Screenshot Clipboard Error: Kopiranje snimka ekrana u međuspremnik nije uspjelo
