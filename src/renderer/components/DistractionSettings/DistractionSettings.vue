@@ -3,8 +3,8 @@
     id="distraction"
     :title="t('Settings.Distraction Free Settings.Distraction Free Settings')"
   >
-    <FtSetting
-      id="distraction-general"
+    <FtPageFilterItem
+      id="setting-distraction-general"
       :keyword="t('Settings.Distraction Free Settings.Sections.General')"
     >
       <h4
@@ -14,8 +14,8 @@
       </h4>
       <div class="switchColumnGrid">
         <div class="switchColumn">
-          <FtSetting
-            id="hide-video-views"
+          <FtPageFilterItem
+            id="setting-hide-video-views"
             :keyword="t('Settings.Distraction Free Settings.Hide Video Views')"
           >
             <FtToggleSwitch
@@ -24,9 +24,9 @@
               :default-value="hideVideoViews"
               @change="updateHideVideoViews"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-subscribers"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-subscribers"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
           >
             <FtToggleSwitch
@@ -35,9 +35,9 @@
               :default-value="hideChannelSubscriptions"
               @change="updateHideChannelSubscriptions"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-sharing-actions"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-sharing-actions"
             :keyword="t('Settings.Distraction Free Settings.Hide Sharing Actions')"
           >
             <FtToggleSwitch
@@ -46,9 +46,9 @@
               :default-value="hideSharingActions"
               @change="updateHideSharingActions"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-videos-on-watch"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-videos-on-watch"
             :keyword="t('Settings.Distraction Free Settings.Hide Videos on Watch')"
           >
             <FtToggleSwitch
@@ -58,11 +58,11 @@
               :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos on Watch')"
               @change="updateHideWatchedSubs"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
         <div class="switchColumn">
-          <FtSetting
-            id="hide-live-streams"
+          <FtPageFilterItem
+            id="setting-hide-live-streams"
             :keyword="t('Settings.Distraction Free Settings.Hide Live Streams')"
           >
             <FtToggleSwitch
@@ -71,9 +71,9 @@
               :default-value="hideLiveStreams"
               @change="updateHideLiveStreams"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-upcoming-premieres"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-upcoming-premieres"
             :keyword="t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
           >
             <FtToggleSwitch
@@ -82,9 +82,9 @@
               :default-value="hideUpcomingPremieres"
               @change="updateHideUpcomingPremieres"
             />
-          </FtSetting>
-          <FtSetting
-            id="display-titles-without-excessive-capitalisation"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-display-titles-without-excessive-capitalisation"
             :keyword="t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
           >
             <FtToggleSwitch
@@ -93,13 +93,13 @@
               :default-value="showDistractionFreeTitles"
               @change="updateShowDistractionFreeTitles"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
       <br class="hide-on-mobile">
       <FtFlexBox>
-        <FtSetting
-          id="hide-channels"
+        <FtPageFilterItem
+          id="setting-hide-channels"
           :keyword="t('Settings.Distraction Free Settings.Hide Channels')"
         >
           <FtInputTags
@@ -119,11 +119,11 @@
             @already-exists="handleChannelsExists"
             @toggle-show-tags="handleAddedChannelsHidden"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox class="containingTextFlexBox">
-        <FtSetting
-          id="hide-videos-playlists-and-channels-containing-text"
+        <FtPageFilterItem
+          id="setting-hide-videos-playlists-and-channels-containing-text"
           :keyword="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
         >
           <FtInputTags
@@ -136,11 +136,11 @@
             @change="handleForbiddenTitles"
             @toggle-show-tags="handleAddedForbiddenTitles"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
-    </FtSetting>
-    <FtSetting
-      id="distraction-side-bar"
+    </FtPageFilterItem>
+    <FtPageFilterItem
+      id="setting-distraction-side-bar"
       :keyword="t('Settings.Distraction Free Settings.Sections.Side Bar')"
     >
       <h4
@@ -150,9 +150,9 @@
       </h4>
       <div class="switchColumnGrid">
         <div class="switchColumn">
-          <FtSetting
+          <FtPageFilterItem
             v-if="SUPPORTS_LOCAL_API"
-            id="hide-trending-videos"
+            id="setting-hide-trending-videos"
             :keyword="t('Settings.Distraction Free Settings.Hide Trending Videos')"
           >
             <FtToggleSwitch
@@ -162,9 +162,9 @@
               :default-value="hideTrendingVideos"
               @change="updateHideTrendingVideos"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-popular-videos"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-popular-videos"
             :keyword="t('Settings.Distraction Free Settings.Hide Popular Videos')"
           >
             <FtToggleSwitch
@@ -174,11 +174,11 @@
               :default-value="disableHidePopularVideos || hidePopularVideos"
               @change="updateHidePopularVideos"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
         <div class="switchColumn">
-          <FtSetting
-            id="hide-playlists"
+          <FtPageFilterItem
+            id="setting-hide-playlists"
             :keyword="t('Settings.Distraction Free Settings.Hide Playlists')"
           >
             <FtToggleSwitch
@@ -187,9 +187,9 @@
               :default-value="hidePlaylists"
               @change="updateHidePlaylists"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-active-subscriptions"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-active-subscriptions"
             :keyword="t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
           >
             <FtToggleSwitch
@@ -198,12 +198,12 @@
               :default-value="hideActiveSubscriptions"
               @change="updateHideActiveSubscriptions"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
-    </FtSetting>
-    <FtSetting
-      id="distraction-subscriptions-page"
+    </FtPageFilterItem>
+    <FtPageFilterItem
+      id="setting-distraction-subscriptions-page"
       :keyword="t('Settings.Distraction Free Settings.Sections.Subscriptions Page')"
     >
       <h4
@@ -213,8 +213,8 @@
       </h4>
       <div class="switchColumnGrid">
         <div class="switchColumn">
-          <FtSetting
-            id="hide-subscriptions-videos"
+          <FtPageFilterItem
+            id="setting-hide-subscriptions-videos"
             :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
           >
             <FtToggleSwitch
@@ -223,9 +223,9 @@
               :default-value="hideSubscriptionsVideos"
               @change="updateHideSubscriptionsVideos"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-subscriptions-shorts"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-subscriptions-shorts"
             :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
           >
             <FtToggleSwitch
@@ -234,11 +234,11 @@
               :default-value="hideSubscriptionsShorts"
               @change="updateHideSubscriptionsShorts"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
         <div class="switchColumn">
-          <FtSetting
-            id="hide-subscriptions-live"
+          <FtPageFilterItem
+            id="setting-hide-subscriptions-live"
             :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
           >
             <FtToggleSwitch
@@ -249,9 +249,9 @@
               :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
               v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-subscriptions-posts"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-subscriptions-posts"
             :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
           >
             <FtToggleSwitch
@@ -260,12 +260,12 @@
               :default-value="hideSubscriptionsCommunity"
               @change="updateHideSubscriptionsCommunity"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
-    </FtSetting>
-    <FtSetting
-      id="distraction-channel-page"
+    </FtPageFilterItem>
+    <FtPageFilterItem
+      id="setting-distraction-channel-page"
       :keyword="t('Settings.Distraction Free Settings.Sections.Channel Page')"
     >
       <h4
@@ -275,8 +275,8 @@
       </h4>
       <div class="switchColumnGrid">
         <div class="switchColumn">
-          <FtSetting
-            id="hide-channel-home"
+          <FtPageFilterItem
+            id="setting-hide-channel-home"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Home')"
           >
             <FtToggleSwitch
@@ -285,9 +285,9 @@
               :default-value="hideChannelHome"
               @change="updateHideChannelHome"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-shorts"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-shorts"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Shorts')"
           >
             <FtToggleSwitch
@@ -296,9 +296,9 @@
               :default-value="hideChannelShorts"
               @change="updateHideChannelShorts"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-playlists"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-playlists"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Playlists')"
           >
             <FtToggleSwitch
@@ -307,9 +307,9 @@
               :default-value="hideChannelPlaylists"
               @change="updateHideChannelPlaylists"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-podcasts"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-podcasts"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
           >
             <FtToggleSwitch
@@ -318,11 +318,11 @@
               :default-value="hideChannelPodcasts"
               @change="updateHideChannelPodcasts"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
         <div class="switchColumn">
-          <FtSetting
-            id="hide-channel-posts"
+          <FtPageFilterItem
+            id="setting-hide-channel-posts"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Posts')"
           >
             <FtToggleSwitch
@@ -331,9 +331,9 @@
               :default-value="hideChannelCommunity"
               @change="updateHideChannelCommunity"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-featured-channels"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-featured-channels"
             :keyword="t('Settings.Distraction Free Settings.Hide Featured Channels')"
           >
             <FtToggleSwitch
@@ -342,9 +342,9 @@
               :default-value="hideFeaturedChannels"
               @change="updateHideFeaturedChannels"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-releases"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-releases"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Releases')"
           >
             <FtToggleSwitch
@@ -353,9 +353,9 @@
               :default-value="hideChannelReleases"
               @change="updateHideChannelReleases"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-channel-courses"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-channel-courses"
             :keyword="t('Settings.Distraction Free Settings.Hide Channel Courses')"
           >
             <FtToggleSwitch
@@ -364,12 +364,12 @@
               :default-value="hideChannelCourses"
               @change="updateHideChannelCourses"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
-    </FtSetting>
-    <FtSetting
-      id="distraction-watch-page"
+    </FtPageFilterItem>
+    <FtPageFilterItem
+      id="setting-distraction-watch-page"
       :keyword="t('Settings.Distraction Free Settings.Sections.Watch Page')"
     >
       <h4
@@ -379,8 +379,8 @@
       </h4>
       <div class="switchColumnGrid">
         <div class="switchColumn">
-          <FtSetting
-            id="hide-video-likes-and-dislikes"
+          <FtPageFilterItem
+            id="setting-hide-video-likes-and-dislikes"
             :keyword="t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
           >
             <FtToggleSwitch
@@ -389,9 +389,9 @@
               :default-value="hideVideoLikesAndDislikes"
               @change="updateHideVideoLikesAndDislikes"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-chapters"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-chapters"
             :keyword="t('Settings.Distraction Free Settings.Hide Chapters')"
           >
             <FtToggleSwitch
@@ -400,9 +400,9 @@
               :default-value="hideChapters"
               @change="updateHideChapters"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-video-description"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-video-description"
             :keyword="t('Settings.Distraction Free Settings.Hide Video Description')"
           >
             <FtToggleSwitch
@@ -411,9 +411,9 @@
               :default-value="hideVideoDescription"
               @change="updateHideVideoDescription"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-comment-likes"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-comment-likes"
             :keyword="t('Settings.Distraction Free Settings.Hide Comment Likes')"
           >
             <FtToggleSwitch
@@ -422,11 +422,11 @@
               :default-value="hideCommentLikes"
               @change="updateHideCommentLikes"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
         <div class="switchColumn">
-          <FtSetting
-            id="hide-live-chat"
+          <FtPageFilterItem
+            id="setting-hide-live-chat"
             :keyword="t('Settings.Distraction Free Settings.Hide Live Chat')"
           >
             <FtToggleSwitch
@@ -435,9 +435,9 @@
               :default-value="hideLiveChat"
               @change="updateHideLiveChat"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-recommended-videos"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-recommended-videos"
             :keyword="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
           >
             <FtToggleSwitch
@@ -446,9 +446,9 @@
               :default-value="hideRecommendedVideos"
               @change="handleHideRecommendedVideos"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-comments"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-comments"
             :keyword="t('Settings.Distraction Free Settings.Hide Comments')"
           >
             <FtToggleSwitch
@@ -457,9 +457,9 @@
               :default-value="hideComments"
               @change="updateHideComments"
             />
-          </FtSetting>
-          <FtSetting
-            id="hide-profile-pictures-in-comments"
+          </FtPageFilterItem>
+          <FtPageFilterItem
+            id="setting-hide-profile-pictures-in-comments"
             :keyword="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
           >
             <FtToggleSwitch
@@ -468,10 +468,10 @@
               :default-value="hideCommentPhotos"
               @change="updateHideCommentPhotos"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
-    </FtSetting>
+    </FtPageFilterItem>
   </FtSettingsSection>
 </template>
 
@@ -483,7 +483,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtInputTags from '../FtInputTags/FtInputTags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

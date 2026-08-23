@@ -1,8 +1,8 @@
 <template>
   <div
     v-show="isVisible"
-    :id="`setting-${id}`"
-    class="ftSetting"
+    :id="id"
+    class="ftPageFilterItem"
   >
     <slot />
   </div>
@@ -11,7 +11,7 @@
 <script setup>
 import { computed, inject, onUnmounted, provide, shallowReactive, useId } from 'vue'
 
-import { SETTINGS_GROUP_KEY, useSettingsSearch } from '../../composables/settings-search'
+import { PAGE_FILTER_ITEM_GROUP_KEY, usePageFilter } from '../../composables/page-filter'
 
 const props = defineProps({
   id: {
@@ -24,13 +24,13 @@ const props = defineProps({
   }
 })
 
-const { searchQuery, registerSection, unregisterSection } = useSettingsSearch()
+const { filterQuery, registerRootItem, unregisterRootItem } = usePageFilter()
 
-const query = computed(() => searchQuery.value.trim().toLowerCase())
+const query = computed(() => filterQuery.value.trim().toLowerCase())
 
-const parentGroup = inject(SETTINGS_GROUP_KEY, null)
+const parentGroup = inject(PAGE_FILTER_ITEM_GROUP_KEY, null)
 
-/** Match state of every FtSetting nested directly inside this one, keyed by instance id. */
+/** Match state of every FtPageFilterItem nested directly inside this one, keyed by instance id. */
 const childMatches = shallowReactive(new Map())
 
 const matchesSelf = computed(() => {
@@ -64,12 +64,11 @@ if (parentGroup != null) {
   parentGroup.register(instanceId, matches)
   onUnmounted(() => parentGroup.unregister(instanceId))
 } else {
-  // Top-level FtSettings are the settings sections; expose their visibility to the menu.
-  registerSection(props.id, isVisible)
-  onUnmounted(() => unregisterSection(props.id))
+  registerRootItem(props.id, isVisible)
+  onUnmounted(() => unregisterRootItem(props.id))
 }
 
-provide(SETTINGS_GROUP_KEY, {
+provide(PAGE_FILTER_ITEM_GROUP_KEY, {
   matchesSelf,
   matchesAncestor,
   /**
@@ -88,4 +87,4 @@ provide(SETTINGS_GROUP_KEY, {
 })
 </script>
 
-<style scoped src="./FtSetting.css" />
+<style scoped src="./FtPageFilterItem.css" />

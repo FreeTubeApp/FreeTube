@@ -1,0 +1,4 @@
+.ftPageFilterItem {
+  /* enables anchor link clicks to land with the item in the top quarter of the page */
+  scroll-margin-top: 24vh;
+}

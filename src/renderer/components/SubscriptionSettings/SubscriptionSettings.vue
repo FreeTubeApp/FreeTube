@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="fetch-automatically"
+        <FtPageFilterItem
+          id="setting-fetch-automatically"
           :keyword="$t('Settings.Subscription Settings.Fetch Automatically')"
         >
           <FtToggleSwitch
@@ -16,9 +16,9 @@
             compact
             @change="updateFetchSubscriptionsAutomatically"
           />
-        </FtSetting>
-        <FtSetting
-          id="fetch-feeds-from-rss"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-fetch-feeds-from-rss"
           :keyword="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
         >
           <FtToggleSwitch
@@ -28,9 +28,9 @@
             compact
             @change="updateUseRssFeeds"
           />
-        </FtSetting>
-        <FtSetting
-          id="confirm-before-unsubscribing"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-confirm-before-unsubscribing"
           :keyword="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
         >
           <FtToggleSwitch
@@ -39,11 +39,11 @@
             compact
             @change="updateUnsubscriptionPopupStatus"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="limit-number-of-videos-per-channel"
+        <FtPageFilterItem
+          id="setting-limit-number-of-videos-per-channel"
           :keyword="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
         >
           <FtToggleSwitch
@@ -52,10 +52,10 @@
             compact
             @change="updateOnlyShowLatestFromChannel"
           />
-        </FtSetting>
+        </FtPageFilterItem>
         <div class="onlyShowLatestFromChannelNumber">
-          <FtSetting
-            id="number-of-videos-per-channel"
+          <FtPageFilterItem
+            id="setting-number-of-videos-per-channel"
             :keyword="$t('Settings.Subscription Settings.To')"
           >
             <FtSlider
@@ -67,7 +67,7 @@
               :step="1"
               @change="updateOnlyShowLatestFromChannelNumber"
             />
-          </FtSetting>
+          </FtPageFilterItem>
         </div>
       </div>
     </div>
@@ -80,7 +80,7 @@ import { computed } from 'vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSlider from '../FtSlider/FtSlider.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

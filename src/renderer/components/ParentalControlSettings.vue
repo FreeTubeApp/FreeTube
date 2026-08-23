@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="hide-unsubscribe-button"
+        <FtPageFilterItem
+          id="setting-hide-unsubscribe-button"
           :keyword="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
         >
           <FtToggleSwitch
@@ -15,9 +15,9 @@
             :default-value="hideUnsubscribeButton"
             @change="updateHideUnsubscribeButton"
           />
-        </FtSetting>
-        <FtSetting
-          id="show-family-friendly-only"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-show-family-friendly-only"
           :keyword="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
         >
           <FtToggleSwitch
@@ -26,9 +26,9 @@
             :default-value="showFamilyFriendlyOnly"
             @change="updateShowFamilyFriendlyOnly"
           />
-        </FtSetting>
-        <FtSetting
-          id="disable-channel-links"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-disable-channel-links"
           :keyword="$t('Settings.Parental Control Settings.Disable Channel Links')"
         >
           <FtToggleSwitch
@@ -37,11 +37,11 @@
             :default-value="disableChannelLinks"
             @change="updateDisableChannelLinks"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="hide-search-bar"
+        <FtPageFilterItem
+          id="setting-hide-search-bar"
           :keyword="$t('Settings.Parental Control Settings.Hide Search Bar')"
         >
           <FtToggleSwitch
@@ -50,9 +50,9 @@
             :default-value="hideSearchBar"
             @change="updateHideSearchBar"
           />
-        </FtSetting>
-        <FtSetting
-          id="hide-uploader-on-watch-page"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-hide-uploader-on-watch-page"
           :keyword="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
         >
           <FtToggleSwitch
@@ -61,7 +61,7 @@
             :default-value="hideUploader"
             @change="updateHideUploader"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
     </div>
   </FtSettingsSection>
@@ -72,7 +72,7 @@ import { computed } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
-import FtSetting from './FtSetting/FtSetting.vue'
+import FtPageFilterItem from './FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../store/index'
 

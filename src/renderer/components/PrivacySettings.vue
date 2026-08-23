@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="remember-history"
+        <FtPageFilterItem
+          id="setting-remember-history"
           :keyword="$t('Settings.Privacy Settings.Remember History')"
         >
           <FtToggleSwitch
@@ -15,11 +15,11 @@
             :default-value="rememberHistory"
             @change="handleRememberHistory"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="remember-search-history"
+        <FtPageFilterItem
+          id="setting-remember-search-history"
           :keyword="$t('Settings.Privacy Settings.Remember Search History')"
         >
           <FtToggleSwitch
@@ -28,11 +28,11 @@
             :default-value="rememberSearchHistory"
             @change="updateRememberSearchHistory"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="save-watched-videos-with-last-viewed-playlist"
+        <FtPageFilterItem
+          id="setting-save-watched-videos-with-last-viewed-playlist"
           :keyword="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
         >
           <FtToggleSwitch
@@ -42,13 +42,13 @@
             :default-value="saveVideoHistoryWithLastViewedPlaylist"
             @change="updateSaveVideoHistoryWithLastViewedPlaylist"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
     </div>
     <br>
     <FtFlexBox>
-      <FtSetting
-        id="save-watched-progress"
+      <FtPageFilterItem
+        id="setting-save-watched-progress"
         :keyword="$t('Settings.Privacy Settings.Save Watched Progress')"
       >
         <FtSelect
@@ -61,12 +61,12 @@
           :disabled="!rememberHistory"
           @change="updateWatchedProgressSavingMode"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <br>
     <FtFlexBox>
-      <FtSetting
-        id="clear-search-history-and-cache"
+      <FtPageFilterItem
+        id="setting-clear-search-history-and-cache"
         :keyword="$t('Settings.Privacy Settings.Clear Search History and Cache')"
       >
         <FtButton
@@ -76,9 +76,9 @@
           :icon="['fas', 'trash']"
           @click="showSearchCachePrompt = true"
         />
-      </FtSetting>
-      <FtSetting
-        id="remove-watch-history"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-remove-watch-history"
         :keyword="$t('Settings.Privacy Settings.Remove Watch History')"
       >
         <FtButton
@@ -88,9 +88,9 @@
           :icon="['fas', 'trash']"
           @click="showRemoveHistoryPrompt = true"
         />
-      </FtSetting>
-      <FtSetting
-        id="remove-all-subscriptions-profiles"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-remove-all-subscriptions-profiles"
         :keyword="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
       >
         <FtButton
@@ -100,9 +100,9 @@
           :icon="['fas', 'trash']"
           @click="showRemoveSubscriptionsPrompt = true"
         />
-      </FtSetting>
-      <FtSetting
-        id="remove-all-playlists"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-remove-all-playlists"
         :keyword="$t('Settings.Privacy Settings.Remove All Playlists')"
       >
         <FtButton
@@ -112,7 +112,7 @@
           :icon="['fas', 'trash']"
           @click="showRemovePlaylistsPrompt = true"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <FtPrompt
       v-if="showSearchCachePrompt"
@@ -159,7 +159,7 @@ import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSelect from './FtSelect/FtSelect.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
-import FtSetting from './FtSetting/FtSetting.vue'
+import FtPageFilterItem from './FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../store/index'
 

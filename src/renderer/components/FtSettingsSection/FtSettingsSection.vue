@@ -1,6 +1,6 @@
 <template>
-  <FtSetting
-    :id="id"
+  <FtPageFilterItem
+    :id="`setting-${id}`"
     class="settingsSection"
     :keyword="title"
   >
@@ -10,11 +10,11 @@
       </h3>
       <slot />
     </div>
-  </FtSetting>
+  </FtPageFilterItem>
 </template>
 
 <script setup>
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 defineProps({
   id: {

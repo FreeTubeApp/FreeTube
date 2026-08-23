@@ -4,8 +4,8 @@
     :title="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
   >
     <FtFlexBox class="settingsFlexStart500px">
-      <FtSetting
-        id="enable-sponsorblock"
+      <FtPageFilterItem
+        id="setting-enable-sponsorblock"
         :keyword="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
       >
         <FtToggleSwitch
@@ -13,9 +13,9 @@
           :default-value="useSponsorBlock"
           @change="handleUpdateSponsorBlock"
         />
-      </FtSetting>
-      <FtSetting
-        id="use-dearrow-titles"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-use-dearrow-titles"
         :keyword="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
       >
         <FtToggleSwitch
@@ -24,9 +24,9 @@
           :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
           @change="handleUpdateUseDeArrowTitles"
         />
-      </FtSetting>
-      <FtSetting
-        id="use-dearrow-thumbnails"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-use-dearrow-thumbnails"
         :keyword="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
       >
         <FtToggleSwitch
@@ -35,7 +35,7 @@
           :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
           @change="handleUpdateUseDeArrowThumbnails"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <template
       v-if="useSponsorBlock || useDeArrowTitles || useDeArrowThumbnails"
@@ -44,8 +44,8 @@
         v-if="useSponsorBlock"
         class="settingsFlexStart500px"
       >
-        <FtSetting
-          id="notify-when-sponsor-segment-is-skipped"
+        <FtPageFilterItem
+          id="setting-notify-when-sponsor-segment-is-skipped"
           :keyword="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
         >
           <FtToggleSwitch
@@ -53,11 +53,11 @@
             :default-value="sponsorBlockShowSkippedToast"
             @change="handleUpdateSponsorBlockShowSkippedToast"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox>
-        <FtSetting
-          id="sponsorblock-api-url"
+        <FtPageFilterItem
+          id="setting-sponsorblock-api-url"
           :keyword="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
         >
           <FtInput
@@ -68,13 +68,13 @@
             :value="sponsorBlockUrl"
             @blur="handleUpdateSponsorBlockUrl"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox
         v-if="useDeArrowThumbnails"
       >
-        <FtSetting
-          id="dearrow-thumbnail-generator-api-url"
+        <FtPageFilterItem
+          id="setting-dearrow-thumbnail-generator-api-url"
           :keyword="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
         >
           <FtInput
@@ -86,14 +86,14 @@
             :value="deArrowThumbnailGeneratorUrl"
             @blur="handleUpdateDeArrowThumbnailGeneratorUrl"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
 
       <FtFlexBox
         v-if="useSponsorBlock"
       >
-        <FtSetting
-          id="sponsorblock-categories"
+        <FtPageFilterItem
+          id="setting-sponsorblock-categories"
           :keyword="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
         >
           <FtSponsorBlockCategory
@@ -101,7 +101,7 @@
             :key="category"
             :category-name="category"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
     </template>
   </FtSettingsSection>
@@ -115,7 +115,7 @@ import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtInput from './FtInput/FtInput.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from './FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
-import FtSetting from './FtSetting/FtSetting.vue'
+import FtPageFilterItem from './FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../store/index'
 

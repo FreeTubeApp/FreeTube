@@ -7,22 +7,22 @@
       v-if="hasStoredPassword"
       class="settingsFlexStart460px"
     >
-      <FtSetting
-        id="remove-password"
+      <FtPageFilterItem
+        id="setting-remove-password"
         :keyword="$t('Settings.Password Settings.Remove Password')"
       >
         <FtButton
           :label="$t('Settings.Password Settings.Remove Password')"
           @click="handleRemovePassword"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <FtFlexBox
       v-else
       class="settingsFlexStart460px"
     >
-      <FtSetting
-        id="set-password"
+      <FtPageFilterItem
+        id="setting-set-password"
         :keyword="$t('Settings.Password Settings.Set Password To Prevent Access')"
       >
         <FtInput
@@ -39,7 +39,7 @@
           :label="$t('Settings.Password Settings.Set Password')"
           @click="handleSetPassword"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
   </FtSettingsSection>
 </template>
@@ -51,7 +51,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

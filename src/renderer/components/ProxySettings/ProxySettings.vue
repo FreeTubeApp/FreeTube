@@ -14,8 +14,8 @@
         />
         {{ $t('Settings.Proxy Settings.Proxy Warning') }}
       </p>
-      <FtSetting
-        id="enable-tor-proxy"
+      <FtPageFilterItem
+        id="setting-enable-tor-proxy"
         :keyword="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
       >
         <FtToggleSwitch
@@ -23,14 +23,14 @@
           :default-value="useProxy"
           @change="handleUpdateProxy"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <template
       v-if="useProxy"
     >
       <FtFlexBox>
-        <FtSetting
-          id="proxy-protocol"
+        <FtPageFilterItem
+          id="setting-proxy-protocol"
           :keyword="$t('Settings.Proxy Settings.Proxy Protocol')"
         >
           <FtSelect
@@ -42,11 +42,11 @@
             :icon="['fas', 'network-wired']"
             @change="handleUpdateProxyProtocol"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox>
-        <FtSetting
-          id="proxy-host"
+        <FtPageFilterItem
+          id="setting-proxy-host"
           :keyword="$t('Settings.Proxy Settings.Proxy Host')"
         >
           <FtInput
@@ -57,9 +57,9 @@
             @input="handleUpdateProxyHostname"
             @keydown.enter="testProxy"
           />
-        </FtSetting>
-        <FtSetting
-          id="proxy-port-number"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-proxy-port-number"
           :keyword="$t('Settings.Proxy Settings.Proxy Port Number')"
         >
           <FtInput
@@ -71,13 +71,13 @@
             @input="handleUpdateProxyPort"
             @keydown.enter="testProxy"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox
         v-if="areCredentialsSupported"
       >
-        <FtSetting
-          id="proxy-username"
+        <FtPageFilterItem
+          id="setting-proxy-username"
           :keyword="$t('Settings.Proxy Settings.Proxy Username')"
         >
           <FtInput
@@ -88,9 +88,9 @@
             @input="handleUpdateProxyUsername"
             @keydown.enter="testProxy"
           />
-        </FtSetting>
-        <FtSetting
-          id="proxy-password"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-proxy-password"
           :keyword="$t('Settings.Proxy Settings.Proxy Password')"
         >
           <FtInput
@@ -102,7 +102,7 @@
             @input="handleUpdateProxyPassword"
             @keydown.enter="testProxy"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <p
         class="center"
@@ -110,15 +110,15 @@
         {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} {{ proxyTestUrl }}
       </p>
       <FtFlexBox>
-        <FtSetting
-          id="test-proxy"
+        <FtPageFilterItem
+          id="setting-test-proxy"
           :keyword="$t('Settings.Proxy Settings.Test Proxy')"
         >
           <FtButton
             :label="$t('Settings.Proxy Settings.Test Proxy')"
             @click="testProxy"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtLoader
         v-if="isLoading"
@@ -159,7 +159,7 @@ import FtSelect from '../FtSelect/FtSelect.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

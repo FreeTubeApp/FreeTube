@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="proxy-videos-through-invidious"
+        <FtPageFilterItem
+          id="setting-proxy-videos-through-invidious"
           :keyword="t('Settings.Player Settings.Proxy Videos Through Invidious')"
         >
           <FtToggleSwitch
@@ -17,9 +17,9 @@
             :tooltip="t('Tooltips.Player Settings.Proxy Videos Through Invidious')"
             @change="updateProxyVideos"
           />
-        </FtSetting>
-        <FtSetting
-          id="turn-on-subtitles-by-default"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-turn-on-subtitles-by-default"
           :keyword="t('Settings.Player Settings.Turn on Subtitles by Default')"
         >
           <FtToggleSwitch
@@ -28,9 +28,9 @@
             :default-value="enableSubtitlesByDefault"
             @change="updateEnableSubtitlesByDefault"
           />
-        </FtSetting>
-        <FtSetting
-          id="scroll-volume-over-video-player"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-scroll-volume-over-video-player"
           :keyword="t('Settings.Player Settings.Scroll Volume Over Video Player')"
         >
           <FtToggleSwitch
@@ -40,9 +40,9 @@
             :default-value="videoVolumeMouseScroll"
             @change="updateVideoVolumeMouseScroll"
           />
-        </FtSetting>
-        <FtSetting
-          id="scroll-playback-rate-over-video-player"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-scroll-playback-rate-over-video-player"
           :keyword="t('Settings.Player Settings.Scroll Playback Rate Over Video Player')"
         >
           <FtToggleSwitch
@@ -52,9 +52,9 @@
             :tooltip="t('Tooltips.Player Settings.Scroll Playback Rate Over Video Player')"
             @change="updateVideoPlaybackRateMouseScroll"
           />
-        </FtSetting>
-        <FtSetting
-          id="skip-by-scrolling-over-video-player"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-skip-by-scrolling-over-video-player"
           :keyword="t('Settings.Player Settings.Skip by Scrolling Over Video Player')"
         >
           <FtToggleSwitch
@@ -65,11 +65,11 @@
             :tooltip="t('Tooltips.Player Settings.Skip by Scrolling Over Video Player')"
             @change="updateVideoSkipMouseScroll"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="play-next-video"
+        <FtPageFilterItem
+          id="setting-play-next-video"
           :keyword="t('Settings.Player Settings.Play Next Video')"
         >
           <FtToggleSwitch
@@ -79,9 +79,9 @@
             :default-value="playNextVideo"
             @change="updatePlayNextVideo"
           />
-        </FtSetting>
-        <FtSetting
-          id="autoplay-playlists"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-autoplay-playlists"
           :keyword="t('Settings.Player Settings.Autoplay Playlists')"
         >
           <FtToggleSwitch
@@ -90,9 +90,9 @@
             :default-value="autoplayPlaylists"
             @change="updateAutoplayPlaylists"
           />
-        </FtSetting>
-        <FtSetting
-          id="autoplay-videos"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-autoplay-videos"
           :keyword="t('Settings.Player Settings.Autoplay Videos')"
         >
           <FtToggleSwitch
@@ -101,9 +101,9 @@
             :default-value="autoplayVideos"
             @change="updateAutoplayVideos"
           />
-        </FtSetting>
-        <FtSetting
-          id="display-play-button-in-video-player"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-display-play-button-in-video-player"
           :keyword="t('Settings.Player Settings.Display Play Button In Video Player')"
         >
           <FtToggleSwitch
@@ -112,9 +112,9 @@
             :default-value="displayVideoPlayButton"
             @change="updateDisplayVideoPlayButton"
           />
-        </FtSetting>
-        <FtSetting
-          id="enter-fullscreen-on-display-rotate"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-enter-fullscreen-on-display-rotate"
           :keyword="t('Settings.Player Settings.Enter Fullscreen on Display Rotate')"
         >
           <FtToggleSwitch
@@ -123,12 +123,12 @@
             :default-value="enterFullscreenOnDisplayRotate"
             @change="updateEnterFullscreenOnDisplayRotate"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
     </div>
     <FtFlexBox>
-      <FtSetting
-        id="default-viewing-mode"
+      <FtPageFilterItem
+        id="setting-default-viewing-mode"
         :keyword="t('Settings.Player Settings.Default Viewing Mode.Default Viewing Mode')"
       >
         <FtSelect
@@ -140,9 +140,9 @@
           :icon="['fas', 'expand']"
           @change="updateDefaultViewingMode"
         />
-      </FtSetting>
-      <FtSetting
-        id="default-video-format"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-default-video-format"
         :keyword="t('Settings.Player Settings.Default Video Format.Default Video Format')"
       >
         <FtSelect
@@ -154,9 +154,9 @@
           :icon="['fas', 'file-video']"
           @change="updateDefaultVideoFormat"
         />
-      </FtSetting>
-      <FtSetting
-        id="default-quality"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-default-quality"
         :keyword="t('Settings.Player Settings.Default Quality.Default Quality')"
       >
         <FtSelect
@@ -167,9 +167,9 @@
           :icon="['fas', 'photo-film']"
           @change="updateDefaultQuality"
         />
-      </FtSetting>
-      <FtSetting
-        id="video-playback-rate-interval"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-video-playback-rate-interval"
         :keyword="t('Settings.Player Settings.Video Playback Rate Interval')"
       >
         <FtSelect
@@ -180,11 +180,11 @@
           :icon="['fas', 'gauge']"
           @change="updateVideoPlaybackRateInterval"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <FtFlexBox>
-      <FtSetting
-        id="next-video-interval"
+      <FtPageFilterItem
+        id="setting-next-video-interval"
         :keyword="t('Settings.Player Settings.Next Video Interval')"
       >
         <FtSlider
@@ -196,9 +196,9 @@
           value-extension="s"
           @change="updateDefaultInterval"
         />
-      </FtSetting>
-      <FtSetting
-        id="autoplay-interruption-timer"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-autoplay-interruption-timer"
         :keyword="t('Settings.Player Settings.Autoplay Interruption Timer')"
       >
         <FtSlider
@@ -210,9 +210,9 @@
           value-extension="h"
           @change="updateDefaultAutoplayInterruptionIntervalHours"
         />
-      </FtSetting>
-      <FtSetting
-        id="fast-forward-rewind-interval"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-fast-forward-rewind-interval"
         :keyword="t('Settings.Player Settings.Fast-Forward / Rewind Interval')"
       >
         <FtSlider
@@ -224,9 +224,9 @@
           value-extension="s"
           @change="updateDefaultSkipInterval"
         />
-      </FtSetting>
-      <FtSetting
-        id="default-volume"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-default-volume"
         :keyword="t('Settings.Player Settings.Default Volume')"
       >
         <FtSlider
@@ -238,9 +238,9 @@
           value-extension="%"
           @change="updateDefaultVolume"
         />
-      </FtSetting>
-      <FtSetting
-        id="default-playback-rate"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-default-playback-rate"
         :keyword="t('Settings.Player Settings.Default Playback Rate')"
       >
         <FtSlider
@@ -252,9 +252,9 @@
           value-extension="x"
           @change="updateDefaultPlayback"
         />
-      </FtSetting>
-      <FtSetting
-        id="max-video-playback-rate"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-max-video-playback-rate"
         :keyword="t('Settings.Player Settings.Max Video Playback Rate')"
       >
         <FtSlider
@@ -266,12 +266,12 @@
           value-extension="x"
           @change="updateMaxVideoPlaybackRate"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <br>
     <FtFlexBox>
-      <FtSetting
-        id="screenshot"
+      <FtPageFilterItem
+        id="setting-screenshot"
         :keyword="t('Settings.Player Settings.Screenshot.Enable')"
       >
         <FtToggleSwitch
@@ -279,12 +279,12 @@
           :default-value="enableScreenshot"
           @change="updateEnableScreenshot"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <div v-if="enableScreenshot">
       <FtFlexBox>
-        <FtSetting
-          id="screenshot-mode"
+        <FtPageFilterItem
+          id="setting-screenshot-mode"
           :keyword="t('Settings.Player Settings.Screenshot.Mode')"
         >
           <FtSelect
@@ -295,11 +295,11 @@
             :icon="['fas', 'expand']"
             @change="handleUpdateScreenshotMode"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox v-if="screenshotMode !== 'clipboard'">
-        <FtSetting
-          id="screenshot-format"
+        <FtPageFilterItem
+          id="setting-screenshot-format"
           :keyword="t('Settings.Player Settings.Screenshot.Format Label')"
         >
           <FtSelect
@@ -310,9 +310,9 @@
             :icon="['fas', 'file-image']"
             @change="handleUpdateScreenshotFormat"
           />
-        </FtSetting>
-        <FtSetting
-          id="screenshot-quality"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-screenshot-quality"
           :keyword="t('Settings.Player Settings.Screenshot.Quality Label')"
         >
           <FtSlider
@@ -325,7 +325,7 @@
             :disabled="screenshotFormat === 'png'"
             @change="updateScreenshotQuality"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </FtFlexBox>
       <FtFlexBox
         v-if="USING_ELECTRON && screenshotMode === 'default_folder'"
@@ -392,7 +392,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

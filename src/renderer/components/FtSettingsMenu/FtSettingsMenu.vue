@@ -1,7 +1,7 @@
 <template>
   <menu
     class="settingsMenu"
-    :class="{ searching: isSearching }"
+    :class="{ filtering: isFiltering }"
   >
     <h2 class="header">
       <FontAwesomeIcon
@@ -13,7 +13,7 @@
     <FtSettingsSearchBar class="settingsSearchBar" />
     <a
       v-for="settingsSection in settingsSections"
-      v-show="isSectionVisible(settingsSection.type)"
+      v-show="isRootItemVisible(`setting-${settingsSection.type}`)"
       ref="linkRefs"
       :key="settingsSection.type"
       class="title"
@@ -43,7 +43,7 @@ import { useTemplateRef } from 'vue'
 
 import FtSettingsSearchBar from '../FtSettingsSearchBar/FtSettingsSearchBar.vue'
 
-import { useSettingsSearch } from '../../composables/settings-search'
+import { usePageFilter } from '../../composables/page-filter'
 
 defineProps({
   settingsSections: {
@@ -58,7 +58,7 @@ defineProps({
 
 const emit = defineEmits(['navigate-to-section'])
 
-const { isSectionVisible, isSearching } = useSettingsSearch()
+const { isRootItemVisible, isFiltering } = usePageFilter()
 
 /**
  * @param {PointerEvent | KeyboardEvent} event

@@ -37,7 +37,7 @@
 }
 
 /* while filtering, keep the remaining entries packed under the search bar instead of spread over the full height */
-.settingsMenu.searching .title {
+.settingsMenu.filtering .title {
   flex-grow: 0;
   padding-block: 5px;
 }

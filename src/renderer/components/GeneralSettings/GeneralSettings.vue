@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="check-for-updates"
+        <FtPageFilterItem
+          id="setting-check-for-updates"
           :keyword="t('Settings.General Settings.Check for Updates')"
         >
           <FtToggleSwitch
@@ -15,10 +15,10 @@
             :compact="true"
             @change="updateCheckForUpdates"
           />
-        </FtSetting>
-        <FtSetting
+        </FtPageFilterItem>
+        <FtPageFilterItem
           v-if="SUPPORTS_LOCAL_API"
-          id="backend-fallback"
+          id="setting-backend-fallback"
           :keyword="t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
         >
           <FtToggleSwitch
@@ -28,9 +28,9 @@
             :tooltip="t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
             @change="updateBackendFallback"
           />
-        </FtSetting>
-        <FtSetting
-          id="auto-load-next-page"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-auto-load-next-page"
           :keyword="t('Settings.General Settings.Auto Load Next Page.Label')"
         >
           <FtToggleSwitch
@@ -40,11 +40,11 @@
             :tooltip="t('Settings.General Settings.Auto Load Next Page.Tooltip')"
             @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="enable-search-suggestions"
+        <FtPageFilterItem
+          id="setting-enable-search-suggestions"
           :keyword="t('Settings.General Settings.Enable Search Suggestions')"
         >
           <FtToggleSwitch
@@ -53,10 +53,10 @@
             :compact="true"
             @change="updateEnableSearchSuggestions"
           />
-        </FtSetting>
-        <FtSetting
+        </FtPageFilterItem>
+        <FtPageFilterItem
           v-if="USING_ELECTRON"
-          id="open-deep-links-in-new-window"
+          id="setting-open-deep-links-in-new-window"
           :keyword="t('Settings.General Settings.Open Deep Links In New Window')"
         >
           <FtToggleSwitch
@@ -66,10 +66,10 @@
             :tooltip="t('Tooltips.General Settings.Open Deep Links In New Window')"
             @change="updateOpenDeepLinksInNewWindow"
           />
-        </FtSetting>
-        <FtSetting
+        </FtPageFilterItem>
+        <FtPageFilterItem
           v-if="!IS_MAC && !isLinuxWayland && USING_ELECTRON"
-          id="minimize-to-system-tray"
+          id="setting-minimize-to-system-tray"
           :keyword="t('Settings.General Settings.Minimize to system tray')"
         >
           <FtToggleSwitch
@@ -78,12 +78,12 @@
             :compact="true"
             @change="updateHideToTrayOnMinimize"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
     </div>
     <div class="switchGrid">
-      <FtSetting
-        id="preferred-api-backend"
+      <FtPageFilterItem
+        id="setting-preferred-api-backend"
         :keyword="t('Settings.General Settings.Preferred API Backend.Preferred API Backend')"
       >
         <FtSelect
@@ -95,9 +95,9 @@
           :icon="['fas', 'server']"
           @change="updateBackendPreference"
         />
-      </FtSetting>
-      <FtSetting
-        id="default-landing-page"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-default-landing-page"
         :keyword="t('Settings.General Settings.Default Landing Page')"
       >
         <FtSelect
@@ -108,9 +108,9 @@
           :icon="['fas', 'location-dot']"
           @change="updateLandingPage"
         />
-      </FtSetting>
-      <FtSetting
-        id="video-view-type"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-video-view-type"
         :keyword="t('Settings.General Settings.Video View Type.Video View Type')"
       >
         <FtSelect
@@ -121,9 +121,9 @@
           :icon="listType === 'grid' ? ['fas', 'grip'] : ['fas', 'list']"
           @change="updateListType"
         />
-      </FtSetting>
-      <FtSetting
-        id="thumbnail-preference"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-thumbnail-preference"
         :keyword="t('Settings.General Settings.Thumbnail Preference.Thumbnail Preference')"
       >
         <FtSelect
@@ -135,9 +135,9 @@
           :icon="['fas', 'images']"
           @change="handleThumbnailPreferenceChange"
         />
-      </FtSetting>
-      <FtSetting
-        id="locale-preference"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-locale-preference"
         :keyword="t('Settings.General Settings.Locale Preference')"
       >
         <FtSelect
@@ -149,10 +149,10 @@
           :is-locale-selector="true"
           @change="updateCurrentLocale"
         />
-      </FtSetting>
-      <FtSetting
+      </FtPageFilterItem>
+      <FtPageFilterItem
         v-if="regionDataLoaded"
-        id="region-for-trending"
+        id="setting-region-for-trending"
         :keyword="t('Settings.General Settings.Region for Trending')"
       >
         <FtSelect
@@ -164,9 +164,9 @@
           :tooltip="t('Tooltips.General Settings.Region for Trending')"
           @change="updateRegion"
         />
-      </FtSetting>
-      <FtSetting
-        id="external-link-handling"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-external-link-handling"
         :keyword="t('Settings.General Settings.External Link Handling.External Link Handling')"
       >
         <FtSelect
@@ -178,11 +178,11 @@
           :tooltip="t('Tooltips.General Settings.External Link Handling')"
           @change="updateExternalLinkHandling"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </div>
-    <FtSetting
+    <FtPageFilterItem
       v-if="backendPreference === 'invidious' || backendFallback"
-      id="invidious-instance"
+      id="setting-invidious-instance"
       :keyword="t('Settings.General Settings.Current Invidious Instance')"
     >
       <div
@@ -234,7 +234,7 @@
           />
         </FtFlexBox>
       </div>
-    </FtSetting>
+    </FtPageFilterItem>
   </FtSettingsSection>
 </template>
 
@@ -249,7 +249,7 @@ import FtInput from '../FtInput/FtInput.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
-import FtSetting from '../FtSetting/FtSetting.vue'
+import FtPageFilterItem from '../FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../../store/index'
 

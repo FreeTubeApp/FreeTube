@@ -5,8 +5,8 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtSetting
-          id="match-top-bar-with-main-color"
+        <FtPageFilterItem
+          id="setting-match-top-bar-with-main-color"
           :keyword="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
         >
           <FtToggleSwitch
@@ -15,9 +15,9 @@
             :default-value="barColor"
             @change="updateBarColor"
           />
-        </FtSetting>
-        <FtSetting
-          id="expand-side-bar-by-default"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-expand-side-bar-by-default"
           :keyword="$t('Settings.Theme Settings.Expand Side Bar by Default')"
         >
           <FtToggleSwitch
@@ -26,10 +26,10 @@
             :default-value="expandSideBar"
             @change="handleExpandSideBar"
           />
-        </FtSetting>
-        <FtSetting
+        </FtPageFilterItem>
+        <FtPageFilterItem
           v-if="usingElectron"
-          id="disable-smooth-scrolling"
+          id="setting-disable-smooth-scrolling"
           :keyword="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
         >
           <FtToggleSwitch
@@ -38,11 +38,11 @@
             :default-value="disableSmoothScrollingToggleValue"
             @change="handleRestartPrompt"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
       <div class="switchColumn">
-        <FtSetting
-          id="hide-side-bar-labels"
+        <FtPageFilterItem
+          id="setting-hide-side-bar-labels"
           :keyword="$t('Settings.Theme Settings.Hide Side Bar Labels')"
         >
           <FtToggleSwitch
@@ -51,9 +51,9 @@
             :default-value="hideLabelsSideBar"
             @change="updateHideLabelsSideBar"
           />
-        </FtSetting>
-        <FtSetting
-          id="hide-freetube-header-logo"
+        </FtPageFilterItem>
+        <FtPageFilterItem
+          id="setting-hide-freetube-header-logo"
           :keyword="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
         >
           <FtToggleSwitch
@@ -62,12 +62,12 @@
             :default-value="hideHeaderLogo"
             @change="updateHideHeaderLogo"
           />
-        </FtSetting>
+        </FtPageFilterItem>
       </div>
     </div>
     <template v-if="usingElectron">
-      <FtSetting
-        id="ui-scale"
+      <FtPageFilterItem
+        id="setting-ui-scale"
         :keyword="$t('Settings.Theme Settings.UI Scale')"
       >
         <FtFlexBox>
@@ -81,12 +81,12 @@
             @change="updateUiScale"
           />
         </FtFlexBox>
-      </FtSetting>
+      </FtPageFilterItem>
       <br>
     </template>
     <FtFlexBox>
-      <FtSetting
-        id="base-theme"
+      <FtPageFilterItem
+        id="setting-base-theme"
         :keyword="$t('Settings.Theme Settings.Base Theme.Base Theme')"
       >
         <FtSelect
@@ -97,9 +97,9 @@
           :icon="['fas', 'palette']"
           @change="updateBaseTheme"
         />
-      </FtSetting>
-      <FtSetting
-        id="main-color-theme"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-main-color-theme"
         :keyword="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
       >
         <FtSelect
@@ -112,9 +112,9 @@
           icon-color="var(--primary-color)"
           @change="updateMainColor"
         />
-      </FtSetting>
-      <FtSetting
-        id="secondary-color-theme"
+      </FtPageFilterItem>
+      <FtPageFilterItem
+        id="setting-secondary-color-theme"
         :keyword="$t('Settings.Theme Settings.Secondary Color Theme')"
       >
         <FtSelect
@@ -127,7 +127,7 @@
           icon-color="var(--accent-color)"
           @change="updateSecColor"
         />
-      </FtSetting>
+      </FtPageFilterItem>
     </FtFlexBox>
     <FtPrompt
       v-if="showRestartPrompt"
@@ -149,7 +149,7 @@ import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtSlider from './FtSlider/FtSlider.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
-import FtSetting from './FtSetting/FtSetting.vue'
+import FtPageFilterItem from './FtPageFilterItem/FtPageFilterItem.vue'
 
 import store from '../store/index'
 
