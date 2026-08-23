@@ -18,6 +18,9 @@
   /* match the menu entries so the intrinsic input width can't drive the menu width */
   inline-size: 220px;
   margin-block-end: 10px;
+
+  /* the menu scales its font up on mobile, which would scale the em-sized clear button out of the input */
+  font-size: 16px;
 }
 
 .headingIcon {
