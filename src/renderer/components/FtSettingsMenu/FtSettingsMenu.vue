@@ -1,6 +1,7 @@
 <template>
   <menu
     class="settingsMenu"
+    :class="{ searching: isSearching }"
   >
     <h2 class="header">
       <FontAwesomeIcon
@@ -12,10 +13,10 @@
     <FtInput
       class="settingsSearchBar"
       :placeholder="$t('Settings.Search Settings')"
-      is-search
       :show-action-button="false"
       show-clear-text-button
       @input="handleSettingsSearchInput"
+      @clear="handleSettingsSearchClear"
     />
     <a
       v-for="settingsSection in settingsSections"
@@ -65,11 +66,16 @@ defineProps({
 
 const emit = defineEmits(['navigate-to-section'])
 
-const { setSettingsSearchQuery, isSectionVisible } = useSettingsSearch()
+const { setSettingsSearchQuery, isSectionVisible, isSearching } = useSettingsSearch()
 
 const handleSettingsSearchInput = debounce((value) => {
   setSettingsSearchQuery(value)
 }, 200)
+
+// Goes through the debounced function so a pending keystroke can't re-apply a stale query afterwards.
+function handleSettingsSearchClear() {
+  handleSettingsSearchInput('')
+}
 
 /**
  * @param {PointerEvent | KeyboardEvent} event

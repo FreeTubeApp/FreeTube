@@ -15,6 +15,8 @@
 }
 
 .settingsSearchBar {
+  /* match the menu entries so the intrinsic input width can't drive the menu width */
+  inline-size: 220px;
   margin-block-end: 10px;
 }
 
@@ -29,6 +31,12 @@
   flex: 1 1 auto;
   display: flex;
   align-items: center;
+}
+
+/* while filtering, keep the remaining entries packed under the search bar instead of spread over the full height */
+.settingsMenu.searching .title {
+  flex-grow: 0;
+  padding-block: 5px;
 }
 
 /* prevent hover styling from showing on title click for mobile */
@@ -107,6 +115,10 @@
   .title {
     inline-size: fit-content;
     max-inline-size: 90vw;
+  }
+
+  .settingsSearchBar {
+    inline-size: 100%;
   }
 
   .header {

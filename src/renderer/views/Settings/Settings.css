@@ -27,6 +27,12 @@
 }
 
 @media only screen and (width >= 1015px) {
+  /* claim the full row so the width doesn't depend on which sections are currently shown */
+  .settingsContent {
+    flex: 1 1 auto;
+    min-inline-size: 0;
+  }
+
   .section + .section {
     padding-block-start: 20px;
   }

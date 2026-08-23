@@ -21,7 +21,9 @@ body[dir='rtl'] .ft-input-component.search.showClearTextButton:focus-within .inp
   padding-inline-start: 0;
 }
 
-.ft-input-component.showClearTextButton:not(.search) .ft-input {
+/* only offset the text while the clear button is actually shown */
+.ft-input-component.showClearTextButton:not(.search).clearTextButtonVisible .ft-input,
+.ft-input-component.showClearTextButton:not(.search):focus-within .ft-input {
   padding-inline-start: 46px;
 }
 
