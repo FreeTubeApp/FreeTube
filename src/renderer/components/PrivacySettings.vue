@@ -4,74 +4,114 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Privacy Settings.Remember History')"
-          compact
-          :default-value="rememberHistory"
-          @change="handleRememberHistory"
-        />
+        <FtSetting
+          id="remember-history"
+          :keyword="$t('Settings.Privacy Settings.Remember History')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Privacy Settings.Remember History')"
+            compact
+            :default-value="rememberHistory"
+            @change="handleRememberHistory"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Privacy Settings.Remember Search History')"
-          compact
-          :default-value="rememberSearchHistory"
-          @change="updateRememberSearchHistory"
-        />
+        <FtSetting
+          id="remember-search-history"
+          :keyword="$t('Settings.Privacy Settings.Remember Search History')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Privacy Settings.Remember Search History')"
+            compact
+            :default-value="rememberSearchHistory"
+            @change="updateRememberSearchHistory"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
-          compact
-          :disabled="!rememberHistory"
-          :default-value="saveVideoHistoryWithLastViewedPlaylist"
-          @change="updateSaveVideoHistoryWithLastViewedPlaylist"
-        />
+        <FtSetting
+          id="save-watched-videos-with-last-viewed-playlist"
+          :keyword="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Privacy Settings.Save Watched Videos With Last Viewed Playlist')"
+            compact
+            :disabled="!rememberHistory"
+            :default-value="saveVideoHistoryWithLastViewedPlaylist"
+            @change="updateSaveVideoHistoryWithLastViewedPlaylist"
+          />
+        </FtSetting>
       </div>
     </div>
     <br>
     <FtFlexBox>
-      <FtSelect
-        :placeholder="$t('Settings.Privacy Settings.Save Watched Progress')"
-        :value="watchedProgressSavingMode"
-        :select-names="watchedProgressSavingModeNames"
-        :select-values="WATCHED_PROGRESS_SAVING_MODE_VALUES"
-        :icon="['fas', 'bars-progress']"
-        :tooltip="$t('Settings.Privacy Settings.Watched Progress Saving Mode.Tooltip')"
-        :disabled="!rememberHistory"
-        @change="updateWatchedProgressSavingMode"
-      />
+      <FtSetting
+        id="save-watched-progress"
+        :keyword="$t('Settings.Privacy Settings.Save Watched Progress')"
+      >
+        <FtSelect
+          :placeholder="$t('Settings.Privacy Settings.Save Watched Progress')"
+          :value="watchedProgressSavingMode"
+          :select-names="watchedProgressSavingModeNames"
+          :select-values="WATCHED_PROGRESS_SAVING_MODE_VALUES"
+          :icon="['fas', 'bars-progress']"
+          :tooltip="$t('Settings.Privacy Settings.Watched Progress Saving Mode.Tooltip')"
+          :disabled="!rememberHistory"
+          @change="updateWatchedProgressSavingMode"
+        />
+      </FtSetting>
     </FtFlexBox>
     <br>
     <FtFlexBox>
-      <FtButton
-        :label="$t('Settings.Privacy Settings.Clear Search History and Cache')"
-        text-color="var(--destructive-text-color)"
-        background-color="var(--destructive-color)"
-        :icon="['fas', 'trash']"
-        @click="showSearchCachePrompt = true"
-      />
-      <FtButton
-        :label="$t('Settings.Privacy Settings.Remove Watch History')"
-        text-color="var(--destructive-text-color)"
-        background-color="var(--destructive-color)"
-        :icon="['fas', 'trash']"
-        @click="showRemoveHistoryPrompt = true"
-      />
-      <FtButton
-        :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
-        text-color="var(--destructive-text-color)"
-        background-color="var(--destructive-color)"
-        :icon="['fas', 'trash']"
-        @click="showRemoveSubscriptionsPrompt = true"
-      />
-      <FtButton
-        :label="$t('Settings.Privacy Settings.Remove All Playlists')"
-        text-color="var(--destructive-text-color)"
-        background-color="var(--destructive-color)"
-        :icon="['fas', 'trash']"
-        @click="showRemovePlaylistsPrompt = true"
-      />
+      <FtSetting
+        id="clear-search-history-and-cache"
+        :keyword="$t('Settings.Privacy Settings.Clear Search History and Cache')"
+      >
+        <FtButton
+          :label="$t('Settings.Privacy Settings.Clear Search History and Cache')"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          :icon="['fas', 'trash']"
+          @click="showSearchCachePrompt = true"
+        />
+      </FtSetting>
+      <FtSetting
+        id="remove-watch-history"
+        :keyword="$t('Settings.Privacy Settings.Remove Watch History')"
+      >
+        <FtButton
+          :label="$t('Settings.Privacy Settings.Remove Watch History')"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          :icon="['fas', 'trash']"
+          @click="showRemoveHistoryPrompt = true"
+        />
+      </FtSetting>
+      <FtSetting
+        id="remove-all-subscriptions-profiles"
+        :keyword="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
+      >
+        <FtButton
+          :label="$t('Settings.Privacy Settings.Remove All Subscriptions / Profiles')"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          :icon="['fas', 'trash']"
+          @click="showRemoveSubscriptionsPrompt = true"
+        />
+      </FtSetting>
+      <FtSetting
+        id="remove-all-playlists"
+        :keyword="$t('Settings.Privacy Settings.Remove All Playlists')"
+      >
+        <FtButton
+          :label="$t('Settings.Privacy Settings.Remove All Playlists')"
+          text-color="var(--destructive-text-color)"
+          background-color="var(--destructive-color)"
+          :icon="['fas', 'trash']"
+          @click="showRemovePlaylistsPrompt = true"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtPrompt
       v-if="showSearchCachePrompt"
@@ -118,6 +158,7 @@ import FtPrompt from './FtPrompt/FtPrompt.vue'
 import FtSelect from './FtSelect/FtSelect.vue'
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
+import FtSetting from './FtSetting/FtSetting.vue'
 
 import store from '../store/index'
 

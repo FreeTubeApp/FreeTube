@@ -4,38 +4,63 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
-          compact
-          :default-value="hideUnsubscribeButton"
-          @change="updateHideUnsubscribeButton"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
-          compact
-          :default-value="showFamilyFriendlyOnly"
-          @change="updateShowFamilyFriendlyOnly"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Disable Channel Links')"
-          compact
-          :default-value="disableChannelLinks"
-          @change="updateDisableChannelLinks"
-        />
+        <FtSetting
+          id="hide-unsubscribe-button"
+          :keyword="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Parental Control Settings.Hide Unsubscribe Button')"
+            compact
+            :default-value="hideUnsubscribeButton"
+            @change="updateHideUnsubscribeButton"
+          />
+        </FtSetting>
+        <FtSetting
+          id="show-family-friendly-only"
+          :keyword="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Parental Control Settings.Show Family Friendly Only')"
+            compact
+            :default-value="showFamilyFriendlyOnly"
+            @change="updateShowFamilyFriendlyOnly"
+          />
+        </FtSetting>
+        <FtSetting
+          id="disable-channel-links"
+          :keyword="$t('Settings.Parental Control Settings.Disable Channel Links')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Parental Control Settings.Disable Channel Links')"
+            compact
+            :default-value="disableChannelLinks"
+            @change="updateDisableChannelLinks"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Search Bar')"
-          compact
-          :default-value="hideSearchBar"
-          @change="updateHideSearchBar"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
-          compact
-          :default-value="hideUploader"
-          @change="updateHideUploader"
-        />
+        <FtSetting
+          id="hide-search-bar"
+          :keyword="$t('Settings.Parental Control Settings.Hide Search Bar')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Parental Control Settings.Hide Search Bar')"
+            compact
+            :default-value="hideSearchBar"
+            @change="updateHideSearchBar"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-uploader-on-watch-page"
+          :keyword="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Parental Control Settings.Hide Uploader on Watch page')"
+            compact
+            :default-value="hideUploader"
+            @change="updateHideUploader"
+          />
+        </FtSetting>
       </div>
     </div>
   </FtSettingsSection>
@@ -46,6 +71,7 @@ import { computed } from 'vue'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
+import FtSetting from './FtSetting/FtSetting.vue'
 
 import store from '../store/index'
 

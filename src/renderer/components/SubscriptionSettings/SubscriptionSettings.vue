@@ -4,44 +4,69 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Subscription Settings.Fetch Automatically')"
-          :default-value="fetchSubscriptionsAutomatically"
-          :tooltip="$t('Tooltips.Subscription Settings.Fetch Automatically')"
-          compact
-          @change="updateFetchSubscriptionsAutomatically"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
-          :default-value="useRssFeeds"
-          :tooltip="$t('Tooltips.Subscription Settings.Fetch Feeds from RSS')"
-          compact
-          @change="updateUseRssFeeds"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
-          :default-value="unsubscriptionPopupStatus"
-          compact
-          @change="updateUnsubscriptionPopupStatus"
-        />
+        <FtSetting
+          id="fetch-automatically"
+          :keyword="$t('Settings.Subscription Settings.Fetch Automatically')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Subscription Settings.Fetch Automatically')"
+            :default-value="fetchSubscriptionsAutomatically"
+            :tooltip="$t('Tooltips.Subscription Settings.Fetch Automatically')"
+            compact
+            @change="updateFetchSubscriptionsAutomatically"
+          />
+        </FtSetting>
+        <FtSetting
+          id="fetch-feeds-from-rss"
+          :keyword="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Subscription Settings.Fetch Feeds from RSS')"
+            :default-value="useRssFeeds"
+            :tooltip="$t('Tooltips.Subscription Settings.Fetch Feeds from RSS')"
+            compact
+            @change="updateUseRssFeeds"
+          />
+        </FtSetting>
+        <FtSetting
+          id="confirm-before-unsubscribing"
+          :keyword="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Subscription Settings.Confirm Before Unsubscribing')"
+            :default-value="unsubscriptionPopupStatus"
+            compact
+            @change="updateUnsubscriptionPopupStatus"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
-          :default-value="onlyShowLatestFromChannel"
-          compact
-          @change="updateOnlyShowLatestFromChannel"
-        />
-        <div class="onlyShowLatestFromChannelNumber">
-          <FtSlider
-            :label="$t('Settings.Subscription Settings.To')"
-            :default-value="onlyShowLatestFromChannelNumber"
-            :disabled="!onlyShowLatestFromChannel"
-            :min-value="1"
-            :max-value="30"
-            :step="1"
-            @change="updateOnlyShowLatestFromChannelNumber"
+        <FtSetting
+          id="limit-number-of-videos-per-channel"
+          :keyword="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Subscription Settings.Limit the number of videos displayed for each channel')"
+            :default-value="onlyShowLatestFromChannel"
+            compact
+            @change="updateOnlyShowLatestFromChannel"
           />
+        </FtSetting>
+        <div class="onlyShowLatestFromChannelNumber">
+          <FtSetting
+            id="number-of-videos-per-channel"
+            :keyword="$t('Settings.Subscription Settings.To')"
+          >
+            <FtSlider
+              :label="$t('Settings.Subscription Settings.To')"
+              :default-value="onlyShowLatestFromChannelNumber"
+              :disabled="!onlyShowLatestFromChannel"
+              :min-value="1"
+              :max-value="30"
+              :step="1"
+              @change="updateOnlyShowLatestFromChannelNumber"
+            />
+          </FtSetting>
         </div>
       </div>
     </div>
@@ -54,6 +79,7 @@ import { computed } from 'vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtSlider from '../FtSlider/FtSlider.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 

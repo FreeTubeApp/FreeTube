@@ -6,29 +6,39 @@
       v-if="hasStoredPassword"
       class="settingsFlexStart460px"
     >
-      <FtButton
-        :label="$t('Settings.Password Settings.Remove Password')"
-        @click="handleRemovePassword"
-      />
+      <FtSetting
+        id="remove-password"
+        :keyword="$t('Settings.Password Settings.Remove Password')"
+      >
+        <FtButton
+          :label="$t('Settings.Password Settings.Remove Password')"
+          @click="handleRemovePassword"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox
       v-else
       class="settingsFlexStart460px"
     >
-      <FtInput
-        :placeholder="$t('Settings.Password Settings.Set Password To Prevent Access')"
-        :show-action-button="false"
-        show-label
-        input-type="password"
-        :value="password"
-        @input="e => password = e"
-        @keydown.enter="handleSetPassword"
-      />
-      <FtButton
-        class="centerButton"
-        :label="$t('Settings.Password Settings.Set Password')"
-        @click="handleSetPassword"
-      />
+      <FtSetting
+        id="set-password"
+        :keyword="$t('Settings.Password Settings.Set Password To Prevent Access')"
+      >
+        <FtInput
+          :placeholder="$t('Settings.Password Settings.Set Password To Prevent Access')"
+          :show-action-button="false"
+          show-label
+          input-type="password"
+          :value="password"
+          @input="e => password = e"
+          @keydown.enter="handleSetPassword"
+        />
+        <FtButton
+          class="centerButton"
+          :label="$t('Settings.Password Settings.Set Password')"
+          @click="handleSetPassword"
+        />
+      </FtSetting>
     </FtFlexBox>
   </FtSettingsSection>
 </template>
@@ -40,6 +50,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 

@@ -9,6 +9,14 @@
       />
       {{ $t('Settings.Settings') }}
     </h2>
+    <FtInput
+      class="settingsSearchBar"
+      :placeholder="$t('Settings.Search Settings')"
+      is-search
+      :show-action-button="false"
+      show-clear-text-button
+      @input="handleSettingsSearchInput"
+    />
     <a
       v-for="settingsSection in settingsSections"
       ref="linkRefs"
@@ -38,6 +46,11 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useTemplateRef } from 'vue'
 
+import FtInput from '../FtInput/FtInput.vue'
+
+import { useSettingsSearch } from '../../composables/settings-search'
+import { debounce } from '../../helpers/utils'
+
 defineProps({
   settingsSections: {
     type: Array,
@@ -50,6 +63,12 @@ defineProps({
 })
 
 const emit = defineEmits(['navigate-to-section'])
+
+const { setSettingsSearchQuery } = useSettingsSearch()
+
+const handleSettingsSearchInput = debounce((value) => {
+  setSettingsSearchQuery(value)
+}, 400)
 
 /**
  * @param {PointerEvent | KeyboardEvent} event

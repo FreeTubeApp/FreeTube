@@ -9,84 +9,129 @@
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Video Views')"
-          :compact="true"
-          :default-value="hideVideoViews"
-          @change="updateHideVideoViews"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
-          :compact="true"
-          :default-value="hideChannelSubscriptions"
-          @change="updateHideChannelSubscriptions"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Sharing Actions')"
-          :compact="true"
-          :default-value="hideSharingActions"
-          @change="updateHideSharingActions"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Videos on Watch')"
-          :default-value="hideWatchedSubs"
-          :compact="true"
-          :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos on Watch')"
-          @change="updateHideWatchedSubs"
-        />
+        <FtSetting
+          id="hide-video-views"
+          :keyword="t('Settings.Distraction Free Settings.Hide Video Views')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Video Views')"
+            :compact="true"
+            :default-value="hideVideoViews"
+            @change="updateHideVideoViews"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-subscribers"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Subscribers')"
+            :compact="true"
+            :default-value="hideChannelSubscriptions"
+            @change="updateHideChannelSubscriptions"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-sharing-actions"
+          :keyword="t('Settings.Distraction Free Settings.Hide Sharing Actions')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Sharing Actions')"
+            :compact="true"
+            :default-value="hideSharingActions"
+            @change="updateHideSharingActions"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-videos-on-watch"
+          :keyword="t('Settings.Distraction Free Settings.Hide Videos on Watch')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Videos on Watch')"
+            :default-value="hideWatchedSubs"
+            :compact="true"
+            :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos on Watch')"
+            @change="updateHideWatchedSubs"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Live Streams')"
-          :compact="true"
-          :default-value="hideLiveStreams"
-          @change="updateHideLiveStreams"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
-          :compact="true"
-          :default-value="hideUpcomingPremieres"
-          @change="updateHideUpcomingPremieres"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
-          :compact="true"
-          :default-value="showDistractionFreeTitles"
-          @change="updateShowDistractionFreeTitles"
-        />
+        <FtSetting
+          id="hide-live-streams"
+          :keyword="t('Settings.Distraction Free Settings.Hide Live Streams')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Live Streams')"
+            :compact="true"
+            :default-value="hideLiveStreams"
+            @change="updateHideLiveStreams"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-upcoming-premieres"
+          :keyword="t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Upcoming Premieres')"
+            :compact="true"
+            :default-value="hideUpcomingPremieres"
+            @change="updateHideUpcomingPremieres"
+          />
+        </FtSetting>
+        <FtSetting
+          id="display-titles-without-excessive-capitalisation"
+          :keyword="t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Display Titles Without Excessive Capitalisation')"
+            :compact="true"
+            :default-value="showDistractionFreeTitles"
+            @change="updateShowDistractionFreeTitles"
+          />
+        </FtSetting>
       </div>
     </div>
     <br class="hide-on-mobile">
     <FtFlexBox>
-      <FtInputTags
-        :disabled="channelHiderDisabled"
-        :disabled-msg="t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
-        :label="t('Settings.Distraction Free Settings.Hide Channels')"
-        :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
-        :tag-list="channelsHidden"
-        :tooltip="t('Tooltips.Distraction Free Settings.Hide Channels')"
-        :validate-tag-name="checkYoutubeChannelId"
-        :find-tag-info="findChannelTagInfoWrapper"
-        :are-channel-tags="true"
-        :show-tags="showAddedChannelsHidden"
-        @invalid-name="handleInvalidChannel"
-        @error-find-tag-info="handleChannelAPIError"
-        @change="handleChannelsHidden"
-        @already-exists="handleChannelsExists"
-        @toggle-show-tags="handleAddedChannelsHidden"
-      />
+      <FtSetting
+        id="hide-channels"
+        :keyword="t('Settings.Distraction Free Settings.Hide Channels')"
+      >
+        <FtInputTags
+          :disabled="channelHiderDisabled"
+          :disabled-msg="t('Settings.Distraction Free Settings.Hide Channels Disabled Message')"
+          :label="t('Settings.Distraction Free Settings.Hide Channels')"
+          :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+          :tag-list="channelsHidden"
+          :tooltip="t('Tooltips.Distraction Free Settings.Hide Channels')"
+          :validate-tag-name="checkYoutubeChannelId"
+          :find-tag-info="findChannelTagInfoWrapper"
+          :are-channel-tags="true"
+          :show-tags="showAddedChannelsHidden"
+          @invalid-name="handleInvalidChannel"
+          @error-find-tag-info="handleChannelAPIError"
+          @change="handleChannelsHidden"
+          @already-exists="handleChannelsExists"
+          @toggle-show-tags="handleAddedChannelsHidden"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox class="containingTextFlexBox">
-      <FtInputTags
-        :label="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
-        :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text Placeholder')"
-        :show-tags="showAddedForbiddenTitles"
-        :tag-list="forbiddenTitles"
-        :min-input-length="1"
-        :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
-        @change="handleForbiddenTitles"
-        @toggle-show-tags="handleAddedForbiddenTitles"
-      />
+      <FtSetting
+        id="hide-videos-playlists-and-channels-containing-text"
+        :keyword="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
+      >
+        <FtInputTags
+          :label="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
+          :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text Placeholder')"
+          :show-tags="showAddedForbiddenTitles"
+          :tag-list="forbiddenTitles"
+          :min-input-length="1"
+          :tooltip="t('Tooltips.Distraction Free Settings.Hide Videos, Playlists and Channels Containing Text')"
+          @change="handleForbiddenTitles"
+          @toggle-show-tags="handleAddedForbiddenTitles"
+        />
+      </FtSetting>
     </FtFlexBox>
     <h4
       class="groupTitle"
@@ -95,35 +140,55 @@
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
+        <FtSetting
           v-if="SUPPORTS_LOCAL_API"
-          :label="t('Settings.Distraction Free Settings.Hide Trending Videos')"
-          :compact="true"
-          :disabled="disableHideTrendingVideos"
-          :default-value="hideTrendingVideos"
-          @change="updateHideTrendingVideos"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Popular Videos')"
-          :compact="true"
-          :disabled="disableHidePopularVideos"
-          :default-value="disableHidePopularVideos || hidePopularVideos"
-          @change="updateHidePopularVideos"
-        />
+          id="hide-trending-videos"
+          :keyword="t('Settings.Distraction Free Settings.Hide Trending Videos')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Trending Videos')"
+            :compact="true"
+            :disabled="disableHideTrendingVideos"
+            :default-value="hideTrendingVideos"
+            @change="updateHideTrendingVideos"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-popular-videos"
+          :keyword="t('Settings.Distraction Free Settings.Hide Popular Videos')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Popular Videos')"
+            :compact="true"
+            :disabled="disableHidePopularVideos"
+            :default-value="disableHidePopularVideos || hidePopularVideos"
+            @change="updateHidePopularVideos"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Playlists')"
-          :compact="true"
-          :default-value="hidePlaylists"
-          @change="updateHidePlaylists"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
-          :compact="true"
-          :default-value="hideActiveSubscriptions"
-          @change="updateHideActiveSubscriptions"
-        />
+        <FtSetting
+          id="hide-playlists"
+          :keyword="t('Settings.Distraction Free Settings.Hide Playlists')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Playlists')"
+            :compact="true"
+            :default-value="hidePlaylists"
+            @change="updateHidePlaylists"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-active-subscriptions"
+          :keyword="t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Active Subscriptions')"
+            :compact="true"
+            :default-value="hideActiveSubscriptions"
+            @change="updateHideActiveSubscriptions"
+          />
+        </FtSetting>
       </div>
     </div>
     <h4
@@ -133,34 +198,54 @@
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
-          :compact="true"
-          :default-value="hideSubscriptionsVideos"
-          @change="updateHideSubscriptionsVideos"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
-          :compact="true"
-          :default-value="hideSubscriptionsShorts"
-          @change="updateHideSubscriptionsShorts"
-        />
+        <FtSetting
+          id="hide-subscriptions-videos"
+          :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Subscriptions Videos')"
+            :compact="true"
+            :default-value="hideSubscriptionsVideos"
+            @change="updateHideSubscriptionsVideos"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-subscriptions-shorts"
+          :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Subscriptions Shorts')"
+            :compact="true"
+            :default-value="hideSubscriptionsShorts"
+            @change="updateHideSubscriptionsShorts"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
-          :compact="true"
-          :disabled="hideLiveStreams"
-          :default-value="hideLiveStreams || hideSubscriptionsLive"
-          :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
-          v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
-          :compact="true"
-          :default-value="hideSubscriptionsCommunity"
-          @change="updateHideSubscriptionsCommunity"
-        />
+        <FtSetting
+          id="hide-subscriptions-live"
+          :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Subscriptions Live')"
+            :compact="true"
+            :disabled="hideLiveStreams"
+            :default-value="hideLiveStreams || hideSubscriptionsLive"
+            :tooltip="hideLiveStreams ? hideSubscriptionsLiveTooltip : ''"
+            v-on="!hideLiveStreams ? { change: updateHideSubscriptionsLive } : {}"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-subscriptions-posts"
+          :keyword="t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Subscriptions Posts')"
+            :compact="true"
+            :default-value="hideSubscriptionsCommunity"
+            @change="updateHideSubscriptionsCommunity"
+          />
+        </FtSetting>
       </div>
     </div>
     <h4
@@ -170,56 +255,96 @@
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Home')"
-          :compact="true"
-          :default-value="hideChannelHome"
-          @change="updateHideChannelHome"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Shorts')"
-          :compact="true"
-          :default-value="hideChannelShorts"
-          @change="updateHideChannelShorts"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Playlists')"
-          :compact="true"
-          :default-value="hideChannelPlaylists"
-          @change="updateHideChannelPlaylists"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
-          :compact="true"
-          :default-value="hideChannelPodcasts"
-          @change="updateHideChannelPodcasts"
-        />
+        <FtSetting
+          id="hide-channel-home"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Home')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Home')"
+            :compact="true"
+            :default-value="hideChannelHome"
+            @change="updateHideChannelHome"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-shorts"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Shorts')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Shorts')"
+            :compact="true"
+            :default-value="hideChannelShorts"
+            @change="updateHideChannelShorts"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-playlists"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Playlists')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Playlists')"
+            :compact="true"
+            :default-value="hideChannelPlaylists"
+            @change="updateHideChannelPlaylists"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-podcasts"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Podcasts')"
+            :compact="true"
+            :default-value="hideChannelPodcasts"
+            @change="updateHideChannelPodcasts"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Posts')"
-          :compact="true"
-          :default-value="hideChannelCommunity"
-          @change="updateHideChannelCommunity"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Featured Channels')"
-          :compact="true"
-          :default-value="hideFeaturedChannels"
-          @change="updateHideFeaturedChannels"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Releases')"
-          :compact="true"
-          :default-value="hideChannelReleases"
-          @change="updateHideChannelReleases"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Courses')"
-          :compact="true"
-          :default-value="hideChannelCourses"
-          @change="updateHideChannelCourses"
-        />
+        <FtSetting
+          id="hide-channel-posts"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Posts')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Posts')"
+            :compact="true"
+            :default-value="hideChannelCommunity"
+            @change="updateHideChannelCommunity"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-featured-channels"
+          :keyword="t('Settings.Distraction Free Settings.Hide Featured Channels')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Featured Channels')"
+            :compact="true"
+            :default-value="hideFeaturedChannels"
+            @change="updateHideFeaturedChannels"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-releases"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Releases')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Releases')"
+            :compact="true"
+            :default-value="hideChannelReleases"
+            @change="updateHideChannelReleases"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-channel-courses"
+          :keyword="t('Settings.Distraction Free Settings.Hide Channel Courses')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Channel Courses')"
+            :compact="true"
+            :default-value="hideChannelCourses"
+            @change="updateHideChannelCourses"
+          />
+        </FtSetting>
       </div>
     </div>
     <h4
@@ -229,56 +354,96 @@
     </h4>
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
-          :compact="true"
-          :default-value="hideVideoLikesAndDislikes"
-          @change="updateHideVideoLikesAndDislikes"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Chapters')"
-          :compact="true"
-          :default-value="hideChapters"
-          @change="updateHideChapters"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Video Description')"
-          :compact="true"
-          :default-value="hideVideoDescription"
-          @change="updateHideVideoDescription"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Comment Likes')"
-          :compact="true"
-          :default-value="hideCommentLikes"
-          @change="updateHideCommentLikes"
-        />
+        <FtSetting
+          id="hide-video-likes-and-dislikes"
+          :keyword="t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Video Likes And Dislikes')"
+            :compact="true"
+            :default-value="hideVideoLikesAndDislikes"
+            @change="updateHideVideoLikesAndDislikes"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-chapters"
+          :keyword="t('Settings.Distraction Free Settings.Hide Chapters')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Chapters')"
+            :compact="true"
+            :default-value="hideChapters"
+            @change="updateHideChapters"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-video-description"
+          :keyword="t('Settings.Distraction Free Settings.Hide Video Description')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Video Description')"
+            :compact="true"
+            :default-value="hideVideoDescription"
+            @change="updateHideVideoDescription"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-comment-likes"
+          :keyword="t('Settings.Distraction Free Settings.Hide Comment Likes')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Comment Likes')"
+            :compact="true"
+            :default-value="hideCommentLikes"
+            @change="updateHideCommentLikes"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Live Chat')"
-          :compact="true"
-          :default-value="hideLiveChat"
-          @change="updateHideLiveChat"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
-          :compact="true"
-          :default-value="hideRecommendedVideos"
-          @change="handleHideRecommendedVideos"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Comments')"
-          :compact="true"
-          :default-value="hideComments"
-          @change="updateHideComments"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
-          :compact="true"
-          :default-value="hideCommentPhotos"
-          @change="updateHideCommentPhotos"
-        />
+        <FtSetting
+          id="hide-live-chat"
+          :keyword="t('Settings.Distraction Free Settings.Hide Live Chat')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Live Chat')"
+            :compact="true"
+            :default-value="hideLiveChat"
+            @change="updateHideLiveChat"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-recommended-videos"
+          :keyword="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Recommended Videos')"
+            :compact="true"
+            :default-value="hideRecommendedVideos"
+            @change="handleHideRecommendedVideos"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-comments"
+          :keyword="t('Settings.Distraction Free Settings.Hide Comments')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Comments')"
+            :compact="true"
+            :default-value="hideComments"
+            @change="updateHideComments"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-profile-pictures-in-comments"
+          :keyword="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"
+            :compact="true"
+            :default-value="hideCommentPhotos"
+            @change="updateHideCommentPhotos"
+          />
+        </FtSetting>
       </div>
     </div>
   </FtSettingsSection>
@@ -292,6 +457,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtInputTags from '../FtInputTags/FtInputTags.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 

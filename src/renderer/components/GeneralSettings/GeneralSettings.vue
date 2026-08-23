@@ -4,165 +4,236 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.General Settings.Check for Updates')"
-          :default-value="checkForUpdates"
-          :compact="true"
-          @change="updateCheckForUpdates"
-        />
-        <FtToggleSwitch
+        <FtSetting
+          id="check-for-updates"
+          :keyword="t('Settings.General Settings.Check for Updates')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Check for Updates')"
+            :default-value="checkForUpdates"
+            :compact="true"
+            @change="updateCheckForUpdates"
+          />
+        </FtSetting>
+        <FtSetting
           v-if="SUPPORTS_LOCAL_API"
-          :label="t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
-          :default-value="backendFallback"
-          :compact="true"
-          :tooltip="t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
-          @change="updateBackendFallback"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.General Settings.Auto Load Next Page.Label')"
-          :default-value="generalAutoLoadMorePaginatedItemsEnabled"
-          :compact="true"
-          :tooltip="t('Settings.General Settings.Auto Load Next Page.Tooltip')"
-          @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
-        />
+          id="backend-fallback"
+          :keyword="t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Fallback to Non-Preferred Backend on Failure')"
+            :default-value="backendFallback"
+            :compact="true"
+            :tooltip="t('Tooltips.General Settings.Fallback to Non-Preferred Backend on Failure')"
+            @change="updateBackendFallback"
+          />
+        </FtSetting>
+        <FtSetting
+          id="auto-load-next-page"
+          :keyword="t('Settings.General Settings.Auto Load Next Page.Label')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Auto Load Next Page.Label')"
+            :default-value="generalAutoLoadMorePaginatedItemsEnabled"
+            :compact="true"
+            :tooltip="t('Settings.General Settings.Auto Load Next Page.Tooltip')"
+            @change="updateGeneralAutoLoadMorePaginatedItemsEnabled"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="t('Settings.General Settings.Enable Search Suggestions')"
-          :default-value="enableSearchSuggestions"
-          :compact="true"
-          @change="updateEnableSearchSuggestions"
-        />
-        <FtToggleSwitch
+        <FtSetting
+          id="enable-search-suggestions"
+          :keyword="t('Settings.General Settings.Enable Search Suggestions')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Enable Search Suggestions')"
+            :default-value="enableSearchSuggestions"
+            :compact="true"
+            @change="updateEnableSearchSuggestions"
+          />
+        </FtSetting>
+        <FtSetting
           v-if="USING_ELECTRON"
-          :label="t('Settings.General Settings.Open Deep Links In New Window')"
-          :default-value="openDeepLinksInNewWindow"
-          :compact="true"
-          :tooltip="t('Tooltips.General Settings.Open Deep Links In New Window')"
-          @change="updateOpenDeepLinksInNewWindow"
-        />
-        <FtToggleSwitch
+          id="open-deep-links-in-new-window"
+          :keyword="t('Settings.General Settings.Open Deep Links In New Window')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Open Deep Links In New Window')"
+            :default-value="openDeepLinksInNewWindow"
+            :compact="true"
+            :tooltip="t('Tooltips.General Settings.Open Deep Links In New Window')"
+            @change="updateOpenDeepLinksInNewWindow"
+          />
+        </FtSetting>
+        <FtSetting
           v-if="!IS_MAC && !isLinuxWayland && USING_ELECTRON"
-          :label="t('Settings.General Settings.Minimize to system tray')"
-          :default-value="hideToTrayOnMinimize"
-          :compact="true"
-          @change="updateHideToTrayOnMinimize"
-        />
+          id="minimize-to-system-tray"
+          :keyword="t('Settings.General Settings.Minimize to system tray')"
+        >
+          <FtToggleSwitch
+            :label="t('Settings.General Settings.Minimize to system tray')"
+            :default-value="hideToTrayOnMinimize"
+            :compact="true"
+            @change="updateHideToTrayOnMinimize"
+          />
+        </FtSetting>
       </div>
     </div>
     <div class="switchGrid">
-      <FtSelect
-        :placeholder="t('Settings.General Settings.Preferred API Backend.Preferred API Backend')"
-        :value="backendPreference"
-        :select-names="backendNames"
-        :select-values="BACKEND_VALUES"
-        :tooltip="t('Tooltips.General Settings.Preferred API Backend')"
-        :icon="['fas', 'server']"
-        @change="updateBackendPreference"
-      />
-      <FtSelect
-        :placeholder="t('Settings.General Settings.Default Landing Page')"
-        :value="landingPage"
-        :select-names="defaultPageNames"
-        :select-values="defaultPageValues"
-        :icon="['fas', 'location-dot']"
-        @change="updateLandingPage"
-      />
-      <FtSelect
-        :placeholder="t('Settings.General Settings.Video View Type.Video View Type')"
-        :value="listType"
-        :select-names="viewTypeNames"
-        :select-values="VIEW_TYPE_VALUES"
-        :icon="listType === 'grid' ? ['fas', 'grip'] : ['fas', 'list']"
-        @change="updateListType"
-      />
-      <FtSelect
-        :placeholder="t('Settings.General Settings.Thumbnail Preference.Thumbnail Preference')"
-        :value="thumbnailPreference"
-        :select-names="thumbnailTypeNames"
-        :select-values="THUMBNAIL_TYPE_VALUES"
-        :tooltip="t('Tooltips.General Settings.Thumbnail Preference')"
-        :icon="['fas', 'images']"
-        @change="handleThumbnailPreferenceChange"
-      />
-      <FtSelect
-        :placeholder="t('Settings.General Settings.Locale Preference')"
-        :value="currentLocale"
-        :select-names="localeNames"
-        :select-values="LOCALE_VALUES"
-        :icon="['fas', 'language']"
-        :is-locale-selector="true"
-        @change="updateCurrentLocale"
-      />
-      <FtSelect
-        v-if="regionDataLoaded"
-        :placeholder="t('Settings.General Settings.Region for Trending')"
-        :value="region"
-        :select-names="regionNames"
-        :select-values="regionValues"
-        :icon="['fas', 'globe']"
-        :tooltip="t('Tooltips.General Settings.Region for Trending')"
-        @change="updateRegion"
-      />
-      <FtSelect
-        :placeholder="t('Settings.General Settings.External Link Handling.External Link Handling')"
-        :value="externalLinkHandling"
-        :select-names="externalLinkHandlingNames"
-        :select-values="EXTERNAL_LINK_HANDLING_VALUES"
-        :icon="['fas', 'external-link-alt']"
-        :tooltip="t('Tooltips.General Settings.External Link Handling')"
-        @change="updateExternalLinkHandling"
-      />
-    </div>
-    <div
-      v-if="backendPreference === 'invidious' || backendFallback"
-    >
-      <FtFlexBox class="settingsFlexStart460px">
-        <FtInput
-          ref="currentInvidiousInstanceInput"
-          :placeholder="t('Settings.General Settings.Current Invidious Instance')"
-          :show-action-button="false"
-          :show-label="true"
-          :value="currentInvidiousInstance"
-          :data-list="invidiousInstancesList"
-          :tooltip="t('Tooltips.General Settings.Invidious Instance')"
-          @blur="handleInvidiousInstanceBlur"
-        />
-      </FtFlexBox>
-      <FtFlexBox>
-        <div>
-          <a
-            href="https://api.invidious.io"
-          >
-            {{ t('Settings.General Settings.View all Invidious instance information') }}
-          </a>
-        </div>
-      </FtFlexBox>
-      <p
-        v-if="defaultInvidiousInstance !== ''"
-        class="center"
+      <FtSetting
+        id="preferred-api-backend"
+        :keyword="t('Settings.General Settings.Preferred API Backend.Preferred API Backend')"
       >
-        {{ t('Settings.General Settings.The currently set default instance is {instance}', { instance: defaultInvidiousInstance }) }}
-      </p>
-      <template v-else>
-        <p class="center">
-          {{ t('Settings.General Settings.No default instance has been set') }}
-        </p>
-        <p class="center">
-          {{ t('Settings.General Settings.Current instance will be randomized on startup') }}
-        </p>
-      </template>
-      <FtFlexBox>
-        <FtButton
-          :label="t('Settings.General Settings.Set Current Instance as Default')"
-          @click="handleSetDefaultInstanceClick"
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Preferred API Backend.Preferred API Backend')"
+          :value="backendPreference"
+          :select-names="backendNames"
+          :select-values="BACKEND_VALUES"
+          :tooltip="t('Tooltips.General Settings.Preferred API Backend')"
+          :icon="['fas', 'server']"
+          @change="updateBackendPreference"
         />
-        <FtButton
-          :label="t('Settings.General Settings.Clear Default Instance')"
-          @click="handleClearDefaultInstanceClick"
+      </FtSetting>
+      <FtSetting
+        id="default-landing-page"
+        :keyword="t('Settings.General Settings.Default Landing Page')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Default Landing Page')"
+          :value="landingPage"
+          :select-names="defaultPageNames"
+          :select-values="defaultPageValues"
+          :icon="['fas', 'location-dot']"
+          @change="updateLandingPage"
         />
-      </FtFlexBox>
+      </FtSetting>
+      <FtSetting
+        id="video-view-type"
+        :keyword="t('Settings.General Settings.Video View Type.Video View Type')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Video View Type.Video View Type')"
+          :value="listType"
+          :select-names="viewTypeNames"
+          :select-values="VIEW_TYPE_VALUES"
+          :icon="listType === 'grid' ? ['fas', 'grip'] : ['fas', 'list']"
+          @change="updateListType"
+        />
+      </FtSetting>
+      <FtSetting
+        id="thumbnail-preference"
+        :keyword="t('Settings.General Settings.Thumbnail Preference.Thumbnail Preference')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Thumbnail Preference.Thumbnail Preference')"
+          :value="thumbnailPreference"
+          :select-names="thumbnailTypeNames"
+          :select-values="THUMBNAIL_TYPE_VALUES"
+          :tooltip="t('Tooltips.General Settings.Thumbnail Preference')"
+          :icon="['fas', 'images']"
+          @change="handleThumbnailPreferenceChange"
+        />
+      </FtSetting>
+      <FtSetting
+        id="locale-preference"
+        :keyword="t('Settings.General Settings.Locale Preference')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Locale Preference')"
+          :value="currentLocale"
+          :select-names="localeNames"
+          :select-values="LOCALE_VALUES"
+          :icon="['fas', 'language']"
+          :is-locale-selector="true"
+          @change="updateCurrentLocale"
+        />
+      </FtSetting>
+      <FtSetting
+        v-if="regionDataLoaded"
+        id="region-for-trending"
+        :keyword="t('Settings.General Settings.Region for Trending')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.Region for Trending')"
+          :value="region"
+          :select-names="regionNames"
+          :select-values="regionValues"
+          :icon="['fas', 'globe']"
+          :tooltip="t('Tooltips.General Settings.Region for Trending')"
+          @change="updateRegion"
+        />
+      </FtSetting>
+      <FtSetting
+        id="external-link-handling"
+        :keyword="t('Settings.General Settings.External Link Handling.External Link Handling')"
+      >
+        <FtSelect
+          :placeholder="t('Settings.General Settings.External Link Handling.External Link Handling')"
+          :value="externalLinkHandling"
+          :select-names="externalLinkHandlingNames"
+          :select-values="EXTERNAL_LINK_HANDLING_VALUES"
+          :icon="['fas', 'external-link-alt']"
+          :tooltip="t('Tooltips.General Settings.External Link Handling')"
+          @change="updateExternalLinkHandling"
+        />
+      </FtSetting>
     </div>
+    <FtSetting
+      v-if="backendPreference === 'invidious' || backendFallback"
+      id="invidious-instance"
+      :keyword="t('Settings.General Settings.Current Invidious Instance')"
+    >
+      <div
+        v-if="backendPreference === 'invidious' || backendFallback"
+      >
+        <FtFlexBox class="settingsFlexStart460px">
+          <FtInput
+            ref="currentInvidiousInstanceInput"
+            :placeholder="t('Settings.General Settings.Current Invidious Instance')"
+            :show-action-button="false"
+            :show-label="true"
+            :value="currentInvidiousInstance"
+            :data-list="invidiousInstancesList"
+            :tooltip="t('Tooltips.General Settings.Invidious Instance')"
+            @blur="handleInvidiousInstanceBlur"
+          />
+        </FtFlexBox>
+        <FtFlexBox>
+          <div>
+            <a
+              href="https://api.invidious.io"
+            >
+              {{ t('Settings.General Settings.View all Invidious instance information') }}
+            </a>
+          </div>
+        </FtFlexBox>
+        <p
+          v-if="defaultInvidiousInstance !== ''"
+          class="center"
+        >
+          {{ t('Settings.General Settings.The currently set default instance is {instance}', { instance: defaultInvidiousInstance }) }}
+        </p>
+        <template v-else>
+          <p class="center">
+            {{ t('Settings.General Settings.No default instance has been set') }}
+          </p>
+          <p class="center">
+            {{ t('Settings.General Settings.Current instance will be randomized on startup') }}
+          </p>
+        </template>
+        <FtFlexBox>
+          <FtButton
+            :label="t('Settings.General Settings.Set Current Instance as Default')"
+            @click="handleSetDefaultInstanceClick"
+          />
+          <FtButton
+            :label="t('Settings.General Settings.Clear Default Instance')"
+            @click="handleClearDefaultInstanceClick"
+          />
+        </FtFlexBox>
+      </div>
+    </FtSetting>
   </FtSettingsSection>
 </template>
 
@@ -177,6 +248,7 @@ import FtInput from '../FtInput/FtInput.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtButton from '../FtButton/FtButton.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 

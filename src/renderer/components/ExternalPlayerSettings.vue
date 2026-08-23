@@ -3,59 +3,84 @@
     :title="$t('Settings.External Player Settings.External Player Settings')"
   >
     <FtFlexBox>
-      <FtSelect
-        :placeholder="$t('Settings.External Player Settings.External Player')"
-        :value="externalPlayer"
-        :select-names="externalPlayerNames"
-        :select-values="externalPlayerValues"
-        :tooltip="$t('Tooltips.External Player Settings.External Player')"
-        :icon="['fas', 'external-link-alt']"
-        @change="updateExternalPlayer"
-      />
+      <FtSetting
+        id="external-player"
+        :keyword="$t('Settings.External Player Settings.External Player')"
+      >
+        <FtSelect
+          :placeholder="$t('Settings.External Player Settings.External Player')"
+          :value="externalPlayer"
+          :select-names="externalPlayerNames"
+          :select-values="externalPlayerValues"
+          :tooltip="$t('Tooltips.External Player Settings.External Player')"
+          :icon="['fas', 'external-link-alt']"
+          @change="updateExternalPlayer"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox>
-      <FtToggleSwitch
-        :label="$t('Settings.External Player Settings.Ignore Unsupported Action Warnings')"
-        :default-value="externalPlayerIgnoreWarnings"
-        :disabled="externalPlayer === ''"
-        :compact="true"
-        :tooltip="$t('Tooltips.External Player Settings.Ignore Warnings')"
-        @change="updateExternalPlayerIgnoreWarnings"
-      />
-      <FtToggleSwitch
-        :label="$t('Settings.External Player Settings.Ignore Default Arguments')"
-        :default-value="externalPlayerIgnoreDefaultArgs"
-        :disabled="externalPlayer === ''"
-        :compact="true"
-        :tooltip="$t('Tooltips.External Player Settings.Ignore Default Arguments')"
-        @change="updateExternalPlayerIgnoreDefaultArgs"
-      />
+      <FtSetting
+        id="ignore-unsupported-action-warnings"
+        :keyword="$t('Settings.External Player Settings.Ignore Unsupported Action Warnings')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.External Player Settings.Ignore Unsupported Action Warnings')"
+          :default-value="externalPlayerIgnoreWarnings"
+          :disabled="externalPlayer === ''"
+          :compact="true"
+          :tooltip="$t('Tooltips.External Player Settings.Ignore Warnings')"
+          @change="updateExternalPlayerIgnoreWarnings"
+        />
+      </FtSetting>
+      <FtSetting
+        id="ignore-default-arguments"
+        :keyword="$t('Settings.External Player Settings.Ignore Default Arguments')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.External Player Settings.Ignore Default Arguments')"
+          :default-value="externalPlayerIgnoreDefaultArgs"
+          :disabled="externalPlayer === ''"
+          :compact="true"
+          :tooltip="$t('Tooltips.External Player Settings.Ignore Default Arguments')"
+          @change="updateExternalPlayerIgnoreDefaultArgs"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox
       v-if="externalPlayer !== ''"
       class="settingsFlexStart460px"
     >
-      <FtInput
-        :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
-        :show-action-button="false"
-        :show-label="true"
-        :value="externalPlayerExecutable"
-        :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
-        @input="updateExternalPlayerExecutable"
-      />
+      <FtSetting
+        id="custom-external-player-executable"
+        :keyword="$t('Settings.External Player Settings.Custom External Player Executable')"
+      >
+        <FtInput
+          :placeholder="$t('Settings.External Player Settings.Custom External Player Executable')"
+          :show-action-button="false"
+          :show-label="true"
+          :value="externalPlayerExecutable"
+          :tooltip="$t('Tooltips.External Player Settings.Custom External Player Executable')"
+          @input="updateExternalPlayerExecutable"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox
       v-if="externalPlayer !== ''"
     >
-      <FtInputTags
-        :label="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :tag-name-placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
-        :tag-list="externalPlayerCustomArgs"
-        :tooltip="externalPlayerCustomArgsTooltip"
-        :show-tags="showAddedExternalPlayerCustomArgs"
-        @change="handleExternalPlayerCustomArgs"
-        @toggle-show-tags="handleAddedExternalPayerCustomArgs"
-      />
+      <FtSetting
+        id="custom-external-player-arguments"
+        :keyword="$t('Settings.External Player Settings.Custom External Player Arguments')"
+      >
+        <FtInputTags
+          :label="$t('Settings.External Player Settings.Custom External Player Arguments')"
+          :tag-name-placeholder="$t('Settings.External Player Settings.Custom External Player Arguments')"
+          :tag-list="externalPlayerCustomArgs"
+          :tooltip="externalPlayerCustomArgsTooltip"
+          :show-tags="showAddedExternalPlayerCustomArgs"
+          @change="handleExternalPlayerCustomArgs"
+          @toggle-show-tags="handleAddedExternalPayerCustomArgs"
+        />
+      </FtSetting>
     </FtFlexBox>
   </FtSettingsSection>
 </template>
@@ -70,6 +95,7 @@ import FtInput from './FtInput/FtInput.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtInputTags from './FtInputTags/FtInputTags.vue'
+import FtSetting from './FtSetting/FtSetting.vue'
 
 import store from '../store/index'
 

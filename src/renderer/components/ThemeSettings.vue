@@ -4,84 +4,129 @@
   >
     <div class="switchColumnGrid">
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
-          compact
-          :default-value="barColor"
-          @change="updateBarColor"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Theme Settings.Expand Side Bar by Default')"
-          compact
-          :default-value="expandSideBar"
-          @change="handleExpandSideBar"
-        />
-        <FtToggleSwitch
+        <FtSetting
+          id="match-top-bar-with-main-color"
+          :keyword="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Theme Settings.Match Top Bar with Main Color')"
+            compact
+            :default-value="barColor"
+            @change="updateBarColor"
+          />
+        </FtSetting>
+        <FtSetting
+          id="expand-side-bar-by-default"
+          :keyword="$t('Settings.Theme Settings.Expand Side Bar by Default')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Theme Settings.Expand Side Bar by Default')"
+            compact
+            :default-value="expandSideBar"
+            @change="handleExpandSideBar"
+          />
+        </FtSetting>
+        <FtSetting
           v-if="usingElectron"
-          :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
-          compact
-          :default-value="disableSmoothScrollingToggleValue"
-          @change="handleRestartPrompt"
-        />
+          id="disable-smooth-scrolling"
+          :keyword="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Theme Settings.Disable Smooth Scrolling')"
+            compact
+            :default-value="disableSmoothScrollingToggleValue"
+            @change="handleRestartPrompt"
+          />
+        </FtSetting>
       </div>
       <div class="switchColumn">
-        <FtToggleSwitch
-          :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
-          compact
-          :default-value="hideLabelsSideBar"
-          @change="updateHideLabelsSideBar"
-        />
-        <FtToggleSwitch
-          :label="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
-          compact
-          :default-value="hideHeaderLogo"
-          @change="updateHideHeaderLogo"
-        />
+        <FtSetting
+          id="hide-side-bar-labels"
+          :keyword="$t('Settings.Theme Settings.Hide Side Bar Labels')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Theme Settings.Hide Side Bar Labels')"
+            compact
+            :default-value="hideLabelsSideBar"
+            @change="updateHideLabelsSideBar"
+          />
+        </FtSetting>
+        <FtSetting
+          id="hide-freetube-header-logo"
+          :keyword="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.Theme Settings.Hide FreeTube Header Logo')"
+            compact
+            :default-value="hideHeaderLogo"
+            @change="updateHideHeaderLogo"
+          />
+        </FtSetting>
       </div>
     </div>
     <template v-if="usingElectron">
-      <FtFlexBox>
-        <FtSlider
-          :label="$t('Settings.Theme Settings.UI Scale')"
-          :default-value="uiScale"
-          :min-value="50"
-          :max-value="300"
-          :step="5"
-          value-extension="%"
-          @change="updateUiScale"
-        />
-      </FtFlexBox>
+      <FtSetting
+        id="ui-scale"
+        :keyword="$t('Settings.Theme Settings.UI Scale')"
+      >
+        <FtFlexBox>
+          <FtSlider
+            :label="$t('Settings.Theme Settings.UI Scale')"
+            :default-value="uiScale"
+            :min-value="50"
+            :max-value="300"
+            :step="5"
+            value-extension="%"
+            @change="updateUiScale"
+          />
+        </FtFlexBox>
+      </FtSetting>
       <br>
     </template>
     <FtFlexBox>
-      <FtSelect
-        :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
-        :value="baseTheme"
-        :select-names="baseThemeNames"
-        :select-values="BASE_THEME_VALUES"
-        :icon="['fas', 'palette']"
-        @change="updateBaseTheme"
-      />
-      <FtSelect
-        :placeholder="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
-        :value="mainColor"
-        :select-names="colorNames"
-        :select-values="COLOR_VALUES"
-        :disabled="!areColorThemesEnabled"
-        :icon="['fas', 'palette']"
-        icon-color="var(--primary-color)"
-        @change="updateMainColor"
-      />
-      <FtSelect
-        :placeholder="$t('Settings.Theme Settings.Secondary Color Theme')"
-        :value="secColor"
-        :select-names="colorNames"
-        :select-values="COLOR_VALUES"
-        :disabled="!areColorThemesEnabled"
-        :icon="['fas', 'palette']"
-        icon-color="var(--accent-color)"
-        @change="updateSecColor"
-      />
+      <FtSetting
+        id="base-theme"
+        :keyword="$t('Settings.Theme Settings.Base Theme.Base Theme')"
+      >
+        <FtSelect
+          :placeholder="$t('Settings.Theme Settings.Base Theme.Base Theme')"
+          :value="baseTheme"
+          :select-names="baseThemeNames"
+          :select-values="BASE_THEME_VALUES"
+          :icon="['fas', 'palette']"
+          @change="updateBaseTheme"
+        />
+      </FtSetting>
+      <FtSetting
+        id="main-color-theme"
+        :keyword="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
+      >
+        <FtSelect
+          :placeholder="$t('Settings.Theme Settings.Main Color Theme.Main Color Theme')"
+          :value="mainColor"
+          :select-names="colorNames"
+          :select-values="COLOR_VALUES"
+          :disabled="!areColorThemesEnabled"
+          :icon="['fas', 'palette']"
+          icon-color="var(--primary-color)"
+          @change="updateMainColor"
+        />
+      </FtSetting>
+      <FtSetting
+        id="secondary-color-theme"
+        :keyword="$t('Settings.Theme Settings.Secondary Color Theme')"
+      >
+        <FtSelect
+          :placeholder="$t('Settings.Theme Settings.Secondary Color Theme')"
+          :value="secColor"
+          :select-names="colorNames"
+          :select-values="COLOR_VALUES"
+          :disabled="!areColorThemesEnabled"
+          :icon="['fas', 'palette']"
+          icon-color="var(--accent-color)"
+          @change="updateSecColor"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtPrompt
       v-if="showRestartPrompt"
@@ -103,6 +148,7 @@ import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtSlider from './FtSlider/FtSlider.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtPrompt from './FtPrompt/FtPrompt.vue'
+import FtSetting from './FtSetting/FtSetting.vue'
 
 import store from '../store/index'
 

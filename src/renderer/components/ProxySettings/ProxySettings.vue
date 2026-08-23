@@ -13,65 +13,95 @@
         />
         {{ $t('Settings.Proxy Settings.Proxy Warning') }}
       </p>
-      <FtToggleSwitch
-        :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
-        :default-value="useProxy"
-        @change="handleUpdateProxy"
-      />
+      <FtSetting
+        id="enable-tor-proxy"
+        :keyword="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.Proxy Settings.Enable Tor / Proxy')"
+          :default-value="useProxy"
+          @change="handleUpdateProxy"
+        />
+      </FtSetting>
     </FtFlexBox>
     <template
       v-if="useProxy"
     >
       <FtFlexBox>
-        <FtSelect
-          :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
-          :value="proxyProtocol"
-          :select-names="PROTOCOL_NAMES"
-          :select-values="PROTOCOL_VALUES"
-          class="protocol-dropdown"
-          :icon="['fas', 'network-wired']"
-          @change="handleUpdateProxyProtocol"
-        />
+        <FtSetting
+          id="proxy-protocol"
+          :keyword="$t('Settings.Proxy Settings.Proxy Protocol')"
+        >
+          <FtSelect
+            :placeholder="$t('Settings.Proxy Settings.Proxy Protocol')"
+            :value="proxyProtocol"
+            :select-names="PROTOCOL_NAMES"
+            :select-values="PROTOCOL_VALUES"
+            class="protocol-dropdown"
+            :icon="['fas', 'network-wired']"
+            @change="handleUpdateProxyProtocol"
+          />
+        </FtSetting>
       </FtFlexBox>
       <FtFlexBox>
-        <FtInput
-          :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
-          :show-action-button="false"
-          show-label
-          :value="proxyHostname"
-          @input="handleUpdateProxyHostname"
-          @keydown.enter="testProxy"
-        />
-        <FtInput
-          :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
-          :show-action-button="false"
-          show-label
-          :value="proxyPort"
-          :maxlength="5"
-          @input="handleUpdateProxyPort"
-          @keydown.enter="testProxy"
-        />
+        <FtSetting
+          id="proxy-host"
+          :keyword="$t('Settings.Proxy Settings.Proxy Host')"
+        >
+          <FtInput
+            :placeholder="$t('Settings.Proxy Settings.Proxy Host')"
+            :show-action-button="false"
+            show-label
+            :value="proxyHostname"
+            @input="handleUpdateProxyHostname"
+            @keydown.enter="testProxy"
+          />
+        </FtSetting>
+        <FtSetting
+          id="proxy-port-number"
+          :keyword="$t('Settings.Proxy Settings.Proxy Port Number')"
+        >
+          <FtInput
+            :placeholder="$t('Settings.Proxy Settings.Proxy Port Number')"
+            :show-action-button="false"
+            show-label
+            :value="proxyPort"
+            :maxlength="5"
+            @input="handleUpdateProxyPort"
+            @keydown.enter="testProxy"
+          />
+        </FtSetting>
       </FtFlexBox>
       <FtFlexBox
         v-if="areCredentialsSupported"
       >
-        <FtInput
-          :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
-          :show-action-button="false"
-          show-label
-          :value="proxyUsername"
-          @input="handleUpdateProxyUsername"
-          @keydown.enter="testProxy"
-        />
-        <FtInput
-          :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
-          :show-action-button="false"
-          show-label
-          :value="proxyPassword"
-          input-type="password"
-          @input="handleUpdateProxyPassword"
-          @keydown.enter="testProxy"
-        />
+        <FtSetting
+          id="proxy-username"
+          :keyword="$t('Settings.Proxy Settings.Proxy Username')"
+        >
+          <FtInput
+            :placeholder="$t('Settings.Proxy Settings.Proxy Username')"
+            :show-action-button="false"
+            show-label
+            :value="proxyUsername"
+            @input="handleUpdateProxyUsername"
+            @keydown.enter="testProxy"
+          />
+        </FtSetting>
+        <FtSetting
+          id="proxy-password"
+          :keyword="$t('Settings.Proxy Settings.Proxy Password')"
+        >
+          <FtInput
+            :placeholder="$t('Settings.Proxy Settings.Proxy Password')"
+            :show-action-button="false"
+            show-label
+            :value="proxyPassword"
+            input-type="password"
+            @input="handleUpdateProxyPassword"
+            @keydown.enter="testProxy"
+          />
+        </FtSetting>
       </FtFlexBox>
       <p
         class="center"
@@ -79,10 +109,15 @@
         {{ $t('Settings.Proxy Settings.Clicking on Test Proxy will send a request to') }} {{ proxyTestUrl }}
       </p>
       <FtFlexBox>
-        <FtButton
-          :label="$t('Settings.Proxy Settings.Test Proxy')"
-          @click="testProxy"
-        />
+        <FtSetting
+          id="test-proxy"
+          :keyword="$t('Settings.Proxy Settings.Test Proxy')"
+        >
+          <FtButton
+            :label="$t('Settings.Proxy Settings.Test Proxy')"
+            @click="testProxy"
+          />
+        </FtSetting>
       </FtFlexBox>
       <FtLoader
         v-if="isLoading"
@@ -123,6 +158,7 @@ import FtSelect from '../FtSelect/FtSelect.vue'
 import FtInput from '../FtInput/FtInput.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 

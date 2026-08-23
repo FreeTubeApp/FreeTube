@@ -6,15 +6,20 @@
       {{ $t('Settings.Experimental Settings.Warning') }}
     </p>
     <FtFlexBox>
-      <FtToggleSwitch
-        tooltip-position="top"
-        :label="$t('Settings.Experimental Settings.Replace HTTP Cache')"
-        compact
-        :default-value="replaceHttpCache"
-        :disabled="replaceHttpCacheLoading"
-        :tooltip="$t('Tooltips.Experimental Settings.Replace HTTP Cache')"
-        @change="handleRestartPrompt"
-      />
+      <FtSetting
+        id="replace-http-cache"
+        :keyword="$t('Settings.Experimental Settings.Replace HTTP Cache')"
+      >
+        <FtToggleSwitch
+          tooltip-position="top"
+          :label="$t('Settings.Experimental Settings.Replace HTTP Cache')"
+          compact
+          :default-value="replaceHttpCache"
+          :disabled="replaceHttpCacheLoading"
+          :tooltip="$t('Tooltips.Experimental Settings.Replace HTTP Cache')"
+          @change="handleRestartPrompt"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtPrompt
       v-if="showRestartPrompt"
@@ -33,6 +38,7 @@ import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 const replaceHttpCacheLoading = ref(true)
 const replaceHttpCache = ref(false)

@@ -1,0 +1,4 @@
+.ftSetting {
+  /* enables anchor link clicks to land with the setting in the top quarter of the page */
+  scroll-margin-top: 24vh;
+}

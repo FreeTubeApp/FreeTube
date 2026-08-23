@@ -6,18 +6,33 @@
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
     <FtFlexBox class="box">
-      <FtButton
-        :label="$t('Settings.Data Settings.Import Subscriptions')"
-        @click="importSubscriptions"
-      />
-      <FtButton
-        :label="$t('Settings.Data Settings.Manage Subscriptions')"
-        @click="openProfileSettings"
-      />
-      <FtButton
-        :label="$t('Settings.Data Settings.Export Subscriptions')"
-        @click="showExportSubscriptionsPrompt = true"
-      />
+      <FtSetting
+        id="import-subscriptions"
+        :keyword="$t('Settings.Data Settings.Import Subscriptions')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Import Subscriptions')"
+          @click="importSubscriptions"
+        />
+      </FtSetting>
+      <FtSetting
+        id="manage-subscriptions"
+        :keyword="$t('Settings.Data Settings.Manage Subscriptions')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Manage Subscriptions')"
+          @click="openProfileSettings"
+        />
+      </FtSetting>
+      <FtSetting
+        id="export-subscriptions"
+        :keyword="$t('Settings.Data Settings.Export Subscriptions')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Export Subscriptions')"
+          @click="showExportSubscriptionsPrompt = true"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtFlexBox>
       <p>
@@ -30,40 +45,70 @@
       {{ $t('History.History') }}
     </h4>
     <FtFlexBox class="box">
-      <FtButton
-        :label="$t('Settings.Data Settings.Import History')"
-        @click="importWatchHistory"
-      />
-      <FtButton
-        :label="$t('Settings.Data Settings.Export History')"
-        @click="showExportWatchHistoryPrompt = true"
-      />
+      <FtSetting
+        id="import-history"
+        :keyword="$t('Settings.Data Settings.Import History')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Import History')"
+          @click="importWatchHistory"
+        />
+      </FtSetting>
+      <FtSetting
+        id="export-history"
+        :keyword="$t('Settings.Data Settings.Export History')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Export History')"
+          @click="showExportWatchHistoryPrompt = true"
+        />
+      </FtSetting>
     </FtFlexBox>
     <h4 class="groupTitle">
       {{ $t('Playlists') }}
     </h4>
     <FtFlexBox class="box">
-      <FtButton
-        :label="$t('Settings.Data Settings.Import Playlists')"
-        @click="importPlaylists"
-      />
-      <FtButton
-        :label="$t('Settings.Data Settings.Export Playlists')"
-        @click="exportPlaylists"
-      />
+      <FtSetting
+        id="import-playlists"
+        :keyword="$t('Settings.Data Settings.Import Playlists')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Import Playlists')"
+          @click="importPlaylists"
+        />
+      </FtSetting>
+      <FtSetting
+        id="export-playlists"
+        :keyword="$t('Settings.Data Settings.Export Playlists')"
+      >
+        <FtButton
+          :label="$t('Settings.Data Settings.Export Playlists')"
+          @click="exportPlaylists"
+        />
+      </FtSetting>
     </FtFlexBox>
     <h4 class="groupTitle">
       {{ t('Settings.Data Settings.Search history') }}
     </h4>
     <FtFlexBox class="box">
-      <FtButton
-        :label="t('Settings.Data Settings.Import search history')"
-        @click="importSearchHistory"
-      />
-      <FtButton
-        :label="t('Settings.Data Settings.Export search history')"
-        @click="showExportSearchHistoryPrompt = true"
-      />
+      <FtSetting
+        id="import-search-history"
+        :keyword="t('Settings.Data Settings.Import search history')"
+      >
+        <FtButton
+          :label="t('Settings.Data Settings.Import search history')"
+          @click="importSearchHistory"
+        />
+      </FtSetting>
+      <FtSetting
+        id="export-search-history"
+        :keyword="t('Settings.Data Settings.Export search history')"
+      >
+        <FtButton
+          :label="t('Settings.Data Settings.Export search history')"
+          @click="showExportSearchHistoryPrompt = true"
+        />
+      </FtSetting>
     </FtFlexBox>
     <h4 class="groupTitle">
       {{ t('Settings.Settings') }}
@@ -74,14 +119,24 @@
       />
     </h4>
     <FtFlexBox class="box">
-      <FtButton
-        :label="t('Settings.Data Settings.Import Settings')"
-        @click="importSettings"
-      />
-      <FtButton
-        :label="t('Settings.Data Settings.Export Settings')"
-        @click="exportSettings"
-      />
+      <FtSetting
+        id="import-settings"
+        :keyword="t('Settings.Data Settings.Import Settings')"
+      >
+        <FtButton
+          :label="t('Settings.Data Settings.Import Settings')"
+          @click="importSettings"
+        />
+      </FtSetting>
+      <FtSetting
+        id="export-settings"
+        :keyword="t('Settings.Data Settings.Export Settings')"
+      >
+        <FtButton
+          :label="t('Settings.Data Settings.Export Settings')"
+          @click="exportSettings"
+        />
+      </FtSetting>
     </FtFlexBox>
     <FtPrompt
       v-if="showExportSubscriptionsPrompt"
@@ -117,6 +172,7 @@ import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
+import FtSetting from '../FtSetting/FtSetting.vue'
 
 import store from '../../store/index'
 import { defaultUpdaterId, NON_TRANSFERABLE_SETTINGS } from '../../store/modules/settings'

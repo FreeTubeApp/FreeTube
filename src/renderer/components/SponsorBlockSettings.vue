@@ -3,23 +3,38 @@
     :title="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
   >
     <FtFlexBox class="settingsFlexStart500px">
-      <FtToggleSwitch
-        :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
-        :default-value="useSponsorBlock"
-        @change="handleUpdateSponsorBlock"
-      />
-      <FtToggleSwitch
-        :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
-        :default-value="useDeArrowTitles"
-        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
-        @change="handleUpdateUseDeArrowTitles"
-      />
-      <FtToggleSwitch
-        :label="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
-        :default-value="useDeArrowThumbnails"
-        :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
-        @change="handleUpdateUseDeArrowThumbnails"
-      />
+      <FtSetting
+        id="enable-sponsorblock"
+        :keyword="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.SponsorBlock Settings.Enable SponsorBlock')"
+          :default-value="useSponsorBlock"
+          @change="handleUpdateSponsorBlock"
+        />
+      </FtSetting>
+      <FtSetting
+        id="use-dearrow-titles"
+        :keyword="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.SponsorBlock Settings.UseDeArrowTitles')"
+          :default-value="useDeArrowTitles"
+          :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowTitles')"
+          @change="handleUpdateUseDeArrowTitles"
+        />
+      </FtSetting>
+      <FtSetting
+        id="use-dearrow-thumbnails"
+        :keyword="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
+      >
+        <FtToggleSwitch
+          :label="$t('Settings.SponsorBlock Settings.UseDeArrowThumbnails')"
+          :default-value="useDeArrowThumbnails"
+          :tooltip="$t('Tooltips.SponsorBlock Settings.UseDeArrowThumbnails')"
+          @change="handleUpdateUseDeArrowThumbnails"
+        />
+      </FtSetting>
     </FtFlexBox>
     <template
       v-if="useSponsorBlock || useDeArrowTitles || useDeArrowThumbnails"
@@ -28,44 +43,64 @@
         v-if="useSponsorBlock"
         class="settingsFlexStart500px"
       >
-        <FtToggleSwitch
-          :label="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
-          :default-value="sponsorBlockShowSkippedToast"
-          @change="handleUpdateSponsorBlockShowSkippedToast"
-        />
+        <FtSetting
+          id="notify-when-sponsor-segment-is-skipped"
+          :keyword="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
+        >
+          <FtToggleSwitch
+            :label="$t('Settings.SponsorBlock Settings.Notify when sponsor segment is skipped')"
+            :default-value="sponsorBlockShowSkippedToast"
+            @change="handleUpdateSponsorBlockShowSkippedToast"
+          />
+        </FtSetting>
       </FtFlexBox>
       <FtFlexBox>
-        <FtInput
-          ref="sponsorBlockUrlInput"
-          :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
-          :show-action-button="false"
-          :show-label="true"
-          :value="sponsorBlockUrl"
-          @blur="handleUpdateSponsorBlockUrl"
-        />
+        <FtSetting
+          id="sponsorblock-api-url"
+          :keyword="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
+        >
+          <FtInput
+            ref="sponsorBlockUrlInput"
+            :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
+            :show-action-button="false"
+            :show-label="true"
+            :value="sponsorBlockUrl"
+            @blur="handleUpdateSponsorBlockUrl"
+          />
+        </FtSetting>
       </FtFlexBox>
       <FtFlexBox
         v-if="useDeArrowThumbnails"
       >
-        <FtInput
-          v-if="useDeArrowThumbnails"
-          ref="deArrowThumbnailGeneratorUrl"
-          :placeholder="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
-          :show-action-button="false"
-          :show-label="true"
-          :value="deArrowThumbnailGeneratorUrl"
-          @blur="handleUpdateDeArrowThumbnailGeneratorUrl"
-        />
+        <FtSetting
+          id="dearrow-thumbnail-generator-api-url"
+          :keyword="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
+        >
+          <FtInput
+            v-if="useDeArrowThumbnails"
+            ref="deArrowThumbnailGeneratorUrl"
+            :placeholder="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
+            :show-action-button="false"
+            :show-label="true"
+            :value="deArrowThumbnailGeneratorUrl"
+            @blur="handleUpdateDeArrowThumbnailGeneratorUrl"
+          />
+        </FtSetting>
       </FtFlexBox>
 
       <FtFlexBox
         v-if="useSponsorBlock"
       >
-        <FtSponsorBlockCategory
-          v-for="category in CATEGORIES"
-          :key="category"
-          :category-name="category"
-        />
+        <FtSetting
+          id="sponsorblock-categories"
+          :keyword="$t('Settings.SponsorBlock Settings.SponsorBlock Settings')"
+        >
+          <FtSponsorBlockCategory
+            v-for="category in CATEGORIES"
+            :key="category"
+            :category-name="category"
+          />
+        </FtSetting>
       </FtFlexBox>
     </template>
   </FtSettingsSection>
@@ -79,6 +114,7 @@ import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtInput from './FtInput/FtInput.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from './FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
+import FtSetting from './FtSetting/FtSetting.vue'
 
 import store from '../store/index'
 
