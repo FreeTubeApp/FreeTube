@@ -77,13 +77,25 @@
   }
 
   .returnToMenuMobileButton {
-    margin-block-start: 20px;
+    margin-block-start: 0;
     background-color: transparent;
     color: inherit;
     cursor: pointer;
     border-style: none;
     font-size: 30px;
     line-height: 1em;
+  }
+
+  .mobileSearchRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-block-start: 20px;
+  }
+
+  .mobileSearchBar {
+    flex: 1 1 auto;
+    min-inline-size: 0;
   }
 
   .returnToMenuMobileIcon {

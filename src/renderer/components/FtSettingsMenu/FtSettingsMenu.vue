@@ -10,14 +10,7 @@
       />
       {{ $t('Settings.Settings') }}
     </h2>
-    <FtInput
-      class="settingsSearchBar"
-      :placeholder="$t('Settings.Search Settings')"
-      :show-action-button="false"
-      show-clear-text-button
-      @input="handleSettingsSearchInput"
-      @clear="handleSettingsSearchClear"
-    />
+    <FtSettingsSearchBar class="settingsSearchBar" />
     <a
       v-for="settingsSection in settingsSections"
       v-show="isSectionVisible(settingsSection.type)"
@@ -48,10 +41,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { useTemplateRef } from 'vue'
 
-import FtInput from '../FtInput/FtInput.vue'
+import FtSettingsSearchBar from '../FtSettingsSearchBar/FtSettingsSearchBar.vue'
 
 import { useSettingsSearch } from '../../composables/settings-search'
-import { debounce } from '../../helpers/utils'
 
 defineProps({
   settingsSections: {
@@ -66,16 +58,7 @@ defineProps({
 
 const emit = defineEmits(['navigate-to-section'])
 
-const { setSettingsSearchQuery, isSectionVisible, isSearching } = useSettingsSearch()
-
-const handleSettingsSearchInput = debounce((value) => {
-  setSettingsSearchQuery(value)
-}, 200)
-
-// Goes through the debounced function so a pending keystroke can't re-apply a stale query afterwards.
-function handleSettingsSearchClear() {
-  handleSettingsSearchInput('')
-}
+const { isSectionVisible, isSearching } = useSettingsSearch()
 
 /**
  * @param {PointerEvent | KeyboardEvent} event

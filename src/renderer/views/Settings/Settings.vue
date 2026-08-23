@@ -1,7 +1,10 @@
 <template>
   <div class="settingsPage">
     <template v-if="unlocked">
-      <div v-show="settingsSectionTypeOpenInMobile != null">
+      <div
+        v-show="settingsSectionTypeOpenInMobile != null"
+        class="mobileSearchRow"
+      >
         <button
           class="returnToMenuMobileButton"
           :aria-label="t('Settings.Return to Settings Menu')"
@@ -13,6 +16,7 @@
             :icon="['fas', 'angle-left']"
           />
         </button>
+        <FtSettingsSearchBar class="mobileSearchBar" />
       </div>
       <FtSettingsMenu
         v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
@@ -81,6 +85,7 @@ import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
+import FtSettingsSearchBar from '../../components/FtSettingsSearchBar/FtSettingsSearchBar.vue'
 
 import store from '../../store/index'
 
