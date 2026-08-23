@@ -24,7 +24,7 @@ const props = defineProps({
   }
 })
 
-const { searchQuery } = useSettingsSearch()
+const { searchQuery, registerSection, unregisterSection } = useSettingsSearch()
 
 const query = computed(() => searchQuery.value.trim().toLowerCase())
 
@@ -63,6 +63,10 @@ if (parentGroup != null) {
 
   parentGroup.register(instanceId, matches)
   onUnmounted(() => parentGroup.unregister(instanceId))
+} else {
+  // Top-level FtSettings are the settings sections; expose their visibility to the menu.
+  registerSection(props.id, isVisible)
+  onUnmounted(() => unregisterSection(props.id))
 }
 
 provide(SETTINGS_GROUP_KEY, {

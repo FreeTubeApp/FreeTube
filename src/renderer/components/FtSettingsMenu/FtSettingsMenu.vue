@@ -19,6 +19,7 @@
     />
     <a
       v-for="settingsSection in settingsSections"
+      v-show="isSectionVisible(settingsSection.type)"
       ref="linkRefs"
       :key="settingsSection.type"
       class="title"
@@ -64,7 +65,7 @@ defineProps({
 
 const emit = defineEmits(['navigate-to-section'])
 
-const { setSettingsSearchQuery } = useSettingsSearch()
+const { setSettingsSearchQuery, isSectionVisible } = useSettingsSearch()
 
 const handleSettingsSearchInput = debounce((value) => {
   setSettingsSearchQuery(value)
