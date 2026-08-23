@@ -87,12 +87,15 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
 import FtSettingsSearchBar from '../../components/FtSettingsSearchBar/FtSettingsSearchBar.vue'
 
+import { provideSettingsSearch } from '../../composables/settings-search'
 import store from '../../store/index'
 
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
 
 const { locale, t } = useI18n()
+
+provideSettingsSearch()
 
 const isInDesktopView = ref(true)
 const settingsSectionTypeOpenInMobile = ref(null)

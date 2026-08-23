@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+import { onUnmounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtInput from '../FtInput/FtInput.vue'
@@ -26,7 +27,9 @@ const handleInput = debounce((value) => {
 }, 200)
 
 function handleClear() {
-  setSettingsSearchQuery('') // Clear immediately for responsiveness
-  handleInput('') // Also run the debounced function so a pending keystroke can't re-apply a stale query afterwards.
+  handleInput.cancel()
+  setSettingsSearchQuery('')
 }
+
+onUnmounted(handleInput.cancel)
 </script>

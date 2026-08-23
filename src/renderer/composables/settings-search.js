@@ -1,17 +1,16 @@
-import { computed, ref, shallowReactive } from 'vue'
+import { computed, inject, provide, ref, shallowReactive } from 'vue'
 
-// Module-level shared state so that the search query entered in the
-// Settings view is shared across every settings section component.
-const searchQuery = ref('')
-
-/** Visibility of every top-level FtSetting (settings section), keyed by section id. */
-const sectionVisibility = shallowReactive(new Map())
+const SETTINGS_SEARCH_KEY = Symbol('settingsSearch')
 
 /** Lets a nested FtSetting communicate its match state to the FtSetting that wraps it. */
 export const SETTINGS_GROUP_KEY = Symbol('settingsGroup')
 
-export function useSettingsSearch() {
+export function provideSettingsSearch() {
+  const searchQuery = ref('')
   const isSearching = computed(() => searchQuery.value.trim() !== '')
+
+  /** Visibility of every top-level FtSetting (settings section), keyed by section id. */
+  const sectionVisibility = shallowReactive(new Map())
 
   /**
    * @param {string} query
@@ -43,7 +42,7 @@ export function useSettingsSearch() {
     return sectionVisibility.get(sectionId)?.value ?? true
   }
 
-  return {
+  const settingsSearch = {
     searchQuery,
     isSearching,
     setSettingsSearchQuery,
@@ -51,4 +50,18 @@ export function useSettingsSearch() {
     unregisterSection,
     isSectionVisible
   }
+
+  provide(SETTINGS_SEARCH_KEY, settingsSearch)
+
+  return settingsSearch
+}
+
+export function useSettingsSearch() {
+  const settingsSearch = inject(SETTINGS_SEARCH_KEY)
+
+  if (settingsSearch == null) {
+    throw new Error('Settings search has not been provided')
+  }
+
+  return settingsSearch
 }

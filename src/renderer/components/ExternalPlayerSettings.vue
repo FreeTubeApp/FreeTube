@@ -5,7 +5,7 @@
   >
     <FtFlexBox>
       <FtSetting
-        id="external-player"
+        id="external-player-selection"
         :keyword="$t('Settings.External Player Settings.External Player')"
       >
         <FtSelect
