@@ -1,0 +1,53 @@
+name: Sync Upstream Master
+
+on:
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: sync-upstream-master
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.repository == 'b263/FreeTube'
+    name: Merge FreeTubeApp/FreeTube master
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: master
+          fetch-depth: 0
+          persist-credentials: true
+
+      - name: Fetch upstream master
+        shell: bash
+        run: git fetch https://github.com/FreeTubeApp/FreeTube.git master:upstream-master
+
+      - name: Merge if there are no conflicts
+        id: merge
+        shell: bash
+        run: |
+          git -c user.name='github-actions[bot]' \
+              -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
+              merge --no-edit upstream-master
+
+      - name: Abort on conflicts
+        if: failure() && steps.merge.outcome == 'failure'
+        shell: bash
+        run: |
+          git merge --abort
+          echo "Error: Merging FreeTubeApp/FreeTube master produced conflicts. Merge manually and resolve them."
+          exit 1
+
+      - name: Push
+        shell: bash
+        run: git push origin master
