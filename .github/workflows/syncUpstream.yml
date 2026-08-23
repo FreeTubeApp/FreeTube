@@ -19,6 +19,11 @@ jobs:
 
     permissions:
       contents: write
+      issues: write
+
+    env:
+      GH_TOKEN: ${{ github.token }}
+      CONFLICT_ISSUE_TITLE: "Upstream sync: merge conflicts"
 
     steps:
       - name: Checkout master
@@ -40,14 +45,42 @@ jobs:
               -c user.email='41898282+github-actions[bot]@users.noreply.github.com' \
               merge --no-edit upstream-master
 
-      - name: Abort on conflicts
+      - name: Report conflicts
         if: failure() && steps.merge.outcome == 'failure'
         shell: bash
         run: |
           git merge --abort
-          echo "Error: Merging FreeTubeApp/FreeTube master produced conflicts. Merge manually and resolve them."
+
+          existing="$(gh issue list --state open --search "\"$CONFLICT_ISSUE_TITLE\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -z "$existing" ]; then
+            body="$(printf '%s\n' \
+              "Merging \`FreeTubeApp/FreeTube@master\` into \`master\` produced conflicts on $(date -u +%Y-%m-%d)." \
+              "" \
+              "Resolve manually:" \
+              '```' \
+              "git fetch https://github.com/FreeTubeApp/FreeTube.git master:upstream-master" \
+              "git merge upstream-master" \
+              "# resolve conflicts, then:" \
+              "git commit" \
+              "git push origin master" \
+              '```' \
+              "" \
+              "This issue closes automatically once a scheduled sync succeeds.")"
+            gh issue create --title "$CONFLICT_ISSUE_TITLE" --body "$body"
+          fi
+
+          echo "::error::Merging FreeTubeApp/FreeTube master produced conflicts. Merge manually and resolve them."
           exit 1
 
       - name: Push
         shell: bash
         run: git push origin master
+
+      - name: Close resolved conflict issue
+        if: success()
+        shell: bash
+        run: |
+          existing="$(gh issue list --state open --search "\"$CONFLICT_ISSUE_TITLE\" in:title" --json number --jq '.[0].number // empty')"
+          if [ -n "$existing" ]; then
+            gh issue close "$existing" --comment "Synced successfully, closing."
+          fi
