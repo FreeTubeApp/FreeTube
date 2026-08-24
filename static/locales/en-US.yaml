@@ -1059,7 +1059,7 @@ Tooltips:
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video, blurred or hidden instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
-      calls. Changes to this setting apply to the current window only, unless set as default.
+      calls. Changes to this setting apply only to the current window unless you set this instance as the default.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed.
     External Link Handling: |
