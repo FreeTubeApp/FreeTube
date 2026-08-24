@@ -194,6 +194,8 @@ User Playlists:
   The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
   Export list of URLs: Esportatu URLen zerrenda
+  Move Video to the Top: Eraman bideoa goialdera
+  Move Video to the Bottom: Eraman bideoa behealdera
 History:
   # On History Page
   History: 'Historikoa'
@@ -430,6 +432,9 @@ Settings:
       Picture in Picture: Irudiz irudi
       External Player: Kanpoko erreproduzitzailea ({externalPlayerName})
       Theater: Antzokia
+      Full Window (Always On): Leiho osoa (beti aktiboa)
+      Full Screen (Always On): Pantaila osoa (beti aktiboa)
+      Tooltip: Ikusteko modu lehenetsi gehienak ikustaldi bakoitzaren hasieran soilik aplikatzen dira. Saioan egindako aldaketek iraun egiten dute amaitu arte. Beti aktibatuta dauden ikusteko moduak bideo berri batera aldatzen zaren bakoitzean aplikatzen dira, aurreko bideoa ikustean egindako ikusteko moduko aldaketak kontuan hartu gabe.
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Gogoratu ikusitakoaren historikoa'
@@ -552,6 +557,15 @@ Settings:
     Export search history: Esportatu bilaketa-historia
     All search history has been successfully imported: Bilaketa-historia guztia behar bezala inportatu da
     All search history has been successfully exported: Bilaketa-historia guztia behar bezala esportatu da
+    Settings File: Ezarpenen fitxategia
+    Import Settings: Inportazio ezarpenak
+    Export Settings: Esportazio ezarpenak
+    Settings Tooltip: OS/erabiltzailearentzako edo esperimentalak diren ezarpenak ezin dira esportatu edo inportatu (adibidez, proxy, kanpoko erreproduzitzailea, pantaila-argazkien karpeta...)
+    All settings have been successfully imported: Ezarpen guztiak behar bezala inportatu dira
+    All settings have been successfully exported: Ezarpen guztiak behar bezala esportatu dira
+    Setting object has insufficient data, skipping item: Ezarpenen objektuak ez ditu datu nahikoak. Elementua saltatzen
+    Unknown setting key: 'Ezarpen-gako ezezaguna: {key}'
+    Non-transferable setting key: 'Transferitu ezina den ezarpen-gakoa: {key}'
   Proxy Settings:
     Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Gaitu Tor / Proxy-a'
@@ -745,6 +759,7 @@ Channel:
   Courses:
     Courses: Ikastaroak
     This channel does not currently have any courses: Une honetan kanal honek ez du ikastarorik
+  View All: Ikusi dena
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Ezabatu historikotik'
@@ -930,6 +945,7 @@ Comments:
   Hide {replyCount} replies: Ezkutatu erantzun 1 | Ezkutatu {replyCount} erantzun
   View 1 reply from {channelName}: Ikusi {channelName}-ren erantzun bat
   View {replyCount} replies from {channelName} and others: Ikusi {channelName} eta beste batzuen {replyCount} erantzunak
+  Loading replies: Erantzunak kargatzen...
 Up Next: 'Hurrengoa'
 
 #Tooltips

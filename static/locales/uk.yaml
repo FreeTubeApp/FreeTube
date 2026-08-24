@@ -615,7 +615,7 @@ Settings:
   Sort Settings Sections (A-Z): Сортувати розділи налаштувань (А-Я)
 About:
   #On About page
-  About: 'Про додаток'
+  About: 'Про програму'
   #& About
   Donate: Підтримати
   these people and projects: цим людям та проєктам
@@ -1069,7 +1069,7 @@ KeyboardShortcutPrompt:
       Playback: 'Відео: Відтворення'
       General: 'Відео: Загальні'
     App:
-      Situational: 'Додаток: Ситуаційне'
+      Situational: 'Програма: Ситуаційне'
       General: 'Додаток: Загальне'
   Show Keyboard Shortcuts: Показати клавіатурні скорочення
   History Backward: Повернутися на одну сторінку назад

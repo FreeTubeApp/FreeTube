@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Филтери претраге'
   Prioritize:
     Most Relevant: 'Најрелевантније'
+    Prioritize: Приоритет има
+    Popularity: Популарност
   Time:
     Time: 'Време'
     Any Time: 'Било које време'
@@ -106,6 +108,7 @@ Trending:
   Trending: 'У тренду'
   Gaming: Видео игре
   Trending Tabs: Картице у тренду
+  Sports: Спорт
 Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:

@@ -40,6 +40,8 @@ Search Filters:
   Search Filters: 'Iskalni filtri'
   Prioritize:
     Most Relevant: 'Ustreznost'
+    Prioritize: Prednost
+    Popularity: Priljubljenost
   Time:
     Time: 'Čas'
     Any Time: 'Vsak čas'
@@ -65,6 +67,17 @@ Search Filters:
   Fetch more results: 'Pridobi več rezultatov'
 # Sidebar
   There are no more results for this search: Nič več rezultatov
+  Features:
+    Features: Lastnosti
+    HD: HD
+    Subtitles: Podnapisi
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: V živo
+    4K: 4K
+    Location: Lokacija
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
@@ -397,6 +410,8 @@ Channel:
     About: 'O kanalu'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Izpostavljeni kanali'
+  Courses:
+    Courses: Tečaji
 Video:
   Mark As Watched: 'Označi kot ogledano'
   Remove From History: 'Izbriši iz zgodovine'

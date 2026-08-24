@@ -49,6 +49,8 @@ Search Filters:
   Search Filters: 'Filtre de căutare'
   Prioritize:
     Most Relevant: 'Cele mai relevante'
+    Prioritize: Bigyang-priyoridad
+    Popularity: Kasikatan
   Time:
     Time: 'Timp'
     Any Time: 'Oricând'
@@ -115,13 +117,13 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Activați marcajul rapid cu această listă de redare
   Sort By:
     NameDescending: Z-A
-    LatestCreatedFirst: Creat recent
+    LatestCreatedFirst: Data la care a fost creat (Cel mai nou)
     NameAscending: A-Z
-    LatestUpdatedFirst: Actualizat recent
-    EarliestCreatedFirst: Cel mai devreme creat
-    LatestPlayedFirst: Redate recent
-    EarliestUpdatedFirst: Cea mai recentă actualizare
-    EarliestPlayedFirst: Cele mai recent redate
+    LatestUpdatedFirst: Data la care a fost actualizat (Cel mai nou)
+    EarliestCreatedFirst: Data la care a fost creat (Cel mai vechi)
+    LatestPlayedFirst: Data la care a fost redat (Cel mai nou)
+    EarliestUpdatedFirst: Data la care a fost actualizat (Cel mai vechi)
+    EarliestPlayedFirst: Data la care a fost redat (Cel mai vechi)
   This playlist currently has no videos.: Această listă de redare nu are în prezent niciun videoclip.
   You have no playlists. Click on the create new playlist button to create a new one.: Nu aveți liste de redare. Faceți clic pe butonul de creare a unei noi liste de redare pentru a crea una nouă.
   Playlists with Matching Videos: Liste de redare cu videoclipuri corespunzătoare
@@ -133,7 +135,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} Videoclipuri vor fi adăugate'
     Toast:
       You haven't selected any playlist yet.: Nu ați selectat încă nicio listă de redare.
-      "Video(s) added to {playlistCount} playlists": ""
+      "Video(s) added to {playlistCount} playlists": "Video(uri) adăugat(e) la un playlist | Video(uri) adăugat(e) la playlistul {playlistCount}"
     N playlists selected: '{playlistCount} Selectat'
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} Videoclipuri deja adăugate'
     Search in Playlists: Caută in listele de redare
@@ -189,6 +191,9 @@ User Playlists:
   The playlist has been successfully exported: Lista de redare a fost exportată cu succes
   Quick Bookmark Enabled: Marcaj rapid activat
   TotalTimePlaylist: 'Timp total: {duration}'
+  Move Video to the Top: Mută videoclipul sus
+  Move Video to the Bottom: Mută videoclipul jos
+  Export list of URLs: Exportare listă de URLuri
 History:
   # On History Page
   History: 'Istoric'
@@ -197,8 +202,8 @@ History:
   Search bar placeholder: Căutare în istoric
   Empty Search Message: Nu există videoclipuri în această listă de redare care să corespundă căutării dvs
   Case Sensitive Search: ­Căutare sensibilă la majuscule
-  DateOldestHistory: Începând cu primul vizionat
-  DateNewestHistory: Începând cu ultimul vizionat
+  DateOldestHistory: Data la care a fost vizionat (Cel mai vechi)
+  DateNewestHistory: Data la care a fost vizionat (Cel mai nou)
 Settings:
   # On Settings Page
   Settings: 'Setări'
@@ -270,6 +275,7 @@ Settings:
       Everforest Light Medium: Everforest Lumină Mediu
       Everforest Light Low: Everforest Lumină scăzută
       Catppuccin Frappe: Catnip Frappe
+      Catppuccin Latte: Tema Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Culoarea principală a temei'
       Red: 'Roşu'
@@ -355,6 +361,8 @@ Settings:
       Everforest Light Aqua: Aqua deschis Everforest
       Everforest Light Blue: Everforest Albastru deschis
       Everforest Light Purple: Everforest violet deschis
+      Catppuccin Latte Mauve: Tema Catppuccin Latte Mauve
+      Catppuccin Latte Red: Tema Catppuccin Latte Red
     Secondary Color Theme: 'Culoarea secundară a temei'
         #* Main Color Theme
     UI Scale: Scala interfeței utilizatorului (UI)
@@ -397,6 +405,8 @@ Settings:
       Quality Label: Calitatea capturii de ecran
       Modes:
         Ask Path: Întreabă pentru dosarul de salvare
+        Save To Folder: Salvează în folder
+        Clipboard: Copiază în Clipboard
       Folder Label: Dosarul pentru capturi de ecran
       Folder Button: Selectează dosar
       File Name Label: Tiparul denumirii fișierelor
@@ -406,6 +416,7 @@ Settings:
       File Name Tooltip: Puteți utiliza variabilele de mai jos. %Y Anul 4 cifre. %M Luna 2 cifre. %D Ziua 2 cifre. %H Ora 2 cifre. %N Minute 2 cifre. %S Secunda 2 cifre. %T Milisecundă 3 cifre. %s Secunda video. %t Milisecundă video 3 cifre. %i Video ID.
       Enable: Activează captura de ecran
       Format Label: Formatul capturii de ecran
+      Mode: Modul captură de ecran
     Video Playback Rate Interval: Intervalul de redare video
     Max Video Playback Rate: Viteza maximă de redare
     Scroll Playback Rate Over Video Player: Schimbă viteza de redare cu ajutorul rotiței de scroll
@@ -417,6 +428,8 @@ Settings:
       Theater: Teatru
       Full Screen: Ecran complet
       Picture in Picture: Imagine în imagine
+      Full Window (Always On): Fereastră întreagă (Mereu Pornit)
+      Full Screen (Always On): Ecran complet (Mereu pornit)
     Autoplay Interruption Timer: Temporizator de întrerupere a redării automate
   Privacy Settings:
     Privacy Settings: 'Confidențialitate'
@@ -486,6 +499,14 @@ Settings:
     Export Playlists For Older FreeTube Versions:
       Label: Exportați liste de redare pentru versiunile FreeTube mai vechi
       Tooltip: "Această opțiune exportă videoclipurile din toate listele de redare într-o singură listă de redare numită 'Favorite'.\nCum să exportați și să importați videoclipurile în listele de redare pentru o versiune mai veche a FreeTube:\n1. Exportați-vă listele de redare cu această opțiune activată.\n 2. Ștergeți toate listele de redare existente utilizând opțiunea Eliminați toate listele de redare din Setări de confidențialitate.\n3. Lansați versiunea mai veche a FreeTube și importați listele de redare exportate.”"
+    Search history file: Fișierul cu istoria de căutare
+    Settings File: Fișierul cu setările
+    Search history: Istoria de căutare
+    Import search history: Importă istorie de căutare
+    Export search history: Exportă istoria de căutare
+    Import Settings: Importă Setări
+    Export Settings: Exportă Setările
+    Settings Tooltip: Setările care sunt specifice sistemului/utilizatorului sau experimentale nu pot fi importate sau exportate (ex. proxy, player extern, folder pentru capturi de ecran)
   The app needs to restart for changes to take effect. Restart and apply change?: Aplicația trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați modificările?
   External Player Settings:
     Custom External Player Arguments: Argumente personalizate pentru playerul extern
@@ -1083,3 +1104,5 @@ Display Label: '{label}: {value}'
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 Yes, Restart: Da, repornire
 shortcutJoinOperator: +
+Compact side navigation: Navigatie Compacta pe o parte
+Expand side navigation: Expandează navigația de pe margini
