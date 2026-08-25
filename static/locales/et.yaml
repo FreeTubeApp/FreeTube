@@ -985,7 +985,7 @@ Tooltips:
     Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kõikjal läbi rakenduse kaadrit videost ja seda hägusena ja peidetuna.
     Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi, siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel. Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri kasutamist.
-    Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API kutse tegemisel.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API-päringute tegemisel. Kui sa just ei määra seda serverit vaikimisi serveriks, siis antud seadistuse muudatus kehtib vaid praeguse akna jaoks.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
     Open Deep Links In New Window: FreeTube'ile brauseritest või käsurealt antud võrguaadressid avatakse uues aknas.
   Player Settings:
