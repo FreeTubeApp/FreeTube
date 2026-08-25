@@ -379,6 +379,7 @@ const searchSettings = computed(() => store.getters.getSearchSettings)
  */
 function goToSearch(queryText, { event }) {
   const doCreateNewWindow = event && event.shiftKey
+  const openInBackgroundTab = event && (event.ctrlKey || event.metaKey)
 
   if (window.innerWidth <= MOBILE_WIDTH_THRESHOLD) {
     searchContainer.value.blur()
@@ -406,6 +407,7 @@ function goToSearch(queryText, { event }) {
           path: `/watch/${videoId}`,
           query,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: queryText,
         })
         break
@@ -418,6 +420,7 @@ function goToSearch(queryText, { event }) {
           path: `/playlist/${playlistId}`,
           query,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: queryText,
         })
         break
@@ -430,6 +433,7 @@ function goToSearch(queryText, { event }) {
           path: `/search/${encodeURIComponent(searchQuery)}`,
           query,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: searchQuery,
         })
         break
@@ -440,6 +444,7 @@ function goToSearch(queryText, { event }) {
         openInternalPath({
           path: `/hashtag/${encodeURIComponent(hashtag)}`,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: `#${hashtag}`,
         })
 
@@ -453,6 +458,7 @@ function goToSearch(queryText, { event }) {
           path: `/post/${postId}`,
           query,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: queryText,
         })
         break
@@ -464,6 +470,7 @@ function goToSearch(queryText, { event }) {
         openInternalPath({
           path: `/channel/${channelId}/${subPath}`,
           doCreateNewWindow,
+          openInBackgroundTab,
           query: {
             url,
           },
@@ -479,6 +486,7 @@ function goToSearch(queryText, { event }) {
         openInternalPath({
           path: `/${result.urlType}`,
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: queryText
         })
         break
@@ -496,6 +504,7 @@ function goToSearch(queryText, { event }) {
             features: [...searchSettings.value.features],
           },
           doCreateNewWindow,
+          openInBackgroundTab,
           searchQueryText: queryText,
         })
       }

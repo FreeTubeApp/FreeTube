@@ -2858,6 +2858,19 @@ export default defineComponent({
     })
     onUnmounted(() => {
       initLoadWaitTimeToastAC.abort()
+
+      // With Watch.vue kept alive in the background by App.vue's per-tab
+      // KeepAlive, this only fires once the tab is actually closed and
+      // evicted from the cache (or the app is closing), not on every tab
+      // switch - Watch.vue's `beforeRouteLeave`/`deactivated` hooks only
+      // pause playback for that case. Fire-and-forget: unlike the
+      // same-instance "load the next video" flow in destroyPlayer() below,
+      // nothing needs to wait for this to finish.
+      if (ui || player) {
+        destroyPlayer().catch((error) => {
+          console.error('Failed to destroy player on unmount', error)
+        })
+      }
     })
 
     async function performFirstLoad() {

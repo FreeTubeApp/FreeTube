@@ -79,11 +79,27 @@ export default defineComponent({
   },
   beforeRouteLeave: async function (to, from, next) {
     this.handleRouteChange()
-    window.removeEventListener('beforeunload', this.handleWatchProgressAutoSave)
-    document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
-    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
 
-    if (this.$refs.player) {
+    // Only keep the player alive (paused, ready to resume instantly) when
+    // this is a real tab switch - i.e. the tab we're leaving is still
+    // tracked as an open tab after this navigation. `activateTab` (see
+    // store/modules/tabs.js) updates the active tab to the destination
+    // BEFORE pushing the route, so by the time we get here the active
+    // tab's own stored path already differs from `from.path` in that case.
+    //
+    // For a plain in-tab navigation - which includes the common "only one
+    // tab open" case - nothing dispatches a tab switch first, so the
+    // active tab's path still equals `from.path` here: there's no tab left
+    // to come back to, so tear the player down exactly like FreeTube
+    // always has, instead of leaving it paused-but-alive in the
+    // background with no way to reach it again.
+    const tabs = this.$store.getters.getTabs
+    const activeTab = this.$store.getters.getActiveTab
+    const isSwitchingToAnotherTab = tabs.length > 1 && activeTab?.path !== from.path
+
+    if (isSwitchingToAnotherTab) {
+      this.pausePlayer()
+    } else if (this.$refs.player) {
       await this.destroyPlayer()
     }
 
@@ -334,12 +350,30 @@ export default defineComponent({
     }
   },
   watch: {
-    async $route() {
+    async $route(to) {
+      // With per-tab caching (see the KeepAlive in App.vue), switching to a
+      // different video always mounts/reactivates a separate cached
+      // instance for that video - this instance's own `$route` watcher
+      // should only react to changes that still target ITS OWN video (e.g.
+      // a query-only change like a SABR reload's `oneTimeTimestamp`), never
+      // to another tab's navigation.
+      if (to.params.id !== this.videoId) {
+        return
+      }
+
       await this.reloadView()
     },
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
     },
+  },
+  deactivated: function () {
+    this.pausePlayer()
+  },
+  unmounted: function () {
+    window.removeEventListener('beforeunload', this.handleWatchProgressAutoSave)
+    document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
+    document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
   },
   created: function () {
     this.videoId = this.$route.params.id

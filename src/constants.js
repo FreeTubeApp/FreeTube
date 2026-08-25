@@ -157,8 +157,14 @@ const KeyboardShortcuts = {
       SEARCH_IN_NEW_WINDOW: 'shift+enter',
       RESET_ZOOM: 'ctrl+0',
       ZOOM_IN: 'ctrl+plus',
-      ZOOM_OUT: 'ctrl+-'
-
+      ZOOM_OUT: 'ctrl+-',
+      NEW_TAB: 'ctrl+T',
+      // ctrl+W is already documented above as CLOSE_WINDOW (the OS-level
+      // shortcut), so close-tab uses ctrl+shift+W instead to avoid the two
+      // meaning different things under the same key combo.
+      CLOSE_TAB: 'ctrl+shift+W',
+      NEXT_TAB: 'ctrl+tab',
+      PREVIOUS_TAB: 'ctrl+shift+tab'
     },
     SITUATIONAL: {
       REFRESH: 'r',

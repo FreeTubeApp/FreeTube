@@ -1172,6 +1172,7 @@ Keys:
   ctrl: Ctrl
   shift: Shift
   enter: Enter
+  tab: Tab
   plus: Plus
   arrowdown: Down Arrow
   arrowleft: Left Arrow
@@ -1190,6 +1191,10 @@ KeyboardShortcutPrompt:
   History Backward: Go back one page
   History Forward: Go forward one page
   New Window: Create a new window
+  New Tab: Open a new tab
+  Close Tab: Close the current tab
+  Next Tab: Switch to the next tab
+  Previous Tab: Switch to the previous tab
   Navigate to Settings: Navigate to the Settings page
   Navigate to History: Navigate to the History page
   Refresh: Refresh feed with latest content
@@ -1228,3 +1233,7 @@ KeyboardShortcutPrompt:
   End: Seek to the end of the video
   Skip to Next Video: Skip to the next video in a playlist or next recommended video
   Skip to Previous Video: Skip to the previous video in a playlist
+Tabs:
+  Open Tabs: Open tabs
+  New Tab: New Tab
+  Close Tab: Close tab

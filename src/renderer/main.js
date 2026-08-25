@@ -133,6 +133,7 @@ import {
   faGithub,
   faMastodon,
   faMatrix,
+  faYoutube,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon, FontAwesomeLayers } from '@fortawesome/vue-fontawesome'
 
@@ -258,6 +259,7 @@ library.add(
   faBitcoin,
   faMastodon,
   faMatrix,
+  faYoutube,
 )
 
 registerSwiper()

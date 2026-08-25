@@ -1,5 +1,8 @@
 .sideNav {
   display: block;
+
+  /* 60px TopNav only - FtTabBar (see FtTabBar.css) only exists in the DOM
+     once there's a second tab, see the ".hasTabBar" override below. */
   block-size: calc(100vh - 60px);
   inline-size: 80px;
   overflow-x: hidden;
@@ -13,6 +16,12 @@
   transition-duration: 150ms;
   transition-timing-function: ease-in-out;
   user-select: none;
+}
+
+/* 60px TopNav + 40px FtTabBar, once App.vue's root has 2+ tabs open */
+:global(.hasTabBar) .sideNav {
+  block-size: calc(100vh - 100px);
+  inset-block-start: 100px;
 }
 
 .inner {

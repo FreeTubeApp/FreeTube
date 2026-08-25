@@ -16,6 +16,18 @@
   }
 }
 
+// Matches App.vue's ".hasTabBar" class, set once there are 2+ tabs open
+// (see FtTabBar.vue/.css) - only then does a second, 40px-tall bar exist
+// between TopNav and the page content.
+@mixin has-tab-bar {
+  @at-root {
+    .hasTabBar &,
+    .hasTabBar#{&} {
+      @content;
+    }
+  }
+}
+
 @mixin fixed-top-bar {
   position: fixed;
   inset-block-start: 60px;
@@ -30,6 +42,10 @@
 
   @include are-side-bar-labels-hidden {
     inline-size: calc(100% - 60px);
+  }
+
+  @include has-tab-bar {
+    inset-block-start: 100px;
   }
 
   @media only screen and (width <= 680px) {

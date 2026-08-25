@@ -6,10 +6,14 @@
       hideOutlines: outlinesHidden,
       isLocaleRightToLeft: isLocaleRightToLeft,
       isSideNavOpen: isSideNavOpen,
-      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen
+      hideLabelsSideBar: hideLabelsSideBar && !isSideNavOpen,
+      hasTabBar: openTabs.length > 1
     }"
   >
     <TopNav
+      :inert="isAnyPromptOpen"
+    />
+    <FtTabBar
       :inert="isAnyPromptOpen"
     />
     <SideNav
@@ -40,7 +44,12 @@
           mode="out-in"
           name="fade"
         >
-          <component :is="Component" />
+          <KeepAlive :max="20">
+            <component
+              :is="Component"
+              :key="keepAliveKey"
+            />
+          </KeepAlive>
         </Transition>
       </RouterView>
     </FtFlexBox>
@@ -112,6 +121,7 @@ import { useRoute, useRouter } from 'vue-router'
 
 import FtFlexBox from './components/ft-flex-box/ft-flex-box.vue'
 import TopNav from './components/TopNav/TopNav.vue'
+import FtTabBar from './components/FtTabBar/FtTabBar.vue'
 import SideNav from './components/SideNav/SideNav.vue'
 import FtNotificationBanner from './components/FtNotificationBanner/FtNotificationBanner.vue'
 import FtPrompt from './components/FtPrompt/FtPrompt.vue'
@@ -204,14 +214,18 @@ onMounted(async () => {
   })
 
   if (route.path === '/') {
-    router.replace({ path: landingPage.value })
+    await router.replace({ path: landingPage.value })
   }
+
+  store.dispatch('seedInitialTab', { path: route.path, query: route.query })
 
   setWindowTitle()
 
   document.addEventListener('keydown', handleKeyboardShortcuts)
   document.addEventListener('mousedown', handleMouseDown)
   document.addEventListener('dragstart', handleDragStart)
+  document.addEventListener('click', handleTabModifierClick, { capture: true })
+  document.addEventListener('auxclick', handleTabModifierClick, { capture: true })
 })
 
 onBeforeUnmount(() => {
@@ -220,7 +234,99 @@ onBeforeUnmount(() => {
   document.removeEventListener('dragstart', handleDragStart)
   document.removeEventListener('click', handleClick)
   document.removeEventListener('auxclick', handleAuxClick)
+  document.removeEventListener('click', handleTabModifierClick, { capture: true })
+  document.removeEventListener('auxclick', handleTabModifierClick, { capture: true })
 })
+
+/** @type {import('vue').ComputedRef<object[]>} */
+const openTabs = computed(() => store.getters.getTabs)
+
+/** @type {import('vue').ComputedRef<number | null>} */
+const activeTabId = computed(() => store.getters.getActiveTabId)
+
+// With 2+ tabs, the per-route KeepAlive (see the RouterView below) keys
+// each cached instance by its path, so switching back to an already-open
+// tab reuses/reactivates that instance instead of remounting it.
+//
+// With only one tab (the common case), a plain navigation - e.g. leaving
+// a video for Subscriptions - isn't a tab switch at all, and Watch.vue's
+// `beforeRouteLeave` tears its player down for exactly that reason (see
+// Watch.js). Reusing the same path-based key there would let KeepAlive
+// reactivate that now-torn-down instance if the user ever revisits the
+// same path later, instead of mounting a fresh one - so in that case we
+// give every navigation its own unique key instead, matching how FreeTube
+// always behaved before tabs existed (always a fresh mount/unmount).
+const singleTabNavCount = ref(0)
+
+watch(() => route.fullPath, () => {
+  if (openTabs.value.length <= 1) {
+    singleTabNavCount.value++
+  }
+})
+
+const keepAliveKey = computed(() => {
+  return openTabs.value.length > 1
+    ? route.path
+    : `${route.path}#${singleTabNavCount.value}`
+})
+
+// Keep the active tab's stored path/query in sync with in-tab navigation
+// that didn't go through the tabs store directly (a plain click on a
+// RouterLink, a search, browser back/forward, etc).
+router.afterEach((to) => {
+  store.dispatch('syncActiveTabMeta', { path: to.path, query: to.query })
+})
+
+/**
+ * @param {number} direction 1 for next tab, -1 for previous tab
+ */
+function cycleActiveTab(direction) {
+  const list = openTabs.value
+  if (list.length < 2) {
+    return
+  }
+
+  const currentIndex = list.findIndex((tab) => tab.id === activeTabId.value)
+  const nextIndex = (currentIndex + direction + list.length) % list.length
+  store.dispatch('activateTab', list[nextIndex].id)
+}
+
+/**
+ * @param {string} href an absolute internal `#/path?query` URL
+ * @returns {{ path: string, query: object }}
+ */
+function parseInternalHref(href) {
+  const url = new URL(href)
+  const [path, queryString = ''] = url.hash.slice(1).split('?')
+
+  return { path, query: Object.fromEntries(new URLSearchParams(queryString)) }
+}
+
+/**
+ * Intercepts Ctrl/Cmd+click and middle-click on internal links, before Vue
+ * Router or Electron's own new-window handling see them, and opens the
+ * link as a background tab instead - matching how a normal web browser
+ * handles the same clicks.
+ * @param {PointerEvent} event
+ */
+function handleTabModifierClick(event) {
+  if (!(event.ctrlKey || event.metaKey || event.button === 1)) {
+    return
+  }
+
+  const link = event.target.closest?.('a')
+  if (link == null || !link.href.startsWith(window.location.origin)) {
+    return
+  }
+
+  event.preventDefault()
+  event.stopPropagation()
+
+  const { path, query } = parseInternalHref(link.href)
+  const title = link.getAttribute('aria-label') || link.title || link.textContent?.trim() || ''
+
+  store.dispatch('openTab', { path, query, title, background: true })
+}
 
 /** @type {import('vue').ComputedRef<string>} */
 const baseTheme = computed(() => store.getters.getBaseTheme)
@@ -332,8 +438,27 @@ function handleKeyboardShortcuts(event) {
     store.commit('setIsKeyboardShortcutPromptShown', !isKeyboardShortcutPromptShown.value)
   }
 
-  if (event.key === 'Tab') {
+  const ctrlOrCmdPressed = event.ctrlKey || event.metaKey
+
+  if (event.key === 'Tab' && !ctrlOrCmdPressed) {
     store.dispatch('showOutlines')
+  }
+
+  if (event.target.tagName === 'INPUT') {
+    return
+  }
+
+  if (ctrlOrCmdPressed && event.key.toLowerCase() === 't') {
+    event.preventDefault()
+    store.dispatch('openNewTab')
+  } else if (ctrlOrCmdPressed && event.shiftKey && event.key.toLowerCase() === 'w') {
+    event.preventDefault()
+    if (activeTabId.value !== null) {
+      store.dispatch('closeTab', activeTabId.value)
+    }
+  } else if (ctrlOrCmdPressed && event.key === 'Tab') {
+    event.preventDefault()
+    cycleActiveTab(event.shiftKey ? -1 : 1)
   }
 }
 
@@ -560,6 +685,11 @@ watch(appTitle, (value) => {
   } else {
     document.title = packageDetails.productName
   }
+
+  // Path/query are already kept in sync by the router.afterEach above -
+  // this only needs to update the title, which for pages like Watch
+  // arrives asynchronously once the video's metadata has loaded.
+  store.dispatch('syncActiveTabMeta', { title: value })
 })
 
 watch(windowTitle, setWindowTitle)
