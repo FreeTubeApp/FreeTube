@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 spectateur | {count} spectateurs
     Comment Count: 1 commentaire | {count} commentaires
     Like Count: 1 j’aime | {count} j’aime
+    Replies Remaining: "{' '}(1 restante) | {' '}({count} restantes)"
 Search / Go to URL: 'Rechercher / ouvrir l''URL'
   # In Filter Button
 Search Filters:
@@ -893,7 +894,7 @@ Comments:
   View {replyCount} replies: Voir 1 réponse | Voir {replyCount} réponses
   Subscribed: Abonné(e)
   There are no comments available for this post: Il n'y a pas de commentaire associé à ce message
-  Hide {replyCount} replies: Masquer 1 réponse | Masquer {replyCount} réponses
+  Hide Replies: Masquer la réponse | Masquer les réponses
   View 1 reply from {channelName}: Voir 1 réponse de {channelName}
   View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
 Up Next: 'À suivre'
