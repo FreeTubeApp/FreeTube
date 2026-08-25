@@ -958,7 +958,7 @@ Tooltips:
     Preferred API Backend: 'Vyberte backend, který FreeTube používá k získávání informací. Místní API má integrovaný extraktor. Invidious API vyžaduje připojení k server Invidious.'
     Fallback to Non-Preferred Backend on Failure: 'Pokud má vaše preferované API problém, FreeTube se automaticky pokusí použít vaše nepreferované API jako záložní metodu, pokud je povoleno.'
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem z videa, rozmazány nebo skryty namísto výchozí miniatury.'
-    Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem volání API.'
+    Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem volání API. Změny tohoto nastavení se použijí pouze na toto okno, pokud nenastavíte tuto instanci jako výchozí.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si přejete zobrazovat videa v trendech.'
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím prohlížeči.\n"
     Open Deep Links In New Window: Adresy předané aplikaci FreeTube, například rozšířením pro prohlížeč nebo argumenty v příkazovém řádku, budou otevřeny v novém okně.
