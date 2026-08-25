@@ -638,9 +638,9 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
 
   const videos = cachedPlaylist.items
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
-    const videoCount = cachedPlaylist.videoCount
-    if (videos.length < videoCount) {
-      const remainingVideos = await fetchAllInvidiousPlaylistVideos(cachedPlaylist.id, videos.length)
+    const nextIndex = cachedPlaylist.nextIndex
+    if (nextIndex !== -1) {
+      const remainingVideos = await fetchAllInvidiousPlaylistVideos(cachedPlaylist.id, nextIndex)
       videos.push(...remainingVideos)
     }
   } else if (cachedPlaylist.continuationData !== null) {
@@ -704,14 +704,14 @@ async function getPlaylistInformationInvidious() {
   isLoading.value = true
 
   try {
-    const result = await invidiousGetPlaylistInfo(props.playlistId)
+    const { playlist: result, nextIndex } = await invidiousGetPlaylistInfo(props.playlistId)
 
     playlistTitle.value = result.title
     channelName.value = result.author
     channelId.value = result.authorId
 
     const videos = result.videos
-    const remainingVideos = await fetchAllInvidiousPlaylistVideos(result.playlistId, videos.length)
+    const remainingVideos = await fetchAllInvidiousPlaylistVideos(result.playlistId, nextIndex)
     videos.push(...remainingVideos)
 
     playlistItems.value = videos
