@@ -975,7 +975,7 @@ Tooltips:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP, ma non forniscono determinate informazioni come la durata del video, lo stato dal vivo o i post
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed delle tue iscrizioni all'avvio e quando viene aperta una nuova finestra.
   General Settings:
-    Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
+    Invidious Instance: L'istanza di Invidious a cui FreeTube si connetterà per le chiamate API. Le modifiche a questa impostazione si applicano solo alla finestra corrente, a meno che non si imposti questa istanza come predefinita.
     Thumbnail Preference: Tutte le miniature su FreeTube verranno sostituite con un fotogramma del video, sfocato o nascosto al posto della miniatura predefinita.
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un problema, FreeTube userà automaticamente le API secondarie come riserva (se abilitate).
     Preferred API Backend: Scegli il backend usato da FreeTube per ottenere i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono un server Invidious al quale connettersi.
