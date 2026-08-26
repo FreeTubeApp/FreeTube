@@ -1930,7 +1930,7 @@ export default defineComponent({
     },
 
     isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
-      return channelsHidden.some(ch => ch.name === video.authorId && (video.author.collaboratorIds?.length > 0 && ch.name === video.author.collaboratorIds[0])) ||
+      return channelsHidden.some(ch => ch.name === video.authorId && (video.author.collaborators?.length > 0 && ch.name === video.author.collaborators[0].id)) ||
         channelsHidden.some(ch => ch.name === video.author) ||
         forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text)) ||
         forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text))
