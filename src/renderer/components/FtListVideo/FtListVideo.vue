@@ -651,7 +651,7 @@ function handleOptionsClick(option) {
 
       if (playlistSharable.value) {
         // `index` seems can be ignored
-        videoUrl += `&list=${playlistIdFinal.value}`
+        videoUrl += `?list=${playlistIdFinal.value}`
       }
 
       copyToClipboard(videoUrl, { messageOnSuccess: t('Share.YouTube URL copied to clipboard') })
