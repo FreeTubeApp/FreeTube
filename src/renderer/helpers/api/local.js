@@ -804,7 +804,7 @@ function extractTotalAdTimeMilliseconds(json) {
  * @param {string} id
  */
 export async function getLocalComments(id) {
-  const innertube = await createInnertube()
+  const innertube = await createInnertube({ generateSessionLocally: false })
   return innertube.getComments(id)
 }
 
@@ -2251,51 +2251,47 @@ export function mapLocalLegacyFormat(format) {
  * The complete Triforce, or one or more components of the Triforce.
  * @typedef {object} LocalComment
  * @property {string} id
- * @property {string} dataType
- * @property {string} authorLink
+ * @property {'local'} dataType
  * @property {string} author
  * @property {string} authorId
  * @property {string} authorThumb
- * @property {boolean} isPinned
- * @property {boolean} isOwner
- * @property {boolean} isMember
+ * @property {number} likes
  * @property {string} text
+ * @property {string} time
  * @property {boolean} isHearted
+ * @property {boolean} isMember
+ * @property {boolean} isOwner
+ * @property {boolean} isPinned
  * @property {boolean} hasOwnerReplied
  * @property {boolean} hasReplyToken
- * @property {CommentThread} replyToken
- * @property {boolean} showReplies
- * @property {LocalComment[]} replies
+ * @property {(YTNodes.CommentThread | Misc.CommentsContinuation)?} replyToken
+ * @property {number} replyLevel
  * @property {string} memberIconUrl
- * @property {string} time
- * @property {number} likes
  * @property {number} numReplies
  */
 /**
  * @param {import('youtubei.js').YTNodes.CommentView} comment
- * @param {import('youtubei.js').YTNodes.CommentThread} commentThread
- * @return LocalComment
+ * @param {import('youtubei.js').YTNodes.CommentThread | undefined} commentThread
+ * @return {LocalComment}
  */
 export function parseLocalComment(comment, commentThread = undefined) {
+  const replyToken = commentThread ?? null
   let hasOwnerReplied = false
-  let replyToken = null
   let hasReplyToken = false
 
   if (commentThread?.has_replies) {
-    hasOwnerReplied = commentThread.comment_replies_data.has_channel_owner_replied
-    replyToken = commentThread
+    hasOwnerReplied = !!commentThread.comment_replies_data?.has_channel_owner_replied
     hasReplyToken = true
   }
 
-  const commentTextRuns = comment.voice_reply_container?.transcript_text ? comment.voice_reply_container.transcript_text.runs : comment.content.runs
+  const commentTextRuns = comment.voice_reply_container?.transcript_text?.runs ?? comment.content?.runs ?? []
 
   return {
     id: comment.comment_id,
     dataType: 'local',
-    authorLink: comment.author.id,
-    author: comment.author.name,
-    authorId: comment.author.id,
-    authorThumb: comment.author.best_thumbnail.url,
+    author: comment.author?.name ?? '',
+    authorId: comment.author?.id ?? '',
+    authorThumb: comment.author?.best_thumbnail?.url ?? '',
     isPinned: comment.is_pinned,
     isOwner: !!comment.author_is_channel_owner,
     isMember: !!comment.is_member,
@@ -2304,12 +2300,11 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasOwnerReplied,
     hasReplyToken,
     replyToken,
-    showReplies: false,
-    replies: [],
-    memberIconUrl: comment.is_member ? comment.member_badge.url : '',
-    time: getRelativeTimeFromDate(calculatePublishedDate(comment.published_time.replace('(edited)', '').trim()), false),
-    likes: comment.like_count,
-    numReplies: parseLocalSubscriberCount(comment.reply_count)
+    replyLevel: comment.reply_level ?? 0,
+    memberIconUrl: comment.member_badge?.url ?? '',
+    time: getRelativeTimeFromDate(calculatePublishedDate((comment.published_time ?? '').replace('(edited)', '').trim()) ?? 0, false),
+    likes: parseLocalSubscriberCount(comment.like_count?.trim() || '0'),
+    numReplies: hasReplyToken ? parseLocalSubscriberCount(comment.reply_count_a11y ?? '0') : 0
   }
 }
 
@@ -2487,7 +2482,7 @@ export async function getLocalCommunityPost(postId, channelId) {
  * @param {string} channelId
  */
 export async function getLocalCommunityPostComments(postId, channelId) {
-  const innertube = await createInnertube()
+  const innertube = await createInnertube({ generateSessionLocally: false })
 
   return await innertube.getPostComments(postId, channelId)
 }

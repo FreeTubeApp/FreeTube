@@ -28,6 +28,7 @@ const initialResponse = await scrapeLanguage('en')
 
 /** @type {string[]} */
 const youTubeLanguages = initialResponse.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items[2].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
+  .filter(({ compactLinkRenderer }) => compactLinkRenderer)
   .map(({ compactLinkRenderer }) => {
     return compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].selectLanguageCommand.hl
   })

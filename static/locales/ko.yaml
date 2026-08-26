@@ -36,10 +36,11 @@ Global:
     Subscriber Count: 1명 구독자 | {count}명 구독
     View Count: 1회 조회 | {count}회 조회
     Watching Count: 1명 시청 중 | {count}명 시청 중
-    Video Count: 1개 동영상 | {count} 개 동영상
+    Video Count: 1개 동영상 | {count}개 동영상
     Channel Count: 1개 채널 | {count}개 채널
     Comment Count: 1개 댓글 | {count}개 댓글
     Like Count: 1개 좋아요 | {count}개 좋아요
+    Replies Remaining: "{' '}(1개 남음) | {' '}({count}개 남음)"
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
 
@@ -453,7 +454,7 @@ Channel:
   Subscribe: '구독'
   Unsubscribe: '구독 취소'
   Channel has been removed from your subscriptions: '채널이 구독에서 제거되었습니다'
-  Removed subscription from {count} other channel(s): '{count} 다른 채널에서 구독을 제거했습니다'
+  Removed subscription from {count} other channel(s): '다른 {count}개의 채널에서 구독을 제거했습니다'
   Added channel to your subscriptions: '구독에 채널을 추가했습니다'
   Search Channel: '채널 검색'
   Your search results have returned 0 results: '0 건이 검색되었습니다'
@@ -594,7 +595,8 @@ Comments:
   Pinned by: 고정된 댓글
   Member: 구성원
   Hearted: 좋아요 표시한
-  View {replyCount} replies: '{replyCount} 개의 답글 보기'
+  View {replyCount} replies: '{replyCount}개의 답글 보기'
+  Hide Replies: '답글 숨기기'
 Up Next: '다음 위로'
 
 #Tooltips
@@ -658,7 +660,7 @@ Channels:
   Search bar placeholder: 채널 검색
   Empty: 채널 목록이 비어 있습니다.
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
-  Count: '{number} 채널이 발견되었습니다.'
+  Count: '{number}개의 채널이 발견되었습니다.'
 Screenshot Error: 스크린샷이 실패했습니다. {error}
 Screenshot Success: 스크린샷을 "{filePath}"로 저장
 Clipboard:

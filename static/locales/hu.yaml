@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
+    Replies Remaining: "{' '}(1 hátralévő) | {' '}({count} hátralévő)"
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
 
@@ -950,6 +951,7 @@ Comments:
   View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
   View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
   Loading replies: Válaszok betöltése...
+  Hide Replies: Válasz elrejtése | Válaszok elrejtése
 Up Next: 'Következő'
 
 # Toast Messages

@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 izliyor | {count} izliyor
     Like Count: 1 beğenme | {count} beğenme
     Comment Count: 1 yorum | {count} yorum
+    Replies Remaining: "{' '}(1 kaldı) | {' '}({count} kaldı)"
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
 
@@ -937,7 +938,7 @@ Comments:
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
-  Show More Replies: Daha Fazla Yanıt Göster
+  Show More Replies: Daha fazla yanıt göster
   Pinned by: Sabitleyen
   Member: Üye
   View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
@@ -948,6 +949,7 @@ Comments:
   View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
   View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
   Loading replies: Yanıtlar yükleniyor...
+  Hide Replies: Yanıtı gizle | Yanıtları gizle
 Up Next: 'Sonraki'
 
 # Toast Messages

@@ -50,251 +50,18 @@
     <div
       v-if="commentData.length > 0 && showComments"
     >
-      <div
+      <FtComment
         v-for="(comment, index) in commentData"
         :id="'comment' + index"
         :key="comment.id"
-        class="comment"
-      >
-        <component
-          :is="enableChannelLinks ? 'router-link' : 'div'"
-          :to="`/channel/${comment.authorLink}`"
-          tabindex="-1"
-        >
-          <!-- Hide comment photo only if it isn't the video uploader -->
-          <div
-            v-if="hideCommentPhotos && !comment.isOwner"
-            class="commentThumbnailHidden"
-            dir="auto"
-          >
-            {{ comment.author.substring(1, 2) }}
-          </div>
-          <img
-            v-else
-            :src="comment.authorThumb"
-            alt=""
-            class="commentThumbnail"
-          >
-        </component>
-        <p
-          v-if="comment.isPinned"
-          class="commentPinned"
-        >
-          <FontAwesomeIcon
-            :icon="['fas', 'thumbtack']"
-          />
-          {{ $t("Comments.Pinned by") }} <bdi>{{ channelName }}</bdi>
-        </p>
-        <p
-          class="commentAuthorWrapper"
-        >
-          <component
-            :is="enableChannelLinks ? 'router-link' : 'span'"
-            class="commentAuthor"
-            dir="auto"
-            :class="{
-              commentOwner: comment.isOwner
-            }"
-            :to="`/channel/${comment.authorLink}`"
-          >
-            {{ comment.author }}
-          </component>
-          <img
-            v-if="comment.isMember"
-            :src="comment.memberIconUrl"
-            :title="$t('Comments.Member')"
-            :aria-label="$t('Comments.Member')"
-            class="commentMemberIcon"
-            alt=""
-          >
-          <img
-            v-if="isSubscribedToChannel(comment.authorId)"
-            :title="$t('Comments.Subscribed')"
-            :aria-label="$t('Comments.Subscribed')"
-            class="commentSubscribedIcon"
-            alt=""
-          >
-          <span class="commentDate">
-            {{ comment.time }}
-          </span>
-        </p>
-        <FtTimestampCatcher
-          class="commentText"
-          :input-html="comment.text"
-          @timestamp-event="onTimestamp"
-        />
-        <p class="commentLikeCount">
-          <template
-            v-if="!hideCommentLikes"
-          >
-            <FontAwesomeIcon
-              :icon="['fas', 'thumbs-up']"
-            />
-            {{ comment.likes }}
-          </template>
-          <span
-            v-if="comment.isHearted"
-            class="commentHeartBadge"
-          >
-            <img
-              :src="channelThumbnail"
-              :title="$t('Comments.Hearted')"
-              :aria-label="$t('Comments.Hearted')"
-              class="commentHeartBadgeImg"
-              alt=""
-            >
-            <FontAwesomeIcon
-              :icon="['fas', 'heart']"
-              class="commentHeartBadgeWhite"
-            />
-            <FontAwesomeIcon
-              :icon="['fas', 'heart']"
-              class="commentHeartBadgeRed"
-            />
-          </span>
-          <span
-            v-if="comment.numReplies > 0 && !commentRepliesLoading.has(index)"
-            class="commentMoreReplies"
-            role="button"
-            tabindex="0"
-            @click="toggleCommentReplies(index)"
-            @keydown.enter.space.prevent="toggleCommentReplies(index)"
-          >
-            <span>
-              {{ toggleCommentRepliesLinkText(comment) }}
-            </span>
-          </span>
-          <span
-            v-else-if="comment.numReplies > 0 && commentRepliesLoading.has(index)"
-            class="commentLoadingMoreReplies"
-            tabindex="0"
-          >
-            <span>
-              {{ $t("Comments.Loading replies") }}
-            </span>
-          </span>
-        </p>
-        <div
-          v-if="comment.showReplies"
-          class="commentReplies"
-        >
-          <div
-            v-for="(reply, replyIndex) in comment.replies"
-            :id="'comment' + index + '-' + replyIndex"
-            :key="replyIndex"
-            class="comment"
-          >
-            <component
-              :is="enableChannelLinks ? 'router-link' : 'div'"
-              :to="`/channel/${reply.authorLink}`"
-              tabindex="-1"
-            >
-              <!-- Hide comment photo only if it isn't the video uploader -->
-              <div
-                v-if="hideCommentPhotos && !reply.isOwner"
-                class="commentThumbnailHidden"
-                dir="auto"
-              >
-                {{ reply.author.substring(1, 2) }}
-              </div>
-              <img
-                v-else
-                :src="reply.authorThumb"
-                alt=""
-                class="commentThumbnail"
-              >
-            </component>
-            <p class="commentAuthorWrapper">
-              <component
-                :is="enableChannelLinks ? 'router-link' : 'span'"
-                class="commentAuthor"
-                dir="auto"
-                :class="{
-                  commentOwner: reply.isOwner
-                }"
-                :to="`/channel/${reply.authorLink}`"
-              >
-                {{ reply.author }}
-              </component>
-              <img
-                v-if="reply.isMember"
-                :src="reply.memberIconUrl"
-                class="commentMemberIcon"
-                alt=""
-              >
-              <img
-                v-if="isSubscribedToChannel(reply.authorId)"
-                :title="$t('Comments.Subscribed')"
-                :aria-label="$t('Comments.Subscribed')"
-                class="commentSubscribedIcon"
-                alt=""
-              >
-              <span class="commentDate">
-                {{ reply.time }}
-              </span>
-            </p>
-            <FtTimestampCatcher
-              class="commentText"
-              :input-html="reply.text"
-              @timestamp-event="onTimestamp"
-            />
-            <p class="commentLikeCount">
-              <template
-                v-if="!hideCommentLikes"
-              >
-                <FontAwesomeIcon
-                  v-if="!hideCommentLikes"
-                  :icon="['fas', 'thumbs-up']"
-                />
-                {{ reply.likes }}
-              </template>
-              <span
-                v-if="reply.isHearted"
-                class="commentHeartBadge"
-              >
-                <img
-                  :src="channelThumbnail"
-                  :title="$t('Comments.Hearted')"
-                  :aria-label="$t('Comments.Hearted')"
-                  class="commentHeartBadgeImg"
-                  alt=""
-                >
-                <FontAwesomeIcon
-                  :icon="['fas', 'heart']"
-                  class="commentHeartBadgeWhite"
-                />
-                <FontAwesomeIcon
-                  :icon="['fas', 'heart']"
-                  class="commentHeartBadgeRed"
-                />
-              </span>
-            </p>
-            <p
-              v-if="reply.numReplies > 0"
-              class="commentMoreReplies"
-            >
-              {{ $t('Comments.View {replyCount} replies', { replyCount: reply.numReplies }, reply.numReplies) }}
-            </p>
-          </div>
-          <div
-            v-if="comment.hasReplyToken && !commentRepliesLoading.has(index)"
-            class="showMoreReplies"
-            role="button"
-            tabindex="0"
-            @click="getCommentReplies(index)"
-            @keydown.enter.space.prevent="getCommentReplies(index)"
-          >
-            <span>{{ $t("Comments.Show More Replies") }}</span>
-          </div>
-          <div
-            v-else-if="comment.hasReplyToken && commentRepliesLoading.has(index)"
-            class="loadingMoreReplies"
-            tabindex="0"
-          >
-            <span>{{ $t("Comments.Loading replies") }}</span>
-          </div>
-        </div>
-      </div>
+        :comment="comment"
+        :channel-name="channelName"
+        :channel-thumbnail="channelThumbnail"
+        :autoload-this-reply-level="false"
+        :can-fallback-to-invidious="canFallbackToInvidious"
+        :get-invidious-comment-replies="getInvidiousCommentReplies"
+        @timestamp-event="onTimestamp"
+      />
     </div>
     <div
       v-else-if="showComments && !isLoading"
@@ -336,14 +103,13 @@
 </template>
 
 <script setup>
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, shallowRef, reactive } from 'vue'
+import { computed, ref, shallowRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtCard from '../ft-card/ft-card.vue'
+import FtComment from '../FtComment/FtComment.vue'
 import FtLoader from '../FtLoader/FtLoader.vue'
 import FtSelect from '../FtSelect/FtSelect.vue'
-import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'
 
@@ -389,15 +155,21 @@ const props = defineProps({
   }
 })
 
+const emit = defineEmits(['timestamp-event'])
+/**
+ * @param {number} timestamp
+ */
+function onTimestamp(timestamp) {
+  emit('timestamp-event', timestamp)
+}
+
 const isLoading = ref(false)
-const commentRepliesLoading = reactive(new Set())
 const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
 const nextPageToken = shallowRef(null)
 
-// Has to be ref not shallowRef, as the replies are stored in a property on the comments
-// we need to react to new replies and showReplies being toggled
-const commentData = ref([])
+/** @type {import('vue').ShallowRef<import('../FtComment/FtComment.vue').Comment[]>} */
+const commentData = shallowRef([])
 
 /** @type {import('youtubei.js').YT.Comments | undefined} */
 let localCommentsInstance
@@ -413,13 +185,8 @@ const backendFallback = computed(() => {
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hideCommentLikes = computed(() => {
-  return store.getters.getHideCommentLikes
-})
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideCommentPhotos = computed(() => {
-  return store.getters.getHideCommentPhotos
+const canFallbackToInvidious = computed(() => {
+  return backendFallback.value && backendPreference.value === 'local'
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -486,31 +253,6 @@ function handleSortChange() {
   getCommentData()
 }
 
-const emit = defineEmits(['timestamp-event'])
-
-const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
-
-/**
- * @param {number} timestamp
- */
-function onTimestamp(timestamp) {
-  emit('timestamp-event', timestamp)
-}
-
-/** @type {import('vue').ComputedRef<Set<string>>} */
-const subscribedChannelIds = computed(() => {
-  return store.getters.getActiveProfile.subscriptions.reduce((set, channel) => {
-    return set.add(channel.id)
-  }, new Set())
-})
-
-/**
- * @param {string} channelId
- */
-function isSubscribedToChannel(channelId) {
-  return subscribedChannelIds.value.has(channelId)
-}
-
 function getCommentData() {
   isLoading.value = true
 
@@ -547,61 +289,6 @@ async function getMoreComments() {
   }
 }
 
-/** @typedef {import('../../helpers/api/local').LocalComment | import('../../helpers/api/invidious').InvidiousComment} Comment */
-/**
- * @param {Comment} comment
- */
-function toggleCommentRepliesLinkText(comment) {
-  if (comment.showReplies) {
-    return t('Comments.Hide {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
-  }
-
-  if (comment.hasOwnerReplied) {
-    if (comment.numReplies > 1) {
-      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: comment.numReplies, channelName: props.channelName })
-    }
-
-    return t('Comments.View 1 reply from {channelName}', { channelName: props.channelName })
-  }
-
-  return t('Comments.View {replyCount} replies', { replyCount: comment.numReplies }, comment.numReplies)
-}
-
-/**
- * @param {number} index
- */
-function toggleCommentReplies(index) {
-  if (commentData.value[index].showReplies || commentData.value[index].replies.length > 0) {
-    commentData.value[index].showReplies = !commentData.value[index].showReplies
-  } else {
-    getCommentReplies(index)
-  }
-}
-
-/**
- * @param {number} index
- */
-async function getCommentReplies(index) {
-  if (commentRepliesLoading.has(index)) return
-
-  commentRepliesLoading.add(index)
-
-  if (!process.env.SUPPORTS_LOCAL_API || commentData.value[index].dataType === 'invidious') {
-    if (!props.isPostComments) {
-      await getCommentRepliesInvidious(index)
-    } else {
-      await getPostCommentRepliesInvidious(index)
-    }
-  } else {
-    await getCommentRepliesLocal(index)
-  }
-
-  commentRepliesLoading.delete(index)
-}
-
-/** @type {Map<string, (import('youtubei.js').YTNodes.CommentThread | string)>} */
-const replyTokens = new Map()
-
 /**
  * @param {boolean | undefined} more
  */
@@ -627,18 +314,7 @@ async function getCommentDataLocal(more = false) {
     }
 
     const parsedComments = comments.contents
-      .map(commentThread => {
-        // Use destructuring to create a new object without the replyToken
-        const { replyToken, ...comment } = parseLocalComment(commentThread.comment, commentThread)
-
-        if (comment.hasReplyToken) {
-          replyTokens.set(comment.id, replyToken)
-        } else {
-          replyTokens.delete(comment.id)
-        }
-
-        return comment
-      })
+      .map(commentThread => parseLocalComment(commentThread.comment, commentThread))
 
     if (more) {
       commentData.value = commentData.value.concat(parsedComments)
@@ -652,7 +328,7 @@ async function getCommentDataLocal(more = false) {
   } catch (err) {
     // region No comment detection
     // No comment related info when video info requested earlier in parent component
-    if (err.message.includes('Comments page did not have any content')) {
+    if (err.message.includes('The comments page did not have any content')) {
       // For videos without any comment (comment disabled?)
       // e.g. https://youtu.be/8NBSwDEf8a8
       commentData.value = []
@@ -683,69 +359,12 @@ async function getCommentDataLocal(more = false) {
   }
 }
 
-/**
- * @param {number} index
- */
-async function getCommentRepliesLocal(index) {
-  try {
-    const comment = commentData.value[index]
-    /** @type {import('youtubei.js').YTNodes.CommentThread} */
-    const commentThread = replyTokens.get(comment.id)
-
-    if (commentThread == null) {
-      replyTokens.delete(comment.id)
-      comment.hasReplyToken = false
-      return
-    }
-
-    if (comment.replies.length > 0) {
-      await commentThread.getContinuation()
-      comment.replies = comment.replies.concat(commentThread.replies.map(reply => parseLocalComment(reply)))
-    } else {
-      await commentThread.getReplies()
-      comment.replies = commentThread.replies.map(reply => parseLocalComment(reply))
-    }
-
-    if (commentThread.has_continuation) {
-      replyTokens.set(comment.id, commentThread)
-      comment.hasReplyToken = true
-    } else {
-      replyTokens.delete(comment.id)
-      comment.hasReplyToken = false
-    }
-
-    comment.showReplies = true
-  } catch (err) {
-    console.error(err)
-    const errorMessage = t('Local API Error (Click to copy)')
-    showToast(`${errorMessage}: ${err}`, 10000, () => {
-      copyToClipboard(err)
-    })
-    if (backendFallback.value && backendPreference.value === 'local') {
-      showToast(t('Falling back to Invidious API'))
-      await getCommentDataInvidious()
-    } else {
-      isLoading.value = false
-    }
-  }
-}
-
 async function getCommentDataInvidious() {
   try {
-    let { response, commentData: comments } = await invidiousGetComments({
+    const { response, commentData: comments } = await invidiousGetComments({
       id: props.id,
       nextPageToken: nextPageToken.value,
       sortNewest: sortNewest.value
-    })
-
-    comments = comments.map(({ replyToken, ...comment }) => {
-      if (comment.hasReplyToken) {
-        replyTokens.set(comment.id, replyToken)
-      } else {
-        replyTokens.delete(comment.id)
-      }
-
-      return comment
     })
 
     commentData.value = commentData.value.concat(comments)
@@ -781,38 +400,6 @@ async function getCommentDataInvidious() {
   }
 }
 
-/**
- * @param {number} index
- */
-async function getCommentRepliesInvidious(index) {
-  const comment = commentData.value[index]
-  const replyToken = replyTokens.get(comment.id)
-
-  try {
-    const { commentData, continuation } = await invidiousGetCommentReplies({ id: props.id, replyToken })
-
-    comment.replies = comment.replies.concat(commentData)
-    comment.showReplies = true
-
-    if (continuation) {
-      replyTokens.set(comment.id, continuation)
-      comment.hasReplyToken = true
-    } else {
-      replyTokens.delete(comment.id)
-      comment.hasReplyToken = false
-    }
-
-    isLoading.value = false
-  } catch (error) {
-    console.error(error)
-    const errorMessage = t('Invidious API Error (Click to copy)')
-    showToast(`${errorMessage}: ${error}`, 10000, () => {
-      copyToClipboard(error)
-    })
-    isLoading.value = false
-  }
-}
-
 async function getPostCommentsInvidious() {
   try {
     const fetchComments = nextPageToken.value == null
@@ -821,17 +408,7 @@ async function getPostCommentsInvidious() {
 
     const { response, commentData: comments, continuation } = await fetchComments
 
-    const parsedComments = comments.map(({ replyToken, ...comment }) => {
-      if (comment.hasReplyToken) {
-        replyTokens.set(comment.id, replyToken)
-      } else {
-        replyTokens.delete(comment.id)
-      }
-
-      return comment
-    })
-
-    commentData.value = commentData.value.concat(parsedComments)
+    commentData.value = commentData.value.concat(comments)
     nextPageToken.value = response?.continuation ?? continuation
     isLoading.value = false
     showComments.value = true
@@ -851,34 +428,23 @@ async function getPostCommentsInvidious() {
   }
 }
 
-async function getPostCommentRepliesInvidious(index) {
-  const comment = commentData.value[index]
-  const replyToken = replyTokens.get(comment.id)
-
+/**
+ * Pure function for use inside FtComment
+ * @param {string} replyToken
+ */
+async function getInvidiousCommentReplies(replyToken) {
   try {
-    const { commentData: comments, continuation } = await getInvidiousCommunityPostCommentReplies({
-      postId: props.id,
-      replyToken: replyToken,
-      authorId: props.postAuthorId
-    })
-    comment.replies = comment.replies.concat(comments)
-    comment.showReplies = true
-
-    if (continuation) {
-      replyTokens.set(comment.id, continuation)
-      comment.hasReplyToken = true
-    } else {
-      replyTokens.delete(comment.id)
-      comment.hasReplyToken = false
-    }
-
-    isLoading.value = false
+    return !props.isPostComments
+      ? await invidiousGetCommentReplies({ id: props.id, replyToken })
+      : await getInvidiousCommunityPostCommentReplies({ postId: props.id, replyToken, authorId: props.postAuthorId })
   } catch (error) {
     console.error(error)
     const errorMessage = t('Invidious API Error (Click to copy)')
     showToast(`${errorMessage}: ${error}`, 10000, () => {
       copyToClipboard(error)
     })
+    return null
+  } finally {
     isLoading.value = false
   }
 }
