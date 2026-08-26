@@ -50,7 +50,7 @@ export default {
     }
   },
   linux: {
-    category: 'AudioVideo;Video;Player;Network',
+    category: 'AudioVideo;Video;Player;Feed;Network',
     icon: '_icons/icon.svg',
     target: ['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'], // 'flatpak'],
   },
