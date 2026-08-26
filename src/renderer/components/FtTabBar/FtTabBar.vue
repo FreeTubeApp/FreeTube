@@ -1,52 +1,54 @@
 <template>
-  <div
-    v-if="tabs.length > 1"
-    class="ftTabBar"
-    role="tablist"
-    :aria-label="t('Tabs.Open Tabs')"
-  >
+  <Transition name="tabBar">
     <div
-      v-for="tab in tabs"
-      :key="tab.id"
-      class="tab"
-      :class="{ active: tab.id === activeTabId }"
-      role="tab"
-      tabindex="0"
-      :aria-selected="tab.id === activeTabId"
-      :title="tab.title"
-      @click="activate(tab.id)"
-      @keydown.enter.space.prevent="activate(tab.id)"
-      @auxclick.middle="close(tab.id)"
+      v-if="tabs.length > 1"
+      class="ftTabBar"
+      role="tablist"
+      :aria-label="t('Tabs.Open Tabs')"
     >
-      <FontAwesomeIcon
-        class="tabIcon"
-        :icon="['fab', 'youtube']"
-      />
-      <span class="title">{{ tab.title || t('Tabs.New Tab') }}</span>
-      <button
-        class="closeButton"
-        :aria-label="t('Tabs.Close Tab')"
-        :title="t('Tabs.Close Tab')"
-        @click.stop="close(tab.id)"
+      <div
+        v-for="tab in tabs"
+        :key="tab.id"
+        class="tab"
+        :class="{ active: tab.id === activeTabId }"
+        role="tab"
+        tabindex="0"
+        :aria-selected="tab.id === activeTabId"
+        :title="tab.title"
+        @click="activate(tab.id)"
+        @keydown.enter.space.prevent="activate(tab.id)"
+        @auxclick.middle="close(tab.id)"
       >
         <FontAwesomeIcon
-          class="closeIcon"
-          :icon="['fas', 'xmark']"
+          class="tabIcon"
+          :icon="['fab', 'youtube']"
+        />
+        <span class="title">{{ tab.title || t('Tabs.New Tab') }}</span>
+        <button
+          class="closeButton"
+          :aria-label="t('Tabs.Close Tab')"
+          :title="t('Tabs.Close Tab')"
+          @click.stop="close(tab.id)"
+        >
+          <FontAwesomeIcon
+            class="closeIcon"
+            :icon="['fas', 'xmark']"
+          />
+        </button>
+      </div>
+      <button
+        class="newTabButton"
+        :aria-label="t('Tabs.New Tab')"
+        :title="t('Tabs.New Tab')"
+        @click="openNewTab"
+      >
+        <FontAwesomeIcon
+          class="newTabIcon"
+          :icon="['fas', 'plus']"
         />
       </button>
     </div>
-    <button
-      class="newTabButton"
-      :aria-label="t('Tabs.New Tab')"
-      :title="t('Tabs.New Tab')"
-      @click="openNewTab"
-    >
-      <FontAwesomeIcon
-        class="newTabIcon"
-        :icon="['fas', 'plus']"
-      />
-    </button>
-  </div>
+  </Transition>
 </template>
 
 <script setup>

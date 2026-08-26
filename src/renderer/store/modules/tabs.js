@@ -114,6 +114,14 @@ const actions = {
     commit('REMOVE_TAB', tabId)
 
     if (!wasActive) {
+      // ponytail: closing a background tab never tells its (already-paused,
+      // not destroyed) Watch.js/player instance to tear down - it just sits
+      // cached in App.vue's KeepAlive until LRU-evicted or the app closes.
+      // Harmless today since it's paused, not audible, but if that ever
+      // needs to free resources immediately, give tabs an explicit
+      // close signal (e.g. a small mitt/EventTarget bus) that the owning
+      // Watch.js instance listens for instead of only reacting to router
+      // navigation.
       return
     }
 

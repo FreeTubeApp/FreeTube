@@ -20,6 +20,19 @@
   z-index: 3;
 }
 
+/* Closing down to a single tab (or opening a second one) collapses/expands
+   the whole bar instead of it just popping in/out of existence. */
+.tabBar-enter-active,
+.tabBar-leave-active {
+  transition: block-size 0.15s ease, opacity 0.15s ease;
+}
+
+.tabBar-enter-from,
+.tabBar-leave-to {
+  block-size: 0;
+  opacity: 0;
+}
+
 .tab {
   display: flex;
   align-items: center;

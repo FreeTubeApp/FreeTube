@@ -81,21 +81,25 @@ export default defineComponent({
     this.handleRouteChange()
 
     // Only keep the player alive (paused, ready to resume instantly) when
-    // this is a real tab switch - i.e. the tab we're leaving is still
-    // tracked as an open tab after this navigation. `activateTab` (see
-    // store/modules/tabs.js) updates the active tab to the destination
-    // BEFORE pushing the route, so by the time we get here the active
-    // tab's own stored path already differs from `from.path` in that case.
+    // this is a real tab switch to a DIFFERENT tab that is still open -
+    // i.e. the tab we're leaving still has an entry in `tabs` (its stored
+    // path isn't updated until the router.afterEach in App.vue runs, which
+    // is after this guard, so a plain in-tab navigation still finds an
+    // entry matching `from.path` here - that's why this alone isn't
+    // enough, see below) AND the active tab id has actually moved to a
+    // different tab (`activateTab`, see store/modules/tabs.js, updates it
+    // BEFORE pushing the route).
     //
-    // For a plain in-tab navigation - which includes the common "only one
-    // tab open" case - nothing dispatches a tab switch first, so the
-    // active tab's path still equals `from.path` here: there's no tab left
-    // to come back to, so tear the player down exactly like FreeTube
-    // always has, instead of leaving it paused-but-alive in the
-    // background with no way to reach it again.
+    // `closeTab` removes the closing tab from `tabs` before it dispatches
+    // `activateTab` for whatever tab replaces it, so once a tab is closed
+    // it no longer has an entry here - even if 2+ tabs remain open
+    // afterwards. Without checking for that, closing the active tab while
+    // other tabs stayed open used to be misread as "switching to another
+    // tab", pausing the closed tab's player instead of destroying it, and
+    // leaving its audio playing with no tab left to reach it from again.
     const tabs = this.$store.getters.getTabs
     const activeTab = this.$store.getters.getActiveTab
-    const isSwitchingToAnotherTab = tabs.length > 1 && activeTab?.path !== from.path
+    const isSwitchingToAnotherTab = activeTab?.path !== from.path && tabs.some((tab) => tab.path === from.path)
 
     if (isSwitchingToAnotherTab) {
       this.pausePlayer()
@@ -112,6 +116,36 @@ export default defineComponent({
   },
   data: function () {
     return {
+      // The exact `$route.fullPath` this instance last actually loaded
+      // (see the `$route` watcher below). Reactivating this KeepAlive'd
+      // instance (switching back to a backgrounded tab) fires that
+      // watcher too, with the SAME fullPath it already has loaded - Vue
+      // doesn't pause plain `watch()` subscriptions just because KeepAlive
+      // deactivated the component, so without comparing against this, that
+      // reactivation was misread as the same "reload in place" signal SABR
+      // backoff uses (which always changes the query), tearing down and
+      // rebuilding a perfectly fine player - which, combined with
+      // autoplay-on-load, is what made it look like the video "restarted"
+      // and left the original playing in the background under the
+      // rebuilt one.
+      loadedFullPath: '',
+      // Which tab (see store/modules/tabs.js) this instance belongs to,
+      // snapshotted once since `$store.getters.getActiveTabId` moves on as
+      // soon as the user switches tabs. Lets this instance notice its own
+      // tab being closed (see the store subscription in `created`) even
+      // while backgrounded, when nothing would otherwise navigate away
+      // from it to give `beforeRouteLeave` a chance to tear it down.
+      tabId: null,
+      // True while this instance is the one actually on screen (see
+      // `activated`/`deactivated` below). `deactivated` only has a player
+      // to pause if one already exists at that exact moment - opening
+      // several tabs in a row without waiting for each one to finish
+      // loading backgrounds them while their video info fetch is still in
+      // flight, so there's no player yet to pause. When that fetch
+      // finishes later, still in the background, this is what stops the
+      // newly-created player from autoplaying (see the `isLoading`
+      // watcher below) with nothing left pointing at it.
+      isForeground: true,
       startNextVideoInFullscreen: false,
       startNextVideoInFullwindow: false,
       startNextVideoInPip: false,
@@ -361,22 +395,70 @@ export default defineComponent({
         return
       }
 
+      // Reactivating this instance from the KeepAlive cache (switching
+      // back to a tab that's already on this video) also lands here, since
+      // `$route` changing while deactivated still fires this watcher, with
+      // `to` being the EXACT SAME fullPath this instance already has
+      // loaded - nothing to reload, just this tab becoming visible again.
+      // A genuine same-video reload request (SABR backoff) always changes
+      // the query (a fresh `oneTimeTimestamp`), so it never matches here.
+      if (to.fullPath === this.loadedFullPath) {
+        return
+      }
+
+      this.loadedFullPath = to.fullPath
       await this.reloadView()
     },
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
     },
+    isLoading(newValue) {
+      // Fires once the video info fetch finishes and mounts the actual
+      // player (`v-if="!isLoading && ..."` in Watch.vue) - which autoplays
+      // per a global setting with no awareness of tabs. If that fetch
+      // finishes while this tab is backgrounded (opened but switched away
+      // from before it loaded), `deactivated` already ran with no player
+      // yet to pause, so nothing else would stop this newly-created one
+      // from autoplaying unattended. `nextTick` waits for the player to
+      // actually exist before trying to pause it.
+      if (!newValue && !this.isForeground) {
+        this.$nextTick(() => this.pausePlayer())
+      }
+    },
+  },
+  activated: function () {
+    this.isForeground = true
   },
   deactivated: function () {
+    this.isForeground = false
     this.pausePlayer()
+
+    // Vue Router treats navigating between two videos (same `/watch/:id`
+    // route record, different params) as an in-place update, never a
+    // leave - so `beforeRouteLeave` (and its `handleRouteChange()` call,
+    // which cancels this) never runs for a tab switch between two watch
+    // tabs, only when leaving to a genuinely different route. Without
+    // cancelling it here too, a "play next video in Ns" countdown started
+    // by a video ending right before the user switches tabs keeps running
+    // in the background regardless of which tab is now on screen, and
+    // when it fires it does a real `this.$router.push` - since there's
+    // only one global router, that hijacks whatever tab the user is
+    // actually looking at, replacing it with this backgrounded tab's
+    // "next video" out of nowhere.
+    if (this.playNextTimeout) {
+      this.abortAutoplayCountdown(true)
+    }
   },
   unmounted: function () {
+    this.unsubscribeTabClose?.()
     window.removeEventListener('beforeunload', this.handleWatchProgressAutoSave)
     document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
     document.removeEventListener('click', this.resetAutoplayInterruptionTimeout)
   },
   created: function () {
     this.videoId = this.$route.params.id
+    this.loadedFullPath = this.$route.fullPath
+    this.tabId = this.$store.getters.getActiveTabId
     this.activeFormat = this.defaultVideoFormat
     // So that the value for this session remains unchanged even if setting changed
     this.autoplayNextRecommendedVideo = this.autoplayNextRecommendedVideoByDefault
@@ -384,6 +466,17 @@ export default defineComponent({
 
     this.checkIfTimestamp()
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
+
+    // Closing a tab that isn't the active one doesn't navigate anywhere -
+    // nothing would otherwise tell this instance to tear its player down,
+    // so it'd sit paused-but-alive in the KeepAlive cache forever, with no
+    // tab left in the UI to reach it from. React to the tab actually being
+    // removed directly instead of only ever reacting to navigation.
+    this.unsubscribeTabClose = this.$store.subscribe((mutation) => {
+      if (mutation.type === 'REMOVE_TAB' && mutation.payload === this.tabId && this.$refs.player) {
+        this.destroyPlayer()
+      }
+    })
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -2007,9 +2100,17 @@ export default defineComponent({
             path: this.$route.path,
             query: { ...this.$route.query, oneTimeTimestamp: timestamp },
           })
+          // The query change above already runs the `$route` watcher,
+          // which calls reloadView() itself - calling it again here too
+          // would race two overlapping reloads against each other and can
+          // leave two players alive at once, one of them stuck playing
+          // with nothing left in the UI to reach it.
+          return
         } catch (failure) {
           if (isNavigationFailure(failure, NavigationFailureType.duplicated)) {
-            // Already on route with same timestamp, allow reloadView to run instead
+            // Already on route with same timestamp - `$route` didn't
+            // change, so its watcher won't fire; fall through and reload
+            // directly instead.
           } else {
             throw failure
           }

@@ -244,31 +244,52 @@ const openTabs = computed(() => store.getters.getTabs)
 /** @type {import('vue').ComputedRef<number | null>} */
 const activeTabId = computed(() => store.getters.getActiveTabId)
 
-// With 2+ tabs, the per-route KeepAlive (see the RouterView below) keys
-// each cached instance by its path, so switching back to an already-open
-// tab reuses/reactivates that instance instead of remounting it.
+// The per-route KeepAlive (see the RouterView below) needs a key that:
+//  - stays IDENTICAL across a real tab switch, so switching back to an
+//    already-open tab reactivates its existing (paused) instance instead
+//    of remounting it - this is what makes switching tabs instant instead
+//    of re-fetching the video every time.
+//  - is always FRESH for a plain in-tab navigation (e.g. clicking a
+//    recommended video), so it never reactivates whatever the tab used to
+//    show. Watch.vue's `beforeRouteLeave` fully tears the player down for
+//    exactly that case (see Watch.js), so reusing its old key would let
+//    KeepAlive reactivate that now-destroyed instance later.
 //
-// With only one tab (the common case), a plain navigation - e.g. leaving
-// a video for Subscriptions - isn't a tab switch at all, and Watch.vue's
-// `beforeRouteLeave` tears its player down for exactly that reason (see
-// Watch.js). Reusing the same path-based key there would let KeepAlive
-// reactivate that now-torn-down instance if the user ever revisits the
-// same path later, instead of mounting a fresh one - so in that case we
-// give every navigation its own unique key instead, matching how FreeTube
-// always behaved before tabs existed (always a fresh mount/unmount).
-const singleTabNavCount = ref(0)
+// Keying by `route.path` and switching formula based on the CURRENT tab
+// count (as this used to) doesn't satisfy the first bullet: a tab's key
+// shape gets decided by whatever the tab count happens to be the moment
+// you leave it, so opening/closing an unrelated tab in between two visits
+// to the same tab silently changes what key it needs, and the previously
+// cached instance becomes unreachable under the new one - orphaned,
+// paused, never destroyed, while a second instance gets created and
+// starts playing on top of it.
+//
+// Keying by the ACTIVE TAB'S OWN id sidesteps that entirely: it can't
+// change shape based on how many other tabs exist. Only two things ever
+// change the key: switching to a different tab id (reuses that tab's
+// existing counter untouched, so its key comes back exactly as it left
+// it), or navigating within the same tab id (bumps that tab's own
+// counter, forcing a fresh key just for it).
+const tabNavCounters = {}
+let lastActiveTabId = null
+
+function keyForActiveTab() {
+  const tabId = activeTabId.value
+  return `tab-${tabId}-${tabNavCounters[tabId] ?? 0}`
+}
+
+const keepAliveKey = ref(route.path)
 
 watch(() => route.fullPath, () => {
-  if (openTabs.value.length <= 1) {
-    singleTabNavCount.value++
+  const tabId = activeTabId.value
+  if (tabId !== lastActiveTabId) {
+    keepAliveKey.value = keyForActiveTab()
+  } else {
+    tabNavCounters[tabId] = (tabNavCounters[tabId] ?? 0) + 1
+    keepAliveKey.value = keyForActiveTab()
   }
-})
-
-const keepAliveKey = computed(() => {
-  return openTabs.value.length > 1
-    ? route.path
-    : `${route.path}#${singleTabNavCount.value}`
-})
+  lastActiveTabId = tabId
+}, { immediate: true })
 
 // Keep the active tab's stored path/query in sync with in-tab navigation
 // that didn't go through the tabs store directly (a plain click on a
