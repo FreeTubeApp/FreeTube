@@ -887,7 +887,7 @@ Comments:
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
-  Show More Replies: 返信をもっと見る
+  Show More Replies: 他の返信を表示
   Pinned by: ピン留め
   Member: メンバー
   Hearted: ハート
@@ -972,7 +972,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。
   General Settings:
-    Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious のインスタンスです。
+    Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious インスタンスです。このインスタンスをデフォルトに設定しない限り、この設定の変更は現在のウィンドウにのみ適用されます。
     Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。 Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube 全体のすべてのサムネイルが、デフォルトのサムネイルの代わりに動画のフレームに置き換えられ、ぼかされるか非表示になります。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube は自動的に他の API での取得を試みます。
