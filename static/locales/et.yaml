@@ -877,6 +877,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Järelejäänud aeg SABR-protokollist loobumiseks: {remindingTimeSeconds}s'
   Popout Live Chat: Vestlus hüpikaknas
   Private: Privaatseid videoid FreeTube'is vaadata ei saa - nad vajavad sisselogimist Google'i teenusega ja video omandi kinnitust.
+  Collapse Playlist: Lappa esitusloend kokku
+  Expand Playlist: Lappa esitusloend lahti
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
