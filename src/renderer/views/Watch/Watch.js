@@ -1371,6 +1371,16 @@ export default defineComponent({
 
       // `playlistId` present
       if (this.selectedUserPlaylist != null) {
+        // If the page is accessed through navigation via router history, 'playlistId' is still specified
+        // but the video could have been removed from the playlist in the meantime
+        if (!this.selectedUserPlaylist.videos.some((video) => video.videoId === this.videoId)) {
+          this.playlistId = ''
+          this.playlistType = ''
+          this.playlistItemId = null
+          this.watchingPlaylist = false
+          return
+        }
+
         // If playlist ID matches a user playlist, it must be user playlist
         this.playlistType = 'user'
         this.watchingPlaylist = true

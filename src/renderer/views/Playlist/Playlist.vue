@@ -247,6 +247,8 @@ const videoSearchQuery = ref('')
 const promptOpen = ref(false)
 /** @type {import('vue').Ref<string[]>} */
 const toBeDeletedPlaylistItemIds = ref([])
+/** @type {import('vue').Ref<string[]>} */
+const videosWithPlaylistToUnset = ref([])
 /** @type {AbortController | null} */
 let undoToastAbortController = null
 
@@ -992,6 +994,7 @@ function removeVideoFromPlaylist(videoId, playlistItemId) {
 
     if (foundVideo) {
       toBeDeletedPlaylistItemIds.value.push(playlistItemId)
+      videosWithPlaylistToUnset.value.push(videoId)
 
       // Only show toast when no existing toast shown
       if (undoToastAbortController == null) {
@@ -1008,6 +1011,7 @@ function removeVideoFromPlaylist(videoId, playlistItemId) {
           () => {
             clearTimeout(actualRemoveVideosTimeout)
             toBeDeletedPlaylistItemIds.value = []
+            videosWithPlaylistToUnset.value = []
             undoToastAbortController = null
           },
           undoToastAbortController.signal,
@@ -1026,11 +1030,13 @@ async function removeToBeDeletedVideosSometimes() {
   if (toBeDeletedPlaylistItemIds.value.length > 0) {
     await store.dispatch('removeVideos', {
       _id: playlistId.value,
-      // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
+      // Create new non-reactive arrays to avoid Electron erroring about Proxy objects not being clonable
       playlistItemIds: [...toBeDeletedPlaylistItemIds.value],
+      videoIds: [...videosWithPlaylistToUnset.value],
     })
 
     toBeDeletedPlaylistItemIds.value = []
+    videosWithPlaylistToUnset.value = []
     undoToastAbortController?.abort()
     undoToastAbortController = null
   }
