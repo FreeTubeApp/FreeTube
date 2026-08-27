@@ -13,13 +13,18 @@
 .channelName {
   font-size: 15px;
   position: relative;
-  inset-block-end: 15px;
+  inset-block-end: 0;
 }
 
 .playlistIndex {
   position: relative;
-  inset-block-end: 15px;
+  inset-block-end: 0;
   color: var(--tertiary-text-color);
+}
+
+.playlistIndex.isCollapsed {
+  display: block;
+  margin-block-end: -6px;
 }
 
 .playlistProgressBarContainer {
@@ -153,6 +158,32 @@
   stroke-width: 10;
   stroke: var(--accent-color-hover);
   transition: background 0.2s ease-in;
+}
+
+.playlistHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-block-end: 4px;
+  padding-block-start: 8px;
+}
+
+.playlistHeader .playlistCollapseButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  inline-size: 32px;
+  block-size: 32px;
+  margin-block-start: 0;
+  font-size: 16px;
+}
+
+.playlistHeader .playlistTitle {
+  flex: 1;
+  min-inline-size: 0;
+  margin: 0;
 }
 
 .playlistIcon {
