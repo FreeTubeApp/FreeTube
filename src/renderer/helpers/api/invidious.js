@@ -284,6 +284,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
 /**
  * @param {string} playlistId
+ * @param {number} index
  * @returns {Promise<{
  *  title: string,
  *  playlistId: string,
@@ -307,16 +308,53 @@ export async function searchInvidiousChannel(channelId, query, page) {
  *  }[]
  * }>}
  */
-export async function invidiousGetPlaylistInfo(playlistId) {
+export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
+  // The Invidious API offsets the index by 50 to apply a lookback window
+  // By increasing our offset by 50, we skip those overlapping videos and avoid de-duplicating them from our response
+  // See: https://github.com/iv-org/invidious/blob/66fb829dbc0f96cbf4319798f3b9090bc88a7012/src/invidious/routes/api/v1/misc.cr#L67
+  index += 50
   const playlist = await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
+    params: {
+      index
+    }
   })
 
   normalizeManyInvidiousVideosAttributes(playlist.videos)
   setMultiplePublishedTimestamps(playlist.videos)
 
   return playlist
+}
+
+/**
+ * @param {string} playlistId
+ * @param {number} initialOffset
+ * @returns {{
+ *    title: string,
+ *    videoId: string,
+ *    author: string,
+ *    authorId: string,
+ *    authorUrl: string,
+ *    videoThumbnails: InvidiousThumbnailObject[],
+ *    index: number,
+ *    lengthSeconds: number
+ *  }[]}
+ */
+export async function fetchAllInvidiousPlaylistVideos(playlistId, initialOffset = 0) {
+  let offset = initialOffset
+  const videos = []
+
+  while (true) {
+    const playlist = await invidiousGetPlaylistInfo(playlistId, offset)
+    if (playlist.videos.length === 0) {
+      break
+    }
+    videos.push(...playlist.videos)
+    offset += playlist.videos.length
+  }
+
+  return videos
 }
 
 /**
