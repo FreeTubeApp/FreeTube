@@ -18,6 +18,7 @@
       :tooltip="tooltip"
       :show-action-button="true"
       :select-on-focus="true"
+      :action-button-label="t('Settings.Distraction Free Settings.Add')"
       :force-action-button-icon-name="['fas', 'arrow-right']"
       @click="updateTags"
     />
@@ -69,6 +70,8 @@
           <button
             v-if="!disabled"
             class="removeTagButton"
+            :title="t('Settings.Distraction Free Settings.Remove')"
+            :aria-label="t('Settings.Distraction Free Settings.Remove')"
             @click="removeTag(tag)"
           >
             <FontAwesomeIcon
