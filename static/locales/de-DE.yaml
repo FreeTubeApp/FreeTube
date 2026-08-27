@@ -833,6 +833,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR-Wartezeit: {remindingTimeSeconds}s'
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
   Private: Private Videos können in FreeTube nicht angesehen werden, da sie Google-Anmeldung und den Besitz des Videos erfordern.
+  Collapse Playlist: Wiedergabeliste ausblenden
+  Expand Playlist: Wiedergabeliste einblenden
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
