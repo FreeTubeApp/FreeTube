@@ -976,7 +976,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住 Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
   General Settings:
-    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
+    Invidious Instance: FreeTube 將用於進行 API 呼叫的 Invidious 站台。除非您將此站台設為預設值，否則此設定的變更僅適用於目前的視窗。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為經過模糊處理或隱藏的影片畫面而非預設縮圖。
     Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好 API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious API 需要 Invidious 伺服器才能連線。
