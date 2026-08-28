@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: 所有的订阅标签页均被隐藏。要在此查看内容，请在 "{subsection}" 部分取消隐藏某些标签页，此部分位于 "{settingsSection}"。
   Load More Posts: 加载更多帖子
   Empty Posts: 你已订阅的频道当前没有任何帖子。
+  Posts:
+    RSS Message: YouTube 不提供帖子的 RSS 源。禁用 "{rssSetting}" 设置查看帖子或启用 "{hideSetting}" 设置隐藏此标签页。
 Trending:
   Trending: '热门'
   Trending Tabs: 流行标签
