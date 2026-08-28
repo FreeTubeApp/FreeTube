@@ -495,6 +495,7 @@ Settings:
       External Player: Lenner Diavaez ({externalPlayerName})
       Full Window (Always On): Prenestr a-bezh (Bepred Gweredekaet)
       Full Screen (Always On): Skramm a-bezh (Bepred Gweredekaet)
+      Tooltip: An darn vrasañ eus ar modoù gwelet dre ziouer a zo gwir evit penn-kentañ ur prantad lenn nemetken. Ar c'hemmoù bet graet e-pad ur prantad lenn a vo gwir betek fin ar prantad. Ar modoù gweredekaet bepred a vo adlakaet evit pep video nevez, daoust d'ar cheñchamantoù bet graet pa oac'h o sellet ouzh ar video a-raok.
   External Player Settings:
     External Player Settings: 'Lenner diavaez'
     External Player: 'Lenner diavaez'
@@ -644,6 +645,7 @@ Settings:
     Setting object has insufficient data, skipping item: Diouer a roadennoù evit an elfenn arventenniñ, o leuskel an elfenn a-gostez
     Unknown setting key: "Alc'hwez kefluniañ dianav : {key}"
     Non-transferable setting key: "Alc'hwez kefluniañ dibosupl da dreuzkas : {key}"
+    Settings Tooltip: N'haller ket ezporzhiañ pe enporzhiañ arventennoù a denn d'an OS/implijer pe d'ar re arnodel (da sk., proksi, lenner diavaez, teuliad tapadennoù-skramm...)
   Proxy Settings:
     Proxy Settings: 'Proksi'
     Enable Tor / Proxy: 'Gweredekaat Tor / Proksi'
