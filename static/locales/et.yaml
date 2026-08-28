@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
   Load More Posts: Lisa järgmised postitused
   Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
+  Posts:
+    RSS Message: YouTube'is ei leidu postituste RSS-vooge. Postituste vaatamiseks lülita välja seadistus „{rssSetting}“ või vahekaardi peitmiseks lülita sisse „{hideSetting}“ seadistus.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
