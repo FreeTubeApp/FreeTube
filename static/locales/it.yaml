@@ -834,6 +834,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo di backoff SABR rimanente: {remindingTimeSeconds}s'
   Popout Live Chat: Chat popout
   Private: Su FreeTube non è possibile guardare video privati, poiché richiedono l'accesso tramite account Google e la proprietà del video.
+  Expand Playlist: Espandi la playlist
+  Collapse Playlist: Comprimi playlist
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
