@@ -89,8 +89,8 @@
             :playlist-items-length="shownPlaylistItems.length"
             :can-remove-from-playlist="true"
             :dragged-video="draggedVideo"
-            :is-sort-order-custom="isSortOrderCustom"
             :is-video-dragging="isVideoDragging"
+            :video-dragging-possible="videoDraggingPossible"
             @drag-video="setDraggedVideo"
             @drag-video-end="onDragVideoEnd"
             @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
@@ -752,7 +752,11 @@ async function getNextPageInvidious() {
 }
 
 const canMoveVideos = computed(() => {
-  return !playlistInVideoSearchMode.value && isSortOrderCustom.value && noPlaylistItemsPendingDeletion.value
+  return isUserPlaylistRequested.value && !playlistInVideoSearchMode.value && isSortOrderCustom.value && noPlaylistItemsPendingDeletion.value
+})
+
+const videoDraggingPossible = computed(() => {
+  return isUserPlaylistRequested.value && isSortOrderCustom.value && shownPlaylistItems.value.length >= 2
 })
 
 /**
