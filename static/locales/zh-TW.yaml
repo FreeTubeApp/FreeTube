@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
     Comment Count: 1 則留言 | {count} 則留言
     Like Count: 1 個喜歡 | {count} 個喜歡
+    Replies Remaining: （還有 1 則）|（還有 {count} 則）
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -869,7 +870,6 @@ Mini Player: '迷你播放器'
 Comments:
   Comments: '留言'
   Click to View Comments: '點擊查看留言'
-  Getting comment replies, please wait: '正在取得留言回覆，請稍候'
   Hide Comments: '隱藏留言'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: '這個影片沒有留言'
@@ -884,7 +884,7 @@ Comments:
   Hearted: 喜歡的
   Subscribed: 已訂閱
   There are no comments available for this post: 此貼文尚無留言
-  Hide {replyCount} replies: 隱藏 1 則回覆 | 隱藏 {replyCount} 則回覆
+  Hide Replies: 隱藏回覆
   View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
 Up Next: '觀看其他類似影片'

@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 sledující | {count} sledujících
     Like Count: 1 líbí se mi | {count} líbí se mi
     Comment Count: 1 komentář | {count} komentářů
+    Replies Remaining: "{' '}(zbývá 1) | {' '}(zbývá {count})"
 Version {versionNumber} is now available!  Click for more details: 'Je k dispozici verze {versionNumber}! Klikněte pro více informací'
 Download From Site: 'Stáhnout ze stránky'
 
@@ -927,7 +928,6 @@ Mini Player: 'Mini přehrávač'
 Comments:
   Comments: 'Komentáře'
   Click to View Comments: 'Kliknutím zobrazíte komentáře'
-  Getting comment replies, please wait: 'Načítání odpovědí na komentář, čekejte prosím'
   There are no more comments for this video: 'U tohoto videa nejsou žádné další komentáře'
   Hide Comments: 'Skrýt komentáře'
   Top comments: 'Nejlepší komentáře'
@@ -935,14 +935,14 @@ Comments:
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'K tomuto videu nejsou dostupné žádné komentáře'
   Load More Comments: 'Načíst další komentáře'
-  Show More Replies: Načíst více výsledků
+  Show More Replies: Načíst další odpovědi
   Pinned by: připnuto uživatelem
   Member: Člen
   View {replyCount} replies: Zobrazit 1 odpověď | Zobrazit {replyCount} odpovědí
   Hearted: Se srdíčkem
   Subscribed: Odebíráno
   There are no comments available for this post: U tohoto příspěvku nejsou dostupné žádné komentáře
-  Hide {replyCount} replies: Skrýt 1 odpověď | Skrýt {replyCount} odpovědí
+  Hide Replies: Skrýt odpověď | Skrýt odpovědi
   View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
   View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
 Up Next: 'Další'

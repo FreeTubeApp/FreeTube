@@ -866,7 +866,6 @@ Mini Player: 'Мини-проигрыватель'
 Comments:
   Comments: 'Комментарии'
   Click to View Comments: 'Нажмите, чтобы просмотреть комментарии'
-  Getting comment replies, please wait: 'Получение ответов на комментарии, пожалуйста, подождите'
   Hide Comments: 'Скрыть комментарии'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'К этому видео нет комментариев'
@@ -881,7 +880,7 @@ Comments:
   Hearted: С сердечком
   Subscribed: Подписан(а)
   There are no comments available for this post: Для этой записи нет доступных комментариев
-  Hide {replyCount} replies: Скрыть 1 ответ | Скрыть {replyCount} ответа(ов)
+  Hide Replies: Скрыть ответ | Скрыть ответы
   View 1 reply from {channelName}: Смотреть 1 ответ от {channelName}
   View {replyCount} replies from {channelName} and others: Смотреть {replyCount} ответа(ов) от {channelName} и других
 Up Next: 'Следующий'

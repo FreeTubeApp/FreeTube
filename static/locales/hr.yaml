@@ -905,7 +905,6 @@ Mini Player: 'Mali player'
 Comments:
   Comments: 'Komentari'
   Click to View Comments: 'Pritisni za prikaz komentara'
-  Getting comment replies, please wait: 'Preuzimaju se odgovori na komentare. Pričekaj'
   Hide Comments: 'Sakrij komentare'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Za ovaj video nema komentara'
@@ -920,7 +919,7 @@ Comments:
   View {replyCount} replies: Pogledaj 1 odgovor | Pogledaj {replyCount} odgovora
   Subscribed: Pretplaćeno
   There are no comments available for this post: Za ovaj post nema komentara
-  Hide {replyCount} replies: Sakrij 1 odgovor | Sakrij {replyCount} odgovora
+  Hide Replies: Sakrij odgovor | Sakrij odgovore
   View 1 reply from {channelName}: Pogledaj 1 odgovor od {channelName}
   View {replyCount} replies from {channelName} and others: Pogledaj {replyCount} odgovora od {channelName} i drugih
 Up Next: 'Sljedeći'

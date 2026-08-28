@@ -911,7 +911,6 @@ Mini Player: 'Мініпрогравач'
 Comments:
   Comments: 'Коментарі'
   Click to View Comments: 'Клацніть, щоб переглянути коментарі'
-  Getting comment replies, please wait: 'Отримання відповідей на коментарі, зачекайте'
   There are no more comments for this video: 'Більше немає коментарів до цього відео'
   Hide Comments: 'Приховати коментарі'
   Top comments: 'Найпопулярніші коментарі'
@@ -926,7 +925,7 @@ Comments:
   View {replyCount} replies: Переглянути 1 відповідь | Переглянути {replyCount} відповідей
   Subscribed: Слідкують
   There are no comments available for this post: Коментарі для цього поста відсутні
-  Hide {replyCount} replies: Приховати 1 відповідь | Приховати {replyCount} відповідей
+  Hide Replies: Приховати відповідь | Приховати відповіді
   View 1 reply from {channelName}: Переглянути 1 відповідь від {channelName}
   View {replyCount} replies from {channelName} and others: Переглянути {replyCount} відповідей від {channelName} та інших
 Up Next: 'Далі'

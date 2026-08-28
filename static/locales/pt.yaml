@@ -908,7 +908,6 @@ Mini Player: 'Mini-reprodutor'
 Comments:
   Comments: 'Comentários'
   Click to View Comments: 'Clicar para ver os comentários'
-  Getting comment replies, please wait: 'A obter respostas ao comentário, por favor aguarde'
   Hide Comments: 'Ocultar comentários'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Este vídeo não tem comentários'
@@ -923,7 +922,7 @@ Comments:
   View {replyCount} replies: Ver 1 resposta | Ver {replyCount} respostas
   Subscribed: Subscrito
   There are no comments available for this post: Não existem comentários para esta publicação
-  Hide {replyCount} replies: Ocultar 1 resposta | Ocultar {replyCount} respostas
+  Hide Replies: Ocultar resposta | Ocultar respostas
   View 1 reply from {channelName}: Ver 1 resposta de {channelName}
   View {replyCount} replies from {channelName} and others: Veja {replyCount} respostas de {channelName} e outros
 Up Next: 'Próximo'

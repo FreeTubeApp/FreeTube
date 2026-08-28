@@ -41,6 +41,7 @@ Global:
     Watching Count: 1 spettatore | {count} spettatori
     Comment Count: 1 commento | {count} commenti
     Like Count: 1 mi piace | {count} mi piace
+    Replies Remaining: "{' '}(1 rimanente) | {' '}({count} rimanenti)"
 Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:
@@ -869,7 +870,6 @@ Mini Player: 'Mini visualizzatore'
 Comments:
   Comments: 'Commenti'
   Click to View Comments: 'Fai clic per vedere i commenti'
-  Getting comment replies, please wait: 'Sto scaricando le risposte ai commenti, per favore attendi'
   Hide Comments: 'Nascondi i commenti'
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: 'Non ci sono commenti disponibili per questo video'
@@ -884,7 +884,7 @@ Comments:
   View {replyCount} replies: Visualizza 1 risposta | Visualizza {replyCount} risposte
   Subscribed: Iscritto
   There are no comments available for this post: Non ci sono commenti disponibili per questo post
-  Hide {replyCount} replies: Nascondi 1 risposta | Nascondi {replyCount} risposte
+  Hide Replies: Nascondi la risposta | Nascondi le risposte
   View 1 reply from {channelName}: Visualizza 1 risposta da {channelName}
   View {replyCount} replies from {channelName} and others: Visualizza {replyCount} risposte da {channelName} e altri
 Up Next: 'Prossimi video'
