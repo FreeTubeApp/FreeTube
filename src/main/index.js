@@ -592,7 +592,10 @@ function runApp() {
         requestHeaders['Sec-Fetch-Site'] = 'same-origin'
         requestHeaders['Sec-Fetch-Mode'] = 'same-origin'
         requestHeaders['X-Youtube-Bootstrap-Logged-In'] = 'false'
-      } else if (url.startsWith('https://www.youtube.com/watch')) {
+      } else if (
+        url.startsWith('https://www.youtube.com/watch') ||
+        (urlObj.origin === 'www.youtube.com' && urlObj.pathname === '/')
+      ) {
         delete requestHeaders.Referer
         delete requestHeaders.Origin
         requestHeaders['Sec-Fetch-Dest'] = 'document'

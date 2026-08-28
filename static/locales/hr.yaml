@@ -938,7 +938,7 @@ Comments:
   View {replyCount} replies: Pogledaj 1 odgovor | Pogledaj {replyCount} odgovora
   Subscribed: Pretplaćeno
   There are no comments available for this post: Za ovaj post nema komentara
-  Hide {replyCount} replies: Sakrij 1 odgovor | Sakrij {replyCount} odgovora
+  Hide Replies: Sakrij odgovor | Sakrij odgovore
   View 1 reply from {channelName}: Pogledaj 1 odgovor od {channelName}
   View {replyCount} replies from {channelName} and others: Pogledaj {replyCount} odgovora od {channelName} i drugih
   Loading replies: Učitavanje odgovora …

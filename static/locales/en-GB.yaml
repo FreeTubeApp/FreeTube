@@ -40,6 +40,7 @@ Global:
     Channel Count: 1 channel | {count} channels
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
+    Replies Remaining: "{' '}(1 remaining) | {' '}({count} remaining)"
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} is now available!  Click for more details'
 Download From Site: 'Download From Site'
 
@@ -942,7 +943,7 @@ Comments:
   View {replyCount} replies: View 1 reply | View {replyCount} replies
   Subscribed: Subscribed
   There are no comments available for this post: There are no comments available for this post
-  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  Hide Replies: Hide reply | Hide replies
   View 1 reply from {channelName}: View 1 reply from {channelName}
   View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
   Loading replies: Loading replies...

@@ -924,7 +924,7 @@ Comments:
   View {replyCount} replies: Переглянути 1 відповідь | Переглянути {replyCount} відповідей
   Subscribed: Слідкують
   There are no comments available for this post: Коментарі для цього поста відсутні
-  Hide {replyCount} replies: Приховати 1 відповідь | Приховати {replyCount} відповідей
+  Hide Replies: Приховати відповідь | Приховати відповіді
   View 1 reply from {channelName}: Переглянути 1 відповідь від {channelName}
   View {replyCount} replies from {channelName} and others: Переглянути {replyCount} відповідей від {channelName} та інших
 Up Next: 'Далі'
