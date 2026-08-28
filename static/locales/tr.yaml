@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı sekmelerin gizliliğini kaldırın.
   Load More Posts: Daha Fazla Gönderi Yükle
   Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
+  Posts:
+    RSS Message: YouTube, gönderiler için RSS akışları sağlamaz. Gönderileri görüntülemek için "{rssSetting}" ayarını devre dışı bırakın veya bu sekmeyi gizlemek için "{hideSetting}" ayarını etkinleştirin.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
