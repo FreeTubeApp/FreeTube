@@ -58,7 +58,7 @@
     "@seald-io/nedb": "^4.1.2",
     "autolinker": "^4.1.5",
     "bgutils-js": "^4.0.3",
-    "dompurify": "^3.4.13",
+    "dompurify": "^3.4.14",
     "electron-context-menu": "^4.1.2",
     "googlevideo": "^4.1.1",
     "marked": "^18.0.11",
