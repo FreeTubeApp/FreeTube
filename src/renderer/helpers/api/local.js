@@ -2499,9 +2499,9 @@ export async function getLocalClip(clipId) {
 
   return {
     videoId,
-    startTime: parsedParams.clipParamsData.startTime / 1000, // convert to seconds
-    endTime: parsedParams.clipParamsData.endTime / 1000, // convert to seconds
-    clipTitle: parsedParams.clipParamsData.clipTitle,
-    clipMetadata: parsedParams.clipParamsData.clipMetadata
+    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamData.clipTitle,
+    clipMetadata: parsedParams.clipParamData.clipMetadata
   }
 }
