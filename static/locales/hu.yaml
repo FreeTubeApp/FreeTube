@@ -883,6 +883,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő SABR várakozási idő: {remindingTimeSeconds} mp'
   Popout Live Chat: Felugró csevegés
   Private: A privát videók nem tekinthetők meg a FreeTube-on, mivel a megtekintésükhöz Google-bejelentkezés és a videó tulajdonjoga szükséges.
+  Collapse Playlist: Lejátszási lista összecsukása
+  Expand Playlist: Lejátszási lista kibontása
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -976,7 +978,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Invidious Instance: Az Invidious-példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
     Thumbnail Preference: A FreeTube-ban minden videó bélyegképe az alapértelmezett miniatűr helyett a videóból kiválasztott képkockára lesz cserélve, amely elmosódott vagy rejtett is lehet.
     Fallback to Non-Preferred Backend on Failure: Ha a választott API-val probléma adódik, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t használni tartalék módszerként, ha ez a funkció engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy olyan hivatkozásra kattint, amelyet FreeTube nem tud megnyitni.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
