@@ -61,7 +61,7 @@
     "dompurify": "^3.4.13",
     "electron-context-menu": "^4.1.2",
     "googlevideo": "^4.1.1",
-    "marked": "^18.0.10",
+    "marked": "^18.0.11",
     "process": "^0.11.10",
     "shaka-player": "^5.1.12",
     "swiper": "^14.1.0",
