@@ -101,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
   Load More Posts: Carica più post
   Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
+  Posts:
+    RSS Message: YouTube non fornisce feed RSS per i post. Disattiva l'impostazione "{rssSetting}" per visualizzare i post oppure attiva l'impostazione "{hideSetting}" per nascondere questa scheda.
 Trending:
   Trending: 'Tendenze'
   Trending Tabs: Schede di tendenza
