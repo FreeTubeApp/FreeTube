@@ -106,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Feliratkozások lapok
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
+  Posts:
+    RSS Message: A YouTube nem biztosít RSS-hírcsatornákat a bejegyzésekhez. A bejegyzések megtekintéséhez tiltsa le a(z) „{rssSetting}” beállítást, vagy a lap elrejtéséhez engedélyezze a(z) „{hideSetting}” beállítást.
 Trending:
   Trending: 'Felkapott'
   Trending Tabs: Felkapott lapok
