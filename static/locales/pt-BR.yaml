@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
+  Posts:
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desative a configuração "{rssSetting}" para visualizar as postagens ou ative a configuração "{hideSetting}" para ocultar esta aba.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -831,6 +833,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo restante de espera do SABR: {remindingTimeSeconds}s'
   Popout Live Chat: Chat flutuante
   Private: Vídeos privados não podem ser assistidos no FreeTube, pois exigem login do Google e propriedade do vídeo.
+  Collapse Playlist: Recolher playlist
+  Expand Playlist: Expandir playlist
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
