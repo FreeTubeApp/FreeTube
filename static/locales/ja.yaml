@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}" 内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
   Load More Posts: もっと見る
   Empty Posts: 現在、登録しているチャンネルには動画はありません。
+  Posts:
+    RSS Message: YouTube は投稿の RSS フィードを提供していません。投稿を表示するには "{rssSetting}" 設定を無効にするか、このタブを非表示にするには "{hideSetting}" 設定を有効にしてください。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -830,6 +832,8 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': '残りのプレロール広告時間: {remindingTimeSeconds}秒'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': '残りのSABRバックオフ時間: {remindingTimeSeconds}秒'
   Private: 非公開動画は、Googleアカウントでのログインと動画の所有権が必要なため、FreeTubeでは視聴できません。
+  Collapse Playlist: プレイリストを折りたたむ
+  Expand Playlist: プレイリストを展開する
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
