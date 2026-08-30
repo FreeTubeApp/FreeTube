@@ -867,10 +867,10 @@ export async function getClipInvidious(clipId) {
   const parsedParams = ClipParams.decode(decodeURIComponent(Utils.base64ToU8(response.params)))
   return {
     videoId: response.videoId,
-    startTime: parsedParams.clipParamsData.startTime / 1000, // convert to seconds
-    endTime: parsedParams.clipParamsData.endTime / 1000, // convert to seconds
-    clipTitle: parsedParams.clipParamsData.clipTitle,
-    clipMetadata: parsedParams.clipParamsData.clipMetadata
+    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamData.clipTitle,
+    clipMetadata: parsedParams.clipParamData.clipMetadata
   }
 }
 
