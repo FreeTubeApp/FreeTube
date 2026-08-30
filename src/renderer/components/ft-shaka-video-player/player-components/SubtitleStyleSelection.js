@@ -209,7 +209,8 @@ export class SubtitleStyleSelection extends shaka.ui.SettingsMenu {
     const button = document.createElement('button')
     button.classList.add('shaka-back-to-overflow-button')
 
-    new shaka.ui.Icon(button, shaka.ui.Enums.MaterialDesignSVGIcons.BACK)
+    const icon = new shaka.ui.Icon(null, shaka.ui.Enums.MaterialDesignSVGIcons.BACK)
+    button.appendChild(icon.getSvgElement())
 
     button.appendChild(document.createElement('span'))
     return button
@@ -227,7 +228,7 @@ export class SubtitleStyleSelection extends shaka.ui.SettingsMenu {
 
   /**
    * @param {'main'|'size'|'position'} view
-   * @param {boolean=} focus
+   * @param {boolean} [focus=true]
    * @private
    */
   showMenuView_(view, focus = true) {
