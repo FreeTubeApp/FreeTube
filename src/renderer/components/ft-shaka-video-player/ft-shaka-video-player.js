@@ -33,6 +33,7 @@ import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { setupSabrScheme } from '../../helpers/player/SabrSchemePlugin'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
+/** @typedef {{ fontScaleFactor?: number, positionArea?: shaka.config.PositionArea }} CaptionStyleConfig */
 
 // The UTF-8 characters "h", "t", "t", and "p".
 const HTTP_IN_HEX = 0x68747470
@@ -214,6 +215,9 @@ export default defineComponent({
     const startInFullwindow = props.startInFullwindow
     let startInFullscreen = props.startInFullscreen
     let startInPip = props.startInPip
+
+    /** @type {CaptionStyleConfig|null} */
+    let activeCaptionStyleConfig = null
 
     /** @type {number|null} */
     let restoreCaptionIndex = null
@@ -601,7 +605,10 @@ export default defineComponent({
      * @returns {shaka.extern.PlayerConfiguration}
      */
     function getPlayerConfig(format, useAutoQuality = false) {
-      return {
+      const captionStyleConfig = activeCaptionStyleConfig ?? getSavedCaptionStyleConfig()
+
+      /** @type {shaka.extern.PlayerConfiguration} */
+      const playerConfig = {
         // YouTube uses these values and they seem to work well in FreeTube too,
         // so we might as well use them
         streaming: {
@@ -636,6 +643,89 @@ export default defineComponent({
         // So use the AV1 and h264 codecs instead which it doesn't reject
         preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : []
       }
+
+      if (Object.keys(captionStyleConfig).length > 0) {
+        playerConfig.textDisplayer = captionStyleConfig
+      }
+
+      return playerConfig
+    }
+
+    /**
+     * @returns {CaptionStyleConfig}
+     */
+    function getSavedCaptionStyleConfig() {
+      const { fontScaleFactor, positionArea } = getSavedCaptionSettings()
+      /** @type {CaptionStyleConfig} */
+      const captionStyleConfig = {}
+
+      if (typeof fontScaleFactor === 'number' && Number.isFinite(fontScaleFactor) && fontScaleFactor > 0) {
+        captionStyleConfig.fontScaleFactor = fontScaleFactor
+      }
+
+      if (Object.values(shaka.config.PositionArea).includes(positionArea)) {
+        captionStyleConfig.positionArea = positionArea
+      }
+
+      return captionStyleConfig
+    }
+
+    /**
+     * @returns {CaptionStyleConfig|null}
+     */
+    function getCaptionStyleConfig() {
+      if (!player) {
+        return null
+      }
+
+      const { fontScaleFactor, positionArea } = player.getConfiguration().textDisplayer
+
+      if (typeof fontScaleFactor !== 'number' || !Number.isFinite(fontScaleFactor) || fontScaleFactor <= 0 ||
+        !Object.values(shaka.config.PositionArea).includes(positionArea)) {
+        return null
+      }
+
+      return { fontScaleFactor, positionArea }
+    }
+
+    function saveCaptionStyleSettings() {
+      const captionStyleConfig = getCaptionStyleConfig()
+
+      if (!captionStyleConfig || captionStyleConfigsAreEqual(captionStyleConfig, activeCaptionStyleConfig)) {
+        return
+      }
+
+      activeCaptionStyleConfig = captionStyleConfig
+
+      store.dispatch('updateDefaultCaptionSettings', JSON.stringify({
+        ...getSavedCaptionSettings(),
+        ...captionStyleConfig
+      }))
+    }
+
+    /**
+     * @returns {Record<string, unknown>}
+     */
+    function getSavedCaptionSettings() {
+      try {
+        const captionSettings = JSON.parse(store.getters.getDefaultCaptionSettings)
+
+        if (typeof captionSettings === 'object' && captionSettings !== null && !Array.isArray(captionSettings)) {
+          return captionSettings
+        }
+      } catch { }
+
+      return {}
+    }
+
+    /**
+     * @param {CaptionStyleConfig|null} a
+     * @param {CaptionStyleConfig|null} b
+     * @returns {boolean}
+     */
+    function captionStyleConfigsAreEqual(a, b) {
+      return a?.fontScaleFactor === b?.fontScaleFactor &&
+        a?.positionArea === b?.positionArea
     }
 
     /**
@@ -823,6 +913,8 @@ export default defineComponent({
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
           'captions',
+          'captions-position',
+          'captions-size',
           'ft_audio_tracks',
           'chapter',
           'loop',
@@ -850,6 +942,8 @@ export default defineComponent({
         uiConfig.overflowMenuButtons.push(
           'ft_audio_tracks',
           'captions',
+          'captions-position',
+          'captions-size',
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'chapter',
@@ -912,7 +1006,11 @@ export default defineComponent({
         const firstTimeConfig = {
           addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
-          contextMenuElements: ['ft_stats'],
+          contextMenuElements: [
+            'captions-position',
+            'captions-size',
+            'ft_stats'
+          ],
           enableTooltips: true,
           seekBarColors: {
             // shaka-player's chapter markers only show up part of the time for the DASH and audio formats
@@ -944,6 +1042,7 @@ export default defineComponent({
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRates: playbackRates.value,
           tapSeekDistance: defaultSkipInterval.value,
+          captionsStyles: true,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -2775,6 +2874,8 @@ export default defineComponent({
       player.addEventListener('error', event => handleError(event.detail, 'shaka error handler'))
 
       player.configure(getPlayerConfig(props.format, defaultQuality.value === 'auto'))
+      activeCaptionStyleConfig = getCaptionStyleConfig()
+      player.addEventListener('configurationchanged', saveCaptionStyleSettings)
 
       if (process.env.SUPPORTS_LOCAL_API) {
         player.getNetworkingEngine().registerRequestFilter(requestFilter)
@@ -3225,6 +3326,8 @@ export default defineComponent({
       document.removeEventListener('keydown', keyboardShortcutHandler)
       document.removeEventListener('fullscreenchange', fullscreenChangeHandler)
 
+      player?.removeEventListener('configurationchanged', saveCaptionStyleSettings)
+
       if (containerResizeObserver) {
         containerResizeObserver.disconnect()
         containerResizeObserver = null
@@ -3283,6 +3386,8 @@ export default defineComponent({
       ignoreErrors = true
 
       let uiState = { startNextVideoInFullscreen: false, startNextVideoInFullwindow: false, startNextVideoInPip: false }
+
+      player?.removeEventListener('configurationchanged', saveCaptionStyleSettings)
 
       if (ui) {
         if (ui.getControls()) {
