@@ -9,6 +9,7 @@ import { FullWindowButton } from './player-components/FullWindowButton'
 import { LegacyQualitySelection } from './player-components/LegacyQualitySelection'
 import { ScreenshotButton } from './player-components/ScreenshotButton'
 import { StatsButton } from './player-components/StatsButton'
+import { SubtitleStyleSelection } from './player-components/SubtitleStyleSelection'
 import { TheatreModeButton } from './player-components/TheatreModeButton'
 import { AutoplayToggle } from './player-components/AutoplayToggle'
 import { SkipButton } from './player-components/SkipButton'
@@ -913,8 +914,7 @@ export default defineComponent({
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
           'captions',
-          'captions-position',
-          'captions-size',
+          'ft_subtitle_style',
           'ft_audio_tracks',
           'chapter',
           'loop',
@@ -942,8 +942,7 @@ export default defineComponent({
         uiConfig.overflowMenuButtons.push(
           'ft_audio_tracks',
           'captions',
-          'captions-position',
-          'captions-size',
+          'ft_subtitle_style',
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'chapter',
@@ -1007,8 +1006,7 @@ export default defineComponent({
           addSeekBar: seekingIsPossible.value,
           customContextMenu: true,
           contextMenuElements: [
-            'captions-position',
-            'captions-size',
+            'ft_subtitle_style',
             'ft_stats'
           ],
           enableTooltips: true,
@@ -2036,6 +2034,18 @@ export default defineComponent({
       shakaContextMenu.registerElement('ft_stats', new StatsButtonFactory())
     }
 
+    function registerSubtitleStyleSelection() {
+      /** @implements {shaka.extern.IUIElement.Factory} */
+      class SubtitleStyleSelectionFactory {
+        create(rootElement, controls) {
+          return new SubtitleStyleSelection(events, rootElement, controls)
+        }
+      }
+
+      shakaControls.registerElement('ft_subtitle_style', new SubtitleStyleSelectionFactory())
+      shakaOverflowMenu.registerElement('ft_subtitle_style', new SubtitleStyleSelectionFactory())
+    }
+
     function registerScreenshotButton() {
       events.addEventListener('takeScreenshot', () => {
         takeScreenshot()
@@ -2106,6 +2116,9 @@ export default defineComponent({
       shakaOverflowMenu.registerElement('ft_legacy_quality', null)
 
       shakaContextMenu.registerElement('ft_stats', null)
+
+      shakaControls.registerElement('ft_subtitle_style', null)
+      shakaOverflowMenu.registerElement('ft_subtitle_style', null)
 
       shakaControls.registerElement('ft_screenshot', null)
       shakaOverflowMenu.registerElement('ft_screenshot', null)
@@ -2900,6 +2913,7 @@ export default defineComponent({
       registerFullWindowButton()
       registerLegacyQualitySelection()
       registerStatsButton()
+      registerSubtitleStyleSelection()
       registerSkipButtons()
 
       if (ui.isMobile()) {
