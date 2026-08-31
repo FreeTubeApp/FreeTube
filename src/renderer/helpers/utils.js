@@ -1113,3 +1113,11 @@ export function throttle(func, wait) {
     }
   }
 }
+
+/**
+ * @param {number} number
+ * @returns {boolean}
+ */
+export function isNumberRounded(number) {
+  if (number % 1000 === 0) return true
+}

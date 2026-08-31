@@ -163,7 +163,7 @@
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
-          {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
+          {{ t('Global.Counts.View Count', { count: isNumberRounded(viewCount) ? formatNumber(viewCount, { notation: 'compact' }) : parsedViewCount }, viewCount) }}
         </span>
         <span
           v-if="uploadedTime !== '' && !isLive"
@@ -296,7 +296,8 @@ import {
   showToast,
   toDistractionFreeTitle,
   deepCopy,
-  debounce
+  debounce,
+  isNumberRounded
 } from '../../helpers/utils.js'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock.js'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
