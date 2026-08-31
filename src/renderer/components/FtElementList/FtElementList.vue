@@ -24,8 +24,8 @@
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
       :dragged-video="draggedVideo"
-      :is-sort-order-custom="isSortOrderCustom"
       :is-video-dragging="isVideoDragging"
+      :video-dragging-possible="videoDraggingPossible"
       @drag-video="dragVideo"
       @move-dragged-video="moveDraggedVideo"
       @drag-video-end="afterDrag"
@@ -121,11 +121,11 @@ const props = defineProps({
     type: Object,
     default: () => ({ videoId: null, playlistItemId: null }),
   },
-  isSortOrderCustom: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
-  isVideoDragging: {
+  videoDraggingPossible: {
     type: Boolean,
     default: false,
   },

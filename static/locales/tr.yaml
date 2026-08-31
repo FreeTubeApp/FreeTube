@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı sekmelerin gizliliğini kaldırın.
   Load More Posts: Daha Fazla Gönderi Yükle
   Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
+  Posts:
+    RSS Message: YouTube, gönderiler için RSS akışları sağlamaz. Gönderileri görüntülemek için "{rssSetting}" ayarını devre dışı bırakın veya bu sekmeyi gizlemek için "{hideSetting}" ayarını etkinleştirin.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -881,6 +883,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
   Popout Live Chat: Açılır Sohbet
   Private: Özel videolar, Google ile oturum açma ve videonun sahibi olma gerekliliği nedeniyle FreeTube'da izlenemez.
+  Collapse Playlist: Oynatma Listesini Daralt
+  Expand Playlist: Oynatma Listesini Genişlet
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -980,7 +984,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
     Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma tekerleğini kullanın.
   General Settings:
-    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
+    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği. Bu ayardaki değişiklikler, bu örneği öntanımlı olarak belirlemediğiniz sürece yalnızca geçerli pencereye uygulanır.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, varsayılan küçük resim yerine videonun bir karesiyle, bulanık veya gizli şekilde değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi yedek yöntem olarak kullanmaya çalışır.
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin. Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious sunucusu gerektirir.

@@ -11,6 +11,9 @@
     <div
       v-if="showGrabBar"
       class="grabBar"
+      :class="{
+        grabBarDisabled: !grabBarEnabled,
+      }"
     >
       <FontAwesomeIcon
         :icon="['fas', 'fa-bars']"
@@ -371,6 +374,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  grabBarEnabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
 const emit = defineEmits([
@@ -651,7 +658,7 @@ function handleOptionsClick(option) {
 
       if (playlistSharable.value) {
         // `index` seems can be ignored
-        videoUrl += `&list=${playlistIdFinal.value}`
+        videoUrl += `?list=${playlistIdFinal.value}`
       }
 
       copyToClipboard(videoUrl, { messageOnSuccess: t('Share.YouTube URL copied to clipboard') })

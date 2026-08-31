@@ -1,25 +1,42 @@
 <template>
-  <FtCard class="relative">
+  <FtCard
+    class="relative"
+    :class="{ isCollapsed }"
+  >
     <FtLoader
       v-if="isLoading"
     />
     <div
       v-else
     >
-      <h3
-        class="playlistTitle"
-        :title="playlistTitle"
-      >
-        <RouterLink
-          class="playlistTitleLink"
-          dir="auto"
-          :to="playlistPageLinkTo"
+      <div class="playlistHeader">
+        <h3
+          class="playlistTitle"
+          :title="playlistTitle"
         >
-          {{ playlistTitle }}
-        </RouterLink>
-      </h3>
+          <RouterLink
+            class="playlistTitleLink"
+            dir="auto"
+            :to="playlistPageLinkTo"
+          >
+            {{ playlistTitle }}
+          </RouterLink>
+        </h3>
+        <button
+          class="playlistButton playlistCollapseButton"
+          :aria-label="isCollapsed ? t('Video.Expand Playlist') : t('Video.Collapse Playlist')"
+          :aria-expanded="!isCollapsed"
+          :title="isCollapsed ? t('Video.Expand Playlist') : t('Video.Collapse Playlist')"
+          @click="toggleCollapse"
+        >
+          <FontAwesomeIcon
+            class="playlistIcon"
+            :icon="['fas', isCollapsed ? 'angle-down' : 'angle-up']"
+          />
+        </button>
+      </div>
       <template
-        v-if="channelName !== ''"
+        v-if="!isCollapsed && channelName !== ''"
       >
         <RouterLink
           v-if="channelId"
@@ -38,6 +55,7 @@
       </template>
       <span
         class="playlistIndex"
+        :class="{ isCollapsed }"
       >
         <label for="playlistProgressBar">
           {{ currentVideoIndexOneBased }} / {{ playlistVideoCount }}
@@ -45,7 +63,7 @@
 
         <!-- eslint-disable vuejs-accessibility/mouse-events-have-key-events, vuejs-accessibility/click-events-have-key-events -->
         <div
-          v-if="!shuffleEnabled && !reversePlaylist"
+          v-if="!isCollapsed && !shuffleEnabled && !reversePlaylist"
           class="playlistProgressBarContainer"
           @mouseenter="showProgressBarPreview = true"
           @mouseleave="showProgressBarPreview = false"
@@ -85,7 +103,10 @@
           </div>
         </div>
       </span>
-      <div class="playlistButtons">
+      <div
+        v-show="!isCollapsed"
+        class="playlistButtons"
+      >
         <button
           class="playlistButton"
           :class="{ playlistButtonActive: loopEnabled }"
@@ -128,6 +149,7 @@
       </div>
       <div
         v-if="!isLoading"
+        v-show="!isCollapsed"
         ref="playlistItemsWrapper"
         class="playlistItemsWrapper"
       >
@@ -174,7 +196,7 @@ import {
   parseLocalPlaylistVideo,
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
-import { invidiousGetPlaylistInfo } from '../../helpers/api/invidious'
+import { invidiousGetPlaylistInfo, fetchAllInvidiousPlaylistVideos } from '../../helpers/api/invidious'
 import { getSortedPlaylistItems, SORT_BY_VALUES } from '../../helpers/playlists'
 
 const props = defineProps({
@@ -206,6 +228,7 @@ const { locale, t } = useI18n()
 const router = useRouter()
 
 const isLoading = ref(false)
+const isCollapsed = ref(false)
 const shuffleEnabled = ref(false)
 const loopEnabled = ref(false)
 const reversePlaylist = ref(false)
@@ -218,7 +241,8 @@ const showProgressBarPreview = ref(false)
 const previewPosition = ref(0)
 const previewVideoIndex = ref(1)
 const windowWidth = ref(window.innerWidth)
-
+let savedScrollTop = 0
+let lastScrolledVideoId = null
 let prevVideoBeforeDeletion = null
 let getPlaylistInfoRun = false
 
@@ -334,6 +358,10 @@ watch(selectedUserPlaylistLastUpdatedAt, () => {
 })
 
 watch(() => props.videoId, (newId, oldId) => {
+  if (!isCollapsed.value) {
+    nextTick(scrollToCurrentVideo)
+  }
+
   // Check if next video is from the shuffled list or if the user clicked a different video
   if (shuffleEnabled.value) {
     const newVideoIndex = randomizedPlaylistItems.value.findIndex((item) => {
@@ -447,6 +475,33 @@ function getPlaylistInfoWithDelay() {
   } else {
     getPlaylistInformationLocal()
   }
+}
+
+function saveScrollState() {
+  if (playlistItemsWrapper.value) {
+    savedScrollTop = playlistItemsWrapper.value.scrollTop
+    lastScrolledVideoId = props.videoId
+  }
+}
+
+function restoreScrollState() {
+  if (lastScrolledVideoId !== props.videoId) {
+    scrollToCurrentVideo()
+  } else if (playlistItemsWrapper.value) {
+    playlistItemsWrapper.value.scrollTop = savedScrollTop
+  }
+}
+
+watch(isCollapsed, (collapsed) => {
+  if (collapsed) {
+    saveScrollState()
+  } else {
+    nextTick(restoreScrollState)
+  }
+})
+
+function toggleCollapse() {
+  isCollapsed.value = !isCollapsed.value
 }
 
 function toggleLoop() {
@@ -581,20 +636,22 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
   channelName.value = cachedPlaylist.channelName
   channelId.value = cachedPlaylist.channelId
 
-  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious' || cachedPlaylist.continuationData === null) {
-    playlistItems.value = cachedPlaylist.items
-  } else {
-    const videos = cachedPlaylist.items
-
+  const videos = cachedPlaylist.items
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+    const videoCount = cachedPlaylist.videoCount
+    if (videos.length < videoCount) {
+      const remainingVideos = await fetchAllInvidiousPlaylistVideos(cachedPlaylist.id, videos.length)
+      videos.push(...remainingVideos)
+    }
+  } else if (cachedPlaylist.continuationData !== null) {
     const continuationData = await getLocalCachedFeedContinuation('playlist', cachedPlaylist.continuationData)
     videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
 
     await untilEndOfLocalPlayList(continuationData, (p) => {
       videos.push(...p.items.map(parseLocalPlaylistVideo))
     }, { runCallbackOnceFirst: false })
-
-    playlistItems.value = videos
   }
+  playlistItems.value = videos
 
   isLoading.value = false
 }
@@ -653,7 +710,11 @@ async function getPlaylistInformationInvidious() {
     channelName.value = result.author
     channelId.value = result.authorId
 
-    playlistItems.value = result.videos
+    const videos = result.videos
+    const remainingVideos = await fetchAllInvidiousPlaylistVideos(result.playlistId, videos.length)
+    videos.push(...remainingVideos)
+
+    playlistItems.value = videos
 
     isLoading.value = false
   } catch (err) {
@@ -735,6 +796,7 @@ function scrollToVideo(index) {
 }
 
 function scrollToCurrentVideo() {
+  if (isCollapsed.value) return
   scrollToVideo(currentVideoIndexZeroBased.value)
 }
 

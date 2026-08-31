@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
     Like Count: 1 curtida | {count} curtidas
     Comment Count: 1 comentário | {count} comentários
+    Replies Remaining: "{' '}(1 restante) | {' '}({count} restantes)"
 Search / Go to URL: 'Buscar ou digite um URL'
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
+  Posts:
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desative a configuração "{rssSetting}" para visualizar as postagens ou ative a configuração "{hideSetting}" para ocultar esta aba.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -830,6 +833,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo restante de espera do SABR: {remindingTimeSeconds}s'
   Popout Live Chat: Chat flutuante
   Private: Vídeos privados não podem ser assistidos no FreeTube, pois exigem login do Google e propriedade do vídeo.
+  Collapse Playlist: Recolher playlist
+  Expand Playlist: Expandir playlist
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
@@ -973,7 +978,7 @@ Tooltips:
     Skip by Scrolling Over Video Player: Use o botão de rolagem do mouse para avançar ou retroceder o vídeo, estilo MPV.
   General Settings:
     Region for Trending: A região de tendências permite que você escolha os vídeos em alta do país que deseja exibir.
-    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para chamadas de API.
+    Invidious Instance: A instância Invidious à qual o FreeTube se conectará para chamadas de API. As alterações nesta configuração aplicam-se apenas à janela atual, a menos que você defina esta instância como padrão.
     Thumbnail Preference: Todas as miniaturas no FreeTube serão substituídas por um quadro do vídeo, desfocado ou oculto, em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando sua API preferida tiver um problema, o FreeTube tentará automaticamente usar sua API não preferencial como método alternativo quando habilitada.
     Preferred API Backend: Escolha o mecanismo de processamento que o FreeTube usa para obter os dados. A API local é um extrator integrado. A API Invidious requer um servidor Invidious para se conectar.

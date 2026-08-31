@@ -132,6 +132,8 @@ Subscriptions:
   Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
+  Posts:
+    RSS Message: YouTube does not provide RSS feeds for posts. Disable the "{rssSetting}" setting to view posts or enable the "{hideSetting}" setting to hide this tab.
 More: More
 Channels:
   Channels: Channels
@@ -875,6 +877,8 @@ Video:
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
   Reverse Playlist: Reverse Playlist
+  Collapse Playlist: Collapse Playlist
+  Expand Playlist: Expand Playlist
   Previous: Previous
   Next: Next
   Watched: Watched

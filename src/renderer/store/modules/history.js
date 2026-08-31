@@ -101,6 +101,24 @@ const actions = {
       console.error(errMessage)
     }
   },
+
+  async unsetLastViewedPlaylistForVideos({ commit }, { videoIds, lastViewedPlaylistId }) {
+    try {
+      await DBHistoryHandlers.unsetLastViewedPlaylistForVideos(videoIds, lastViewedPlaylistId)
+      commit('unsetRecordsLastViewedPlaylistIdInHistoryCache', { videoIds, lastViewedPlaylistId })
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  async unsetLastViewedPlaylists({ commit }, lastViewedPlaylistIds) {
+    try {
+      await DBHistoryHandlers.unsetLastViewedPlaylists(lastViewedPlaylistIds)
+      commit('unsetRecordsLastViewedPlaylistIdsInHistoryCache', lastViewedPlaylistIds)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
 }
 
 const mutations = {
@@ -150,6 +168,35 @@ const mutations = {
       record.lastViewedPlaylistId = lastViewedPlaylistId
       record.lastViewedPlaylistType = lastViewedPlaylistType
       record.lastViewedPlaylistItemId = lastViewedPlaylistItemId
+    }
+  },
+
+  unsetRecordsLastViewedPlaylistIdInHistoryCache(state, { videoIds, lastViewedPlaylistId }) {
+    for (const videoId of videoIds) {
+      // historyCacheById and historyCacheSorted reference the same object instances,
+      // so modifying an existing object in one of them will update both.
+
+      const record = state.historyCacheById[videoId]
+
+      // Don't unset if the item was removed from the watch history or if the last viewed playlist does not match
+      if (record && record.lastViewedPlaylistId === lastViewedPlaylistId) {
+        delete record.lastViewedPlaylistId
+        delete record.lastViewedPlaylistType
+        delete record.lastViewedPlaylistItemId
+      }
+    }
+  },
+
+  unsetRecordsLastViewedPlaylistIdsInHistoryCache(state, playlistIds) {
+    const playlistIdSet = new Set(playlistIds)
+
+    for (const record of state.historyCacheSorted) {
+      // Don't unset if the item was removed from the watch history or if the last viewed playlist does not match
+      if (record && playlistIdSet.has(record.lastViewedPlaylistId)) {
+        delete record.lastViewedPlaylistId
+        delete record.lastViewedPlaylistType
+        delete record.lastViewedPlaylistItemId
+      }
     }
   },
 

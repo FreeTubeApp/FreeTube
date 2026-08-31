@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“ v „{settingsSection}“.
   Load More Posts: Načíst další příspěvky
   Empty Posts: Vaše odebírané kanály momentálně nemají žádné příspěvky.
+  Posts:
+    RSS Message: YouTube neposkytuje RSS kanály příspěvků. Zakažte nastavení „{rssSetting}“ pro zobrazení příspěvků nebo povolte nastavení „{hideSetting}“ pro skrytí této karty.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -881,6 +883,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zbývající čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Vyskakovací chat
   Private: Soukromá videa nelze sledovat v aplikaci FreeTube, jelikož vyžadují přihlášení k účtu Google a vlastnictví videa.
+  Collapse Playlist: Sbalit playlist
+  Expand Playlist: Rozbalit playlist
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
