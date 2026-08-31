@@ -34,6 +34,7 @@ Global:
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
+    Replies Remaining: "{' '}(zostáva 1) | {' '}(zostáva {count})"
   Live: Naživo
   Posts: Príspevky
   Shorts: Krátke
@@ -97,6 +98,8 @@ Subscriptions:
   Error Channels: Kanály s chybami
   Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
   Disabled Automatic Fetching: Vypli ste automatické načítanie odberov. Obnovte odbery, aby ste ich tu videli.
+  Posts:
+    RSS Message: YouTube neposkytuje RSS kanály pre príspevky. Ak chcete zobraziť príspevky, deaktivujte nastavenie „{rssSetting}“; ak chcete túto kartu skryť, aktivujte nastavenie „{hideSetting}“.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Karty trendov
@@ -827,6 +830,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Vyskakovací chat
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
+  Collapse Playlist: Zbaliť playlist
+  Expand Playlist: Rozbaliť playlist
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -885,7 +890,7 @@ Comments:
   Newest first: Najnovšie prvé
   Top comments: Najlepšie komentáre
   Pinned by: Pripnuté od
-  Show More Replies: Zobraziť viac odpovedí
+  Show More Replies: Zobraziť ďalšie odpovede
   Hearted: Obľúbené
   Subscribed: Odoberané
   Member: Člen
@@ -926,7 +931,7 @@ Tooltips:
     Skip by Scrolling Over Video Player: Použite koliesko myši na preskakovanie cez video v štýle MPV.
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si krajinu pre trendové videá, ktoré chcete zobraziť.
-    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí pre volania API.
+    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí na účely volania API. Zmeny tohto nastavenia sa vzťahujú len na aktuálne okno, pokiaľ túto inštanciu nenastavíte ako predvolenú.
     Thumbnail Preference: Všetky náhľady vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzieho náhľadu.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
