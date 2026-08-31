@@ -1992,13 +1992,13 @@ export default defineComponent({
     },
 
     async onManualReloadReloadRequested() {
-      await this.reloadPlayer()
+      await this.saveWatchProgressForReload()
       await this.reloadView()
     },
 
     async onSabrReloadRequested() {
       showToast('Reloading player according to SABR request')
-      await this.reloadPlayer()
+      await this.saveWatchProgressForReload()
       await this.reloadView()
     },
 
