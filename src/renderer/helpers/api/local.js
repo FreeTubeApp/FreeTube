@@ -1826,6 +1826,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
     case 'SHORT':
     case 'STATION':
     case 'VIDEO': {
+      const isStation = lockupView.content_type === 'STATION'
       let publishedText
       let lengthSeconds = ''
       let liveNow = false
@@ -1919,6 +1920,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         lengthSeconds,
         liveNow,
         isUpcoming,
+        isStation,
         premiereDate
       }
     }
