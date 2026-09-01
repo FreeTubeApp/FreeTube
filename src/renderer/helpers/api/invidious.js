@@ -864,7 +864,7 @@ export async function getHashtagInvidious(hashtag, page = 1) {
 export async function getClipInvidious(clipId) {
   const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
 
-  const parsedParams = ClipParams.decode(decodeURIComponent(Utils.base64ToU8(response.params)))
+  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(response.params)))
   return {
     videoId: response.videoId,
     startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
