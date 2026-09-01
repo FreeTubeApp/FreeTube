@@ -65,7 +65,12 @@
               {{ (tag.preferredName) ? tag.preferredName : tag.name }}
             </bdi>
           </template>
-          <bdi v-else>{{ tag }}</bdi>
+          <bdi
+            v-else
+            class="name"
+          >
+            {{ tag }}
+          </bdi>
           <button
             v-if="!disabled"
             class="removeTagButton"
