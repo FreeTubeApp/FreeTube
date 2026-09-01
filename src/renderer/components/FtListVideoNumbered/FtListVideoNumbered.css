@@ -17,6 +17,7 @@
 }
 
 .videoIndexArea {
+  min-inline-size: 30px;
   color: var(--tertiary-text-color);
   text-align: center;
   user-select: none;
