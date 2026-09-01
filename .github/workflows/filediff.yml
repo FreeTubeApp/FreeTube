@@ -12,7 +12,8 @@ jobs:
 
     permissions:
       contents: read
-      pull_requests: write
+      issues: write
+      pull-requests: write
       repository-projects: read
 
     steps:
