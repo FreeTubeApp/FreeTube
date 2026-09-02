@@ -34,7 +34,7 @@ Global:
     Channel Count: 1 kanal | {count} kanalar
     Subscriber Count: 1 abonnent | {count} abonnentar
     View Count: 1 visning | {count} visningar
-  Shorts: Shorts-videoer
+  Shorts: Shorts-videoar
   Live: Direkte
   Posts: Innlegg
   Sort By: 'Sorter etter'
@@ -48,6 +48,8 @@ Search Filters:
   Search Filters: 'Søkefilter'
   Prioritize:
     Most Relevant: 'Mest relevant'
+    Prioritize: Prioriter
+    Popularity: Popularitet
   Time:
     Time: 'Tid'
     Any Time: 'Når som helst'
@@ -61,17 +63,32 @@ Search Filters:
     Videos: 'Videoar'
     Channels: 'Kanalar'
     #& Playlists
+    Movies: Filmar
   Duration:
-    Duration: 'Varigheit'
-    All Durations: 'Alle varigheitene'
+    Duration: 'Lengd'
+    All Durations: 'Alle lengder'
     '< 3 minutes': '< 3 minutt'
     '> 20 minutes': '> 20 minutt'
   # On Search Page
+    '3 - 20 minutes': 3 - 20 minutt
   Search Results: 'Søkeresultat'
   Fetching results. Please wait: 'Henter resultat. Ver venleg og vent'
   Fetch more results: 'Hent fleire resultat'
   There are no more results for this search: 'Det er inga fleire resultat for dette søket'
 # Sidebar
+  Features:
+    Features: Funksjonar
+    HD: HD
+    Subtitles: Undertekstar
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: Direkte
+    4K: 4K
+    360 Video: 360 video
+    Location: Stad
+    HDR: HDR
+    VR180: VR180
+  Clear Filters: Tøm filter
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
@@ -81,17 +98,42 @@ Subscriptions:
   Error Channels: Kanalar med feil
   Disabled Automatic Fetching: Du har deaktivert automatisk henting av abonnement. Oppdater abonnement for å sjå dei her.
   Empty Channels: Kanalane du abonnerer på har ingen videoar for augeblikket.
+  Empty Posts: Kanalane du abonnerer på har ingen innlegg for augeblinken.
+  Load More Posts: Last inn fleire innlegg
 Trending:
   Trending: 'På veg opp'
   Trending Tabs: På veg opp
   Gaming: Dataspel
   Sports: Sport
 Most Popular: 'Mest populært'
-Playlists: 'Spelelister'
+Playlists: 'Spelelistar'
 User Playlists:
-  Your Playlists: 'Dine spelelister'
-  Search bar placeholder: Søk i speleliste
+  Your Playlists: 'Dine spelelistar'
+  Search bar placeholder: Søk etter spelelistar
   Empty Search Message: Det er ingen videoar i denne spelelista som samsvarar med søket ditt
+  You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen spelelistar. Klikk på "lag ny speleliste"-knappen for å opprette ei ny liste.
+  Playlists with Matching Videos: Spelelistar med samsvarande videoar
+  This playlist currently has no videos.: Denne spelelista inneheld ingen videoar.
+  Create New Playlist: Lag ny speleliste
+  Add to Playlist: Legg til i speleliste
+  Add to Favorites: Legg til i {playlistName}
+  Remove from Favorites: Fjerna frå {playlistName}
+  Move Video to the Top: Flytt videoen øvst
+  Move Video to the Bottom: Flytt videoen nedst
+  Move Video Up: Flytt videoen opp
+  Move Video Down: Flytt videoen ned
+  Remove from Playlist: Fjerna frå spelelista
+  Playlist Name: Namn på spelelista
+  Playlist Description: Skildring av spelelista
+  Save Changes: Lagre endringar
+  Cancel: Avbryt
+  Edit Playlist Info: Endra speleliste-info
+  Copy Playlist: Kopier spelelista
+  Remove Duplicate Videos: Fjerna mangfalde videoar
+  Remove Watched Videos: Fjerna skoda videoar
+  Delete Playlist: Slett spelelista
+  Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Vil du visseleg fjerna 1 mangfalda video frå denne spelelista? Dette kan ikkje angrast. | Vil du visseleg fjerna {playlistItemCount} mangdfalda videoar frå denne spelelista? Dette kan ikkje angrast.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Vil du visseleg fjerna 1 skoda video frå denne spelelista? Dette kan ikkje angrast. | Vil du visseleg fjerna {playlistItemCount} skoda videoar frå denne spelelista? Dette kan ikkje angrast.
 History:
   # On History Page
   History: 'Historikk'
@@ -624,6 +666,7 @@ More: Meir
 Open New Window: Opne nytt vindauge
 Search Bar:
   Clear Input: Tøm inndata
+  Remove: Fjerna
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
 New Window: Nytt vindauge
 Preferences: Innstillingar
@@ -654,8 +697,15 @@ Search Listing:
     4K: 4K
     Subtitles: Undertekstar
     Closed Captions: Undertekstar
+    VR180: VR180
+    360 Video: 360°
 KeyboardShortcutPrompt:
   Toggle Developer Tools: Veksle utviklarverktøy
   Zoom Out: Forminsk
   Zoom In: Forstørr
   Fullscreen: Veksle fullskjerm
+Close Banner: Lukk banner
+Search character limit: Søket overstig teikngrensa på {searchCharacterLimit}
+Feed:
+  Feed Last Updated: '{feedName}straum sist oppdatert: {date}'
+  Refresh Feed: Oppfrisk {subscriptionName}

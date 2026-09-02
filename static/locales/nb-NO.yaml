@@ -41,6 +41,7 @@ Global:
     Video Count: 1 video | {count} videoer
     View Count: 1 visning | {count} visninger
     Like Count: 1 liker | {count} liker
+    Replies Remaining: "{' '}(1 gjenstår) | {' '}({count} gjenstående)"
 Search / Go to URL: 'Søk / gå til nettadresse'
   # In Filter Button
 Search Filters:
@@ -100,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhold her, opphev skjuling av noen faner i «{subsection}»-delen av «{settingsSection}».
   Empty Posts: Kanalene du abonnerer på, har ikke noen innlegg for øyeblikket.
   Load More Posts: Last inn flere poster
+  Posts:
+    RSS Message: YouTube tilbyr ikke RSS-feeder for innlegg. Deaktiver innstillingen"{rssSetting}" for å se innlegg, eller aktiver innstillingen "{hideSetting}" for å skjule denne fanen.
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -412,6 +415,7 @@ Settings:
       Modes:
         Ask Path: Spør om hvor ting skal lagres
         Save To Folder: Lagre i mappe
+        Clipboard: Kopier til utklippstavlen
       File Name Tooltip: Du kan bruke variablene nedenfor. %Y år, i 4 siffer. %M måned, i 2 siffer. %D dag, i to siffer. %H time, i to siffer. %N minutt, i to siffer. %s sekund, i to siffer. %T millisekunder, i tre siffer. %s videosekund. %t videomillisekunder, i tre siffer. %i video-ID.
       Mode: Skjermbildemodus
     Max Video Playback Rate: Maksimal hastighet for videoavspilling
@@ -426,6 +430,8 @@ Settings:
       Picture in Picture: Bilde-i-bilde
       External Player: Ekstern avspiller ({externalPlayerName})
       Full Screen (Always On): Fullskjerm (Alltid på)
+      Full Window (Always On): Maksimert vindu (alltid på)
+      Tooltip: De fleste standardvisningsmoduser brukes bare ved starten av hver seerøkt. Endringer som gjøres i løpet av økten, varer til den slutter. Alltid på-visningsmoduser brukes hver gang du bytter til en ny video, uavhengig av eventuelle endringer i visningsmodus som ble gjort da du så på den forrige videoen.
     Autoplay Interruption Timer: Automatisk avspilling avbruddstidtaker
   Privacy Settings:
     Privacy Settings: 'Personvern'
@@ -502,6 +508,15 @@ Settings:
     Export search history: Eksporter søkshistorikk
     All search history has been successfully imported: Søkshistorikken har blitt importert
     All search history has been successfully exported: Søkshistorikken har blitt eksportert
+    Settings File: Innstillingsfil
+    Import Settings: Importer innstillinger
+    Export Settings: Eksporter innstillinger
+    Settings Tooltip: Innstillinger som er OS-/brukerspesifikke eller eksperimentelle kan ikke eksporteres eller importeres (f.eks. proxy, ekstern avspiller, skjermbildemappe...)
+    All settings have been successfully imported: Alle innstillinger er importert
+    All settings have been successfully exported: Alle innstillinger er eksportert
+    Setting object has insufficient data, skipping item: Innstillingsobjektet har utilstrekkelige data, hopper over komponenten
+    Unknown setting key: 'Ukjent innstillingsnøkkel: {key}'
+    Non-transferable setting key: 'Uoverførbar innstillingsnøkkel: {key}'
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for å sende en forespørsel til
@@ -599,6 +614,7 @@ Settings:
     Show Family Friendly Only: Vis kun familievennlig innhold
     Hide Unsubscribe Button: Skjul knapp for opphevelse av abonnement
     Hide Uploader on Watch page: Skjul opplasteren på visningssiden
+    Disable Channel Links: Deaktiver kanallenker
   Experimental Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
@@ -702,6 +718,7 @@ Channel:
   Courses:
     Courses: Kurs
     This channel does not currently have any courses: Denne kanalen har ingen kurs
+  View All: Vis alt
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -818,6 +835,9 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tid før reklamen før videoen kan hoppes over: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tid før en SABR-strømmen blir tilgjengelig: {remindingTimeSeconds}s'
+  Private: Private videoer kan ikke sees i FreeTube, da de krever Google-innlogging og eierskap over videoen.
+  Collapse Playlist: Minske spilleliste
+  Expand Playlist: Utvid spilleliste
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
@@ -885,6 +905,7 @@ Comments:
   Hide Replies: Skjul svar
   View 1 reply from {channelName}: Vis 1 svar fra {channelName}
   View {replyCount} replies from {channelName} and others: Vis {replyCount} svar fra {channelName} og andre
+  Loading replies: Laster inn svar...
 Up Next: 'Neste'
 
 # Toast Messages
@@ -947,7 +968,7 @@ Profile:
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger i landet ditt.
 Tooltips:
   General Settings:
-    Invidious Instance: Invidious-forekomsten FreeTube kobler til for API-kall.
+    Invidious Instance: Invidious-forekomsten som FreeTube kobler seg til for API-påkalling. Endringer i denne innstillingen gjelder bare for gjeldende vindu med mindre du angir denne forekomsten som standard.
     Thumbnail Preference: Alle miniatyrbilder i FreeTube vil bli erstattet av et enkeltbilde fra videoen som har blitt skjult eller blurret, i stedet for standard miniatyrbildet.
     Fallback to Non-Preferred Backend on Failure: Når ditt foretrukne API har et problem, vil FreeTube automatisk prøve å bruke ditt ikke-foretrukne API som en reservemetode dersom det er aktivert.
     Region for Trending: Trendregionen lar deg enkelt velge hvilket lands populære videoer du ønsker å se.
@@ -1115,3 +1136,5 @@ Tag already exists: «{tagName}»-taggen eksisterer allerede
 Trimmed input must be at least N characters long: Trimmet input må være minst ett tegn langt | Trimmet input må være minst {length} tegn langt
 Compact side navigation: Kompakt sidenavigasjon
 Expand side navigation: Utvid sidenavigasjon
+Screenshot Clipboard Success: Lagret skjermbilde til utklippstavlen
+Screenshot Clipboard Error: Kopiering av skjermbilde til utklippstavlen mislyktes
