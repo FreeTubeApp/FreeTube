@@ -134,6 +134,24 @@ User Playlists:
   Delete Playlist: Slett spelelista
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Vil du visseleg fjerna 1 mangfalda video frå denne spelelista? Dette kan ikkje angrast. | Vil du visseleg fjerna {playlistItemCount} mangdfalda videoar frå denne spelelista? Dette kan ikkje angrast.
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Vil du visseleg fjerna 1 skoda video frå denne spelelista? Dette kan ikkje angrast. | Vil du visseleg fjerna {playlistItemCount} skoda videoar frå denne spelelista? Dette kan ikkje angrast.
+  TotalTimePlaylist: 'Samla lengd: {duration}'
+  Sort By:
+    NameAscending: A-Z
+    NameDescending: Z-A
+    LatestCreatedFirst: Dato oppretta (nyaste)
+    EarliestCreatedFirst: Dato oppretta (eldste)
+    LatestUpdatedFirst: Dato oppdatert (nyaste)
+    EarliestUpdatedFirst: Dato oppdatert (eldste)
+    LatestPlayedFirst: Dato avspelt (nyaste)
+    EarliestPlayedFirst: Dato avspelt (eldste)
+  SinglePlaylistView:
+    Search for Videos: Søk etter videoar
+    Toast:
+      This video cannot be moved up.: Denne videoen kan ikkje flyttast opp.
+      This video cannot be moved down.: Denne videoen kan ikkje flyttast ned.
+      Video has been removed: Videoen er fjerna
+      Video has been removed. Click here to undo.: Videoen er fjerna. Klik her for å angra.
+      There was a problem with removing this video: Det oppstod eit problem med å fjerna denne videoen
 History:
   # On History Page
   History: 'Historikk'
