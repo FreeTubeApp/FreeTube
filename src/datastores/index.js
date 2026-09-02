@@ -1,4 +1,5 @@
 import Datastore from '@seald-io/nedb'
+import { DATABASES_CONFIG_FILE } from '../constants'
 
 let dbPath = null
 
@@ -6,9 +7,9 @@ if (process.env.IS_ELECTRON_MAIN) {
   const { app } = require('electron')
   const { join } = require('path')
   // this code only runs in the electron main process, so hopefully using sync fs code here should be fine 😬
-  const { statSync, realpathSync, existsSync, readFileSync } = require('fs')
+  const { statSync, realpathSync, existsSync, readFileSync, writeFileSync } = require('fs')
   const userDataPath = app.getPath('userData') // This is based on the user's OS
-  const configPath = join(userDataPath, 'freetube-config.json')
+  const configPath = join(userDataPath, DATABASES_CONFIG_FILE)
 
   let dbsPath = userDataPath
 
@@ -19,7 +20,15 @@ if (process.env.IS_ELECTRON_MAIN) {
       if (typeof config.databasesPath === 'string' && config.databasesPath.length > 0 && existsSync(config.databasesPath)) {
         dbsPath = config.databasesPath
       }
-    } catch(error) { console.error('Unable to load Freetube databases path: ', error) }
+    } catch (error) { console.error('Unable to load Freetube databases path: ', error) }
+  } else {
+    try {
+      const databasesPathData =
+        {
+          databasesPath: userDataPath
+        }
+      writeFileSync(configPath, JSON.stringify(databasesPathData, null, 2))
+    } catch (error) { console.error('Unable to create databases config file: ', error) }
   }
 
   dbPath = (dbName) => {
