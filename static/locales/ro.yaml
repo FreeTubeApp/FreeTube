@@ -39,6 +39,7 @@ Global:
     Watching Count: 1 se uită | {count} se uită
     Comment Count: 1 comentariu | {count} comentarii
     Like Count: 1 apreciere | {count} aprecieri
+    Replies Remaining: "{' '}(1 rămas) | {' '}({count} rămase)"
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber} este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
 
