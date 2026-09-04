@@ -92,6 +92,8 @@ Subscriptions:
   Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
   Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir elan yoxdur.
   Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri burada görmək üçün yeniləyin.
+  Posts:
+    RSS Message: YouTube postlar üçün RSS axınları təqdim etmir. Postlara baxmaq üçün "{rssSetting}" seçimin qapadın və ya bu paneli gizlətmək üçün "{hideSetting}" seçimin aktivləşdirin.
 More: 'Daha çox'
 Trending:
   Trending: 'Trenddədir'
@@ -508,6 +510,25 @@ Settings:
     Hide Channel Releases: Kanal "Buraxılışlar" Panelini Gizlət
     Hide Channel Courses: Kanal "Kurslar" Panelini Gizlət
     Hide Videos, Playlists and Channels Containing Text: Mətn Olan Videoları, Pleylistləri və Kanalları Gizlət
+    Hide Channels API Error: Təqdim edilən ID üzrə istifadəçini geri almaq olmadı. Xahiş olunur, ID-nin doğru olduğunu təkrar yoxlayın.
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Söz, Söz Hissəsi və ya İfadə
+    Hide Subscriptions Videos: Abunəlik Videolarını Gizlət
+    Hide Subscriptions Shorts: Abunəliklər Shorts-ları Gizlət
+    Hide Subscriptions Live: Abunəliklər Canlı Yayımı Gizlət
+  Data Settings:
+    Data Settings: Məlumatlar
+    Select Export Type: Köçürmə Növünü Seç
+    Import Subscriptions: Abunəlikləri İdxal Et
+    Subscription File: Abunəlik Faylı
+    History File: Tarixçə Faylı
+    Playlist File: Pleylist Faylı
+    Search history file: Axtarış tarixçəsi faylı
+    Settings File: Tənzimləmələr Faylı
+    Export Subscriptions: Abunəlikləri İxrac Et
+    Export FreeTube: FreeTube-u İxrac et
+    Export YouTube: YouTube-u İxrac et
+    Export NewPipe: NewPipe-ı İxrac et
+    Import History: Tarixçəni İdxal et
 Channel:
   Videos:
     Videos: Videolar
@@ -526,6 +547,7 @@ Global:
     Channel Count: 1 kanal | {count} kanal
     Like Count: 1 bəyənmə | {count} bəyənmə
     Comment Count: 1 şərh | {count} şərh
+    Replies Remaining: "{' '}(1 qaldı) | {' '}({count} qaldı)"
   Videos: Videolar
   Live: Canlı
   Posts: Elanlar
