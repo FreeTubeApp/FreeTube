@@ -82,7 +82,7 @@
     "@stylistic/eslint-plugin": "^5.10.0",
     "babel-loader": "^10.1.1",
     "copy-webpack-plugin": "^14.0.0",
-    "css-loader": "^7.1.4",
+    "css-loader": "^7.1.5",
     "css-minimizer-webpack-plugin": "^8.0.0",
     "electron": "^43.4.0",
     "electron-builder": "^26.15.7",
@@ -105,7 +105,7 @@
     "postcss": "^8.5.26",
     "postcss-scss": "^4.0.9",
     "sass": "^1.103.1",
-    "sass-loader": "^17.0.0",
+    "sass-loader": "^17.0.1",
     "stylelint": "^17.14.1",
     "stylelint-config-sass-guidelines": "^13.0.0",
     "stylelint-config-standard": "^40.0.0",
@@ -114,8 +114,8 @@
     "terser": "^5.50.0",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.109.2",
-    "webpack-cli": "^7.2.2",
+    "webpack": "^5.110.2",
+    "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^6.0.0"
   }
 }
