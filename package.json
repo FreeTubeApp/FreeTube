@@ -111,7 +111,7 @@
     "stylelint-config-standard": "^40.0.0",
     "stylelint-high-performance-animation": "^2.0.0",
     "stylelint-use-logical-spec": "^5.0.1",
-    "terser": "^5.50.0",
+    "terser": "^5.51.2",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
     "webpack": "^5.110.2",
