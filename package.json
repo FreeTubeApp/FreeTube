@@ -66,7 +66,7 @@
     "shaka-player": "^5.1.12",
     "swiper": "^14.1.0",
     "vue": "^3.5.41",
-    "vue-i18n": "^11.4.9",
+    "vue-i18n": "^11.4.10",
     "vue-observe-visibility": "^2.0.0-alpha.1",
     "vue-router": "^5.2.0",
     "vuex": "^4.1.0",
