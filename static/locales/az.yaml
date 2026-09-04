@@ -529,6 +529,48 @@ Settings:
     Export YouTube: YouTube-u İxrac et
     Export NewPipe: NewPipe-ı İxrac et
     Import History: Tarixçəni İdxal et
+    Export History: Tarixçəni İxrac Et
+    Import Playlists: Pleylistləri İdxal Et
+    Export Playlists: Pleylistləri İxrac Et
+    Search history: Axtarış tarixçəsi
+    Import search history: Axtarış tarixçəsini idxal et
+    Export search history: Axtarış tarixçəsini ixrac et
+    Import Settings: Tənzimləmələri İdxal Et
+    Export Settings: Tənzimləmələri Köçür
+    Settings Tooltip: 'Əməliyyat sisteminə/istifadəçiyə xas olan və ya təcrübi tənzimləmələr ixrac və ya idxal edilə bilməz (məsələn: proksi, xarici oynadıcı, ekran görüntüsü qovluğu...)'
+    Profile object has insufficient data, skipping item: Profil obyektində kifayət qədər məlumat yoxdur, element ötürülür
+    All subscriptions and profiles have been successfully imported: Bütün abunəliklər və profillər uğurla idxal edildi
+    All subscriptions have been successfully imported: Bütün abunəliklər uğurla idxal edildi
+    Invalid subscriptions file: Etibarsız abunəlik faylı
+    Invalid history file: Etibarsız tarixçə faylı
+    Subscriptions have been successfully exported: Abunəliklər uğurla ixrac edildi
+    History object has insufficient data, skipping item: Tarixçə obyektində kifayət qədər məlumat yoxdur, element ötürülür
+    All watched history has been successfully imported: Bütün izlənilən tarixçə uğurla idxal edildi
+    All watched history has been successfully exported: Bütün izlənilən tarixçə uğurla ixrac edildi
+    Playlist insufficient data: '"{playlist}" pleylisti üçün məlumat kifayət deyil, element ötürülür'
+    All playlists has been successfully imported: Bütün pleylistlər uğurla idxal edildi
+    All playlists has been successfully exported: Bütün pleylistlər uğurla ixrac edildi
+    All search history has been successfully imported: Bütün axtarış tarixçəsi uğurla idxal edildi
+    All search history has been successfully exported: Bütün axtarış tarixçəsi uğurla ixrac edildi
+    All settings have been successfully imported: Bütün tənzimləmələr uğurla idxal edildi
+    All settings have been successfully exported: Bütün tənzimləmələr uğurla ixrac edildi
+    Unable to read file: Faylı oxumaq mümkün deyil
+    Unable to write file: Faylı yazmaq olmur
+    Unknown data key: Naməlum məlumat açarı
+    Setting object has insufficient data, skipping item: Tənzimləmə obyekti çatışmayan məlumat ehtiva edir, element ötürülür
+    Unknown setting key: 'Naməlum tənzimləmə açarı: {key}'
+    Non-transferable setting key: 'Köçürülə bilməyən tənzimləmə açarı: {key}'
+    How do I import my subscriptions?: Abunəliklərimi necə idxal edə bilərəm?
+    Manage Subscriptions: Abunəlikləri İdarə Et
+  Proxy Settings:
+    Proxy Settings: Proksi
+    Proxy Warning: FreeTube tərkibində daxili proksi yoxdur, lakin cihazınızda icra olunan Tor və ya bəzi VPN-lərin təqdim etdiyi SOCKS5 kimi xarici proksiyə qoşula bilir. Aktivdirsə, proksi/Tor tənzimləmələrinin doğruluğunu yoxlayın, əks halda FreeTube hər hansı məlumat əldə edə bilməyəcək.
+    Enable Tor / Proxy: Tor / Proksi-ni Aktivləşdir
+    Proxy Protocol: Proksi Protokolu
+    Proxy Host: Proksi Host
+    Proxy Port Number: Proksi Port Nömrəsi
+    Proxy Username: Proksi İstifadəçi Adı
+    Proxy Password: Proksi Parolu
 Channel:
   Videos:
     Videos: Videolar
