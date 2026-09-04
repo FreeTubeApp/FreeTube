@@ -100,7 +100,7 @@
     "html-webpack-plugin": "^5.6.8",
     "js-yaml": "^5.4.0",
     "json-minimizer-webpack-plugin": "^5.0.1",
-    "lefthook": "^2.1.10",
+    "lefthook": "^2.1.12",
     "mini-css-extract-plugin": "^2.10.2",
     "postcss": "^8.5.26",
     "postcss-scss": "^4.0.9",
