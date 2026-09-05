@@ -335,11 +335,8 @@ async function getCommentDataLocal(more = false) {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    // region Comments disabled detection
     // No comment related info when video info requested earlier in parent component
     if (err?.message?.includes('The comments page did not have any content')) {
-      // For videos with comments disabled
-      // e.g. https://youtu.be/87DyyMV0kCY
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -348,7 +345,6 @@ async function getCommentDataLocal(more = false) {
       localCommentsInstance = undefined
       return
     }
-    // endregion Comments disabled detection
 
     console.error(err)
     const errorMessage = t('Local API Error (Click to copy)')
@@ -382,11 +378,8 @@ async function getCommentDataInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    // region Comments disabled detection
     // No comment related info when video info requested earlier in parent component
     if (err?.message?.includes('Comments not found')) {
-      // For videos with comments disabled
-      // e.g. https://youtu.be/87DyyMV0kCY
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -394,7 +387,6 @@ async function getCommentDataInvidious() {
       areCommentsDisabled.value = true
       return
     }
-    // endregion Comments disabled detection
 
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
@@ -424,7 +416,6 @@ async function getPostCommentsInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    // region Comments disabled detection
     if (err?.message?.includes('Comments not found')) {
       commentData.value = []
       nextPageToken.value = null
@@ -433,7 +424,6 @@ async function getPostCommentsInvidious() {
       areCommentsDisabled.value = true
       return
     }
-    // endregion Comments disabled detection
 
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
