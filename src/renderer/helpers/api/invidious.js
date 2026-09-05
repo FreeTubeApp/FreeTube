@@ -2,7 +2,8 @@ import store from '../../store/index'
 import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
-import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { FormatUtils, Misc, Player, Utils } from 'youtubei.js'
+import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -896,6 +897,19 @@ export async function getHashtagInvidious(hashtag, page = 1) {
   setMultiplePublishedTimestamps(response.results)
 
   return response.results
+}
+
+export async function getClipInvidious(clipId) {
+  const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+
+  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(response.params)))
+  return {
+    videoId: response.videoId,
+    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamData.clipTitle,
+    clipMetadata: parsedParams.clipParamData.clipMetadata
+  }
 }
 
 /**
