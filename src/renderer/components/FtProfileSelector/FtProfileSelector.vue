@@ -38,6 +38,7 @@
       <FtIconButton
         class="profileSettings"
         :icon="['fas', 'sliders-h']"
+        :title="$t('Profile.Go To Profile Manager')"
         @click="openProfileSettings"
       />
       <div
