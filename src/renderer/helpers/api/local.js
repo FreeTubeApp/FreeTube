@@ -702,7 +702,7 @@ export async function getLocalVideoInfo(id) {
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info) }
+    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info, nextResponse) }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -767,16 +767,31 @@ export async function getLocalVideoInfo(id) {
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
-    contentDisclosures: extractLocalContentDisclosures(info),
+    contentDisclosures: extractLocalContentDisclosures(info, nextResponse),
   }
+}
+
+/**
+ * Extracts AI badge tooltip from YouTube watch next response
+ * @param {object} nextResponse
+ * @returns {string|null}
+ */
+function extractAiBadgeTooltip(nextResponse) {
+  const data = nextResponse?.data ?? nextResponse
+  const contents = data?.contents?.twoColumnWatchNextResults?.results?.results?.contents
+  const primaryInfo = contents?.find(item => item?.videoPrimaryInfoRenderer)?.videoPrimaryInfoRenderer
+  const aiBadge = primaryInfo?.badges?.find(b => /\bai\b/i.test(b?.metadataBadgeRenderer?.label))
+
+  return aiBadge?.metadataBadgeRenderer?.accessibilityData?.label ?? null
 }
 
 /**
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
- * @returns {{ title: string, hasAI: boolean, aiItem: { label: string, description: string } | null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ * @param {object} [nextResponse]
+ * @returns {{ title: string|null, hasAI: boolean, aiBadgeTooltip: string|null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
  */
-export function extractLocalContentDisclosures(info) {
+export function extractLocalContentDisclosures(info, nextResponse = null) {
   if (!info) {
     return null
   }
@@ -789,11 +804,13 @@ export function extractLocalContentDisclosures(info) {
     item => item.type === 'HowThisWasMadeSectionView' || item.type === 'howThisWasMadeSectionViewModel'
   )
 
-  if (!rawItems?.length) {
+  const hasAiBadge = info.primary_info?.badges?.some(b => /\bai\b/i.test(b.label || '')) || false
+
+  if (!rawItems?.length && !hasAiBadge) {
     return null
   }
 
-  const items = rawItems.map(item => {
+  const items = (rawItems || []).map(item => {
     const label = item.body_header?.text || item.bodyHeader?.content || ''
     const rawDescription = item.body_text?.text || item.bodyText?.content || ''
     return {
@@ -803,12 +820,15 @@ export function extractLocalContentDisclosures(info) {
     }
   })
 
-  const aiItem = items.find(item => item.isAI) || null
+  const hasAI = hasAiBadge || items.some(item => item.isAI)
+  const aiBadgeTooltip = hasAI
+    ? (extractAiBadgeTooltip(nextResponse) || 'AI: Content was made with AI')
+    : null
 
   return {
-    title: rawItems[0]?.section_title?.text || rawItems[0]?.sectionTitle?.content || null,
-    hasAI: !!aiItem,
-    aiItem,
+    title: rawItems?.[0]?.section_title?.text || rawItems?.[0]?.sectionTitle?.content || null,
+    hasAI,
+    aiBadgeTooltip,
     items
   }
 }

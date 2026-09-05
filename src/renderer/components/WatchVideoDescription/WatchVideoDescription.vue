@@ -22,18 +22,12 @@
       @timestamp-event="onTimestamp"
       @click="expandDescriptionWithClick"
     />
-    <bdi
-      v-if="license && showFullDescription"
-      class="license"
-    >
-      {{ license }}
-    </bdi>
     <div
       v-if="showHowThisWasMade && showFullDescription"
       class="aiDisclosureSection"
     >
       <div class="aiDisclosureTitle">
-        {{ contentDisclosures.title || $t("Video.How this was made") }}
+        {{ contentDisclosures.title || t('Video.How this was made') }}
       </div>
       <div
         v-for="(item, index) in contentDisclosures.items"
@@ -51,6 +45,12 @@
         </div>
       </div>
     </div>
+    <bdi
+      v-if="license && showFullDescription"
+      class="license"
+    >
+      {{ license }}
+    </bdi>
     <span
       v-if="showControls && showFullDescription"
       class="descriptionStatus"
@@ -68,9 +68,9 @@
 import autolinker from 'autolinker'
 
 import { onMounted, ref, computed, useTemplateRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
-import store from '../../store'
 
 const props = defineProps({
   description: {
@@ -91,10 +91,9 @@ const props = defineProps({
   }
 })
 
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideHowThisWasMade = computed(() => store.getters.getHideHowThisWasMade)
+const { t } = useI18n()
 
-const showHowThisWasMade = computed(() => (props.contentDisclosures?.items?.length ?? 0) > 0 && !hideHowThisWasMade.value)
+const showHowThisWasMade = computed(() => (props.contentDisclosures?.items?.length ?? 0) > 0)
 
 const emit = defineEmits(['timestamp-event'])
 

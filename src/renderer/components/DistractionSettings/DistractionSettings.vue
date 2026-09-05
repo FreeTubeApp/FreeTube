@@ -242,18 +242,6 @@
           @change="updateHideChapters"
         />
         <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide AI Content Label')"
-          :compact="true"
-          :default-value="hideAiLabel"
-          @change="updateHideAiLabel"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide How this was made Description')"
-          :compact="true"
-          :default-value="hideHowThisWasMade"
-          @change="updateHideHowThisWasMade"
-        />
-        <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Video Description')"
           :compact="true"
           :default-value="hideVideoDescription"
@@ -502,26 +490,6 @@ const hideChapters = computed(() => store.getters.getHideChapters)
  */
 function updateHideChapters(value) {
   store.dispatch('updateHideChapters', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideAiLabel = computed(() => store.getters.getHideAiLabel)
-
-/**
- * @param {boolean} value
- */
-function updateHideAiLabel(value) {
-  store.dispatch('updateHideAiLabel', value)
-}
-
-/** @type {import('vue').ComputedRef<boolean>} */
-const hideHowThisWasMade = computed(() => store.getters.getHideHowThisWasMade)
-
-/**
- * @param {boolean} value
- */
-function updateHideHowThisWasMade(value) {
-  store.dispatch('updateHideHowThisWasMade', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

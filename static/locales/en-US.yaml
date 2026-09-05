@@ -572,8 +572,6 @@ Settings:
     Hide Sharing Actions: Hide Sharing Actions
     Hide Videos on Watch: Hide Videos on Watch
     Hide Chapters: Hide Chapters
-    Hide AI Content Label: Hide AI Content Label
-    Hide How this was made Description: Hide "How this was made" Description
     Hide Channels: Hide Videos From Channels
     Hide Channels Disabled Message: Some channels were blocked using ID and weren't processed. Feature is blocked while those IDs are updating
     Hide Channels Placeholder: Channel ID
@@ -892,7 +890,6 @@ Video:
   Upcoming: Upcoming
   Unlisted: Unlisted
   AI: AI
-  Made with AI: Made with AI
   How this was made: How this was made
   Live: Live
   Live Now: Live Now

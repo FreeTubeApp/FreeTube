@@ -230,8 +230,6 @@ const state = {
   unsubscriptionPopupStatus: false,
   hideLabelsSideBar: false,
   hideChapters: false,
-  hideAiLabel: false,
-  hideHowThisWasMade: false,
   showDistractionFreeTitles: false,
   landingPage: 'subscriptions',
   listType: 'grid',
