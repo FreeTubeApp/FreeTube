@@ -67,7 +67,13 @@
       v-else-if="showComments && !isLoading"
     >
       <h3
-        v-if="isPostComments"
+        v-if="areCommentsDisabled"
+        class="noCommentMsg"
+      >
+        {{ $t("Comments.Comments are turned off") }}
+      </h3>
+      <h3
+        v-else-if="isPostComments"
         class="noCommentMsg"
       >
         {{ $t("Comments.There are no comments available for this post") }}
@@ -166,6 +172,7 @@ function onTimestamp(timestamp) {
 const isLoading = ref(false)
 const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
+const areCommentsDisabled = ref(false)
 const nextPageToken = shallowRef(null)
 
 /** @type {import('vue').ShallowRef<import('../FtComment/FtComment.vue').Comment[]>} */
@@ -250,11 +257,13 @@ function handleSortChange() {
   sortNewest.value = !sortNewest.value
   commentData.value = []
   nextPageToken.value = null
+  areCommentsDisabled.value = false
   getCommentData()
 }
 
 function getCommentData() {
   isLoading.value = true
+  areCommentsDisabled.value = false
 
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     if (!props.isPostComments) {
@@ -326,19 +335,20 @@ async function getCommentDataLocal(more = false) {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    // region No comment detection
+    // region Comments disabled detection
     // No comment related info when video info requested earlier in parent component
-    if (err.message.includes('The comments page did not have any content')) {
-      // For videos without any comment (comment disabled?)
-      // e.g. https://youtu.be/8NBSwDEf8a8
+    if (err?.message?.includes('The comments page did not have any content')) {
+      // For videos with comments disabled
+      // e.g. https://youtu.be/87DyyMV0kCY
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
       showComments.value = true
+      areCommentsDisabled.value = true
       localCommentsInstance = undefined
       return
     }
-    // endregion No comment detection
+    // endregion Comments disabled detection
 
     console.error(err)
     const errorMessage = t('Local API Error (Click to copy)')
@@ -372,18 +382,19 @@ async function getCommentDataInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    // region No comment detection
+    // region Comments disabled detection
     // No comment related info when video info requested earlier in parent component
-    if (err.message.includes('Comments not found')) {
-      // For videos without any comment (comment disabled?)
-      // e.g. https://youtu.be/8NBSwDEf8a8
+    if (err?.message?.includes('Comments not found')) {
+      // For videos with comments disabled
+      // e.g. https://youtu.be/87DyyMV0kCY
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
       showComments.value = true
+      areCommentsDisabled.value = true
       return
     }
-    // endregion No comment detection
+    // endregion Comments disabled detection
 
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
@@ -413,6 +424,17 @@ async function getPostCommentsInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
+    // region Comments disabled detection
+    if (err?.message?.includes('Comments not found')) {
+      commentData.value = []
+      nextPageToken.value = null
+      isLoading.value = false
+      showComments.value = true
+      areCommentsDisabled.value = true
+      return
+    }
+    // endregion Comments disabled detection
+
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
     showToast(`${errorMessage}: ${err}`, 10000, () => {
