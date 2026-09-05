@@ -411,6 +411,7 @@ const id = ref('')
 const title = ref('')
 const channelName = ref(null)
 const channelId = ref(null)
+const collaborators = ref([])
 const viewCount = ref(0)
 const parsedViewCount = ref('')
 const uploadedTime = ref('')
@@ -715,12 +716,16 @@ function handleOptionsClick(option) {
     case 'openInvidiousChannel':
       openExternalLink(getInvidiousChannelUrl())
       break
-    case 'hideChannel':
-      hideChannel(channelName.value, channelId.value)
+    case 'hideChannel': {
+      const name = collaborators.value.length > 0 ? collaborators.value[0].name : channelName.value
+      hideChannel(name, channelId.value)
       break
-    case 'unhideChannel':
-      unhideChannel(channelName.value, channelId.value)
+    }
+    case 'unhideChannel': {
+      const name = collaborators.value.length > 0 ? collaborators.value[0].name : channelName.value
+      unhideChannel(name, channelId.value)
       break
+    }
   }
 }
 
@@ -1023,7 +1028,16 @@ function parseVideoData() {
   title.value = props.data.title
 
   channelName.value = props.data.author ?? null
-  channelId.value = props.data.authorId ?? null
+  collaborators.value = props.data.collaborators ?? []
+
+  if (props.data.authorId) {
+    channelId.value = props.data.authorId
+  } else if (collaborators.value.length > 0) {
+    // When video has collaborators, authorId is null and the first element in the collaborator array is the main author
+    channelId.value = collaborators.value[0].id
+  } else {
+    channelId.value = null
+  }
 
   if ((props.data.lengthSeconds === '' || props.data.lengthSeconds === '0:00') && historyEntryExists.value) {
     lengthSeconds.value = historyEntry.value.lengthSeconds
