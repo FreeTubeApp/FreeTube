@@ -59,6 +59,8 @@ Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
   Remove: Remove
+  Open Search Container: Open Search Container
+  Search: Search
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
@@ -593,6 +595,8 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
+    Add: Add
+    Remove: Remove
   Data Settings:
     Data Settings: Data
     Select Export Type: Select Export Type
@@ -778,6 +782,7 @@ Profile:
     from any other profile.
   Close Profile Dropdown: Close Profile Dropdown
   Open Profile Dropdown: Open Profile Dropdown
+  Go To Profile Manager: Go to Profile Manager
 #On Channel Page
 Channel:
   Subscribe: Subscribe
@@ -891,6 +896,7 @@ Video:
   Unlisted: Unlisted
   AI: AI
   How this was made: How this was made
+  Station: Station
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat

@@ -38,14 +38,29 @@
         >
       </RouterLink>
       <div
-        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
+        v-if="isLive || isUpcoming || isStation || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
-          live: isLive,
+          live: (isLive || isStation ),
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? t("Video.Live") : (isUpcoming ? t("Video.Upcoming") : displayDuration) }}
+        <template v-if="isLive">
+          {{ t("Video.Live") }}
+        </template>
+        <template v-else-if="isUpcoming">
+          {{ t("Video.Upcoming") }}
+        </template>
+        <template v-else-if="isStation">
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="subscriptionIcon"
+          />
+          {{ t("Video.Station") }}
+        </template>
+        <template v-else>
+          {{ displayDuration }}
+        </template>
       </div>
       <FtIconButton
         v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
@@ -159,18 +174,18 @@
           {{ channelName }}
         </bdi>
         <span
-          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          v-if="!isLive && !isUpcoming && !isPremium && !isStation && !hideViews && viewCount != null"
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
           {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
         </span>
         <span
-          v-if="uploadedTime !== '' && !isLive"
+          v-if="uploadedTime !== '' && !isLive && !isStation"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
         <span
-          v-if="isLive && !hideViews"
+          v-if="(isLive || isStation) && !hideViews"
           class="viewCount"
         > • {{ t('Global.Counts.Watching Count', { count: parsedViewCount }, viewCount) }}</span>
       </div>
@@ -412,6 +427,7 @@ const isVr360 = ref(false)
 const is3D = ref(false)
 const hasCaptions = ref(false)
 const isUpcoming = ref(false)
+const isStation = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -1018,7 +1034,8 @@ function parseVideoData() {
   }
 
   description.value = props.data.description
-  isLive.value = props.data.liveNow || props.data.lengthSeconds === undefined
+  isStation.value = props.data.isStation === true
+  isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
   is4k.value = props.data.is4k
   is8k.value = props.data.is8k
@@ -1042,7 +1059,7 @@ function parseVideoData() {
   } else if (props.data.premiereTimestamp !== undefined) {
     uploadedTime.value = new Date(props.data.premiereTimestamp * 1000).toLocaleString([locale.value, 'en'])
     published.value = props.data.premiereTimestamp * 1000
-  } else if (typeof props.data.published === 'number' && !isLive.value) {
+  } else if (typeof props.data.published === 'number' && !isLive.value && !isStation.value) {
     published.value = props.data.published
 
     if (inHistory.value) {
@@ -1077,6 +1094,7 @@ function markAsWatched() {
     watchProgress: 0,
     timeWatched: Date.now(),
     isLive: false,
+    isStation: false,
     type: 'video'
   }
 
