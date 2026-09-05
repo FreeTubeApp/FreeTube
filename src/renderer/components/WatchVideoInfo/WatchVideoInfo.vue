@@ -267,7 +267,7 @@ const { locale, t } = useI18n()
 
 const showAiBadge = computed(() => props.contentDisclosures?.hasAI || false)
 
-const aiTooltipText = computed(() => props.contentDisclosures?.aiBadgeTooltip || 'AI: Content was made with AI')
+const aiTooltipText = computed(() => t('Video["AI: Content was made with AI"]'))
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)

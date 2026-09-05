@@ -702,7 +702,7 @@ export async function getLocalVideoInfo(id) {
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info, nextResponse) }
+    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info) }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -767,31 +767,16 @@ export async function getLocalVideoInfo(id) {
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
-    contentDisclosures: extractLocalContentDisclosures(info, nextResponse),
+    contentDisclosures: extractLocalContentDisclosures(info),
   }
-}
-
-/**
- * Extracts AI badge tooltip from YouTube watch next response
- * @param {object} nextResponse
- * @returns {string|null}
- */
-function extractAiBadgeTooltip(nextResponse) {
-  const data = nextResponse?.data ?? nextResponse
-  const contents = data?.contents?.twoColumnWatchNextResults?.results?.results?.contents
-  const primaryInfo = contents?.find(item => item?.videoPrimaryInfoRenderer)?.videoPrimaryInfoRenderer
-  const aiBadge = primaryInfo?.badges?.find(b => /\bai\b/i.test(b?.metadataBadgeRenderer?.label))
-
-  return aiBadge?.metadataBadgeRenderer?.accessibilityData?.label ?? null
 }
 
 /**
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
- * @param {object} [nextResponse]
- * @returns {{ hasAI: boolean, aiBadgeTooltip: string|null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ * @returns {{ hasAI: boolean, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
  */
-export function extractLocalContentDisclosures(info, nextResponse = null) {
+export function extractLocalContentDisclosures(info) {
   if (!info) {
     return null
   }
@@ -821,13 +806,9 @@ export function extractLocalContentDisclosures(info, nextResponse = null) {
   })
 
   const hasAI = hasAiBadge || items.some(item => item.isAI)
-  const aiBadgeTooltip = hasAI
-    ? (extractAiBadgeTooltip(nextResponse) || 'AI: Content was made with AI')
-    : null
 
   return {
     hasAI,
-    aiBadgeTooltip,
     items
   }
 }
