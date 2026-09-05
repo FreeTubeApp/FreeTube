@@ -281,6 +281,19 @@
         />
       </div>
     </div>
+    <h4
+      class="groupTitle"
+    >
+      {{ t('Settings.Distraction Free Settings.Sections.Posts Page') }}
+    </h4>
+    <div class="switchColumnGrid">
+      <FtToggleSwitch
+        :label="t('Settings.Distraction Free Settings.Hide Comments')"
+        :compact="true"
+        :default-value="hidePostsComments"
+        @change="updateHidePostsComments"
+      />
+    </div>
   </FtSettingsSection>
 </template>
 
@@ -440,6 +453,16 @@ const hideComments = computed(() => store.getters.getHideComments)
  */
 function updateHideComments(value) {
   store.dispatch('updateHideComments', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hidePostsComments = computed(() => store.getters.getHidePostsComments)
+
+/**
+ * @param {boolean} value
+ */
+function updateHidePostsComments(value) {
+  store.dispatch('updateHidePostsComments', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */
