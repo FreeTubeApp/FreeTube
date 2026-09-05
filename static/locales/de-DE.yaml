@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle Registerkarten für Abos sind ausgeblendet. Um den Inhalt hier zu sehen, blende bitte einige Registerkarten im Abschnitt „{subsection}“ in „{settingsSection}“ ein.
   Load More Posts: Weitere Beiträge laden
   Empty Posts: Deine abonnierten Kanäle haben derzeit keine Beiträge.
+  Posts:
+    RSS Message: YouTube stellt keine RSS-Feeds für Beiträge bereit. Deaktivieren Sie die Einstellung „{rssSetting}“, um Beiträge anzuzeigen, oder aktivieren Sie die Einstellung „{hideSetting}“, um diese Registerkarte auszublenden.
 Trending:
   Trending: Trends
   Trending Tabs: Trends-Tabs
@@ -561,6 +563,8 @@ Settings:
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
     Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
     Hide Subscriptions Posts: Beiträge aus Abos ausblenden
+    Add: Hinzufügen
+    Remove: Entfernen
   The app needs to restart for changes to take effect. Restart and apply change?: Die App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten und Änderung übernehmen?
   Proxy Settings:
     Ip: IP-Adresse
@@ -835,6 +839,7 @@ Video:
   Private: Private Videos können in FreeTube nicht angesehen werden, da sie Google-Anmeldung und den Besitz des Videos erfordern.
   Collapse Playlist: Wiedergabeliste ausblenden
   Expand Playlist: Wiedergabeliste einblenden
+  Station: Station
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -964,6 +969,7 @@ Profile:
   Create Profile Name: Profilname erstellen
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
+  Go To Profile Manager: Zum Profil Manager wechseln
 The playlist has been reversed: Die Playlist wurde umgedreht
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
@@ -1010,6 +1016,8 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
 Search Bar:
   Clear Input: Eingabe löschen
   Remove: Entfernen
+  Open Search Container: Suchcontainer öffnen
+  Search: Suche
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
 External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
 Screenshot Success: Screenshot wurde gespeichert
