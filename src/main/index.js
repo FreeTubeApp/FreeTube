@@ -28,6 +28,7 @@ import contextMenu from 'electron-context-menu'
 
 import packageDetails from '../../package.json'
 import { handleOpenInExternalPlayer } from './externalPlayer'
+import { getExecutableVersions, handleDownloadVideo, resolveExecutable } from './download'
 import { generatePoToken } from './poTokenGenerator'
 import { isFreeTubeUrl } from './utils'
 
@@ -1436,6 +1437,93 @@ function runApp() {
     return result.filePaths[0]
   }
 
+  /**
+   * @param {string} settingId
+   * @param {string} value
+   */
+  async function persistAndSyncSetting(settingId, value) {
+    await baseHandlers.settings.upsert(settingId, value)
+
+    const syncPayload = {
+      event: SyncEvents.GENERAL.UPSERT,
+      data: {
+        _id: settingId,
+        value
+      }
+    }
+
+    BrowserWindow.getAllWindows().forEach((window) => {
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      }
+    })
+  }
+
+  ipcMain.handle(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return null
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne('ytdlpOutputDirectory'))?.value
+
+    const dialogOptions = {
+      defaultPath: typeof currentPath === 'string' && currentPath.length > 0 ? currentPath : app.getPath('downloads'),
+      properties: ['openDirectory']
+    }
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+    const result = window
+      ? await dialog.showOpenDialog(window, dialogOptions)
+      : await dialog.showOpenDialog(dialogOptions)
+
+    if (result.canceled) {
+      return null
+    }
+
+    await persistAndSyncSetting('ytdlpOutputDirectory', result.filePaths[0])
+    return result.filePaths[0]
+  })
+
+  /**
+   * @param {import('electron').IpcMainInvokeEvent} event
+   * @param {string} settingId
+   * @returns {Promise<string | null>}
+   */
+  async function chooseExecutable(event, settingId) {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return null
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne(settingId))?.value
+
+    const dialogOptions = {
+      defaultPath: typeof currentPath === 'string' && currentPath.length > 0 ? currentPath : undefined,
+      properties: ['openFile'],
+      ...(process.platform === 'win32' && {
+        filters: [
+          { name: 'Executables', extensions: ['exe'] },
+          { name: 'All Files', extensions: ['*'] }
+        ]
+      })
+    }
+
+    const window = BrowserWindow.fromWebContents(event.sender)
+    const result = window
+      ? await dialog.showOpenDialog(window, dialogOptions)
+      : await dialog.showOpenDialog(dialogOptions)
+
+    if (result.canceled) {
+      return null
+    }
+
+    await persistAndSyncSetting(settingId, result.filePaths[0])
+    return result.filePaths[0]
+  }
+
+  ipcMain.handle(IpcChannels.CHOOSE_YTDLP_EXECUTABLE, async (event) => {
+    return chooseExecutable(event, 'ytdlpExecutable')
+  })
+
   ipcMain.on(IpcChannels.CHOOSE_DEFAULT_FOLDER, async (event) => {
     if (!isFreeTubeUrl(event.senderFrame.url)) {
       return
@@ -1574,6 +1662,38 @@ function runApp() {
   })
 
   ipcMain.on(IpcChannels.OPEN_IN_EXTERNAL_PLAYER, handleOpenInExternalPlayer)
+
+  ipcMain.handle(IpcChannels.DOWNLOAD_VIDEO, handleDownloadVideo)
+
+  ipcMain.handle(IpcChannels.FIND_EXECUTABLE_ON_PATH, async (event, name, settingId) => {
+    if (
+      !isFreeTubeUrl(event.senderFrame.url) ||
+      typeof name !== 'string' || !/^[\w-]+$/.test(name) ||
+      settingId !== 'ytdlpExecutable'
+    ) {
+      return null
+    }
+
+    const currentPath = (await baseHandlers.settings._findOne(settingId))?.value || ''
+
+    const resolvedPath = await resolveExecutable(name, currentPath)
+
+    if (resolvedPath && resolvedPath !== currentPath) {
+      await persistAndSyncSetting(settingId, resolvedPath)
+    }
+
+    return resolvedPath
+  })
+
+  ipcMain.handle(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS, async (event) => {
+    if (!isFreeTubeUrl(event.senderFrame.url)) {
+      return { ytdlp: null }
+    }
+
+    const ytdlpExecutable = (await baseHandlers.settings._findOne('ytdlpExecutable'))?.value || ''
+
+    return getExecutableVersions(ytdlpExecutable)
+  })
 
   ipcMain.handle(IpcChannels.GET_REPLACE_HTTP_CACHE, (event) => {
     if (isFreeTubeUrl(event.senderFrame.url)) {

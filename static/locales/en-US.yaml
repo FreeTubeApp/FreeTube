@@ -512,6 +512,21 @@ Settings:
     Players:
       None:
         Name: None
+  External Downloader Settings:
+    External Downloader Settings: External Downloader
+    Enable Downloads: Enable Downloads
+    yt-dlp Readme: yt-dlp Readme
+    yt-dlp Executable Path: yt-dlp Executable Path
+    Download yt-dlp: Download yt-dlp
+    Choose Executable: Choose Executable
+    Output Directory Mode: Output Directory Mode
+    Output Directory Modes:
+      Ask Path: Ask Path
+      Save To Folder: Save To Folder
+    Output Directory: Output Directory
+    Choose Output Directory: Choose Output Directory
+    Video - Custom Arguments: Video - Custom Arguments
+    Audio - Custom Arguments: Audio - Custom Arguments
   Privacy Settings:
     Privacy Settings: Privacy
     Remember History: Remember Watch History
@@ -866,6 +881,17 @@ Video:
   Save Video: Save Video
   Video has been saved: Video has been saved
   Video has been removed from your saved list: Video has been removed from your saved list
+  Download Video: Download Video
+  Download:
+    Video: Video
+    Audio: Audio
+    Timespan: Timespan
+    Start Time: Start Time
+    End Time: End Time
+  Video download has started: Video download has started
+  Audio download has started: Audio download has started
+  Download failed - Click to open External Downloader settings: Download failed - Click
+    to open External Downloader settings
   Open in YouTube: Open in YouTube
   Copy YouTube Link: Copy YouTube Link
   Open YouTube Embedded Player: Open YouTube Embedded Player
@@ -1102,6 +1128,18 @@ Tooltips:
       Custom arguments will still be passed on.
     Custom External Player Arguments: Any custom command line arguments you want to be passed on to the external player.
     DefaultCustomArgumentsTemplate: "(Default: '{defaultCustomArguments}')"
+  External Downloader Settings:
+    yt-dlp Executable Path: By default, FreeTube will assume that yt-dlp can be found
+      via the PATH environment variable. If needed, a custom path to the yt-dlp executable
+      can be set here.
+    Output Directory Mode: Ask Path will prompt you to choose a folder every time you download.
+      Save To Folder lets you set one folder to always download to.
+    Output Directory: The directory yt-dlp should save downloaded videos to, passed via
+      yt-dlp's -o/--output option.
+    Video - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
+      when downloading a video.
+    Audio - Custom Arguments: Any custom command line arguments you want to be passed on to yt-dlp
+      when downloading audio only. The -x/--extract-audio flag is always added automatically.
   Distraction Free Settings:
     Hide Channels: Enter a channel ID to hide all videos, playlists and the channel itself from appearing in search, trending, most popular and recommended.
        The channel ID entered must be a complete match and is case sensitive.
