@@ -71,6 +71,7 @@
         <AutoScrollWrapper
           v-if="visiblePlaylistItems.length > 0"
           :hot-zone-enabled="isSortOrderCustom && isVideoDragging"
+          :is-grid-mode="listType === 'grid'"
         >
           <FtElementList
             v-if="listType === 'grid'"
