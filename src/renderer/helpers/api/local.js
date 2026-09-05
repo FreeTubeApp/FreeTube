@@ -702,7 +702,7 @@ export async function getLocalVideoInfo(id) {
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return { info, poToken: undefined, clientInfo }
+    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info) }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -767,6 +767,49 @@ export async function getLocalVideoInfo(id) {
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
+    contentDisclosures: extractLocalContentDisclosures(info),
+  }
+}
+
+/**
+ * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
+ * @param {import('youtubei.js').YT.VideoInfo} info
+ * @returns {{ hasAI: boolean, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ */
+export function extractLocalContentDisclosures(info) {
+  if (!info) {
+    return null
+  }
+
+  const structuredDescPanel = info.page?.[1]?.engagement_panels?.find(
+    panel => panel.target_id === 'engagement-panel-structured-description'
+  )
+
+  const rawItems = structuredDescPanel?.content?.items?.filter(
+    item => item.type === 'HowThisWasMadeSectionView' || item.type === 'howThisWasMadeSectionViewModel'
+  )
+
+  const hasAiBadge = info.primary_info?.badges?.some(b => /\bai\b/i.test(b.label || '')) || false
+
+  if (!rawItems?.length && !hasAiBadge) {
+    return null
+  }
+
+  const items = (rawItems || []).map(item => {
+    const label = item.body_header?.text || item.bodyHeader?.content || ''
+    const rawDescription = item.body_text?.text || item.bodyText?.content || ''
+    return {
+      label,
+      description: rawDescription.replace(/\s*Learn more\.?$/i, '').trim(),
+      isAI: /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(label)
+    }
+  })
+
+  const hasAI = hasAiBadge || items.some(item => item.isAI)
+
+  return {
+    hasAI,
+    items
   }
 }
 
