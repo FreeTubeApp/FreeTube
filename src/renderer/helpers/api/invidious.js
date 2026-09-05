@@ -286,50 +286,59 @@ export async function searchInvidiousChannel(channelId, query, page) {
  * @param {string} playlistId
  * @param {number} index
  * @returns {Promise<{
- *  title: string,
- *  playlistId: string,
- *  author: string,
- *  authorId: string,
- *  authorThumbnails: InvidiousImageObject[],
- *  description: string,
- *  descriptionHtml: string,
- *  videoCount: number,
- *  viewCount: number,
- *  updated: number,
- *  videos: {
+ *  playlist: {
  *    title: string,
- *    videoId: string,
+ *    playlistId: string,
  *    author: string,
  *    authorId: string,
- *    authorUrl: string,
- *    videoThumbnails: InvidiousThumbnailObject[],
- *    index: number,
- *    lengthSeconds: number
- *  }[]
+ *    authorThumbnails: InvidiousImageObject[],
+ *    description: string,
+ *    descriptionHtml: string,
+ *    videoCount: number,
+ *    viewCount: number,
+ *    updated: number,
+ *    videos: {
+ *      title: string,
+ *      videoId: string,
+ *      author: string,
+ *      authorId: string,
+ *      authorUrl: string,
+ *      videoThumbnails: InvidiousThumbnailObject[],
+ *      index: number,
+ *      lengthSeconds: number
+ *    }[]
+ *  },
+ *  nextIndex: number | -1
  * }>}
  */
 export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
   // The Invidious API offsets the index by 50 to apply a lookback window
-  // By increasing our offset by 50, we skip those overlapping videos and avoid de-duplicating them from our response
+  // By increasing the index by 50, we skip those overlapping videos and avoid de-duplicating them from the response
   // See: https://github.com/iv-org/invidious/blob/66fb829dbc0f96cbf4319798f3b9090bc88a7012/src/invidious/routes/api/v1/misc.cr#L67
-  index += 50
+  const offsetIndex = index + 50
   const playlist = await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
     params: {
-      index
+      index: offsetIndex
     }
   })
 
+  let nextIndex = index + playlist.videos.length
+  if (nextIndex >= playlist.videoCount) {
+    nextIndex = -1
+  }
+
+  playlist.videos = filterUnavailableInvidiousVideos(playlist.videos)
   normalizeManyInvidiousVideosAttributes(playlist.videos)
   setMultiplePublishedTimestamps(playlist.videos)
 
-  return playlist
+  return { playlist, nextIndex }
 }
 
 /**
  * @param {string} playlistId
- * @param {number} initialOffset
+ * @param {number} index
  * @returns {{
  *    title: string,
  *    videoId: string,
@@ -341,17 +350,14 @@ export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
  *    lengthSeconds: number
  *  }[]}
  */
-export async function fetchAllInvidiousPlaylistVideos(playlistId, initialOffset = 0) {
-  let offset = initialOffset
+export async function fetchAllInvidiousPlaylistVideos(playlistId, index = 0) {
+  let currentIndex = index
   const videos = []
 
-  while (true) {
-    const playlist = await invidiousGetPlaylistInfo(playlistId, offset)
-    if (playlist.videos.length === 0) {
-      break
-    }
+  while (currentIndex !== -1) {
+    const { playlist, nextIndex } = await invidiousGetPlaylistInfo(playlistId, currentIndex)
     videos.push(...playlist.videos)
-    offset += playlist.videos.length
+    currentIndex = nextIndex
   }
 
   return videos
@@ -1008,6 +1014,17 @@ export function mapInvidiousLegacyFormat(format) {
     width: parseInt(stringWidth),
     url: format.url
   }
+}
+
+/**
+ * @param {{
+ *  title: string,
+ *  author: string,
+ *  authorId: string | null
+ * }[]} videos
+ */
+function filterUnavailableInvidiousVideos(videos) {
+  return videos.filter(video => video.title !== '' && video.author !== '' && video.authorId !== null)
 }
 
 /**
