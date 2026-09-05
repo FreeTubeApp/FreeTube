@@ -20,8 +20,8 @@
         <div
           v-if="showAiBadge"
           class="aiBadge"
-          :title="aiTooltipText"
-          :aria-label="aiTooltipText"
+          :title="t('Video.AI: Content was made with AI')"
+          :aria-label="t('Video.AI: Content was made with AI')"
         >
           <FontAwesomeIcon :icon="['fas', 'robot']" />
           <span>{{ t('Video.AI') }}</span>
@@ -266,8 +266,6 @@ const USING_ELECTRON = process.env.IS_ELECTRON
 const { locale, t } = useI18n()
 
 const showAiBadge = computed(() => props.contentDisclosures?.hasAI || false)
-
-const aiTooltipText = computed(() => t('Video["AI: Content was made with AI"]'))
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)
