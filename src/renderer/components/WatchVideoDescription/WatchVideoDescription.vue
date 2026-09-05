@@ -1,6 +1,6 @@
 <template>
   <FtCard
-    v-if="shownDescription.length > 0 || (contentDisclosures?.items?.length > 0 && !hideHowThisWasMade)"
+    v-if="shownDescription.length > 0 || showHowThisWasMade"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
     <span
@@ -29,7 +29,7 @@
       {{ license }}
     </bdi>
     <div
-      v-if="contentDisclosures?.items?.length > 0 && !hideHowThisWasMade && showFullDescription"
+      v-if="showHowThisWasMade && showFullDescription"
       class="aiDisclosureSection"
     >
       <div class="aiDisclosureTitle">
@@ -93,6 +93,8 @@ const props = defineProps({
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideHowThisWasMade = computed(() => store.getters.getHideHowThisWasMade)
+
+const showHowThisWasMade = computed(() => (props.contentDisclosures?.items?.length ?? 0) > 0 && !hideHowThisWasMade.value)
 
 const emit = defineEmits(['timestamp-event'])
 

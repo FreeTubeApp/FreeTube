@@ -785,42 +785,31 @@ export function extractLocalContentDisclosures(info) {
     panel => panel.target_id === 'engagement-panel-structured-description'
   )
 
-  const items = structuredDescPanel?.content?.items?.filter(
+  const rawItems = structuredDescPanel?.content?.items?.filter(
     item => item.type === 'HowThisWasMadeSectionView' || item.type === 'howThisWasMadeSectionViewModel'
   )
 
-  if (!items || items.length === 0) {
+  if (!rawItems?.length) {
     return null
   }
 
-  let sectionTitle = ''
-  const parsedItems = []
-
-  for (const item of items) {
-    if (!sectionTitle) {
-      sectionTitle = item.section_title?.text || item.sectionTitle?.content || ''
-    }
-
-    const label = item.body_header?.text || item.bodyHeader?.content || 'Made with AI'
+  const items = rawItems.map(item => {
+    const label = item.body_header?.text || item.bodyHeader?.content || ''
     const rawDescription = item.body_text?.text || item.bodyText?.content || ''
-    const description = rawDescription.replace(/\s*Learn more\.?$/i, '').trim()
-
-    const isAI = /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(label)
-
-    parsedItems.push({
+    return {
       label,
-      description,
-      isAI
-    })
-  }
+      description: rawDescription.replace(/\s*Learn more\.?$/i, '').trim(),
+      isAI: /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(label)
+    }
+  })
 
-  const aiItem = parsedItems.find(item => item.isAI) || null
+  const aiItem = items.find(item => item.isAI) || null
 
   return {
-    title: sectionTitle || 'How this was made',
+    title: rawItems[0]?.section_title?.text || rawItems[0]?.sectionTitle?.content || null,
     hasAI: !!aiItem,
     aiItem,
-    items: parsedItems
+    items
   }
 }
 

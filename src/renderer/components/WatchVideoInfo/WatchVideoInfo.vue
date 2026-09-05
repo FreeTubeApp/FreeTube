@@ -8,7 +8,7 @@
         {{ title }}
       </h1>
       <div
-        v-if="isUnlisted || (contentDisclosures?.hasAI && !hideAiLabel)"
+        v-if="isUnlisted || showAiBadge"
         class="videoBadges"
       >
         <div
@@ -18,7 +18,7 @@
           {{ t('Video.Unlisted') }}
         </div>
         <div
-          v-if="contentDisclosures?.hasAI && !hideAiLabel"
+          v-if="showAiBadge"
           class="aiBadge"
           :title="aiTooltipText"
         >
@@ -266,6 +266,8 @@ const { locale, t } = useI18n()
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideAiLabel = computed(() => store.getters.getHideAiLabel)
+
+const showAiBadge = computed(() => props.contentDisclosures?.hasAI && !hideAiLabel.value)
 
 const aiTooltipText = computed(() => props.contentDisclosures?.aiItem?.description || props.contentDisclosures?.aiItem?.label || t('Video.AI'))
 
