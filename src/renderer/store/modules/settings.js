@@ -168,6 +168,7 @@ const state = {
   mainColor: 'Red',
   secColor: 'Blue',
   defaultAutoplayInterruptionIntervalHours: 3,
+  defaultAudioLanguage: 'system',
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
