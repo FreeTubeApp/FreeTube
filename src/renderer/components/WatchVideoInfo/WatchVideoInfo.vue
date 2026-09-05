@@ -125,6 +125,15 @@
             :get-timestamp="getTimestamp"
             :playlist-id="playlistId"
           />
+          <FtIconButton
+            class="navIconButton"
+            :title="t('Video.Reload Player')"
+            :icon="['fas', 'sync']"
+            :size="20"
+            :use-shadow="false"
+            theme="secondary"
+            @click="reloadPlayer"
+          />
         </span>
       </div>
     </div>
@@ -241,6 +250,7 @@ const emit = defineEmits([
   'change-format',
   'pause-player',
   'save-watched-progress',
+  'reload-player',
 ])
 
 const USING_ELECTRON = process.env.IS_ELECTRON
@@ -315,6 +325,10 @@ const formatTypeOptions = computed(() => [
  */
 function changeFormat(value) {
   emit('change-format', value)
+}
+
+function reloadPlayer() {
+  emit('reload-player')
 }
 
 const watchedProgressSavingInSemiAutoMode = computed(() => {

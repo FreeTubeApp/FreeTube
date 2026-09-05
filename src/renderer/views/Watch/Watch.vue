@@ -54,7 +54,7 @@
           @playback-rate-updated="updatePlaybackRate"
           @skip-to-next="handleSkipToNext"
           @skip-to-prev="handleSkipToPrev"
-          @player-reload-requested="onPlayerReloadRequested"
+          @player-reload-requested="onSabrReloadRequested"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -157,6 +157,7 @@
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @save-watched-progress="handleWatchProgressManualSave"
+        @reload-player="onManualReloadReloadRequested"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
