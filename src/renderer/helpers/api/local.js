@@ -789,7 +789,7 @@ function extractAiBadgeTooltip(nextResponse) {
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
  * @param {object} [nextResponse]
- * @returns {{ title: string|null, hasAI: boolean, aiBadgeTooltip: string|null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ * @returns {{ hasAI: boolean, aiBadgeTooltip: string|null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
  */
 export function extractLocalContentDisclosures(info, nextResponse = null) {
   if (!info) {
@@ -826,7 +826,6 @@ export function extractLocalContentDisclosures(info, nextResponse = null) {
     : null
 
   return {
-    title: rawItems?.[0]?.section_title?.text || rawItems?.[0]?.sectionTitle?.content || null,
     hasAI,
     aiBadgeTooltip,
     items
