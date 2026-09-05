@@ -265,7 +265,7 @@ const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
 
-const showAiBadge = computed(() => Boolean(props.contentDisclosures?.hasAI))
+const showAiBadge = computed(() => props.contentDisclosures?.aiBadge || false)
 
 const aiTooltipText = computed(() => props.contentDisclosures?.aiBadgeTooltip || 'AI: Content was made with AI')
 
