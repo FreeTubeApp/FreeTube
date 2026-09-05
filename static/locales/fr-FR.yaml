@@ -840,6 +840,7 @@ Video:
   Private: Les vidéos privées ne peuvent pas être visionnées sur FreeTube, car elles nécessitent une connexion à Google et que l'utilisateur soit le propriétaire de la vidéo.
   Collapse Playlist: Replier la playlist
   Expand Playlist: Développer la playlist
+  Station: Station
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
