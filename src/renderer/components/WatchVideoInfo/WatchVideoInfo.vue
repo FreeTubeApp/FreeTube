@@ -8,10 +8,23 @@
         {{ title }}
       </h1>
       <div
-        v-if="isUnlisted"
-        class="unlistedBadge"
+        v-if="isUnlisted || (contentDisclosures?.hasAI && !hideAiLabel)"
+        class="videoBadges"
       >
-        {{ t('Video.Unlisted') }}
+        <div
+          v-if="isUnlisted"
+          class="unlistedBadge"
+        >
+          {{ t('Video.Unlisted') }}
+        </div>
+        <div
+          v-if="contentDisclosures?.hasAI && !hideAiLabel"
+          class="aiBadge"
+          :title="aiTooltipText"
+        >
+          <FontAwesomeIcon :icon="['fas', 'robot']" />
+          <span>{{ t('Video.AI') }}</span>
+        </div>
       </div>
     </div>
     <div class="videoMetrics">
@@ -231,6 +244,10 @@ const props = defineProps({
     type: Boolean,
     required: false
   },
+  contentDisclosures: {
+    type: Object,
+    default: null
+  },
   canSaveWatchedProgress: {
     type: Boolean,
     required: true
@@ -246,6 +263,11 @@ const emit = defineEmits([
 const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideAiLabel = computed(() => store.getters.getHideAiLabel)
+
+const aiTooltipText = computed(() => props.contentDisclosures?.aiItem?.description || props.contentDisclosures?.aiItem?.label || t('Video.AI'))
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)

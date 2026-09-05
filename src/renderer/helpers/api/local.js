@@ -702,7 +702,7 @@ export async function getLocalVideoInfo(id) {
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return { info, poToken: undefined, clientInfo }
+    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info) }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -767,6 +767,60 @@ export async function getLocalVideoInfo(id) {
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
+    contentDisclosures: extractLocalContentDisclosures(info),
+  }
+}
+
+/**
+ * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
+ * @param {import('youtubei.js').YT.VideoInfo} info
+ * @returns {{ title: string, hasAI: boolean, aiItem: { label: string, description: string } | null, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ */
+export function extractLocalContentDisclosures(info) {
+  if (!info) {
+    return null
+  }
+
+  const structuredDescPanel = info.page?.[1]?.engagement_panels?.find(
+    panel => panel.target_id === 'engagement-panel-structured-description'
+  )
+
+  const items = structuredDescPanel?.content?.items?.filter(
+    item => item.type === 'HowThisWasMadeSectionView' || item.type === 'howThisWasMadeSectionViewModel'
+  )
+
+  if (!items || items.length === 0) {
+    return null
+  }
+
+  let sectionTitle = ''
+  const parsedItems = []
+
+  for (const item of items) {
+    if (!sectionTitle) {
+      sectionTitle = item.section_title?.text || item.sectionTitle?.content || ''
+    }
+
+    const label = item.body_header?.text || item.bodyHeader?.content || 'Made with AI'
+    const rawDescription = item.body_text?.text || item.bodyText?.content || ''
+    const description = rawDescription.replace(/\s*Learn more\.?$/i, '').trim()
+
+    const isAI = /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(label)
+
+    parsedItems.push({
+      label,
+      description,
+      isAI
+    })
+  }
+
+  const aiItem = parsedItems.find(item => item.isAI) || null
+
+  return {
+    title: sectionTitle || 'How this was made',
+    hasAI: !!aiItem,
+    aiItem,
+    items: parsedItems
   }
 }
 

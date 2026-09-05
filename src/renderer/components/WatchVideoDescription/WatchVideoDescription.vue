@@ -1,6 +1,6 @@
 <template>
   <FtCard
-    v-if="shownDescription.length > 0"
+    v-if="shownDescription.length > 0 || (contentDisclosures?.items?.length > 0 && !hideHowThisWasMade)"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
     <span
@@ -14,6 +14,7 @@
       {{ $t("Description.Expand Description") }}
     </span>
     <FtTimestampCatcher
+      v-if="shownDescription.length > 0"
       ref="descriptionContainer"
       class="description"
       :input-html="processedShownDescription"
@@ -27,6 +28,29 @@
     >
       {{ license }}
     </bdi>
+    <div
+      v-if="contentDisclosures?.items?.length > 0 && !hideHowThisWasMade && showFullDescription"
+      class="aiDisclosureSection"
+    >
+      <div class="aiDisclosureTitle">
+        {{ contentDisclosures.title || $t("Video.How this was made") }}
+      </div>
+      <div
+        v-for="(item, index) in contentDisclosures.items"
+        :key="index"
+        class="aiDisclosureItem"
+      >
+        <div class="aiDisclosureHeader">
+          {{ item.label }}
+        </div>
+        <div
+          v-if="item.description"
+          class="aiDisclosureBody"
+        >
+          {{ item.description }}
+        </div>
+      </div>
+    </div>
     <span
       v-if="showControls && showFullDescription"
       class="descriptionStatus"
@@ -46,6 +70,7 @@ import autolinker from 'autolinker'
 import { onMounted, ref, computed, useTemplateRef } from 'vue'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
+import store from '../../store'
 
 const props = defineProps({
   description: {
@@ -59,8 +84,15 @@ const props = defineProps({
   license: {
     type: String,
     default: null,
+  },
+  contentDisclosures: {
+    type: Object,
+    default: null
   }
 })
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideHowThisWasMade = computed(() => store.getters.getHideHowThisWasMade)
 
 const emit = defineEmits(['timestamp-event'])
 
@@ -135,7 +167,10 @@ function collapseDescription() {
  */
 function isShortDescription() {
   const descriptionElem = descriptionContainer.value?.$el
-  return descriptionElem?.clientHeight >= descriptionElem?.scrollHeight
+  if (!descriptionElem) {
+    return true
+  }
+  return descriptionElem.clientHeight >= descriptionElem.scrollHeight
 }
 
 onMounted(() => {
