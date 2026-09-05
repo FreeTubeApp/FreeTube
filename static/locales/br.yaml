@@ -55,6 +55,8 @@ Search / Go to URL: 'Klask / Mont betek un URL'
 Search Bar:
   Clear Input: 'Skarzhañ an enankad'
   Remove: Dilemel
+  Search: Klask
+  Open Search Container: Digeriñ an endalc’her klask
 Search character limit: 'Ar c''hlask a ya dreist an hirder brasañ aotreet : {searchCharacterLimit} arouezenn'
 Search Listing:
   Label:
@@ -589,6 +591,8 @@ Settings:
     Hide Channel Home: Kuzhat ivinell "Degemer" ar chadenn
     Hide Channel Courses: Kuzhat ivinell "Kentelioù" ar chadenn
     Show Added Items: Diskouez an elfennoù ouzhpennet
+    Add: Ouzhpennañ
+    Remove: Skarzhañ
   Data Settings:
     Data Settings: 'Roadennoù'
     Select Export Type: 'Choaz doare ezporzhiañ'
@@ -766,6 +770,7 @@ Profile:
   Close Profile Dropdown: 'Serriñ roll ar profil'
   Open Profile Dropdown: 'Digeriñ roll ar profil'
 #On Channel Page
+  Go To Profile Manager: Mont da verañ ar profil
 Channel:
   Subscribe: 'Koumanantiñ'
   Unsubscribe: 'Digoumanantiñ'
@@ -947,6 +952,7 @@ Video:
   Private: N'haller ket sellet ouzh ar videoioù prevez gant FreeTube peogwir eo ret bezañ luget gant ur gont Google ha bezañ perc'henn war ar video.
   Collapse Playlist: Kuzhat ar Roll-videoioù
   Expand Playlist: Diskouez ar Roll-videoioù
+  Station: Roll videoioù war-eeun
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'
