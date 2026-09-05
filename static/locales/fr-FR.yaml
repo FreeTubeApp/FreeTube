@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
     Hide Channel Posts: Masquer l’onglet « Posts » de la chaîne
     Hide Subscriptions Posts: Masquer les posts des abonnements
+    Add: Ajouter
+    Remove: Supprimer
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -966,6 +968,7 @@ Profile:
   Profile Name: Nom du profil
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
+  Go To Profile Manager: Accéder au Gestionnaire de Profil
 The playlist has been reversed: La playlist a été inversée
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible !  Cliquez pour plus de détails
@@ -1013,6 +1016,8 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
 Search Bar:
   Clear Input: Effacer l'entrée
   Remove: Retirer
+  Open Search Container: Ouvrir le conteneur de recherche
+  Search: Rechercher
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens externes a été désactivée dans les paramètres généraux
 Screenshot Success: Capture d'écran enregistrée
