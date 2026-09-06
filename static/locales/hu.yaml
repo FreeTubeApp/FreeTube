@@ -570,6 +570,8 @@ Settings:
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
     Hide Channel Posts: „Bejegyzések” csatornalap elrejtése
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
+    Add: Hozzáadás
+    Remove: Eltávolítás
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
@@ -706,6 +708,7 @@ Profile:
   Create Profile Name: Profilnév létrehozása
   Open Profile Dropdown: Profil legördülő menü megnyitása
   Close Profile Dropdown: Profil legördülő menü bezárása
+  Go To Profile Manager: Lépjen a Profilkezelőbe
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
@@ -887,6 +890,7 @@ Video:
   Private: A privát videók nem tekinthetők meg a FreeTube-on, mivel a megtekintésükhöz Google-bejelentkezés és a videó tulajdonjoga szükséges.
   Collapse Playlist: Lejátszási lista összecsukása
   Expand Playlist: Lejátszási lista kibontása
+  Station: Állomás
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -1019,6 +1023,8 @@ Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidio
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
+  Open Search Container: Keresőmező megnyitása
+  Search: Keresés
 External link opening has been disabled in the general settings: A külső hivatkozás megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
 New Window: Új ablak
