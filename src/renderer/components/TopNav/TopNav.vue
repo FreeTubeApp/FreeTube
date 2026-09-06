@@ -136,8 +136,8 @@ import store from '../../store/index'
 import { KeyboardShortcuts, MOBILE_WIDTH_THRESHOLD, SEARCH_RESULTS_DISPLAY_LIMIT } from '../../../constants'
 import { debounce, localizeAndAddKeyboardShortcutToActionTitle, openInternalPath } from '../../helpers/utils'
 import { translateWindowTitle } from '../../helpers/strings'
-import { clearLocalSearchSuggestionsSession, getLocalSearchSuggestions } from '../../helpers/api/local'
-import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
+import { clearLocalSearchSuggestionsSession, getLocalClip, getLocalSearchSuggestions } from '../../helpers/api/local'
+import { getClipInvidious, getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
 
 const { t } = useI18n()
 const router = useRouter()
@@ -392,10 +392,21 @@ function goToSearch(queryText, { event }) {
 
   clearLocalSearchSuggestionsSession()
 
-  store.dispatch('getYoutubeUrlInfo', queryText).then((result) => {
+  store.dispatch('getYoutubeUrlInfo', queryText).then(async (result) => {
     switch (result.urlType) {
+      case 'clip':
       case 'video': {
-        const { videoId, timestamp, playlistId } = result
+        let videoId, timestamp, playlistId
+
+        if (result.urlType === 'video') {
+          videoId = result.videoId
+          timestamp = result.timestamp
+          playlistId = result.playlistId
+        } else if (result.urlType === 'clip') {
+          const clipResult = await getClip(result.clipId)
+          videoId = clipResult.videoId
+          timestamp = clipResult.startTime
+        }
 
         const query = {}
         if (timestamp) {
@@ -626,6 +637,36 @@ function handleWindowResize() {
   if (previousWindowWidth !== window.innerWidth) {
     showSearchContainer.value = window.innerWidth > MOBILE_WIDTH_THRESHOLD
     previousWindowWidth = window.innerWidth
+  }
+}
+
+async function getClip(clipId) {
+  if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
+    try {
+      return await getClipInvidious(clipId)
+    } catch (err) {
+      console.error(err)
+
+      if (process.env.SUPPORTS_LOCAL_API && backendFallback.value) {
+        console.error(
+          'Error resolving clip URL.  Falling back to Local API'
+        )
+        return await getLocalClip(clipId)
+      }
+    }
+  } else {
+    try {
+      return await getLocalClip(clipId)
+    } catch (err) {
+      console.error(err)
+
+      if (backendFallback.value) {
+        console.error(
+          'Error resolving clip URL.  Falling back to Invidious API'
+        )
+        return await getClipInvidious(clipId)
+      }
+    }
   }
 }
 

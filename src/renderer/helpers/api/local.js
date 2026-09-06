@@ -1,4 +1,5 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, Session, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
+import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
 import Autolinker from 'autolinker'
 import { parseLooseJSON } from 'bgutils-js/utils'
 
@@ -2494,4 +2495,22 @@ export async function getLocalCommunityPostComments(postId, channelId) {
   const innertube = await createInnertube({ generateSessionLocally: false })
 
   return await innertube.getPostComments(postId, channelId)
+}
+
+export async function getLocalClip(clipId) {
+  const innertube = await createInnertube()
+
+  const clipResponse = await innertube.resolveURL('https://www.youtube.com/clip/' + clipId)
+
+  const videoId = clipResponse?.payload?.videoId
+
+  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(clipResponse.payload.params)))
+
+  return {
+    videoId,
+    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
+    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
+    clipTitle: parsedParams.clipParamData.clipTitle,
+    clipMetadata: parsedParams.clipParamData.clipMetadata
+  }
 }
