@@ -1972,9 +1972,7 @@ export default defineComponent({
       this.startNextVideoInPip = uiState.startNextVideoInPip
     },
 
-    async onPlayerReloadRequested() {
-      showToast('Reloading player according to SABR request')
-
+    async saveWatchProgressForReload() {
       const timestamp = this.getTimestamp()
       if (timestamp > 0) {
         // Reload at the middle should restart at current timestamp
@@ -1991,6 +1989,16 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    async onManualReloadReloadRequested() {
+      await this.saveWatchProgressForReload()
+      await this.reloadView()
+    },
+
+    async onSabrReloadRequested() {
+      showToast('Reloading player according to SABR request')
+      await this.saveWatchProgressForReload()
       await this.reloadView()
     },
 
