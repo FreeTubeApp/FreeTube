@@ -26,7 +26,18 @@ csak-timelog.json
 .idea/
 debug/
 assets/
+!android/app/src/main/assets/
+!android/app/src/main/assets/.gitkeep
+
+# Android generated output
+android/.gradle/
+android/build/
+android/app/build/
+
 # Lefthook
 lefthook-local.yml
 *.bak
 locale-errors.json
+
+# Local planning
+docs/plans/
