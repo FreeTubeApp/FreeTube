@@ -246,7 +246,7 @@ function prepareSabrContexts(sabrStreamState) {
  * @returns {T | undefined}
  */
 function decodePart(part, decoder) {
-  if (!part.data.chunks.length) return undefined
+  if (!part.data.chunks?.length) return undefined
 
   try {
     const chunk = part.data.chunks.length === 1 ? part.data.chunks[0] : concatenateChunks(part.data.chunks)
@@ -358,6 +358,8 @@ async function doRequest(
         switch (part.type) {
           case UMPPartId.STREAM_PROTECTION_STATUS: {
             const streamProtectionStatus = decodePart(part, StreamProtectionStatus)
+            if (!streamProtectionStatus) break
+
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
@@ -372,7 +374,7 @@ async function doRequest(
           }
           case UMPPartId.SABR_REDIRECT: {
             const sabrRedirect = decodePart(part, SabrRedirect)
-            if (!sabrRedirect) break
+            if (!sabrRedirect?.url) break
 
             currentState.sabrStreamState.sabrUrl = sabrRedirect.url
             shouldRetry = true
