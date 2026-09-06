@@ -518,6 +518,8 @@ Settings:
     Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů
     Hide Subscriptions Posts: Skrýt příspěvky odběrů
     Hide Channel Posts: Skrýt kartu „Příspěvky“ u kanálů
+    Add: Přidat
+    Remove: Odstranit
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -704,6 +706,7 @@ Profile:
   Profile Name: Jméno profilu
   Edit Profile Name: Upravit jméno profilu
   Create Profile Name: Vytvořit jméno profilu
+  Go To Profile Manager: Přejít na správce profilů
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
@@ -885,6 +888,7 @@ Video:
   Private: Soukromá videa nelze sledovat v aplikaci FreeTube, jelikož vyžadují přihlášení k účtu Google a vlastnictví videa.
   Collapse Playlist: Sbalit playlist
   Expand Playlist: Rozbalit playlist
+  Station: Stanice
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -1019,6 +1023,8 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
 Search Bar:
   Clear Input: Vymazat
   Remove: Odstranit
+  Open Search Container: Otevřít kontejner vyhledávání
+  Search: Hledat
 External link opening has been disabled in the general settings: Otevírání externích odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 New Window: Nové okno
