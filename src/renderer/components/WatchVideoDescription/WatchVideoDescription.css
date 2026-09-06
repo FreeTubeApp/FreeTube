@@ -51,3 +51,29 @@
 .license {
   margin-block: 1em;
 }
+
+.aiDisclosureSection {
+  margin-block-start: 1.5em;
+}
+
+.aiDisclosureTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-block-end: 12px;
+}
+
+.aiDisclosureHeader {
+  font-weight: 600;
+  font-size: 15px;
+  margin-block-end: 4px;
+}
+
+.aiDisclosureBody {
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.aiDisclosureItem + .aiDisclosureItem {
+  margin-block-start: 12px;
+}

@@ -702,7 +702,7 @@ export async function getLocalVideoInfo(id) {
 
   if ((info.playability_status.status === 'UNPLAYABLE' && (!hasTrailer || trailerIsAgeRestricted)) ||
     info.playability_status.status === 'LOGIN_REQUIRED') {
-    return { info, poToken: undefined, clientInfo }
+    return { info, poToken: undefined, clientInfo, contentDisclosures: extractLocalContentDisclosures(info) }
   }
 
   if (hasTrailer && info.playability_status.status !== 'OK') {
@@ -767,7 +767,34 @@ export async function getLocalVideoInfo(id) {
     poToken: contentPoToken,
     clientInfo,
     adEndTimeUnixMs,
+    contentDisclosures: extractLocalContentDisclosures(info),
   }
+}
+
+/**
+ * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
+ * @param {import('youtubei.js').YT.VideoInfo} info
+ * @returns {{ label: string, description: string }[] | null}
+ */
+export function extractLocalContentDisclosures(info) {
+  if (info?.page?.[1]?.engagement_panels) {
+    const structuredDescPanel = info.page[1].engagement_panels.find(
+      panel => panel.target_id === 'engagement-panel-structured-description'
+    )
+
+    if (structuredDescPanel?.content?.is(YTNodes.StructuredDescriptionContent)) {
+      const items = structuredDescPanel.content.items
+        .filterType(YTNodes.HowThisWasMadeSectionView)
+        .map(item => ({
+          label: item.body_header?.text ?? '',
+          description: item.body_text?.text?.replace(/\s*Learn more\.?$/i, '').trim() ?? '',
+        }))
+
+      return items.length > 0 ? items : null
+    }
+  }
+
+  return null
 }
 
 /**
