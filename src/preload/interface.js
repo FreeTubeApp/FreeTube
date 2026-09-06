@@ -132,6 +132,36 @@ export default {
   },
 
   /**
+   * @returns {Promise<string | null>}
+   */
+  chooseYtdlpOutputDirectory: () => {
+    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY)
+  },
+
+  /**
+   * @returns {Promise<string | null>}
+   */
+  chooseYtdlpExecutable: () => {
+    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_EXECUTABLE)
+  },
+
+  /**
+   * @param {string} name
+   * @param {'ytdlpExecutable'} settingId
+   * @returns {Promise<string | null>}
+   */
+  resolveExecutablePath: (name, settingId) => {
+    return ipcRenderer.invoke(IpcChannels.FIND_EXECUTABLE_ON_PATH, name, settingId)
+  },
+
+  /**
+   * @returns {Promise<{ ytdlp: string | null }>}
+   */
+  getDownloaderExecutableVersions: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS)
+  },
+
+  /**
    * @param {string} filename
    * @param {ArrayBuffer} contents
    * @returns {Promise<boolean>}
@@ -166,6 +196,22 @@ export default {
       (event, externalPlayer, unsupportedActions, isPlaylist) => {
         handler(externalPlayer, unsupportedActions, isPlaylist)
       })
+  },
+
+  /**
+   * @param {string} videoId
+   * @param {'video' | 'audio'} mode
+   * @param {number | null} [startTime]
+   * @param {number | null} [endTime]
+   * @returns {Promise<import('../main/download').DownloadVideoResult>}
+   */
+  downloadVideo: (videoId, mode, startTime, endTime) => {
+    // require the user to have interacted with the page recently
+    if (navigator.userActivation.isActive) {
+      return ipcRenderer.invoke(IpcChannels.DOWNLOAD_VIDEO, { videoId, mode, startTime, endTime })
+    }
+
+    return Promise.resolve('invalid')
   },
 
   /**

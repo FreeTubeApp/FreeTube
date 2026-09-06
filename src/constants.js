@@ -46,8 +46,15 @@ const IpcChannels = {
   CHOOSE_DEFAULT_FOLDER: 'choose-default-folder',
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
+  CHOOSE_YTDLP_OUTPUT_DIRECTORY: 'choose-ytdlp-output-directory',
+  CHOOSE_YTDLP_EXECUTABLE: 'choose-ytdlp-executable',
+  FIND_EXECUTABLE_ON_PATH: 'find-executable-on-path',
+  GET_DOWNLOADER_EXECUTABLE_VERSIONS: 'get-downloader-executable-versions',
+
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
-  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result'
+  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result',
+
+  DOWNLOAD_VIDEO: 'download-video'
 }
 
 const DBActions = {
