@@ -657,6 +657,14 @@ Settings:
     Non-transferable setting key: 'Non-transferable setting key: {key}'
     How do I import my subscriptions?: How do I import my subscriptions?
     Manage Subscriptions: Manage Subscriptions
+    Data Directory: Data Directory
+    Select Data Directory: Select Data Directory
+    Reset Data Directory: Reset Data Directory
+    Copy Data Files When Moving: Copy Data Files When Moving
+    Copy Data Files When Moving Tooltip: Copy existing data files to new directory
+    Data Is Currently Stored In: Data is currently stored in
+    Your data directory has been moved successfully: Your data directory has been moved successfully
+    Error moving data directory: Error moving data directory
   Proxy Settings:
     Proxy Settings: Proxy
     Proxy Warning: FreeTube doesn't have a built-in proxy but can connect to an external proxy, such as one running on your machine like Tor or an external proxy such-as a SOCKS5 proxy provided by some VPNs. If enabled, make sure your proxy/Tor is configured properly, or FreeTube won't be able to fetch any data.
@@ -1015,6 +1023,7 @@ Share:
   Share Post: Share Post
   Share Channel: Share Channel
   Share Playlist: Share Playlist
+  Share via Android: Share via Android
   Include Timestamp: Include Timestamp
   Copy Link: Copy Link
   Open Link: Open Link

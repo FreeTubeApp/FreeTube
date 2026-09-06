@@ -18,5 +18,5 @@ services:
       npm_config_update_notifier: "false"
 
 volumes:
-  gradle-cache:
-  pnpm-store:
+  gradle-cache: {}
+  pnpm-store: {}

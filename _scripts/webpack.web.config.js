@@ -23,6 +23,9 @@ const config = {
   name: 'web',
   mode: process.env.NODE_ENV,
   devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
+  performance: {
+    hints: false,
+  },
   entry: {
     web: path.join(__dirname, '../src/renderer/main.js'),
   },
