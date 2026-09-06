@@ -561,6 +561,8 @@ Settings:
     Hide Channel Courses: チャンネルの「コース」タブを非表示
     Hide Channel Posts: チャンネルの「投稿」タブを非表示
     Hide Subscriptions Posts: 登録チャンネルの投稿を非表示
+    Add: 追加
+    Remove: 削除
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -834,6 +836,7 @@ Video:
   Private: 非公開動画は、Googleアカウントでのログインと動画の所有権が必要なため、FreeTubeでは視聴できません。
   Collapse Playlist: プレイリストを折りたたむ
   Expand Playlist: プレイリストを展開する
+  Station: 局
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
@@ -962,6 +965,7 @@ Profile:
   Edit Profile Name: プロファイル名を編集
   Close Profile Dropdown: プロフィールドロップダウンを閉じる
   Open Profile Dropdown: プロフィールドロップダウンを開く
+  Go To Profile Manager: プロファイルマネージャーに移動
 The playlist has been reversed: 再生リストを逆順にしました
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} が利用可能！　詳細はこちらをクリック
@@ -1010,6 +1014,8 @@ External link opening has been disabled in the general settings: 一般設定で
 Search Bar:
   Clear Input: 入力の消去
   Remove: 削除
+  Open Search Container: 検索コンテナを開く
+  Search: 検索
 Are you sure you want to open this link?: このリンクを開きますか？
 Channels:
   Channels: チャンネル
