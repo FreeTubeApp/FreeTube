@@ -1,0 +1,126 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Build Android Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ dev ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    environment: test
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 22.x
+
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 10
+        run_install: false
+
+    - name: PNPM install
+      run: pnpm install --frozen-lockfile
+
+    - name: Set environment icon & splash for android app
+      run: |
+        # to make it easier to tell which is which when multiple are installed
+        node ./_scripts/_setAppSplashTheme.mjs --feature-branch
+
+    - name: 🔍Lint code
+      run: pnpm run lint
+      continue-on-error: true
+
+    - name: 📚Read package.json
+      id: pkg
+      uses: jaywcjlove/github-action-package@v1.3.0
+
+    - name: Set Version Number Variable
+      id: versionNumber
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          return '${{ steps.pkg.outputs.version }}-test-${{ github.run_number }}'
+    - name: Set App ID Variable
+      id: appId
+      uses: actions/github-script@v6
+      with:
+        result-encoding: string
+        script: |
+          return '${{ steps.pkg.outputs.name }}.test'
+
+    - name: ⬆ Update package.json version
+      uses: jossef/action-set-json-field@v2.1
+      with:
+        file: package.json
+        field: version
+        value: ${{ steps.versionNumber.outputs.result }}
+
+    - name: ⬆ Update package.json app environment
+      uses: jossef/action-set-json-field@v2.1
+      with:
+        file: package.json
+        field: name
+        value: ${{ steps.appId.outputs.result }}
+
+    - name: ⬆ Update package.json product name
+      uses: jossef/action-set-json-field@v2.1
+      with:
+        file: package.json
+        field: productName
+        value: ${{ steps.pkg.outputs.productName }} Test
+
+    - name: 📦 Pack for 📱Android
+      run: |
+        pnpm run pack:botGuardScript:android
+        pnpm run pack:android:dev
+
+    - name: 🦴 Fetch keystore from secrets
+      run: |
+       echo "${{ secrets.KEYSTORE }}" | base64 -d >> freetube.keystore
+
+    - name: Inject signing config from secrets
+      run: |
+        sed -i 's@// inject signing config@// inject signing config\r\nstorePassword = "${{ secrets.KEYSTORE_PASSWORD }}"@' android/app/build.gradle.kts
+        sed -i 's@// inject signing config@// inject signing config\r\nstoreFile = file("../../freetube.keystore")@' android/app/build.gradle.kts
+        sed -i 's@// inject signing config@// inject signing config\r\nkeyPassword = "${{ secrets.KEYSTORE_PASSWORD }}"@' android/app/build.gradle.kts
+        sed -i 's@// inject signing config@keyAlias = "fta_test"@' android/app/build.gradle.kts
+        cat android/app/build.gradle.kts
+
+    - name: Update name
+      run: |
+        sed -i 's/"FreeTube Android"/"FreeTube Test"/g' android/settings.gradle.kts
+        sed -i 's/FreeTube Android/FreeTube Test/g' android/app/src/main/res/values/strings.xml
+
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: cd android/ && chmod +x gradlew
+
+    - name: Build with Gradle
+      run: cd android/ && ./gradlew build
+
+    - name: Rename APK w/ version info
+      run: |
+        mkdir dist -p
+        cp android/app/build/outputs/apk/debug/app-debug.apk dist/freetube-${{ steps.versionNumber.outputs.result }}-Android.apk
+
+    - name: 📡 Upload APK Artifact
+      uses: actions/upload-artifact@v4.6.0
+      with:
+        name: freetube-${{ steps.versionNumber.outputs.result }}-Android.apk
+        path: dist/freetube-${{ steps.versionNumber.outputs.result }}-Android.apk

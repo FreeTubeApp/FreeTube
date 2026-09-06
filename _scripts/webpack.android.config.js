@@ -1,0 +1,232 @@
+const path = require('path')
+const fs = require('fs')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { VueLoaderPlugin } = require('vue-loader')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
+const {
+  SHAKA_LOCALE_MAPPINGS,
+  SHAKA_LOCALES_PREBUNDLED,
+  SHAKA_LOCALES_TO_BE_BUNDLED
+} = require('./getShakaLocales')
+const { sigViewTemplateParameters } = require('./sigViewConfig')
+
+const isDevMode = process.env.NODE_ENV === 'development'
+
+const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
+
+const config = {
+  name: 'web',
+  mode: process.env.NODE_ENV,
+  devtool: isDevMode ? 'eval-cheap-module-source-map' : false,
+  entry: {
+    web: path.join(__dirname, '../src/renderer/main.js'),
+  },
+  output: {
+    path: path.join(__dirname, '../android/app/src/main/assets'),
+    filename: '[name].js',
+  },
+  externals: {
+    android: 'Android'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+        exclude: /node_modules/,
+      },
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          compilerOptions: {
+            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide'
+          }
+        }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass')
+            }
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              esModule: false
+            }
+          }
+        ],
+        rules: [
+          {
+            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
+            use: path.join(__dirname, 'patch-shaka-player-loader.js')
+          }
+        ]
+      },
+      {
+        test: /\.html$/,
+        use: 'vue-html-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'imgs/[name][ext]'
+        }
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'fonts/[name][ext]'
+        }
+      },
+    ],
+  },
+  // webpack defaults to only optimising the production builds, so having this here is fine
+  optimization: {
+    minimizer: [
+      '...', // extend webpack's list instead of overwriting it
+      new JsonMinimizerPlugin({
+        exclude: /\/locales\/.*\.json/
+      }),
+      new CssMinimizerPlugin()
+    ]
+  },
+  node: {
+    __dirname: true,
+    __filename: isDevMode,
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.IS_ELECTRON': false,
+      'process.env.IS_ELECTRON_MAIN': false,
+      'process.env.IS_ANDROID': true,
+      'process.env.IS_RELEASE': !isDevMode,
+      'process.env.SUPPORTS_LOCAL_API': true,
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
+      __VUE_I18N_LEGACY_API__: 'false',
+      __VUE_I18N_FULL_INSTALL__: 'false',
+      __INTLIFY_PROD_DEVTOOLS__: 'false',
+      'process.env.SWIPER_VERSION': `'${swiperVersion}'`
+    }),
+    new webpack.ProvidePlugin({
+      process: 'process/browser.js'
+    }),
+    new HtmlWebpackPlugin({
+      excludeChunks: ['processTaskWorker'],
+      filename: 'index.html',
+      template: path.resolve(__dirname, '../src/index.ejs'),
+      nodeModules: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'decipher.html',
+      inject: false,
+      templateContent: sigViewTemplateParameters.sigViewRaw,
+      nodeModules: false
+    }),
+    new VueLoaderPlugin(),
+    new MiniCssExtractPlugin({
+      filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
+      chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
+          to: `swiper-${swiperVersion}.css`,
+          context: path.join(__dirname, '../node_modules/swiper/modules'),
+          transformAll: (assets) => {
+            return Buffer.concat(assets.map(asset => asset.data))
+          }
+        }
+      ]
+    })
+  ],
+  resolve: {
+    alias: {
+
+      DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/web.js'),
+
+      // change to "shaka-player.ui-es2021.debug.js" to get debug logs (update jsconfig to get updated types)
+      'shaka-player$': 'shaka-player/dist/shaka-player.ui-es2021.js',
+    },
+    fallback: {
+      'fs/promises': path.resolve(__dirname, '_empty.js')
+    },
+    extensions: ['.js', '.vue']
+  },
+  target: 'web',
+}
+
+const processLocalesPlugin = new ProcessLocalesPlugin({
+  compress: false,
+  inputDir: path.join(__dirname, '../static/locales'),
+  outputDir: 'static/locales',
+})
+const processAndroidLocales = new ProcessLocalesPlugin({
+  compress: false,
+  inputDir: path.join(__dirname, '../static/locales-android'),
+  outputDir: 'static/locales-android',
+})
+config.plugins.push(
+  processLocalesPlugin,
+  processAndroidLocales,
+  new webpack.DefinePlugin({
+    'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
+    'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
+    'process.env.SHAKA_LOCALE_MAPPINGS': JSON.stringify(SHAKA_LOCALE_MAPPINGS),
+    'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
+  }),
+  new CopyWebpackPlugin({
+    patterns: [
+      {
+        from: path.join(__dirname, '../static/pwabuilder-sw.js'),
+        to: path.join(__dirname, '../android/app/src/main/assets/pwabuilder-sw.js'),
+      },
+      {
+        from: path.join(__dirname, '../static'),
+        to: path.join(__dirname, '../android/app/src/main/assets/static'),
+        globOptions: {
+          dot: true,
+          ignore: ['**/.*', '**/locales/**', '**/locales-android/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
+        },
+      },
+      {
+        from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
+        to: path.join(__dirname, '../android/app/src/main/assets/static/shaka-player-locales'),
+        context: path.join(__dirname, '../node_modules/shaka-player/ui/locales')
+      }
+    ]
+  })
+)
+
+module.exports = config

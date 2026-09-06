@@ -15,9 +15,7 @@ body:
       options:
         - label: I have encountered this bug in the [latest release of FreeTube](https://github.com/FreeTubeApp/FreeTube/releases).
           required: true
-        - label: I have encountered this bug in the [official downloads of FreeTube](https://github.com/FreeTubeApp/FreeTube#official-downloads). **The only official downloads are from the [https://freetubeapp.io](https://freetubeapp.io/#download) website, the [FreeTubeApp/FreeTube GitHub repository](https://github.com/FreeTubeApp/FreeTube/releases) and the [io.freetubeapp.FreeTube flatpak](https://flathub.org/en/apps/io.freetubeapp.FreeTube) from Flathub.**
-          required: true
-        - label: I have [searched the issue tracker for **open and closed** issues](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+sort%3Arelevance-desc) that are similar to the bug report I want to file, without success.
+        - label: I have searched the issue tracker for [open](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aopen+is%3Aissue) and [closed](https://github.com/FreeTubeApp/FreeTube/issues?q=is%3Aissue+is%3Aclosed) issues that are similar to the bug report I want to file, without success.
           required: true
         - label: I have searched the [documentation](https://docs.freetubeapp.io/) for information that matches the description of the bug I want to file, without success.
           required: true
@@ -82,28 +80,9 @@ body:
   - type: dropdown
     attributes:
       label: Installation Method
-      description: When you select an unofficial installation method, you must have verified that the bug is also present in one of the official installation methods. Please make sure you uninstall the unofficial installation before installing one of the official installations. If you can't reproduce this in one of the official installation methods, you should report the bug to the maintainer of the unofficial installation method you used.
       options:
-        - .AppImage
-        - .deb
-        - .dmg
-        - .exe
-        - Flathub
-        - .pacman
-        - Portable
-        - .rpm
-        - .zip / .7z
-        - .apk (FreeTubeAndroid Unofficial)
-        - .apk (Alpine Linux Package Unofficial)
-        - AUR (Unofficial)
-        - Chocolatey (Unofficial)
-        - Homebrew (Unofficial)
-        - Nix (Unofficial)
-        - PortableApps (Unofficial)
-        - Scoop (Unofficial)
-        - Snapcraft (Unofficial)
-        - WAPT (Unofficial)
-        - winget (Unofficial)
+        - .apk
+        - PWA (Progressive Web App)
         - other
     validations:
       required: true

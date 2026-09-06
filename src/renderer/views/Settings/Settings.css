@@ -1,6 +1,5 @@
 .settingsPage {
   display: flex;
-  gap: 20px;
 }
 
 .settingsSections,
@@ -26,26 +25,92 @@
   scroll-margin-top: 24vh;
 }
 
+@media only screen and (width <= 1015px) {
+  .settingsMenu {
+    block-size: auto;
+    gap: 1em;
+
+  }
+
+  .switchRow {
+    display: none;
+  }
+
+  .settingsSections {
+    overflow-y: hidden;
+  }
+
+  .switchRow,
+  .settingsSections {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    box-sizing: border-box;
+  }
+
+  .settingsContent {
+    inline-size: 100%;
+  }
+
+  .settingsSection {
+    inline-size: 100%;
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  .hideOnMobile {
+    display: none;
+  }
+
+  .returnToMenuMobileIcon {
+    font-size: 2em;
+    inline-size: 1.5em;
+    block-size: 1.5em;
+    padding-inline-end: 0.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media only screen and (width <= 680px) {
+  .settingsMenu {
+    margin: 0;
+    inline-size: 100%;
+    gap: 0;
+  }
+
+  :deep(.title) {
+    box-sizing: border-box;
+    inline-size: 100%;
+    padding-block: 0.5em;
+    border-block-end: 3px solid var(--side-nav-color);
+    max-inline-size: 100%;
+  }
+
+  :deep(.title):last-child {
+    border-block-end: none;
+  }
+}
+
+/*
 @media only screen and (width >= 1015px) {
   .section + .section {
     padding-block-start: 20px;
   }
 
   .settingsSections:last-child {
-    /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to */
+    /* Add enough blank space to have the last setting section be active on the FtSettingsMenu when scrolled to *\/
     margin-block-end: calc(76vh - 150px);
   }
 }
 
 @media only screen and (width <= 1200px) {
-  .settingsSections,
-  .switchRow {
-    max-inline-size: 100%;
-  }
+
 }
 
 @media only screen and (width <= 1015px) {
-  /* Needed to overcome routerView styling for margin-block */
+  /* Needed to overcome routerView styling for margin-block *\/
   .settingsPage.settingsPage {
     margin-block: 0;
     flex-direction: column;
@@ -84,3 +149,4 @@
     inline-size: 1em;
   }
 }
+*/

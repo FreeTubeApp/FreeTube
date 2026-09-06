@@ -66,3 +66,10 @@
 .playlist-selector-container.disabled {
   opacity: 0.5;
 }
+
+@media only screen and (width <= 420px) {
+  .heading {
+    font-size: 1.4em;
+    margin-block-end: 0;
+  }
+}

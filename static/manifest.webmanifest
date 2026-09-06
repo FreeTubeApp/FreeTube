@@ -1,0 +1,25 @@
+{
+  "name": "FreeTube",
+  "short_name": "FreeTube",
+  "start_url": "../index.html",
+  "categories": [
+    "multimedia",
+    "browser"
+  ],
+  "display": "standalone",
+  "background_color": "white",
+  "scope": "/",
+  "description": "A private YouTube client",
+  "icons": [
+    {
+      "src": "./_icons/192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./_icons/192x192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

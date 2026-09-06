@@ -60,16 +60,16 @@ export default async function (videoId, context, initialAttestationData, ytConfi
     interpreterUrl = `https:${interpreterUrl}`
   }
 
-  const bgScriptResponse = await fetch(interpreterUrl)
-  const interpreterJavascript = await bgScriptResponse.text()
-
-  if (interpreterJavascript) {
-    window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID field
-    // eslint-disable-next-line no-new-func
-    new Function(interpreterJavascript)()
-  } else {
-    throw new Error('Could not load VM.')
-  }
+  window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID fieldd
+  await new Promise((resolve, _reject) => {
+    const script = document.createElement('script')
+    script.src = interpreterUrl
+    script.async = true
+    document.head.appendChild(script)
+    script.addEventListener('load', () => {
+      resolve({ text: () => '() => {}' })
+    })
+  })
 
   const botGuard = await BotGuardClient.create({
     program: challengeData.bgChallenge.program,

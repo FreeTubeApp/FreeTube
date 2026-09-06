@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <uses-permission android:name="android.permission.INTERNET"/>
+  <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+
+  <supports-screens
+    android:anyDensity="true"
+    android:smallScreens="true"
+    android:normalScreens="true"
+    android:largeScreens="true"
+    android:resizeable="true"
+    android:xlargeScreens="true" />
+
+  <application
+    android:allowBackup="true"
+    android:dataExtractionRules="@xml/data_extraction_rules"
+    android:fullBackupContent="@xml/backup_rules"
+    android:icon="@mipmap/ic_launcher"
+    android:label="@string/app_name"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    android:supportsRtl="true"
+    android:theme="@style/Theme.FreeTubeAndroid"
+    android:hardwareAccelerated="true"
+    android:grantUriPermissions="true"
+    tools:targetApi="34">
+
+    <service
+        android:name=".KeepAliveService"
+        android:foregroundServiceType="mediaPlayback"
+        android:exported="false">
+    </service>
+
+    <receiver android:name=".MediaControlsReceiver"
+      android:exported="true">
+      <intent-filter>
+        <action android:name="play" />
+        <action android:name="pause" />
+        <action android:name="previous" />
+        <action android:name="next" />
+      </intent-filter>
+    </receiver>
+
+    <activity
+      android:name=".MainActivity"
+      android:exported="true"
+      android:label="@string/app_name"
+      android:theme="@style/Theme.FreeTubeAndroid"
+      android:configChanges="screenSize|smallestScreenSize|orientation|screenLayout|uiMode"
+      android:launchMode="singleTask">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+
+      </intent-filter>
+
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+
+        <data android:scheme="https" />
+        <data android:host="m.youtube.com" />
+        <data android:host="www.youtube.com" />
+        <data android:host="youtube.com" />
+        <data android:host="youtu.be" />
+        <!-- supported links -->
+          <data android:host="invidious.fdn.fr" />
+          <data android:host="vid.puffyan.us" />
+          <data android:host="invidious.flokinet.to" />
+          <data android:host="inv.bp.projectsegfau.lt" />
+          <data android:host="invidious.lunar.icu" />
+          <data android:host="invidious.io.lol" />
+          <data android:host="inv.tux.pizza" />
+          <data android:host="invidious.privacydev.net" />
+          <data android:host="yt.artemislena.eu" />
+          <data android:host="vid.priv.au" />
+          <data android:host="onion.tube" />
+          <data android:host="yt.oelrichsgarcia.de" />
+          <data android:host="invidious.protokolla.fi" />
+          <data android:host="invidious.asir.dev" />
+          <data android:host="iv.nboeck.de" />
+          <data android:host="invidious.private.coffee" />
+          <data android:host="iv.datura.network" />
+          <data android:host="anontube.lvkaszus.pl" />
+          <data android:host="inv.us.projectsegfau.lt" />
+          <data android:host="invidious.perennialte.ch" />
+          <data android:host="invidious.drgns.space" />
+          <data android:host="invidious.einfachzocken.eu" />
+          <data android:host="invidious.slipfox.xyz" />
+          <data android:host="invidious.no-logs.com" />
+          <data android:host="yt.drgnz.club" />
+          <data android:host="yt.cdaut.de" />
+          <data android:host="iv.melmac.space" />
+          <data android:host="inv.citw.lgbt" />
+        <!-- /supported links -->
+      </intent-filter>
+
+    </activity>
+
+  </application>
+
+</manifest>

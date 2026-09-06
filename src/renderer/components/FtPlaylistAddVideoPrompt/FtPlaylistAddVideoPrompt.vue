@@ -3,6 +3,7 @@
     theme="flex-column"
     :label="title"
     :inert="showingCreatePlaylistPrompt"
+    :fullscreen="true"
     @click="hide"
   >
     <p class="selected-count">
@@ -431,11 +432,13 @@ const updateQueryDebounce = debounce(/** @param {string} query_ */(query_) => {
 
 onMounted(() => {
   document.addEventListener('keydown', keyboardShortcutHandler)
-
-  // User might want to search first if they have many playlists
-  nextTick(() => {
-    searchBar.value?.focus()
-  })
+  // Don't open keyboard prompt immediately on android
+  if (!process.env.IS_ANDROID) {
+    // User might want to search first if they have many playlists
+    nextTick(() => {
+      searchBar.value?.focus()
+    })
+  }
 })
 
 onBeforeUnmount(() => {

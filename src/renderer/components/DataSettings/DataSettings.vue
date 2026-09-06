@@ -2,6 +2,36 @@
   <FtSettingsSection
     :title="$t('Settings.Data Settings.Data Settings')"
   >
+    <template v-if="usingAndroid">
+      <h4 class="groupTitle data-directory-heading">
+        {{ $t('Data Settings.Data Directory') }}
+      </h4>
+      <ft-flex-box class="dataSettingsBox">
+        <ft-button
+          :label="$t('Data Settings.Select Data Directory')"
+          @click="selectDirectory"
+        />
+        <ft-button
+          :label="$t('Data Settings.Reset Data Directory')"
+          @click="resetDirectory"
+        />
+        <ft-toggle-switch
+          :label="$t('Data Settings.Copy Data Files When Moving')"
+          :compact="true"
+          :default-value="shouldCopyDataFilesWhenMoving"
+          :tooltip="$t('Data Settings.Copy Data Files When Moving Tooltip')"
+          @change="toggleCopyDataDir"
+        />
+      </ft-flex-box>
+      <ft-flex-box>
+        <p>
+          {{ $t('Data Settings.Data Is Currently Stored In') }}
+        </p>
+        <p class="data-directory">
+          {{ dataDirectory }}
+        </p>
+      </ft-flex-box>
+    </template>
     <h4 class="groupTitle">
       {{ $t('Subscriptions.Subscriptions') }}
     </h4>
@@ -116,6 +146,7 @@ import FtButton from '../FtButton/FtButton.vue'
 import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtPrompt from '../FtPrompt/FtPrompt.vue'
 import FtSettingsSection from '../FtSettingsSection/FtSettingsSection.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 import FtTooltip from '../FtTooltip/FtTooltip.vue'
 
 import store from '../../store/index'
@@ -133,6 +164,10 @@ import {
 } from '../../helpers/utils'
 import { processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 
+import android from 'android'
+import { selectDataDirectory, getCurrentDataDirectory, DATA_DIRECTORY } from '../../helpers/android/storage'
+import { handleAmbigiousContent } from '../../helpers/android/utils'
+
 const IMPORT_DIRECTORY_ID = 'data-settings-import'
 const START_IN_DIRECTORY = 'downloads'
 
@@ -141,6 +176,50 @@ const router = useRouter()
 
 function openProfileSettings() {
   router.push('/settings/profile')
+}
+
+const usingAndroid = process.env.IS_ANDROID
+
+const shouldCopyDataFilesWhenMoving = ref(false)
+function toggleCopyDataDir() {
+  shouldCopyDataFilesWhenMoving.value = !shouldCopyDataFilesWhenMoving.value
+}
+
+async function selectDirectory() {
+  try {
+    const uri = await selectDataDirectory(shouldCopyDataFilesWhenMoving.value)
+    if (uri !== null) {
+      dataDirectory.value = uri
+    }
+    showToast(t('Data Settings.Your data directory has been moved successfully'))
+  } catch (exception) {
+    showToast(t('Data Settings.Error moving data directory'))
+    console.error(exception)
+  }
+}
+
+async function resetDirectory() {
+  try {
+    const uri = await selectDataDirectory(shouldCopyDataFilesWhenMoving.value, true)
+    if (uri !== null) {
+      dataDirectory.value = uri
+    }
+    showToast(t('Data Settings.Your data directory has been moved successfully'))
+  } catch (exception) {
+    showToast(t('Data Settings.Error moving data directory'))
+    console.error(exception)
+  }
+}
+
+const dataDirectory = ref('')
+if (process.env.IS_ANDROID) {
+  dataDirectory.value = android.getDirectory(DATA_DIRECTORY)
+
+  getCurrentDataDirectory().then(({ uri }) => {
+    if (uri !== 'data://') {
+      dataDirectory.value = uri
+    }
+  })
 }
 
 /**
@@ -232,8 +311,10 @@ async function importSubscriptions() {
     return
   }
 
-  const { filename, content } = response
-
+  let { filename, content } = response
+  if (process.env.IS_ANDROID) {
+    filename = handleAmbigiousContent(content, filename)
+  }
   if (filename.endsWith('.csv')) {
     importCsvYouTubeSubscriptions(content)
   } else if (filename.endsWith('.db')) {
@@ -478,6 +559,7 @@ function importYouTubeSubscriptions(textDecode) {
  */
 function importOpmlYouTubeSubscriptions(data) {
   let xmlDom
+  const subscriptions = []
   const domParser = new DOMParser()
   try {
     xmlDom = domParser.parseFromString(data, 'application/xml')
@@ -508,11 +590,6 @@ function importOpmlYouTubeSubscriptions(data) {
     showToast(message)
     return
   }
-
-  const subscriptions = []
-
-  store.commit('setShowProgressBar', true)
-  store.commit('setProgressBarPercentage', 0)
 
   let count = 0
 
@@ -1561,5 +1638,17 @@ async function exportSettings() {
 // #endregion settings
 
 </script>
+<style scoped>
+.data-directory-heading {
+  margin-block-start: 20px;
+}
+
+.data-directory {
+  word-wrap: break-word;
+  font-family: monospace;
+  max-inline-size: 70vw;
+  margin-block-start: -10px;
+}
+</style>
 
 <style scoped src="./DataSettings.css" />

@@ -55,6 +55,10 @@ import { useI18n } from 'vue-i18n'
  *   }
  * }} SabrData
  */
+import {
+  createMediaSession
+} from '../../helpers/android/media-session'
+import android from 'android'
 
 const MANIFEST_TYPE_DASH = 'application/dash+xml'
 const MANIFEST_TYPE_HLS = 'application/x-mpegurl'
@@ -97,6 +101,7 @@ export default defineComponent({
   data: function () {
     return {
       startNextVideoInFullscreen: false,
+      previousHistoryOffset: 1,
       startNextVideoInFullwindow: false,
       startNextVideoInPip: false,
       isLoading: true,
@@ -340,6 +345,11 @@ export default defineComponent({
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
     },
+    async thumbnail() {
+      if (process.env.IS_ANDROID) {
+        createMediaSession(this.videoTitle, this.channelName, this.videoLengthSeconds * 1000, this.thumbnail)
+      }
+    }
   },
   created: function () {
     this.videoId = this.$route.params.id
@@ -352,7 +362,18 @@ export default defineComponent({
     this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
   },
   mounted: function () {
+    window.addEventListener('media-next', this.mediaNext)
+    window.addEventListener('media-previous', this.mediaPrevious)
+    window.addEventListener('media-seek', this.mediaSeek)
     this.onMountedDependOnLocalStateLoading()
+  },
+  beforeUnmount() {
+    if (process.env.IS_ANDROID) {
+      window.removeEventListener('media-next', this.mediaNext)
+      window.removeEventListener('media-previous', this.mediaPrevious)
+      window.removeEventListener('media-seek', this.mediaSeek)
+      android.cancelMediaNotification()
+    }
   },
   methods: {
     async reloadView() {
@@ -382,6 +403,46 @@ export default defineComponent({
           this.getVideoInformationInvidious()
           break
       }
+    },
+    mediaSeek({ position }) {
+      this.$refs.player.setCurrentTime(position / 1000)
+    },
+    mediaNext() {
+      this.previousHistoryOffset = 1
+      if (this.playlistId != null) {
+        // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
+        this.$refs.watchVideoPlaylist.playNextVideo()
+        return
+      }
+      let nextVideoId = null
+      if (!this.watchingPlaylist) {
+        const forbiddenTitles = this.forbiddenTitles
+        const channelsHidden = this.channelsHidden
+        nextVideoId = this.recommendedVideos.find((video) =>
+          !this.isHiddenVideo(forbiddenTitles, channelsHidden, video)
+        )?.videoId
+        if (!nextVideoId) {
+          return
+        }
+      }
+      this.$router.push({
+        path: `/watch/${nextVideoId}`
+      })
+    },
+    mediaPrevious() {
+      if (this.playlistId != null) {
+        if (this.$refs.watchVideoPlaylist.videoIndexInPlaylistItems === 0) {
+          // don't do anything
+          return
+        }
+        // Let `watchVideoPlaylist` handle end of playlist, no countdown needed
+        this.$refs.watchVideoPlaylist.playPreviousVideo()
+        return
+      }
+      this.$router.push({
+        path: `/watch/${this.$store.getters.getHistoryCacheSorted[this.previousHistoryOffset].videoId}`
+      })
+      this.previousHistoryOffset++
     },
 
     resetVideoState: function () {
@@ -1513,6 +1574,7 @@ export default defineComponent({
           if (this.watchingPlaylist) {
             this.$refs.watchVideoPlaylist.playNextVideo()
           } else {
+            this.previousHistoryOffset = 1
             this.$router.push({
               path: `/watch/${nextVideoId}`
             })

@@ -1,0 +1,5 @@
+@media only screen and (width <= 420px) {
+  body:has(.promptCard.fullscreen) {
+    overflow: hidden;
+  }
+}

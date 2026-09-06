@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">FreeTube Android</string>
+    <string name="youtube_regex">^https?:\/\/((www\.)?youtube\.com(\/embed)?|youtu\.be)\/.*$</string>
+</resources>

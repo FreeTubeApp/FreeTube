@@ -15,6 +15,7 @@
 .sectionBody {
   background-color: var(--card-bg-color);
   padding-block: 10px;
+  padding-inline: 1em;
 
   > :deep(div) {
     box-sizing: border-box;
@@ -32,7 +33,7 @@
 
 .sectionTitle {
   user-select: none;
-  margin-inline-start: 20px;
+  margin-inline-start: 0;
   margin-block: 0.5em;
 }
 

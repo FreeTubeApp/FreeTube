@@ -1,0 +1,25 @@
+Keep Alive Notification:
+  Running In Background Message: FreeTube is running in the background
+General Settings:
+  Show Tap Highlight: Show Tap Highlight
+Player Settings:
+  Use Old Layout For Info: Use old layout for watch video info
+Distraction Free Settings:
+  Hide Thumbnail In Media Controls: Hide thumbnail in media controls notification
+Data Settings:
+  Data Directory: Data Directory
+  Select Data Directory: Select Data Directory
+  Reset Data Directory: Reset Data Directory
+  Your data directory has been moved successfully: Your data directory has been moved successfully
+  Error moving data directory: Error occured while moving data directory
+  Nothing to change: Nothing to change
+  Copy Data Files When Moving: Copy data files when moving directories
+  Copy Data Files When Moving Tooltip: This option overwrites the db files present in the directory you have selected with the current db files. Disabling this option will force the app to restart immediately after the directory has been moved.
+  Data Is Currently Stored In: Data is currently stored in
+Theme Settings:
+  Enable Ui Scale: Enable UI Scale
+Log Viewer:
+  Console Log: Console Log
+About FTA:
+  Donate Upstream: Donate to upstream
+Decipher Script Timed Out: Decipher script timed out

@@ -1,0 +1,94 @@
+
+.level {
+  padding-inline: 5px;
+}
+
+.logs {
+  max-block-size: calc(100vh - 164px);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.logs-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.logs-wrapper .actions-container {
+  padding-block-start: 12px;
+}
+
+.logs > .log,
+.logs > .warning,
+.logs > .error {
+  padding: 10px;
+}
+
+.logs > .log {
+  background-color: var(--card-bg-color);
+  border-block-end: 2px solid var(--secondary-card-bg-color);
+}
+
+.logs > .warning {
+  background-color: #332b00;
+  color: #ee9836;
+  border-block-end: 1px solid #ee9836;
+}
+
+.logs > .error {
+  background-color: #290000;
+  color: #e46962;
+  border-block-end: 1px solid #e46962;
+}
+
+[data-theme='light'] .logs > .warning {
+  background-color: #fef6d5;
+  color: #3e2f00;
+  border-block-end: 2px solid var(--card-bg-color);
+}
+
+.content {
+  overflow-wrap: break-word;
+}
+
+.source {
+  display: block;
+  direction: rtl;
+  overflow: hidden;
+  text-wrap: nowrap;
+  text-overflow: ellipsis;
+}
+
+.log .source {
+  font-weight: bold;
+}
+
+.timestamp {
+  text-align: end;
+  display: block;
+}
+
+.error .source,
+.warning .source {
+  color: #fff;
+}
+
+[data-theme='light'] .source,
+[data-theme='light'] .error {
+  color: #000;
+}
+
+[data-theme='light'] .logs > .error {
+  background-color: #fcebeb;
+  color: #410e0b;
+  border-block-end: 2px solid var(--card-bg-color);
+}
+
+
+@media (width <= 420px) {
+  .logs-wrapper .actions-container {
+    padding: 23px;
+    flex-grow: 1;
+  }
+}

@@ -2,6 +2,8 @@ import { nextTick } from 'vue'
 import i18n from '../i18n/index'
 import router from '../router/index'
 import { UnsupportedPlayerActions } from '../../constants'
+import { requestOpenDialog, requestSaveDialog } from './android/dialogs'
+import { writeFile } from './android/storage'
 
 // allowed characters in channel handle: A-Z, a-z, 0-9, -, _, .
 // https://support.google.com/youtube/answer/11585688#change_handle
@@ -262,7 +264,11 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * @param {string} url the URL to open
  */
 export async function openExternalLink(url) {
-  window.open(url, '_blank', 'noreferrer')
+  if (process.env.IS_ANDROID) {
+    Android.openExternalLink(url)
+  } else {
+    window.open(url, '_blank', 'noreferrer')
+  }
 }
 
 /**
@@ -300,11 +306,25 @@ export async function readFileWithPicker(
 ) {
   let file
 
+  if (process.env.IS_ANDROID) {
+    const extensions = []
+    const values = Object.values(acceptedTypes)
+    for (const value of values) {
+      if (Array.isArray(value)) {
+        extensions.push(...value.map(extension => extension.substring(1)))
+      } else {
+        extensions.push(value.substring(1))
+      }
+    }
+    const dialogResponse = await requestOpenDialog(extensions)
+    if (!dialogResponse.canceled) {
+      file = dialogResponse
+    }
   // Only supported in Electron and desktop Chromium browsers
   // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
   // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
   // and allow terser to remove the unused else block
-  if (process.env.IS_ELECTRON || 'showOpenFilePicker' in window) {
+  } else if (process.env.IS_ELECTRON || 'showOpenFilePicker' in window) {
     try {
       /** @type {FileSystemFileHandle[]} */
       const [handle] = await window.showOpenFilePicker({
@@ -388,11 +408,18 @@ export async function writeFileWithPicker(
   rememberDirectoryId,
   startInDirectory
 ) {
+  if (process.env.IS_ANDROID) {
+    const response = await requestSaveDialog(fileName, 'application/octet-stream')
+    if (!response.canceled) {
+      await writeFile(response.uri, content)
+      return true
+    }
+    return false
   // Only supported in Electron and desktop Chromium browsers
   // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
   // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
   // and allow terser to remove the unused else block
-  if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
+  } else if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
     let writableFileStream
 
     try {
@@ -445,6 +472,38 @@ export async function writeFileWithPicker(
     }, 1000)
 
     return true
+  }
+}
+
+/**
+ * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
+ * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
+ */
+export async function showSaveDialog (options) {
+  if (process.env.IS_ELECTRON) {
+    const { ipcRenderer } = require('electron')
+    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
+  } else if (process.env.IS_ANDROID) {
+    return await requestSaveDialog(options.defaultPath.split('/').at(-1), 'application/octet-stream')
+  } else {
+    // If the native filesystem api is available
+    if ('showSaveFilePicker' in window) {
+      return {
+        canceled: false,
+        handle: await window.showSaveFilePicker({
+          suggestedName: options.defaultPath.split('/').at(-1),
+          types: options.filters[0]?.extensions?.map((extension) => {
+            return {
+              accept: {
+                'application/octet-stream': '.' + extension
+              }
+            }
+          })
+        })
+      }
+    } else {
+      return { canceled: false, filePath: options.defaultPath }
+    }
   }
 }
 

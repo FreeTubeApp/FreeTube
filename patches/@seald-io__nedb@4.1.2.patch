@@ -1,0 +1,90 @@
+--- a/lib/datastore.js
++++ b/lib/datastore.js
+@@ -195,6 +195,7 @@
+    * the right choice.
+    * @param {boolean} [options.testSerializationHooks=true] Whether to test the serialization hooks or not,
+    * might be CPU-intensive
++   * @param {object?} [options.storage]  Optional, override methods to use for storage
+    */
+   constructor (options) {
+     super()
+@@ -265,7 +266,8 @@
+       beforeDeserialization: options.beforeDeserialization,
+       corruptAlertThreshold: options.corruptAlertThreshold,
+       modes: options.modes,
+-      testSerializationHooks: options.testSerializationHooks
++      testSerializationHooks: options.testSerializationHooks,
++      storage: options.storage
+     })
+ 
+     // This new executor is ready if we don't use persistence
+--- a/lib/persistence.js
++++ b/lib/persistence.js
+@@ -48,8 +48,10 @@
+    * @param {object} [options.modes] Modes to use for FS permissions. Will not work on Windows.
+    * @param {number} [options.modes.fileMode=0o644] Mode to use for files.
+    * @param {number} [options.modes.dirMode=0o755] Mode to use for directories.
++   * @param {object?} [options.storage]  Optional, override methods to use for storage
+    */
+   constructor (options) {
++    this.storage = options.storage
+     this.db = options.db
+     this.inMemoryOnly = this.db.inMemoryOnly
+     this.filename = this.db.filename
+@@ -109,7 +111,7 @@
+       }
+     }
+ 
+-    await storage.crashSafeWriteFileLinesAsync(this.filename, lines, this.modes)
++    await (this.storage || storage).crashSafeWriteFileLinesAsync(this.filename, lines, this.modes)
+     this.db.emit('compaction.done')
+   }
+ 
+@@ -160,7 +162,7 @@
+ 
+     if (toPersist.length === 0) return
+ 
+-    await storage.appendFileAsync(this.filename, toPersist, { encoding: 'utf8', mode: this.modes.fileMode })
++    await (this.storage || storage).appendFileAsync(this.filename, toPersist, { encoding: 'utf8', mode: this.modes.fileMode })
+   }
+ 
+   /**
+@@ -311,16 +313,16 @@
+     // In-memory only datastore
+     if (this.inMemoryOnly) return
+     await Persistence.ensureParentDirectoryExistsAsync(this.filename, this.modes.dirMode)
+-    await storage.ensureDatafileIntegrityAsync(this.filename, this.modes.fileMode)
++    await (this.storage || storage).ensureDatafileIntegrityAsync(this.filename, this.modes.fileMode)
+ 
+     let treatedData
+-    if (storage.readFileStream) {
++    if ((this.storage || storage).readFileStream) {
+       // Server side
+-      const fileStream = storage.readFileStream(this.filename, { encoding: 'utf8', mode: this.modes.fileMode })
++      const fileStream = (this.storage || storage).readFileStream(this.filename, { encoding: 'utf8', mode: this.modes.fileMode })
+       treatedData = await this.treatRawStreamAsync(fileStream)
+     } else {
+       // Browser
+-      const rawData = await storage.readFileAsync(this.filename, { encoding: 'utf8', mode: this.modes.fileMode })
++      const rawData = await (this.storage || storage).readFileAsync(this.filename, { encoding: 'utf8', mode: this.modes.fileMode })
+       treatedData = await this.treatRawData(rawData)
+     }
+     // Recreate all indexes in the datafile
+@@ -362,7 +364,7 @@
+     // remove datastore file
+     if (!this.db.inMemoryOnly) {
+       await this.db.executor.pushAsync(async () => {
+-        if (await storage.existsAsync(this.filename)) await storage.unlinkAsync(this.filename)
++        if (await (this.storage || storage).existsAsync(this.filename)) await (this.storage || storage).unlinkAsync(this.filename)
+       }, true)
+     }
+   }
+@@ -375,7 +377,7 @@
+    * @private
+    */
+   static async ensureParentDirectoryExistsAsync (dir, mode = DEFAULT_DIR_MODE) {
+-    return storage.ensureParentDirectoryExistsAsync(dir, mode)
++    return (this.storage || storage).ensureParentDirectoryExistsAsync(dir, mode)
+   }
+ }
+ 

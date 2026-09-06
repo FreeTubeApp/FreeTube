@@ -31,6 +31,8 @@ import {
 } from '../../helpers/utils'
 import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { setupSabrScheme } from '../../helpers/player/SabrSchemePlugin'
+import { STATE_BUFFERING, STATE_PAUSED, STATE_PLAYING, updateMediaSessionState } from '../../helpers/android/media-session'
+import android from 'android'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -63,6 +65,8 @@ const shakaControlKeysToShortcuts = {
 
 /** @type {Map<string, string>} */
 const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
+
+let [onAppPause, onAppResume] = [() => {}, () => {}]
 
 export default defineComponent({
   name: 'FtShakaVideoPlayer',
@@ -300,6 +304,25 @@ export default defineComponent({
         enableFullscreenOnRotation: newValue
       })
     })
+    onAppPause = () => {
+      try {
+        document.exitFullscreen()
+      } catch {
+        // pass
+      }
+      ui.configure({
+        enableFullscreenOnRotation: false
+      })
+    }
+
+    onAppResume = () => {
+      ui.configure({
+        enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value
+      })
+    }
+    window.addEventListener('app-pause', onAppPause)
+
+    window.addEventListener('app-resume', onAppResume)
 
     /** @type {import('vue').ComputedRef<number>} */
     const defaultPlaybackRate = computed(() => {
@@ -2728,8 +2751,36 @@ export default defineComponent({
     // #region setup
     const initLoadWaitTimeToastAC = new AbortController()
 
+    const mediaPlay = () => {
+      video.value.play()
+    }
+    const mediaPause = () => {
+      video.value.pause()
+    }
+    let updateBufferInterval = null
+
     onMounted(async () => {
       const videoElement = video.value
+      if (process.env.IS_ANDROID) {
+        window.addEventListener('media-play', mediaPlay)
+        window.addEventListener('media-pause', mediaPause)
+        videoElement.addEventListener('play', () => {
+          android.enableKeepScreenOn()
+          updateMediaSessionState(STATE_PLAYING)
+        })
+        videoElement.addEventListener('pause', () => {
+          android.disableKeepScreenOn()
+          updateMediaSessionState(STATE_PAUSED)
+        })
+        videoElement.addEventListener('timeupdate', () => {
+          updateMediaSessionState(videoElement.paused ? STATE_PAUSED : STATE_PLAYING, Math.floor(videoElement.currentTime * 1000))
+        })
+        updateBufferInterval = setInterval(() => {
+          if (videoElement.buffered.length === 0) {
+            updateMediaSessionState(videoElement.paused ? STATE_PAUSED : STATE_BUFFERING, Math.floor(videoElement.currentTime * 1000))
+          }
+        }, 0)
+      }
 
       const volume = sessionStorage.getItem('volume')
       if (volume !== null) {
@@ -3247,6 +3298,10 @@ export default defineComponent({
 
       window.removeEventListener('online', onlineHandler)
       window.removeEventListener('offline', offlineHandler)
+
+      window.removeEventListener('media-play', mediaPlay)
+      window.removeEventListener('media-pause', mediaPause)
+      clearInterval(updateBufferInterval)
     })
 
     // #endregion tear down
@@ -3400,5 +3455,9 @@ export default defineComponent({
       showValueChangePopup,
       invertValueChangeContentOrder,
     }
+  },
+  unmounted: function () {
+    window.removeEventListener('app-pause', onAppPause)
+    window.removeEventListener('app-resume', onAppResume)
   }
 })
