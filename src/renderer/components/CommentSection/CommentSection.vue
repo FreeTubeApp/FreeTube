@@ -257,7 +257,6 @@ function handleSortChange() {
   sortNewest.value = !sortNewest.value
   commentData.value = []
   nextPageToken.value = null
-  areCommentsDisabled.value = false
   getCommentData()
 }
 
@@ -336,7 +335,7 @@ async function getCommentDataLocal(more = false) {
     showComments.value = true
   } catch (err) {
     // No comment related info when video info requested earlier in parent component
-    if (err?.message?.includes('The comments page did not have any content')) {
+    if (err.message.includes('The comments page did not have any content')) {
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -379,7 +378,7 @@ async function getCommentDataInvidious() {
     showComments.value = true
   } catch (err) {
     // No comment related info when video info requested earlier in parent component
-    if (err?.message?.includes('Comments not found')) {
+    if (err.message.includes('Comments not found')) {
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -416,7 +415,7 @@ async function getPostCommentsInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
-    if (err?.message?.includes('Comments not found')) {
+    if (err.message.includes('Comments not found')) {
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
