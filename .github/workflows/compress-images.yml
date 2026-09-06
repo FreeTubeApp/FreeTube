@@ -1,0 +1,65 @@
+# Compress images on demand (workflow_dispatch), and at 12am every Sunday (schedule).
+# Open a Pull Request if any images can be compressed.
+name: Compress Images
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * 0'
+
+permissions: {}
+
+jobs:
+  compress:
+    # As this action runs on a schedule, only run it in the FreeTubeApp/FreeTube repository to avoid unnecessary GitHub Actions usage/billing in forks.
+    # Still allow the workflow to be manually triggered.
+    # If a fork does need this workflow, they can change this condition in their fork to include their repository.
+    if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
+
+    name: Compress
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Setup Rust
+        uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1.17.0
+
+      - name: Install Oxipng
+        run: cargo install oxipng
+        shell: bash
+
+      - name: Use Node.js 24.x
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24.x
+          package-manager-cache: false
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 # v6.0.10
+        with:
+          version: 10
+          cache: false
+
+      - name: Compress SVG Images
+        run: pnpm dlx svgo -r -f . -o .
+        shell: bash
+
+      - name: Compress PNG Images
+        run: oxipng -o max --strip safe --recursive ./_icons ./src
+        shell: bash
+
+      - name: Create New Pull Request If Needed
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          title: Compressed Images Nightly
+          branch-suffix: timestamp
+          commit-message: Compress Images
+          body: |
+            Images automagically compressed by tools in `.github/workflows/compress-images.yml`

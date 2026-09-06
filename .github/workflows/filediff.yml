@@ -1,0 +1,32 @@
+name: Filediff on Images
+on:
+  pull_request:
+    branches: [ development ]
+
+permissions: {}
+
+jobs:
+  filediff:
+    name: filediff
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      repository-projects: read
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Create filediff comment
+        uses: PikachuEXE/filediff@2cfa654ec8e72e7a78c504f0e862ca83738bf3b7 # v0.0.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target_branch: ${{ github.event.repository.default_branch }}
+          dir_glob: "**/*.png,**/*.svg"
+          file_details_open: false
