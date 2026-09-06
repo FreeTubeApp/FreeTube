@@ -23,7 +23,7 @@
           :title="t('Video.AI: Content was made with AI')"
           :aria-label="t('Video.AI: Content was made with AI')"
         >
-          <FontAwesomeIcon :icon="['fas', 'robot']" />
+          <FontAwesomeIcon :icon="['fas', 'circle-info']" />
           <span>{{ t('Video.AI') }}</span>
         </div>
       </div>
