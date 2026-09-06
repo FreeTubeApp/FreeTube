@@ -30,7 +30,7 @@
         {{ t('Video.How this was made') }}
       </div>
       <div
-        v-for="(item, index) in contentDisclosures.items"
+        v-for="(item, index) in contentDisclosures"
         :key="index"
         class="aiDisclosureItem"
       >
@@ -86,7 +86,7 @@ const props = defineProps({
     default: null,
   },
   contentDisclosures: {
-    type: Object,
+    type: Array,
     default: null
   }
 })
@@ -131,7 +131,7 @@ function getDisclosureDescription(description) {
     description
 }
 
-const showHowThisWasMade = computed(() => (props.contentDisclosures?.items?.length ?? 0) > 0)
+const showHowThisWasMade = computed(() => (props.contentDisclosures?.length ?? 0) > 0)
 
 const emit = defineEmits(['timestamp-event'])
 
@@ -206,13 +206,17 @@ function collapseDescription() {
  */
 function isShortDescription() {
   const descriptionElem = descriptionContainer.value?.$el
-  if (!descriptionElem) {
-    return true
-  }
-  return descriptionElem.clientHeight >= descriptionElem.scrollHeight
+  return descriptionElem?.clientHeight >= descriptionElem?.scrollHeight
 }
 
 onMounted(() => {
+  // There is no description, so do not show the controls
+  if (shownDescription.length === 0) {
+    showFullDescription.value = true
+    showControls.value = false
+    return
+  }
+
   // To verify whether or not the description is too short for displaying
   // description controls, we need to check the description's dimensions.
   // The only way to make this work is to check on mount.

@@ -774,43 +774,27 @@ export async function getLocalVideoInfo(id) {
 /**
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
- * @returns {{ hasAI: boolean, items: Array<{ label: string, description: string, isAI: boolean }> } | null}
+ * @returns {{ label: string, description: string }[] | null}
  */
 export function extractLocalContentDisclosures(info) {
-  if (!info) {
-    return null
-  }
+  if (info?.page?.[1]?.engagement_panels) {
+    const structuredDescPanel = info.page[1].engagement_panels.find(
+      panel => panel.target_id === 'engagement-panel-structured-description'
+    )
 
-  const structuredDescPanel = info.page?.[1]?.engagement_panels?.find(
-    panel => panel.target_id === 'engagement-panel-structured-description'
-  )
+    if (structuredDescPanel?.content?.is(YTNodes.StructuredDescriptionContent)) {
+      const items = structuredDescPanel.content.items
+        .filterType(YTNodes.HowThisWasMadeSectionView)
+        .map(item => ({
+          label: item.body_header?.text ?? '',
+          description: item.body_text?.text?.replace(/\s*Learn more\.?$/i, '').trim() ?? '',
+        }))
 
-  const rawItems = structuredDescPanel?.content?.items?.filter(
-    item => item.type === 'HowThisWasMadeSectionView' || item.type === 'howThisWasMadeSectionViewModel'
-  )
-
-  const hasAiBadge = info.primary_info?.badges?.some(b => /\bai\b/i.test(b.label || '')) || false
-
-  if (!rawItems?.length && !hasAiBadge) {
-    return null
-  }
-
-  const items = (rawItems || []).map(item => {
-    const label = item.body_header?.text || item.bodyHeader?.content || ''
-    const rawDescription = item.body_text?.text || item.bodyText?.content || ''
-    return {
-      label,
-      description: rawDescription.replace(/\s*Learn more\.?$/i, '').trim(),
-      isAI: /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(label)
+      return items.length > 0 ? items : null
     }
-  })
-
-  const hasAI = hasAiBadge || items.some(item => item.isAI)
-
-  return {
-    hasAI,
-    items
   }
+
+  return null
 }
 
 /**

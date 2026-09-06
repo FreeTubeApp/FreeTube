@@ -246,7 +246,7 @@ const props = defineProps({
     required: false
   },
   contentDisclosures: {
-    type: Object,
+    type: Array,
     default: null
   },
   canSaveWatchedProgress: {
@@ -265,7 +265,9 @@ const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
 
-const showAiBadge = computed(() => props.contentDisclosures?.hasAI || false)
+const showAiBadge = computed(() =>
+  props.contentDisclosures?.some(item => /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(item.label)) || false
+)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)
