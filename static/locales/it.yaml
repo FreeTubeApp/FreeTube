@@ -565,6 +565,8 @@ Settings:
     Hide Channel Courses: Nascondi la scheda Corsi del canale
     Hide Channel Posts: Nascondi la scheda Post del canale
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
+    Add: Aggiungi
+    Remove: Rimuovi
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
@@ -838,6 +840,7 @@ Video:
   Private: Su FreeTube non è possibile guardare video privati, poiché richiedono l'accesso tramite account Google e la proprietà del video.
   Expand Playlist: Espandi la playlist
   Collapse Playlist: Comprimi playlist
+  Station: Stazione
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -968,6 +971,7 @@ Profile:
   Profile Name: Nome del profilo
   Edit Profile Name: Modifica il nome del profilo
   Create Profile Name: Crea un nome per il profilo
+  Go To Profile Manager: Vai a Gestione dei profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo video non è disponibile a causa di alcuni formati mancanti. Questo può succedere in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
@@ -1012,6 +1016,8 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciu
 Search Bar:
   Clear Input: Pulisci ricerca
   Remove: Rimuovi
+  Open Search Container: Contenitore Open Search
+  Search: Ricerca
 External link opening has been disabled in the general settings: L'apertura dei link esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Screenshot Success: Screenshot salvato
