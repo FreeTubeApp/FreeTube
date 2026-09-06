@@ -264,9 +264,6 @@ const SEARCH_RESULTS_DISPLAY_LIMIT = 14
 // max # of search history results we show when mixed with YT search suggestions
 const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 
-// Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
-const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
-
 const LIGHT_BASE_THEMES = [
   'light',
   'pastelPink',
@@ -306,7 +303,6 @@ export {
   SEARCH_CHAR_LIMIT,
   SEARCH_RESULTS_DISPLAY_LIMIT,
   MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT,
-  ABOUT_BITCOIN_ADDRESS,
   LIGHT_BASE_THEMES,
   DARK_BASE_THEMES,
 }

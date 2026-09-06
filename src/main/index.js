@@ -11,7 +11,6 @@ import {
   IpcChannels,
   DBActions,
   SyncEvents,
-  ABOUT_BITCOIN_ADDRESS,
   KeyboardShortcuts,
   SEARCH_CHAR_LIMIT,
   LIGHT_BASE_THEMES,
@@ -1060,10 +1059,7 @@ function runApp() {
           url.protocol === 'mailto:' ||
 
           // Autolinker detects and links phone numbers
-          url.protocol === 'tel:' ||
-
-          // Donation links on the about page
-          (url.protocol === 'bitcoin:' && url.pathname === ABOUT_BITCOIN_ADDRESS)
+          url.protocol === 'tel:'
         ) {
           shell.openExternal(details.url)
         }

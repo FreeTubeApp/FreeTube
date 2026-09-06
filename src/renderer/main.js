@@ -133,7 +133,6 @@ import {
   faDotCircle as farDotCircle
 } from '@fortawesome/free-regular-svg-icons'
 import {
-  faBitcoin,
   faGithub,
   faMastodon,
   faMatrix,
@@ -264,7 +263,6 @@ library.add(
 
   // brand icons
   faGithub,
-  faBitcoin,
   faMastodon,
   faMatrix,
 )

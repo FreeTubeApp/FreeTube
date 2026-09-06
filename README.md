@@ -17,7 +17,7 @@ Available for Windows (10 and later), Mac (macOS 12 and later) & Linux thanks to
 </p>
 
 <hr>
-<p align="center"><a href="#screenshots">Screenshots</a> &bull; <a href="#how-does-it-work">How does it work?</a> &bull; <a href="#features">Features</a> &bull; <a href="#download-links">Download Links</a> &bull; <a href="#contributing">Contributing</a> &bull; <a href="#localization">Localization</a> &bull; <a href="#contact">Contact</a> &bull; <a href="#donate">Donate</a> &bull; <a href="#license">License</a></p>
+<p align="center"><a href="#screenshots">Screenshots</a> &bull; <a href="#how-does-it-work">How does it work?</a> &bull; <a href="#features">Features</a> &bull; <a href="#download-links">Download Links</a> &bull; <a href="#contributing">Contributing</a> &bull; <a href="#localization">Localization</a> &bull; <a href="#contact">Contact</a> &bull; <a href="#license">License</a></p>
 <p align="center"><a href="https://freetubeapp.io/">Website</a> &bull; <a href="https://docs.freetubeapp.io/">Documentation</a> &bull; <a href="https://docs.freetubeapp.io/faq/">FAQ</a> &bull; <a href="https://github.com/FreeTubeApp/FreeTube/discussions">Discussions</a></p>
 <hr>
 
@@ -146,16 +146,6 @@ If you ever have any questions, feel free to ask it on our [Discussions](https:/
 
 > [!IMPORTANT]
 > Don't forget to check out the [rules](https://docs.freetubeapp.io/community/matrix/) before joining.
-
-## Donate
-If you enjoy using FreeTube, you're welcome to leave a donation using the following method.  
-
-* Bitcoin Address: `1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS`
-
-While your donations are much appreciated, only donate if you really want to.  Donations are used for keeping the website up and running and eventual code signing costs. 
-
-> [!TIP]
-> If you are using the Invidious API then we recommend that you donate to the instance that you use. You can also donate to the [Invidious team](https://invidious.io/donate/) or the [Local API developer](https://github.com/sponsors/LuanRT).
 
 ## License
 [![GNU AGPLv3 Image](https://www.gnu.org/graphics/agplv3-155x51.png)](https://www.gnu.org/licenses/agpl-3.0.html)  

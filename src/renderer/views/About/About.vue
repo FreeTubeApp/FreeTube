@@ -46,7 +46,6 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLogoFull from '../../components/FtLogoFull/FtLogoFull.vue'
 import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
-import { ABOUT_BITCOIN_ADDRESS } from '../../../constants'
 import packageDetails from '../../../../package.json'
 
 const { t } = useI18n()
@@ -110,16 +109,6 @@ const chunks = computed(() => [
       creditsPageLink: `<a href="https://docs.freetubeapp.io/credits/">${t('About.these people and projects')}</a>`,
     }),
   },
-  {
-    icon: ['fas', 'money-check-dollar'],
-    title: `${t('About.Donate')}`,
-    content: '<a href="https://github.com/sponsors/Gnu-Gorets">GitHub Sponsors</a>'
-  },
-  {
-    icon: ['fab', 'bitcoin'],
-    title: `${t('About FTA.Donate Upstream')} - BTC`,
-    content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
-  }
 ])
 </script>
 
