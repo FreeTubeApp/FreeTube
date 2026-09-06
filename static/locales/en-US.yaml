@@ -973,12 +973,15 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
+  Playlist:
+    Unavailable videos are hidden: 1 unavailable video is hidden | {count} unavailable videos are hidden
 #& Playlists
 Playlist:
   #& About
   Playlist: Playlist
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
+  Unavailable videos are hidden: Unavailable videos are hidden
   Sort By:
     DateAddedNewest: Date added (Newest)
     DateAddedOldest: Date added (Oldest)
