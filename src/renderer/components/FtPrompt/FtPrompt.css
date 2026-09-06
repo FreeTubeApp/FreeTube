@@ -70,14 +70,3 @@
     inset-inline-start: 10%;
   }
 }
-
-@media only screen and (width <= 420px) {
-  .promptCard.fullscreen {
-    min-block-size: 100vh;
-    max-block-size: 100%;
-    max-inline-size: 100%;
-    inline-size: 100vw;
-    inset-inline-start: 0;
-    overflow: initial;
-  }
-}

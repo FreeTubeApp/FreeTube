@@ -60,16 +60,20 @@ export default async function (videoId, context, initialAttestationData, ytConfi
     interpreterUrl = `https:${interpreterUrl}`
   }
 
-  window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID fieldd
-  await new Promise((resolve, _reject) => {
+  window.yt = { config_: ytConfig } // BotGuard reads the EVENT_ID field
+  await new Promise((resolve, reject) => {
     const script = document.createElement('script')
     script.src = interpreterUrl
     script.async = true
+    script.addEventListener('load', resolve)
+    script.addEventListener('error', reject)
     document.head.appendChild(script)
-    script.addEventListener('load', () => {
-      resolve({ text: () => '() => {}' })
-    })
   })
+  console.warn('BotGuard environment ' + JSON.stringify({
+    globalName: challengeData.bgChallenge.globalName,
+    eventId: ytConfig.EVENT_ID,
+    interpreterUrl
+  }))
 
   const botGuard = await BotGuardClient.create({
     program: challengeData.bgChallenge.program,
@@ -79,8 +83,19 @@ export default async function (videoId, context, initialAttestationData, ytConfi
 
   const webPoSignalOutput = []
   const botGuardResponse = await botGuard.snapshot({ webPoSignalOutput }, 10_000)
+  console.warn('BotGuard snapshot completed ' + JSON.stringify({
+    responseLength: botGuardResponse.length,
+    signalCount: webPoSignalOutput.length
+  }))
 
-  const integrityTokenResponse = await fetch(buildURL('GenerateIT', true), {
+  const integrityTokenUrl = buildURL('GenerateIT', true)
+  console.warn('BotGuard GenerateIT request ' + JSON.stringify({
+    url: integrityTokenUrl,
+    method: 'POST',
+    headers: ['content-type', 'x-goog-api-key', 'x-user-agent']
+  }))
+
+  const integrityTokenResponse = await fetch(integrityTokenUrl, {
     method: 'POST',
     headers: {
       'content-type': 'application/json+protobuf',
@@ -90,13 +105,48 @@ export default async function (videoId, context, initialAttestationData, ytConfi
     body: JSON.stringify([requestKey, botGuardResponse])
   })
 
-  const response = await integrityTokenResponse.json()
+  const integrityTokenResponseText = await integrityTokenResponse.text()
+  let response
 
-  if (typeof response[0] !== 'string') {
+  try {
+    response = JSON.parse(integrityTokenResponseText)
+  } catch (error) {
+    console.error('BotGuard GenerateIT returned invalid JSON', {
+      status: integrityTokenResponse.status,
+      contentType: integrityTokenResponse.headers.get('content-type'),
+      bodyLength: integrityTokenResponseText.length
+    })
+    throw error
+  }
+
+  console.warn('BotGuard GenerateIT response ' + JSON.stringify({
+    status: integrityTokenResponse.status,
+    ok: integrityTokenResponse.ok,
+    contentType: integrityTokenResponse.headers.get('content-type'),
+    responseType: Array.isArray(response) ? 'array' : typeof response,
+    responseLength: Array.isArray(response) ? response.length : undefined,
+    firstValueType: Array.isArray(response) ? typeof response[0] : undefined,
+    valueTypes: Array.isArray(response) ? response.slice(0, 4).map(value => value === null ? 'null' : typeof value) : undefined,
+    error: Array.isArray(response) ? undefined : response?.error?.status
+  }))
+
+  const integrityTokenResponseData = Array.isArray(response)
+    ? {
+        integrityToken: typeof response[0] === 'string' ? response[0] : undefined,
+        estimatedTtlSecs: response[1],
+        mintRefreshThreshold: response[2],
+        websafeFallbackToken: response[3]
+      }
+    : response
+
+  if (!integrityTokenResponseData?.integrityToken) {
+    if (integrityTokenResponseData?.websafeFallbackToken) {
+      return integrityTokenResponseData.websafeFallbackToken
+    }
     throw new Error('Could not get integrity token')
   }
 
-  const integrityTokenBasedMinter = await WebPoMinter.create({ integrityToken: response[0] }, webPoSignalOutput)
+  const integrityTokenBasedMinter = await WebPoMinter.create(integrityTokenResponseData, webPoSignalOutput)
 
   return await integrityTokenBasedMinter.mintAsWebsafeString(videoId)
 }

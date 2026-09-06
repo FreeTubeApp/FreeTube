@@ -115,32 +115,6 @@
           {{ $t("About.About") }}
         </p>
       </router-link>
-      <a
-        v-if="usingAndroid && !usingRelease"
-        class="navOption"
-        :title="$t('Log Viewer.Console Log')"
-        :aria-label="hideLabelsSideBar ? $t('Log Viewer.Console Log') : null"
-        @keydown="showLogViewer"
-        @click="showLogViewer"
-      >
-        <div
-          class="thumbnailContainer"
-        >
-          <font-awesome-icon
-            :icon="['fas', 'terminal']"
-            class="navIcon"
-            :class="applyNavIconExpand"
-            fixed-width
-          />
-        </div>
-        <p
-          v-if="!hideLabelsSideBar"
-          id="channelLabel"
-          class="navLabel"
-        >
-          {{ $t("Log Viewer.Console Log") }}
-        </p>
-      </a>
       <router-link
         class="navOption smallMobileOnlyShow"
         :title="$t('Settings.Settings')"
@@ -248,13 +222,6 @@ const popularVisible = computed(() => {
   return !store.getters.getHidePopularVideos &&
     (store.getters.getBackendFallback || store.getters.getBackendPreference === 'invidious')
 })
-
-const usingAndroid = process.env.IS_ANDROID
-const usingRelease = process.env.IS_RELEASE
-
-const showLogViewer = () => {
-  store.dispatch('showLogViewer')
-}
 
 const applyNavIconExpand = computed(() => {
   return {

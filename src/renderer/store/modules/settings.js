@@ -3,7 +3,6 @@ import allLocales from '../../../../static/locales/activeLocales.json'
 import { MAIN_PROFILE_ID, SyncEvents } from '../../../constants'
 import { DBSettingHandlers } from '../../../datastores/handlers/index'
 import { getSystemLocale, showToast } from '../../helpers/utils'
-import android from 'android'
 
 /*
  * Due to the complexity of the settings module in FreeTube, a more
@@ -179,7 +178,7 @@ const state = {
   defaultVideoFormat: 'dash',
   disableSmoothScrolling: false,
   disableChannelLinks: false,
-  displayVideoPlayButton: true,
+  displayVideoPlayButton: false,
   enableSearchSuggestions: true,
   enableSubtitlesByDefault: false,
   enterFullscreenOnDisplayRotate: false,
@@ -286,7 +285,6 @@ const state = {
     color: 'Purple',
     skip: 'doNothing'
   },
-  tapHighlight: true,
   thumbnailPreference: '',
   blurThumbnails: false,
   useProxy: false,
@@ -320,8 +318,6 @@ const state = {
   defaultInvidiousInstance: '',
   defaultVolume: 1,
   uiScale: 100,
-  uiScaleAndroid: 100,
-  useUiScale: false,
   userPlaylistsSortBy: 'latest_played_first',
   userHistorySortBy: 'latest_played_first',
 }
@@ -391,9 +387,6 @@ const sideEffectHandlers = {
 
     i18n.global.locale.value = targetLocale
     await dispatch('getRegionData', targetLocale)
-    if (process.env.IS_ANDROID) {
-      android.hideSplashScreen()
-    }
   },
 
   defaultInvidiousInstance: ({ commit, rootState }, value) => {
@@ -411,6 +404,8 @@ const sideEffectHandlers = {
   uiScale: (_, value) => {
     if (process.env.IS_ELECTRON) {
       window.ftElectron.setZoomFactor(value / 100)
+    } else if (process.env.IS_ANDROID) {
+      window.Android.setScale(value)
     }
   },
 
@@ -427,24 +422,6 @@ const sideEffectHandlers = {
       dispatch('updateDefaultPlayback', correctedDefaultPlaybackRate)
     }
   },
-
-  uiScaleAndroid: (_, value) => {
-    if (process.env.IS_ANDROID) {
-      if (state.useUiScale) {
-        android.setScale(value)
-      }
-    }
-  },
-
-  useUiScale: (_, value) => {
-    if (process.env.IS_ANDROID) {
-      if (value) {
-        android.setScale(state.uiScaleAndroid)
-      } else {
-        android.setScale(0)
-      }
-    }
-  }
 }
 
 const settingsWithSideEffects = Object.keys(sideEffectHandlers)

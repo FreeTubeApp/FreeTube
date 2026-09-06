@@ -13,7 +13,6 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
-import { generatePOToken, runDecipherScript } from '../android/potokens'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -56,7 +55,23 @@ if (process.env.SUPPORTS_LOCAL_API) {
         window.addEventListener('message', listener)
         iframe.contentWindow.postMessage(JSON.stringify({ id: messageId, code }), '*')
       } else if (process.env.IS_ANDROID) {
-        runDecipherScript(messageId, code).then(resolve).catch(reject)
+        const listener = () => {
+          window.removeEventListener(`${messageId}-resolve`, listener)
+          window.removeEventListener(`${messageId}-reject`, rejectListener)
+          try {
+            resolve(JSON.parse(window.Android.getSyncMessage(messageId)))
+          } catch (error) {
+            reject(error)
+          }
+        }
+        const rejectListener = () => {
+          window.removeEventListener(`${messageId}-resolve`, listener)
+          window.removeEventListener(`${messageId}-reject`, rejectListener)
+          reject(window.Android.getSyncMessage(messageId))
+        }
+        window.addEventListener(`${messageId}-resolve`, listener)
+        window.addEventListener(`${messageId}-reject`, rejectListener)
+        window.Android.runDecipherScript(messageId, code, 10000)
       } else {
         reject(new Error('Please setup the eval function for the n/sig deciphering'))
       }
@@ -102,6 +117,7 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     location: location,
     enable_safety_mode: !!safetyMode,
     client_type: clientType,
+
     // use browser fetch
     fetch: (fetchFunc ?? ((input, init) => fetch(input, init))),
     cache,
@@ -610,12 +626,30 @@ export async function getLocalVideoInfo(id) {
       throw error
     }
   } else if (process.env.IS_ANDROID) {
-    contentPoToken = await generatePOToken(
-      id,
-      JSON.stringify(htmlExtracts.session.context),
-      JSON.stringify(htmlExtracts.initialAttestationData),
-      JSON.stringify(htmlExtracts.ytConfig)
-    )
+    const tokenId = crypto.randomUUID()
+    contentPoToken = await new Promise((resolve, reject) => {
+      const resolveEvent = () => {
+        cleanup()
+        resolve(window.Android.getSyncMessage(tokenId))
+      }
+      const rejectEvent = () => {
+        cleanup()
+        reject(window.Android.getSyncMessage(tokenId))
+      }
+      const cleanup = () => {
+        window.removeEventListener(`${tokenId}-resolve`, resolveEvent)
+        window.removeEventListener(`${tokenId}-reject`, rejectEvent)
+      }
+      window.addEventListener(`${tokenId}-resolve`, resolveEvent)
+      window.addEventListener(`${tokenId}-reject`, rejectEvent)
+      window.Android.generatePOToken(
+        tokenId,
+        id,
+        JSON.stringify(htmlExtracts.session.context),
+        JSON.stringify(htmlExtracts.initialAttestationData),
+        JSON.stringify(htmlExtracts.ytConfig)
+      )
+    })
     player.po_token = contentPoToken
   }
 

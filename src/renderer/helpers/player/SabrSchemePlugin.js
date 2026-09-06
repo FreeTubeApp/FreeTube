@@ -310,8 +310,15 @@ async function doRequest(
       currentState.eventEmitter.emit('backoff-requested', { backoffMs: currentBackoffTimeMs })
       // Wait but can be aborted
       await new Promise((resolve, reject) => {
-        setTimeout(resolve, currentBackoffTimeMs)
-        currentState.abortController.signal.addEventListener('abort', reject)
+        const timeoutId = setTimeout(() => {
+          currentState.abortController.signal.removeEventListener('abort', onAbort)
+          resolve()
+        }, currentBackoffTimeMs)
+        const onAbort = () => {
+          clearTimeout(timeoutId)
+          reject(new DOMException('The operation was aborted', 'AbortError'))
+        }
+        currentState.abortController.signal.addEventListener('abort', onAbort, { once: true })
       })
       // Must reset AFTER waiting to avoid requested aborted
       // Since long backoff time mostly happens on the start of video playback we only reset timeout once

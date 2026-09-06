@@ -31,8 +31,7 @@ import {
 } from '../../helpers/utils'
 import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { setupSabrScheme } from '../../helpers/player/SabrSchemePlugin'
-import { STATE_BUFFERING, STATE_PAUSED, STATE_PLAYING, updateMediaSessionState } from '../../helpers/android/media-session'
-import android from 'android'
+import { STATE_PAUSED, STATE_PLAYING, updateMediaSessionState } from '../../helpers/android/media-session'
 
 /** @typedef {import('../../helpers/sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -65,8 +64,6 @@ const shakaControlKeysToShortcuts = {
 
 /** @type {Map<string, string>} */
 const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
-
-let [onAppPause, onAppResume] = [() => {}, () => {}]
 
 export default defineComponent({
   name: 'FtShakaVideoPlayer',
@@ -304,25 +301,6 @@ export default defineComponent({
         enableFullscreenOnRotation: newValue
       })
     })
-    onAppPause = () => {
-      try {
-        document.exitFullscreen()
-      } catch {
-        // pass
-      }
-      ui.configure({
-        enableFullscreenOnRotation: false
-      })
-    }
-
-    onAppResume = () => {
-      ui.configure({
-        enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value
-      })
-    }
-    window.addEventListener('app-pause', onAppPause)
-
-    window.addEventListener('app-resume', onAppResume)
 
     /** @type {import('vue').ComputedRef<number>} */
     const defaultPlaybackRate = computed(() => {
@@ -1036,6 +1014,58 @@ export default defineComponent({
       }
     }
 
+    let longPressTimer
+    let longPressPlaybackRate
+    let longPressVideoElement
+
+    function startLongPressPlayback(event) {
+      if (!process.env.IS_ANDROID || event.pointerType === 'mouse' || video.value.paused) return
+
+      clearTimeout(longPressTimer)
+      longPressTimer = setTimeout(() => {
+        longPressPlaybackRate = video.value.playbackRate
+        video.value.playbackRate = Math.min(longPressPlaybackRate * 2, maxVideoPlaybackRate.value)
+        showValueChange(`${video.value.playbackRate.toFixed(2)}x`)
+      }, 500)
+    }
+
+    function stopLongPressPlayback() {
+      clearTimeout(longPressTimer)
+      longPressTimer = null
+      if (longPressPlaybackRate !== undefined) {
+        video.value.playbackRate = longPressPlaybackRate
+        longPressPlaybackRate = undefined
+      }
+    }
+
+    function preventLongPressContextMenu(event) {
+      if (process.env.IS_ANDROID) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+    }
+
+    function addLongPressPlaybackListeners(videoElement) {
+      if (!process.env.IS_ANDROID) return
+      longPressVideoElement = videoElement
+      videoElement.addEventListener('pointerdown', startLongPressPlayback)
+      videoElement.addEventListener('pointerup', stopLongPressPlayback)
+      videoElement.addEventListener('pointercancel', stopLongPressPlayback)
+      videoElement.addEventListener('pointerleave', stopLongPressPlayback)
+      videoElement.addEventListener('contextmenu', preventLongPressContextMenu)
+    }
+
+    function removeLongPressPlaybackListeners() {
+      if (!longPressVideoElement) return
+      longPressVideoElement.removeEventListener('pointerdown', startLongPressPlayback)
+      longPressVideoElement.removeEventListener('pointerup', stopLongPressPlayback)
+      longPressVideoElement.removeEventListener('pointercancel', stopLongPressPlayback)
+      longPressVideoElement.removeEventListener('pointerleave', stopLongPressPlayback)
+      longPressVideoElement.removeEventListener('contextmenu', preventLongPressContextMenu)
+      stopLongPressPlayback()
+      longPressVideoElement = null
+    }
+
     function addUICustomizations() {
       /** @type {HTMLDivElement} */
       const controlsContainer = ui.getControls().getControlsContainer()
@@ -1203,6 +1233,9 @@ export default defineComponent({
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'playing'
       }
+      if (process.env.IS_ANDROID && window.Android) {
+        window.Android.updateMediaSessionState(3, Math.round(video.value.currentTime * 1000))
+      }
     }
 
     function handlePause() {
@@ -1211,6 +1244,9 @@ export default defineComponent({
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'paused'
       }
+      if (process.env.IS_ANDROID && window.Android) {
+        window.Android.updateMediaSessionState(2, Math.round(video.value.currentTime * 1000))
+      }
     }
 
     function handleEnded() {
@@ -1218,6 +1254,9 @@ export default defineComponent({
 
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'none'
+      }
+      if (process.env.IS_ANDROID && window.Android) {
+        window.Android.updateMediaSessionState(0, Math.round(video.value.currentTime * 1000))
       }
 
       emit('ended')
@@ -2751,35 +2790,21 @@ export default defineComponent({
     // #region setup
     const initLoadWaitTimeToastAC = new AbortController()
 
-    const mediaPlay = () => {
-      video.value.play()
+    const mediaPlay = () => video.value?.play()
+    const mediaPause = () => video.value?.pause()
+    const mediaSeek = event => {
+      if (video.value && Number.isFinite(event.detail?.position)) video.value.currentTime = event.detail.position / 1000
     }
-    const mediaPause = () => {
-      video.value.pause()
-    }
-    let updateBufferInterval = null
 
     onMounted(async () => {
       const videoElement = video.value
       if (process.env.IS_ANDROID) {
         window.addEventListener('media-play', mediaPlay)
         window.addEventListener('media-pause', mediaPause)
-        videoElement.addEventListener('play', () => {
-          android.enableKeepScreenOn()
-          updateMediaSessionState(STATE_PLAYING)
-        })
-        videoElement.addEventListener('pause', () => {
-          android.disableKeepScreenOn()
-          updateMediaSessionState(STATE_PAUSED)
-        })
-        videoElement.addEventListener('timeupdate', () => {
-          updateMediaSessionState(videoElement.paused ? STATE_PAUSED : STATE_PLAYING, Math.floor(videoElement.currentTime * 1000))
-        })
-        updateBufferInterval = setInterval(() => {
-          if (videoElement.buffered.length === 0) {
-            updateMediaSessionState(videoElement.paused ? STATE_PAUSED : STATE_BUFFERING, Math.floor(videoElement.currentTime * 1000))
-          }
-        }, 0)
+        window.addEventListener('media-seek', mediaSeek)
+        videoElement.addEventListener('play', () => updateMediaSessionState(STATE_PLAYING))
+        videoElement.addEventListener('pause', () => updateMediaSessionState(STATE_PAUSED))
+        videoElement.addEventListener('timeupdate', () => updateMediaSessionState(videoElement.paused ? STATE_PAUSED : STATE_PLAYING, Math.floor(videoElement.currentTime * 1000)))
       }
 
       const volume = sessionStorage.getItem('volume')
@@ -2841,6 +2866,7 @@ export default defineComponent({
       }
 
       videoResizeObserver.observe(videoElement)
+      addLongPressPlaybackListeners(videoElement)
 
       registerScreenshotButton()
       registerAudioTrackSelection()
@@ -2908,6 +2934,7 @@ export default defineComponent({
       })
     })
     onUnmounted(() => {
+      removeLongPressPlaybackListeners()
       initLoadWaitTimeToastAC.abort()
     })
 
@@ -3298,10 +3325,9 @@ export default defineComponent({
 
       window.removeEventListener('online', onlineHandler)
       window.removeEventListener('offline', offlineHandler)
-
       window.removeEventListener('media-play', mediaPlay)
       window.removeEventListener('media-pause', mediaPause)
-      clearInterval(updateBufferInterval)
+      window.removeEventListener('media-seek', mediaSeek)
     })
 
     // #endregion tear down
@@ -3455,9 +3481,5 @@ export default defineComponent({
       showValueChangePopup,
       invertValueChangeContentOrder,
     }
-  },
-  unmounted: function () {
-    window.removeEventListener('app-pause', onAppPause)
-    window.removeEventListener('app-resume', onAppResume)
   }
 })

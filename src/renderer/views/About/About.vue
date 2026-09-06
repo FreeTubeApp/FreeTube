@@ -46,6 +46,7 @@ import FtCard from '../../components/ft-card/ft-card.vue'
 import FtLogoFull from '../../components/FtLogoFull/FtLogoFull.vue'
 import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
+import { ABOUT_BITCOIN_ADDRESS } from '../../../constants'
 import packageDetails from '../../../../package.json'
 
 const { t } = useI18n()
@@ -56,12 +57,17 @@ const chunks = computed(() => [
   {
     icon: ['fab', 'github'],
     title: t('About.Source code'),
-    content: `<a href="https://github.com/Gnu-Gorets/FreeTubeAndroid">GitHub: FreeTubeAndroid</a><br>${t('About.Licensed under the')} <a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${t('About.AGPLv3')}</a>.<br/> This is a fork of the official <a href="https://github.com/FreeTubeApp/FreeTube">FreeTube</a> repository with modifications to work better in a browser and on phones.`
+    content: [
+      '<a href="https://github.com/FreeTubeApp/FreeTube" lang="en" dir="ltr">GitHub: FreeTubeApp/FreeTube</a>',
+      t('About.Licensed under the {licenseLink}', {
+        licenseLink: `<a href="https://www.gnu.org/licenses/agpl-3.0.en.html">${t('About.AGPLv3')}</a>`,
+      }),
+    ].join('<br>'),
   },
   {
     icon: ['fas', 'file-download'],
     title: t('About.Downloads / Changelog'),
-    content: `<a href="https://github.com/Gnu-Gorets/FreeTubeAndroid/releases">${t('About.GitHub releases')}</a>`
+    content: `<a href="https://github.com/FreeTubeApp/FreeTube/releases">${t('About.GitHub releases')}</a>`,
   },
   {
     icon: ['fas', 'question-circle'],
@@ -75,7 +81,10 @@ const chunks = computed(() => [
   {
     icon: ['fas', 'exclamation-circle'],
     title: t('About.Report a problem'),
-    content: `<a href="https://github.com/Gnu-Gorets/FreeTubeAndroid/issues">${t('About.GitHub issues')}</a><br>${t('About.Please check for duplicates before posting')}`
+    content: [
+      `<a href="https://github.com/FreeTubeApp/FreeTube/issues">${t('About.GitHub issues')}</a>`,
+      t('About.Please check for duplicates before posting'),
+    ].join('<br>'),
   },
   {
     icon: ['fas', 'globe'],
@@ -109,6 +118,11 @@ const chunks = computed(() => [
       creditsPageLink: `<a href="https://docs.freetubeapp.io/credits/">${t('About.these people and projects')}</a>`,
     }),
   },
+  {
+    icon: ['fab', 'bitcoin'],
+    title: `${t('About.Donate')} - BTC`,
+    content: `<a href="bitcoin:${ABOUT_BITCOIN_ADDRESS}">${ABOUT_BITCOIN_ADDRESS}</a>`
+  }
 ])
 </script>
 

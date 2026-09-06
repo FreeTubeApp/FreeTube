@@ -3,36 +3,43 @@
 
   <head>
     <% if (process.env.IS_ANDROID) { %>
-      <!-- 🔧🐒 -->
-      <script>
-        window.ofetch = window.fetch
-        window.fetch = async (...args) => {
-          if (typeof args[0] === 'string' && args[0].startsWith('file://')) {
-            // forward to xml http request
-            const response = await new Promise((resolve, reject) => {
-              const req = new XMLHttpRequest()
-              req.responseType = 'arraybuffer'
-              req.onload = () => {
-                resolve(new Response(req.response, { status: req.status, headers: { 'Content-Type': req.getResponseHeader('content-type') } }))
-              }
-              req.onerror = (error) => {
-                reject(error)
-              }
-              req.open('GET', args[0])
-              req.send()
-            })
-            return response
-          }
-          return await window.ofetch(...args)
+    <script>
+      window.ofetch = window.fetch
+      window.fetch = async (...args) => {
+        if (typeof args[0] === 'string' && args[0].startsWith('file://')) {
+          const response = await new Promise((resolve, reject) => {
+            const req = new XMLHttpRequest()
+            req.responseType = 'arraybuffer'
+            req.onload = () => resolve(new Response(req.response, {
+              status: req.status,
+              headers: { 'Content-Type': req.getResponseHeader('content-type') }
+            }))
+            req.onerror = reject
+            req.open('GET', args[0])
+            req.send()
+          })
+          return response
         }
-      </script>
+        try {
+          const response = await window.ofetch(...args)
+          if (!response.ok) {
+            console.error(`[Android fetch] ${args[0]} -> ${response.status}`)
+          }
+          return response
+        } catch (error) {
+          console.error(`[Android fetch] ${args[0]} -> ${error}`)
+          throw error
+        }
+      }
+      window.addEventListener('error', event => console.error(event.error?.stack || event.message))
+      window.addEventListener('unhandledrejection', event => console.error(event.reason?.stack || event.reason))
+    </script>
     <% } %>
     <meta charset="utf-8" />
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0" />
     <% if (!process.env.IS_ELECTRON && !process.env.IS_ANDROID) { %>
-    <link rel="manifest" href="./static/manifest.webmanifest" />
-    <link rel="shortcut icon" href="static/icon.ico" />
+    <link rel="manifest" href="static/manifest.json" />
     <% } %>
     <title></title>
   </head>
@@ -50,7 +57,7 @@
       style="display: none; pointer-events: none"
       tabindex="-1"
     ></iframe>
-    <% } else { %>
+    <% } else if (!process.env.IS_ANDROID) { %>
     <script>
     // This is the service worker with the Advanced caching
 

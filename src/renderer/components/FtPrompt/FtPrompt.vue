@@ -11,7 +11,7 @@
       <FtCard
         ref="promptCard"
         class="promptCard"
-        :class="{ autosize, [theme]: true, fullscreen }"
+        :class="{ autosize, [theme]: true }"
         role="dialog"
         aria-modal="true"
         :aria-labelledby="id"
@@ -57,7 +57,6 @@
 
 <script setup>
 import { nextTick, onBeforeUnmount, onMounted, useId, useTemplateRef } from 'vue'
-import android from 'android'
 
 import store from '../../store/index'
 
@@ -97,10 +96,6 @@ const props = defineProps({
   inert: {
     type: Boolean,
     default: false
-  },
-  fullscreen: {
-    type: Boolean,
-    default: false
   }
 })
 
@@ -113,10 +108,6 @@ const promptCard = useTemplateRef('promptCard')
 let promptButtons = []
 let lastActiveElement = null
 
-function exitPrompt() {
-  hide()
-}
-
 onMounted(() => {
   lastActiveElement = document.activeElement
   document.addEventListener('keydown', handleEscape, true)
@@ -126,20 +117,12 @@ onMounted(() => {
     promptButtons = Array.from(promptCard.value.$el.querySelectorAll('.btn.ripple, .iconButton'))
     focusItem(0)
   })
-  if (process.env.IS_ANDROID) {
-    android.enterPromptMode()
-    window.addEventListener('exit-prompt', exitPrompt)
-  }
 })
 
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', handleEscape, true)
   store.commit('removeOpenPrompt', id)
   nextTick(() => lastActiveElement?.focus())
-  if (process.env.IS_ANDROID) {
-    android.exitPromptMode()
-    window.removeEventListener('exit-prompt', exitPrompt)
-  }
 })
 
 /**
@@ -222,4 +205,3 @@ function handleArrowKeys(event) {
 </script>
 
 <style scoped src="./FtPrompt.css" />
-<style src="./global.css" />

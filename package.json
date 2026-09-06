@@ -46,11 +46,8 @@
     "pack:preload": "webpack --mode=production --config-node-env=production --config _scripts/webpack.preload.config.js",
     "pack:web": "webpack --mode=production --config-node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
-    "pack:botGuardScript:android": "webpack --config _scripts/webpack.botGuardScript.android.config.js",
-    "pack:android:core": "webpack --mode=production --config-node-env=production --config _scripts/webpack.android.config.js",
-    "pack:android:dev:core": "webpack --mode=development --config-node-env=development --config _scripts/webpack.android.config.js",
-    "pack:android": "pnpm run \"/^pack:(botGuardScript:android|android:core)$/\"",
-    "pack:android:dev": "pnpm run \"/^pack:(botGuardScript:android|android:dev:core)$/\"",
+    "pack:android:core": "pnpm run pack:botGuardScript && webpack --mode=production --config-node-env=production --config _scripts/webpack.android.config.js",
+    "pack:android:dev": "webpack --mode=development --config-node-env=development --config _scripts/webpack.android.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
     "ci": "pnpm install --frozen-lockfile"
   },

@@ -39,14 +39,10 @@ async function handleDialogResponse(promiseId) {
     }
   } else {
     response = JSON.parse(response)
-    let typedUri = response?.uri
-    if (response?.type in FILE_TYPES) {
-      typedUri = `${typedUri}.${FILE_TYPES[response?.type]}`
-    }
     return {
       canceled: false,
       type: 'SUCCESS',
-      uri: typedUri,
+      uri: response.uri,
       name: response.fileName,
       async text() {
         return await readFile(response.uri)
@@ -73,7 +69,13 @@ export function requestSaveDialog(fileName, fileType) {
  * @returns {Promise<SaveDialogResponse>} either a uri based on the user's input or a cancelled response
  */
 export function requestOpenDialog(fileTypes) {
-  const types = Array.from(new Set(fileTypes.map((type) => type in MIME_TYPES ? MIME_TYPES[type] : type)))
+  const types = Array.from(new Set(fileTypes.flatMap((type) => {
+    if (type in MIME_TYPES) return [MIME_TYPES[type]]
+    if (type === 'application/x-freetube-db') return [type, MIME_TYPES.db]
+    if (type === 'application/xml') return [type, MIME_TYPES.xml]
+    if (type === 'text/csv') return [type, MIME_TYPES.csv]
+    return [type]
+  })))
 
   // request a 🗄file open dialog
   const promiseId = android.requestOpenDialog(types.join(','))

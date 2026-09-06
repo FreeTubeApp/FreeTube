@@ -3,10 +3,6 @@
   src: url('assets/font/Roboto-Regular.ttf');
 }
 
-.noTapHighlight {
-  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
-}
-
 .app {
   display: flex;
   flex-wrap: wrap;
@@ -67,7 +63,7 @@
 
 @media only screen and (width <= 680px) {
   .routerView {
-    margin-block: 20px 68px;
+    margin-block: 68px;
     margin-inline: 8px;
   }
 
@@ -76,40 +72,11 @@
     margin-block: 60px 0;
   }
 
-  .flexBox:not(:has(.banner-wrapper)) {
+  .flexBox {
     margin-block: 60px -75px;
-  }
-
-  .flexBox:has(.floatingRefreshSection) {
-    margin-block: 100px;
-  }
-
-  .flexBox:has(.floatingRefreshSection):has(.banner-wrapper) {
-    margin-block: 60px;
   }
 
   .changeLogText {
     block-size: 65vh;
-  }
-}
-
-@media (width <= 420px) {
-  :deep(.ft-card.promptCard.readable-width.fullscreen) {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .changeLogText {
-    block-size: revert;
-    max-block-size: calc(100vh - 100px);
-    overflow-y: scroll;
-  }
-
-  .changeLogText + :deep(.ft-flex-box) {
-    flex-grow: 1;
-  }
-
-  .changeLogText + :deep(.ft-flex-box .btn) {
-    margin-block-start: auto;
   }
 }

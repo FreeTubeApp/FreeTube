@@ -1,6 +1,6 @@
 <template>
   <FtPrompt
-    :fullscreen="true"
+    theme="slim"
     @click="hideSearchFilters"
   >
     <template #label="{ labelId }">
@@ -12,8 +12,9 @@
           {{ title }}
         </h2>
         <button
-          :class="['clearFilterButton', searchFilterValueChanged ? 'enabled': 'disabled']"
+          class="clearFilterButton"
           :title="$t('Search Filters.Clear Filters')"
+          :style="{visibility: (searchFilterValueChanged ? 'visible' : 'hidden')}"
           @click="clearFilters"
         >
           <FontAwesomeIcon

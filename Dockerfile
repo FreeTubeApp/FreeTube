@@ -22,7 +22,7 @@ RUN apt-get update \
     && mv "$ANDROID_HOME/cmdline-tools/cmdline-tools" "$ANDROID_HOME/cmdline-tools/latest" \
     && rm /tmp/android-commandline-tools.zip \
     && bash -o pipefail -c 'yes | sdkmanager --licenses >/dev/null; status=$?; test "$status" -eq 0 -o "$status" -eq 141' \
-    && sdkmanager "platforms;android-34" "build-tools;34.0.0" \
+    && sdkmanager "platforms;android-36" "build-tools;36.0.0" \
     && npm install --global pnpm@10 \
     && pnpm config set store-dir /pnpm/store \
     && rm -rf /root/.npm

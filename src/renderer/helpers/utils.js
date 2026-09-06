@@ -264,10 +264,24 @@ export async function copyToClipboard(content, { messageOnSuccess = null, messag
  * @param {string} url the URL to open
  */
 export async function openExternalLink(url) {
-  if (process.env.IS_ANDROID) {
-    Android.openExternalLink(url)
+  if (process.env.IS_ANDROID && typeof window.Android?.openExternalLink === 'function') {
+    window.Android.openExternalLink(url)
   } else {
     window.open(url, '_blank', 'noreferrer')
+  }
+}
+
+/**
+ * Opens native Android sharesheet or copies sharing behavior to external link fallback.
+ * @param {string} text
+ */
+export function shareText(text) {
+  if (process.env.IS_ANDROID && typeof window.Android?.shareText === 'function') {
+    window.Android.shareText(text)
+  } else if (navigator.share) {
+    navigator.share({ text }).catch(() => {})
+  } else {
+    copyToClipboard(text)
   }
 }
 
@@ -306,25 +320,17 @@ export async function readFileWithPicker(
 ) {
   let file
 
-  if (process.env.IS_ANDROID) {
-    const extensions = []
-    const values = Object.values(acceptedTypes)
-    for (const value of values) {
-      if (Array.isArray(value)) {
-        extensions.push(...value.map(extension => extension.substring(1)))
-      } else {
-        extensions.push(value.substring(1))
-      }
-    }
-    const dialogResponse = await requestOpenDialog(extensions)
-    if (!dialogResponse.canceled) {
-      file = dialogResponse
-    }
+  if (process.env.IS_ANDROID && typeof window.Android?.requestOpenDialog === 'function') {
+    const response = await requestOpenDialog(Object.keys(acceptedTypes))
+    if (response.canceled) return null
+    return { content: await response.text(), filename: response.name }
+  }
+
   // Only supported in Electron and desktop Chromium browsers
   // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
   // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
   // and allow terser to remove the unused else block
-  } else if (process.env.IS_ELECTRON || 'showOpenFilePicker' in window) {
+  if (process.env.IS_ELECTRON || typeof window.showOpenFilePicker === 'function') {
     try {
       /** @type {FileSystemFileHandle[]} */
       const [handle] = await window.showOpenFilePicker({
@@ -408,18 +414,19 @@ export async function writeFileWithPicker(
   rememberDirectoryId,
   startInDirectory
 ) {
-  if (process.env.IS_ANDROID) {
-    const response = await requestSaveDialog(fileName, 'application/octet-stream')
-    if (!response.canceled) {
-      await writeFile(response.uri, content)
-      return true
-    }
-    return false
+  if (process.env.IS_ANDROID && typeof window.Android?.requestSaveDialog === 'function') {
+    if (content instanceof Blob) content = await content.text()
+    const response = await requestSaveDialog(fileName, mimeType)
+    if (response.canceled) return false
+    await writeFile(response.uri, content)
+    return true
+  }
+
   // Only supported in Electron and desktop Chromium browsers
   // https://developer.mozilla.org/en-US/docs/Web/API/Window/showOpenFilePicker#browser_compatibility
   // As we know it is supported in Electron, adding the build flag means we can skip the runtime check in Electron
   // and allow terser to remove the unused else block
-  } else if (process.env.IS_ELECTRON || 'showSaveFilePicker' in window) {
+  if (process.env.IS_ELECTRON || typeof window.showSaveFilePicker === 'function') {
     let writableFileStream
 
     try {
@@ -472,38 +479,6 @@ export async function writeFileWithPicker(
     }, 1000)
 
     return true
-  }
-}
-
-/**
- * @param {{defaultPath: string, filters: {name: string, extensions: string[]}[]}} options
- * @returns { Promise<import('electron').SaveDialogReturnValue> | {canceled: boolean?, filePath: string } | { canceled: boolean?, handle?: Promise<FileSystemFileHandle> }}
- */
-export async function showSaveDialog (options) {
-  if (process.env.IS_ELECTRON) {
-    const { ipcRenderer } = require('electron')
-    return await ipcRenderer.invoke(IpcChannels.SHOW_SAVE_DIALOG, options)
-  } else if (process.env.IS_ANDROID) {
-    return await requestSaveDialog(options.defaultPath.split('/').at(-1), 'application/octet-stream')
-  } else {
-    // If the native filesystem api is available
-    if ('showSaveFilePicker' in window) {
-      return {
-        canceled: false,
-        handle: await window.showSaveFilePicker({
-          suggestedName: options.defaultPath.split('/').at(-1),
-          types: options.filters[0]?.extensions?.map((extension) => {
-            return {
-              accept: {
-                'application/octet-stream': '.' + extension
-              }
-            }
-          })
-        })
-      }
-    } else {
-      return { canceled: false, filePath: options.defaultPath }
-    }
   }
 }
 

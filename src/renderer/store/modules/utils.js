@@ -21,7 +21,6 @@ const state = {
   cachedPlaylist: null,
   deArrowCache: {},
   showProgressBar: false,
-  showLogViewer: false,
   showAddToPlaylistPrompt: false,
   showCreatePlaylistPrompt: false,
   isKeyboardShortcutPromptShown: false,
@@ -44,7 +43,6 @@ const state = {
   externalPlayerValues: [],
   externalPlayerCmdArguments: {},
   lastPopularRefreshTimestamp: '',
-  usingTouch: false,
   lastTrendingRefreshTimestamp: {
     gaming: '',
     sports: '',
@@ -113,10 +111,6 @@ const getters = {
     return state.showSearchFilters
   },
 
-  getShowLogViewer(state) {
-    return state.showLogViewer
-  },
-
   getToBeAddedToPlaylistVideoList(state) {
     return state.toBeAddedToPlaylistVideoList
   },
@@ -156,9 +150,7 @@ const getters = {
   getExternalPlayerCmdArguments (state) {
     return state.externalPlayerCmdArguments
   },
-  getUsingTouch (state) {
-    return state.usingTouch
-  },
+
   getLastTrendingRefreshTimestamp(state) {
     return state.lastTrendingRefreshTimestamp
   },
@@ -311,14 +303,6 @@ const actions = {
 
   hideSearchFilters ({ commit }) {
     commit('setShowSearchFilters', false)
-  },
-
-  showLogViewer({ commit }) {
-    commit('setShowLogViewer', true)
-  },
-
-  hideLogViewer({ commit }) {
-    commit('setShowLogViewer', false)
   },
 
   updateShowProgressBar ({ commit }, value) {
@@ -699,10 +683,6 @@ const mutations = {
     state.showSearchFilters = payload
   },
 
-  setShowLogViewer (state, payload) {
-    state.showLogViewer = payload
-  },
-
   setToBeAddedToPlaylistVideoList (state, payload) {
     state.toBeAddedToPlaylistVideoList = payload
   },
@@ -794,9 +774,6 @@ const mutations = {
     state.externalPlayerCmdArguments = value
   },
 
-  setUsingTouch(state, value) {
-    state.usingTouch = value
-  },
   // Use this to set the app title / document.title
   setAppTitle (state, value) {
     state.appTitle = value

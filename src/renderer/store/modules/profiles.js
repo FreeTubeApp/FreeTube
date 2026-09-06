@@ -216,10 +216,13 @@ const actions = {
 
   async updateProfile({ commit }, profile) {
     try {
+      console.warn(`[Profiles] upsert ${profile._id} subscriptions=${profile.subscriptions?.length ?? 0}`)
       await DBProfileHandlers.upsert(profile)
+      console.warn(`[Profiles] persisted ${profile._id}`)
       commit('upsertProfileToList', profile)
+      console.warn(`[Profiles] committed ${profile._id}`)
     } catch (errMessage) {
-      console.error(errMessage)
+      console.error('[Profiles] upsert failed', errMessage)
     }
   },
 

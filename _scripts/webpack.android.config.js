@@ -13,12 +13,13 @@ const {
   SHAKA_LOCALES_PREBUNDLED,
   SHAKA_LOCALES_TO_BE_BUNDLED
 } = require('./getShakaLocales')
-const { sigViewTemplateParameters } = require('./sigViewConfig')
 
 const isDevMode = process.env.NODE_ENV === 'development'
+const sigViewScript = fs.readFileSync(path.join(__dirname, '../src/renderer/sigAndroidScript.js'), 'utf8')
 
 const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
 
+/** @type {import('webpack').Configuration} */
 const config = {
   name: 'web',
   mode: process.env.NODE_ENV,
@@ -45,7 +46,7 @@ const config = {
         loader: 'vue-loader',
         options: {
           compilerOptions: {
-            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide'
+            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide',
           }
         }
       },
@@ -87,7 +88,7 @@ const config = {
             resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
             use: path.join(__dirname, 'patch-shaka-player-loader.js')
           }
-        ]
+        ],
       },
       {
         test: /\.html$/,
@@ -108,6 +109,11 @@ const config = {
         }
       },
     ],
+    generator: {
+      json: {
+        JSONParse: false
+      }
+    }
   },
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
@@ -120,15 +126,15 @@ const config = {
     ]
   },
   node: {
-    __dirname: true,
-    __filename: isDevMode,
+    __dirname: false,
+    __filename: false
   },
   plugins: [
     new webpack.DefinePlugin({
+      'process.platform': 'undefined',
       'process.env.IS_ELECTRON': false,
       'process.env.IS_ELECTRON_MAIN': false,
       'process.env.IS_ANDROID': true,
-      'process.env.IS_RELEASE': !isDevMode,
       'process.env.SUPPORTS_LOCAL_API': true,
       __VUE_OPTIONS_API__: 'true',
       __VUE_PROD_DEVTOOLS__: 'false',
@@ -144,14 +150,12 @@ const config = {
     new HtmlWebpackPlugin({
       excludeChunks: ['processTaskWorker'],
       filename: 'index.html',
-      template: path.resolve(__dirname, '../src/index.ejs'),
-      nodeModules: false,
+      template: path.resolve(__dirname, '../src/index.ejs')
     }),
     new HtmlWebpackPlugin({
       filename: 'decipher.html',
       inject: false,
-      templateContent: sigViewTemplateParameters.sigViewRaw,
-      nodeModules: false
+      templateContent: `<!doctype html><script>${sigViewScript}</script>`
     }),
     new VueLoaderPlugin(),
     new MiniCssExtractPlugin({
@@ -173,33 +177,31 @@ const config = {
   ],
   resolve: {
     alias: {
-
       DB_HANDLERS_ELECTRON_RENDERER_OR_WEB$: path.resolve(__dirname, '../src/datastores/handlers/web.js'),
 
       // change to "shaka-player.ui-es2021.debug.js" to get debug logs (update jsconfig to get updated types)
       'shaka-player$': 'shaka-player/dist/shaka-player.ui-es2021.js',
-    },
-    fallback: {
-      'fs/promises': path.resolve(__dirname, '_empty.js')
+
+      // Make @fortawesome/vue-fontawesome use the trimmed down API instead of the original @fortawesome/fontawesome-svg-core
+      '@fortawesome/fontawesome-svg-core$': path.resolve(__dirname, '../src/renderer/fontawesome-minimal.js')
     },
     extensions: ['.js', '.vue']
   },
   target: 'web',
+  performance: {
+    hints: false
+  },
 }
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: false,
+  hotReload: isDevMode,
   inputDir: path.join(__dirname, '../static/locales'),
   outputDir: 'static/locales',
 })
-const processAndroidLocales = new ProcessLocalesPlugin({
-  compress: false,
-  inputDir: path.join(__dirname, '../static/locales-android'),
-  outputDir: 'static/locales-android',
-})
+
 config.plugins.push(
   processLocalesPlugin,
-  processAndroidLocales,
   new webpack.DefinePlugin({
     'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
     'process.env.GEOLOCATION_NAMES': JSON.stringify(fs.readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
@@ -209,6 +211,10 @@ config.plugins.push(
   new CopyWebpackPlugin({
     patterns: [
       {
+        from: path.join(__dirname, '../dist/botGuardScript.js'),
+        to: path.join(__dirname, '../android/app/src/main/assets/botGuardScript.js'),
+      },
+      {
         from: path.join(__dirname, '../static/pwabuilder-sw.js'),
         to: path.join(__dirname, '../android/app/src/main/assets/pwabuilder-sw.js'),
       },
@@ -217,7 +223,7 @@ config.plugins.push(
         to: path.join(__dirname, '../android/app/src/main/assets/static'),
         globOptions: {
           dot: true,
-          ignore: ['**/.*', '**/locales/**', '**/locales-android/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
+          ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
         },
       },
       {
