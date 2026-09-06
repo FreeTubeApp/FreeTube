@@ -264,6 +264,9 @@ const MIXED_SEARCH_HISTORY_ENTRIES_DISPLAY_LIMIT = 4
 // Displayed on the about page and used in the main.js file to only allow bitcoin URLs with this wallet address to be opened
 const ABOUT_BITCOIN_ADDRESS = '1Lih7Ho5gnxb1CwPD4o59ss78pwo2T91eS'
 
+// Path of the config file that allows to save databases (settings, history, ...) to a custom location.
+const DATABASES_CONFIG_FILE = 'freetube-config.json'
+
 const LIGHT_BASE_THEMES = [
   'light',
   'pastelPink',
@@ -306,4 +309,5 @@ export {
   ABOUT_BITCOIN_ADDRESS,
   LIGHT_BASE_THEMES,
   DARK_BASE_THEMES,
+  DATABASES_CONFIG_FILE,
 }
