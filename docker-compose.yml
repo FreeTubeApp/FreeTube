@@ -1,0 +1,22 @@
+services:
+  android-build:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - /workspace/node_modules
+      - gradle-cache:/root/.gradle
+      - pnpm-store:/pnpm/store
+    environment:
+      ANDROID_HOME: /opt/android-sdk
+      ANDROID_SDK_ROOT: /opt/android-sdk
+      CI: "true"
+      PNPM_HOME: /pnpm
+      PATH: /opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      npm_config_update_notifier: "false"
+
+volumes:
+  gradle-cache:
+  pnpm-store:
