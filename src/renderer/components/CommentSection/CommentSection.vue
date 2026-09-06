@@ -334,8 +334,11 @@ async function getCommentDataLocal(more = false) {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
+    // region No comment detection
     // No comment related info when video info requested earlier in parent component
     if (err.message.includes('The comments page did not have any content')) {
+      // For videos without any comment (comment disabled?)
+      // e.g. https://youtu.be/8NBSwDEf8a8
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -344,6 +347,7 @@ async function getCommentDataLocal(more = false) {
       localCommentsInstance = undefined
       return
     }
+    // endregion No comment detection
 
     console.error(err)
     const errorMessage = t('Local API Error (Click to copy)')
@@ -377,8 +381,11 @@ async function getCommentDataInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
+    // region No comment detection
     // No comment related info when video info requested earlier in parent component
     if (err.message.includes('Comments not found')) {
+      // For videos without any comment (comment disabled?)
+      // e.g. https://youtu.be/8NBSwDEf8a8
       commentData.value = []
       nextPageToken.value = null
       isLoading.value = false
@@ -386,6 +393,7 @@ async function getCommentDataInvidious() {
       areCommentsDisabled.value = true
       return
     }
+    // endregion No comment detection
 
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
