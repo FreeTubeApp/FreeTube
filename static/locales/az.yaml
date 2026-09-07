@@ -599,10 +599,36 @@ Settings:
     Error getting network information. Is your proxy configured properly?: Şəbəkə məlumatı alınarkən xəta oldu. Proksiniz düzgün tənzimlənibmi?
   Parental Control Settings:
     Parental Control Settings: Valideyn Nəzarəti
+    Hide Unsubscribe Button: Abunə Olmayın Düyməsini Gizlət
+    Hide Uploader on Watch page: Yükləyicini İzləmə səhifəsində gizlət
+    Show Family Friendly Only: Yalnız Ailəvi Məzmunu Göstər
+    Hide Search Bar: Axtarış Cizgisini Gizlət
+    Disable Channel Links: Kanal Linklərini Qapat
+  Experimental Settings:
+    Experimental Settings: Təcrübi
+    Warning: Bu tənzimləmələr sınaq məqsədlidir, aktiv edildikdə çökmələrə yol aça bilər. Ehtiyat nüsxə çıxarmağınız şiddətlə tövsiyə edilir. Riski öz üzərinizə alaraq istifadə edin!
+    Replace HTTP Cache: HTTP Keşini Əvəzlə
+  Password Dialog:
+    Password: Parol
+    Enter Password To Unlock: Tənzimləmələrin kilidini açmaq üçün parolu daxil et
+  Password Settings:
+    Password Settings: Parol
+    Set Password To Prevent Access: Tənzimləmələrə girişi məhdudlaşdırmaq üçün parol təyin et
+    Set Password: Parol Təyin Et
+    Remove Password: Parolu Sil
 Channel:
   Videos:
     Videos: Videolar
   Playlists: {}
+  Subscribe: Abunə ol
+  Unsubscribe: Abunə olmayın
+  Channel has been removed from your subscriptions: Kanal abunəliklərinizdən silindi
+  Removed subscription from {count} other channel(s): Digər {count} kanal(lar)dan abunəlik silindi
+  Added channel to your subscriptions: Abunəliklərinizə kanal əlavə edildi
+  Search Channel: Kanalı Axtar
+  Your search results have returned 0 results: Axtarış nəticələriniz 0 nəticə verdi
+  This channel does not exist: Bu kanal mövcud deyil
+  This channel does not allow searching: Bu kanal axtarışa icazə vermir
 Video:
   External Player: {}
 Tooltips: {}
@@ -662,5 +688,70 @@ KeyboardShortcutPrompt:
   Fullscreen: Tam ekrana keçir
 Profile:
   Select All: Hamısını Seç
+  Profile Settings: Profil
+  Toggle Profile List: Profil Siyahısını Dəyişdir
+  Profile Select: Profil Seçimi
+  Profile Filter: Profil Filtri
+  All Channels: Bütün Kanallar
+  Profile Manager: Profil İdarəedici
+  Create New Profile: Yeni Profil Yarat
+  Edit Profile: Profilə Düzəliş Et
+  Edit Profile Name: Profil Adına Düzəliş Et
+  Create Profile Name: Profil Adı Yarat
+  Profile Name: Profil Adı
+  Color Picker: Rəng Seçici
+  Custom Color: Fərdi Rəng
+  Profile Preview: Profil Önizləməsi
+  Create Profile: Profil Yarat
+  Update Profile: Profili Yenilə
+  Make Default Profile: İlkin Profil Hazırla
+  Delete Profile: Profili Sil
+  Are you sure you want to delete this profile?: Bu profili silmək istədiyinizə əminsiniz?
+  All subscriptions will also be deleted.: Bütün abunəliklər də silinəcək.
+  Your profile name cannot be empty: Profil adınız boş ola bilməz
+  Profile has been created: Profil yaradıldı
+  Profile has been updated: Profil yeniləndi
+  Your default profile has been set to {profile}: İlkin profiliniz {profile} olaraq təyin edilib
+  Removed {profile} from your profiles: Profillərinizdən {profile} silindi
+  Your default profile has been changed to your primary profile: Standart profiliniz əsas profilinizə dəyişdirildi
+  '{profile} is now the active profile': '{profile} artıq aktiv profildir'
+  Subscription List: Abunəlik Siyahısı
+  Other Channels: Digər Kanallar
+  '{number} selected': '{number} seçildi'
+  Select None: Heç Birini Seçmə
+  Delete Selected: Seçilmişləri Sil
+  Add Selected To Profile: Seçilmişləri Profilə Əlavə Et
+  No channel(s) have been selected: Heç bir kanal seçilməyib
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Bu, sizin əsas profilinizdir.  Seçilmiş kanalları silmək istədiyinizə əminsiniz?  Eyni kanallar tapıldıqları bütün profillərdən silinəcək.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Seçilmiş kanalları silmək istədiyinizə əminsiniz?  Bu kanalı digər profildən silməyəcək.
+  Close Profile Dropdown: Profil Açılan Menyusunu Bağla
+  Open Profile Dropdown: Profil Açılan Menyusunu Aç
+  Go To Profile Manager: Profil İdarəediciyə Keç
 Compact side navigation: Yığcam yan naviqasiya
 Expand side navigation: Yan paneli genişləndir
+About:
+  About: Haqqında
+  Beta: Sınaq
+  Source code: Mənbə kodu
+  Licensed under the {licenseLink}: '{licenseLink} lisenziyasına əsasən lisenziyalaşdırılıb'
+  AGPLv3: AGPLv3
+  Downloads / Changelog: Yükləmələr / Dəyişiklik Jurnalı
+  GitHub releases: GitHub Buraxılışları
+  Help: Kömək
+  FreeTube Wiki: FreeTube Wiki
+  FAQ: FAQ
+  Discussions: Müzakirələr
+  Report a problem: Problemi bildir
+  GitHub issues: GitHub problemləri
+  Please check for duplicates before posting: Xahiş olunur, göndərməzdən əvvəl dublikatları yoxlayın
+  Website: Veb sayt
+  Mastodon: Mastodon
+  Chat on Matrix: Matrix-də Söhbət Et
+  Please read the {roomRulesLink}: Zəhmət olmasa, {roomRulesLink}-i oxuyun
+  room rules: otaq qaydaları
+  Translate: Tərcümə et
+  Credits: Müəlliflər
+  FreeTube is made possible by {creditsPageLink}: FreeTube {creditsPageLink} dəstəyi ilə yaradılmışdır
+  these people and projects: bu şəxslər və layihələr
+  Donate: İanə et
