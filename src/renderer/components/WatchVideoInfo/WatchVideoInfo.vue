@@ -126,11 +126,8 @@
             :playlist-id="playlistId"
           />
           <FtIconButton
-            class="navIconButton"
             :title="t('Video.Reload Page')"
             :icon="['fas', 'sync']"
-            :size="20"
-            :use-shadow="false"
             theme="secondary"
             @click="reloadPlayer"
           />
