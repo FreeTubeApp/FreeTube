@@ -1991,7 +1991,7 @@ export default defineComponent({
       }
     },
 
-    async onManualReloadReloadRequested() {
+    async onManualReloadRequested() {
       await this.saveWatchProgressForReload()
       await this.reloadView()
     },

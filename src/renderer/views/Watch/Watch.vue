@@ -157,7 +157,7 @@
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @save-watched-progress="handleWatchProgressManualSave"
-        @reload-player="onManualReloadReloadRequested"
+        @reload-player="onManualReloadRequested"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
