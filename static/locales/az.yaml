@@ -619,7 +619,18 @@ Settings:
 Channel:
   Videos:
     Videos: Videolar
-  Playlists: {}
+    This channel does not currently have any videos: Bu kanalda hazırda heç bir video yoxdur
+    Sort Types:
+      Newest: Ən yeni
+      Oldest: Ən köhnə
+      Most Popular: Ən Məşhur
+  Playlists:
+    Playlists: Pleylistlər
+    This channel does not currently have any playlists: Bu kanalın hazırda heç bir pleylisti yoxdur
+    Sort Types:
+      Last Video Added: Son Əlavə Edilən Video
+      Newest: Ən yeni
+      Oldest: Ən köhnə
   Subscribe: Abunə ol
   Unsubscribe: Abunə olmayın
   Channel has been removed from your subscriptions: Kanal abunəliklərinizdən silindi
@@ -629,8 +640,74 @@ Channel:
   Your search results have returned 0 results: Axtarış nəticələriniz 0 nəticə verdi
   This channel does not exist: Bu kanal mövcud deyil
   This channel does not allow searching: Bu kanal axtarışa icazə vermir
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal yaş məhdudiyyətlidir və hazırda FreeTube-da baxıla bilməz.
+  Channel Tabs: Kanal Cərgələri
+  View All: Hamısına Bax
+  Shorts:
+    This channel does not currently have any shorts: Bu kanalda hazırda heç bir Shorts yoxdur
+  Live:
+    Live: Canlı
+    This channel does not currently have any live streams: Bu kanalda hazırda canlı yayımlar yoxdur
+  Home:
+    Home: Əsas səhifə
+    View Playlist: Pleylistə Bax
+  Podcasts:
+    Podcasts: Podkastlar
+    This channel does not currently have any podcasts: Bu kanalda hazırda podkast yoxdur
+  Releases:
+    Releases: Buraxılışlar
+    This channel does not currently have any releases: Bu kanalın hazırda heç bir buraxılışı yoxdur
+  Courses:
+    Courses: Kurslar
+    This channel does not currently have any courses: Bu kanalda hazırda heç bir kurs yoxdur
+  About:
+    About: Haqqında
+    Channel Description: Kanal Açıqlaması
+    Tags:
+      Tags: Etiketlər
+      Search for: '"{tag}" üçün axtar'
+    Details: Təfərrüatlar
+    Joined: Qoşuldu
+    Location: Məkan
+    Featured Channels: Seçilmiş Kanallar
+  Posts:
+    This channel currently does not have any posts: Bu kanalda hazırda heç bir post yoxdur
+    votes: '{votes} səs'
+    View Full Post: Tam Posta Bax
+    Reveal Answers: Cavabları Göstərin
+    Hide Answers: Cavabları Gizlət
+    Video hidden by FreeTube: FreeTube tərəfindən gizlədilən video
 Video:
   External Player: {}
+  IP block: YouTube video izləməyinizə mane olmaq üçün IP ünvanınızı bloklayıb. Zəhmət olmasa, başqa VPN və ya proksiyə keçməyə cəhd edin.
+  MembersOnly: Şəxsi üzvlük videoları Google ilə daxil olmağı və kanal sahibinə üzvlük ödənişi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
+  AgeRestricted: Yaş məhdudiyyəti olan videolar Google ilə daxil olmağı və yaşı təsdiqlənmiş YouTube hesabın istifadə etməyi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
+  DRMProtected: DRM ilə qorunan videolar xüsusi, qapalı mənbəli komponentlər tələb etdiyindən FreeTube vasitəsilə oynadıla bilmir. Əgər bu videoya baxmaq istəyirsinizsə, xahiş olunur DRM aktivləşdirilmiş veb brauzerdə rəsmi YouTube veb saytın istifadə edəsiniz.
+  Private: Şəxsi videolar Google ilə daxil olmağı və videonun mülkiyyət hüququnu tələb etdiyi üçün FreeTube-da izlənilə bilməz.
+  More Options: Daha Çox Seçim
+  Mark As Watched: İzlənmiş Kimi İşarələ
+  Remove From History: Tarixçədən Sil
+  Video has been marked as watched: Video baxılmış kimi işarələndi
+  Video has been removed from your history: Video tarixçənizdən silindi
+  Save Watched Progress: İzlənilən Gedişatı Saxla
+  Watched Progress Saved: İzlənilən Gedişat Saxlanıldı
+  Save Video: Videonu Saxla
+  Video has been saved: Video saxlanıldı
+  Video has been removed from your saved list: Video saxlanılan siyahınızdan silindi
+  Open in YouTube: YouTube-da Aç
+  Copy YouTube Link: YouTube Linkini Köçür
+  Open YouTube Embedded Player: YouTube Daxili Oynadıcını Aç
+  Copy YouTube Embedded Player Link: YouTube Daxili Oynadıcı Linkini Köçür
+  Open in Invidious: Invidious-da Aç
+  Copy Invidious Link: Invidious Linkini Köçür
+  Open Channel in YouTube: YouTube-da Kanalı Aç
+  Copy YouTube Channel Link: YouTube Kanal Linkini Köçür
+  Open Channel in Invidious: Invidious-da Kanalı Aç
+  Copy Invidious Channel Link: Invidious Kanal Linkini Köçür
+  Hide Channel: Kanalı Gizlət
+  Unhide Channel: Kanalı Göstər
+  Views: Baxış
+  Loop Playlist: Pleylisti Təkrarla
 Tooltips: {}
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
