@@ -35,6 +35,8 @@ Search Bar:
   Clear Input: 'Girişi Təmizlə'
   # In Filter Button
   Remove: Sil
+  Open Search Container: Axtarış Sahəsini Aç
+  Search: Axtar
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Prioritize:
@@ -424,7 +426,21 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-  SponsorBlock Settings: {}
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock
+    Enable SponsorBlock: SponsorBlock-u Aktivləşdir
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API Url (İlkin: https://sponsor.ajay.app)'
+    Notify when sponsor segment is skipped: Sponsor bölümü ötürüldükdə xəbər ver
+    UseDeArrowTitles: DeArrow Video Başlıqların İstifadə Et
+    UseDeArrowThumbnails: Miniatürlər üçün DeArrow istifadə et
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Miniatür Yaradıcı API URL-si (İlkin: https://dearrow-thumb.ajay.app)'
+    Skip Options:
+      Skip Option: Ötürmə Seçimi
+      Auto Skip: Avtomatik Ötür
+      Show In Seek Bar: Çəkmə Cizgisində Göstər
+      Prompt To Skip: Ötürmək Üçün Soruş
+      Do Nothing: Heç Nə Etmə
+    Category Color: Kateqoriya Rəngi
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
   External Player Settings:
@@ -515,6 +531,8 @@ Settings:
     Hide Subscriptions Videos: Abunəlik Videolarını Gizlət
     Hide Subscriptions Shorts: Abunəliklər Shorts-ları Gizlət
     Hide Subscriptions Live: Abunəliklər Canlı Yayımı Gizlət
+    Add: Əlavə et
+    Remove: Sil
   Data Settings:
     Data Settings: Məlumatlar
     Select Export Type: Köçürmə Növünü Seç
@@ -571,6 +589,16 @@ Settings:
     Proxy Port Number: Proksi Port Nömrəsi
     Proxy Username: Proksi İstifadəçi Adı
     Proxy Password: Proksi Parolu
+    Clicking on Test Proxy will send a request to: Proksini yoxla düyməsini kliklədikdə sorğu bu ünvana göndəriləcək
+    Test Proxy: Proksini Yoxla
+    Your Info: Məlumatınız
+    Ip: IP
+    Country: Ölkə
+    Region: Bölgə
+    City: Şəhər
+    Error getting network information. Is your proxy configured properly?: Şəbəkə məlumatı alınarkən xəta oldu. Proksiniz düzgün tənzimlənibmi?
+  Parental Control Settings:
+    Parental Control Settings: Valideyn Nəzarəti
 Channel:
   Videos:
     Videos: Videolar
