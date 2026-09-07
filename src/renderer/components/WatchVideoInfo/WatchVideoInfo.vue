@@ -127,7 +127,7 @@
           />
           <FtIconButton
             class="navIconButton"
-            :title="t('Video.Reload Player')"
+            :title="t('Video.Reload Page')"
             :icon="['fas', 'sync']"
             :size="20"
             :use-shadow="false"
