@@ -21,7 +21,8 @@ import {
   extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
-  showToast
+  showToast,
+  throttle
 } from '../../helpers/utils'
 import {
   getLocalVideoInfo,
@@ -1991,10 +1992,10 @@ export default defineComponent({
       }
     },
 
-    async onManualReloadRequested() {
+    onManualReloadRequested: throttle(async function () {
       await this.saveWatchProgressForReload()
       await this.reloadView()
-    },
+    }, 1000),
 
     async onSabrReloadRequested() {
       showToast('Reloading player according to SABR request')
