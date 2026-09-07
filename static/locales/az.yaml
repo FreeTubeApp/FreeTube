@@ -771,6 +771,29 @@ Video:
     Exit Theatre Mode: Teatr Rejimindən Çıx
     Full Window: Tam Pəncərə
     Exit Full Window: Tam Pəncərədən Çıx
+    Take Screenshot: Ekran Görüntüsünü Çək
+    Show Stats: Statistikaları Göstər
+    Hide Stats: Statistikaları Gizlət
+    Stats:
+      Stats: Statistika
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Media Formatları: {formats}'
+      Resolution: "Ayırdetmə: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Oynadıcı Ölçüləri: {width}x{height}'
+      Bitrate: 'Bit Sürəti: {bitrate} kbps'
+      Volume: 'Səs səviyyəsi: {volumePercentage}%'
+      Bandwidth: 'Bant genişliyi: {bandwidth} kbps'
+      Buffered: 'Buferlənib: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'İtirilmiş Kadrlar: {droppedFrames} / Ümumi Kadrlar: {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeklər: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeklər: {videoCodec} / {audioCodec}'
+    You appear to be offline: Görünür, oflaynsınız.
+    Playback will resume automatically when your connection comes back: Bağlantınız bərpa edildikdə oynatma avtomatik olaraq davam edəcək.
+    Skipped segment: '{segmentCategory} bölümü ötürüldü'
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Video öncəsi reklamın qalan vaxtı: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Qalan SABR gecikmə vaxtı: {remindingTimeSeconds}s'
 Tooltips: {}
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
@@ -900,3 +923,26 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Plus
+Playlist:
+  Playlist: Pleylist
+  View Full Playlist: Tam Pleylistə Bax
+  Last Updated On: Son Yenilənmə Tarixi
+  Sort By:
+    DateAddedNewest: Əlavə olunma tarixi (Ən yeni)
+    DateAddedOldest: Əlavə olunma tarixi (Ən köhnə)
+    PublishedNewest: Dərc olunma tarixi (Ən yeni)
+    PublishedOldest: Dərc olunma tarixi (Ən köhnə)
+    AuthorAscending: Müəllif (A-Z)
+    AuthorDescending: Müəllif (Z-A)
+    VideoTitleAscending: Başlıq (A-Z)
+    VideoTitleDescending: Başlıq (Z-A)
+    VideoDurationAscending: Müddət (Ən qısa)
+    VideoDurationDescending: Müddət (Ən uzun)
+    Custom: Fərdi
+Change Format:
+  Change Media Formats: Media Formatlarını Dəyişdir
+  Use Dash Formats: DASH Formatların İstifadə Et
+  Use Legacy Formats: Köhnə Formatları İstifadə Et
+  Use Audio Formats: Səs Formatların İstifadə Et
+  Dash formats are not available for this video: DASH formatları bu video üçün mövcud deyil
+  Audio formats are not available for this video: Səs formatları bu video üçün mövcud deyil
