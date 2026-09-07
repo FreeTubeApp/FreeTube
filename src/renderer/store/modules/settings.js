@@ -213,7 +213,6 @@ const state = {
   hideHeaderLogo: false,
   hidePlaylists: false,
   hidePopularVideos: false,
-  hidePostsComments: false,
   hideRecommendedVideos: false,
   hideSearchBar: false,
   hideSharingActions: false,

@@ -138,7 +138,7 @@
         :aria-label="$t('Channel.Posts.View Full Post')"
       >
         <span
-          v-if="!hidePostsComments"
+          v-if="!hideComments"
           class="commentCount"
           :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
           :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
@@ -150,7 +150,7 @@
           /> {{ formattedCommentCount }}</span>
       </router-link>
       <span
-        v-else-if="commentCount != null && !hidePostsComments"
+        v-else-if="commentCount != null && !hideComments"
         class="commentCount"
         :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
         :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
@@ -234,8 +234,8 @@ const backendPreference = computed(() => {
 })
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const hidePostsComments = computed(() => {
-  return store.getters.getHidePostsComments
+const hideComments = computed(() => {
+  return store.getters.getHideComments
 })
 
 let postType = ''
