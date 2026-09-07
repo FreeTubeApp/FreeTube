@@ -678,7 +678,20 @@ Channel:
     Hide Answers: Cavabları Gizlət
     Video hidden by FreeTube: FreeTube tərəfindən gizlədilən video
 Video:
-  External Player: {}
+  External Player:
+    OpenInTemplate: '{externalPlayer}-də Aç'
+    video: video
+    playlist: pleylist
+    OpeningTemplate: '{externalPlayer}-də {videoOrPlaylist} Açılır...'
+    UnsupportedActionTemplate: '{externalPlayer} dəstəkləmir: {action}'
+    Unsupported Actions:
+      starting video at offset: Video göstərilən vaxtdan başladılır
+      setting a playback rate: oynatma sürətinin təyin edilməsi
+      opening playlists: pleylistləri açır
+      opening specific video in a playlist (falling back to opening the video): pleylistdəki müəyyən videonu açır (videonu açmağa qayıdır)
+      reversing playlists: pleylistləri tərs çevirir
+      shuffling playlists: pleylistləri qarışdırır
+      looping playlists: pleylistləri təkrarlayır
   IP block: YouTube video izləməyinizə mane olmaq üçün IP ünvanınızı bloklayıb. Zəhmət olmasa, başqa VPN və ya proksiyə keçməyə cəhd edin.
   MembersOnly: Şəxsi üzvlük videoları Google ilə daxil olmağı və kanal sahibinə üzvlük ödənişi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
   AgeRestricted: Yaş məhdudiyyəti olan videolar Google ilə daxil olmağı və yaşı təsdiqlənmiş YouTube hesabın istifadə etməyi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
@@ -708,6 +721,55 @@ Video:
   Unhide Channel: Kanalı Göstər
   Views: Baxış
   Loop Playlist: Pleylisti Təkrarla
+  Shuffle Playlist: Pleylisti Qarışdır
+  Reverse Playlist: Pleylisti Tərsinə Çevir
+  Collapse Playlist: Pleylisti Yığcamlaşdır
+  Expand Playlist: Pleylisti Genişləndir
+  Previous: Əvvəlki
+  Next: Növbəti
+  Watched: İzlənildi
+  Autoplay: Avtomatik Oynat
+  Starting soon, please refresh the page to check again: Tezliklə başlayacaq, xahiş olunur, təkrar yoxlamaq üçün səhifəni yenilə
+  Premieres: Premyeralar
+  Upcoming: Yaxınlaşan
+  Unlisted: Siyahıda olmayan
+  Station: Stansiya
+  Live: Canlı
+  Live Now: İndi Canlı
+  Live Chat: Canlı Söhbət
+  Enable Live Chat: Canlı Söhbəti Aktivləşdir
+  Popout Live Chat: Açılan Söhbət
+  Live Chat is currently not supported in this build.: Canlı Söhbət hazırda bu quruluşda dəstəklənmir.
+  Live chat is enabled. Chat messages will appear here once sent.: Canlı söhbət aktivdir.  Söhbət mesajları göndərildikdən sonra burada görünəcək.
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Canlı Söhbət hazırda Invidious API ilə dəstəklənmir.  YouTube-a birbaşa bağlantı tələb olunur.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı Söhbət bu yayım üçün əlçatmazdır. Yükləyən tərəfindən qapadılmış ola bilər.
+  Show Super Chat Comment: Super Söhbət Şərhini Göstər
+  Scroll to Bottom: Aşağıya Sürüşdür
+  Published:
+    In less than a minute: Bir dəqiqədən az müddətdə
+  Published on: Dərc olunub
+  Streamed on: Yayımlandı
+  Started streaming on: Yayım başladı
+  DeArrow:
+    Show Original Details: Orijinal Təfərrüatları Göstər
+    Show Modified Details: Dəyişdirilmiş Təfərrüatları Göstər
+  Sponsor Block category:
+    sponsor: Sponsor
+    intro: Giriş
+    outro: Çıxış
+    self-promotion: Öz Reklamı
+    interaction: Qarşılıqlı əlaqə
+    music offtopic: Kənar Musiqi
+    recap: Ön baxış
+    filler: Əlaqəsiz
+  Player:
+    TranslatedCaptionTemplate: '{language} ({originalLanguage} dilindən tərcümə olunub)'
+    Audio Tracks: Səs Parçaları
+    Autoplay is off: Avtomatik oynatma qapalıdır
+    Autoplay is on: Avtomatik oynatma aktivdir
+    Theatre Mode: Teatr Rejimi
+    Exit Theatre Mode: Teatr Rejimindən Çıx
+    Full Window: Tam Pəncərə
 Tooltips: {}
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
@@ -832,3 +894,8 @@ About:
   FreeTube is made possible by {creditsPageLink}: FreeTube {creditsPageLink} dəstəyi ilə yaradılmışdır
   these people and projects: bu şəxslər və layihələr
   Donate: İanə et
+Keys:
+  ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Plus
