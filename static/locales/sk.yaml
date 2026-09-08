@@ -533,6 +533,8 @@ Settings:
       Channel Page: Stránka kanála
       Subscriptions Page: Stránka odberov
       Side Bar: Bočná lišta
+    Add: Pridať
+    Remove: Odstrániť
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto sa nedá vrátiť späť.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
@@ -624,6 +626,7 @@ Settings:
     Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používate na vlastné riziko!
     Experimental Settings: Experimentálne
 
+    Disable Hardware Acceleration: Vypnúť hardvérovú akceleráciu
 About:
   #On About page
   About: 'O FreeTube'
@@ -832,6 +835,9 @@ Video:
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
   Collapse Playlist: Zbaliť playlist
   Expand Playlist: Rozbaliť playlist
+  Station: Stanica
+  Playlist:
+    Unavailable videos are hidden: 1 nedostupné video je skryté | {count} nedostupných videí je skrytých
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -853,6 +859,7 @@ Playlist:
     PublishedNewest: Dátum publikovania (najnovšie)
     DateAddedOldest: Dátum pridania (najstaršie)
     DateAddedNewest: Dátum pridania (najnovšie)
+  Unavailable videos are hidden: Nedostupné videá sú skryté
 Change Format:
   Change Media Formats: 'Zmena formátov videa'
   Use Dash Formats: 'Použiť formáty DASH'
@@ -954,6 +961,7 @@ Tooltips:
     UseDeArrowTitles: Nahradí názvy videí názvami z DeArrow, ktoré zadali jeho používatelia.
   Experimental Settings:
     Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
+    Disable Hardware Acceleration: Vypne hardvérovú akceleráciu GPU. Môže vyriešiť grafické problémy, ale pravdepodobne sa zhorší výkon.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybrané kanály?  Týmto sa kanál neodstráni z žiadneho iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
@@ -995,6 +1003,7 @@ Profile:
   Create Profile Name: Vytvoriť názov profilu
   Edit Profile Name: Upraviť názov profilu
   Toggle Profile List: Prepnúť zoznam profilov
+  Go To Profile Manager: Prejsť do správcu profilov
 Download From Site: Stiahnuť zo stránky
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina
@@ -1006,6 +1015,8 @@ Default Invidious instance has been set to {instance}: Predvolená inštancia In
 Search Bar:
   Clear Input: Vyčistiť zadané údaje
   Remove: Odstrániť
+  Open Search Container: Otvoriť kontajner vyhľadávania
+  Search: Hľadať
 Default Invidious instance has been cleared: Predvolená inštancia Invidious bola vymazaná
 External link opening has been disabled in the general settings: Otváranie externých odkazov bolo zakázané vo všeobecných nastaveniach
 Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?
