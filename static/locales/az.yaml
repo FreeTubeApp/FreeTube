@@ -608,6 +608,7 @@ Settings:
     Experimental Settings: Təcrübi
     Warning: Bu tənzimləmələr sınaq məqsədlidir, aktiv edildikdə çökmələrə yol aça bilər. Ehtiyat nüsxə çıxarmağınız şiddətlə tövsiyə edilir. Riski öz üzərinizə alaraq istifadə edin!
     Replace HTTP Cache: HTTP Keşini Əvəzlə
+    Disable Hardware Acceleration: Cihaz Sürətləndirməsini Qapat
   Password Dialog:
     Password: Parol
     Enter Password To Unlock: Tənzimləmələrin kilidini açmaq üçün parolu daxil et
@@ -794,7 +795,11 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Video öncəsi reklamın qalan vaxtı: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Qalan SABR gecikmə vaxtı: {remindingTimeSeconds}s'
-Tooltips: {}
+  Playlist:
+    Unavailable videos are hidden: 1 əlçatmaz video gizlədilib | {count} əlçatmaz video gizlədilib
+Tooltips:
+  General Settings:
+    Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
 Global:
@@ -939,6 +944,7 @@ Playlist:
     VideoDurationAscending: Müddət (Ən qısa)
     VideoDurationDescending: Müddət (Ən uzun)
     Custom: Fərdi
+  Unavailable videos are hidden: Əlçatmaz videolar gizlədilib
 Change Format:
   Change Media Formats: Media Formatlarını Dəyişdir
   Use Dash Formats: DASH Formatların İstifadə Et
@@ -946,3 +952,51 @@ Change Format:
   Use Audio Formats: Səs Formatların İstifadə Et
   Dash formats are not available for this video: DASH formatları bu video üçün mövcud deyil
   Audio formats are not available for this video: Səs formatları bu video üçün mövcud deyil
+  Legacy formats are not available for this video: Köhnə formatlar bu video üçün mövcud deyil
+Share:
+  Share Video: Videonu Paylaş
+  Share Post: Postu Paylaş
+  Share Channel: Kanalı Paylaş
+  Share Playlist: Pleylisti Paylaş
+  Include Timestamp: Vaxt Göstəricisini Daxil Et
+  Copy Link: Linki Köçür
+  Open Link: Linki Aç
+  Copy Embed: Yerləşdirmə Kodunu Köçür
+  Open Embed: Yerləşdirmə Pəncərəsini Aç
+  Invidious URL copied to clipboard: Invidious URL buferə köçürüldü
+  Invidious Embed URL copied to clipboard: Invidious Yerləşdirmə URL-si buferə köçürüldü
+  Invidious Channel URL copied to clipboard: Invidious Kanal URL-si buferə köçürüldü
+  YouTube URL copied to clipboard: YouTube URL-si buferə köçürüldü
+  YouTube Embed URL copied to clipboard: YouTube Yerləşdirmə URL-si buferə köçürüldü
+  YouTube Channel URL copied to clipboard: YouTube Kanal URL-si buferə köçürüldü
+Clipboard:
+  Copy failed: Buferə köçürmə uğursuz oldu
+  Cannot access clipboard without a secure connection: Təhlükəsiz bağlantı olmadan buferə daxil olmaq olmur
+Chapters:
+  Chapters: Bölümlər
+  Key Moments: Əsas Məqamlar
+Mini Player: Kiçik Oynadıcı
+Comments:
+  Comments: Şərhlər
+  Click to View Comments: Şərhləri Görmək Üçün Kliklə
+  There are no more comments for this video: Bu video üçün başqa şərh yoxdur
+  Hide Comments: Şərhləri Gizlət
+  Top comments: Ən yaxşı şərhlər
+  Newest first: Əvvəlcə Ən Yeni
+  View {replyCount} replies: 1 cavabı göstər | {replyCount} cavabı göstər
+  Hide Replies: Cavabı gizlət | Cavabları gizlət
+  Loading replies: Cavablar yüklənilir...
+  View 1 reply from {channelName}: '{channelName} kanalından 1 cavaba bax'
+  View {replyCount} replies from {channelName} and others: '{channelName} və digərlərindən {replyCount} cavaba bax'
+  Show More Replies: Daha çox cavab göstər
+  There are no comments available for this video: Bu video üçün şərh yoxdur
+  There are no comments available for this post: Bu post üçün şərh yoxdur
+  Load More Comments: Daha Çox Şərh Yüklə
+  Pinned by: Sabitləyən
+  Member: Üzv
+  Subscribed: Abunə olundu
+  Hearted: Bəyənildi
+Up Next: Növbəti
+Description:
+  Expand Description: '...ətraflı'
+  Collapse Description: Daha az göstər
