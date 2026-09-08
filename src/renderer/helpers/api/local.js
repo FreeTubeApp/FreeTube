@@ -62,6 +62,21 @@ if (process.env.SUPPORTS_LOCAL_API) {
 }
 
 /**
+ * Extends YouTube.js's HowThisWasMadeSectionView to parse attributionText
+ * (e.g. 'Info from Truepic') which is present for verified authentic recordings.
+ */
+class CustomHowThisWasMadeSectionView extends YTNodes.HowThisWasMadeSectionView {
+  constructor(data) {
+    super(data)
+    if (Reflect.has(data, 'attributionText')) {
+      this.attribution_text = Misc.Text.fromAttributed(data.attributionText)
+    }
+  }
+}
+
+Parser.addRuntimeParser('HowThisWasMadeSectionView', CustomHowThisWasMadeSectionView)
+
+/**
  * Creates a lightweight Innertube instance, which is faster to create or
  * an instance that can decode the streaming URLs, which is slower to create
  * the lightweight one only needs a single web request to create the new session
@@ -774,7 +789,7 @@ export async function getLocalVideoInfo(id) {
 /**
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
- * @returns {{ label: string, description: string }[] | null}
+ * @returns {{ label: string, description: string, attribution: string }[] | null}
  */
 export function extractLocalContentDisclosures(info) {
   if (info?.page?.[1]?.engagement_panels) {
@@ -788,6 +803,7 @@ export function extractLocalContentDisclosures(info) {
         .map(item => ({
           label: item.body_header?.text ?? '',
           description: item.body_text?.text?.replace(/\s*Learn more\.?$/i, '').trim() ?? '',
+          attribution: item.attribution_text?.text ?? '',
         }))
 
       return items.length > 0 ? items : null

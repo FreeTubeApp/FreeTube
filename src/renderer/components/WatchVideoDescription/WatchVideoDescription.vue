@@ -43,6 +43,12 @@
         >
           {{ getDisclosureDescription(item.description) }}
         </div>
+        <div
+          v-if="item.attribution"
+          class="aiDisclosureAttribution"
+        >
+          {{ getDisclosureAttribution(item.attribution) }}
+        </div>
       </div>
     </div>
     <bdi
@@ -129,6 +135,21 @@ function getDisclosureDescription(description) {
   return DESCRIPTION_TRANSLATIONS[description]?.() ??
     DESCRIPTION_TRANSLATIONS[normalized]?.() ??
     description
+}
+
+/**
+ * @param {string} attribution
+ * @returns {string}
+ */
+function getDisclosureAttribution(attribution) {
+  if (!attribution) {
+    return ''
+  }
+  const match = attribution.match(/^Info from (.+)$/i)
+  if (match) {
+    return t('Video.Info from {provider}', { provider: match[1] })
+  }
+  return attribution
 }
 
 const showHowThisWasMade = computed(() => (props.contentDisclosures?.length ?? 0) > 0)

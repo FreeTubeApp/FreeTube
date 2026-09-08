@@ -907,6 +907,7 @@ Video:
   'Sounds or visuals were altered or digitally generated.': Sounds or visuals were altered or digitally generated.
   'Audio tracks for some languages were automatically generated.': Audio tracks for some languages were automatically generated.
   'The creator used a camera or other recording device to capture this video without altering the sounds or visuals.': The creator used a camera or other recording device to capture this video without altering the sounds or visuals.
+  'Info from {provider}': 'Info from {provider}'
   Station: Station
   Live: Live
   Live Now: Live Now

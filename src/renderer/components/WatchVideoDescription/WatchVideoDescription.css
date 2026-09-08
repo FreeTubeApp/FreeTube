@@ -68,10 +68,15 @@
   margin-block-end: 4px;
 }
 
-.aiDisclosureBody {
+.aiDisclosureBody,
+.aiDisclosureAttribution {
   font-size: 15px;
   line-height: 1.4;
   opacity: 0.9;
+}
+
+.aiDisclosureAttribution {
+  margin-block-start: 6px;
 }
 
 .aiDisclosureItem + .aiDisclosureItem {
