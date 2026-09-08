@@ -67,7 +67,9 @@
         >
           {{ title }}
         </h2>
-        <p>
+        <p
+          v-if="!isUnviewable"
+        >
           {{ t('Global.Counts.Video Count', { count: parsedVideoCount }, videoCount) }}
           <template v-if="!hideViews && !isUserPlaylist">
             - {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
@@ -354,6 +356,10 @@ const props = defineProps({
   infoSource: {
     type: String,
     required: true,
+  },
+  isUnviewable: {
+    type: Boolean,
+    default: false,
   },
   moreVideoDataAvailable: {
     type: Boolean,

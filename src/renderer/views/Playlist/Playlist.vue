@@ -37,6 +37,7 @@
         :total-playlist-duration="totalPlaylistDuration"
         :is-duration-approximate="isDurationApproximate"
         :info-source="infoSource"
+        :is-unviewable="isUnviewable"
         :more-video-data-available="moreVideoDataAvailable"
         :search-video-mode-allowed="isUserPlaylistRequested && shownVideoCount > 1"
         :search-query-text="searchQueryTextRequested"
@@ -183,6 +184,13 @@
         </FtFlexBox>
       </template>
       <FtFlexBox
+        v-else-if="isUnviewable"
+      >
+        <p class="message">
+          {{ t("User Playlists['This playlist is private or does not exist.']") }}
+        </p>
+      </FtFlexBox>
+      <FtFlexBox
         v-else
       >
         <p class="message">
@@ -248,6 +256,7 @@ const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
 const showUnavailableVideosAlert = ref(false)
+const isUnviewable = ref(false)
 const playlistItems = ref([])
 /** @type {import('vue').ComputedRef<any[] | null>} */
 const tempShownPlaylistItems = ref(null)
@@ -494,6 +503,7 @@ function resetState() {
   channelId.value = ''
   infoSource.value = 'local'
   showUnavailableVideosAlert.value = false
+  isUnviewable.value = false
   playlistItems.value = []
   continuationData.value = null
 }
@@ -554,6 +564,14 @@ async function getPlaylistLocal() {
 
     isLoading.value = false
   } catch (err) {
+    if (err.message.includes('This playlist type is unviewable') ||
+        err.message.includes('The playlist does not exist') ||
+        err.message.includes('failed with status code 400')) {
+      isUnviewable.value = true
+      isLoading.value = false
+      return
+    }
+
     console.error(err)
 
     if (backendPreference.value === 'local' && backendFallback.value) {
@@ -594,6 +612,13 @@ async function getPlaylistInvidious() {
 
     isLoading.value = false
   } catch (err) {
+    if (err.message.includes('Could not extract playlistSidebarRenderer') ||
+        err.message.includes('Youtube API returned status code 400')) {
+      isUnviewable.value = true
+      isLoading.value = false
+      return
+    }
+
     console.error(err)
 
     if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
