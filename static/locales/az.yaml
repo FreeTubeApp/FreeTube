@@ -800,6 +800,34 @@ Video:
 Tooltips:
   General Settings:
     Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
+    Fallback to Non-Preferred Backend on Failure: Üstünlük verdiyiniz API-də problem yarandıqda, aktiv edilibsə FreeTube avtomatik olaraq ehtiyat üsul kimi digər API-ni istifadə etməyə cəhd edəcək.
+    Thumbnail Preference: FreeTube üzrə bütün miniatürlər standart miniatür əvəzinə videodan bir kadrla əvəz olunacaq, bulanıqlaşdırılacaq və ya gizlədiləcək.
+    Invidious Instance: FreeTube-un API sorğuları üçün qoşulacağı Invidious serveri. Bu serveri standart olaraq təyin etməsəniz, bu seçim üçün dəyişikliklər yalnız cari pəncərəyə tətbiq olunacaq.
+    Region for Trending: Trendlər bölgəsi baxmaq istədiyiniz trend videoların hansı ölkəyə aid olacağını seçməyə sizə imkan verir.
+    External Link Handling: |
+      FreeTube-da açıla bilməyən linkə kliklədikdə standart davranışı seçin.
+      İlkin olaraq, FreeTube kliklədiyiniz linki standart brauzerinizdə açacaq.
+    Open Deep Links In New Window: Brauzer yönləndirmə əlavələri və ya əmr xətti arqumentləri ilə FreeTube-a ötürülən URL-lər yeni pəncərədə açılır.
+  Player Settings:
+    Proxy Videos Through Invidious: Videoları YouTube-a birbaşa qoşulmaq əvəzinə təqdim etmək üçün Invidious-a qoşulacaq.
+    Default Video Format: Video oynadılarkən istifadə olunan formatları təyin et. DASH formatları daha yüksək keyfiyyətdə oynadıla bilir. Köhnə formatlar maksimum 360p ilə məhdudlaşır, lakin daha az şəbəkə trafiki istifadə edir. Səs formatları isə yalnız səsdən ibarət yayımlardır.
+    Scroll Playback Rate Over Video Player: Kursor videonun üzərindəykən, oynatma sürətini tənzimləmək üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçan çarxını irəli və ya geriyə sürüşdürün. İlkin oynatma sürətinə (tənzimləmələrdə dəyişdirilməyibsə, 1x) cəld qayıtmaq üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçanın sol düyməsini klikləyin.
+    Skip by Scrolling Over Video Player: MPV üslubundakı kimi, videoda ötürmək üçün siçan çarxın istifadə et.
+  External Player Settings:
+    External Player: 'Xarici oynadıcı seçildikdə, videonu (dəstəklənirsə, pleylisti) xarici oynadıcıda açmaq üçün miniatür üzərində nişan göstəriləcək. Xəbərdarlıq: Invidious tənzimləmələri xarici oynadıcılara şamil olunmur.'
+    Custom External Player Executable: İlkin olaraq FreeTube seçilmiş xarici oynadıcının PATH mühit dəyişəni vasitəsilə tapıla biləcəyini fərz edir. Ehtiyac olarsa, burada fərdi yol təyin edilə bilər.
+    Ignore Warnings: Cari xarici oynadıcı mövcud fəaliyyəti (məsələn, pleylisti tərsinə çevirmək və s.) dəstəkləmədikdə xəbərdarlıqları gizlət.
+    Ignore Default Arguments: Video URL-indən başqa xarici oynadıcıya heç bir standart arqument (məsələn, oynatma sürəti, pleylist URL-si və s.) göndərməyin. Fərdi arqumentlər yenə də ötürüləcək.
+    Custom External Player Arguments: Xarici oynadıcıya ötürülməsini istədiyiniz istənilən fərdi əmr xətti arqumentləri.
+    DefaultCustomArgumentsTemplate: "(İlkin: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Kanalın bütün videolarını, pleylistlərini və kanalın özünü axtarış, trendlər, ən məşhur və tövsiyə olunan bölmələrdə gizlətmək üçün kanal ID-sini daxil edin. Daxil edilən kanal ID-si tam uyğun olmalı və böyük-kiçik hərflərə həssas olmalıdır.
+    Hide Subscriptions Live: Bu tənzimləmə "{settingsSection}" bölməsinin "{subsection}" alt bölməsindəki tətbiqmiqyaslı "{appWideSetting}" tənzimləməsi tərəfindən əvəzlənir
+    Hide Videos, Playlists and Channels Containing Text: Tarixçə, Pleylistləriniz və pleylistləriniz daxilindəki videolar istisna olmaqla, FreeTube üzrə orijinal başlığında həmin ifadə keçən bütün videoları, pleylistləri və kanalları gizlətmək üçün bir söz, söz hissəciyi və ya ifadə (böyük-kiçik hərfə həssas deyil) daxil edin.
+    Hide Videos on Watch: Baxılmış videoları Abunəlik və Kanal səhifələrindəki Videolar, Shorts və Canlı panellərindən gizlədir. Bu, Kanal səhifələrindəki Əsas səhifə bölməsinə təsir etmir
+  Subscription Settings:
+    Fetch Feeds from RSS: Aktiv edildikdə, FreeTube abunəlik lentinizi əldə etmək üçün standart üsul əvəzinə RSS istifadə edəcək. RSS daha sürətlidir və IP bloklanmasının qarşısını alır, lakin video müddəti, canlı yayım statusu və ya postlar kimi müəyyən məlumatları təmin etmir
+    Fetch Automatically: Aktiv edildikdə, FreeTube başlanğıcda və yeni pəncərə açıldıqda abunəlik lentinizi avtomatik əldə edəcək.
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
 Global:
