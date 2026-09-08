@@ -617,6 +617,7 @@ Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
     Warning: これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
+    Disable Hardware Acceleration: ハードウェアアクセラレーションを無効にする
   Password Settings:
     Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
@@ -837,6 +838,8 @@ Video:
   Collapse Playlist: プレイリストを折りたたむ
   Expand Playlist: プレイリストを展開する
   Station: 局
+  Playlist:
+    Unavailable videos are hidden: 再生できない動画が 1 件非表示になっています | 再生できない動画が {count} 件非表示になっています
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
@@ -858,6 +861,7 @@ Playlist:
     VideoDurationDescending: 再生時間（長い順）
     PublishedNewest: 公開日（新しい順）
     PublishedOldest: 公開日（古い順）
+  Unavailable videos are hidden: 再生できない動画は非表示になっています
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -996,6 +1000,7 @@ Tooltips:
     Ignore Default Arguments: 動画の URL 以外のデフォルトの引数（再生速度、再生リストの URL など）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより RAM の使用率は増加します。
+    Disable Hardware Acceleration: GPU ハードウェアアクセラレーションを無効にします。グラフィック関連の問題が解決する可能性がありますが、パフォーマンスは低下する傾向があります。
   Distraction Free Settings:
     Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
