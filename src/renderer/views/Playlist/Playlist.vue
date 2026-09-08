@@ -565,8 +565,7 @@ async function getPlaylistLocal() {
     isLoading.value = false
   } catch (err) {
     if (err.message.includes('This playlist type is unviewable') ||
-        err.message.includes('The playlist does not exist') ||
-        err.message.includes('failed with status code 400')) {
+        err.message.includes('The playlist does not exist')) {
       isUnviewable.value = true
       isLoading.value = false
       return
@@ -612,8 +611,7 @@ async function getPlaylistInvidious() {
 
     isLoading.value = false
   } catch (err) {
-    if (err.message.includes('Could not extract playlistSidebarRenderer') ||
-        err.message.includes('Youtube API returned status code 400')) {
+    if (err.message.includes('Could not extract playlistSidebarRenderer')) {
       isUnviewable.value = true
       isLoading.value = false
       return
