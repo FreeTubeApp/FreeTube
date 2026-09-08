@@ -611,13 +611,13 @@ async function getPlaylistInvidious() {
 
     isLoading.value = false
   } catch (err) {
+    console.error(err)
+
     if (err.message.includes('Could not extract playlistSidebarRenderer')) {
       isUnviewable.value = true
       isLoading.value = false
       return
     }
-
-    console.error(err)
 
     if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
       console.warn('Error getting data with Invidious, falling back to local backend')
