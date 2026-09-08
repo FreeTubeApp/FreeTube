@@ -828,6 +828,12 @@ Tooltips:
   Subscription Settings:
     Fetch Feeds from RSS: Aktiv edildikdə, FreeTube abunəlik lentinizi əldə etmək üçün standart üsul əvəzinə RSS istifadə edəcək. RSS daha sürətlidir və IP bloklanmasının qarşısını alır, lakin video müddəti, canlı yayım statusu və ya postlar kimi müəyyən məlumatları təmin etmir
     Fetch Automatically: Aktiv edildikdə, FreeTube başlanğıcda və yeni pəncərə açıldıqda abunəlik lentinizi avtomatik əldə edəcək.
+  Experimental Settings:
+    Replace HTTP Cache: Electron-un disklə işləyən HTTP keşini qapadır və fərdi yaddaş içi təsvir keşini aktivləşdirir. RAM istifadəsinin artmasına səbəb olacaq.
+    Disable Hardware Acceleration: GPU aparat sürətləndirməsini qapadır. Qrafik problemləri düzəldə bilər, lakin çox güman ki, məhsuldarlığı aşağı salacaq.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Video başlıqlarını DeArrow-dan istifadəçinin təqdim etdiyi başlıqlarla əvəzlə.
+    UseDeArrowThumbnails: Video miniatürlərini DeArrow-dan olan miniatürlərlə əvəzlə.
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
 Global:
@@ -882,6 +888,27 @@ KeyboardShortcutPrompt:
   Zoom Out: Uzaqlaşdır
   Zoom In: Yaxınlaşdır
   Fullscreen: Tam ekrana keçir
+  Keyboard Shortcuts: Klaviatura Qısayolları
+  Sections:
+    Video:
+      Playback: 'Video: Oynatma'
+      General: 'Video: Ümumi'
+    App:
+      Situational: 'Tətbiq: Vəziyyətə uyğun'
+      General: 'Tətbiq: Ümumi'
+  Show Keyboard Shortcuts: Klaviatura qısayollarını göstər
+  History Backward: Bir səhifə geri çevir
+  History Forward: Bir səhifə irəli get
+  New Window: Yeni pəncərə yarat
+  Navigate to Settings: Tənzimləmələr səhifəsinə keç
+  Navigate to History: Tarixçə səhifəsinə keç
+  Refresh: Ən son məzmunla lenti yenilə
+  Focus Secondary Search: İkinci dərəcəli axtarış cizgisinə fokuslan (varsa)
+  Captions: Subtitrləri Aç/Bağla
+  Stats: Video statistikasını göstər
+  Picture in Picture: Şəkil içində şəkil rejimini Aç/Bağla
+  Large Rewind: 10 saniyə geri çək / Cari Video Oynatma Sürətinə əsasən videonu geri çək
+  Play: Oynatma/Fasilə Vermə Aç/Bağla
 Profile:
   Select All: Hamısını Seç
   Profile Settings: Profil
@@ -956,6 +983,11 @@ Keys:
   shift: Shift
   enter: Enter
   plus: Plus
+  alt: Alt
+  arrowdown: Aşağı Ox
+  arrowleft: Sol Ox
+  arrowright: Sağ Ox
+  arrowup: Yuxarı Ox
 Playlist:
   Playlist: Pleylist
   View Full Playlist: Tam Pleylistə Bax
@@ -1028,3 +1060,42 @@ Up Next: Növbəti
 Description:
   Expand Description: '...ətraflı'
   Collapse Description: Daha az göstər
+Local API Error (Click to copy): Yerli API Xətası (Köçürmək üçün kliklə)
+Invidious API Error (Click to copy): Invidious API Xətası (Köçürmək üçün kliklə)
+Falling back to Invidious API: Invidious API-ə keçid edilir
+Falling back to Local API: Yerli API-yə keçid edilir
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Bu video formatların olmaması səbəbindən əlçatmazdır. Bu, ölkə əlçatmaz olduğu üçün baş verə bilər.
+Unknown YouTube url type, cannot be opened in app: Bilinməyən YouTube url növü, tətbiqdə açıla bilməz
+Loop is now disabled: Təkrarlanma artıq bağlıdır
+Loop is now enabled: Təkrarlanma artıq aktivdir
+Shuffle is now disabled: Qarışdırma artıq bağlıdır
+Shuffle is now enabled: Qarışdırma artıq aktivdir
+The playlist has been reversed: Pleylist tərsinə çevrildi
+Playing Next Video: Növbəti Videonu Oynadır
+Playing Previous Video: Əvvəlki Videonu Oynadır
+Playing Next Video Interval: Növbəti videonu dərhal oynadır. Ləğv etmək üçün klikləyin. | Növbəti videonu {nextVideoInterval} saniyədə oynadır. Ləğv etmək üçün klikləyin. | Növbəti videonu {nextVideoInterval} saniyədə oynadır. Ləğv etmək üçün klikləyin.
+Canceled next video autoplay: Növbəti videonun avtomatik oynadılması ləğv edildi
+Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} saat fəaliyyətsizlik səbəbi ilə avtomatik oynatma ləğv edildi'
+Default Invidious instance has been set to {instance}: İlkin Invidious serveri {instance} olaraq təyin edildi
+Default Invidious instance has been cleared: İlkin Invidious serveri silindi
+'The playlist has ended. Enable loop to continue playing': Pleylist bitdi.  Oynatmağa davam etmək üçün təkrarlanmanı aktivləşdir
+Age Restricted:
+  This channel is age restricted: Bu kanal yaş məhdudiyyətlidir
+  This video is age restricted: Bu video yaş məhdudiyyətlidir
+External link opening has been disabled in the general settings: Xarici linkin açılması ümumi tənzimləmələrdə qapadılıb
+Screenshot Success: Ekran görüntüsü saxlanıldı
+Screenshot Clipboard Success: Ekran görüntüsünü buferə köçürdü
+Screenshot Error: Ekran görüntüsü alınmadı. {error}
+Screenshot Clipboard Error: Ekran görüntüsü buferə köçürülmədi
+Channel Hidden: '{channel} kanal filtrinə əlavə edildi'
+Channel Unhidden: '{channel} kanal filtrindən silindi'
+Trimmed input must be at least N characters long: Kəsilmiş giriş ən azı 1 simvol uzunluğunda olmalıdır | Kəsilmiş giriş ən azı {length} simvol uzunluğunda olmalıdır
+Tag already exists: '"{tagName}" etiketi artıq var'
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Bu hashtag-də hazırda heç bir video yoxdur
+Moments Ago: bir az əvvəl
+Yes, Open Link: Bəli, Linki Aç
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
