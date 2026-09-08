@@ -626,6 +626,7 @@ Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
     Experimental Settings: Kísérleti
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre használja!
+    Disable Hardware Acceleration: Hardveres gyorsítás letiltása
   Password Dialog:
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
@@ -891,6 +892,8 @@ Video:
   Collapse Playlist: Lejátszási lista összecsukása
   Expand Playlist: Lejátszási lista kibontása
   Station: Állomás
+  Playlist:
+    Unavailable videos are hidden: 1 nem elérhető videó el van rejtve | {count} nem elérhető videó el van rejtve
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -912,6 +915,7 @@ Playlist:
     VideoDurationDescending: Időtartam (leghosszabb)
     PublishedNewest: Közzététel dátuma (legújabb)
     PublishedOldest: Közzététel dátuma (legrégebbi)
+  Unavailable videos are hidden: A nem elérhető videók el vannak rejtve
 Change Format:
   Change Media Formats: 'Videóformátumok módosítása'
   Use Dash Formats: 'DASH-formátumok használata'
@@ -1006,6 +1010,7 @@ Tooltips:
     Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemezalapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Disable Hardware Acceleration: Letiltja a GPU hardveres gyorsítást. Megoldhatja a grafikai problémákat, de valószínűleg rosszabb teljesítményt eredményez.
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az adott csatorna összes videóját, lejátszási listáját, valamint magát a csatornát is a keresési találatokból, a felkapottakból, a legnépszerűbbek közül és az ajánlottakból. A megadott csatornaazonosítónak pontos egyezésnek kell lennie, és kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
