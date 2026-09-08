@@ -624,6 +624,7 @@ Settings:
     Experimental Settings: Experimentální
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+    Disable Hardware Acceleration: Zakázat hardwarovou akceleraci
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
     Password: Heslo
@@ -889,6 +890,8 @@ Video:
   Collapse Playlist: Sbalit playlist
   Expand Playlist: Rozbalit playlist
   Station: Stanice
+  Playlist:
+    Unavailable videos are hidden: Je skyto 1 nedostupné video | Je skryto {count} nedostupných videí
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -910,6 +913,7 @@ Playlist:
     VideoDurationDescending: Doba trvání (nejdelší)
     PublishedOldest: Datum zveřejnění (nejstarší)
     PublishedNewest: Datum zveřejnění (nejnovější)
+  Unavailable videos are hidden: Nedostupná videa jsou skryta
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -989,6 +993,7 @@ Tooltips:
     Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.). Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+    Disable Hardware Acceleration: Zakáže GPU hardwarovou akceleraci. Může opravit grafické chyby, ale bude mít nejspíše horší výkon.
   Distraction Free Settings:
     Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených. Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
