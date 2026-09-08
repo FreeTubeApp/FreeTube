@@ -619,6 +619,7 @@ Settings:
     Experimental Settings: Experimentell
     Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen, wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+    Disable Hardware Acceleration: Hardwarebeschleunigung deaktivieren
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
@@ -840,6 +841,8 @@ Video:
   Collapse Playlist: Wiedergabeliste ausblenden
   Expand Playlist: Wiedergabeliste einblenden
   Station: Station
+  Playlist:
+    Unavailable videos are hidden: 1 nicht verfügbares Video ist ausgeblendet | {count} nicht verfügbare Videos sind ausgeblendet
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -861,6 +864,7 @@ Playlist:
     VideoDurationDescending: Dauer (längste)
     PublishedNewest: Veröffentlichungsdatum (neueste)
     PublishedOldest: Veröffentlichungsdatum (älteste)
+  Unavailable videos are hidden: Nicht verfügbare Videos sind ausgeblendet
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -999,6 +1003,7 @@ Tooltips:
     Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video-URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu einer erhöhten RAM-Auslastung.
+    Disable Hardware Acceleration: Deaktiviert die GPU-Hardwarebeschleunigung. Dies kann Grafikprobleme beheben, führt jedoch wahrscheinlich zu einer geringeren Leistung.
   Distraction Free Settings:
     Hide Channels: Gib eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen, und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
