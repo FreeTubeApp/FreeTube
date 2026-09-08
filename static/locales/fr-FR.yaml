@@ -618,6 +618,7 @@ Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
     Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes. Utilisez-les à vos risques et périls !
+    Disable Hardware Acceleration: Désactiver l'accélération matérielle
   Password Dialog:
     Password: Mot de passe
     Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
@@ -841,6 +842,8 @@ Video:
   Collapse Playlist: Replier la playlist
   Expand Playlist: Développer la playlist
   Station: Chaîne
+  Playlist:
+    Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -862,6 +865,7 @@ Playlist:
     VideoDurationAscending: Durée (la plus courte)
     PublishedNewest: Date de publication (la plus récente)
     PublishedOldest: Date de publication (la plus ancienne)
+  Unavailable videos are hidden: Les vidéos non disponibles sont masquées
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
@@ -1000,6 +1004,7 @@ Tooltips:
     Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc.). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
+    Disable Hardware Acceleration: Désactive l'accélération matérielle par GPU. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
