@@ -909,6 +909,31 @@ KeyboardShortcutPrompt:
   Picture in Picture: Şəkil içində şəkil rejimini Aç/Bağla
   Large Rewind: 10 saniyə geri çək / Cari Video Oynatma Sürətinə əsasən videonu geri çək
   Play: Oynatma/Fasilə Vermə Aç/Bağla
+  Large Fast Forward: 10 saniyə irəli çək / Cari Video Oynatma Sürətinə əsasən videonu irəli çək
+  Mute: Səsi bağla/aç
+  Decrease Video Speed: Videonun Oynatma Sürəti Aralığına əsasən video sürətini azalt
+  Increase Video Speed: Videonun Oynatma Sürəti Aralığına əsasən video sürətini artır
+  Full Window: Tam pəncərəni aç/bağla
+  Theatre Mode: Teatr rejimini aç/bağla
+  Take Screenshot: Ekran görüntüsünü çək
+  Minimize Window: Pəncərəni kiçilt
+  Close Window: Pəncərəni bağla
+  Reset Zoom: Böyütmə səviyyəsini / UI miqyasını sıfırla
+  Focus Search: Axtarış cizgisinə fokuslan
+  Search in New Window: Yeni pəncərədə axtar
+  Last Frame: Əvvəlki kadr (fasilə verilərkən)
+  Next Frame: Növbəti kadr (fasilə verilərkən)
+  Volume Up: Səs səviyyəsini artır
+  Volume Down: Səs səviyyəsini azalt
+  Small Rewind: Geri Çəkmə Aralığına və cari Video Oynatma Sürətinə əsasən X saniyə geri çək
+  Small Fast Forward: İrəli Çəkmə Aralığına və cari Video Oynatma Sürətinə əsasən X saniyə irəli çək
+  Last Chapter: Sonuncu Bölüm
+  Next Chapter: Növbəti Bölüm
+  Skip by Tenths: Videonu faizlə ötür (3 addımla müddətin 30%-nə ötürür)
+  Home: Videonun əvvəlinə keç
+  End: Videonun sonuna keç
+  Skip to Next Video: Pleylistdəki növbəti videoya və ya tövsiyə olunan növbəti videoya ötür
+  Skip to Previous Video: Pleylistdəki əvvəlki videoya ötür
 Profile:
   Select All: Hamısını Seç
   Profile Settings: Profil
