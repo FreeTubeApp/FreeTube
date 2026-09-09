@@ -842,6 +842,8 @@ Video:
   Expand Playlist: Espandi la playlist
   Collapse Playlist: Comprimi playlist
   Station: Stazione
+  Playlist:
+    Unavailable videos are hidden: 1 video non disponibile è nascosto | {count} video non disponibili sono nascosti
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -863,6 +865,7 @@ Playlist:
     VideoDurationDescending: Durata (più lunga)
     PublishedNewest: Data di pubblicazione (più recente)
     PublishedOldest: Data di pubblicazione (più vecchia)
+  Unavailable videos are hidden: I video non disponibili sono nascosti
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
