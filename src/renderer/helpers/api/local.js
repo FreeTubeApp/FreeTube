@@ -1654,6 +1654,11 @@ export function parseLocalListVideo(item, channelId, channelName) {
     /** @type {import('youtubei.js').YTNodes.GridVideo} */
     const video = item
 
+    // This can happen for unavailable clip on channel home page
+    if (!video.video_id) {
+      return null
+    }
+
     let publishedText
 
     if (video.published != null && !video.published.isEmpty()) {
