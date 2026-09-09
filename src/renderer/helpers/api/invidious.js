@@ -2,8 +2,8 @@ import store from '../../store/index'
 import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
-import { FormatUtils, Misc, Player, Utils } from 'youtubei.js'
-import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
+import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { parseVideoClipsParams } from './shared'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -862,15 +862,23 @@ export async function getHashtagInvidious(hashtag, page = 1) {
 }
 
 export async function getClipInvidious(clipId) {
-  const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+  if (process.env.SUPPORTS_LOCAL_API) {
+    // reuse parsing from local api
+    const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+    return parseVideoClipsParams(response.videoId, response.params)
+  }
 
-  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(response.params)))
+  // fallback to invidious clips api when local api isn't available (makes an expensive fetch video call)
+  const clipResponse = await invidiousAPICall({
+    resource: 'clips',
+    id: clipId,
+  })
+
   return {
-    videoId: response.videoId,
-    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
-    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
-    clipTitle: parsedParams.clipParamData.clipTitle,
-    clipMetadata: parsedParams.clipParamData.clipMetadata
+    videoId: clipResponse.video.videoId,
+    startTime: clipResponse.startTime,
+    endTime: clipResponse.endTime,
+    clipTitle: clipResponse.clipTitle,
   }
 }
 

@@ -1,5 +1,4 @@
 import { ClientType, Constants, Innertube, Misc, Mixins, Parser, Platform, Player, Session, UniversalCache, Utils, YT, YTNodes } from 'youtubei.js'
-import { ClipParams } from '../../../../node_modules/youtubei.js/dist/protos/generated/misc/params'
 import Autolinker from 'autolinker'
 import { parseLooseJSON } from 'bgutils-js/utils'
 
@@ -14,6 +13,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
+import { parseVideoClipsParams } from './shared'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -2495,13 +2495,5 @@ export async function getLocalClip(clipId) {
 
   const videoId = clipResponse?.payload?.videoId
 
-  const parsedParams = ClipParams.decode(Utils.base64ToU8(decodeURIComponent(clipResponse.payload.params)))
-
-  return {
-    videoId,
-    startTime: parsedParams.clipParamData.startTime / 1000, // convert to seconds
-    endTime: parsedParams.clipParamData.endTime / 1000, // convert to seconds
-    clipTitle: parsedParams.clipParamData.clipTitle,
-    clipMetadata: parsedParams.clipParamData.clipMetadata
-  }
+  return parseVideoClipsParams(videoId, clipResponse.payload.params)
 }
