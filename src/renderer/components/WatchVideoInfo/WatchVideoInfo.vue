@@ -119,17 +119,17 @@
             :dropdown-options="formatTypeOptions"
             @click="changeFormat"
           />
+          <FtIconButton
+            :title="t('Video.Reload Page')"
+            :icon="['fas', 'rotate-right']"
+            theme="secondary"
+            @click="reloadPlayer"
+          />
           <FtShareButton
             v-if="!hideSharingActions"
             :id="id"
             :get-timestamp="getTimestamp"
             :playlist-id="playlistId"
-          />
-          <FtIconButton
-            :title="t('Video.Reload Page')"
-            :icon="['fas', 'sync']"
-            theme="secondary"
-            @click="reloadPlayer"
           />
         </span>
       </div>
