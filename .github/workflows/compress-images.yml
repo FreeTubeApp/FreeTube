@@ -3,8 +3,11 @@
 name: Compress Images
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * 0'
+  push:
+    branches: [development]
+    paths:
+      - '_icons/**'
+      - 'src/renderer/assets/img/**'
 
 permissions: {}
 
