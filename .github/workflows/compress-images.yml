@@ -48,11 +48,12 @@ jobs:
           cache: false
 
       - name: Compress SVG Images
-        run: pnpm dlx svgo -r -f . -o .
+        run: |
+          pnpm dlx svgo -f ./_icons -o ./_icons
+          pnpm dlx svgo -f ./src/renderer/assets/img -o ./src/renderer/assets/img
         shell: bash
-
       - name: Compress PNG Images
-        run: oxipng -o max --strip safe --recursive ./_icons ./src
+        run: oxipng -o max --strip safe --recursive ./_icons  ./src/renderer/assets/img
         shell: bash
 
       - name: Generate File Diff Content
