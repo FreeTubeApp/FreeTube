@@ -34,6 +34,7 @@ Global:
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
+    Replies Remaining: "{' '}(zostáva 1) | {' '}(zostáva {count})"
   Live: Naživo
   Posts: Príspevky
   Shorts: Krátke
@@ -97,6 +98,8 @@ Subscriptions:
   Error Channels: Kanály s chybami
   Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
   Disabled Automatic Fetching: Vypli ste automatické načítanie odberov. Obnovte odbery, aby ste ich tu videli.
+  Posts:
+    RSS Message: YouTube neposkytuje RSS kanály pre príspevky. Ak chcete zobraziť príspevky, deaktivujte nastavenie „{rssSetting}“; ak chcete túto kartu skryť, aktivujte nastavenie „{hideSetting}“.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Karty trendov
@@ -530,6 +533,8 @@ Settings:
       Channel Page: Stránka kanála
       Subscriptions Page: Stránka odberov
       Side Bar: Bočná lišta
+    Add: Pridať
+    Remove: Odstrániť
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto sa nedá vrátiť späť.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
@@ -621,6 +626,7 @@ Settings:
     Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používate na vlastné riziko!
     Experimental Settings: Experimentálne
 
+    Disable Hardware Acceleration: Vypnúť hardvérovú akceleráciu
 About:
   #On About page
   About: 'O FreeTube'
@@ -827,6 +833,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Vyskakovací chat
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
+  Collapse Playlist: Zbaliť playlist
+  Expand Playlist: Rozbaliť playlist
+  Station: Stanica
+  Playlist:
+    Unavailable videos are hidden: 1 nedostupné video je skryté | {count} nedostupných videí je skrytých
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -848,6 +859,7 @@ Playlist:
     PublishedNewest: Dátum publikovania (najnovšie)
     DateAddedOldest: Dátum pridania (najstaršie)
     DateAddedNewest: Dátum pridania (najnovšie)
+  Unavailable videos are hidden: Nedostupné videá sú skryté
 Change Format:
   Change Media Formats: 'Zmena formátov videa'
   Use Dash Formats: 'Použiť formáty DASH'
@@ -885,14 +897,14 @@ Comments:
   Newest first: Najnovšie prvé
   Top comments: Najlepšie komentáre
   Pinned by: Pripnuté od
-  Show More Replies: Zobraziť viac odpovedí
+  Show More Replies: Zobraziť ďalšie odpovede
   Hearted: Obľúbené
   Subscribed: Odoberané
   Member: Člen
   There are no comments available for this post: Pre tento príspevok nie sú dostupné žiadne komentáre
   View {replyCount} replies from {channelName} and others: Zobraziť {replyCount} odpovedí od {channelName} a ostatných
   View 1 reply from {channelName}: Zobraziť 1 odpoveď od {channelName}
-  Hide {replyCount} replies: Skryť 1 odpoveď | Skryť odpovede v počte {replyCount}
+  Hide Replies: Skryť odpoveď | Skryť odpovede
   View {replyCount} replies: Zobraziť 1 odpoveď | Zobraziť {replyCount} odpovedí
   Loading replies: Načítanie odpovedí...
 Up Next: 'Ďalšie'
@@ -926,7 +938,7 @@ Tooltips:
     Skip by Scrolling Over Video Player: Použite koliesko myši na preskakovanie cez video v štýle MPV.
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si krajinu pre trendové videá, ktoré chcete zobraziť.
-    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí pre volania API.
+    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí na účely volania API. Zmeny tohto nastavenia sa vzťahujú len na aktuálne okno, pokiaľ túto inštanciu nenastavíte ako predvolenú.
     Thumbnail Preference: Všetky náhľady vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzieho náhľadu.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
@@ -949,6 +961,7 @@ Tooltips:
     UseDeArrowTitles: Nahradí názvy videí názvami z DeArrow, ktoré zadali jeho používatelia.
   Experimental Settings:
     Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
+    Disable Hardware Acceleration: Vypne hardvérovú akceleráciu GPU. Môže vyriešiť grafické problémy, ale pravdepodobne sa zhorší výkon.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybrané kanály?  Týmto sa kanál neodstráni z žiadneho iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
@@ -990,6 +1003,7 @@ Profile:
   Create Profile Name: Vytvoriť názov profilu
   Edit Profile Name: Upraviť názov profilu
   Toggle Profile List: Prepnúť zoznam profilov
+  Go To Profile Manager: Prejsť do správcu profilov
 Download From Site: Stiahnuť zo stránky
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina
@@ -1001,6 +1015,8 @@ Default Invidious instance has been set to {instance}: Predvolená inštancia In
 Search Bar:
   Clear Input: Vyčistiť zadané údaje
   Remove: Odstrániť
+  Open Search Container: Otvoriť kontajner vyhľadávania
+  Search: Hľadať
 Default Invidious instance has been cleared: Predvolená inštancia Invidious bola vymazaná
 External link opening has been disabled in the general settings: Otváranie externých odkazov bolo zakázané vo všeobecných nastaveniach
 Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?

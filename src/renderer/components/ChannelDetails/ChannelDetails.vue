@@ -240,6 +240,7 @@
           v-if="showSearchBar"
           ref="searchBar"
           :placeholder="$t('Channel.Search Channel')"
+          :action-button-label="$t('Search Bar.Search')"
           :value="query"
           :show-clear-text-button="true"
           class="channelSearch"

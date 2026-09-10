@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 vaatamas | {count} vaatamas
     Like Count: 1 meeldimine | {count} meeldimist
     Comment Count: 1 kommentaar | {count} kommentaari
+    Replies Remaining: "{' '}(1 jäänud) | {' '}({count} jäänud)"
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber} in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
 
@@ -103,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Kõik tellimuse vahekaardid on peidetud. Siinse sisu nägemiseks palun eemalda kaartide peitmine jaotises „{subsection}“ / „{settingsSection}“.
   Load More Posts: Lisa järgmised postitused
   Empty Posts: Sinu tellitud kanalites hetkel pole ühtegi postitust.
+  Posts:
+    RSS Message: YouTube'is ei leidu postituste RSS-vooge. Postituste vaatamiseks lülita välja seadistus „{rssSetting}“ või vahekaardi peitmiseks lülita sisse „{hideSetting}“ seadistus.
 Trending:
   Trending: 'Populaarsust koguvad videod'
   Trending Tabs: Populaarsust koguvad kaardid
@@ -564,6 +567,8 @@ Settings:
     Hide Channel Courses: Peida kanalite vahekaart „Kursused“
     Hide Subscriptions Posts: Peida tellimuste postitused
     Hide Channel Posts: Peida kanalite vahekaart „Postitused“
+    Add: Lisa
+    Remove: Eemalda
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
     City: Linn
@@ -618,6 +623,7 @@ Settings:
     Experimental Settings: Katsed
     Warning: Tegemist on katseliste seadistustega ja sisselülitamisel võivad põhjustada rakenduse kokkujooksmist. Kindlasti ära unusta oma andmete varundamist. Jätka omal vastutusel!
     Replace HTTP Cache: Asenda HTTP vahemälu
+    Disable Hardware Acceleration: Lülita raudvaraline kiirendamine välja
   Password Dialog:
     Enter Password To Unlock: Seadistuste avamiseks sisesta salasõna
     Password: Salasõna
@@ -697,6 +703,7 @@ Profile:
   Create Profile Name: Loo profiilile nimi
   Open Profile Dropdown: Ava profiili rippmenüü
   Close Profile Dropdown: Sulge profiili rippmenüü
+  Go To Profile Manager: Ava profiilihaldur
 Channel:
   Subscribe: 'Telli'
   Unsubscribe: 'Lõpeta tellimus'
@@ -876,6 +883,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Järelejäänud aeg SABR-protokollist loobumiseks: {remindingTimeSeconds}s'
   Popout Live Chat: Vestlus hüpikaknas
   Private: Privaatseid videoid FreeTube'is vaadata ei saa - nad vajavad sisselogimist Google'i teenusega ja video omandi kinnitust.
+  Collapse Playlist: Lappa esitusloend kokku
+  Expand Playlist: Lappa esitusloend lahti
+  Station: Jaam
+  Playlist:
+    Unavailable videos are hidden: 1 mittesaadav video on peidetud | {count} mittesaadavat videot on peidetud
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
@@ -897,6 +909,7 @@ Playlist:
     VideoDurationDescending: Kestus (esmalt pikemad)
     PublishedOldest: Avaldamisaeg (vanim esimesena)
     PublishedNewest: Avaldamisaeg (viimatine esimesena)
+  Unavailable videos are hidden: Saadaval mitteolevad videod on peidetud
 Change Format:
   Change Media Formats: 'Muuda videovorminguid'
   Use Dash Formats: 'Kasuta DASH-vorminguid'
@@ -944,6 +957,7 @@ Comments:
   View 1 reply from {channelName}: Vaata üht vastust kanalist {channelName}
   View {replyCount} replies from {channelName} and others: Vaata {replyCount} vastust kanalist {channelName} ja muudest allikatest
   Loading replies: Laadin vastuseid…
+  Hide Replies: Peida vastus | Peida vastused
 Up Next: 'Järgmisena'
 
 # Toast Messages
@@ -983,7 +997,7 @@ Tooltips:
     Thumbnail Preference: Vaikimisi pisipildi asemel kuvab FreeTube kõikjal läbi rakenduse kaadrit videost ja seda hägusena ja peidetuna.
     Fallback to Non-Preferred Backend on Failure: Kui sinu eelistatud APi ei toimi, siis kui vähegi võimalik, FreeTube üritab kasutada alternatiivi.
     Preferred API Backend: Vali taustateenus, mida FreeTube kasutab andmete laadimisel. Kohalik API on rakenduses olemas ja Invidious'e API eeldab välise teenuseserveri kasutamist.
-    Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API kutse tegemisel.
+    Invidious Instance: Invidious'e teenuse server, mida FreeTube kasutab API-päringute tegemisel. Kui sa just ei määra seda serverit vaikimisi serveriks, siis antud seadistuse muudatus kehtib vaid praeguse akna jaoks.
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
     Open Deep Links In New Window: FreeTube'ile brauseritest või käsurealt antud võrguaadressid avatakse uues aknas.
   Player Settings:
@@ -998,6 +1012,7 @@ Tooltips:
     Hide Videos on Watch: Peidab vaadatud sisu videote, lühivideote ja otseeetri kaartidelt tellimuste ja kanalite lehtedelt. Ei mõjuta avakaarti kanalite lehtedel
   Experimental Settings:
     Replace HTTP Cache: Sellega lülitatakse välja Electron'i standardne kettal paiknev http-puhver ja võetakse kasutusele rakenduse mälupõhine puhver. Üheks tulemuseks saab olema suurem mälukasutus.
+    Disable Hardware Acceleration: Graafikaprotsessoripõhine raudvaraline kiirendus lülitatakse välja. Võib parandada graafikaga seotud vigu, kui toimib aeglasemalt.
   SponsorBlock Settings:
     UseDeArrowTitles: Asenda video nimi kasutajate poolt DeArrow teenusesse lisatud nimega (pealkirjaga).
     UseDeArrowThumbnails: Asenda video pisipildid DeArrow teenuse loodud pisipiltidega.
@@ -1007,6 +1022,8 @@ Default Invidious instance has been set to {instance}: Vaikimisi kasutatav Invid
 Search Bar:
   Clear Input: Kustuta sisend
   Remove: Eemalda
+  Open Search Container: Ava otsingukointeiner
+  Search: Otsi
 External link opening has been disabled in the general settings: Väliste linkide avamine on üldistes seadistustes keelatud
 Are you sure you want to open this link?: Oled kindel, et soovid seda linki avada?
 New Window: Uus aken

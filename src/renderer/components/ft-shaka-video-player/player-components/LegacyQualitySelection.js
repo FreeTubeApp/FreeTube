@@ -31,8 +31,10 @@ export class LegacyQualitySelection extends shaka.ui.SettingsMenu {
 
     const sortedLegacyFormats = [...legacyFormats]
 
-    const isPortrait = legacyFormats[0].height > legacyFormats[0].width
-    sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
+    if (legacyFormats.length > 0) {
+      const isPortrait = legacyFormats[0].height > legacyFormats[0].width
+      sortedLegacyFormats.sort((a, b) => isPortrait ? b.width - a.width : b.height - a.height)
+    }
 
     /** @private */
     this.legacyFormats_ = sortedLegacyFormats

@@ -30,7 +30,8 @@
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
         :layout="layout"
-        :show-grab-bar="isDraggable && layout === 'grid'"
+        :show-grab-bar="showGrabBar && layout === 'grid'"
+        :grab-bar-enabled="isDraggable && layout === 'grid'"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
         @move-video-to-the-top="moveVideoToTheTop"
@@ -154,11 +155,11 @@ const props = defineProps({
     type: Object,
     default: () => ({ videoId: null, playlistItemId: null }),
   },
-  isSortOrderCustom: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
-  isVideoDragging: {
+  videoDraggingPossible: {
     type: Boolean,
     default: false,
   },
@@ -176,7 +177,8 @@ const emit = defineEmits([
 ])
 
 const inUserPlaylist = props.playlistType === 'user'
-const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
+const showGrabBar = computed(() => inUserPlaylist && props.videoDraggingPossible)
+const isDraggable = computed(() => showGrabBar.value && (props.canMoveVideoUp || props.canMoveVideoDown))
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 const draggableEventHandlers = {
   dragstart: onDragVideo,

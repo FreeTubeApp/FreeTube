@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 Zuschauer | {count} Zuschauende
     Comment Count: 1 Kommentar | {count} Kommentare
     Like Count: 1 Gefällt mir | {count} Gefällt mir
+    Replies Remaining: "{' '}(1 verbleibend) | {' '}({count} verbleibend)"
 Search / Go to URL: Suchen / URL öffnen
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle Registerkarten für Abos sind ausgeblendet. Um den Inhalt hier zu sehen, blende bitte einige Registerkarten im Abschnitt „{subsection}“ in „{settingsSection}“ ein.
   Load More Posts: Weitere Beiträge laden
   Empty Posts: Deine abonnierten Kanäle haben derzeit keine Beiträge.
+  Posts:
+    RSS Message: YouTube stellt keine RSS-Feeds für Beiträge bereit. Deaktivieren Sie die Einstellung „{rssSetting}“, um Beiträge anzuzeigen, oder aktivieren Sie die Einstellung „{hideSetting}“, um diese Registerkarte auszublenden.
 Trending:
   Trending: Trends
   Trending Tabs: Trends-Tabs
@@ -560,6 +563,8 @@ Settings:
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
     Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
     Hide Subscriptions Posts: Beiträge aus Abos ausblenden
+    Add: Hinzufügen
+    Remove: Entfernen
   The app needs to restart for changes to take effect. Restart and apply change?: Die App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten und Änderung übernehmen?
   Proxy Settings:
     Ip: IP-Adresse
@@ -614,6 +619,7 @@ Settings:
     Experimental Settings: Experimentell
     Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen, wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+    Disable Hardware Acceleration: Hardwarebeschleunigung deaktivieren
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
@@ -832,6 +838,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR-Wartezeit: {remindingTimeSeconds}s'
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
   Private: Private Videos können in FreeTube nicht angesehen werden, da sie Google-Anmeldung und den Besitz des Videos erfordern.
+  Collapse Playlist: Wiedergabeliste ausblenden
+  Expand Playlist: Wiedergabeliste einblenden
+  Station: Station
+  Playlist:
+    Unavailable videos are hidden: 1 nicht verfügbares Video ist ausgeblendet | {count} nicht verfügbare Videos sind ausgeblendet
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -853,6 +864,7 @@ Playlist:
     VideoDurationDescending: Dauer (längste)
     PublishedNewest: Veröffentlichungsdatum (neueste)
     PublishedOldest: Veröffentlichungsdatum (älteste)
+  Unavailable videos are hidden: Nicht verfügbare Videos sind ausgeblendet
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -882,7 +894,7 @@ Mini Player: Mini-Video-Player
 Comments:
   Comments: Kommentare
   Click to View Comments: Kommentare anzeigen
-  Hide Comments: Kommentare ausblenden
+  Hide Comments: Kommentar ausblenden | Kommentare ausblenden
   # Context: View 10 Replies, View 1 Reply
   There are no comments available for this video: Keine Kommentare zu diesem Video vorhanden
   Load More Comments: Weitere Kommentare laden
@@ -896,10 +908,11 @@ Comments:
   Hearted: Gefällt mir
   Subscribed: Abonniert
   There are no comments available for this post: Keine Kommentare für diesen Beitrag vorhanden
-  Hide {replyCount} replies: 1 Antwort ausblenden | {replyCount} Antworten ausblenden
+  Hide Replies: Antworten ausblenden
   View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
   View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
   Loading replies: Antworten laden...
+  Comments are turned off: Kommentare sind deaktiviert
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -961,13 +974,14 @@ Profile:
   Create Profile Name: Profilname erstellen
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
+  Go To Profile Manager: Zum Profil Manager wechseln
 The playlist has been reversed: Die Playlist wurde umgedreht
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden verpixelt, versteckt oder durch ein Einzelbild aus dem Video ersetzt, anstatt das Standard-Vorschaubild anzuzeigen.
-    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe verbinden wird.
+    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe verbinden wird. Änderungen an dieser Einstellung gelten nur für das aktuelle Fenster, es sei denn, Sie legen diese Instanz als Standard fest.
     Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode zu verwenden, wenn sie aktiviert ist.
     Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden muss.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land die Trends angezeigt werden sollen.
@@ -990,6 +1004,7 @@ Tooltips:
     Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video-URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu einer erhöhten RAM-Auslastung.
+    Disable Hardware Acceleration: Deaktiviert die GPU-Hardwarebeschleunigung. Dies kann Grafikprobleme beheben, führt jedoch wahrscheinlich zu einer geringeren Leistung.
   Distraction Free Settings:
     Hide Channels: Gib eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen, und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
@@ -1007,6 +1022,8 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
 Search Bar:
   Clear Input: Eingabe löschen
   Remove: Entfernen
+  Open Search Container: Suchcontainer öffnen
+  Search: Suche
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
 External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
 Screenshot Success: Screenshot wurde gespeichert

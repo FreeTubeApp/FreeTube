@@ -36,6 +36,9 @@ const IpcChannels = {
   GET_REPLACE_HTTP_CACHE: 'get-replace-http-cache',
   TOGGLE_REPLACE_HTTP_CACHE: 'toggle-replace-http-cache',
 
+  GET_DISABLE_HARDWARE_ACCELERATION: 'get-disable-hardware-acceleration',
+  TOGGLE_DISABLE_HARDWARE_ACCELERATION: 'toggle-disable-hardware-acceleration',
+
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
@@ -67,6 +70,8 @@ const DBActions = {
   HISTORY: {
     UPDATE_WATCH_PROGRESS: 20,
     UPDATE_PLAYLIST: 21,
+    UNSET_PLAYLIST_FOR_VIDEOS: 22,
+    UNSET_PLAYLISTS: 23
   },
 
   PROFILES: {

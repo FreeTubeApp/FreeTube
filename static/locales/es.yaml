@@ -41,6 +41,7 @@ Global:
     Watching Count: 1 espectador | {count} espectadores
     Comment Count: 1 comentario | {count} comentarios
     Like Count: 1 me gusta | {count} me gustan
+    Replies Remaining: "{' '}(queda 1) | {' '}(quedan {count})"
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:
@@ -927,7 +928,7 @@ Comments:
   There are no comments available for this post: No hay comentarios disponibles para este tema
   View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
   View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
-  Hide {replyCount} replies: Ocultar 1 respuesta | Ocultar {replyCount} respuestas
+  Hide Replies: Ocultar respuesta | Ocultar respuestas
 Up Next: 'A continuación'
 
 # Toast Messages

@@ -52,12 +52,15 @@ Global:
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
     Watching Count: 1 watching | {count} watching
+    Replies Remaining: "{' '}(1 remaining) | {' '}({count} remaining)"
 
 # Search Bar
 Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
   Remove: Remove
+  Open Search Container: Open Search Container
+  Search: Search
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
@@ -131,6 +134,8 @@ Subscriptions:
   Load More Posts: Load More Posts
   Subscriptions Tabs: Subscriptions Tabs
   All Subscription Tabs Hidden: 'All subscription tabs are hidden. To see content here, please unhide some tabs in the "{subsection}" section in "{settingsSection}".'
+  Posts:
+    RSS Message: YouTube does not provide RSS feeds for posts. Disable the "{rssSetting}" setting to view posts or enable the "{hideSetting}" setting to hide this tab.
 More: More
 Channels:
   Channels: Channels
@@ -590,6 +595,8 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
+    Add: Add
+    Remove: Remove
   Data Settings:
     Data Settings: Data
     Select Export Type: Select Export Type
@@ -693,6 +700,7 @@ Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+    Disable Hardware Acceleration: Disable Hardware Acceleration
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
@@ -775,6 +783,7 @@ Profile:
     from any other profile.
   Close Profile Dropdown: Close Profile Dropdown
   Open Profile Dropdown: Open Profile Dropdown
+  Go To Profile Manager: Go to Profile Manager
 #On Channel Page
 Channel:
   Subscribe: Subscribe
@@ -874,6 +883,8 @@ Video:
   Loop Playlist: Loop Playlist
   Shuffle Playlist: Shuffle Playlist
   Reverse Playlist: Reverse Playlist
+  Collapse Playlist: Collapse Playlist
+  Expand Playlist: Expand Playlist
   Previous: Previous
   Next: Next
   Watched: Watched
@@ -884,6 +895,7 @@ Video:
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
+  Station: Station
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -962,12 +974,15 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
+  Playlist:
+    Unavailable videos are hidden: 1 unavailable video is hidden | {count} unavailable videos are hidden
 #& Playlists
 Playlist:
   #& About
   Playlist: Playlist
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
+  Unavailable videos are hidden: Unavailable videos are hidden
   Sort By:
     DateAddedNewest: Date added (Newest)
     DateAddedOldest: Date added (Oldest)
@@ -1029,14 +1044,15 @@ Comments:
   Top comments: Top comments
   Newest first: Newest First
   View {replyCount} replies: View 1 reply | View {replyCount} replies
-  Hide {replyCount} replies: Hide 1 reply | Hide {replyCount} replies
+  Hide Replies: Hide reply | Hide replies
   Loading replies: Loading replies...
   View 1 reply from {channelName}: View 1 reply from {channelName}
   View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
-  Show More Replies: Show More Replies
+  Show More Replies: Show more replies
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post
+  Comments are turned off: Comments are turned off
   Load More Comments: Load More Comments
   Pinned by: Pinned by
   Member: Member
@@ -1060,7 +1076,7 @@ Tooltips:
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video, blurred or hidden instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API
-      calls.
+      calls. Changes to this setting apply only to the current window unless you set this instance as the default.
     Region for Trending: The region of trends allows you to pick which country's trending
       videos you want to have displayed.
     External Link Handling: |
@@ -1106,6 +1122,7 @@ Tooltips:
       your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
+    Disable Hardware Acceleration: Disables GPU hardware acceleration. May fix graphical issues, but will probably perform worse.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.

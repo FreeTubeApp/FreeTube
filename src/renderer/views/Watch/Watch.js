@@ -524,7 +524,7 @@ export default defineComponent({
         this.recommendedVideos = result.watch_next_feed
           ?.filter((item) => {
             return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
-              (item.type === 'LockupView' && item.content_type === 'VIDEO')
+              (item.type === 'LockupView' && (item.content_type === 'VIDEO' || item.content_type === 'STATION'))
           })
           .map(parseLocalWatchNextVideo).filter(_ => _)
           // place watched recommended videos last
@@ -940,6 +940,12 @@ export default defineComponent({
             this.manifestSrc = null
             this.enableLegacyFormat()
           }
+        }
+
+        if (this.activeFormat === 'legacy' && (this.isLive || this.isPostLiveDvr || this.legacyFormats.length === 0)) {
+          // Legacy wanted as default but unavailable
+          showToast(this.t('Change Format.Legacy formats are not available for this video'))
+          this.handleActiveFormatUnavailable()
         }
 
         this.isLoading = false
@@ -1365,6 +1371,16 @@ export default defineComponent({
 
       // `playlistId` present
       if (this.selectedUserPlaylist != null) {
+        // If the page is accessed through navigation via router history, 'playlistId' is still specified
+        // but the video could have been removed from the playlist in the meantime
+        if (!this.selectedUserPlaylist.videos.some((video) => video.videoId === this.videoId)) {
+          this.playlistId = ''
+          this.playlistType = ''
+          this.playlistItemId = null
+          this.watchingPlaylist = false
+          return
+        }
+
         // If playlist ID matches a user playlist, it must be user playlist
         this.playlistType = 'user'
         this.watchingPlaylist = true
@@ -1602,6 +1618,10 @@ export default defineComponent({
         }
       }
 
+      this.handleActiveFormatUnavailable()
+    },
+
+    handleActiveFormatUnavailable: function() {
       if (this.isLive || this.isPostLiveDvr) {
         // live streams don't have legacy formats, so only switch between dash and audio
 

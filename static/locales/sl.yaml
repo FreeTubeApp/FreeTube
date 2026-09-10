@@ -27,6 +27,7 @@ Forward: 'Naprej'
 # Anything shared among components / views should be put here
 Global:
   Videos: 'Videoposnetki'
+
   Sort By: 'Razvrstitev'
 
   Live: V živo
@@ -499,6 +500,7 @@ Comments:
   Top comments: Najbolje ocenjeni komentarji
   Show More Replies: Pokaži več odgovorov
   Member: Član
+  Hide Replies: Skrij odgovor | Skrij odgovore
 Up Next: 'Naslednje na sporedu'
 
 # Toast Messages

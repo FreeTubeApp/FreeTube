@@ -88,7 +88,7 @@
         v-if="isLoading"
       />
       <div
-        v-if="!isLoading && dataAvailable"
+        v-else-if="dataAvailable"
         class="center"
       >
         <h3>

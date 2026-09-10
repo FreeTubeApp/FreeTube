@@ -284,6 +284,7 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
 /**
  * @param {string} playlistId
+ * @param {number} index
  * @returns {Promise<{
  *  title: string,
  *  playlistId: string,
@@ -307,16 +308,53 @@ export async function searchInvidiousChannel(channelId, query, page) {
  *  }[]
  * }>}
  */
-export async function invidiousGetPlaylistInfo(playlistId) {
+export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
+  // The Invidious API offsets the index by 50 to apply a lookback window
+  // By increasing our offset by 50, we skip those overlapping videos and avoid de-duplicating them from our response
+  // See: https://github.com/iv-org/invidious/blob/66fb829dbc0f96cbf4319798f3b9090bc88a7012/src/invidious/routes/api/v1/misc.cr#L67
+  index += 50
   const playlist = await invidiousAPICall({
     resource: 'playlists',
     id: playlistId,
+    params: {
+      index
+    }
   })
 
   normalizeManyInvidiousVideosAttributes(playlist.videos)
   setMultiplePublishedTimestamps(playlist.videos)
 
   return playlist
+}
+
+/**
+ * @param {string} playlistId
+ * @param {number} initialOffset
+ * @returns {{
+ *    title: string,
+ *    videoId: string,
+ *    author: string,
+ *    authorId: string,
+ *    authorUrl: string,
+ *    videoThumbnails: InvidiousThumbnailObject[],
+ *    index: number,
+ *    lengthSeconds: number
+ *  }[]}
+ */
+export async function fetchAllInvidiousPlaylistVideos(playlistId, initialOffset = 0) {
+  let offset = initialOffset
+  const videos = []
+
+  while (true) {
+    const playlist = await invidiousGetPlaylistInfo(playlistId, offset)
+    if (playlist.videos.length === 0) {
+      break
+    }
+    videos.push(...playlist.videos)
+    offset += playlist.videos.length
+  }
+
+  return videos
 }
 
 /**
@@ -429,26 +467,47 @@ export async function invidiousGetVideoInformation(videoId) {
  * The complete Triforce, or one or more components of the Triforce.
  * @typedef {object} InvidiousComment
  * @property {string} id
- * @property {string} authorLink
- * @property {string} authorThumb
+ * @property {'invidious'} dataType
  * @property {string} author
+ * @property {string} authorId
+ * @property {string} authorThumb
  * @property {number} likes
  * @property {string} text
- * @property {string} dataType
- * @property {boolean} isOwner
- * @property {boolean} isPinned
- * @property {number} numReplies
- * @property {boolean} hasReplyToken
- * @property {string} replyToken
- * @property {boolean} showReplies
- * @property {InvidiousComment[]} replies
+ * @property {string} time
  * @property {boolean} isHearted
  * @property {boolean} isMember
+ * @property {boolean} isOwner
+ * @property {boolean} isPinned
+ * @property {false} hasOwnerReplied
+ * @property {boolean} hasReplyToken
+ * @property {string} replyToken
+ * @property {0} replyLevel
  * @property {string} memberIconUrl
- * @property {string} time
+ * @property {number} numReplies
  */
-/** @typedef {{commentCount: number, videoId: string, continuation: string?, comments: InvidiousComment[]}} InvidiousCommentResponse */
-
+/**
+ * See: https://docs.invidious.io/api/#get-apiv1commentsid
+ * @typedef {{
+ *   commentCount: number,
+ *   videoId: string,
+ *   continuation: string?,
+ *   comments: {
+ *     authorId: string,
+ *     author: string,
+ *     authorThumbnail: string,
+ *     authorIsChannelOwner: boolean,
+ *     isSponsor: boolean,
+ *     sponsorIconUrl?: string,
+ *     likeCount: number,
+ *     creatorHeart?: object,
+ *     isPinned: boolean,
+ *     commentId: string,
+ *     contentHtml: string,
+ *     published: number,
+ *     replies?: {replyCount: number, continuation: string}
+ *   }[]
+ * }} InvidiousCommentResponse
+ */
 export async function invidiousGetComments({ id, nextPageToken = '', sortNewest = true }) {
   const payload = {
     resource: 'comments',
@@ -577,14 +636,12 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
 }
 
 /**
- * @param {string} url
+ * @param {string | undefined | null} url
  * @param {string?} currentInstance
- * @returns {string?}
+ * @returns {string}
  */
 export function youtubeImageUrlToInvidious(url, currentInstance = null) {
-  if (url == null) {
-    return null
-  }
+  if (!url) return ''
 
   if (currentInstance === null) {
     currentInstance = getCurrentInstanceUrl()
@@ -600,34 +657,35 @@ export function youtubeImageUrlToInvidious(url, currentInstance = null) {
 }
 
 /**
- * @param {string} url
+ * @param {string | undefined | null} url
  * @param {string?} currentInstance
  * @returns {string}
  */
 export function invidiousImageUrlToInvidious(url, currentInstance = null) {
-  return url.replaceAll('/ggpht/', `${currentInstance}/ggpht/`)
+  return url?.replaceAll('/ggpht/', `${currentInstance}/ggpht/`) ?? ''
 }
 
 /**
  * @param {InvidiousCommentResponse} response
+ * @returns {InvidiousComment[]}
  */
 function parseInvidiousCommentData(response) {
   return response.comments.map((comment) => {
     return {
       id: comment.commentId,
-      authorLink: comment.authorId,
-      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnails.at(-1).url),
+      dataType: 'invidious',
+      authorId: comment.authorId,
+      authorThumb: youtubeImageUrlToInvidious(comment.authorThumbnail),
       author: comment.author,
       likes: comment.likeCount,
       text: autolinker.link(invidiousImageUrlToInvidious(comment.contentHtml, getCurrentInstanceUrl())),
-      dataType: 'invidious',
       isOwner: comment.authorIsChannelOwner,
       isPinned: comment.isPinned,
       numReplies: comment.replies?.replyCount ?? 0,
+      hasOwnerReplied: false,
       hasReplyToken: !!comment.replies?.continuation,
       replyToken: comment.replies?.continuation ?? '',
-      showReplies: false,
-      replies: [],
+      replyLevel: 0,
       isHearted: comment.creatorHeart !== undefined,
       isMember: comment.isSponsor,
       memberIconUrl: youtubeImageUrlToInvidious(comment.sponsorIconUrl),

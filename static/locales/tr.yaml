@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 izliyor | {count} izliyor
     Like Count: 1 beğenme | {count} beğenme
     Comment Count: 1 yorum | {count} yorum
+    Replies Remaining: "{' '}(1 kaldı) | {' '}({count} kaldı)"
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
 
@@ -103,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tüm abonelik sekmeleri gizlidir. Buradaki içeriği görmek için lütfen "{settingsSection}" içindeki "{subsection}" bölümündeki bazı sekmelerin gizliliğini kaldırın.
   Load More Posts: Daha Fazla Gönderi Yükle
   Empty Posts: Abone olduğunuz kanallarda şu anda herhangi bir gönderi yok.
+  Posts:
+    RSS Message: YouTube, gönderiler için RSS akışları sağlamaz. Gönderileri görüntülemek için "{rssSetting}" ayarını devre dışı bırakın veya bu sekmeyi gizlemek için "{hideSetting}" ayarını etkinleştirin.
 Trending:
   Trending: 'Öne Çıkanlar'
   Trending Tabs: Öne Çıkanlar Sekmeleri
@@ -565,6 +568,8 @@ Settings:
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
     Hide Channel Posts: Kanalın "Gönderiler" sekmesini gizle
     Hide Subscriptions Posts: Abonelik gönderilerini gizle
+    Add: Ekle
+    Remove: Kaldır
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
@@ -619,6 +624,7 @@ Settings:
     Replace HTTP Cache: HTTP Önbelleğini Değiştir
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler. Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size aittir!
     Experimental Settings: Deneysel
+    Disable Hardware Acceleration: Donanım Hızlandırmasını Devre Dışı Bırak
   Password Dialog:
     Password: Parola
     Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
@@ -701,6 +707,7 @@ Profile:
   Create Profile Name: Profil Adı Oluştur
   Open Profile Dropdown: Profil Açılır Menüsünü Aç
   Close Profile Dropdown: Profil Açılır Menüsünü Kapat
+  Go To Profile Manager: Profil Yöneticisine Git
 Channel:
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
@@ -880,6 +887,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Kalan SABR bekleme süresi: {remindingTimeSeconds}s'
   Popout Live Chat: Açılır Sohbet
   Private: Özel videolar, Google ile oturum açma ve videonun sahibi olma gerekliliği nedeniyle FreeTube'da izlenemez.
+  Collapse Playlist: Oynatma Listesini Daralt
+  Expand Playlist: Oynatma Listesini Genişlet
+  Station: İstasyon
+  Playlist:
+    Unavailable videos are hidden: 1 kullanılamayan video gizlendi | {count} kullanılamayan video gizlendi
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -901,6 +913,7 @@ Playlist:
     VideoDurationDescending: Süre (En Uzun)
     PublishedOldest: Yayınlanma Tarihi (En Eski)
     PublishedNewest: Yayınlanma Tarihi (En Yeni)
+  Unavailable videos are hidden: Kullanılamayan videolar gizlendi
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
@@ -937,7 +950,7 @@ Comments:
   Load More Comments: 'Daha Fazla Yorum Yükle'
   Newest first: En yeni ilk önce
   Top comments: En iyi yorumlar
-  Show More Replies: Daha Fazla Yanıt Göster
+  Show More Replies: Daha fazla yanıt göster
   Pinned by: Sabitleyen
   Member: Üye
   View {replyCount} replies: '1 yanıtı görüntüle | {replyCount} yanıtı görüntüle'
@@ -948,6 +961,7 @@ Comments:
   View 1 reply from {channelName}: '{channelName} kanalından 1 yanıtı görüntüle'
   View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
   Loading replies: Yanıtlar yükleniyor...
+  Hide Replies: Yanıtı gizle | Yanıtları gizle
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -978,7 +992,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: Oynatma hızını denetlemek için, imleç videonun üzerindeyken Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve oynatma hızını denetlemek için fare tekerleğini ileri veya geri kaydırın. Öntanımlı oynatma hızına (ayarlarda değiştirilmediği sürece 1x) hızlı bir şekilde dönmek için Ctrl tuşunu (Mac'te Komut tuşu) basılı tutun ve fareye sol tıklayın.
     Skip by Scrolling Over Video Player: MPV'deki gibi videoda atlamak için kaydırma tekerleğini kullanın.
   General Settings:
-    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği.
+    Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği. Bu ayardaki değişiklikler, bu örneği öntanımlı olarak belirlemediğiniz sürece yalnızca geçerli pencereye uygulanır.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, varsayılan küçük resim yerine videonun bir karesiyle, bulanık veya gizli şekilde değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi yedek yöntem olarak kullanmaya çalışır.
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin. Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious sunucusu gerektirir.
@@ -994,6 +1008,7 @@ Tooltips:
     Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.). Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına neden olacaktır.
+    Disable Hardware Acceleration: GPU donanım hızlandırmasını devre dışı bırakır. Grafikle ilgili sorunları çözebilir, ancak performansı düşerebilir.
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
@@ -1011,6 +1026,8 @@ Default Invidious instance has been set to {instance}: Öntanımlı Invidious ö
 Search Bar:
   Clear Input: Girişi Temizle
   Remove: Kaldır
+  Open Search Container: Arama Alanını Aç
+  Search: Ara
 External link opening has been disabled in the general settings: Harici bağlantı açma genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin misiniz?
 Screenshot Success: Ekran görüntüsü kaydedildi

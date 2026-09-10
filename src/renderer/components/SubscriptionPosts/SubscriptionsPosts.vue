@@ -1,5 +1,17 @@
 <template>
+  <p
+    v-if="useRssFeeds"
+    class="message"
+  >
+    {{
+      t('Subscriptions.Posts.RSS Message', {
+        rssSetting: t('Settings.Subscription Settings.Fetch Feeds from RSS'),
+        hideSetting: t('Settings.Distraction Free Settings.Hide Subscriptions Posts')
+      })
+    }}
+  </p>
   <SubscriptionsTabUi
+    v-else
     :is-loading="isLoading"
     :video-list="postList"
     :error-channels="errorChannels"
@@ -16,13 +28,13 @@
 import { computed, onMounted, ref, shallowRef, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
-import SubscriptionsTabUi from './SubscriptionsTabUi/SubscriptionsTabUi.vue'
+import SubscriptionsTabUi from '../SubscriptionsTabUi/SubscriptionsTabUi.vue'
 
-import store from '../store/index'
+import store from '../../store/index'
 
-import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../helpers/utils'
-import { getLocalChannelCommunity } from '../helpers/api/local'
-import { invidiousGetCommunityPosts } from '../helpers/api/invidious'
+import { copyToClipboard, getRelativeTimeFromDate, showToast } from '../../helpers/utils.js'
+import { getLocalChannelCommunity } from '../../helpers/api/local.js'
+import { invidiousGetCommunityPosts } from '../../helpers/api/invidious.js'
 
 const { t } = useI18n()
 
@@ -46,6 +58,9 @@ const subscriptionCacheReady = computed(() => store.getters.getSubscriptionCache
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const fetchSubscriptionsAutomatically = computed(() => store.getters.getFetchSubscriptionsAutomatically)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const useRssFeeds = computed(() => store.getters.getUseRssFeeds)
 
 const activeSubscriptionList = computed(() => store.getters.getActiveProfile.subscriptions)
 
@@ -114,9 +129,11 @@ if (!subscriptionCacheReady.value) {
   })
 }
 
-onMounted(() => {
-  loadPostsFromRemoteFirstPerWindowSometimes()
-})
+if (!useRssFeeds.value) {
+  onMounted(() => {
+    loadPostsFromRemoteFirstPerWindowSometimes()
+  })
+}
 
 function loadPostsFromRemoteFirstPerWindowSometimes() {
   if (
@@ -306,3 +323,5 @@ async function getChannelPostsInvidious(channel) {
   }
 }
 </script>
+
+<style scoped src="./SubscriptionPosts.css" />

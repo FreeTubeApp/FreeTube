@@ -125,7 +125,7 @@ import FtPrompt from '../FtPrompt/FtPrompt.vue'
 const props = defineProps({
   title: {
     type: String,
-    default: ''
+    required: true,
   },
   icon: {
     type: Array,

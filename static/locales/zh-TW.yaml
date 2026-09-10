@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
     Comment Count: 1 則留言 | {count} 則留言
     Like Count: 1 個喜歡 | {count} 個喜歡
+    Replies Remaining: （還有 1 則）|（還有 {count} 則）
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
   Load More Posts: 載入更多影片
   Empty Posts: 您訂閱的頻道目前沒有任何影片。
+  Posts:
+    RSS Message: YouTube 並未提供貼文的 RSS feed。請停用「{rssSetting}」設定以檢視貼文，或啟用「{hideSetting}」設定以隱藏此分頁。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -833,6 +836,8 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
   Popout Live Chat: 彈出式聊天
   Private: 無法在 FreeTube 觀看私人影片，因為觀看私人影片需要 Google 登入和影片所有權。
+  Collapse Playlist: 折疊播放清單
+  Expand Playlist: 展開播放清單
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -897,7 +902,7 @@ Comments:
   Hearted: 喜歡的
   Subscribed: 已訂閱
   There are no comments available for this post: 此貼文尚無留言
-  Hide {replyCount} replies: 隱藏 1 則回覆 | 隱藏 {replyCount} 則回覆
+  Hide Replies: 隱藏回覆
   View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
   Loading replies: 正在載入回覆⋯⋯
@@ -975,7 +980,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住 Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
   General Settings:
-    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
+    Invidious Instance: FreeTube 將用於進行 API 呼叫的 Invidious 站台。除非您將此站台設為預設值，否則此設定的變更僅適用於目前的視窗。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為經過模糊處理或隱藏的影片畫面而非預設縮圖。
     Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好 API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious API 需要 Invidious 伺服器才能連線。

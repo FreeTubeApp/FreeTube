@@ -358,6 +358,8 @@ async function doRequest(
         switch (part.type) {
           case UMPPartId.STREAM_PROTECTION_STATUS: {
             const streamProtectionStatus = decodePart(part, StreamProtectionStatus)
+            if (!streamProtectionStatus) break
+
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
@@ -372,9 +374,9 @@ async function doRequest(
           }
           case UMPPartId.SABR_REDIRECT: {
             const sabrRedirect = decodePart(part, SabrRedirect)
-            if (!sabrRedirect) break
+            if (!sabrRedirect?.url) break
 
-            currentState.sabrUrl = sabrRedirect.url
+            currentState.sabrStreamState.sabrUrl = sabrRedirect.url
             shouldRetry = true
             break
           }

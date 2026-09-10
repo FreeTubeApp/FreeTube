@@ -40,6 +40,7 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillning | {count} gillningar
     Comment Count: 1 kommentar | {count} kommentarer
+    Replies Remaining: "{' '}(1 kvar) | {' '}({count} kvar)"
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig! Klicka för mer information'
 Download From Site: 'Ladda ned från webbplatsen'
 
@@ -941,7 +942,7 @@ Comments:
   Hearted: Hjärtmarkerad
   Subscribed: Prenumerant
   There are no comments available for this post: Det finns inga kommentarer tillgängliga för det här inlägget
-  Hide {replyCount} replies: Dölj 1 svar | Dölj {replyCount} svar
+  Hide Replies: Dölj svar
   View 1 reply from {channelName}: Visa 1 svar från {channelName}
   View {replyCount} replies from {channelName} and others: Visa {replyCount} svar från {channelName} och andra
   Loading replies: Läser in svar…

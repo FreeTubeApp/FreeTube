@@ -35,6 +35,7 @@ Global:
     Like Count: 1 ŝato | {count} ŝatoj
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
+    Replies Remaining: "{' '}(1 restanta) | {' '}({count} restantaj)"
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
@@ -96,6 +97,8 @@ Subscriptions:
   Load More Posts: Ŝargi pli da afiŝoj
   Subscriptions Tabs: Abonaj langetoj
   All Subscription Tabs Hidden: Ĉiuj abonaj langetoj estas kaŝitaj. Por vidi enhavon ĉi tie, bonvolu malkaŝi kelkajn langetojn en la sekcio "{subsection}" en "{settingsSection}".
+  Posts:
+    RSS Message: Jutubo ne provizas RSS-fluojn por afiŝoj. Malŝaltu la agordon "{rssSetting}" por vidi afiŝojn, aŭ ŝaltu la agordon "{hideSetting}" por kaŝi tiun ĉi langeton.
 Trending:
   Trending: 'Tendencoj'
   Gaming: Ludismo
@@ -514,6 +517,8 @@ Settings:
     Hide Subscriptions Live: Kaŝi tujelsendojn de abonoj
     Hide Subscriptions Posts: Kaŝi afiŝojn de abonoj
     Show Added Items: Montri aldonitajn elementojn
+    Add: Aldoni
+    Remove: Forigi
   Data Settings:
     Data Settings: Datumoj
     Select Export Type: Elekti elportotipon
@@ -813,10 +818,15 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Restanta tempo de komenca anonco: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Restanta tempo de atendo por SABR: {remindingTimeSeconds}s'
   Private: Privataj videaĵoj ne spekteblas per FreeTube, ĉar ili postulas ensaluton de Google kaj la videaĵo devas aparteni al la uzanto.
+  Collapse Playlist: Faldi ludliston
+  Expand Playlist: Malfaldi ludliston
+  Station: Stacio
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
   Remove: Forigi
+  Open Search Container: Malfermi serĉujon
+  Search: Serĉi
 Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
 Open New Window: Malfermi novan fenestron
 Preferences: Preferoj
@@ -864,6 +874,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Ĉi vi certas, ke vi volas forigi la elektitajn kanalojn?  Tio ĉi ne forigas kanalon el iu ajn alia profilo.
   Close Profile Dropdown: Fermi profilan falmenuon
   Open Profile Dropdown: Malfermi profilan falmenuon
+  Go To Profile Manager: Iri al profiloadministrilo
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
@@ -996,7 +1007,7 @@ Comments:
   Top comments: Plej bonaj komentoj
   Newest first: Plej novaj unue
   View {replyCount} replies: Vidi 1 respondon | Vidi {replyCount} respondojn
-  Hide {replyCount} replies: Kaŝi 1 respondon | Kaŝi {replyCount} respondojn
+  Hide Replies: Kaŝi respondon | Kaŝi respondojn
   View 1 reply from {channelName}: Vidi 1 respondon de {channelName}
   View {replyCount} replies from {channelName} and others: Vidi {replyCount} respondojn de {channelName} kaj aliaj
   Show More Replies: Montri pli da respondoj
@@ -1017,7 +1028,7 @@ Tooltips:
     Preferred API Backend: Elektu la internan API ke FreeTube uzas por akiri datumojn. La loka API estas integrita elĉerpilo. La API de Invidious bezonas Invidious-servilon al kiu konektiĝi.
     Fallback to Non-Preferred Backend on Failure: Kiam via prefera API havas problemon, FreeTube aŭtomate klopodos uzi la nepreferitan API kiel retropaŝo kiam ŝaltita.
     Thumbnail Preference: Ĉiuj bildetoj en FreeTube estos anstataŭigitaj de bildo de la videaĵo, nebuligitaj, aŭ kaŝitaj anstataŭ la defaŭltaj bildetoj.
-    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj.
+    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj. Ŝanĝoj al tiu ĉi agordo nur afektas la aktualan fenestron, krom se vi difinas tiun ĉi servilon kiel la defaŭlta.
     Region for Trending: La regiono de tendencoj permesas al vi elekti la landon kies plej popularaj videaĵoj estos montrataj.
     External Link Handling: |
       Elektu la defaŭltan agon kiam ligilo kiu ne malfermeblas per FreeTube estas alklakita.

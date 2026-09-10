@@ -12,121 +12,105 @@
       v-if="isLoading"
       :fullscreen="true"
     />
-    <div
-      v-if="!isLoading"
-      class="playlistInfoContainer"
-      :class="{
-        promptOpen,
-      }"
+    <template
+      v-else
     >
-      <PlaylistInfo
-        :id="playlistId"
-        :first-video-id="firstVideoId"
-        :first-video-playlist-item-id="firstVideoPlaylistItemId"
-        :playlist-thumbnail="playlistThumbnail"
-        :title="playlistTitle"
-        :channel-name="channelName"
-        :channel-thumbnail="channelThumbnail"
-        :channel-id="channelId"
-        :last-updated="lastUpdated"
-        :description="playlistDescription"
-        :video-count="shownVideoCount"
-        :videos="shownPlaylistItems"
-        :sorted-videos="sortedPlaylistItems"
-        :view-count="viewCount"
-        :total-playlist-duration="totalPlaylistDuration"
-        :is-duration-approximate="isDurationApproximate"
-        :info-source="infoSource"
-        :more-video-data-available="moreVideoDataAvailable"
-        :search-video-mode-allowed="isUserPlaylistRequested && shownVideoCount > 1"
-        :search-query-text="searchQueryTextRequested"
-        :theme="listType === 'list' ? 'base' : 'top-bar'"
-        class="playlistInfo"
-        @dragstart.prevent
-        @enter-edit-mode="playlistInEditMode = true"
-        @exit-edit-mode="playlistInEditMode = false"
-        @search-video-query-change="handleVideoSearchQueryChange"
-        @prompt-open="promptOpen = true"
-        @prompt-close="promptOpen = false"
-      />
-    </div>
-
-    <FtCard
-      v-if="!isLoading"
-      class="playlistItemsCard"
-    >
-      <template
-        v-if="shownPlaylistItems.length > 0"
+      <div
+        class="playlistInfoContainer"
+        :class="{
+          promptOpen,
+        }"
       >
-        <FtSelect
-          v-if="isUserPlaylistRequested && shownPlaylistItems.length > 1"
-          class="sortSelect"
-          :value="sortOrder"
-          :select-names="sortBySelectNames"
-          :select-values="SORT_BY_SELECT_VALUES"
-          :placeholder="t('Global.Sort By')"
-          :icon="sortOrderIcon"
-          @change="updateUserPlaylistSortOrder"
+        <PlaylistInfo
+          :id="playlistId"
+          :first-video-id="firstVideoId"
+          :first-video-playlist-item-id="firstVideoPlaylistItemId"
+          :playlist-thumbnail="playlistThumbnail"
+          :title="playlistTitle"
+          :channel-name="channelName"
+          :channel-thumbnail="channelThumbnail"
+          :channel-id="channelId"
+          :last-updated="lastUpdated"
+          :description="playlistDescription"
+          :video-count="shownVideoCount"
+          :videos="shownPlaylistItems"
+          :sorted-videos="sortedPlaylistItems"
+          :view-count="viewCount"
+          :total-playlist-duration="totalPlaylistDuration"
+          :is-duration-approximate="isDurationApproximate"
+          :info-source="infoSource"
+          :more-video-data-available="moreVideoDataAvailable"
+          :search-video-mode-allowed="isUserPlaylistRequested && shownVideoCount > 1"
+          :search-query-text="searchQueryTextRequested"
+          :theme="listType === 'list' ? 'base' : 'top-bar'"
+          class="playlistInfo"
+          @dragstart.prevent
+          @enter-edit-mode="playlistInEditMode = true"
+          @exit-edit-mode="playlistInEditMode = false"
+          @search-video-query-change="handleVideoSearchQueryChange"
+          @prompt-open="promptOpen = true"
+          @prompt-close="promptOpen = false"
         />
-        <AutoScrollWrapper
-          v-if="visiblePlaylistItems.length > 0"
-          :hot-zone-enabled="isSortOrderCustom && isVideoDragging"
-          :is-grid-mode="listType === 'grid'"
+      </div>
+
+      <FtCard
+        class="playlistItemsCard"
+      >
+        <FtFlexBox
+          v-if="showUnavailableVideosAlert"
+          class="alertBox"
         >
-          <FtElementList
-            v-if="listType === 'grid'"
-            :data="visiblePlaylistItems"
-            display="grid"
-            :playlist-id="playlistId"
-            :playlist-type="infoSource"
-            :show-video-with-last-viewed-playlist="true"
-            :use-channels-hidden-preference="false"
-            :use-hide-upcoming-premieres-preference="false"
-            :hide-forbidden-titles="false"
-            :always-show-add-to-playlist-button="true"
-            :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-            :can-move-video-up="canMoveVideos"
-            :can-move-video-down="canMoveVideos"
-            :playlist-items-length="shownPlaylistItems.length"
-            :can-remove-from-playlist="true"
-            :dragged-video="draggedVideo"
-            :is-sort-order-custom="isSortOrderCustom"
-            :is-video-dragging="isVideoDragging"
-            @drag-video="setDraggedVideo"
-            @drag-video-end="onDragVideoEnd"
-            @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
-            @move-video-up="moveVideoUp"
-            @move-video-down="moveVideoDown"
-            @move-video-to-the-top="moveVideoToTheTop"
-            @move-video-to-the-bottom="moveVideoToTheBottom"
-            @remove-from-playlist="removeVideoFromPlaylist"
-          />
-          <TransitionGroup
-            v-else
-            name="playlistItem"
-            tag="span"
-            class="playlistItems"
+          <p class="alertLabel">
+            {{ t("Playlist.Unavailable videos are hidden") }}
+          </p>
+          <button
+            class="alertButton"
+            :aria-label="t('Close')"
+            :title="t('Close')"
+            @click="handleCloseAlert"
           >
-            <FtListVideoNumbered
-              v-for="(item, index) in visiblePlaylistItems"
-              :key="`${item.videoId}-${item.playlistItemId || index}`"
-              class="playlistItem"
-              :data="item"
+            <FontAwesomeIcon
+              :icon="['fas', 'times']"
+            />
+          </button>
+        </FtFlexBox>
+        <template
+          v-if="shownPlaylistItems.length > 0"
+        >
+          <FtSelect
+            v-if="isUserPlaylistRequested && shownPlaylistItems.length > 1"
+            class="sortSelect"
+            :value="sortOrder"
+            :select-names="sortBySelectNames"
+            :select-values="SORT_BY_SELECT_VALUES"
+            :placeholder="t('Global.Sort By')"
+            :icon="sortOrderIcon"
+            @change="updateUserPlaylistSortOrder"
+          />
+          <AutoScrollWrapper
+            v-if="visiblePlaylistItems.length > 0"
+            :hot-zone-enabled="isSortOrderCustom && isVideoDragging"
+            :is-grid-mode="listType === 'grid'"
+          >
+            <FtElementList
+              v-if="listType === 'grid'"
+              :data="visiblePlaylistItems"
+              display="grid"
               :playlist-id="playlistId"
               :playlist-type="infoSource"
-              :playlist-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
-              :playlist-item-id="item.playlistItemId"
-              appearance="result"
+              :show-video-with-last-viewed-playlist="true"
+              :use-channels-hidden-preference="false"
+              :use-hide-upcoming-premieres-preference="false"
+              :hide-forbidden-titles="false"
               :always-show-add-to-playlist-button="true"
               :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
-              :can-move-video-up="index > 0 && canMoveVideos"
-              :can-move-video-down="index < shownPlaylistItems.length - 1 && canMoveVideos"
+              :can-move-video-up="canMoveVideos"
+              :can-move-video-down="canMoveVideos"
+              :playlist-items-length="shownPlaylistItems.length"
               :can-remove-from-playlist="true"
-              :video-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
-              :initial-visible-state="index < 10"
               :dragged-video="draggedVideo"
-              :is-sort-order-custom="isSortOrderCustom"
               :is-video-dragging="isVideoDragging"
+              :video-dragging-possible="videoDraggingPossible"
               @drag-video="setDraggedVideo"
               @drag-video-end="onDragVideoEnd"
               @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
@@ -136,43 +120,79 @@
               @move-video-to-the-bottom="moveVideoToTheBottom"
               @remove-from-playlist="removeVideoFromPlaylist"
             />
-          </TransitionGroup>
-          <FtAutoLoadNextPageWrapper
-            v-if="moreVideoDataAvailable && !isLoadingMore"
-            @load-next-page="getNextPage"
-          >
-            <FtFlexBox>
-              <FtButton
-                :label="t('Subscriptions.Load More Videos')"
-                background-color="var(--primary-color)"
-                text-color="var(--text-with-main-color)"
-                @click="getNextPage"
+            <TransitionGroup
+              v-else
+              name="playlistItem"
+              tag="span"
+              class="playlistItems"
+            >
+              <FtListVideoNumbered
+                v-for="(item, index) in visiblePlaylistItems"
+                :key="`${item.videoId}-${item.playlistItemId || index}`"
+                class="playlistItem"
+                :data="item"
+                :playlist-id="playlistId"
+                :playlist-type="infoSource"
+                :playlist-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
+                :playlist-item-id="item.playlistItemId"
+                appearance="result"
+                :always-show-add-to-playlist-button="true"
+                :quick-bookmark-button-enabled="quickBookmarkButtonEnabled"
+                :can-move-video-up="index > 0 && canMoveVideos"
+                :can-move-video-down="index < shownPlaylistItems.length - 1 && canMoveVideos"
+                :can-remove-from-playlist="true"
+                :video-index="playlistInVideoSearchMode ? shownPlaylistItems.findIndex(i => i === item) : index"
+                :initial-visible-state="index < 10"
+                :dragged-video="draggedVideo"
+                :is-sort-order-custom="isSortOrderCustom"
+                :is-video-dragging="isVideoDragging"
+                @drag-video="setDraggedVideo"
+                @drag-video-end="onDragVideoEnd"
+                @move-dragged-video="moveDraggedVideoTemporarilyThrottled"
+                @move-video-up="moveVideoUp"
+                @move-video-down="moveVideoDown"
+                @move-video-to-the-top="moveVideoToTheTop"
+                @move-video-to-the-bottom="moveVideoToTheBottom"
+                @remove-from-playlist="removeVideoFromPlaylist"
               />
-            </FtFlexBox>
-          </FtAutoLoadNextPageWrapper>
-          <div
-            v-if="isLoadingMore"
-            class="loadNextPageWrapper"
+            </TransitionGroup>
+            <FtAutoLoadNextPageWrapper
+              v-if="moreVideoDataAvailable && !isLoadingMore"
+              @load-next-page="getNextPage"
+            >
+              <FtFlexBox>
+                <FtButton
+                  :label="t('Subscriptions.Load More Videos')"
+                  background-color="var(--primary-color)"
+                  text-color="var(--text-with-main-color)"
+                  @click="getNextPage"
+                />
+              </FtFlexBox>
+            </FtAutoLoadNextPageWrapper>
+            <div
+              v-if="isLoadingMore"
+              class="loadNextPageWrapper"
+            >
+              <FtLoader />
+            </div>
+          </AutoScrollWrapper>
+          <FtFlexBox
+            v-else
           >
-            <FtLoader />
-          </div>
-        </AutoScrollWrapper>
+            <p class="message">
+              {{ t("User Playlists['Empty Search Message']") }}
+            </p>
+          </FtFlexBox>
+        </template>
         <FtFlexBox
           v-else
         >
           <p class="message">
-            {{ t("User Playlists['Empty Search Message']") }}
+            {{ t("User Playlists['This playlist currently has no videos.']") }}
           </p>
         </FtFlexBox>
-      </template>
-      <FtFlexBox
-        v-else
-      >
-        <p class="message">
-          {{ t("User Playlists['This playlist currently has no videos.']") }}
-        </p>
-      </FtFlexBox>
-    </FtCard>
+      </FtCard>
+    </template>
   </div>
 </template>
 
@@ -230,6 +250,7 @@ const channelName = ref('')
 const channelThumbnail = ref('')
 const channelId = ref('')
 const infoSource = ref('local')
+const showUnavailableVideosAlert = ref(false)
 const playlistItems = ref([])
 /** @type {import('vue').ComputedRef<any[] | null>} */
 const tempShownPlaylistItems = ref(null)
@@ -248,6 +269,8 @@ const videoSearchQuery = ref('')
 const promptOpen = ref(false)
 /** @type {import('vue').Ref<string[]>} */
 const toBeDeletedPlaylistItemIds = ref([])
+/** @type {import('vue').Ref<string[]>} */
+const videosWithPlaylistToUnset = ref([])
 /** @type {AbortController | null} */
 let undoToastAbortController = null
 
@@ -296,9 +319,15 @@ const selectedUserPlaylistVideos = computed(() => selectedUserPlaylist.value?.vi
 const selectedUserPlaylistVideoCount = computed(() => selectedUserPlaylistVideos.value.length)
 
 const moreVideoDataAvailable = computed(() => {
-  return isUserPlaylistRequested.value
-    ? userPlaylistVisibleLimit.value < sometimesFilteredUserPlaylistItems.value.length
-    : continuationData.value !== null
+  if (isUserPlaylistRequested.value) {
+    return userPlaylistVisibleLimit.value < sometimesFilteredUserPlaylistItems.value.length
+  }
+
+  if (infoSource.value === 'invidious') {
+    return playlistItems.value.length < videoCount.value
+  }
+
+  return continuationData.value !== null
 })
 
 const processedVideoSearchQuery = computed(() => videoSearchQuery.value.trim().toLowerCase())
@@ -454,6 +483,25 @@ function getPlaylistInfo() {
 
 const getPlaylistInfoDebounce = debounce(getPlaylistInfo, 100)
 
+function resetState() {
+  isLoading.value = true
+  playlistTitle.value = ''
+  playlistDescription.value = ''
+  firstVideoId.value = ''
+  playlistThumbnail.value = ''
+  viewCount.value = 0
+  videoCount.value = 0
+  lastUpdated.value = undefined
+  channelName.value = ''
+  channelThumbnail.value = ''
+  channelId.value = ''
+  infoSource.value = 'local'
+  showUnavailableVideosAlert.value = false
+  playlistItems.value = []
+  continuationData.value = null
+  updatePageTitle()
+}
+
 async function getPlaylistLocal() {
   try {
     const result = await getLocalPlaylist(playlistId.value)
@@ -485,6 +533,7 @@ async function getPlaylistLocal() {
     channelThumbnail.value = result.info.author?.best_thumbnail?.url ?? ''
     channelId.value = result.info.author?.id
     infoSource.value = 'local'
+    showUnavailableVideosAlert.value = result.menu?.items?.some((item) => item.text === 'Show unavailable videos')
 
     store.dispatch('updateSubscriptionDetails', {
       channelThumbnailUrl: channelThumbnail.value,
@@ -515,6 +564,7 @@ async function getPlaylistLocal() {
       console.warn('Falling back to Invidious API')
       getPlaylistInvidious()
     } else {
+      updatePageTitle()
       isLoading.value = false
     }
   }
@@ -555,6 +605,7 @@ async function getPlaylistInvidious() {
       console.warn('Error getting data with Invidious, falling back to local backend')
       getPlaylistLocal()
     } else {
+      updatePageTitle()
       isLoading.value = false
       // TODO: Show toast with error message
     }
@@ -589,7 +640,10 @@ function parseUserPlaylist(playlist) {
 }
 
 // react to route changes...
-watch(playlistId, getPlaylistInfoDebounce)
+watch(playlistId, () => {
+  resetState()
+  getPlaylistInfoDebounce()
+})
 
 watch(userPlaylistsReady, () => {
   // Fetch from local store when playlist data ready
@@ -599,12 +653,22 @@ watch(userPlaylistsReady, () => {
 })
 
 // Fetch from local store when current user playlist changed
-watch(selectedUserPlaylist, getPlaylistInfoDebounce)
+watch(selectedUserPlaylist, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 // Re-fetch from local store when current user playlist updated
-watch(selectedUserPlaylistLastUpdatedAt, getPlaylistInfoDebounce)
+watch(selectedUserPlaylistLastUpdatedAt, () => {
+  if (!isUserPlaylistRequested.value) { return }
+
+  getPlaylistInfoDebounce()
+})
 
 watch(selectedUserPlaylistVideoCount, async () => {
+  if (!isUserPlaylistRequested.value) { return }
+
   // Monitoring `selectedUserPlaylistVideos` makes this function called
   // Even when the same array object is returned
   // So length is monitored instead
@@ -669,7 +733,7 @@ function getNextPage() {
       isLoadingMore.value = false
     })
   } else if (infoSource.value === 'invidious') {
-    console.error('Playlist pagination is not currently supported when the Invidious backend is selected.')
+    getNextPageInvidious()
   }
 }
 
@@ -704,8 +768,22 @@ async function getNextPageLocal() {
   }
 }
 
+async function getNextPageInvidious() {
+  isLoadingMore.value = true
+
+  const index = playlistItems.value.length
+  const result = await invidiousGetPlaylistInfo(playlistId.value, index)
+  playlistItems.value.push(...result.videos)
+
+  isLoadingMore.value = false
+}
+
 const canMoveVideos = computed(() => {
-  return !playlistInVideoSearchMode.value && isSortOrderCustom.value && noPlaylistItemsPendingDeletion.value
+  return isUserPlaylistRequested.value && !playlistInVideoSearchMode.value && isSortOrderCustom.value && noPlaylistItemsPendingDeletion.value
+})
+
+const videoDraggingPossible = computed(() => {
+  return isUserPlaylistRequested.value && isSortOrderCustom.value && shownPlaylistItems.value.length >= 2
 })
 
 /**
@@ -947,6 +1025,7 @@ function removeVideoFromPlaylist(videoId, playlistItemId) {
 
     if (foundVideo) {
       toBeDeletedPlaylistItemIds.value.push(playlistItemId)
+      videosWithPlaylistToUnset.value.push(videoId)
 
       // Only show toast when no existing toast shown
       if (undoToastAbortController == null) {
@@ -963,6 +1042,7 @@ function removeVideoFromPlaylist(videoId, playlistItemId) {
           () => {
             clearTimeout(actualRemoveVideosTimeout)
             toBeDeletedPlaylistItemIds.value = []
+            videosWithPlaylistToUnset.value = []
             undoToastAbortController = null
           },
           undoToastAbortController.signal,
@@ -981,11 +1061,13 @@ async function removeToBeDeletedVideosSometimes() {
   if (toBeDeletedPlaylistItemIds.value.length > 0) {
     await store.dispatch('removeVideos', {
       _id: playlistId.value,
-      // Create a new non-reactive array to avoid Electron erroring about Proxy objects not being clonable
+      // Create new non-reactive arrays to avoid Electron erroring about Proxy objects not being clonable
       playlistItemIds: [...toBeDeletedPlaylistItemIds.value],
+      videoIds: [...videosWithPlaylistToUnset.value],
     })
 
     toBeDeletedPlaylistItemIds.value = []
+    videosWithPlaylistToUnset.value = []
     undoToastAbortController?.abort()
     undoToastAbortController = null
   }
@@ -1055,6 +1137,10 @@ function handleResize() {
   forceListView.value = window.innerWidth <= MOBILE_WIDTH_THRESHOLD || window.innerHeight <= PLAYLIST_HEIGHT_FORCE_LIST_THRESHOLD
 }
 
+function handleCloseAlert() {
+  showUnavailableVideosAlert.value = false
+}
+
 onMounted(() => {
   getPlaylistInfoDebounce()
   handleResize()
@@ -1070,12 +1156,14 @@ onBeforeRouteLeave((to) => {
     store.commit('setCachedPlaylist', {
       id: playlistId.value,
       title: playlistTitle.value,
+      totalVideoCount: videoCount.value,
       channelName: channelName.value,
       channelId: channelId.value,
       items: sortedPlaylistItems.value,
       continuationData: continuationData.value
         ? extractLocalCacheablePlaylistContinuation(continuationData.value)
         : null,
+      videoCount: videoCount.value,
     })
   }
 

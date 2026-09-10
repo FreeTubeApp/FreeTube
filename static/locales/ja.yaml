@@ -36,8 +36,9 @@ Global:
     View Count: 1 回視聴 | {count} 回視聴
     Watching Count: 1 人が視聴中 | {count} 人が視聴中
     Channel Count: 1 チャンネル | {count} チャンネル
-    Comment Count: 1 コメント｜{count} コメント
-    Like Count: 1 いいね｜{count} いいね
+    Comment Count: 1 コメント | {count} コメント
+    Like Count: 1 いいね | {count} いいね
+    Replies Remaining: （残り 1 件）|（残り {count} 件）
 Search / Go to URL: '検索 / URL に移動'
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: 全ての登録チャンネル タブが非表示になっています。こちらのコンテンツをご覧いただくには、"{settingsSection}" 内の "{subsection}" 項目でいくつかのタブの非表示を解除してください。
   Load More Posts: もっと見る
   Empty Posts: 現在、登録しているチャンネルには動画はありません。
+  Posts:
+    RSS Message: YouTube は投稿の RSS フィードを提供していません。投稿を表示するには "{rssSetting}" 設定を無効にするか、このタブを非表示にするには "{hideSetting}" 設定を有効にしてください。
 Trending:
   Trending: '急上昇'
   Trending Tabs: 急上昇のタブ
@@ -558,6 +561,8 @@ Settings:
     Hide Channel Courses: チャンネルの「コース」タブを非表示
     Hide Channel Posts: チャンネルの「投稿」タブを非表示
     Hide Subscriptions Posts: 登録チャンネルの投稿を非表示
+    Add: 追加
+    Remove: 削除
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -612,6 +617,7 @@ Settings:
     Replace HTTP Cache: HTTP キャッシュの置換
     Experimental Settings: 試験的
     Warning: これらの設定は実験的なものであり、有効にするとアプリのクラッシュを引き起こす恐れがあります。バックアップをとっておくことを強くお勧めします。自己責任で使用してください！
+    Disable Hardware Acceleration: ハードウェアアクセラレーションを無効にする
   Password Settings:
     Password Settings: パスワード
     Set Password To Prevent Access: 設定にアクセスするためのパスワードの設定
@@ -829,6 +835,11 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': '残りのプレロール広告時間: {remindingTimeSeconds}秒'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': '残りのSABRバックオフ時間: {remindingTimeSeconds}秒'
   Private: 非公開動画は、Googleアカウントでのログインと動画の所有権が必要なため、FreeTubeでは視聴できません。
+  Collapse Playlist: プレイリストを折りたたむ
+  Expand Playlist: プレイリストを展開する
+  Station: 局
+  Playlist:
+    Unavailable videos are hidden: 再生できない動画が 1 件非表示になっています | 再生できない動画が {count} 件非表示になっています
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
@@ -850,6 +861,7 @@ Playlist:
     VideoDurationDescending: 再生時間（長い順）
     PublishedNewest: 公開日（新しい順）
     PublishedOldest: 公開日（古い順）
+  Unavailable videos are hidden: 再生できない動画は非表示になっています
 Change Format:
   Change Media Formats: '動画形式の変更'
   Use Dash Formats: 'DASH 形式の使用'
@@ -886,14 +898,14 @@ Comments:
   There are no more comments for this video: この動画へのコメントはまだありません
   Top comments: 評価順
   Newest first: 新しい順
-  Show More Replies: 返信をもっと見る
+  Show More Replies: 他の返信を表示
   Pinned by: ピン留め
   Member: メンバー
   Hearted: ハート
   View {replyCount} replies: '1 件の返信を見る | {replyCount} 件の返信を見る'
   Subscribed: チャンネル登録済み
   There are no comments available for this post: この記事にコメントはありません
-  Hide {replyCount} replies: 1 件の返信を非表示にする | {replyCount} 件の返信を非表示にする
+  Hide Replies: 返信を非表示にする
   View 1 reply from {channelName}: '{channelName} からの 1 件の返信を見る'
   View {replyCount} replies from {channelName} and others: '{channelName} や他のユーザーからの {replyCount} 件の返信を見る'
   Loading replies: 返信を読み込み中...
@@ -957,6 +969,7 @@ Profile:
   Edit Profile Name: プロファイル名を編集
   Close Profile Dropdown: プロフィールドロップダウンを閉じる
   Open Profile Dropdown: プロフィールドロップダウンを開く
+  Go To Profile Manager: プロファイルマネージャーに移動
 The playlist has been reversed: 再生リストを逆順にしました
 Download From Site: サイトからダウンロード
 Version {versionNumber} is now available!  Click for more details: 最新バージョン {versionNumber} が利用可能！　詳細はこちらをクリック
@@ -971,7 +984,7 @@ Tooltips:
     Scroll Playback Rate Over Video Player: カーソルが動画上にあるとき、Ctrl キー（Mac では Command キー）を押したまま、マウスホイールを前後にスクロールして再生速度を調整します。Control キー（Mac では Command キー）を押したままマウスを左クリックすると、すぐにデフォルトの再生速度（設定を変更していない場合は 1 x）に戻ります。
     Skip by Scrolling Over Video Player: MPVスタイルでスクロールホイールを使って動画をスキップします。
   General Settings:
-    Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious のインスタンスです。
+    Invidious Instance: FreeTube が API 呼び出しのために接続する Invidious インスタンスです。このインスタンスをデフォルトに設定しない限り、この設定の変更は現在のウィンドウにのみ適用されます。
     Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。 Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube 全体のすべてのサムネイルが、デフォルトのサムネイルの代わりに動画のフレームに置き換えられ、ぼかされるか非表示になります。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube は自動的に他の API での取得を試みます。
@@ -987,6 +1000,7 @@ Tooltips:
     Ignore Default Arguments: 動画の URL 以外のデフォルトの引数（再生速度、再生リストの URL など）を外部プレーヤーに送信しないでください。カスタム引数はそのまま引き継がれます。
   Experimental Settings:
     Replace HTTP Cache: Electron のディスクに基づく HTTP キャッシュを無効化し、メモリ内で独自の画像キャッシュを使用します。このことにより RAM の使用率は増加します。
+    Disable Hardware Acceleration: GPU ハードウェアアクセラレーションを無効にします。グラフィック関連の問題が解決する可能性がありますが、パフォーマンスは低下する傾向があります。
   Distraction Free Settings:
     Hide Channels: チャンネル ID を入力すると、すべての動画、再生リスト、チャンネル自体が検索や人気、およびおすすめに表示されなくなります。入力するチャンネル ID は、大文字と小文字を区別するので完全に一致させてください。
     Hide Subscriptions Live: この設定は、アプリ全体の "{appWideSetting}" 設定により上書きされます。"{settingsSection}" 項目の "{subsection}" にあります
@@ -1005,6 +1019,8 @@ External link opening has been disabled in the general settings: 一般設定で
 Search Bar:
   Clear Input: 入力の消去
   Remove: 削除
+  Open Search Container: 検索コンテナを開く
+  Search: 検索
 Are you sure you want to open this link?: このリンクを開きますか？
 Channels:
   Channels: チャンネル

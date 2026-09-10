@@ -84,8 +84,19 @@ export default {
     return ipcRenderer.invoke(IpcChannels.GET_REPLACE_HTTP_CACHE)
   },
 
+  /**
+   * @returns {Promise<boolean>}
+   */
+  getDisableHardwareAcceleration: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_DISABLE_HARDWARE_ACCELERATION)
+  },
+
   toggleReplaceHttpCache: () => {
     ipcRenderer.send(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE)
+  },
+
+  toggleDisableHardwareAcceleration: () => {
+    ipcRenderer.send(IpcChannels.TOGGLE_DISABLE_HARDWARE_ACCELERATION)
   },
 
   // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
@@ -119,10 +130,12 @@ export default {
   /**
    * @param {string} videoId
    * @param {string} context
+   * @param {string} initialAttestationData
+   * @param {string} ytConfig
    * @returns {Promise<string>}
    */
-  generatePoToken: (videoId, context) => {
-    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context)
+  generatePoToken: (videoId, context, initialAttestationData, ytConfig) => {
+    return ipcRenderer.invoke(IpcChannels.GENERATE_PO_TOKEN, videoId, context, initialAttestationData, ytConfig)
   },
 
   chooseDefaultFolder: () => {

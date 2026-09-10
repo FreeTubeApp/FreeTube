@@ -28,6 +28,11 @@ $grab-bar-padding: 1em;
   padding-block: 0 $grab-bar-padding;
 }
 
+.grabBar.grabBarDisabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 .draggable:not(.draggable:only-child):focus .grabBar,
 .draggable:not(.draggable:only-child):hover .grabBar {
   display: revert;

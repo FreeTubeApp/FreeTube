@@ -46,6 +46,8 @@
       <button
         v-if="!hideSearchBar"
         class="navSearchButton navButton"
+        :aria-label="t('Search Bar.Open Search Container')"
+        :title="t('Search Bar.Open Search Container')"
         @click="toggleSearchContainer"
       >
         <FontAwesomeIcon
@@ -91,6 +93,7 @@
           :placeholder="t('Search / Go to URL')"
           class="searchInput"
           is-search
+          :action-button-label="t('Search Bar.Search')"
           :data-list="activeDataList"
           :data-list-properties="activeDataListProperties"
           show-clear-text-button

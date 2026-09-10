@@ -66,6 +66,8 @@
           enabled: inputDataPresent,
           withLabel: showLabel
         }"
+        :aria-label="actionButtonLabel"
+        :title="actionButtonLabel"
         @click="handleClick"
       >
         <FontAwesomeIcon
@@ -153,6 +155,10 @@ const props = defineProps({
   showActionButton: {
     type: Boolean,
     default: true
+  },
+  actionButtonLabel: {
+    type: String,
+    default: '',
   },
   forceActionButtonIconName: {
     type: Array,

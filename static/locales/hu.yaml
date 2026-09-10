@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
+    Replies Remaining: "{' '}(1 hátralévő) | {' '}({count} hátralévő)"
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
 
@@ -105,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Feliratkozások lapok
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
+  Posts:
+    RSS Message: A YouTube nem biztosít RSS-hírcsatornákat a bejegyzésekhez. A bejegyzések megtekintéséhez tiltsa le a(z) „{rssSetting}” beállítást, vagy a lap elrejtéséhez engedélyezze a(z) „{hideSetting}” beállítást.
 Trending:
   Trending: 'Felkapott'
   Trending Tabs: Felkapott lapok
@@ -567,6 +570,8 @@ Settings:
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
     Hide Channel Posts: „Bejegyzések” csatornalap elrejtése
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
+    Add: Hozzáadás
+    Remove: Eltávolítás
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
@@ -621,6 +626,7 @@ Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
     Experimental Settings: Kísérleti
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre használja!
+    Disable Hardware Acceleration: Hardveres gyorsítás letiltása
   Password Dialog:
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
@@ -703,6 +709,7 @@ Profile:
   Create Profile Name: Profilnév létrehozása
   Open Profile Dropdown: Profil legördülő menü megnyitása
   Close Profile Dropdown: Profil legördülő menü bezárása
+  Go To Profile Manager: Lépjen a Profilkezelőbe
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
@@ -882,6 +889,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő SABR várakozási idő: {remindingTimeSeconds} mp'
   Popout Live Chat: Felugró csevegés
   Private: A privát videók nem tekinthetők meg a FreeTube-on, mivel a megtekintésükhöz Google-bejelentkezés és a videó tulajdonjoga szükséges.
+  Collapse Playlist: Lejátszási lista összecsukása
+  Expand Playlist: Lejátszási lista kibontása
+  Station: Állomás
+  Playlist:
+    Unavailable videos are hidden: 1 nem elérhető videó el van rejtve | {count} nem elérhető videó el van rejtve
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -903,6 +915,7 @@ Playlist:
     VideoDurationDescending: Időtartam (leghosszabb)
     PublishedNewest: Közzététel dátuma (legújabb)
     PublishedOldest: Közzététel dátuma (legrégebbi)
+  Unavailable videos are hidden: A nem elérhető videók el vannak rejtve
 Change Format:
   Change Media Formats: 'Videóformátumok módosítása'
   Use Dash Formats: 'DASH-formátumok használata'
@@ -950,6 +963,8 @@ Comments:
   View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
   View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
   Loading replies: Válaszok betöltése...
+  Hide Replies: Válasz elrejtése | Válaszok elrejtése
+  Comments are turned off: A hozzászólások ki vannak kapcsolva
 Up Next: 'Következő'
 
 # Toast Messages
@@ -974,7 +989,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Invidious Instance: Az Invidious-példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
     Thumbnail Preference: A FreeTube-ban minden videó bélyegképe az alapértelmezett miniatűr helyett a videóból kiválasztott képkockára lesz cserélve, amely elmosódott vagy rejtett is lehet.
     Fallback to Non-Preferred Backend on Failure: Ha a választott API-val probléma adódik, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t használni tartalék módszerként, ha ez a funkció engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy olyan hivatkozásra kattint, amelyet FreeTube nem tud megnyitni.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
@@ -996,6 +1011,7 @@ Tooltips:
     Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemezalapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Disable Hardware Acceleration: Letiltja a GPU hardveres gyorsítást. Megoldhatja a grafikai problémákat, de valószínűleg rosszabb teljesítményt eredményez.
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az adott csatorna összes videóját, lejátszási listáját, valamint magát a csatornát is a keresési találatokból, a felkapottakból, a legnépszerűbbek közül és az ajánlottakból. A megadott csatornaazonosítónak pontos egyezésnek kell lennie, és kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
@@ -1013,6 +1029,8 @@ Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidio
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
+  Open Search Container: Keresőmező megnyitása
+  Search: Keresés
 External link opening has been disabled in the general settings: A külső hivatkozás megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
 New Window: Új ablak

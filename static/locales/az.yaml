@@ -35,6 +35,8 @@ Search Bar:
   Clear Input: 'Girişi Təmizlə'
   # In Filter Button
   Remove: Sil
+  Open Search Container: Axtarış Sahəsini Aç
+  Search: Axtar
 Search Filters:
   Search Filters: 'Axtarış Filtrləri'
   Prioritize:
@@ -92,6 +94,8 @@ Subscriptions:
   Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
   Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir elan yoxdur.
   Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri burada görmək üçün yeniləyin.
+  Posts:
+    RSS Message: YouTube postlar üçün RSS axınları təqdim etmir. Postlara baxmaq üçün "{rssSetting}" seçimin qapadın və ya bu paneli gizlətmək üçün "{hideSetting}" seçimin aktivləşdirin.
 More: 'Daha çox'
 Trending:
   Trending: 'Trenddədir'
@@ -422,7 +426,21 @@ Settings:
       1440p: 1440p
       4k: 4k
       8k: 8k
-  SponsorBlock Settings: {}
+  SponsorBlock Settings:
+    SponsorBlock Settings: SponsorBlock
+    Enable SponsorBlock: SponsorBlock-u Aktivləşdir
+    'SponsorBlock API Url (Default is https://sponsor.ajay.app)': 'SponsorBlock API Url (İlkin: https://sponsor.ajay.app)'
+    Notify when sponsor segment is skipped: Sponsor bölümü ötürüldükdə xəbər ver
+    UseDeArrowTitles: DeArrow Video Başlıqların İstifadə Et
+    UseDeArrowThumbnails: Miniatürlər üçün DeArrow istifadə et
+    'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow Miniatür Yaradıcı API URL-si (İlkin: https://dearrow-thumb.ajay.app)'
+    Skip Options:
+      Skip Option: Ötürmə Seçimi
+      Auto Skip: Avtomatik Ötür
+      Show In Seek Bar: Çəkmə Cizgisində Göstər
+      Prompt To Skip: Ötürmək Üçün Soruş
+      Do Nothing: Heç Nə Etmə
+    Category Color: Kateqoriya Rəngi
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
   External Player Settings:
@@ -508,13 +526,314 @@ Settings:
     Hide Channel Releases: Kanal "Buraxılışlar" Panelini Gizlət
     Hide Channel Courses: Kanal "Kurslar" Panelini Gizlət
     Hide Videos, Playlists and Channels Containing Text: Mətn Olan Videoları, Pleylistləri və Kanalları Gizlət
+    Hide Channels API Error: Təqdim edilən ID üzrə istifadəçini geri almaq olmadı. Xahiş olunur, ID-nin doğru olduğunu təkrar yoxlayın.
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Söz, Söz Hissəsi və ya İfadə
+    Hide Subscriptions Videos: Abunəlik Videolarını Gizlət
+    Hide Subscriptions Shorts: Abunəliklər Shorts-ları Gizlət
+    Hide Subscriptions Live: Abunəliklər Canlı Yayımı Gizlət
+    Add: Əlavə et
+    Remove: Sil
+  Data Settings:
+    Data Settings: Məlumatlar
+    Select Export Type: Köçürmə Növünü Seç
+    Import Subscriptions: Abunəlikləri İdxal Et
+    Subscription File: Abunəlik Faylı
+    History File: Tarixçə Faylı
+    Playlist File: Pleylist Faylı
+    Search history file: Axtarış tarixçəsi faylı
+    Settings File: Tənzimləmələr Faylı
+    Export Subscriptions: Abunəlikləri İxrac Et
+    Export FreeTube: FreeTube-u İxrac et
+    Export YouTube: YouTube-u İxrac et
+    Export NewPipe: NewPipe-ı İxrac et
+    Import History: Tarixçəni İdxal et
+    Export History: Tarixçəni İxrac Et
+    Import Playlists: Pleylistləri İdxal Et
+    Export Playlists: Pleylistləri İxrac Et
+    Search history: Axtarış tarixçəsi
+    Import search history: Axtarış tarixçəsini idxal et
+    Export search history: Axtarış tarixçəsini ixrac et
+    Import Settings: Tənzimləmələri İdxal Et
+    Export Settings: Tənzimləmələri Köçür
+    Settings Tooltip: 'Əməliyyat sisteminə/istifadəçiyə xas olan və ya təcrübi tənzimləmələr ixrac və ya idxal edilə bilməz (məsələn: proksi, xarici oynadıcı, ekran görüntüsü qovluğu...)'
+    Profile object has insufficient data, skipping item: Profil obyektində kifayət qədər məlumat yoxdur, element ötürülür
+    All subscriptions and profiles have been successfully imported: Bütün abunəliklər və profillər uğurla idxal edildi
+    All subscriptions have been successfully imported: Bütün abunəliklər uğurla idxal edildi
+    Invalid subscriptions file: Etibarsız abunəlik faylı
+    Invalid history file: Etibarsız tarixçə faylı
+    Subscriptions have been successfully exported: Abunəliklər uğurla ixrac edildi
+    History object has insufficient data, skipping item: Tarixçə obyektində kifayət qədər məlumat yoxdur, element ötürülür
+    All watched history has been successfully imported: Bütün izlənilən tarixçə uğurla idxal edildi
+    All watched history has been successfully exported: Bütün izlənilən tarixçə uğurla ixrac edildi
+    Playlist insufficient data: '"{playlist}" pleylisti üçün məlumat kifayət deyil, element ötürülür'
+    All playlists has been successfully imported: Bütün pleylistlər uğurla idxal edildi
+    All playlists has been successfully exported: Bütün pleylistlər uğurla ixrac edildi
+    All search history has been successfully imported: Bütün axtarış tarixçəsi uğurla idxal edildi
+    All search history has been successfully exported: Bütün axtarış tarixçəsi uğurla ixrac edildi
+    All settings have been successfully imported: Bütün tənzimləmələr uğurla idxal edildi
+    All settings have been successfully exported: Bütün tənzimləmələr uğurla ixrac edildi
+    Unable to read file: Faylı oxumaq mümkün deyil
+    Unable to write file: Faylı yazmaq olmur
+    Unknown data key: Naməlum məlumat açarı
+    Setting object has insufficient data, skipping item: Tənzimləmə obyekti çatışmayan məlumat ehtiva edir, element ötürülür
+    Unknown setting key: 'Naməlum tənzimləmə açarı: {key}'
+    Non-transferable setting key: 'Köçürülə bilməyən tənzimləmə açarı: {key}'
+    How do I import my subscriptions?: Abunəliklərimi necə idxal edə bilərəm?
+    Manage Subscriptions: Abunəlikləri İdarə Et
+  Proxy Settings:
+    Proxy Settings: Proksi
+    Proxy Warning: FreeTube tərkibində daxili proksi yoxdur, lakin cihazınızda icra olunan Tor və ya bəzi VPN-lərin təqdim etdiyi SOCKS5 kimi xarici proksiyə qoşula bilir. Aktivdirsə, proksi/Tor tənzimləmələrinin doğruluğunu yoxlayın, əks halda FreeTube hər hansı məlumat əldə edə bilməyəcək.
+    Enable Tor / Proxy: Tor / Proksi-ni Aktivləşdir
+    Proxy Protocol: Proksi Protokolu
+    Proxy Host: Proksi Host
+    Proxy Port Number: Proksi Port Nömrəsi
+    Proxy Username: Proksi İstifadəçi Adı
+    Proxy Password: Proksi Parolu
+    Clicking on Test Proxy will send a request to: Proksini yoxla düyməsini kliklədikdə sorğu bu ünvana göndəriləcək
+    Test Proxy: Proksini Yoxla
+    Your Info: Məlumatınız
+    Ip: IP
+    Country: Ölkə
+    Region: Bölgə
+    City: Şəhər
+    Error getting network information. Is your proxy configured properly?: Şəbəkə məlumatı alınarkən xəta oldu. Proksiniz düzgün tənzimlənibmi?
+  Parental Control Settings:
+    Parental Control Settings: Valideyn Nəzarəti
+    Hide Unsubscribe Button: Abunə Olmayın Düyməsini Gizlət
+    Hide Uploader on Watch page: Yükləyicini İzləmə səhifəsində gizlət
+    Show Family Friendly Only: Yalnız Ailəvi Məzmunu Göstər
+    Hide Search Bar: Axtarış Cizgisini Gizlət
+    Disable Channel Links: Kanal Linklərini Qapat
+  Experimental Settings:
+    Experimental Settings: Təcrübi
+    Warning: Bu tənzimləmələr sınaq məqsədlidir, aktiv edildikdə çökmələrə yol aça bilər. Ehtiyat nüsxə çıxarmağınız şiddətlə tövsiyə edilir. Riski öz üzərinizə alaraq istifadə edin!
+    Replace HTTP Cache: HTTP Keşini Əvəzlə
+    Disable Hardware Acceleration: Cihaz Sürətləndirməsini Qapat
+  Password Dialog:
+    Password: Parol
+    Enter Password To Unlock: Tənzimləmələrin kilidini açmaq üçün parolu daxil et
+  Password Settings:
+    Password Settings: Parol
+    Set Password To Prevent Access: Tənzimləmələrə girişi məhdudlaşdırmaq üçün parol təyin et
+    Set Password: Parol Təyin Et
+    Remove Password: Parolu Sil
 Channel:
   Videos:
     Videos: Videolar
-  Playlists: {}
+    This channel does not currently have any videos: Bu kanalda hazırda heç bir video yoxdur
+    Sort Types:
+      Newest: Ən yeni
+      Oldest: Ən köhnə
+      Most Popular: Ən Məşhur
+  Playlists:
+    Playlists: Pleylistlər
+    This channel does not currently have any playlists: Bu kanalın hazırda heç bir pleylisti yoxdur
+    Sort Types:
+      Last Video Added: Son Əlavə Edilən Video
+      Newest: Ən yeni
+      Oldest: Ən köhnə
+  Subscribe: Abunə ol
+  Unsubscribe: Abunə olmayın
+  Channel has been removed from your subscriptions: Kanal abunəliklərinizdən silindi
+  Removed subscription from {count} other channel(s): Digər {count} kanal(lar)dan abunəlik silindi
+  Added channel to your subscriptions: Abunəliklərinizə kanal əlavə edildi
+  Search Channel: Kanalı Axtar
+  Your search results have returned 0 results: Axtarış nəticələriniz 0 nəticə verdi
+  This channel does not exist: Bu kanal mövcud deyil
+  This channel does not allow searching: Bu kanal axtarışa icazə vermir
+  This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal yaş məhdudiyyətlidir və hazırda FreeTube-da baxıla bilməz.
+  Channel Tabs: Kanal Cərgələri
+  View All: Hamısına Bax
+  Shorts:
+    This channel does not currently have any shorts: Bu kanalda hazırda heç bir Shorts yoxdur
+  Live:
+    Live: Canlı
+    This channel does not currently have any live streams: Bu kanalda hazırda canlı yayımlar yoxdur
+  Home:
+    Home: Əsas səhifə
+    View Playlist: Pleylistə Bax
+  Podcasts:
+    Podcasts: Podkastlar
+    This channel does not currently have any podcasts: Bu kanalda hazırda podkast yoxdur
+  Releases:
+    Releases: Buraxılışlar
+    This channel does not currently have any releases: Bu kanalın hazırda heç bir buraxılışı yoxdur
+  Courses:
+    Courses: Kurslar
+    This channel does not currently have any courses: Bu kanalda hazırda heç bir kurs yoxdur
+  About:
+    About: Haqqında
+    Channel Description: Kanal Açıqlaması
+    Tags:
+      Tags: Etiketlər
+      Search for: '"{tag}" üçün axtar'
+    Details: Təfərrüatlar
+    Joined: Qoşuldu
+    Location: Məkan
+    Featured Channels: Seçilmiş Kanallar
+  Posts:
+    This channel currently does not have any posts: Bu kanalda hazırda heç bir post yoxdur
+    votes: '{votes} səs'
+    View Full Post: Tam Posta Bax
+    Reveal Answers: Cavabları Göstərin
+    Hide Answers: Cavabları Gizlət
+    Video hidden by FreeTube: FreeTube tərəfindən gizlədilən video
 Video:
-  External Player: {}
-Tooltips: {}
+  External Player:
+    OpenInTemplate: '{externalPlayer}-də Aç'
+    video: video
+    playlist: pleylist
+    OpeningTemplate: '{externalPlayer}-də {videoOrPlaylist} Açılır...'
+    UnsupportedActionTemplate: '{externalPlayer} dəstəkləmir: {action}'
+    Unsupported Actions:
+      starting video at offset: Video göstərilən vaxtdan başladılır
+      setting a playback rate: oynatma sürətinin təyin edilməsi
+      opening playlists: pleylistləri açır
+      opening specific video in a playlist (falling back to opening the video): pleylistdəki müəyyən videonu açır (videonu açmağa qayıdır)
+      reversing playlists: pleylistləri tərs çevirir
+      shuffling playlists: pleylistləri qarışdırır
+      looping playlists: pleylistləri təkrarlayır
+  IP block: YouTube video izləməyinizə mane olmaq üçün IP ünvanınızı bloklayıb. Zəhmət olmasa, başqa VPN və ya proksiyə keçməyə cəhd edin.
+  MembersOnly: Şəxsi üzvlük videoları Google ilə daxil olmağı və kanal sahibinə üzvlük ödənişi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
+  AgeRestricted: Yaş məhdudiyyəti olan videolar Google ilə daxil olmağı və yaşı təsdiqlənmiş YouTube hesabın istifadə etməyi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
+  DRMProtected: DRM ilə qorunan videolar xüsusi, qapalı mənbəli komponentlər tələb etdiyindən FreeTube vasitəsilə oynadıla bilmir. Əgər bu videoya baxmaq istəyirsinizsə, xahiş olunur DRM aktivləşdirilmiş veb brauzerdə rəsmi YouTube veb saytın istifadə edəsiniz.
+  Private: Şəxsi videolar Google ilə daxil olmağı və videonun mülkiyyət hüququnu tələb etdiyi üçün FreeTube-da izlənilə bilməz.
+  More Options: Daha Çox Seçim
+  Mark As Watched: İzlənmiş Kimi İşarələ
+  Remove From History: Tarixçədən Sil
+  Video has been marked as watched: Video baxılmış kimi işarələndi
+  Video has been removed from your history: Video tarixçənizdən silindi
+  Save Watched Progress: İzlənilən Gedişatı Saxla
+  Watched Progress Saved: İzlənilən Gedişat Saxlanıldı
+  Save Video: Videonu Saxla
+  Video has been saved: Video saxlanıldı
+  Video has been removed from your saved list: Video saxlanılan siyahınızdan silindi
+  Open in YouTube: YouTube-da Aç
+  Copy YouTube Link: YouTube Linkini Köçür
+  Open YouTube Embedded Player: YouTube Daxili Oynadıcını Aç
+  Copy YouTube Embedded Player Link: YouTube Daxili Oynadıcı Linkini Köçür
+  Open in Invidious: Invidious-da Aç
+  Copy Invidious Link: Invidious Linkini Köçür
+  Open Channel in YouTube: YouTube-da Kanalı Aç
+  Copy YouTube Channel Link: YouTube Kanal Linkini Köçür
+  Open Channel in Invidious: Invidious-da Kanalı Aç
+  Copy Invidious Channel Link: Invidious Kanal Linkini Köçür
+  Hide Channel: Kanalı Gizlət
+  Unhide Channel: Kanalı Göstər
+  Views: Baxış
+  Loop Playlist: Pleylisti Təkrarla
+  Shuffle Playlist: Pleylisti Qarışdır
+  Reverse Playlist: Pleylisti Tərsinə Çevir
+  Collapse Playlist: Pleylisti Yığcamlaşdır
+  Expand Playlist: Pleylisti Genişləndir
+  Previous: Əvvəlki
+  Next: Növbəti
+  Watched: İzlənildi
+  Autoplay: Avtomatik Oynat
+  Starting soon, please refresh the page to check again: Tezliklə başlayacaq, xahiş olunur, təkrar yoxlamaq üçün səhifəni yenilə
+  Premieres: Premyeralar
+  Upcoming: Yaxınlaşan
+  Unlisted: Siyahıda olmayan
+  Station: Stansiya
+  Live: Canlı
+  Live Now: İndi Canlı
+  Live Chat: Canlı Söhbət
+  Enable Live Chat: Canlı Söhbəti Aktivləşdir
+  Popout Live Chat: Açılan Söhbət
+  Live Chat is currently not supported in this build.: Canlı Söhbət hazırda bu quruluşda dəstəklənmir.
+  Live chat is enabled. Chat messages will appear here once sent.: Canlı söhbət aktivdir.  Söhbət mesajları göndərildikdən sonra burada görünəcək.
+  'Live Chat is currently not supported with the Invidious API. A direct connection to YouTube is required.': Canlı Söhbət hazırda Invidious API ilə dəstəklənmir.  YouTube-a birbaşa bağlantı tələb olunur.
+  'Live Chat is unavailable for this stream. It may have been disabled by the uploader.': Canlı Söhbət bu yayım üçün əlçatmazdır. Yükləyən tərəfindən qapadılmış ola bilər.
+  Show Super Chat Comment: Super Söhbət Şərhini Göstər
+  Scroll to Bottom: Aşağıya Sürüşdür
+  Published:
+    In less than a minute: Bir dəqiqədən az müddətdə
+  Published on: Dərc olunub
+  Streamed on: Yayımlandı
+  Started streaming on: Yayım başladı
+  DeArrow:
+    Show Original Details: Orijinal Təfərrüatları Göstər
+    Show Modified Details: Dəyişdirilmiş Təfərrüatları Göstər
+  Sponsor Block category:
+    sponsor: Sponsor
+    intro: Giriş
+    outro: Çıxış
+    self-promotion: Öz Reklamı
+    interaction: Qarşılıqlı əlaqə
+    music offtopic: Kənar Musiqi
+    recap: Ön baxış
+    filler: Əlaqəsiz
+  Player:
+    TranslatedCaptionTemplate: '{language} ({originalLanguage} dilindən tərcümə olunub)'
+    Audio Tracks: Səs Parçaları
+    Autoplay is off: Avtomatik oynatma qapalıdır
+    Autoplay is on: Avtomatik oynatma aktivdir
+    Theatre Mode: Teatr Rejimi
+    Exit Theatre Mode: Teatr Rejimindən Çıx
+    Full Window: Tam Pəncərə
+    Exit Full Window: Tam Pəncərədən Çıx
+    Take Screenshot: Ekran Görüntüsünü Çək
+    Show Stats: Statistikaları Göstər
+    Hide Stats: Statistikaları Gizlət
+    Stats:
+      Stats: Statistika
+      Video ID: 'Video ID: {videoId}'
+      Media Formats: 'Media Formatları: {formats}'
+      Resolution: "Ayırdetmə: {width}x{height}{'@'}{frameRate}"
+      Player Dimensions: 'Oynadıcı Ölçüləri: {width}x{height}'
+      Bitrate: 'Bit Sürəti: {bitrate} kbps'
+      Volume: 'Səs səviyyəsi: {volumePercentage}%'
+      Bandwidth: 'Bant genişliyi: {bandwidth} kbps'
+      Buffered: 'Buferlənib: {bufferedPercentage}%'
+      Dropped Frames / Total Frames: 'İtirilmiş Kadrlar: {droppedFrames} / Ümumi Kadrlar: {totalFrames}'
+      CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
+      CodecsVideoAudio: 'Kodeklər: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
+      CodecsVideoAudioNoItags: 'Kodeklər: {videoCodec} / {audioCodec}'
+    You appear to be offline: Görünür, oflaynsınız.
+    Playback will resume automatically when your connection comes back: Bağlantınız bərpa edildikdə oynatma avtomatik olaraq davam edəcək.
+    Skipped segment: '{segmentCategory} bölümü ötürüldü'
+  Watch:
+    'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Video öncəsi reklamın qalan vaxtı: {remindingTimeSeconds} s'
+    'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Qalan SABR gecikmə vaxtı: {remindingTimeSeconds}s'
+  Playlist:
+    Unavailable videos are hidden: 1 əlçatmaz video gizlədilib | {count} əlçatmaz video gizlədilib
+Tooltips:
+  General Settings:
+    Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
+    Fallback to Non-Preferred Backend on Failure: Üstünlük verdiyiniz API-də problem yarandıqda, aktiv edilibsə FreeTube avtomatik olaraq ehtiyat üsul kimi digər API-ni istifadə etməyə cəhd edəcək.
+    Thumbnail Preference: FreeTube üzrə bütün miniatürlər standart miniatür əvəzinə videodan bir kadrla əvəz olunacaq, bulanıqlaşdırılacaq və ya gizlədiləcək.
+    Invidious Instance: FreeTube-un API sorğuları üçün qoşulacağı Invidious serveri. Bu serveri standart olaraq təyin etməsəniz, bu seçim üçün dəyişikliklər yalnız cari pəncərəyə tətbiq olunacaq.
+    Region for Trending: Trendlər bölgəsi baxmaq istədiyiniz trend videoların hansı ölkəyə aid olacağını seçməyə sizə imkan verir.
+    External Link Handling: |
+      FreeTube-da açıla bilməyən linkə kliklədikdə standart davranışı seçin.
+      İlkin olaraq, FreeTube kliklədiyiniz linki standart brauzerinizdə açacaq.
+    Open Deep Links In New Window: Brauzer yönləndirmə əlavələri və ya əmr xətti arqumentləri ilə FreeTube-a ötürülən URL-lər yeni pəncərədə açılır.
+  Player Settings:
+    Proxy Videos Through Invidious: Videoları YouTube-a birbaşa qoşulmaq əvəzinə təqdim etmək üçün Invidious-a qoşulacaq.
+    Default Video Format: Video oynadılarkən istifadə olunan formatları təyin et. DASH formatları daha yüksək keyfiyyətdə oynadıla bilir. Köhnə formatlar maksimum 360p ilə məhdudlaşır, lakin daha az şəbəkə trafiki istifadə edir. Səs formatları isə yalnız səsdən ibarət yayımlardır.
+    Scroll Playback Rate Over Video Player: Kursor videonun üzərindəykən, oynatma sürətini tənzimləmək üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçan çarxını irəli və ya geriyə sürüşdürün. İlkin oynatma sürətinə (tənzimləmələrdə dəyişdirilməyibsə, 1x) cəld qayıtmaq üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçanın sol düyməsini klikləyin.
+    Skip by Scrolling Over Video Player: MPV üslubundakı kimi, videoda ötürmək üçün siçan çarxın istifadə et.
+  External Player Settings:
+    External Player: 'Xarici oynadıcı seçildikdə, videonu (dəstəklənirsə, pleylisti) xarici oynadıcıda açmaq üçün miniatür üzərində nişan göstəriləcək. Xəbərdarlıq: Invidious tənzimləmələri xarici oynadıcılara şamil olunmur.'
+    Custom External Player Executable: İlkin olaraq FreeTube seçilmiş xarici oynadıcının PATH mühit dəyişəni vasitəsilə tapıla biləcəyini fərz edir. Ehtiyac olarsa, burada fərdi yol təyin edilə bilər.
+    Ignore Warnings: Cari xarici oynadıcı mövcud fəaliyyəti (məsələn, pleylisti tərsinə çevirmək və s.) dəstəkləmədikdə xəbərdarlıqları gizlət.
+    Ignore Default Arguments: Video URL-indən başqa xarici oynadıcıya heç bir standart arqument (məsələn, oynatma sürəti, pleylist URL-si və s.) göndərməyin. Fərdi arqumentlər yenə də ötürüləcək.
+    Custom External Player Arguments: Xarici oynadıcıya ötürülməsini istədiyiniz istənilən fərdi əmr xətti arqumentləri.
+    DefaultCustomArgumentsTemplate: "(İlkin: '{defaultCustomArguments}')"
+  Distraction Free Settings:
+    Hide Channels: Kanalın bütün videolarını, pleylistlərini və kanalın özünü axtarış, trendlər, ən məşhur və tövsiyə olunan bölmələrdə gizlətmək üçün kanal ID-sini daxil edin. Daxil edilən kanal ID-si tam uyğun olmalı və böyük-kiçik hərflərə həssas olmalıdır.
+    Hide Subscriptions Live: Bu tənzimləmə "{settingsSection}" bölməsinin "{subsection}" alt bölməsindəki tətbiqmiqyaslı "{appWideSetting}" tənzimləməsi tərəfindən əvəzlənir
+    Hide Videos, Playlists and Channels Containing Text: Tarixçə, Pleylistləriniz və pleylistləriniz daxilindəki videolar istisna olmaqla, FreeTube üzrə orijinal başlığında həmin ifadə keçən bütün videoları, pleylistləri və kanalları gizlətmək üçün bir söz, söz hissəciyi və ya ifadə (böyük-kiçik hərfə həssas deyil) daxil edin.
+    Hide Videos on Watch: Baxılmış videoları Abunəlik və Kanal səhifələrindəki Videolar, Shorts və Canlı panellərindən gizlədir. Bu, Kanal səhifələrindəki Əsas səhifə bölməsinə təsir etmir
+  Subscription Settings:
+    Fetch Feeds from RSS: Aktiv edildikdə, FreeTube abunəlik lentinizi əldə etmək üçün standart üsul əvəzinə RSS istifadə edəcək. RSS daha sürətlidir və IP bloklanmasının qarşısını alır, lakin video müddəti, canlı yayım statusu və ya postlar kimi müəyyən məlumatları təmin etmir
+    Fetch Automatically: Aktiv edildikdə, FreeTube başlanğıcda və yeni pəncərə açıldıqda abunəlik lentinizi avtomatik əldə edəcək.
+  Experimental Settings:
+    Replace HTTP Cache: Electron-un disklə işləyən HTTP keşini qapadır və fərdi yaddaş içi təsvir keşini aktivləşdirir. RAM istifadəsinin artmasına səbəb olacaq.
+    Disable Hardware Acceleration: GPU aparat sürətləndirməsini qapadır. Qrafik problemləri düzəldə bilər, lakin çox güman ki, məhsuldarlığı aşağı salacaq.
+  SponsorBlock Settings:
+    UseDeArrowTitles: Video başlıqlarını DeArrow-dan istifadəçinin təqdim etdiyi başlıqlarla əvəzlə.
+    UseDeArrowThumbnails: Video miniatürlərini DeArrow-dan olan miniatürlərlə əvəzlə.
 New Window: Yeni Pəncərə
 Preferences: Seçimlər
 Global:
@@ -526,6 +845,7 @@ Global:
     Channel Count: 1 kanal | {count} kanal
     Like Count: 1 bəyənmə | {count} bəyənmə
     Comment Count: 1 şərh | {count} şərh
+    Replies Remaining: "{' '}(1 qaldı) | {' '}({count} qaldı)"
   Videos: Videolar
   Live: Canlı
   Posts: Elanlar
@@ -568,7 +888,240 @@ KeyboardShortcutPrompt:
   Zoom Out: Uzaqlaşdır
   Zoom In: Yaxınlaşdır
   Fullscreen: Tam ekrana keçir
+  Keyboard Shortcuts: Klaviatura Qısayolları
+  Sections:
+    Video:
+      Playback: 'Video: Oynatma'
+      General: 'Video: Ümumi'
+    App:
+      Situational: 'Tətbiq: Vəziyyətə uyğun'
+      General: 'Tətbiq: Ümumi'
+  Show Keyboard Shortcuts: Klaviatura qısayollarını göstər
+  History Backward: Bir səhifə geri çevir
+  History Forward: Bir səhifə irəli get
+  New Window: Yeni pəncərə yarat
+  Navigate to Settings: Tənzimləmələr səhifəsinə keç
+  Navigate to History: Tarixçə səhifəsinə keç
+  Refresh: Ən son məzmunla lenti yenilə
+  Focus Secondary Search: İkinci dərəcəli axtarış cizgisinə fokuslan (varsa)
+  Captions: Subtitrləri Aç/Bağla
+  Stats: Video statistikasını göstər
+  Picture in Picture: Şəkil içində şəkil rejimini Aç/Bağla
+  Large Rewind: 10 saniyə geri çək / Cari Video Oynatma Sürətinə əsasən videonu geri çək
+  Play: Oynatma/Fasilə Vermə Aç/Bağla
+  Large Fast Forward: 10 saniyə irəli çək / Cari Video Oynatma Sürətinə əsasən videonu irəli çək
+  Mute: Səsi bağla/aç
+  Decrease Video Speed: Videonun Oynatma Sürəti Aralığına əsasən video sürətini azalt
+  Increase Video Speed: Videonun Oynatma Sürəti Aralığına əsasən video sürətini artır
+  Full Window: Tam pəncərəni aç/bağla
+  Theatre Mode: Teatr rejimini aç/bağla
+  Take Screenshot: Ekran görüntüsünü çək
+  Minimize Window: Pəncərəni kiçilt
+  Close Window: Pəncərəni bağla
+  Reset Zoom: Böyütmə səviyyəsini / UI miqyasını sıfırla
+  Focus Search: Axtarış cizgisinə fokuslan
+  Search in New Window: Yeni pəncərədə axtar
+  Last Frame: Əvvəlki kadr (fasilə verilərkən)
+  Next Frame: Növbəti kadr (fasilə verilərkən)
+  Volume Up: Səs səviyyəsini artır
+  Volume Down: Səs səviyyəsini azalt
+  Small Rewind: Geri Çəkmə Aralığına və cari Video Oynatma Sürətinə əsasən X saniyə geri çək
+  Small Fast Forward: İrəli Çəkmə Aralığına və cari Video Oynatma Sürətinə əsasən X saniyə irəli çək
+  Last Chapter: Sonuncu Bölüm
+  Next Chapter: Növbəti Bölüm
+  Skip by Tenths: Videonu faizlə ötür (3 addımla müddətin 30%-nə ötürür)
+  Home: Videonun əvvəlinə keç
+  End: Videonun sonuna keç
+  Skip to Next Video: Pleylistdəki növbəti videoya və ya tövsiyə olunan növbəti videoya ötür
+  Skip to Previous Video: Pleylistdəki əvvəlki videoya ötür
 Profile:
   Select All: Hamısını Seç
+  Profile Settings: Profil
+  Toggle Profile List: Profil Siyahısını Dəyişdir
+  Profile Select: Profil Seçimi
+  Profile Filter: Profil Filtri
+  All Channels: Bütün Kanallar
+  Profile Manager: Profil İdarəedici
+  Create New Profile: Yeni Profil Yarat
+  Edit Profile: Profilə Düzəliş Et
+  Edit Profile Name: Profil Adına Düzəliş Et
+  Create Profile Name: Profil Adı Yarat
+  Profile Name: Profil Adı
+  Color Picker: Rəng Seçici
+  Custom Color: Fərdi Rəng
+  Profile Preview: Profil Önizləməsi
+  Create Profile: Profil Yarat
+  Update Profile: Profili Yenilə
+  Make Default Profile: İlkin Profil Hazırla
+  Delete Profile: Profili Sil
+  Are you sure you want to delete this profile?: Bu profili silmək istədiyinizə əminsiniz?
+  All subscriptions will also be deleted.: Bütün abunəliklər də silinəcək.
+  Your profile name cannot be empty: Profil adınız boş ola bilməz
+  Profile has been created: Profil yaradıldı
+  Profile has been updated: Profil yeniləndi
+  Your default profile has been set to {profile}: İlkin profiliniz {profile} olaraq təyin edilib
+  Removed {profile} from your profiles: Profillərinizdən {profile} silindi
+  Your default profile has been changed to your primary profile: Standart profiliniz əsas profilinizə dəyişdirildi
+  '{profile} is now the active profile': '{profile} artıq aktiv profildir'
+  Subscription List: Abunəlik Siyahısı
+  Other Channels: Digər Kanallar
+  '{number} selected': '{number} seçildi'
+  Select None: Heç Birini Seçmə
+  Delete Selected: Seçilmişləri Sil
+  Add Selected To Profile: Seçilmişləri Profilə Əlavə Et
+  No channel(s) have been selected: Heç bir kanal seçilməyib
+  ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
+  : Bu, sizin əsas profilinizdir.  Seçilmiş kanalları silmək istədiyinizə əminsiniz?  Eyni kanallar tapıldıqları bütün profillərdən silinəcək.
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Seçilmiş kanalları silmək istədiyinizə əminsiniz?  Bu kanalı digər profildən silməyəcək.
+  Close Profile Dropdown: Profil Açılan Menyusunu Bağla
+  Open Profile Dropdown: Profil Açılan Menyusunu Aç
+  Go To Profile Manager: Profil İdarəediciyə Keç
 Compact side navigation: Yığcam yan naviqasiya
 Expand side navigation: Yan paneli genişləndir
+About:
+  About: Haqqında
+  Beta: Sınaq
+  Source code: Mənbə kodu
+  Licensed under the {licenseLink}: '{licenseLink} lisenziyasına əsasən lisenziyalaşdırılıb'
+  AGPLv3: AGPLv3
+  Downloads / Changelog: Yükləmələr / Dəyişiklik Jurnalı
+  GitHub releases: GitHub Buraxılışları
+  Help: Kömək
+  FreeTube Wiki: FreeTube Wiki
+  FAQ: FAQ
+  Discussions: Müzakirələr
+  Report a problem: Problemi bildir
+  GitHub issues: GitHub problemləri
+  Please check for duplicates before posting: Xahiş olunur, göndərməzdən əvvəl dublikatları yoxlayın
+  Website: Veb sayt
+  Mastodon: Mastodon
+  Chat on Matrix: Matrix-də Söhbət Et
+  Please read the {roomRulesLink}: Zəhmət olmasa, {roomRulesLink}-i oxuyun
+  room rules: otaq qaydaları
+  Translate: Tərcümə et
+  Credits: Müəlliflər
+  FreeTube is made possible by {creditsPageLink}: FreeTube {creditsPageLink} dəstəyi ilə yaradılmışdır
+  these people and projects: bu şəxslər və layihələr
+  Donate: İanə et
+Keys:
+  ctrl: Ctrl
+  shift: Shift
+  enter: Enter
+  plus: Plus
+  alt: Alt
+  arrowdown: Aşağı Ox
+  arrowleft: Sol Ox
+  arrowright: Sağ Ox
+  arrowup: Yuxarı Ox
+Playlist:
+  Playlist: Pleylist
+  View Full Playlist: Tam Pleylistə Bax
+  Last Updated On: Son Yenilənmə Tarixi
+  Sort By:
+    DateAddedNewest: Əlavə olunma tarixi (Ən yeni)
+    DateAddedOldest: Əlavə olunma tarixi (Ən köhnə)
+    PublishedNewest: Dərc olunma tarixi (Ən yeni)
+    PublishedOldest: Dərc olunma tarixi (Ən köhnə)
+    AuthorAscending: Müəllif (A-Z)
+    AuthorDescending: Müəllif (Z-A)
+    VideoTitleAscending: Başlıq (A-Z)
+    VideoTitleDescending: Başlıq (Z-A)
+    VideoDurationAscending: Müddət (Ən qısa)
+    VideoDurationDescending: Müddət (Ən uzun)
+    Custom: Fərdi
+  Unavailable videos are hidden: Əlçatmaz videolar gizlədilib
+Change Format:
+  Change Media Formats: Media Formatlarını Dəyişdir
+  Use Dash Formats: DASH Formatların İstifadə Et
+  Use Legacy Formats: Köhnə Formatları İstifadə Et
+  Use Audio Formats: Səs Formatların İstifadə Et
+  Dash formats are not available for this video: DASH formatları bu video üçün mövcud deyil
+  Audio formats are not available for this video: Səs formatları bu video üçün mövcud deyil
+  Legacy formats are not available for this video: Köhnə formatlar bu video üçün mövcud deyil
+Share:
+  Share Video: Videonu Paylaş
+  Share Post: Postu Paylaş
+  Share Channel: Kanalı Paylaş
+  Share Playlist: Pleylisti Paylaş
+  Include Timestamp: Vaxt Göstəricisini Daxil Et
+  Copy Link: Linki Köçür
+  Open Link: Linki Aç
+  Copy Embed: Yerləşdirmə Kodunu Köçür
+  Open Embed: Yerləşdirmə Pəncərəsini Aç
+  Invidious URL copied to clipboard: Invidious URL buferə köçürüldü
+  Invidious Embed URL copied to clipboard: Invidious Yerləşdirmə URL-si buferə köçürüldü
+  Invidious Channel URL copied to clipboard: Invidious Kanal URL-si buferə köçürüldü
+  YouTube URL copied to clipboard: YouTube URL-si buferə köçürüldü
+  YouTube Embed URL copied to clipboard: YouTube Yerləşdirmə URL-si buferə köçürüldü
+  YouTube Channel URL copied to clipboard: YouTube Kanal URL-si buferə köçürüldü
+Clipboard:
+  Copy failed: Buferə köçürmə uğursuz oldu
+  Cannot access clipboard without a secure connection: Təhlükəsiz bağlantı olmadan buferə daxil olmaq olmur
+Chapters:
+  Chapters: Bölümlər
+  Key Moments: Əsas Məqamlar
+Mini Player: Kiçik Oynadıcı
+Comments:
+  Comments: Şərhlər
+  Click to View Comments: Şərhləri Görmək Üçün Kliklə
+  There are no more comments for this video: Bu video üçün başqa şərh yoxdur
+  Hide Comments: Şərhləri Gizlət
+  Top comments: Ən yaxşı şərhlər
+  Newest first: Əvvəlcə Ən Yeni
+  View {replyCount} replies: 1 cavabı göstər | {replyCount} cavabı göstər
+  Hide Replies: Cavabı gizlət | Cavabları gizlət
+  Loading replies: Cavablar yüklənilir...
+  View 1 reply from {channelName}: '{channelName} kanalından 1 cavaba bax'
+  View {replyCount} replies from {channelName} and others: '{channelName} və digərlərindən {replyCount} cavaba bax'
+  Show More Replies: Daha çox cavab göstər
+  There are no comments available for this video: Bu video üçün şərh yoxdur
+  There are no comments available for this post: Bu post üçün şərh yoxdur
+  Load More Comments: Daha Çox Şərh Yüklə
+  Pinned by: Sabitləyən
+  Member: Üzv
+  Subscribed: Abunə olundu
+  Hearted: Bəyənildi
+  Comments are turned off: Şərhlər qapalıdır
+Up Next: Növbəti
+Description:
+  Expand Description: '...ətraflı'
+  Collapse Description: Daha az göstər
+Local API Error (Click to copy): Yerli API Xətası (Köçürmək üçün kliklə)
+Invidious API Error (Click to copy): Invidious API Xətası (Köçürmək üçün kliklə)
+Falling back to Invidious API: Invidious API-ə keçid edilir
+Falling back to Local API: Yerli API-yə keçid edilir
+This video is unavailable because of missing formats. This can happen due to country unavailability.: Bu video formatların olmaması səbəbindən əlçatmazdır. Bu, ölkə əlçatmaz olduğu üçün baş verə bilər.
+Unknown YouTube url type, cannot be opened in app: Bilinməyən YouTube url növü, tətbiqdə açıla bilməz
+Loop is now disabled: Təkrarlanma artıq bağlıdır
+Loop is now enabled: Təkrarlanma artıq aktivdir
+Shuffle is now disabled: Qarışdırma artıq bağlıdır
+Shuffle is now enabled: Qarışdırma artıq aktivdir
+The playlist has been reversed: Pleylist tərsinə çevrildi
+Playing Next Video: Növbəti Videonu Oynadır
+Playing Previous Video: Əvvəlki Videonu Oynadır
+Playing Next Video Interval: Növbəti videonu dərhal oynadır. Ləğv etmək üçün klikləyin. | Növbəti videonu {nextVideoInterval} saniyədə oynadır. Ləğv etmək üçün klikləyin. | Növbəti videonu {nextVideoInterval} saniyədə oynadır. Ləğv etmək üçün klikləyin.
+Canceled next video autoplay: Növbəti videonun avtomatik oynadılması ləğv edildi
+Autoplay Interruption Timer: '{autoplayInterruptionIntervalHours} saat fəaliyyətsizlik səbəbi ilə avtomatik oynatma ləğv edildi'
+Default Invidious instance has been set to {instance}: İlkin Invidious serveri {instance} olaraq təyin edildi
+Default Invidious instance has been cleared: İlkin Invidious serveri silindi
+'The playlist has ended. Enable loop to continue playing': Pleylist bitdi.  Oynatmağa davam etmək üçün təkrarlanmanı aktivləşdir
+Age Restricted:
+  This channel is age restricted: Bu kanal yaş məhdudiyyətlidir
+  This video is age restricted: Bu video yaş məhdudiyyətlidir
+External link opening has been disabled in the general settings: Xarici linkin açılması ümumi tənzimləmələrdə qapadılıb
+Screenshot Success: Ekran görüntüsü saxlanıldı
+Screenshot Clipboard Success: Ekran görüntüsünü buferə köçürdü
+Screenshot Error: Ekran görüntüsü alınmadı. {error}
+Screenshot Clipboard Error: Ekran görüntüsü buferə köçürülmədi
+Channel Hidden: '{channel} kanal filtrinə əlavə edildi'
+Channel Unhidden: '{channel} kanal filtrindən silindi'
+Trimmed input must be at least N characters long: Kəsilmiş giriş ən azı 1 simvol uzunluğunda olmalıdır | Kəsilmiş giriş ən azı {length} simvol uzunluğunda olmalıdır
+Tag already exists: '"{tagName}" etiketi artıq var'
+Hashtag:
+  Hashtag: Hashtag
+  This hashtag does not currently have any videos: Bu hashtag-də hazırda heç bir video yoxdur
+Moments Ago: bir az əvvəl
+Yes, Open Link: Bəli, Linki Aç
+KeyboardShortcutTemplate: '{label} ({shortcut})'
+shortcutJoinOperator: +
+shortcutLabelSeparator: ｜
