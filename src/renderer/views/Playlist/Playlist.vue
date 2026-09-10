@@ -496,6 +496,7 @@ function resetState() {
   showUnavailableVideosAlert.value = false
   playlistItems.value = []
   continuationData.value = null
+  updatePageTitle()
 }
 
 async function getPlaylistLocal() {
@@ -560,6 +561,7 @@ async function getPlaylistLocal() {
       console.warn('Falling back to Invidious API')
       getPlaylistInvidious()
     } else {
+      updatePageTitle()
       isLoading.value = false
     }
   }
@@ -600,6 +602,7 @@ async function getPlaylistInvidious() {
       console.warn('Error getting data with Invidious, falling back to local backend')
       getPlaylistLocal()
     } else {
+      updatePageTitle()
       isLoading.value = false
       // TODO: Show toast with error message
     }
