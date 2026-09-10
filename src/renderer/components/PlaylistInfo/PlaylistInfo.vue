@@ -164,14 +164,14 @@
               theme="secondary"
               @click="enterEditMode"
             />
-            <FtIconButton
-              v-if="videoCount > 0 && showPlaylists"
-              :title="$t('User Playlists.Copy Playlist')"
-              :icon="['fas', 'copy']"
-              theme="secondary"
-              @click="toggleCopyVideosPrompt"
-            />
           </template>
+          <FtIconButton
+            v-if="videoCount > 0 && showPlaylists && !editMode"
+            :title="$t('User Playlists.Copy Playlist')"
+            :icon="['fas', 'copy']"
+            theme="secondary"
+            @click="toggleCopyVideosPrompt"
+          />
           <FtIconButton
             v-if="exportPlaylistButtonVisible"
             :title="$t('User Playlists.Export Playlist')"
