@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: Ocultar a guia “Cursos” do canal
     Hide Subscriptions Posts: Ocultar inscrições na guia de postagens
     Hide Channel Posts: Ocultar a guia "Posts" do canal
+    Add: Adicionar
+    Remove: Remover
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -616,6 +618,7 @@ Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta e risco!
     Replace HTTP Cache: Repor cache HTTP
+    Disable Hardware Acceleration: Desativar aceleração de hardware
   Password Settings:
     Password Settings: Senha
     Set Password: Definir senha
@@ -678,7 +681,7 @@ Channel:
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais em destaque'
     Tags:
-      Search for: Procurar por “{tag}”
+      Search for: Buscar por “{tag}”
       Tags: Tags
     Details: Detalhes
     Location: Localização
@@ -835,6 +838,9 @@ Video:
   Private: Vídeos privados não podem ser assistidos no FreeTube, pois exigem login do Google e propriedade do vídeo.
   Collapse Playlist: Recolher playlist
   Expand Playlist: Expandir playlist
+  Station: Estação
+  Playlist:
+    Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
@@ -856,6 +862,7 @@ Playlist:
     VideoDurationDescending: Duração (a mais longa)
     PublishedOldest: Data de publicação (mais antiga)
     PublishedNewest: Data de publicação (mais recente)
+  Unavailable videos are hidden: Vídeos indisponíveis estão ocultos
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -963,6 +970,7 @@ Profile:
   Create Profile Name: Criar nome de perfil
   Open Profile Dropdown: Abrir menu de perfis
   Close Profile Dropdown: Fechar menu de perfis
+  Go To Profile Manager: Acessar Gerenciador de Perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível! Clique para mais detalhes
 Download From Site: Faça o download no site
 The playlist has been reversed: A playlist foi invertida
@@ -993,6 +1001,7 @@ Tooltips:
     Ignore Default Arguments: Não envie nenhum argumento padrão ao player externo além do URL do vídeo (por exemplo, taxa de reprodução, URL da playlist, etc.). Argumentos personalizados ainda serão transmitidos.
   Experimental Settings:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
+    Disable Hardware Acceleration: Desativa a aceleração de hardware da GPU. Pode corrigir problemas gráficos, mas provavelmente resultará em desempenho inferior.
   Distraction Free Settings:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, em alta, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
@@ -1010,6 +1019,8 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
 Search Bar:
   Clear Input: Excluir texto
   Remove: Remover
+  Open Search Container: Abrir contêiner de buscas
+  Search: Buscar
 External link opening has been disabled in the general settings: Abrir links externos está desabilitado nas configurações gerais
 Are you sure you want to open this link?: Tem certeza de que deseja abrir este link?
 New Window: Nova janela

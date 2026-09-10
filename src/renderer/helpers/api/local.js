@@ -1654,6 +1654,11 @@ export function parseLocalListVideo(item, channelId, channelName) {
     /** @type {import('youtubei.js').YTNodes.GridVideo} */
     const video = item
 
+    // This can happen for unavailable clip on channel home page
+    if (!video.video_id) {
+      return null
+    }
+
     let publishedText
 
     if (video.published != null && !video.published.isEmpty()) {
@@ -1906,7 +1911,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
 
       // I think this is only used for stations at the moment
       if (author == null) {
-        author = lockupView.metadata?.metadata?.metadata_rows[0].metadata_parts?.[0].avatar_stack.text?.text
+        author = lockupView.metadata?.metadata?.metadata_rows?.[0]?.metadata_parts?.[0]?.avatar_stack?.text?.text
       }
 
       return {
