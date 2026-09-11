@@ -767,6 +767,8 @@ export function getTodayDateStrLocalTimezone() {
 // In those cases, force the use of the locale fallback.
 // See https://issues.chromium.org/issues/396060189
 const LOCALES_REQUIRING_FALLBACK = ['az']
+const FALLBACK_LOCALE = 'en'
+const FALLBACK_LOCALES = [FALLBACK_LOCALE]
 
 /**
  *
@@ -825,10 +827,10 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     timeUnit = 'year'
   }
 
-  const LOCALE_FALLBACK = 'en'
-  const locales = LOCALES_REQUIRING_FALLBACK.includes(i18n.global.locale.value)
-    ? [LOCALE_FALLBACK]
-    : [i18n.global.locale.value, LOCALE_FALLBACK]
+  const currentLocale = i18n.global.locale.value
+  const locales = LOCALES_REQUIRING_FALLBACK.includes(currentLocale)
+    ? FALLBACK_LOCALES
+    : [currentLocale, FALLBACK_LOCALE]
 
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
