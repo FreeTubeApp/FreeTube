@@ -766,8 +766,8 @@ export function getTodayDateStrLocalTimezone() {
 // This results in "-1 d" being returned instead of "1 day ago".
 // In those cases, force the use of the locale fallback.
 // See https://issues.chromium.org/issues/396060189
-const LOCALES_REQUIRING_FALLBACK = ['az']
-const FALLBACK_LOCALE = 'en'
+export const LOCALES_REQUIRING_FALLBACK = ['az']
+export const FALLBACK_LOCALE = 'en'
 
 /**
  *
