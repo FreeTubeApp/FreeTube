@@ -768,7 +768,6 @@ export function getTodayDateStrLocalTimezone() {
 // See https://issues.chromium.org/issues/396060189
 const LOCALES_REQUIRING_FALLBACK = ['az']
 const FALLBACK_LOCALE = 'en'
-const FALLBACK_LOCALES = [FALLBACK_LOCALE]
 
 /**
  *
@@ -829,7 +828,7 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
 
   const currentLocale = i18n.global.locale.value
   const locales = LOCALES_REQUIRING_FALLBACK.includes(currentLocale)
-    ? FALLBACK_LOCALES
+    ? [FALLBACK_LOCALE]
     : [currentLocale, FALLBACK_LOCALE]
 
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
