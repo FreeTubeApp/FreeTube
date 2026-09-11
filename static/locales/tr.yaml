@@ -962,6 +962,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
   Loading replies: Yanıtlar yükleniyor...
   Hide Replies: Yanıtı gizle | Yanıtları gizle
+  Comments are turned off: Yorumlar kapalı
 Up Next: 'Sonraki'
 
 # Toast Messages
