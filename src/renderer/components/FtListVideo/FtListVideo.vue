@@ -497,6 +497,12 @@ const progressPercentage = computed(() => {
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
+
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
   // User playlist ID should not be shared
@@ -606,24 +612,46 @@ const dropdownOptions = computed(() => {
     }
   }
 
-  if (channelId.value !== null && !inSubscriptions.value) {
-    const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+  if (channelId.value !== null) {
+    if (!inSubscriptions.value) {
+      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      {
-        type: 'divider'
-      },
+      options.push(
+        {
+          type: 'divider'
+        },
 
-      channelShouldBeHidden
-        ? {
-            label: t('Video.Unhide Channel'),
-            value: 'unhideChannel'
-          }
-        : {
-            label: t('Video.Hide Channel'),
-            value: 'hideChannel'
-          }
-    )
+        channelShouldBeHidden
+          ? {
+              label: t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            }
+          : {
+              label: t('Video.Hide Channel'),
+              value: 'hideChannel'
+            }
+      )
+    }
+
+    if (useSponsorBlock.value) {
+      const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
+
+      options.push(
+        {
+          type: 'divider'
+        },
+
+        isSponsorBlockChannelExcluded
+          ? {
+              label: t('Video.Enable SponsorBlock on Channel'),
+              value: 'enableSponsorBlockOnChannel'
+            }
+          : {
+              label: t('Video.Disable SponsorBlock on Channel'),
+              value: 'disableSponsorBlockOnChannel'
+            }
+      )
+    }
   }
 
   return options
@@ -720,6 +748,12 @@ function handleOptionsClick(option) {
       break
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
+      break
+    case 'disableSponsorBlockOnChannel':
+      disableSponsorBlockOnChannel(channelName.value, channelId.value)
+      break
+    case 'enableSponsorBlockOnChannel':
+      enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1156,6 +1190,28 @@ function unhideChannel(channelName, channelId) {
   store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function disableSponsorBlockOnChannel(channelName, channelId) {
+  const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
+
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
+
+  showToast(t('SponsorBlock Disabled on Channel', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function enableSponsorBlockOnChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
+
+  showToast(t('SponsorBlock Enabled on Channel', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {
