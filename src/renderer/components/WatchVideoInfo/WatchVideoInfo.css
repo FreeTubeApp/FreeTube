@@ -139,3 +139,31 @@
     inset-inline: 0 auto;
   }
 }
+
+.downloadOptions {
+  padding: 12px;
+  padding-block-end: 0;
+  max-inline-size: min-content;
+  min-inline-size: 150px;
+  margin-inline: auto;
+}
+
+.downloadOptions :deep(.ft-input) {
+  background-color: var(--bg-color);
+  border: 1px solid var(--tertiary-text-color);
+}
+
+.downloadButtons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  max-inline-size: min-content;
+  min-inline-size: 150px;
+  margin-inline: auto;
+}
+
+.downloadButtons .action {
+  padding: 6px;
+  white-space: initial;
+}

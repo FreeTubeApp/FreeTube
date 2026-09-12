@@ -112,6 +112,56 @@
             @click="handleExternalPlayer"
           />
           <FtIconButton
+            v-if="USING_ELECTRON && downloadEnabled"
+            :title="t('Video.Download Video')"
+            :icon="['fas', 'download']"
+            theme="secondary"
+            :force-dropdown="true"
+          >
+            <div class="downloadOptions">
+              <FtFlexBox>
+                <FtToggleSwitch
+                  :label="t('Video.Download.Timespan')"
+                  :compact="true"
+                  :default-value="downloadIncludeTimestamp"
+                  @change="updateDownloadIncludeTimestamp"
+                />
+              </FtFlexBox>
+              <FtFlexBox v-if="downloadIncludeTimestamp">
+                <FtInput
+                  :placeholder="t('Video.Download.Start Time')"
+                  :show-action-button="false"
+                  :show-label="true"
+                  :value="downloadStartTime"
+                  @input="updateDownloadStartTime"
+                />
+              </FtFlexBox>
+              <FtFlexBox v-if="downloadIncludeTimestamp">
+                <FtInput
+                  :placeholder="t('Video.Download.End Time')"
+                  :show-action-button="false"
+                  :show-label="true"
+                  :value="downloadEndTime"
+                  @input="updateDownloadEndTime"
+                />
+              </FtFlexBox>
+            </div>
+            <div class="downloadButtons">
+              <FtButton
+                class="action"
+                :icon="['fas', 'video']"
+                :label="t('Video.Download.Video')"
+                @click="handleDownload('video')"
+              />
+              <FtButton
+                class="action"
+                :icon="['fas', 'headphones']"
+                :label="t('Video.Download.Audio')"
+                @click="handleDownload('audio')"
+              />
+            </div>
+          </FtIconButton>
+          <FtIconButton
             v-if="!isUpcoming"
             :title="t('Change Format.Change Media Formats')"
             theme="secondary"
@@ -133,17 +183,22 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRouter } from 'vue-router'
 
+import FtButton from '../FtButton/FtButton.vue'
 import FtCard from '../ft-card/ft-card.vue'
+import FtFlexBox from '../ft-flex-box/ft-flex-box.vue'
 import FtIconButton from '../FtIconButton/FtIconButton.vue'
+import FtInput from '../FtInput/FtInput.vue'
 import FtShareButton from '../FtShareButton/FtShareButton.vue'
 import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
+import FtToggleSwitch from '../FtToggleSwitch/FtToggleSwitch.vue'
 
 import store from '../../store'
 
-import { formatNumber, showToast } from '../../helpers/utils'
+import { formatDurationAsTimestamp, formatNumber, showToast } from '../../helpers/utils'
 
 const props = defineProps({
   id: {
@@ -246,6 +301,7 @@ const emit = defineEmits([
 const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
+const router = useRouter()
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)
@@ -333,6 +389,9 @@ const historyEntryExists = computed(() => store.getters.getHistoryCacheById[prop
 /** @type {import('vue').ComputedRef<string>} */
 const externalPlayer = computed(() => store.getters.getExternalPlayer)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const downloadEnabled = computed(() => store.getters.getYtdlpDownloadEnabled)
+
 /** @type {import('vue').ComputedRef<number>} */
 const defaultPlayback = computed(() => store.getters.getDefaultPlayback)
 
@@ -389,6 +448,86 @@ function handleExternalPlayer() {
     if (!historyEntryExists.value) {
       showToast(t('Video.Video has been marked as watched'))
     }
+  }
+}
+
+const downloadIncludeTimestamp = ref(false)
+const downloadStartTime = ref('0:00')
+const downloadEndTime = ref('')
+
+function updateDownloadIncludeTimestamp() {
+  downloadIncludeTimestamp.value = !downloadIncludeTimestamp.value
+
+  if (downloadIncludeTimestamp.value) {
+    downloadStartTime.value = formatDurationAsTimestamp(Math.trunc(props.getTimestamp()))
+    downloadEndTime.value = formatDurationAsTimestamp(Math.trunc(props.lengthSeconds))
+  }
+}
+
+/**
+ * @param {string} value
+ */
+function updateDownloadStartTime(value) {
+  downloadStartTime.value = value
+}
+
+/**
+ * @param {string} value
+ */
+function updateDownloadEndTime(value) {
+  downloadEndTime.value = value
+}
+
+/**
+ * @param {string} value
+ * @returns {number | null}
+ */
+function parseTimestampToSeconds(value) {
+  const trimmed = value.trim()
+  if (trimmed === '') {
+    return null
+  }
+
+  const parts = trimmed.split(':')
+  if (parts.length < 2 || parts.length > 3 || parts.some(part => !/^\d+$/.test(part))) {
+    return null
+  }
+
+  const numbers = parts.map(Number)
+  const [hours, minutes, seconds] = numbers.length === 3 ? numbers : [0, ...numbers]
+
+  return (hours * 3600) + (minutes * 60) + seconds
+}
+
+/**
+ * @param {'video' | 'audio'} mode
+ */
+async function handleDownload(mode) {
+  if (!process.env.IS_ELECTRON) {
+    return
+  }
+
+  const startTime = downloadIncludeTimestamp.value ? parseTimestampToSeconds(downloadStartTime.value) : null
+  const endTime = downloadIncludeTimestamp.value ? parseTimestampToSeconds(downloadEndTime.value) : null
+
+  const result = await window.ftElectron.downloadVideo(props.id, mode, startTime, endTime)
+
+  switch (result) {
+    case 'ok':
+      showToast(mode === 'audio'
+        ? t('Video.Audio download has started')
+        : t('Video.Video download has started'))
+      break
+    case 'cancelled':
+      // user closed the folder picker, nothing to report
+      break
+    case 'disabled':
+    case 'not-configured':
+    case 'error':
+      showToast(t('Video.Download failed - Click to open External Downloader settings'), 10000, () => {
+        router.push({ path: '/settings', query: { section: 'external-downloader' } })
+      })
+      break
   }
 }
 

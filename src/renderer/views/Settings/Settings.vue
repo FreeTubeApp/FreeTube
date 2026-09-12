@@ -61,13 +61,15 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { useRoute } from 'vue-router'
 
 import GeneralSettings from '../../components/GeneralSettings/GeneralSettings.vue'
 import ThemeSettings from '../../components/ThemeSettings.vue'
 import PlayerSettings from '../../components/PlayerSettings/PlayerSettings.vue'
 import ExternalPlayerSettings from '../../components/ExternalPlayerSettings.vue'
+import ExternalDownloaderSettings from '../../components/ExternalDownloaderSettings.vue'
 import SubscriptionSettings from '../../components/SubscriptionSettings/SubscriptionSettings.vue'
 import PrivacySettings from '../../components/PrivacySettings.vue'
 import DataSettings from '../../components/DataSettings/DataSettings.vue'
@@ -88,6 +90,7 @@ const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
 
 const { locale, t } = useI18n()
+const route = useRoute()
 
 const isInDesktopView = ref(true)
 const settingsSectionTypeOpenInMobile = ref(null)
@@ -116,6 +119,14 @@ const settingsComponentsData = computed(() => {
           title: t('Settings.External Player Settings.External Player Settings'),
           icon: ['fas', 'clapperboard'],
           component: ExternalPlayerSettings
+        }]
+      : []),
+    ...(process.env.IS_ELECTRON
+      ? [{
+          type: 'external-downloader',
+          title: t('Settings.External Downloader Settings.External Downloader Settings'),
+          icon: ['fas', 'download'],
+          component: ExternalDownloaderSettings
         }]
       : []),
     {
@@ -214,6 +225,8 @@ if (unlocked.value) {
   onMounted(handleMounted)
 }
 
+watch(() => route.query.section, navigateToRequestedSection)
+
 function handleUnlock() {
   unlocked.value = true
 
@@ -245,6 +258,23 @@ function handleMounted() {
 
   // mark first section as active before any scrolling has taken place
   activeSection.value = settingsSectionComponents.value[0].type
+
+  navigateToRequestedSection(route.query.section)
+}
+
+/**
+ * @param {unknown} requestedSection
+ */
+function navigateToRequestedSection(requestedSection) {
+  if (
+    typeof requestedSection === 'string' &&
+    settingsSectionComponents.value.some(section => section.type === requestedSection)
+  ) {
+    // after router's scrollBehavior reset (~500ms)
+    setTimeout(() => {
+      navigateToSection(requestedSection)
+    }, 600)
+  }
 }
 
 const sectionRefs = useTemplateRef('sectionRefs')
