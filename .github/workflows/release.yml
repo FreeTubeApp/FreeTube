@@ -26,7 +26,6 @@ jobs:
         node-version: [24.x]
         runtime:
           - linux-x64
-          - linux-armv7l
           - linux-arm64
           - win-x64
           - win-arm64
@@ -36,10 +35,6 @@ jobs:
         - runtime: linux-x64
           os: ubuntu-latest
           appimage-arch: amd64
-
-        - runtime: linux-armv7l
-          os: ubuntu-latest
-          appimage-arch: armv7l
 
         - runtime: linux-arm64
           os: ubuntu-latest
@@ -100,11 +95,6 @@ jobs:
       shell: bash
       run: pnpm run build
 
-    - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      shell: bash
-      run: pnpm run build:arm32
-
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       shell: bash
@@ -151,28 +141,6 @@ jobs:
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.7z
         asset_content_type: application/x-7z-compressed
 
-    - name: Upload Linux .zip ARMv7l Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-linux-armv7l-portable.zip
-        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-armv7l.zip
-        asset_content_type: application/zip
-
-    - name: Upload Linux .7z ARMv7l Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-linux-armv7l-portable.7z
-        asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}-armv7l.7z
-        asset_content_type: application/x-7z-compressed
-
     - name: Upload Linux .zip ARM64 Release
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -204,17 +172,6 @@ jobs:
         upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
         asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_beta_amd64.deb
         asset_path: build/freetube_${{ steps.getPackageInfo.outputs.version }}_amd64.deb
-        asset_content_type: application/vnd.debian.binary-package
-
-    - name: Upload Linux .deb ARMv7l Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube_${{ steps.getPackageInfo.outputs.version }}_beta_armv7l.deb
-        asset_path: build/freetube_${{ steps.getPackageInfo.outputs.version }}_armv7l.deb
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload Linux .deb ARM64 Release
@@ -250,28 +207,6 @@ jobs:
         asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}.AppImage.zsync
         asset_content_type: application/x-zsync
 
-    - name: Upload AppImage ARMv7l Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-armv7l.AppImage
-        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-armv7l.AppImage
-        asset_content_type: application/vnd.appimage
-
-    - name: Upload AppImage .zsync ARMv7l Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: https://uploads.github.com/repos/FreeTubeApp/FreeTube/releases/${{ inputs.releaseId }}/assets{?name,label}
-        asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta-armv7l.AppImage.zsync
-        asset_path: build/FreeTube-${{ steps.getPackageInfo.outputs.version }}-armv7l.AppImage.zsync
-        asset_content_type: application/x-zsync
-
     - name: Upload AppImage ARM64 Release
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -304,8 +239,6 @@ jobs:
         asset_name: freetube-${{ steps.getPackageInfo.outputs.version }}-beta.amd64.rpm
         asset_path: build/freetube-${{ steps.getPackageInfo.outputs.version }}.x86_64.rpm
         asset_content_type: application/x-rpm
-
-      # rpm are not built for armv7l
 
     - name: Upload Linux .rpm ARM64 Release
       uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
