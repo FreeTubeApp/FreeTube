@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 að horfa | {count} að horfa
     Like Count: 1 líkaði | {count} líkaði
     Comment Count: 1 athugasemd | {count} athugasemdir
+    Replies Remaining: "{' '}(1 eftir) | {' '}({count} eftir)"
 Version {versionNumber} is now available!  Click for more details: 'Útgáfa {versionNumber} er tiltæk!  Smelltu til að skoða nánar'
 Download From Site: 'Sækja af vefsvæði'
 
@@ -194,6 +195,8 @@ User Playlists:
   The playlist has been successfully exported: Það tókst að flytja út þennan spilunarlista
   TotalTimePlaylist: 'Heildartími: {duration}'
   Export list of URLs: Flytja út lista með vefslóðum
+  Move Video to the Top: Færa myndskeið efst
+  Move Video to the Bottom: Færa myndskeið neðst
 History:
   # On History Page
   History: 'Áhorf'
@@ -430,6 +433,8 @@ Settings:
       Full Screen: Skjáfylli
       Picture in Picture: Mynd-í-mynd
       External Player: Utanaðkomandi spilari ({externalPlayerName})
+      Full Window (Always On): Fullur gluggi (alltaf virkur)
+      Full Screen (Always On): Fullur skjár (alltaf virkur)
   Privacy Settings:
     Privacy Settings: 'Gagnaleynd'
     Remember History: 'Muna áhorfsferil'
@@ -511,6 +516,8 @@ Settings:
     Hide Channel Courses: Fela flipann með rásinni "Kennsluefni"
     Hide Channel Posts: Fela "Færslur"-flipa rása
     Hide Subscriptions Posts: Fela áskriftarfærslur
+    Add: Bæta við
+    Remove: Fjarlægja
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
@@ -552,6 +559,11 @@ Settings:
     Export search history: Flytja út leitarferil
     All search history has been successfully imported: Allur leitarferill hefur verið fluttur inn
     All search history has been successfully exported: Allur leitarferill hefur verið fluttur út
+    Settings File: Stillingaskrá
+    Import Settings: Flytja inn stillingar
+    Export Settings: Flytja út stillingar
+    Unknown setting key: 'Óþekktur stillingalykill: {key}'
+    Non-transferable setting key: 'Ekki-flytjanlegur stillingalykill: {key}'
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -605,6 +617,7 @@ Settings:
     Experimental Settings: Á tilraunastigi
     Warning: Þessar stillingar eru á tilraunastigi, þær geta valdið hruni þegar þær eru virkjaðar. Mælt er með því að öryggisafrit séu tekin. Notist á eigin ábyrgð!
     Replace HTTP Cache: Skipta út HTTP-skyndiminni
+    Disable Hardware Acceleration: Gera vélbúnaðarhröðun óvirka
   Password Dialog:
     Password: Lykilorð
     Enter Password To Unlock: Settu inn lykilorð til að aflæsa stillingum
@@ -745,6 +758,7 @@ Channel:
   Courses:
     Courses: Kennsluefni
     This channel does not currently have any courses: Þessi rás er ekki með neitt kennsluefni
+  View All: Skoða allt
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -862,6 +876,9 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tími sem eftir er af bakkeyrslu SABR: {remindingTimeSeconds}s'
   Popout Live Chat: Spjall í sprettglugga
   Private: Ekki er hægt að horfa á einkamyndskeið þar sem þau krefjast innskráningar á Google og eignarhaldi á myndskeiðinu.
+  Collapse Playlist: Fella saman spilunarlista
+  Expand Playlist: Fletta út spilunarlista
+  Station: Stöð
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
@@ -883,6 +900,7 @@ Playlist:
     VideoDurationDescending: Tímalengd (lengst)
     PublishedOldest: Dags. gefið út (elst)
     PublishedNewest: Dags. gefið út (nýjast)
+  Unavailable videos are hidden: Myndskeið sem ekki eru tiltæk eru falin
 Change Format:
   Change Media Formats: 'Skipta um myndskeiðasnið'
   Use Dash Formats: 'Nota DASH-skráasnið'
@@ -930,6 +948,9 @@ Comments:
   Hide {replyCount} replies: Fela 1 svar | Fela {replyCount} svör
   View 1 reply from {channelName}: Skoða 1 svar frá {channelName}
   View {replyCount} replies from {channelName} and others: Skoða {replyCount} svör frá {channelName} og fleirum
+  Hide Replies: Fela svar | Fela svör
+  Loading replies: Hleð inn svörum...
+  Comments are turned off: Slökkt er á athugasemdum
 Up Next: 'Næst í spilun'
 
 #Tooltips
@@ -938,7 +959,7 @@ Tooltips:
     Preferred API Backend: 'Veldu bakendann sem FreeTube notar til að ná í gögn. Staðværa API-kerfisviðmótið er innbyggður skrapari. Invidious API-kerfisviðmótið krefst tengingar við Invidious-netþjón.'
     Fallback to Non-Preferred Backend on Failure: 'Þegar forgangsbakendi API-kerfisviðmóts á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts sem varaleið, þegar þetta er virkjað.'
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma með myndskeiðinu, móskaðan eða falinn, í stað sjálfgefinnar smámyndar.'
-    Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir beiðnir í API-kerfisviðmót.'
+    Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir beiðnir í API-kerfisviðmót. Breytingar á þessari stillingu eiga einungis við fyrirliggjandi glugga, nema þú setjir þetta tilvik sem sjálfgefið.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við.'
     External Link Handling: "Veldu sjálfgefna hegðun þegar smellt er á tengil sem ekki er hægt að opna í FreeTube.\nSjálfgefið mun FreeTube opna viðkomandi tengil í sjálfgefna vafranum þínum.\n"
     Open Deep Links In New Window: Slóðir sem beint er til FreeTube, til dæmis með endurbeiningum vafraviðbóta eða skipanalínuviðföngum, verða opnaðar í nýjum glugga.
@@ -994,6 +1015,8 @@ Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-ti
 Search Bar:
   Clear Input: Hreinsa reit
   Remove: Fjarlægja
+  Open Search Container: Opna leitargám
+  Search: Leita
 External link opening has been disabled in the general settings: Opnun ytri tengla hefur verið gerð óvirk í almennum stillingum
 Are you sure you want to open this link?: Ertu viss um að þú viljir opna þennan tengil?
 Screenshot Error: Skjámyndataka mistókst. {error}
