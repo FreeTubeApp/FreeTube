@@ -1,6 +1,6 @@
 <template>
   <FtCard
-    v-if="shownDescription.length > 0"
+    v-if="shownDescription.length > 0 || showHowThisWasMade"
     :class="{ videoDescription: true, short: !showFullDescription }"
   >
     <span
@@ -14,6 +14,7 @@
       {{ $t("Description.Expand Description") }}
     </span>
     <FtTimestampCatcher
+      v-if="shownDescription.length > 0"
       ref="descriptionContainer"
       class="description"
       :input-html="processedShownDescription"
@@ -21,6 +22,29 @@
       @timestamp-event="onTimestamp"
       @click="expandDescriptionWithClick"
     />
+    <div
+      v-if="showHowThisWasMade && showFullDescription"
+      class="contentDisclosureSection"
+    >
+      <div class="contentDisclosureTitle">
+        {{ t('Video.How this was made') }}
+      </div>
+      <div
+        v-for="(item, index) in contentDisclosures"
+        :key="index"
+        class="contentDisclosureItem"
+      >
+        <div class="contentDisclosureHeader">
+          {{ item.label }}
+        </div>
+        <div
+          v-if="item.description"
+          class="contentDisclosureBody"
+        >
+          {{ item.description }}
+        </div>
+      </div>
+    </div>
     <bdi
       v-if="license && showFullDescription"
       class="license"
@@ -44,6 +68,7 @@
 import autolinker from 'autolinker'
 
 import { onMounted, ref, computed, useTemplateRef } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FtCard from '../ft-card/ft-card.vue'
 import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
@@ -59,8 +84,16 @@ const props = defineProps({
   license: {
     type: String,
     default: null,
+  },
+  contentDisclosures: {
+    type: Array,
+    default: null
   }
 })
+
+const { t } = useI18n()
+
+const showHowThisWasMade = computed(() => (props.contentDisclosures?.length ?? 0) > 0)
 
 const emit = defineEmits(['timestamp-event'])
 
@@ -139,6 +172,13 @@ function isShortDescription() {
 }
 
 onMounted(() => {
+  // There is no description, so do not show the controls
+  if (shownDescription.length === 0) {
+    showFullDescription.value = true
+    showControls.value = false
+    return
+  }
+
   // To verify whether or not the description is too short for displaying
   // description controls, we need to check the description's dimensions.
   // The only way to make this work is to check on mount.
