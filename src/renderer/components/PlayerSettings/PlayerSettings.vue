@@ -73,6 +73,13 @@
           :default-value="enterFullscreenOnDisplayRotate"
           @change="updateEnterFullscreenOnDisplayRotate"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Player Settings.Fit Video to Fullscreen')"
+          :compact="true"
+          :default-value="fitVideoToFullscreen"
+          :tooltip="t('Tooltips.Player Settings.Fit Video to Fullscreen')"
+          @change="updateFitVideoToFullscreen"
+        />
       </div>
     </div>
     <FtFlexBox>
@@ -384,6 +391,16 @@ const enterFullscreenOnDisplayRotate = computed(() => store.getters.getEnterFull
  */
 function updateEnterFullscreenOnDisplayRotate(value) {
   store.dispatch('updateEnterFullscreenOnDisplayRotate', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const fitVideoToFullscreen = computed(() => store.getters.getFitVideoToFullscreen)
+
+/**
+ * @param {boolean} value
+ */
+function updateFitVideoToFullscreen(value) {
+  store.dispatch('updateFitVideoToFullscreen', value)
 }
 
 /** @type {import('vue').ComputedRef<string>} */

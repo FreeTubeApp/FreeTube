@@ -15,6 +15,9 @@ PASS=0
 FAIL=0
 SKIP=0
 UI_SCALE_SET=0
+ORIENTATION_STATE_SAVED=0
+ORIGINAL_ROTATION_MODE=""
+ORIGINAL_USER_ROTATION=""
 
 usage() {
   cat <<'EOF'
@@ -28,7 +31,8 @@ Options:
                         lock-screen, audio-focus, persistence, cleanup, recovery,
                         locked-state, locked-notification, locked-session,
                         export, data-directory-cancel, data-directory-move-reset,
-                        locked-controls, locked-audio-focus, locked-cleanup, locked-force-stop
+                        locked-controls, locked-audio-focus, locked-cleanup, locked-force-stop,
+                        fullscreen-fit-screen
   --keep-data           do not clear app data (default)
   --timeout SECONDS     wait timeout (default: 45)
   -h, --help            show help
@@ -252,6 +256,160 @@ start_app() {
   sleep 5
 }
 
+screen_fingerprint() {
+  local path="$1"
+  adb_cmd exec-out screencap -p | sha256sum | cut -d' ' -f1 >"$path"
+}
+
+wait_for_screen_change() {
+  local before="$1" start now current
+  start=$(date +%s)
+  while :; do
+    current=$(mktemp)
+    screen_fingerprint "$current"
+    if [[ "$(cat "$current")" != "$(cat "$before")" ]]; then
+      rm -f "$current"
+      return 0
+    fi
+    rm -f "$current"
+    now=$(date +%s)
+    ((now - start >= TIMEOUT)) && return 1
+    sleep 1
+  done
+}
+
+open_player_settings() {
+  start_app || return 1
+  local before="$(mktemp)"
+  screen_fingerprint "$before"
+  adb_shell input tap 605 1545
+  wait_for_screen_change "$before" || {
+    rm -f "$before"
+    echo "Player Settings navigation did not change screen"
+    return 1
+  }
+  rm -f "$before"
+  before="$(mktemp)"
+  screen_fingerprint "$before"
+  adb_shell input tap 300 865
+  wait_for_screen_change "$before" || {
+    rm -f "$before"
+    echo "Player Settings section did not open"
+    return 1
+  }
+  rm -f "$before"
+  sleep 2
+}
+
+set_fit_video_to_fullscreen() {
+  local desired="$1"
+  open_player_settings || return 1
+  screenshot "fit-screen-settings-$desired"
+
+  local pixel
+  pixel=$(convert "$ARTIFACT_DIR/fit-screen-settings-$desired.png" -format '%[pixel:p{194,1205}]' info:)
+  local enabled=0
+  [[ "$pixel" == *'33,150,243'* ]] && enabled=1
+  progress "Fit Screen target=$desired detected=$([[ $enabled == 1 ]] && echo on || echo off)"
+
+  if [[ "$desired" == "on" && "$enabled" == "0" ]] ||
+     [[ "$desired" == "off" && "$enabled" == "1" ]]; then
+    adb_shell input tap 172 1205
+    sleep 1
+  fi
+
+  screenshot "fit-screen-settings-$desired-final"
+  local final_pixel
+  final_pixel=$(convert "$ARTIFACT_DIR/fit-screen-settings-$desired-final.png" -format '%[pixel:p{194,1205}]' info:)
+  local final_enabled=0
+  [[ "$final_pixel" == *'33,150,243'* ]] && final_enabled=1
+  [[ "$desired" == "on" && "$final_enabled" == "1" ]] ||
+    [[ "$desired" == "off" && "$final_enabled" == "0" ]] || {
+      echo "Fit Screen toggle did not reach target=$desired"
+      return 1
+    }
+
+  adb_shell input keyevent KEYCODE_BACK
+  sleep 2
+}
+
+save_orientation() {
+  read -r ORIGINAL_ROTATION_MODE ORIGINAL_USER_ROTATION <<<"$(adb_shell wm user-rotation)"
+  ORIENTATION_STATE_SAVED=1
+}
+
+set_orientation() {
+  adb_shell wm user-rotation lock "$1"
+  sleep 3
+}
+
+restore_orientation() {
+  (( ORIENTATION_STATE_SAVED == 1 )) || return 0
+  adb_shell wm user-rotation "$ORIGINAL_ROTATION_MODE" "$ORIGINAL_USER_ROTATION" >/dev/null 2>&1 || true
+}
+
+no_native_crash() {
+  collect_logs
+  ! grep -E 'FATAL EXCEPTION|AndroidRuntime: FATAL' "$LOG_FILE" >/dev/null
+}
+
+enter_fullscreen() {
+  local orientation="${1:-portrait}"
+  local center_x=400 control_x=680 control_y=600
+  if [[ "$orientation" == "landscape" ]]; then
+    center_x=900
+    control_x=1325
+    control_y=685
+  fi
+  adb_shell input tap "$center_x" 340
+  sleep 1
+  adb_shell input tap "$control_x" "$control_y"
+  sleep 4
+}
+
+fullscreen_fit_screen() {
+  clean_logs
+  save_orientation || return 1
+  trap restore_orientation EXIT
+  set_orientation 0 || return 1
+
+  local setting orientation suffix
+  for setting in off on; do
+    set_orientation 0 || return 1
+    set_fit_video_to_fullscreen "$setting" || return 1
+    for orientation in portrait landscape; do
+      suffix="${setting}-${orientation}"
+      open_video jNQXAC9IVRw || return 1
+      set_orientation "$([[ "$orientation" == "landscape" ]] && echo 1 || echo 0)"
+      enter_fullscreen "$orientation"
+      screenshot "fullscreen-fit-screen-$suffix"
+      local expected_size="$([[ "$orientation" == "landscape" ]] && echo '1600x720' || echo '720x1600')"
+      identify "$ARTIFACT_DIR/fullscreen-fit-screen-$suffix.png" | grep -q "$expected_size" || {
+        echo "Unexpected fullscreen size for $suffix"
+        return 1
+      }
+      local edge_crop="$(convert "$ARTIFACT_DIR/fullscreen-fit-screen-$suffix.png" -crop "$([[ "$orientation" == "landscape" ]] && echo '80x80+10+320' || echo '80x80+320+10')" -colorspace gray -format '%[fx:mean.r]' info:)"
+      if [[ "$setting" == "on" && "$orientation" == "landscape" ]]; then
+        awk "BEGIN { exit !($edge_crop > 0.02) }" || {
+          echo "Expected video at fullscreen edge for $suffix, mean=$edge_crop"
+          return 1
+        }
+      else
+        awk "BEGIN { exit !($edge_crop <= 0.02) }" || {
+          echo "Expected black fit bar for $suffix, mean=$edge_crop"
+          return 1
+        }
+      fi
+      adb_shell input keyevent KEYCODE_BACK
+      sleep 2
+    done
+  done
+
+  restore_orientation
+  trap - EXIT
+  no_native_crash
+}
+
 open_search_results() {
   start_app || return 1
   adb_shell input tap 350 104
@@ -308,7 +466,10 @@ search() {
 }
 
 open_video() {
-  adb_shell am start -a android.intent.action.VIEW -d 'https://www.youtube.com/watch?v=jNQXAC9IVRw' -n "$ACTIVITY" >/dev/null 2>&1
+  local video_id="${1:-jNQXAC9IVRw}"
+  adb_shell am force-stop "$PACKAGE"
+  adb_shell am start -a android.intent.action.VIEW -d "https://www.youtube.com/watch?v=$video_id" -n "$ACTIVITY" >/dev/null 2>&1
+  wait_for "$PACKAGE" || return 1
   wait_for_media 'metadata: size=' || return 1
   progress "starting video playback"
   adb_shell input tap 400 340
@@ -585,6 +746,7 @@ case "$TEST" in
   search) run_test search search ;;
   playback) run_test playback playback ;;
   controls) run_test controls controls ;;
+  fullscreen-fit-screen) run_test fullscreen-fit-screen fullscreen_fit_screen ;;
   lock-screen) run_test lock-screen lock_screen ;;
   locked-state) run_test locked-state locked_screen ;;
   locked-notification) run_test locked-notification locked_notification ;;

@@ -6,6 +6,7 @@ import android.graphics.drawable.Icon
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.content.res.Configuration
 import android.content.Intent
 import android.net.Uri
 import androidx.documentfile.provider.DocumentFile
@@ -53,6 +54,11 @@ class AndroidBridge(
     private var mediaDuration = 0L
     private var mediaThumbnail: android.graphics.Bitmap? = null
     private var pendingFile: Triple<String, String, String>? = null
+
+    @JavascriptInterface
+    fun isLandscape(): Boolean {
+        return activity.resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
+    }
 
     @JavascriptInterface
     fun openFile(eventName: String, mimeTypes: String): Boolean {

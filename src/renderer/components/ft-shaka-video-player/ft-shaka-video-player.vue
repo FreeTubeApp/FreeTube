@@ -4,6 +4,7 @@
     class="ftVideoPlayer shaka-video-container"
     :class="{
       fullWindow: fullWindowEnabled,
+      fitScreen: fitVideoToFullscreen && fullscreenLandscape,
       sixteenByNine: forceAspectRatio && !fullWindowEnabled
     }"
   >
