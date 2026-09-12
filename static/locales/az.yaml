@@ -88,11 +88,11 @@ Subscriptions:
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abunəlik siyahınız hazırda boşdur. Abunəliklərinizi idxal etmək istəyirsinizsə, Məlumat Tənzimləmələrinə keçib Abunəlikləri İdxal Et seçimini edə və ya bir kanal axtarıb abunə ola bilərsiniz.'
   Load More Videos: 'Daha çox Video Yüklə'
   Error Channels: Xətalı Kanallar
-  Load More Posts: Daha çox Elan Yüklə
+  Load More Posts: Daha Çox Post Yüklə
   Subscriptions Tabs: Abunəliklər Səhifələri
   All Subscription Tabs Hidden: Bütün abunəlik səhifələri gizlidir. Məzmunu burada görmək üçün "{settingsSection}" bölməsində "{subsection}"-da bəzi səhifələri gizlətməyin.
   Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
-  Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir elan yoxdur.
+  Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir post yoxdur.
   Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri burada görmək üçün yeniləyin.
   Posts:
     RSS Message: YouTube postlar üçün RSS axınları təqdim etmir. Postlara baxmaq üçün "{rssSetting}" seçimin qapadın və ya bu paneli gizlətmək üçün "{hideSetting}" seçimin aktivləşdirin.
@@ -306,7 +306,7 @@ Settings:
       Gruvbox Dark Yellow: Gruvbox Tünd Sarı
       Gruvbox Dark Blue: Gruvbox Tünd Mavi
       Gruvbox Dark Purple: Gruvbox Tünd Moruğu Rəng
-      Gruvbox Dark Aqua: Gruvbox Dark Firuzəyi
+      Gruvbox Dark Aqua: Gruvbox Tünd Firuzəyi
       Gruvbox Dark Orange: Gruvbox Tünd Narıncı
       Gruvbox Light Red: Gruvbox Açıq Qırmızı
       Gruvbox Light Blue: Gruvbox Açıq Mavi
@@ -513,13 +513,13 @@ Settings:
     Hide Channels: Kanallardan Videoları Gizlət
     Hide Channels Placeholder: Kanal ID-si
     Hide Channels Invalid: Təqdim edilən Kanal ID-si etibarsız idi
-    Hide Subscriptions Posts: Abunəlik Elanlarını Gizlət
+    Hide Subscriptions Posts: Abunəliklər Postlarını Gizlət
     Show Added Items: Əlavə Olunmuş Elementləri Göstər
     Hide Channels Already Exists: Kanal ID-si artıq var
     Hide Featured Channels: Seçilmiş Kanalları Gizlət
     Hide Channels Disabled Message: Bəzi kanallar ID vasitəsilə bloklandı və emal edilmədi. Bu ID-lər yenilənərkən xüsusiyyət bloklanır
     Hide Channel Playlists: Kanal "Pleylistləri" Panelini Gizlət
-    Hide Channel Posts: Kanal "Elanları" Panelini Gizlət
+    Hide Channel Posts: Kanal "Postlar" Panelini Gizlət
     Hide Channel Home: Kanal "Əsas Səhifə" Panelini Gizlət
     Hide Channel Shorts: Kanal "Shorts" Panelini Gizlət
     Hide Channel Podcasts: Kanal "Podkastlar" Panelini Gizlət
@@ -527,10 +527,10 @@ Settings:
     Hide Channel Courses: Kanal "Kurslar" Panelini Gizlət
     Hide Videos, Playlists and Channels Containing Text: Mətn Olan Videoları, Pleylistləri və Kanalları Gizlət
     Hide Channels API Error: Təqdim edilən ID üzrə istifadəçini geri almaq olmadı. Xahiş olunur, ID-nin doğru olduğunu təkrar yoxlayın.
-    Hide Videos, Playlists and Channels Containing Text Placeholder: Söz, Söz Hissəsi və ya İfadə
+    Hide Videos, Playlists and Channels Containing Text Placeholder: Söz, Söz Hissəciyi və ya İfadə
     Hide Subscriptions Videos: Abunəlik Videolarını Gizlət
-    Hide Subscriptions Shorts: Abunəliklər Shorts-ları Gizlət
-    Hide Subscriptions Live: Abunəliklər Canlı Yayımı Gizlət
+    Hide Subscriptions Shorts: Abunəliklər Shorts-larını Gizlət
+    Hide Subscriptions Live: Abunəliklər Canlı Yayımını Gizlət
     Add: Əlavə et
     Remove: Sil
   Data Settings:
@@ -848,7 +848,7 @@ Global:
     Replies Remaining: "{' '}(1 qaldı) | {' '}({count} qaldı)"
   Videos: Videolar
   Live: Canlı
-  Posts: Elanlar
+  Posts: Postlar
   Shorts: Shorts
   Sort By: 'Çeşidlə'
 Search Listing:
