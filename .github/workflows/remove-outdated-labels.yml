@@ -24,14 +24,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
-          labels='PR: waiting for review,'
-          labels+='PR: WIP,'
-          labels+='PR: changes requested,'
-          labels+='PR: merge conflicts / rebase needed,'
-          labels+='PR/Issue: dependent,'
-          labels+='PR: stale'
-
-          gh pr edit "$PR_URL" --remove-label "$labels"
+          labels=$(gh pr view "$PR_URL" --json labels --jq '.labels[].name')
+          while IFS= read -r label; do
+            case "$label" in
+              'PR: waiting for review'|'PR: WIP'|'PR: changes requested'|'PR: merge conflicts / rebase needed'|'PR/Issue: dependent'|'PR: stale')
+                gh pr edit "$PR_URL" --remove-label "$label"
+                ;;
+            esac
+          done <<< "$labels"
 
   remove-draft-pr-labels:
     name: Remove labels from draft pull requests

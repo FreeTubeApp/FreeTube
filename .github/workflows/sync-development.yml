@@ -1,0 +1,35 @@
+name: Sync development with upstream
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-development
+  cancel-in-progress: true
+
+jobs:
+  rebase:
+    runs-on: ubuntu-slim
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          ref: development
+          token: ${{ secrets.PUSH_TOKEN }}
+
+      - name: Rebase development on upstream
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin development
+          git fetch --no-tags https://github.com/FreeTubeApp/FreeTube.git development
+          git config user.name 'Gnu._Gorets'
+          git config user.email '164275518+Gnu-Gorets@users.noreply.github.com'
+          git rebase FETCH_HEAD
+          git push --force-with-lease origin HEAD:development
