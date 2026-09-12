@@ -68,15 +68,10 @@
   margin-block-end: 4px;
 }
 
-.contentDisclosureBody,
-.contentDisclosureAttribution {
+.contentDisclosureBody {
   font-size: 15px;
   line-height: 1.4;
   opacity: 0.9;
-}
-
-.contentDisclosureAttribution {
-  margin-block-start: 6px;
 }
 
 .contentDisclosureItem + .contentDisclosureItem {

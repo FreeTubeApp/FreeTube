@@ -774,7 +774,7 @@ export async function getLocalVideoInfo(id) {
 /**
  * Extracts content disclosures ('How this was made') from YouTube VideoInfo response
  * @param {import('youtubei.js').YT.VideoInfo} info
- * @returns {{ label: string, description: string, attribution: string }[] | null}
+ * @returns {{ label: string, description: string }[] | null}
  */
 export function extractLocalContentDisclosures(info) {
   if (info?.page?.[1]?.engagement_panels) {
@@ -788,7 +788,6 @@ export function extractLocalContentDisclosures(info) {
         .map(item => ({
           label: item.body_header?.text ?? '',
           description: item.body_text?.text?.replace(/\s*Learn more\.?$/i, '').trim() ?? '',
-          attribution: item.attribution_text?.text ?? '',
         }))
 
       return items.length > 0 ? items : null
