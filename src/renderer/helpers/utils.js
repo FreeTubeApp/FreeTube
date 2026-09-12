@@ -762,6 +762,13 @@ export function getTodayDateStrLocalTimezone() {
   return timeNowStr.split('T')[0]
 }
 
+// Some locales are considered as supported by Chromium but are not translated.
+// This results in "-1 d" being returned instead of "1 day ago".
+// In those cases, force the use of the locale fallback.
+// See https://issues.chromium.org/issues/396060189
+export const LOCALES_REQUIRING_FALLBACK = ['az']
+export const FALLBACK_LOCALE = 'en'
+
 /**
  *
  * @param {number} date
@@ -819,9 +826,14 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     timeUnit = 'year'
   }
 
+  const currentLocale = i18n.global.locale.value
+  const locales = LOCALES_REQUIRING_FALLBACK.includes(currentLocale)
+    ? [FALLBACK_LOCALE]
+    : [currentLocale, FALLBACK_LOCALE]
+
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
-  return new Intl.RelativeTimeFormat([i18n.global.locale.value, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+  return new Intl.RelativeTimeFormat(locales).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**
