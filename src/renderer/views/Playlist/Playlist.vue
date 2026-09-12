@@ -260,6 +260,7 @@ const draggedVideo = ref({ videoId: null, playlistItemId: null })
 const userPlaylistVisibleLimit = ref(100)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Playlist | null>} */
 const continuationData = shallowRef(null)
+const nextIndex = ref(-1)
 const isLoadingMore = ref(false)
 const playlistInEditMode = ref(false)
 const forceListView = ref(false)
@@ -323,7 +324,7 @@ const moreVideoDataAvailable = computed(() => {
   }
 
   if (infoSource.value === 'invidious') {
-    return playlistItems.value.length < videoCount.value
+    return nextIndex.value !== -1
   }
 
   return continuationData.value !== null
@@ -571,7 +572,7 @@ async function getPlaylistLocal() {
 
 async function getPlaylistInvidious() {
   try {
-    const result = await invidiousGetPlaylistInfo(playlistId.value)
+    const { playlist: result, nextIndex: nextIndexValue } = await invidiousGetPlaylistInfo(playlistId.value)
 
     playlistTitle.value = result.title
     playlistDescription.value = result.description
@@ -593,6 +594,7 @@ async function getPlaylistInvidious() {
     lastUpdated.value = dateString.toLocaleDateString(locale.value, { year: 'numeric', month: 'short', day: 'numeric' })
 
     playlistItems.value = result.videos
+    nextIndex.value = nextIndexValue
 
     updatePageTitle()
 
@@ -770,9 +772,9 @@ async function getNextPageLocal() {
 async function getNextPageInvidious() {
   isLoadingMore.value = true
 
-  const index = playlistItems.value.length
-  const result = await invidiousGetPlaylistInfo(playlistId.value, index)
+  const { playlist: result, nextIndex: nextIndexValue } = await invidiousGetPlaylistInfo(playlistId.value, nextIndex.value)
   playlistItems.value.push(...result.videos)
+  nextIndex.value = nextIndexValue
 
   isLoadingMore.value = false
 }
@@ -1162,7 +1164,7 @@ onBeforeRouteLeave((to) => {
       continuationData: continuationData.value
         ? extractLocalCacheablePlaylistContinuation(continuationData.value)
         : null,
-      videoCount: videoCount.value,
+      nextIndex: nextIndex.value,
     })
   }
 
