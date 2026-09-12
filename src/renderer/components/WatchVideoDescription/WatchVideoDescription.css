@@ -52,33 +52,33 @@
   margin-block: 1em;
 }
 
-.aiDisclosureSection {
+.contentDisclosureSection {
   margin-block-start: 1.5em;
 }
 
-.aiDisclosureTitle {
+.contentDisclosureTitle {
   font-size: 20px;
   font-weight: 600;
   margin-block-end: 12px;
 }
 
-.aiDisclosureHeader {
+.contentDisclosureHeader {
   font-weight: 600;
   font-size: 15px;
   margin-block-end: 4px;
 }
 
-.aiDisclosureBody,
-.aiDisclosureAttribution {
+.contentDisclosureBody,
+.contentDisclosureAttribution {
   font-size: 15px;
   line-height: 1.4;
   opacity: 0.9;
 }
 
-.aiDisclosureAttribution {
+.contentDisclosureAttribution {
   margin-block-start: 6px;
 }
 
-.aiDisclosureItem + .aiDisclosureItem {
+.contentDisclosureItem + .contentDisclosureItem {
   margin-block-start: 12px;
 }

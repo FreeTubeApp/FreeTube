@@ -24,30 +24,30 @@
     />
     <div
       v-if="showHowThisWasMade && showFullDescription"
-      class="aiDisclosureSection"
+      class="contentDisclosureSection"
     >
-      <div class="aiDisclosureTitle">
+      <div class="contentDisclosureTitle">
         {{ t('Video.How this was made') }}
       </div>
       <div
         v-for="(item, index) in contentDisclosures"
         :key="index"
-        class="aiDisclosureItem"
+        class="contentDisclosureItem"
       >
-        <div class="aiDisclosureHeader">
-          {{ getDisclosureHeader(item.label) }}
+        <div class="contentDisclosureHeader">
+          {{ item.label }}
         </div>
         <div
           v-if="item.description"
-          class="aiDisclosureBody"
+          class="contentDisclosureBody"
         >
-          {{ getDisclosureDescription(item.description) }}
+          {{ item.description }}
         </div>
         <div
           v-if="item.attribution"
-          class="aiDisclosureAttribution"
+          class="contentDisclosureAttribution"
         >
-          {{ getDisclosureAttribution(item.attribution) }}
+          {{ item.attribution }}
         </div>
       </div>
     </div>
@@ -98,59 +98,6 @@ const props = defineProps({
 })
 
 const { t } = useI18n()
-
-const HEADER_TRANSLATIONS = {
-  'Made with AI': () => t('Video.Made with AI'),
-  'Altered or synthetic content': () => t('Video.Altered or synthetic content'),
-  'Auto-dubbed': () => t('Video.Auto-dubbed'),
-  'Captured with a camera': () => t('Video.Captured with a camera'),
-}
-
-const DESCRIPTION_TRANSLATIONS = {
-  'Sounds or visuals were altered or significantly edited.': () => t('Video["Sounds or visuals were altered or significantly edited."]'),
-  'Sounds or visuals were altered or fully generated.': () => t('Video["Sounds or visuals were altered or fully generated."]'),
-  'Sounds or visuals were significantly edited or digitally generated.': () => t('Video["Sounds or visuals were significantly edited or digitally generated."]'),
-  'Sounds or visuals were altered or digitally generated.': () => t('Video["Sounds or visuals were altered or digitally generated."]'),
-  'Audio tracks for some languages were automatically generated.': () => t('Video["Audio tracks for some languages were automatically generated."]'),
-  'The creator used a camera or other recording device to capture this video without altering the sounds or visuals.': () => t('Video["The creator used a camera or other recording device to capture this video without altering the sounds or visuals."]'),
-}
-
-/**
- * @param {string} label
- * @returns {string}
- */
-function getDisclosureHeader(label) {
-  return HEADER_TRANSLATIONS[label]?.() ?? label
-}
-
-/**
- * @param {string} description
- * @returns {string}
- */
-function getDisclosureDescription(description) {
-  if (!description) {
-    return ''
-  }
-  const normalized = description.endsWith('.') ? description : `${description}.`
-  return DESCRIPTION_TRANSLATIONS[description]?.() ??
-    DESCRIPTION_TRANSLATIONS[normalized]?.() ??
-    description
-}
-
-/**
- * @param {string} attribution
- * @returns {string}
- */
-function getDisclosureAttribution(attribution) {
-  if (!attribution) {
-    return ''
-  }
-  const match = attribution.match(/^Info from (.+)$/i)
-  if (match) {
-    return t('Video.Info from {provider}', { provider: match[1] })
-  }
-  return attribution
-}
 
 const showHowThisWasMade = computed(() => (props.contentDisclosures?.length ?? 0) > 0)
 
