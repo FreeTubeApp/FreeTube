@@ -219,6 +219,6 @@ Preferences: პრეფერენციები
 Profile:
   Select All: ყველას მონიშვნა
 Search character limit: ძებნის მოთხოვნა {searchCharacterLimit}-ზე მეტ სიმბოლოს შეიცავს
-Go to page: გადადით გვერდზე
+Go to page: გადადით გვერდზე {page}
 Right-click or hold to see history: მარჯვენა ღილაკით დააწკაპუნეთ ან დააჭირეთ და გააჩერეთ ისტორიის სანახავად
 Close Banner: დახურვა ბანერის

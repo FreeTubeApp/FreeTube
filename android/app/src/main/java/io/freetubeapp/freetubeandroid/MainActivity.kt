@@ -11,8 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.webkit.WebView
+import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import androidx.core.view.ViewCompat
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
@@ -39,7 +41,9 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         webView = findViewById(R.id.webView)
-        ViewCompat.setOnApplyWindowInsetsListener(webView) { view, insets ->
+        val swipeRefresh = findViewById<SwipeRefreshLayout>(R.id.swipeRefresh)
+        swipeRefresh.setOnRefreshListener { webView.reload() }
+        ViewCompat.setOnApplyWindowInsetsListener(swipeRefresh) { view, insets ->
             val safeInsets = insets.getInsets(
                 WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
             )
@@ -53,6 +57,7 @@ class MainActivity : Activity() {
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+                swipeRefresh.isRefreshing = false
                 pendingDeepLink?.let {
                     dispatchDeepLink(it)
                     pendingDeepLink = null
@@ -106,6 +111,7 @@ class MainActivity : Activity() {
         webView.settings.mediaPlaybackRequiresUserGesture = false
         androidBridge = AndroidBridge(this, webView, webView.parent as ViewGroup)
         webView.addJavascriptInterface(androidBridge, "Android")
+        webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         webView.loadUrl("file:///android_asset/index.html")
     }
 

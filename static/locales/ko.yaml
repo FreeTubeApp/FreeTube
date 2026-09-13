@@ -662,7 +662,7 @@ Channels:
   Unsubscribe Prompt: '"{channelName}"에서 구독을 취소하시겠습니까?'
   Count: '{number}개의 채널이 발견되었습니다.'
 Screenshot Error: 스크린샷이 실패했습니다. {error}
-Screenshot Success: 스크린샷을 "{filePath}"로 저장
+Screenshot Success: 스크린샷을 저장했습니다
 Clipboard:
   Copy failed: 클립보드에 복사 실패
   Cannot access clipboard without a secure connection: 안전한 연결 없이 클립보드에 접근할 수 없습니다

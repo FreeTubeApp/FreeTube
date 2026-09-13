@@ -6,6 +6,7 @@ import activeLocales from '../../../static/locales/activeLocales.json'
 const i18n = createI18n({
   locale: 'en-US',
   legacy: false,
+  missingWarn: false,
   fallbackLocale: {
     // https://vue-i18n.intlify.dev/guide/essentials/fallback.html
 

@@ -27,7 +27,7 @@ Options:
   --serial SERIAL       adb device serial
   --apk PATH            debug APK path
   --suite NAME          unlocked, locked, all (default: all)
-  --test NAME           one test: preflight, cold-start, search, playback, controls,
+  --test NAME           one test: preflight, cold-start, search, reload, playback, controls,
                         lock-screen, audio-focus, persistence, cleanup, recovery,
                         locked-state, locked-notification, locked-session,
                         export, data-directory-cancel, data-directory-move-reset,
@@ -465,6 +465,21 @@ search() {
   [[ -s "$ARTIFACT_DIR/search.png" ]]
 }
 
+reload() {
+  clean_logs
+  start_app || return 1
+  # Pull down from top of WebView to trigger native SwipeRefreshLayout.
+  progress "pulling down to refresh at x=360"
+  adb_shell input swipe 360 500 360 120 300
+  adb_shell input swipe 360 180 360 650 500
+  sleep 5
+  wait_for "$PACKAGE" || return 1
+  screenshot reload-after
+  dump_ui reload-after
+  collect_logs
+  ! grep -E 'FATAL EXCEPTION|AndroidRuntime: FATAL' "$LOG_FILE" >/dev/null
+}
+
 open_video() {
   local video_id="${1:-jNQXAC9IVRw}"
   adb_shell am force-stop "$PACKAGE"
@@ -694,6 +709,7 @@ run_unlocked_suite() {
   PASS=$((PASS + 1))
   run_test cold-start cold_start
   run_test search search
+  run_test reload reload
   run_test playback playback
   run_test controls controls
   run_test audio-focus audio_focus
@@ -744,6 +760,7 @@ case "$TEST" in
   preflight) run_test preflight preflight ;;
   cold-start) run_test cold-start cold_start ;;
   search) run_test search search ;;
+  reload) run_test reload reload ;;
   playback) run_test playback playback ;;
   controls) run_test controls controls ;;
   fullscreen-fit-screen) run_test fullscreen-fit-screen fullscreen_fit_screen ;;

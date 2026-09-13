@@ -128,7 +128,6 @@ import store from './store/index'
 import packageDetails from '../../package.json'
 import { openExternalLink, openInternalPath, showToast } from './helpers/utils'
 import { translateWindowTitle } from './helpers/strings'
-import { loadLocale } from './i18n/index'
 import { updateAndroidTheme } from './helpers/android/system'
 
 const route = useRoute()
@@ -589,10 +588,6 @@ watch(locale, (value) => {
 
   document.body.dir = isLocaleRightToLeft.value ? 'rtl' : 'ltr'
 }, { immediate: true })
-
-// en-US is the fallback locale, which means we always need it
-// regardless of the user's settings so we can already start start loading it now
-loadLocale('en-US')
 
 /** @type {import('vue').ComputedRef<string>} */
 const currentInvidiousInstanceUrl = computed(() => store.getters.getCurrentInvidiousInstanceUrl)

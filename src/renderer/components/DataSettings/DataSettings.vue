@@ -33,7 +33,7 @@
       </FtFlexBox>
     </template>
     <h4 class="groupTitle">
-      {{ $t('Subscriptions.Subscriptions') }}
+      {{ $i18n.getLocaleMessage($i18n.locale).Subscriptions?.Subscriptions || 'Subscriptions' }}
     </h4>
     <FtFlexBox class="box">
       <FtButton

@@ -421,7 +421,7 @@ Settings:
       Default Viewing Mode: Standaard afspeelmode
       Full Screen: Volledig scherm
       Picture in Picture: Beeld in beeld
-      External Player: Externe speler
+      External Player: Externe speler ({externalPlayerName})
     Autoplay Interruption Timer: Timer voor Automatisch Afspelen Onderbreken
   Privacy Settings:
     Privacy Settings: 'Privacy'

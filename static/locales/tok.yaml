@@ -79,7 +79,7 @@ Global:
 Close Banner: pini e sitelen esun
 New Window: lupa sin
 Preferences: wile
-Go to page: tawa lipu
+Go to page: tawa lipu {page}
 Search Listing:
   Label:
     New: sin

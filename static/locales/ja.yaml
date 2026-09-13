@@ -38,7 +38,7 @@ Global:
     Channel Count: 1 チャンネル | {count} チャンネル
     Comment Count: 1 コメント | {count} コメント
     Like Count: 1 いいね | {count} いいね
-    Replies Remaining: （残り 1 件）|（残り {count} 件）
+    Replies Remaining: "{' '}（残り 1 件）|{' '}（残り {count} 件）"
 Search / Go to URL: '検索 / URL に移動'
   # In Filter Button
 Search Filters:

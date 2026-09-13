@@ -101,7 +101,7 @@ Global:
   Sort By: Sortieren nach
 Search character limit: Die Suchanfrage ist länger als das erlaubte Limit von {searchCharacterLimit} Zeichen
 Preferences: Ihstellige
-Go to page: gehe zu
+Go to page: gehe zu {page}
 Close Banner: Banner schließen
 Search Bar:
   Remove: Entferne

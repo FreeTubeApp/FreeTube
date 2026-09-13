@@ -173,7 +173,7 @@ User Playlists:
   Move Video Up: Μετακίνηση βίντεο πάνω
   Remove Duplicate Videos: Αφαίρεση διπλών βίντεο
   Edit Playlist Info: Επεξεργασία πληροφοριών λίστας αναπαραγωγής
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Είστε σίγουροι ότι θέλετε να αφαιρέσετε 1 παρακολουθημένο βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε τα βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Είστε σίγουροι ότι θέλετε να αφαιρέσετε 1 παρακολουθημένο βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί. | Είστε σίγουροι ότι θέλετε να αφαιρέσετε {playlistItemCount} παρακολουθημένα βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί.
   Remove from Playlist: Αφαίρεση από τη λίστα αναπαραγωγής
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Είστε σίγουροι ότι θέλετε να αφαιρέσετε 1 διπλό βίντεο από αυτή τη λίστα αναπαραγωγής; Αυτό δεν μπορεί να αναιρεθεί. Είστε σίγουροι ότι θέλετε να αφαιρέσετε {playlistItemCount} διπλά βίντεο από αυτή τη λίστα; Αυτό δεν μπορεί να αναιρεθεί.
   This playlist currently has no videos.: Αυτή η λίστα αναπαραγωγής προς το παρόν δεν έχει βίντεο.
@@ -1022,7 +1022,7 @@ Search Listing:
     VR180: VR180
     New: Νέα
     3D: 3D
-Search character limit: Το ερώτημα αναζήτησης είναι πάνω από το αναζητήσημο όριο χαρακτήρα
+Search character limit: Το ερώτημα αναζήτησης είναι πάνω από το όριο των {searchCharacterLimit} χαρακτήρων
 Right-click or hold to see history: Δεξί κλικ ή κράτηστε για να δείτε το ιστορικό
 Close Banner: Κλείσιμο Βanner
 Feed:

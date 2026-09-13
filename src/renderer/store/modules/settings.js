@@ -323,11 +323,13 @@ const state = {
   userHistorySortBy: 'latest_played_first',
 }
 
+const normalizeLocale = (locale) => locale === 'en' ? 'en-US' : locale
+
 const sideEffectHandlers = {
   currentLocale: async ({ dispatch }, value) => {
     const fallbackLocale = 'en-US'
 
-    let targetLocale = value
+    let targetLocale = normalizeLocale(value)
     if (value === 'system') {
       const systemLocaleName = (await getSystemLocale()).replace('_', '-') // ex: en-US
       const systemLocaleSplit = systemLocaleName.split('-') // ex: en
@@ -362,6 +364,11 @@ const sideEffectHandlers = {
         // (in this case, English (US))
         showToast(`Locale not found, defaulting to ${fallbackLocale}`)
       }
+    }
+
+    targetLocale = normalizeLocale(targetLocale)
+    if (!allLocales.includes(targetLocale)) {
+      targetLocale = fallbackLocale
     }
 
     const loadPromises = []
@@ -474,18 +481,18 @@ const customActions = {
 
       for (const { _id, value } of userSettings) {
         if (settingsWithSideEffects.includes(_id)) {
-          dispatch(defaultSideEffectsTriggerId(_id), value)
+          await dispatch(defaultSideEffectsTriggerId(_id), value)
           alreadyTriggeredSideEffects.push(_id)
         }
 
         if (mutationIds.includes(defaultMutationId(_id))) {
-          commit(defaultMutationId(_id), value)
+          commit(defaultMutationId(_id), _id === 'currentLocale' ? normalizeLocale(value) : value)
         }
       }
 
       for (const _id of settingsWithSideEffects) {
         if (!alreadyTriggeredSideEffects.includes(_id)) {
-          dispatch(defaultSideEffectsTriggerId(_id), state[_id])
+          await dispatch(defaultSideEffectsTriggerId(_id), state[_id])
         }
       }
     } catch (errMessage) {

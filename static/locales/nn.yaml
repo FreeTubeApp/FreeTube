@@ -695,7 +695,7 @@ Channels:
   Count: Fant {number} kanal(ar).
   Empty: Kanallista di er tom.
   Unsubscribe Prompt: Er du sikker på at du vil avslutte abonnementet på "{channelName}"?
-Screenshot Success: Lagra skjermbilete som "{filePath}"
+Screenshot Success: Lagra skjermbilete
 Screenshot Error: Skjermbilete feila. {error}
 Ok: OK
 Clipboard:

@@ -637,7 +637,7 @@ Channels:
   Count: rastas (-i) {number} kanalas (-ai).
   Empty: Jūsų kanalų sąrašas šiuo metu tuščias.
   Unsubscribe Prompt: Ar tikrai norite atšaukti {channelName} prenumeratą?
-Screenshot Success: Ekrano kopija išsaugota kaip „{filePath}“
+Screenshot Success: Ekrano kopija išsaugota
 Screenshot Error: Ekrano kopija nepavyko. {error}
 Chapters:
   Chapters: Skirsniai

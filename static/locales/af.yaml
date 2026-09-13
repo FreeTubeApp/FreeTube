@@ -54,7 +54,7 @@ Search / Go to URL: 'Soek / Gaan na URL'
 Search Bar:
   Clear Input: 'Maak invoer skoon'
   Remove: Verwyder
-Search character limit: 'soek'
+Search character limit: 'Soeknavraag is oor die {searchCharacterLimit}-karakterlimiet'
 Search Listing:
   Label:
     4K: '4K'

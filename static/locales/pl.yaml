@@ -1022,7 +1022,7 @@ Search Bar:
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
-Screenshot Success: Zapisano zrzut ekranu jako „{filePath}”
+Screenshot Success: Zapisano zrzut ekranu
 New Window: Nowe okno
 Channels:
   Title: Lista kanałów

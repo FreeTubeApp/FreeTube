@@ -12,7 +12,7 @@
         class="navOption topNavOption mobileShow "
         role="button"
         to="/subscriptions"
-        :title="$t('Subscriptions.Subscriptions')"
+        :title="$i18n.getLocaleMessage($i18n.locale).Subscriptions?.Subscriptions || 'Subscriptions'"
       >
         <div
           class="thumbnailContainer"
@@ -26,7 +26,7 @@
         <p
           class="navLabel"
         >
-          {{ $t("Subscriptions.Subscriptions") }}
+          {{ $i18n.getLocaleMessage($i18n.locale).Subscriptions?.Subscriptions || 'Subscriptions' }}
         </p>
       </router-link>
       <router-link
