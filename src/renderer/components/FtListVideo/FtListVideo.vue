@@ -45,19 +45,12 @@
           upcoming: isUpcoming
         }"
       >
-        <template v-if="isLive && !isPremiere">
+        <template v-if="isLive">
           <FontAwesomeIcon
             :icon="['fa', 'tower-broadcast']"
             class="liveIcon"
           />
-          {{ t("Video.Live") }}
-        </template>
-        <template v-else-if="isPremiere">
-          <FontAwesomeIcon
-            :icon="['fa', 'tower-broadcast']"
-            class="liveIcon"
-          />
-          {{ t("Video.Premiere") }}
+          {{ isPremiere ? t("Video.Premiere") : t("Video.Live") }}
         </template>
         <template v-else-if="isUpcoming">
           {{ t("Video.Upcoming") }}
