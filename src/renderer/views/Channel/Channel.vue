@@ -112,7 +112,10 @@
           v-if="currentTab === 'videos' && latestVideos.length === 0"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+            {{ showFetchMoreButton
+              ? $t("Channel.Videos.This channel has videos but none could be displayed, try fetching more")
+              : $t("Channel.Videos.This channel does not currently have any videos")
+            }}
           </p>
         </FtFlexBox>
         <FtElementList
