@@ -13,6 +13,7 @@ import {
   getChannelPlaylistId,
   getRelativeTimeFromDate,
 } from '../utils'
+import { parseVideoClipsParams } from './shared'
 
 const TRACKING_PARAM_NAMES = [
   'utm_source',
@@ -2499,4 +2500,14 @@ export async function getLocalCommunityPostComments(postId, channelId) {
   const innertube = await createInnertube({ generateSessionLocally: false })
 
   return await innertube.getPostComments(postId, channelId)
+}
+
+export async function getLocalClip(clipId) {
+  const innertube = await createInnertube()
+
+  const clipResponse = await innertube.resolveURL('https://www.youtube.com/clip/' + clipId)
+
+  const videoId = clipResponse?.payload?.videoId
+
+  return parseVideoClipsParams(videoId, clipResponse.payload.params)
 }
