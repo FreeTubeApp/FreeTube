@@ -1745,6 +1745,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
       premiereDate: video.upcoming,
+      isPremiere: video.is_premiere,
       is4k: video.is_4k,
       is8k: video.badges.some(badge => badge.label === '8K'),
       isNew: video.badges.some(badge => badge.label === 'New'),
