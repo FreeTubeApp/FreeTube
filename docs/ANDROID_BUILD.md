@@ -8,7 +8,7 @@ Android build uses Docker for Node.js, pnpm, JDK, and Android SDK. Host `adb` is
 docker compose build android-build
 docker compose run --rm android-build bash -lc \
   'pnpm install --frozen-lockfile && \
-   pnpm run pack:android:dev && \
+   pnpm run pack:android:core && \
    cd android && ./gradlew assembleDebug'
 ```
 
@@ -36,9 +36,10 @@ A connected device is not required to build the APK. Device validation must be r
 The image currently provides:
 
 - Node.js 24;
-- pnpm 11.3.0;
+- pnpm 12.3.4;
 - JDK 17;
 - Android platform 36;
-- Android build tools 36.0.0.
+- Android build tools 36.0.0;
+- Android platform-tools preinstalled in image (avoids per-build SDK installation).
 
 These versions match current Android project configuration. Change them together with `android/app/build.gradle.kts`, not independently.

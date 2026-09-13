@@ -20,7 +20,7 @@ Android packaging/build uses Docker only. Do not use host Android tooling or hos
 
 ```bash
 docker compose run --rm android-build bash -lc \
-  'pnpm install --frozen-lockfile && pnpm run pack:android:dev && \
+  'pnpm install --frozen-lockfile && pnpm run pack:android:core && \
    cd android && ./gradlew assembleDebug'
 ```
 

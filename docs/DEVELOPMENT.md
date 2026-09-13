@@ -42,16 +42,16 @@ pnpm run pack
 pnpm run pack:web
 ```
 
-Build Android packaging in Docker:
+Build Android packaging in Docker. This workflow uses production web assets, even for `assembleDebug`, so installed APK does not contain development source maps:
 
 ```bash
 docker compose run --rm android-build bash -lc \
   'pnpm install --frozen-lockfile && \
-   pnpm run pack:android:dev && \
+   pnpm run pack:android:core && \
    cd android && ./gradlew assembleDebug'
 ```
 
-`pack:android:dev` creates the development web bundle in `android/app/src/main/assets/`. Run it in Docker after changing shared JavaScript and before installing the Android app.
+`pack:android:dev` is reserved for WebView debugging. Do not use it for normal APK installation or performance testing.
 
 ## Android build and install
 
@@ -60,7 +60,7 @@ Build from repository root with documented Docker workflow:
 ```bash
 docker compose run --rm android-build bash -lc \
   'pnpm install --frozen-lockfile && \
-   pnpm run pack:android:dev && \
+   pnpm run pack:android:core && \
    cd android && ./gradlew assembleDebug'
 ```
 
@@ -137,6 +137,6 @@ Recordings are written under ignored `tmp/android-screen-record/`. Use `--output
 1. Read `docs/ARCHITECTURE.md` and this file before changing code.
 2. Inspect the nearest existing implementation and all callers before adding a new helper or platform branch.
 3. For Android changes, check the required ADB device first and use the physical phone for validation.
-4. Regenerate Android assets with `pnpm run pack:android:dev`; do not hand-edit generated bundle files.
+4. Regenerate Android assets with `pnpm run pack:android:core` for normal builds, or `pnpm run pack:android:dev` only for explicit WebView debugging; do not hand-edit generated bundle files.
 5. Run the smallest relevant lint/build/smoke checks and report any check skipped because the device or environment was unavailable.
 6. Keep generated output, local data, and logs out of commits.

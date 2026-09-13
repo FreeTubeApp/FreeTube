@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    network_mode: host
     working_dir: /workspace
     volumes:
       - .:/workspace
@@ -16,6 +17,8 @@ services:
       PNPM_HOME: /pnpm
       PATH: /opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools:/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       npm_config_update_notifier: "false"
+      PNPM_CONFIG_LOGLEVEL: "error"
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false"
 
 volumes:
   gradle-cache: {}

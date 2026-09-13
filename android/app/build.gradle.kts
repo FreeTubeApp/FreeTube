@@ -18,7 +18,25 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"))
+        }
+    }
+
+    tasks.named("preBuild") {
+        doFirst {
+            val webBundle = file("src/main/assets/web.js")
+            check(webBundle.exists()) {
+                "Missing Android web bundle. Run pnpm run pack:android:core first."
+            }
+
+            val header = webBundle.inputStream().use { input ->
+                input.readNBytes(4096).decodeToString()
+            }
+            check(!header.contains("eval-source-map")) {
+                "Development web bundle detected. Run pnpm run pack:android:core instead."
+            }
         }
     }
 

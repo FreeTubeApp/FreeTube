@@ -11,6 +11,7 @@ RUN apt-get update \
     && apt-get install --no-install-recommends --yes \
        ca-certificates \
        curl \
+       libatomic1 \
        openjdk-17-jdk-headless \
        unzip \
     && rm -rf /var/lib/apt/lists/* \
@@ -22,8 +23,8 @@ RUN apt-get update \
     && mv "$ANDROID_HOME/cmdline-tools/cmdline-tools" "$ANDROID_HOME/cmdline-tools/latest" \
     && rm /tmp/android-commandline-tools.zip \
     && bash -o pipefail -c 'yes | sdkmanager --licenses >/dev/null; status=$?; test "$status" -eq 0 -o "$status" -eq 141' \
-    && sdkmanager "platforms;android-36" "build-tools;36.0.0" \
-    && npm install --global pnpm@10 \
+    && sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0" \
+    && npm install --global pnpm@12.3.4 \
     && pnpm config set store-dir /pnpm/store \
     && rm -rf /root/.npm
 

@@ -75,7 +75,7 @@
     "vuex": "^4.1.0",
     "youtubei.js": "^18.0.0"
   },
-  "packageManager": "pnpm@11.3.0",
+  "packageManager": "pnpm@12.3.4",
   "devDependencies": {
     "@babel/core": "^8.0.1",
     "@babel/preset-env": "^8.0.2",

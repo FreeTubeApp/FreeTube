@@ -24,7 +24,7 @@ jobs:
     - name: Install pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 11.3.0
+        version: 12.3.4
         run_install: false
 
     - name: PNPM install
