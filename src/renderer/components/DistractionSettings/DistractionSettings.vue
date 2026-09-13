@@ -200,6 +200,12 @@
           :default-value="hideChannelPodcasts"
           @change="updateHideChannelPodcasts"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Distraction Free Settings.Hide Channel Shows')"
+          :compact="true"
+          :default-value="hideChannelShows"
+          @change="updateHideChannelShows"
+        />
       </div>
       <div class="switchColumn">
         <FtToggleSwitch
@@ -225,12 +231,6 @@
           :compact="true"
           :default-value="hideChannelCourses"
           @change="updateHideChannelCourses"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Channel Shows')"
-          :compact="true"
-          :default-value="hideChannelShows"
-          @change="updateHideChannelShows"
         />
       </div>
     </div>
