@@ -1014,6 +1014,7 @@ Playing Next Video Interval: すぐに次の動画を再生します。クリッ
 More: もっと見る
 Unknown YouTube url type, cannot be opened in app: 不明な YouTube url タイプのため、アプリで開くことができません
 Open New Window: 新しいウィンドウを開く
+Reload: Reload
 Default Invidious instance has been cleared: デフォルトの Invidious インスタンスがクリアされました
 Default Invidious instance has been set to {instance}: デフォルトの Invidious インスタンスは{instance}に設定されました
 External link opening has been disabled in the general settings: 一般設定で外部リンクの表示は無効になっています

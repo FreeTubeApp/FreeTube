@@ -945,6 +945,7 @@ Yes: 'Sim'
 No: 'Não'
 More: Mais
 Open New Window: Abrir nova janela
+Reload: Reload
 Default Invidious instance has been cleared: A instância Invidious padrão foi removida
 Default Invidious instance has been set to {instance}: A instância Invidious padrão foi definida para {instance}
 Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Clique para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundo. Clique para cancelar. | A reproduzir o vídeo seguinte em {nextVideoInterval} segundos. Clique para cancelar.

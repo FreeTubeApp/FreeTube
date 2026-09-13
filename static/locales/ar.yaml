@@ -984,6 +984,7 @@ More: المزيد
 Playing Next Video Interval: سيتم تشغيل الفيديو التالي على الفور.| إضغط للإلغاء.| سيبدأ الفيديو التالي في {nextVideoInterval} ثانية.| إضغط للإلغاء.
 Unknown YouTube url type, cannot be opened in app: نوع URL غير معروف على YouTube، لا يمكن فتحه في التطبيق
 Open New Window: افتح نافذة جديدة
+Reload: Reload
 Default Invidious instance has been cleared: تم مسح مثيل Invidious الافتراضي
 Default Invidious instance has been set to {instance}: تم تعيين المثيل الافتراضي Invidious إلى {instance}
 Search Bar:

@@ -988,6 +988,7 @@ Tooltips:
 More: Más
 Unknown YouTube url type, cannot be opened in app: Tipo de URL de YouTube desconocido. No se puede abrir en la aplicación
 Open New Window: Abrir ventana nueva
+Reload: Reload
 Playing Next Video Interval: Reproduciendo el vídeo a continuación. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar. | El siguiente vídeo se reproducirá en {nextVideoInterval} segundos. Haz clic para cancelar.
 Default Invidious instance has been cleared: La instancia de Invidious predeterminada ha sido borrada
 Default Invidious instance has been set to {instance}: La instancia de Invidious predeterminada ha sido establecida como {instance}

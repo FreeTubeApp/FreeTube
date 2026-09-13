@@ -682,6 +682,7 @@ Unknown YouTube url type, cannot be opened in app: Ukjent type YouTube-nettadres
 Playing Next Video Interval: Speler av neste video no. Klikk her for å avbryte. | Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte. | Speler av neste video om {nextVideoInterval} sekund. Klikk her for å avbryte.
 More: Meir
 Open New Window: Opne nytt vindauge
+Reload: Reload
 Search Bar:
   Clear Input: Tøm inndata
   Remove: Fjerna

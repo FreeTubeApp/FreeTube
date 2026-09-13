@@ -1002,6 +1002,7 @@ Playing Next Video Interval: Trenutna reprodukcija sljedećeg videa. Pritisni za
 More: Još
 Unknown YouTube url type, cannot be opened in app: Nepoznata vrsta URL adrese na YouTubeu, ne može se otvoriti u programu
 Open New Window: Otvori novi prozor
+Reload: Reload
 Default Invidious instance has been cleared: Standardna Invidious instanca je izbrisana
 Default Invidious instance has been set to {instance}: Standardna Invidious instanca je postavljena na {instance}
 External link opening has been disabled in the general settings: Otvaranje eksterne poveznice je deaktivirano u općim postavkama

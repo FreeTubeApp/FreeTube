@@ -974,6 +974,7 @@ Tooltips:
 More: Lisää
 Playing Next Video Interval: Seuraava video alkaa. Klikkaa peruuttaaksesi. |Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi. | Seuraava video alkaa {nextVideoInterval} sekunnin kuluttua. Klikkaa peruuttaaksesi.
 Open New Window: Avaa uusi ikkuna
+Reload: Reload
 Unknown YouTube url type, cannot be opened in app: Tuntematon YouTube-videon osoitemuoto, ei voida avata sovelluksessa
 Default Invidious instance has been cleared: Oletusarvoinen Invidious-palveluntarjoaja on tyhjennetty
 Default Invidious instance has been set to {instance}: Oletusarvoinen Invidious-palveluntarjoaja on jatkossa {instance}

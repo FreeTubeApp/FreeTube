@@ -946,6 +946,7 @@ Search Bar:
   Remove: Șterge
 Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest link?
 Open New Window: Deschide fereastră nouă
+Reload: Reload
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
 Default Invidious instance has been set to {instance}: Instanța implicită Invidious a fost setată la {instance}
 Playing Next Video Interval: Se redară următorul videoclip în cel mai scurt timp. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval} secundă. Faceți clic pentru a anula. | Se redă următorul videoclip în {nextVideoInterval} secunde. Faceți clic pentru a anula.

@@ -988,6 +988,7 @@ Playing Next Video Interval: A reproduzir o vídeo seguinte imediatamente. Cliqu
 More: Mais
 Unknown YouTube url type, cannot be opened in app: O tipo de url do YouTube é desconhecido e não pode ser aberto na aplicação
 Open New Window: Abrir nova janela
+Reload: Reload
 Default Invidious instance has been cleared: A instância Invidious padrão foi removida
 Default Invidious instance has been set to {instance}: A instância Invidious padrão foi definida para {instance}
 External link opening has been disabled in the general settings: A abertura de hiperligações externas foi desativada nas definições

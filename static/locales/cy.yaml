@@ -25,6 +25,7 @@ Close: 'Cau'
 Back: 'Nôl'
 Forward: 'Ymlaen'
 Open New Window: 'Agor Ffenestr Newydd'
+Reload: Reload
 Go to page: 'Mynd i {page}'
 
 Version {versionNumber} is now available!  Click for more details: 'Mae Fersiwn {versionNumber} bellach ar gael!  Cliciwch am fwy o manylion'

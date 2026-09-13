@@ -23,6 +23,7 @@ Close: 'pini'
 Back: 'tawa monsi'
 Forward: 'tawa sinpin'
 Open New Window: 'open lon lupa sin'
+Reload: Reload
 
 Version {versionNumber} is now available!  Click for more details: 'ilo pi nanpa {versionNumber} li lon! open la, sina ken sona mute'
 Download From Site: 'kama jo tan lipu'

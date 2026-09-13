@@ -1024,6 +1024,7 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
 More: Több
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
+Reload: Reload
 Default Invidious instance has been cleared: Alapértelmezett Invidious példány eltávolítva
 Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious példány {instance} beállítva'
 Search Bar:

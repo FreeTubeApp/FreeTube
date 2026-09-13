@@ -1002,6 +1002,7 @@ Tooltips:
     UseDeArrowThumbnails: Ersätt videominiatyrer med miniatyrer från DeArrow.
 More: Mer
 Open New Window: Öppna ett nytt fönster
+Reload: Reload
 Playing Next Video Interval: Spelar upp nästa video strax. Klicka för att stoppa. | Spelar upp nästa video om {nextVideoInterval} sekund. Klicka för att stoppa. | Spelar upp nästa video om {nextVideoInterval} sekunder. Klicka för att stoppa.
 Unknown YouTube url type, cannot be opened in app: Okänd typ av YouTube-URL. Den kan inte öppnas i appen.
 Default Invidious instance has been cleared: Den förvalda Invidious-instansen har rensats

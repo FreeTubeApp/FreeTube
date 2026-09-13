@@ -24,6 +24,7 @@ Close: 'დახურვა'
 Back: 'უკან'
 Forward: 'წინ'
 Open New Window: 'ახალი ფანჯრის გახსნა'
+Reload: Reload
 
 Version {versionNumber} is now available!  Click for more details: 'ხელმისაწვდომია {versionNumber} ვერსია!  დააჭირეთ დამატებითი ინფორმაციისთვის'
 Download From Site: 'საიტიდან ჩამოტვირთვა'

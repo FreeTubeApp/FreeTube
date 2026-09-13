@@ -1003,6 +1003,7 @@ More: Още
 Playing Next Video Interval: Пускане на следващото видео веднага. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунда. Щракнете за отказ. | Пускане на следващото видео след {nextVideoInterval} секунди. Щракнете за отказ.
 Unknown YouTube url type, cannot be opened in app: Неизвестен тип URL адрес за YouTube, не може да се отвори в приложението
 Open New Window: Отвори нов прозорец
+Reload: Reload
 Default Invidious instance has been cleared: Сървъра по подразбиране за Invidious е изчистен
 Default Invidious instance has been set to {instance}: Сървъра по подразбиране за Invidious е зададен на {instance}
 External link opening has been disabled in the general settings: Отварянето на външни връзки е изключено в общите настройки

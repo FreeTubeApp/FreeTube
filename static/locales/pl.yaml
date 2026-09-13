@@ -1012,6 +1012,7 @@ Playing Next Video Interval: Odtwarzanie kolejnego filmu już za chwilę. Wciśn
 More: Więcej
 Unknown YouTube url type, cannot be opened in app: Nieznany typ adresu URL YouTube. Nie można go otworzyć w aplikacji
 Open New Window: Otwórz nowe okno
+Reload: Reload
 Default Invidious instance has been cleared: Domyślna instancja Invidious została wyczyszczona
 Default Invidious instance has been set to {instance}: Domyślna instancja Invidious została ustawiona na {instance}
 Search Bar:

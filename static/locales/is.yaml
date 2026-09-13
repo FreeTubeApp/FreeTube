@@ -1010,6 +1010,7 @@ Yes: 'Já'
 No: 'Nei'
 Unknown YouTube url type, cannot be opened in app: Óþekkt gerð YouTube-slóðar, er ekki hægt að opna í forritinu
 Open New Window: Opna í nýjum glugga
+Reload: Reload
 Default Invidious instance has been cleared: Sjálfgefið Invidious-tilvik hefur verið hreinsað út
 Default Invidious instance has been set to {instance}: Sjálfgefið Invidious-tilvik hefur verið stillt sem {instance}
 Search Bar:

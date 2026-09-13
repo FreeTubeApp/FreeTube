@@ -44,6 +44,18 @@
         @click="historyForward"
       />
       <button
+        v-if="IS_ANDROID"
+        class="reloadButton navButton"
+        :aria-label="t('Reload')"
+        :title="t('Reload')"
+        @click="reloadPage"
+      >
+        <FontAwesomeIcon
+          class="navIcon"
+          :icon="['fas', 'sync']"
+        />
+      </button>
+      <button
         v-if="!hideSearchBar"
         class="navSearchButton navButton"
         :aria-label="t('Search Bar.Open Search Container')"
@@ -141,6 +153,7 @@ import { getInvidiousSearchSuggestions } from '../../helpers/api/invidious'
 
 const { t } = useI18n()
 const router = useRouter()
+const IS_ANDROID = process.env.IS_ANDROID
 const route = useRoute()
 
 const showSearchContainer = ref(true)
@@ -238,6 +251,10 @@ function historyForward(offset) {
   } else {
     router.forward()
   }
+}
+
+function reloadPage() {
+  window.location.reload()
 }
 
 const newWindowText = computed(() => {

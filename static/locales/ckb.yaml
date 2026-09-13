@@ -25,6 +25,7 @@ Close: 'داخستن'
 Back: 'دواوە'
 Forward: 'پێشەوە'
 Open New Window: 'کردنەوەی پەنجەرەیەکی نوێ'
+Reload: Reload
 
 Version {versionNumber} is now available!  Click for more details: 'ئێستا وەشانی {versionNumber} بەردەستە..بۆ زانیاری زۆرتر کرتە بکە'
 Download From Site: 'لە وێبگەوە دایگرە'

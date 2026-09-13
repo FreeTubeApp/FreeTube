@@ -1016,6 +1016,7 @@ Tooltips:
 Playing Next Video Interval: Riproduzione del video successivo tra un attimo. Fai clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi. Fai clic per annullare. | Riproduzione del video successivo tra {nextVideoInterval} secondi. Fai clic per annullare.
 More: Altro
 Open New Window: Apri una nuova finestra
+Reload: Reload
 Default Invidious instance has been cleared: L'istanza predefinita di Invidious è stata cancellata
 Default Invidious instance has been set to {instance}: L'istanza predefinita di Invidious è stata impostata a {instance}
 Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciuto, impossibile aprirlo nell'app
