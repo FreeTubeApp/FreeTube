@@ -2006,6 +2006,7 @@ function isPublishTimeText(text) {
 function parseLockupView(lockupView, channelId = undefined, channelName = undefined) {
   switch (lockupView.content_type) {
     case 'ALBUM':
+    case 'SHOW':
     case 'PLAYLIST':
     case 'COURSE':
     case 'PODCAST': {
