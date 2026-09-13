@@ -189,6 +189,22 @@
           </div>
           <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
           <div
+            v-if="visibleTabs.includes('shows')"
+            id="showsTab"
+            class="tab"
+            role="tab"
+            :aria-selected="currentTab === 'shows'"
+            aria-controls="showsPanel"
+            :tabindex="currentTab === 'shows' ? 0 : -1"
+            :class="{ selectedTab: currentTab === 'shows' }"
+            @click="changeTab('shows')"
+            @keydown.left.right="focusTab('shows', $event)"
+            @keydown.enter.space.prevent="changeTab('shows')"
+          >
+            {{ $t("Channel.Shows.Shows") }}
+          </div>
+          <!-- eslint-disable-next-line vuejs-accessibility/interactive-supports-focus -->
+          <div
             v-if="visibleTabs.includes('playlists')"
             id="playlistsTab"
             class="tab"
