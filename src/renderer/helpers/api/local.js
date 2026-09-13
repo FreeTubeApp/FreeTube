@@ -1414,7 +1414,8 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
 
     /** @type {import('youtubei.js').YTNodes.PlaylistVideoThumbnail} */
     const thumbnailRenderer = playlist.thumbnail_renderer
-
+    const isCourse = playlist.thumbnail_overlays.some(overlay => overlay.icon_type === 'COURSE')
+    const isAlbum = playlist.thumbnail_overlays.some(overlay => overlay.icon_type === 'MUSIC')
     return {
       type: 'playlist',
       dataSource: 'local',
@@ -1423,7 +1424,9 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       channelName: internalChannelName,
       channelId: internalChannelId,
       playlistId: playlist.id,
-      videoCount: extractNumberFromString(playlist.video_count.text)
+      videoCount: extractNumberFromString(playlist.video_count.text),
+      isCourse,
+      isAlbum,
     }
   }
 }
@@ -1821,6 +1824,9 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         channelId = maybeChannelText.endpoint.payload.browseId
       }
 
+      const isCourse = thumbnailOverlayBadgeView.badges.some(e => e.icon_name === 'COURSE')
+      const isAlbum = lockupView.content_type === 'ALBUM' || thumbnailOverlayBadgeView.badges.some(e => e.icon_name === 'music')
+
       return {
         type: 'playlist',
         dataSource: 'local',
@@ -1829,7 +1835,10 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         thumbnail: lockupView.content_image.primary_thumbnail.image[0].url,
         channelName,
         channelId,
-        videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text)
+        videoCount: extractNumberFromString(thumbnailOverlayBadgeView.badges[0].text),
+        isPodcast: lockupView.content_type === 'PODCAST',
+        isAlbum,
+        isCourse,
       }
     }
     case 'SHORT':
