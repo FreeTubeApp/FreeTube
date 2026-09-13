@@ -3,6 +3,7 @@ package io.freetubeapp.freetubeandroid
 import android.app.Activity
 import android.graphics.Color
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
 import android.webkit.ConsoleMessage
@@ -73,6 +74,7 @@ class MainActivity : Activity() {
                     callback.onCustomViewHidden()
                     return
                 }
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
                 fullscreenView = view
                 root.addView(view)
                 insetsController.hide(WindowInsetsCompat.Type.systemBars())
@@ -82,6 +84,7 @@ class MainActivity : Activity() {
             override fun onHideCustomView() {
                 fullscreenView?.let(root::removeView)
                 fullscreenView = null
+                requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
                 insetsController.show(WindowInsetsCompat.Type.systemBars())
             }
 

@@ -18,6 +18,9 @@ UI_SCALE_SET=0
 ORIENTATION_STATE_SAVED=0
 ORIGINAL_ROTATION_MODE=""
 ORIGINAL_USER_ROTATION=""
+ORIENTATION_SETTINGS_SAVED=0
+ORIGINAL_ACCELEROMETER_ROTATION=""
+ORIGINAL_USER_ROTATION_SETTING=""
 
 usage() {
   cat <<'EOF'
@@ -32,7 +35,7 @@ Options:
                         locked-state, locked-notification, locked-session,
                         export, data-directory-cancel, data-directory-move-reset,
                         locked-controls, locked-audio-focus, locked-cleanup, locked-force-stop,
-                        fullscreen-fit-screen
+                        fullscreen-fit-screen, fullscreen-auto-rotate
   --keep-data           do not clear app data (default)
   --timeout SECONDS     wait timeout (default: 45)
   -h, --help            show help
@@ -348,6 +351,24 @@ restore_orientation() {
   adb_shell wm user-rotation "$ORIGINAL_ROTATION_MODE" "$ORIGINAL_USER_ROTATION" >/dev/null 2>&1 || true
 }
 
+save_rotation_settings() {
+  ORIGINAL_ACCELEROMETER_ROTATION=$(adb_shell settings get system accelerometer_rotation)
+  ORIGINAL_USER_ROTATION_SETTING=$(adb_shell settings get system user_rotation)
+  ORIENTATION_SETTINGS_SAVED=1
+}
+
+set_auto_rotate_off() {
+  adb_shell settings put system accelerometer_rotation 0
+  adb_shell settings put system user_rotation 0
+  sleep 3
+}
+
+restore_rotation_settings() {
+  (( ORIENTATION_SETTINGS_SAVED == 1 )) || return 0
+  adb_shell settings put system accelerometer_rotation "$ORIGINAL_ACCELEROMETER_ROTATION" >/dev/null 2>&1 || true
+  adb_shell settings put system user_rotation "$ORIGINAL_USER_ROTATION_SETTING" >/dev/null 2>&1 || true
+}
+
 no_native_crash() {
   collect_logs
   ! grep -E 'FATAL EXCEPTION|AndroidRuntime: FATAL' "$LOG_FILE" >/dev/null
@@ -367,6 +388,40 @@ enter_fullscreen() {
   sleep 4
 }
 
+fullscreen_auto_rotate() {
+  clean_logs
+  save_orientation || return 1
+  save_rotation_settings || return 1
+  trap 'restore_rotation_settings; restore_orientation' EXIT
+  set_orientation 0 || return 1
+  set_auto_rotate_off || return 1
+  open_video jNQXAC9IVRw || return 1
+  enter_fullscreen portrait
+  screenshot fullscreen-auto-rotate
+  identify "$ARTIFACT_DIR/fullscreen-auto-rotate.png" | grep -q '1600x720' || {
+    echo "Fullscreen did not rotate to landscape with auto-rotate locked"
+    return 1
+  }
+  set_orientation 3 || return 1
+  screenshot fullscreen-auto-rotate-reverse
+  identify "$ARTIFACT_DIR/fullscreen-auto-rotate-reverse.png" | grep -q '1600x720' || {
+    echo "Fullscreen did not remain landscape after reverse rotation"
+    return 1
+  }
+  set_orientation 0 || return 1
+  adb_shell input keyevent KEYCODE_BACK
+  sleep 3
+  screenshot fullscreen-auto-rotate-exit
+  identify "$ARTIFACT_DIR/fullscreen-auto-rotate-exit.png" | grep -q '720x1600' || {
+    echo "Fullscreen exit did not restore portrait orientation"
+    return 1
+  }
+  restore_rotation_settings
+  restore_orientation
+  trap - EXIT
+  no_native_crash
+}
+
 fullscreen_fit_screen() {
   clean_logs
   save_orientation || return 1
@@ -377,7 +432,7 @@ fullscreen_fit_screen() {
   for setting in off on; do
     set_orientation 0 || return 1
     set_fit_video_to_fullscreen "$setting" || return 1
-    for orientation in portrait landscape; do
+    for orientation in landscape; do
       suffix="${setting}-${orientation}"
       open_video jNQXAC9IVRw || return 1
       set_orientation "$([[ "$orientation" == "landscape" ]] && echo 1 || echo 0)"
@@ -764,6 +819,7 @@ case "$TEST" in
   playback) run_test playback playback ;;
   controls) run_test controls controls ;;
   fullscreen-fit-screen) run_test fullscreen-fit-screen fullscreen_fit_screen ;;
+  fullscreen-auto-rotate) run_test fullscreen-auto-rotate fullscreen_auto_rotate ;;
   lock-screen) run_test lock-screen lock_screen ;;
   locked-state) run_test locked-state locked_screen ;;
   locked-notification) run_test locked-notification locked_notification ;;
