@@ -79,6 +79,8 @@ export default {
 
   // NOTE: this exists purely for local development builds, we will not provide support for flatpaks built this way!
   // This is here if unofficial builds need to be made
+  // The arguments and versions below are examples only and may become outdated
+  // The source of truth for the current Flatpak configuration is the Flathub repository
   /*
   flatpak: {
     // install flatpak builder
