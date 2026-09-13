@@ -1389,6 +1389,23 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       channelId: gridPlaylist.author?.id,
       videoCount: extractNumberFromString(gridPlaylist.video_count.text)
     }
+  } else if (playlist.type === 'GridShow') {
+    /** @type {import('youtubei.js').YTNodes.GridShow} */
+    const gridPlaylist = playlist
+
+    /** @type {import('youtubei.js').YTNodes.BrowseEndpoint} */
+    const browseEndpoint = gridPlaylist.endpoint.command
+
+    return {
+      type: 'playlist',
+      dataSource: 'local',
+      title: gridPlaylist.title.text,
+      thumbnail: gridPlaylist.thumbnail_renderer.thumbnail.at(0).url,
+      playlistId: browseEndpoint.buildRequest().browseId.substring(2),
+      channelName: gridPlaylist.author?.name,
+      channelId: gridPlaylist.author?.id,
+      videoCount: extractNumberFromString(gridPlaylist.thumbnail_overlays?.at(0).text.runs?.at(0)?.text)
+    }
   } else {
     let internalChannelName
     let internalChannelId = null
