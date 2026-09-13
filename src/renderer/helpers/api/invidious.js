@@ -123,7 +123,7 @@ export async function invidiousGetChannelId(url) {
  *  description: string,
  *  descriptionHtml: string,
  *  allowedRegions: string[],
- *  tabs: ('home' | 'videos' | 'shorts' | 'live' | 'podcasts' | 'releases' | 'courses' | 'playlists' | 'community')[],
+ *  tabs: ('home' | 'videos' | 'shorts' | 'live' | 'podcasts' | 'releases' | 'courses' | 'shows' | 'playlists' | 'community')[],
  *  latestVideos: InvidiousVideoType[],
  *  relatedChannels: InvidiousChannelObject[]
  * }>}
@@ -253,6 +253,15 @@ export async function getInvidiousChannelPodcasts(channelId, continuation) {
 export async function getInvidiousChannelCourses(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
   return await getInvidiousChannelTab('courses', channelId, continuation)
+}
+
+/**
+ * @param {string} channelId
+ * @param {string | undefined | null} continuation
+ */
+export async function getInvidiousChannelShows(channelId, continuation) {
+  /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
+  return await getInvidiousChannelTab('shows', channelId, continuation)
 }
 
 /**
