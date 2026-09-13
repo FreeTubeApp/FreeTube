@@ -49,6 +49,7 @@
     "pack:android:core": "pnpm run pack:botGuardScript && webpack --mode=production --config-node-env=production --config _scripts/webpack.android.config.js",
     "pack:android:dev": "webpack --mode=development --config-node-env=development --config _scripts/webpack.android.config.js",
     "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
+    "test:long-press": "node _scripts/test-long-press-playback.mjs",
     "ci": "pnpm install --frozen-lockfile"
   },
   "dependencies": {
