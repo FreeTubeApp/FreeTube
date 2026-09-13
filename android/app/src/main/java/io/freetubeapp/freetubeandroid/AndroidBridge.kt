@@ -28,6 +28,9 @@ import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.util.Log
+import androidx.webkit.ProxyConfig
+import androidx.webkit.ProxyController
+import androidx.webkit.WebViewFeature
 import org.json.JSONArray
 import org.json.JSONObject
 import java.util.UUID
@@ -405,6 +408,64 @@ class AndroidBridge(
 
     @JavascriptInterface
     fun getSyncMessage(id: String): String? = messages.remove(id)
+
+    @JavascriptInterface
+    fun setProxy(id: String, protocol: String, host: String, port: String): String {
+        activity.runOnUiThread {
+            if (!WebViewFeature.isFeatureSupported(WebViewFeature.PROXY_OVERRIDE)) {
+                messages[id] = "Proxy override is not supported by Android System WebView"
+                notifyMain(id, false)
+                return@runOnUiThread
+            }
+
+            val proxyProtocol = if (protocol == "socks4" || protocol == "socks5") "socks" else protocol
+            val proxyPort = port.toIntOrNull()
+            if (host.isBlank() || proxyPort !in 1..65535 || proxyProtocol !in setOf("http", "https", "socks")) {
+                messages[id] = "Invalid proxy settings"
+                notifyMain(id, false)
+                return@runOnUiThread
+            }
+
+            try {
+                val config = ProxyConfig.Builder()
+                    .addProxyRule("$proxyProtocol://$host:$proxyPort")
+                    .build()
+                ProxyController.getInstance().setProxyOverride(
+                    config,
+                    activity.mainExecutor
+                ) {
+                    messages[id] = "ok"
+                    notifyMain(id, true)
+                }
+            } catch (error: Exception) {
+                messages[id] = error.message ?: error.toString()
+                notifyMain(id, false)
+            }
+        }
+        return id
+    }
+
+    @JavascriptInterface
+    fun clearProxy(id: String): String {
+        activity.runOnUiThread {
+            if (!WebViewFeature.isFeatureSupported(WebViewFeature.PROXY_OVERRIDE)) {
+                messages[id] = "Proxy override is not supported by Android System WebView"
+                notifyMain(id, false)
+                return@runOnUiThread
+            }
+
+            try {
+                ProxyController.getInstance().clearProxyOverride(activity.mainExecutor) {
+                    messages[id] = "ok"
+                    notifyMain(id, true)
+                }
+            } catch (error: Exception) {
+                messages[id] = error.message ?: error.toString()
+                notifyMain(id, false)
+            }
+        }
+        return id
+    }
 
     @JavascriptInterface
     fun createMediaSession(title: String, artist: String, duration: Long, thumbnail: String? = null) {

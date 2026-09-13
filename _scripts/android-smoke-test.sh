@@ -21,6 +21,9 @@ ORIGINAL_USER_ROTATION=""
 ORIENTATION_SETTINGS_SAVED=0
 ORIGINAL_ACCELEROMETER_ROTATION=""
 ORIGINAL_USER_ROTATION_SETTING=""
+PROXY_PID=""
+PROXY_PORT=19050
+PROXY_LOG=""
 
 usage() {
   cat <<'EOF'
@@ -35,7 +38,7 @@ Options:
                         locked-state, locked-notification, locked-session,
                         export, data-directory-cancel, data-directory-move-reset,
                         locked-controls, locked-audio-focus, locked-cleanup, locked-force-stop,
-                        fullscreen-fit-screen, fullscreen-auto-rotate, long-press
+                        fullscreen-fit-screen, fullscreen-auto-rotate, long-press, proxy
   --keep-data           do not clear app data (default)
   --timeout SECONDS     wait timeout (default: 45)
   -h, --help            show help
@@ -477,6 +480,56 @@ open_search_results() {
 }
 
 clean_logs() { adb_cmd logcat -c; : >"$LOG_FILE"; }
+
+trap cleanup_proxy EXIT
+
+cleanup_proxy() {
+  if [[ -n "$PROXY_PID" ]]; then
+    adb_cmd reverse --remove "tcp:$PROXY_PORT" >/dev/null 2>&1 || true
+    kill "$PROXY_PID" >/dev/null 2>&1 || true
+  fi
+}
+
+proxy_settings() {
+  command -v python3 >/dev/null 2>&1 || return 77
+  PROXY_LOG="$ARTIFACT_DIR/proxy.log"
+  : >"$PROXY_LOG"
+  python3 "$(dirname "$0")/android-test-http-proxy.py" "$PROXY_PORT" "$PROXY_LOG" >/dev/null 2>&1 &
+  PROXY_PID=$!
+  sleep 1
+  adb_cmd reverse "tcp:$PROXY_PORT" "tcp:$PROXY_PORT" || return 1
+  start_app || return 1
+  adb_shell input tap 615 1540
+  sleep 2
+  adb_shell input tap 320 1015
+  sleep 2
+  screenshot proxy-settings
+  local toggle_pixel
+  toggle_pixel=$(convert "$ARTIFACT_DIR/proxy-settings.png" -format '%[pixel:p{289,358}]' info:)
+  if [[ "$toggle_pixel" == *'33,150,243'* ]]; then
+    adb_shell input tap 380 358
+    sleep 3
+  fi
+  adb_shell input tap 380 358
+  sleep 3
+  adb_shell input tap 360 670
+  sleep 1
+  adb_shell input tap 120 700
+  sleep 3
+  adb_shell input tap 300 880
+  adb_shell input keyevent 67 67 67 67 67
+  adb_shell input keyevent KEYCODE_1 KEYCODE_9 KEYCODE_0 KEYCODE_5 KEYCODE_0
+  adb_shell input keyevent KEYCODE_BACK
+  sleep 3
+  adb_shell input tap 360 1050
+  sleep 10
+  grep -q '^CONNECT ' "$PROXY_LOG" || {
+    echo "Proxy did not receive Test Proxy request"
+    return 1
+  }
+  open_video jNQXAC9IVRw || return 1
+  no_native_crash
+}
 collect_logs() {
   adb_cmd logcat -d -v brief >"$LOG_FILE"
   adb_shell dumpsys media_session >"$ARTIFACT_DIR/media_session.txt"
@@ -855,6 +908,7 @@ case "$TEST" in
   data-directory-move-reset) run_test data-directory-move-reset data_directory_move_reset ;;
   cleanup) run_test cleanup cleanup ;;
   recovery) run_test recovery recovery ;;
+  proxy) run_test proxy proxy_settings ;;
   *) echo "Unknown test: $TEST" >&2; usage >&2; exit 2 ;;
 esac
 

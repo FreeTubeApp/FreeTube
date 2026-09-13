@@ -174,6 +174,26 @@ onMounted(async () => {
 
   await store.dispatch('grabUserSettings')
 
+  if (process.env.IS_ANDROID && store.getters.getUseProxy) {
+    const proxyId = crypto.randomUUID()
+    await new Promise((resolve) => {
+      const finish = () => {
+        window.removeEventListener(`${proxyId}-resolve`, finish)
+        window.removeEventListener(`${proxyId}-reject`, finish)
+        window.Android.getSyncMessage(proxyId)
+        resolve()
+      }
+      window.addEventListener(`${proxyId}-resolve`, finish)
+      window.addEventListener(`${proxyId}-reject`, finish)
+      window.Android.setProxy(
+        proxyId,
+        store.getters.getProxyProtocol,
+        store.getters.getProxyHostname,
+        store.getters.getProxyPort
+      )
+    })
+  }
+
   updateTheme()
 
   await store.dispatch('fetchInvidiousInstancesFromFile')
