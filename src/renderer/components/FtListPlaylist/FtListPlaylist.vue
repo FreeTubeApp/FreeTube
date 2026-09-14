@@ -204,6 +204,9 @@ function parseInvidiousData() {
   channelId = props.data.authorId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
+  isPodcast = props.data.isPodcast === true
+  isAlbum = props.data.isAlbum === true
+  isCourse = props.data.isCourse === true
 
   if (props.data.proxyThumbnail === false) {
     thumbnail = props.data.playlistThumbnail
