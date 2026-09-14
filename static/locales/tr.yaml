@@ -892,6 +892,7 @@ Video:
   Station: İstasyon
   Playlist:
     Unavailable videos are hidden: 1 kullanılamayan video gizlendi | {count} kullanılamayan video gizlendi
+  Premiere: İlk gösterim
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
