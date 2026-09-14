@@ -1,5 +1,3 @@
-# Compress images on demand (workflow_dispatch), and at 12am every Sunday (schedule).
-# Open a Pull Request if any images can be compressed.
 name: Compress Images
 on:
   workflow_dispatch:
@@ -11,10 +9,14 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: compress-images-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   compress:
     name: Compress
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
 
     permissions:
       contents: write
