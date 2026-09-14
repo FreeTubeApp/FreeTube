@@ -1745,6 +1745,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       liveNow: video.is_live,
       isUpcoming: video.is_upcoming || video.is_premiere,
       premiereDate: video.upcoming,
+      isPremiere: video.is_premiere,
       is4k: video.is_4k,
       is8k: video.badges.some(badge => badge.label === '8K'),
       isNew: video.badges.some(badge => badge.label === 'New'),
@@ -1836,6 +1837,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let lengthSeconds = ''
       let liveNow = false
       let isUpcoming = false
+      let isPremiere = false
       let premiereDate
 
       const isMemberOnly = lockupView.metadata.metadata?.metadata_rows.some(row => {
@@ -1852,6 +1854,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       if (thumbnailBottomOverlayView) {
         if (thumbnailBottomOverlayView.badges.some(badge => badge.badge_style === 'THUMBNAIL_OVERLAY_BADGE_STYLE_LIVE')) {
           liveNow = true
+          isPremiere = thumbnailBottomOverlayView.badges.some(badge => badge.text === 'PREMIERE')
         } else if (thumbnailBottomOverlayView.badges.some(badge => badge.text?.toLowerCase() === 'upcoming')) {
           isUpcoming = true
 
@@ -1926,6 +1929,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         liveNow,
         isUpcoming,
         isStation,
+        isPremiere,
         premiereDate
       }
     }
