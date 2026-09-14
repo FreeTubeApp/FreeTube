@@ -830,7 +830,7 @@ Video:
       opening playlists: esitusloendite avamine
       setting a playback rate: taasesituskiiruse määramine
       starting video at offset: video esitamine ajanihkega
-  Premieres: Esilinastus
+  Premieres: Esilinastused
   Show Super Chat Comment: Näita Super Chat'i kommentaare
   Scroll to Bottom: Keri alla
   Upcoming: Tulemas
@@ -888,6 +888,7 @@ Video:
   Station: Jaam
   Playlist:
     Unavailable videos are hidden: 1 mittesaadav video on peidetud | {count} mittesaadavat videot on peidetud
+  Premiere: Esilinastus
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
