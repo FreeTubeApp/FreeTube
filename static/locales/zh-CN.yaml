@@ -844,6 +844,7 @@ Video:
   Station: Station 直播
   Playlist:
     Unavailable videos are hidden: 隐藏了 1 个不可用视频 | 隐藏了 {count} 个不可用视频
+  Premiere: 首映
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
