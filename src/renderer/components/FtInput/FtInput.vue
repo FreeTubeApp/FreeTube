@@ -331,6 +331,7 @@ async function handleActionIconChange() {
     switch (result.urlType) {
       case 'video':
       case 'playlist':
+      case 'show':
       case 'search':
       case 'channel':
       case 'hashtag':
