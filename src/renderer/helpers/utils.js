@@ -768,16 +768,16 @@ export function getTodayDateStrLocalTimezone() {
 // See https://issues.chromium.org/issues/396060189
 const LOCALES_REQUIRING_FALLBACK = ['az']
 const FALLBACK_LOCALE = 'en'
+const FALLBACK_LOCALES = [FALLBACK_LOCALE]
 
 /**
  * @param {string} locale
  * @returns {string[]}
  */
 export function getLocalesWithFallback(locale) {
-  const locales = LOCALES_REQUIRING_FALLBACK.includes(locale)
-    ? [FALLBACK_LOCALE]
+  return LOCALES_REQUIRING_FALLBACK.includes(locale)
+    ? FALLBACK_LOCALES
     : [locale, FALLBACK_LOCALE]
-  return locales
 }
 
 /**
