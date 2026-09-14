@@ -797,6 +797,7 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Qalan SABR gecikmə vaxtı: {remindingTimeSeconds}s'
   Playlist:
     Unavailable videos are hidden: 1 əlçatmaz video gizlədilib | {count} əlçatmaz video gizlədilib
+  Premiere: Premyera
 Tooltips:
   General Settings:
     Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
