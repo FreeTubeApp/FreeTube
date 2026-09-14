@@ -840,6 +840,7 @@ Video:
   Station: 局
   Playlist:
     Unavailable videos are hidden: 再生できない動画が 1 件非表示になっています | 再生できない動画が {count} 件非表示になっています
+  Premiere: プレミア
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
