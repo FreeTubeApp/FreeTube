@@ -378,9 +378,11 @@ const actions = {
     const hashtagPattern = /^\/hashtag\/(?<tag>[^#&/?]+)$/
 
     const postPattern = /^\/post\/(?<postId>.+)/
+    const showPattern = /^\/show\/VL(?<playlistId>.+)/
     const feedPattern = /^\/feed\/(?<type>trending|subscriptions|history|playlists|you|library)/
     const typePatterns = new Map([
       ['playlist', /^(\/playlist\/?|\/embed(\/?videoseries)?)$/],
+      ['show', showPattern],
       ['search', /^\/results|search\/?$/],
       ['hashtag', hashtagPattern],
       ['post', postPattern],
@@ -414,6 +416,14 @@ const actions = {
           urlType: 'playlist',
           playlistId,
           query
+        }
+      }
+
+      case 'show': {
+        const match = url.pathname.match(showPattern)
+        return {
+          urlType: 'playlist',
+          playlistId: match.groups.playlistId
         }
       }
 

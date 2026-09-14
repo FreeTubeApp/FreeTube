@@ -909,6 +909,7 @@ Comments:
   View 1 reply from {channelName}: '{channelName} からの 1 件の返信を見る'
   View {replyCount} replies from {channelName} and others: '{channelName} や他のユーザーからの {replyCount} 件の返信を見る'
   Loading replies: 返信を読み込み中...
+  Comments are turned off: コメントは無効になっています
 Up Next: '次の動画'
 
 # Toast Messages

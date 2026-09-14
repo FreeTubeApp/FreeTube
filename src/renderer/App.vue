@@ -25,7 +25,6 @@
         class="banner-wrapper"
       >
         <FtNotificationBanner
-          v-if="showUpdatesBanner"
           class="banner"
           :message="updateBannerMessage"
           role="link"

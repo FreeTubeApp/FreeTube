@@ -964,6 +964,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
   Loading replies: Válaszok betöltése...
   Hide Replies: Válasz elrejtése | Válaszok elrejtése
+  Comments are turned off: A hozzászólások ki vannak kapcsolva
 Up Next: 'Következő'
 
 # Toast Messages

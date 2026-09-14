@@ -78,7 +78,7 @@
       </swiper-slide>
     </swiper-container>
     <div
-      v-if="postType === 'image' && postContent.content.length > 0"
+      v-else-if="postType === 'image' && postContent.content.length > 0"
     >
       <img
         :src="getBestQualityImage(postContent.content)"
@@ -87,7 +87,7 @@
       >
     </div>
     <div
-      v-if="postType === 'video'"
+      v-else-if="postType === 'video'"
     >
       <FtListVideo
         v-if="!hideVideo"
@@ -102,12 +102,12 @@
       </p>
     </div>
     <div
-      v-if="postType === 'poll' || postType === 'quiz'"
+      v-else-if="postType === 'poll' || postType === 'quiz'"
     >
       <FtCommunityPoll :data="postContent" />
     </div>
     <div
-      v-if="postType === 'playlist'"
+      v-else-if="postType === 'playlist'"
       class="playlistWrapper"
     >
       <FtListPlaylist
