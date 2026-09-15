@@ -4,6 +4,7 @@ on:
   pull_request:
     branches: [ master, development, '**-RC' ]
 
+cache-mode: none
 permissions: {}
 
 concurrency:
@@ -14,6 +15,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
 
+    cache-mode: read
     permissions:
       contents: read
 
