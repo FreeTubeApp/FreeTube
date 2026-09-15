@@ -259,14 +259,16 @@ const showResult = computed(() => {
 
     const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-    if (channelsHidden.value.some(ch => ch.name === props.data.authorId) || channelsHidden.value.some(ch => ch.name === props.data.author) || (forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text)))) {
+    if (channelsHidden.value.some(ch => ch.name === props.data.authorId) ||
+    channelsHidden.value.some(ch => ch.name === props.data.author) ||
+    (lowerCaseAuthor != null && forbiddenTitles.value.some(text => lowerCaseAuthor.includes(text)))) {
       // hide videos by author
       return false
     }
 
     const lowerCaseTitle = props.data.title?.toLowerCase()
 
-    if (forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) {
+    if (lowerCaseTitle != null && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) {
       return false
     }
   } else if (dataType === 'channel') {
@@ -283,7 +285,7 @@ const showResult = computed(() => {
     const lowerCaseName = props.data.name?.toLowerCase()
 
     if ((attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) ||
-      (forbiddenTitles.value.some((text) => lowerCaseName.includes(text)))) {
+      (lowerCaseName != null && forbiddenTitles.value.some((text) => lowerCaseName.includes(text)))) {
       // hide channels by author
       return false
     }
@@ -291,8 +293,8 @@ const showResult = computed(() => {
     const lowerCaseTitle = props.data.title?.toLowerCase()
     const lowerCaseChannelName = props.data.channelName?.toLowerCase()
 
-    if ((forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
-      (forbiddenTitles.value.some((text) => lowerCaseChannelName.includes(text)))) {
+    if ((lowerCaseTitle != null && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
+      (lowerCaseChannelName != null && forbiddenTitles.value.some((text) => lowerCaseChannelName.includes(text)))) {
       return false
     }
 
