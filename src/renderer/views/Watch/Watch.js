@@ -174,6 +174,7 @@ export default defineComponent({
       /** @type {string[]|null} */
       customErrorIcon: null,
       videoGenreIsMusic: false,
+      contentDisclosures: null,
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
@@ -401,6 +402,7 @@ export default defineComponent({
       this.videoDescription = ''
       this.videoDescriptionHtml = ''
       this.license = ''
+      this.contentDisclosures = null
       this.videoViewCount = 0
       this.videoLikeCount = 0
       this.videoDislikeCount = 0
@@ -503,7 +505,8 @@ export default defineComponent({
 
       try {
         const videoInfo = await getLocalVideoInfo(this.videoId)
-        const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
+        const { info: result, poToken, clientInfo, adEndTimeUnixMs, contentDisclosures } = videoInfo
+        this.contentDisclosures = contentDisclosures || null
 
         const playabilityStatus = result.playability_status
         this.playabilityStatus = playabilityStatus.status
@@ -1033,6 +1036,7 @@ export default defineComponent({
           this.isFamilyFriendly = result.isFamilyFriendly
           this.isPostLiveDvr = !!result.isPostLiveDvr
           this.isUnlisted = !result.isListed
+          this.contentDisclosures = null
 
           this.captions = sortCaptions(result.captions.map(caption => {
             return {
