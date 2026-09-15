@@ -843,6 +843,7 @@ Video:
   Station: Station
   Playlist:
     Unavailable videos are hidden: 1 nicht verfügbares Video ist ausgeblendet | {count} nicht verfügbare Videos sind ausgeblendet
+  Premiere: Premiere
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
