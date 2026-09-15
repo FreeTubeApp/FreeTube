@@ -1074,6 +1074,7 @@ const compactViewCount = computed(() => {
 
 function isNumberRounded(number) {
   switch (number.toString().length) {
+    case 11:
     case 10:
       return number % 100000000 === 0
     case 9:
