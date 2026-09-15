@@ -29,7 +29,20 @@
         <div class="background" />
         <div class="inner">
           <div>{{ videoCount }}</div>
-          <div><FontAwesomeIcon :icon="['fas','list']" /></div>
+          <div>
+            <template v-if="isAlbum">
+              <FontAwesomeIcon :icon="['fas','music']" />
+            </template>
+            <template v-else-if="isPodcast">
+              <FontAwesomeIcon :icon="['fas','podcast']" />
+            </template>
+            <template v-else-if="isCourse">
+              <FontAwesomeIcon :icon="['fas','graduation-cap']" />
+            </template>
+            <template v-else>
+              <FontAwesomeIcon :icon="['fas','list']" />
+            </template>
+          </div>
         </div>
       </div>
     </div>
@@ -126,6 +139,9 @@ let thumbnail = thumbnailPlaceholder
 let channelId = null
 let channelName = ''
 let videoCount = 0
+let isPodcast = false
+let isAlbum = false
+let isCourse = false
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => store.getters.getListType)
@@ -188,6 +204,9 @@ function parseInvidiousData() {
   channelId = props.data.authorId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
+  isPodcast = props.data.isPodcast === true
+  isAlbum = props.data.isAlbum === true
+  isCourse = props.data.isCourse === true
 
   if (props.data.proxyThumbnail === false) {
     thumbnail = props.data.playlistThumbnail
@@ -203,6 +222,9 @@ function parseLocalData() {
   channelId = props.data.channelId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
+  isPodcast = props.data.isPodcast === true
+  isAlbum = props.data.isAlbum === true
+  isCourse = props.data.isCourse === true
 }
 
 function parseUserData() {

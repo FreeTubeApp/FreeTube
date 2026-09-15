@@ -235,7 +235,12 @@ export async function getInvidiousChannelPlaylists(channelId, sortBy, continuati
  */
 export async function getInvidiousChannelReleases(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('releases', channelId, continuation)
+  const releases = await getInvidiousChannelTab('releases', channelId, continuation)
+
+  for (const releasePlaylist of releases.playlists) {
+    releasePlaylist.isAlbum = true
+  }
+  return releases
 }
 
 /**
@@ -244,7 +249,12 @@ export async function getInvidiousChannelReleases(channelId, continuation) {
  */
 export async function getInvidiousChannelPodcasts(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('podcasts', channelId, continuation)
+  const podcasts = await getInvidiousChannelTab('podcasts', channelId, continuation)
+
+  for (const podcastPlaylist of podcasts.playlists) {
+    podcastPlaylist.isPodcast = true
+  }
+  return podcasts
 }
 
 /**
@@ -253,7 +263,11 @@ export async function getInvidiousChannelPodcasts(channelId, continuation) {
  */
 export async function getInvidiousChannelCourses(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('courses', channelId, continuation)
+  const courses = await getInvidiousChannelTab('courses', channelId, continuation)
+  for (const coursePlaylist of courses.playlists) {
+    coursePlaylist.isCourse = true
+  }
+  return courses
 }
 
 /**
