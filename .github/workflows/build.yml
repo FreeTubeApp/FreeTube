@@ -44,7 +44,6 @@ jobs:
         node-version: [24.x]
         runtime:
           - linux-x64
-          - linux-armv7l
           - linux-arm64
           - win-x64
           - win-arm64
@@ -52,9 +51,6 @@ jobs:
           - osx-arm64
         include:
         - runtime: linux-x64
-          os: ubuntu-latest
-
-        - runtime: linux-armv7l
           os: ubuntu-latest
 
         - runtime: linux-arm64
@@ -144,11 +140,6 @@ jobs:
       shell: bash
       run: pnpm run build
 
-    - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      shell: bash
-      run: pnpm run build:arm32
-
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       shell: bash
@@ -167,20 +158,6 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.version }}-linux-x64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.version }}.7z
-
-    - name: Upload Linux .zip ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-linux-armv7l-portable.zip
-        path: build/freetube-${{ steps.versionNumber.outputs.version }}-armv7l.zip
-
-    - name: Upload Linux .7z ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-linux-armv7l-portable.7z
-        path: build/freetube-${{ steps.versionNumber.outputs.version }}-armv7l.7z
 
     - name: Upload Linux .zip ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
@@ -203,13 +180,6 @@ jobs:
         name: freetube_${{ steps.versionNumber.outputs.version }}_amd64.deb
         path: build/freetube_${{ steps.versionNumber.outputs.version }}_amd64.deb
 
-    - name: Upload .deb ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube_${{ steps.versionNumber.outputs.version }}_armv7l.deb
-        path: build/freetube_${{ steps.versionNumber.outputs.version }}_armv7l.deb
-
     - name: Upload .deb ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -224,13 +194,6 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.version }}-amd64.AppImage
         path: build/FreeTube-${{ steps.versionNumber.outputs.version }}.AppImage
 
-    - name: Upload AppImage ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-armv7l.AppImage
-        path: build/FreeTube-${{ steps.versionNumber.outputs.version }}-armv7l.AppImage
-
     - name: Upload AppImage ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -244,8 +207,6 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.version }}.amd64.rpm
         path: build/freetube-${{ steps.versionNumber.outputs.version }}.x86_64.rpm
-
-    # rpm are not built for armv7l
 
     - name: Upload .rpm ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
