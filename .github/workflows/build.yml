@@ -10,7 +10,6 @@ on:
       - 'README.md'
       - '.github/**/*.md'
       - '.github/workflows/autoMerge.yml'
-      - '.github/workflows/calibreapp-image-actions.yml'
       - '.github/workflows/codeql.yml'
       - '.github/workflows/conflicts.yml'
       - '.github/workflows/label-issue.yml'

@@ -844,6 +844,7 @@ Video:
   Station: Chaîne
   Playlist:
     Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
+  Premiere: Première
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'

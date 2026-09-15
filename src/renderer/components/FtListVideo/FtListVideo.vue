@@ -46,7 +46,11 @@
         }"
       >
         <template v-if="isLive">
-          {{ t("Video.Live") }}
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ isPremiere ? t("Video.Premiere") : t("Video.Live") }}
         </template>
         <template v-else-if="isUpcoming">
           {{ t("Video.Upcoming") }}
@@ -54,7 +58,7 @@
         <template v-else-if="isStation">
           <FontAwesomeIcon
             :icon="['fa', 'tower-broadcast']"
-            class="subscriptionIcon"
+            class="liveIcon"
           />
           {{ t("Video.Station") }}
         </template>
@@ -428,6 +432,7 @@ const is3D = ref(false)
 const hasCaptions = ref(false)
 const isUpcoming = ref(false)
 const isStation = ref(false)
+const isPremiere = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -1035,6 +1040,7 @@ function parseVideoData() {
 
   description.value = props.data.description
   isStation.value = props.data.isStation === true
+  isPremiere.value = props.data.isPremiere === true
   isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
   is4k.value = props.data.is4k
@@ -1095,6 +1101,7 @@ function markAsWatched() {
     timeWatched: Date.now(),
     isLive: false,
     isStation: false,
+    isPremiere: false,
     type: 'video'
   }
 

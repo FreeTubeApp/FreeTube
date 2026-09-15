@@ -841,6 +841,7 @@ Video:
   Station: Estação
   Playlist:
     Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
+  Premiere: Premiere
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
@@ -910,6 +911,7 @@ Comments:
   View 1 reply from {channelName}: Mostrar 1 resposta de {channelName}
   View {replyCount} replies from {channelName} and others: Mostrar {replyCount} respostas de {channelName} e outros
   Loading replies: Carregando respostas...
+  Comments are turned off: Os comentários estão desativados
 Up Next: 'Próximo'
 
 # Toast Messages
