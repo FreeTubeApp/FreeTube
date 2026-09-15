@@ -9,6 +9,7 @@ on:
     # Run daily at midnight.
     - cron: '0 0 * * *'
 
+cache-mode: none
 permissions: {}
 
 jobs:
