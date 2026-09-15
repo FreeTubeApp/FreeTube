@@ -21,8 +21,9 @@ import {
   extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
-  showToast,
-  throttle
+  throttle,
+  getLocalesWithFallback,
+  showToast
 } from '../../helpers/utils'
 import {
   getLocalVideoInfo,
@@ -525,7 +526,7 @@ export default defineComponent({
         this.recommendedVideos = result.watch_next_feed
           ?.filter((item) => {
             return item.type === 'CompactVideo' || item.type === 'CompactMovie' ||
-              (item.type === 'LockupView' && item.content_type === 'VIDEO')
+              (item.type === 'LockupView' && (item.content_type === 'VIDEO' || item.content_type === 'STATION'))
           })
           .map(parseLocalWatchNextVideo).filter(_ => _)
           // place watched recommended videos last
@@ -782,7 +783,8 @@ export default defineComponent({
                 value: 'numeric'
               })
             }
-            this.upcomingTimestamp = Intl.DateTimeFormat(this.currentLocale, timestampOptions).format(upcomingTimestamp)
+            const locales = getLocalesWithFallback(this.currentLocale)
+            this.upcomingTimestamp = Intl.DateTimeFormat(locales, timestampOptions).format(upcomingTimestamp)
 
             let upcomingTimeLeft = upcomingTimestamp - now
 
@@ -810,8 +812,9 @@ export default defineComponent({
             if (upcomingTimeLeft < 1) {
               this.upcomingTimeLeft = this.t('Video.Published.In less than a minute').toLowerCase()
             } else {
+              const locales = getLocalesWithFallback(this.currentLocale)
               // TODO a I18n entry for time format might be needed here
-              this.upcomingTimeLeft = new Intl.RelativeTimeFormat(this.currentLocale).format(upcomingTimeLeft, timeUnit)
+              this.upcomingTimeLeft = new Intl.RelativeTimeFormat(locales).format(upcomingTimeLeft, timeUnit)
             }
 
             this.premiereDate = upcomingTimestamp

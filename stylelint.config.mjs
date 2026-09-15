@@ -9,6 +9,10 @@ export default {
       files: '**/*.scss',
       customSyntax: 'postcss-scss',
       rules: {
+        'at-rule-prelude-no-invalid': [
+          true,
+          { ignoreAtRules: ['mixin'] }
+        ],
         'max-nesting-depth': null,
         'selector-max-compound-selectors': null
       }

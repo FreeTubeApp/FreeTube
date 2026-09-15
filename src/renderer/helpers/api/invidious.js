@@ -3,6 +3,7 @@ import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { parseVideoClipsParams } from './shared'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -896,6 +897,27 @@ export async function getHashtagInvidious(hashtag, page = 1) {
   setMultiplePublishedTimestamps(response.results)
 
   return response.results
+}
+
+export async function getClipInvidious(clipId) {
+  if (process.env.SUPPORTS_LOCAL_API) {
+    // reuse parsing from local api
+    const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+    return parseVideoClipsParams(response.videoId, response.params)
+  }
+
+  // fallback to invidious clips api when local api isn't available (makes an expensive fetch video call)
+  const clipResponse = await invidiousAPICall({
+    resource: 'clips',
+    id: clipId,
+  })
+
+  return {
+    videoId: clipResponse.video.videoId,
+    startTime: clipResponse.startTime,
+    endTime: clipResponse.endTime,
+    clipTitle: clipResponse.clipTitle,
+  }
 }
 
 /**

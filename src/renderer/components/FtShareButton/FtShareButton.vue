@@ -46,24 +46,26 @@
           :label="t('Share.Open Link')"
           @click="openYoutube"
         />
-        <FtButton
+        <template
           v-if="isVideo || isPlaylist"
-          class="action"
-          aria-describedby="youtubeShareImage"
-          background-color="var(--accent-color-active)"
-          :icon="['fas', 'copy']"
-          :label="t('Share.Copy Embed')"
-          @click="copyYoutubeEmbed"
-        />
-        <FtButton
-          v-if="isVideo || isPlaylist"
-          class="action"
-          aria-describedby="youtubeShareImage"
-          background-color="var(--accent-color-active)"
-          :icon="['fas', 'globe']"
-          :label="t('Share.Open Embed')"
-          @click="openYoutubeEmbed"
-        />
+        >
+          <FtButton
+            class="action"
+            aria-describedby="youtubeShareImage"
+            background-color="var(--accent-color-active)"
+            :icon="['fas', 'copy']"
+            :label="t('Share.Copy Embed')"
+            @click="copyYoutubeEmbed"
+          />
+          <FtButton
+            class="action"
+            aria-describedby="youtubeShareImage"
+            background-color="var(--accent-color-active)"
+            :icon="['fas', 'globe']"
+            :label="t('Share.Open Embed')"
+            @click="openYoutubeEmbed"
+          />
+        </template>
       </div>
 
       <template v-if="showInvidiousOptions">
@@ -91,24 +93,26 @@
             :label="t('Share.Open Link')"
             @click="openInvidious"
           />
-          <FtButton
+          <template
             v-if="isVideo || isPlaylist"
-            aria-describedby="invidiousShare"
-            class="action"
-            background-color="var(--accent-color-active)"
-            :icon="['fas', 'copy']"
-            :label="t('Share.Copy Embed')"
-            @click="copyInvidiousEmbed"
-          />
-          <FtButton
-            v-if="isVideo || isPlaylist"
-            aria-describedby="invidiousShare"
-            class="action"
-            background-color="var(--accent-color-active)"
-            :icon="['fas', 'globe']"
-            :label="t('Share.Open Embed')"
-            @click="openInvidiousEmbed"
-          />
+          >
+            <FtButton
+              aria-describedby="invidiousShare"
+              class="action"
+              background-color="var(--accent-color-active)"
+              :icon="['fas', 'copy']"
+              :label="t('Share.Copy Embed')"
+              @click="copyInvidiousEmbed"
+            />
+            <FtButton
+              aria-describedby="invidiousShare"
+              class="action"
+              background-color="var(--accent-color-active)"
+              :icon="['fas', 'globe']"
+              :label="t('Share.Open Embed')"
+              @click="openInvidiousEmbed"
+            />
+          </template>
         </div>
       </template>
     </div>

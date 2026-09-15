@@ -66,6 +66,8 @@
           enabled: inputDataPresent,
           withLabel: showLabel
         }"
+        :aria-label="actionButtonLabel"
+        :title="actionButtonLabel"
         @click="handleClick"
       >
         <FontAwesomeIcon
@@ -153,6 +155,10 @@ const props = defineProps({
   showActionButton: {
     type: Boolean,
     default: true
+  },
+  actionButtonLabel: {
+    type: String,
+    default: '',
   },
   forceActionButtonIconName: {
     type: Array,
@@ -325,6 +331,7 @@ async function handleActionIconChange() {
     switch (result.urlType) {
       case 'video':
       case 'playlist':
+      case 'show':
       case 'search':
       case 'channel':
       case 'hashtag':
@@ -333,6 +340,7 @@ async function handleActionIconChange() {
       case 'subscriptions':
       case 'history':
       case 'userplaylists':
+      case 'clip':
         isYoutubeLink = true
         break
 

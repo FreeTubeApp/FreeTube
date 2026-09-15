@@ -59,6 +59,8 @@ Search / Go to URL: Search / Go to URL
 Search Bar:
   Clear Input: Clear Input
   Remove: Remove
+  Open Search Container: Open Search Container
+  Search: Search
 Search character limit: Search query is over the {searchCharacterLimit} character limit
 Search Listing:
   Label:
@@ -593,6 +595,8 @@ Settings:
     Hide Subscriptions Live: Hide Subscriptions Live
     Hide Subscriptions Posts: Hide Subscriptions Posts
     Show Added Items: Show Added Items
+    Add: Add
+    Remove: Remove
   Data Settings:
     Data Settings: Data
     Select Export Type: Select Export Type
@@ -696,6 +700,7 @@ Settings:
     Experimental Settings: Experimental
     Warning: These settings are experimental, they may cause crashes while enabled. Making backups is highly recommended. Use at your own risk!
     Replace HTTP Cache: Replace HTTP Cache
+    Disable Hardware Acceleration: Disable Hardware Acceleration
   Password Dialog:
     Password: Password
     Enter Password To Unlock: Enter password to unlock settings
@@ -778,6 +783,7 @@ Profile:
     from any other profile.
   Close Profile Dropdown: Close Profile Dropdown
   Open Profile Dropdown: Open Profile Dropdown
+  Go To Profile Manager: Go to Profile Manager
 #On Channel Page
 Channel:
   Subscribe: Subscribe
@@ -889,6 +895,8 @@ Video:
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
+  Station: Station
+  Premiere: Premiere
   Live: Live
   Live Now: Live Now
   Live Chat: Live Chat
@@ -968,12 +976,15 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Remaining preroll-ad time: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Remaining SABR backoff time: {remindingTimeSeconds}s'
+  Playlist:
+    Unavailable videos are hidden: 1 unavailable video is hidden | {count} unavailable videos are hidden
 #& Playlists
 Playlist:
   #& About
   Playlist: Playlist
   View Full Playlist: View Full Playlist
   Last Updated On: Last Updated On
+  Unavailable videos are hidden: Unavailable videos are hidden
   Sort By:
     DateAddedNewest: Date added (Newest)
     DateAddedOldest: Date added (Oldest)
@@ -1043,6 +1054,7 @@ Comments:
   There are no comments available for this video: There are no comments available
     for this video
   There are no comments available for this post: There are no comments available for this post
+  Comments are turned off: Comments are turned off
   Load More Comments: Load More Comments
   Pinned by: Pinned by
   Member: Member
@@ -1112,6 +1124,7 @@ Tooltips:
       your subscription feed on startup and when a new window is opened.
   Experimental Settings:
     Replace HTTP Cache: Disables Electron's disk based HTTP cache and enables a custom in-memory image cache. Will lead to increased RAM usage.
+    Disable Hardware Acceleration: Disables GPU hardware acceleration. May fix graphical issues, but will probably perform worse.
   SponsorBlock Settings:
     UseDeArrowTitles: Replace video titles with user-submitted titles from DeArrow.
     UseDeArrowThumbnails: Replace video thumbnails with thumbnails from DeArrow.

@@ -98,6 +98,8 @@ Subscriptions:
   Subscriptions Tabs: Karty subskrypcji
   Load More Posts: Załaduj więcej wpisów
   Empty Posts: Zasubskrybowane przez Ciebie kanały nie mają żadnych wpisów.
+  Posts:
+    RSS Message: Serwis YouTube nie udostępnia kanałów RSS dla postów. Wyłącz opcję " {rssSetting}" , aby wyświetlić posty, lub włącz opcję " {hideSetting}" , aby ukryć tę zakładkę.
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -560,6 +562,8 @@ Settings:
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
     Hide Channel Posts: Schowaj kartę kanału „Wpisy”
     Hide Subscriptions Posts: Schowaj wpisy z subskrypcji
+    Add: Dodaj
+    Remove: Usuń
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie i zastosować zmiany?
   Proxy Settings:
     Your Info: O Tobie
@@ -834,6 +838,9 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Do końca reklamy z początku pozostało: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR – do przeczekania pozostało: {remindingTimeSeconds}s'
   Private: Prywatnych filmów nie można oglądać w serwisie FreeTube, ponieważ do oglądania filmu wymagane jest zalogowanie się przez Google i potwierdzenie, że jest się właścicielem filmu.
+  Collapse Playlist: Zwiń listę odtwarzania
+  Expand Playlist: Rozwiń listę odtwarzania
+  Station: Stacja
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -962,6 +969,7 @@ Profile:
   Profile Name: Nazwa profilu
   Edit Profile Name: Edytuj nazwę profilu
   Create Profile Name: Nadaj nazwę profilowi
+  Go To Profile Manager: Przejdź do menadżera profili
 The playlist has been reversed: Playlista została odwrócona
 Download From Site: Pobierz ze strony
 Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber} jest już dostępna!  Kliknij po więcej szczegółów
@@ -1009,6 +1017,8 @@ Default Invidious instance has been set to {instance}: Domyślna instancja Invid
 Search Bar:
   Clear Input: Wyczyść pole
   Remove: Usuń
+  Search: Szukaj
+  Open Search Container: Otwórz pole wyszukiwania
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
