@@ -46,8 +46,7 @@
     "pack:preload": "webpack --mode=production --config-node-env=production --config _scripts/webpack.preload.config.js",
     "pack:web": "webpack --mode=production --config-node-env=production --config _scripts/webpack.web.config.js",
     "pack:botGuardScript": "webpack --config _scripts/webpack.botGuardScript.config.js",
-    "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs",
-    "ci": "pnpm install --frozen-lockfile"
+    "checkforbadtemplates": "node _scripts/findMissingTemplates.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",

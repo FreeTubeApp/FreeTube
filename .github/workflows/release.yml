@@ -77,7 +77,7 @@ jobs:
         version: 11
         cache: false
 
-    - run: pnpm run ci
+    - run: pnpm install --frozen-lockfile
       shell: bash
     - run: pnpm run lint
       shell: bash

@@ -108,7 +108,7 @@ jobs:
         key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
 
-    - run: pnpm run ci
+    - run: pnpm install --frozen-lockfile
       shell: bash
     - run: pnpm run lint
       shell: bash
