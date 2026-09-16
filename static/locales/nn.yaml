@@ -117,7 +117,7 @@ Playlists: 'Spelelistar'
 User Playlists:
   Your Playlists: 'Dine spelelistar'
   Search bar placeholder: Søk etter spelelistar
-  Empty Search Message: Det er ingen videoar i denne spelelista som samsvarar med søket ditt
+  Empty Search Message: Det fann seg ingen videoar i denne spelelista som samsvarer med søket ditt
   You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen spelelistar. Klikk på "lag ny speleliste"-knappen for å opprette ei ny liste.
   Playlists with Matching Videos: Spelelistar med samsvarande videoar
   This playlist currently has no videos.: Denne spelelista inneheld ingen videoar.
@@ -163,12 +163,33 @@ User Playlists:
       This playlist is now used for quick bookmark: Denne spelelista blir brukt for hurtigbokmerket no
       This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne spelelista blir brukt for hurtigbokmerket no i staden for {oldPlaylistName}. Klikk her for å angre
       Reverted to use {oldPlaylistName} for quick bookmark: Sett tilbake til å bruke {oldPlaylistName} for hurtigbokmerket
+      Playlist name cannot be empty. Please input a name.: Spelelista må ha eit namn. Venlegast vel eit namn.
+      Playlist has been updated.: Spelelista har blitt endra.
+      There was an issue with updating this playlist.: Det oppstod eit problem ved oppdateringen av denne spelelista.
+      This playlist is protected and cannot be removed.: Denne spelelista er beskytta og kan derfor ikkje fjernes.
+      Playlist {playlistName} has been deleted.: Spelelista {playlistName} har blitt slettet.
+      This playlist does not exist: Denne spelelista finnes ikkje
+      "{videoCount} video(s) have been removed": 1 video har blitt fjerna | {videoCount} videoar har blitt fjerna
+      There were no videos to remove.: Det fant seg ingen videoar å fjerne.
+      This playlist has a video with a duration error: Denne spelelista inneheld minst ein video som ikkje har ei lengde. Den blir sortert som om lengda sin er null.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nokre videoar i spelelista har ikkje blitt lasta inn enno. Trykk her for å kopiere likevel.
   Quick Bookmark Enabled: Hurtigbokmerket aktivert
   Export Playlist: Eksporter denne spelelista
   Export list of URLs: Eksporter liste med URL-ar
   The playlist has been successfully exported: Spelelista blei eksportert
   Cannot delete the quick bookmark target playlist.: Kan ikkje slette spelelista til hurtigbokmerket.
   Are you sure you want to delete this playlist? This cannot be undone: Er du sikker på at du vil fjerne denne spelelista? Dette kan ikkje bli angra.
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} valt'
+    Search in Playlists: Søk i spelelister
+    Select a playlist to add your N videos to: Vel ei speleliste for å leggje til videoen din | Vel ei speleliste for å leggje til {videoCount} videoar dine
+    Allow Adding Duplicate Video(s): Tillat å leggje til dupliserte videoar
+    Save: Lagre
+    Added {count} Times: Allereie laga til | Laga til {count} gonger
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoar vil bli laga til'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoar allereie laga til'
+    Toast:
+      You haven't selected any playlist yet.: Du har ikkje valt nokre spelelister enno.
 History:
   # On History Page
   History: 'Historikk'
