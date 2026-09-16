@@ -5,6 +5,7 @@ on:
   release:
     types: [published]
 
+cache-mode: none
 permissions: {}
 
 jobs:

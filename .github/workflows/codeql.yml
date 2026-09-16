@@ -9,6 +9,7 @@ on:
   schedule:
     - cron: '36 3 * * 5'
 
+cache-mode: none
 permissions: {}
 
 jobs:
@@ -21,6 +22,7 @@ jobs:
     name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
 
+    cache-mode: write
     permissions:
       actions: read
       contents: read
