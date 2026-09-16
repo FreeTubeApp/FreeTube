@@ -727,3 +727,5 @@ Search character limit: Søket overstig teikngrensa på {searchCharacterLimit}
 Feed:
   Feed Last Updated: '{feedName}straum sist oppdatert: {date}'
   Refresh Feed: Oppfrisk {subscriptionName}
+Compact side navigation: Kompakt sidenavigasjon
+Expand side navigation: Utvid sidenavigasjon
