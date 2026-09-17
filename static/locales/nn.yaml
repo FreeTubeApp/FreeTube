@@ -34,6 +34,9 @@ Global:
     Channel Count: 1 kanal | {count} kanalar
     Subscriber Count: 1 abonnent | {count} abonnentar
     View Count: 1 visning | {count} visningar
+    Like Count: 1 liker | {count} liker
+    Watching Count: 1 sjåar | {count} sjåarar
+    Replies Remaining: "{' '}(1 gjenstår) | {' '}({count} gjenståande)"
   Shorts: Shorts-videoar
   Live: Direkte
   Posts: Innlegg
@@ -93,13 +96,17 @@ Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonnement'
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: 'Denne profilen har ei stor mengd abonnentar. Tvinger RSS til å unngå å avgrense hastigheita'
-  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Di abonnementliste er tom for augeblikket. Start å legge til fleire abonnement for å sjå dei her.'
+  'Your Subscription list is currently empty. Start adding subscriptions to see them here.': 'Abonnementslista di er tom for augeblinken. Viss du vil importere abonnementa dine, kan du gå til «Datainnstillinger» og velje «Importer abonnement», eller så kan du søkje etter ein kanal og abonnere på dei.'
   Load More Videos: 'Last inn fleire videoar'
   Error Channels: Kanalar med feil
   Disabled Automatic Fetching: Du har deaktivert automatisk henting av abonnement. Oppdater abonnement for å sjå dei her.
   Empty Channels: Kanalane du abonnerer på har ingen videoar for augeblikket.
   Empty Posts: Kanalane du abonnerer på har ingen innlegg for augeblinken.
   Load More Posts: Last inn fleire innlegg
+  Subscriptions Tabs: Abonnementsfaner
+  All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhald her, opphev skjuling av nokre faner i «{subsection}»-delen av «{settingsSection}».
+  Posts:
+    RSS Message: YouTube tilbyr ikkje RSS-feeder for innlegg. Inaktiver innstillinga "{rssSetting}" for å sjå innlegg, eller aktiver innstillinga "{hideSetting}" for å skjule denne fana.
 Trending:
   Trending: 'På veg opp'
   Trending Tabs: På veg opp
@@ -110,7 +117,7 @@ Playlists: 'Spelelistar'
 User Playlists:
   Your Playlists: 'Dine spelelistar'
   Search bar placeholder: Søk etter spelelistar
-  Empty Search Message: Det er ingen videoar i denne spelelista som samsvarar med søket ditt
+  Empty Search Message: Det fann seg ingen videoar i denne spelelista som samsvarer med søket ditt
   You have no playlists. Click on the create new playlist button to create a new one.: Du har ingen spelelistar. Klikk på "lag ny speleliste"-knappen for å opprette ei ny liste.
   Playlists with Matching Videos: Spelelistar med samsvarande videoar
   This playlist currently has no videos.: Denne spelelista inneheld ingen videoar.
@@ -152,6 +159,37 @@ User Playlists:
       Video has been removed: Videoen er fjerna
       Video has been removed. Click here to undo.: Videoen er fjerna. Klik her for å angra.
       There was a problem with removing this video: Det oppstod eit problem med å fjerna denne videoen
+      This playlist is already being used for quick bookmark.: Denne spelelista er allereie i bruk for hurtigbokmerket.
+      This playlist is now used for quick bookmark: Denne spelelista blir brukt for hurtigbokmerket no
+      This playlist is now used for quick bookmark instead of {oldPlaylistName}. Click here to undo: Denne spelelista blir brukt for hurtigbokmerket no i staden for {oldPlaylistName}. Klikk her for å angre
+      Reverted to use {oldPlaylistName} for quick bookmark: Sett tilbake til å bruke {oldPlaylistName} for hurtigbokmerket
+      Playlist name cannot be empty. Please input a name.: Spelelista må ha eit namn. Venlegast vel eit namn.
+      Playlist has been updated.: Spelelista har blitt endra.
+      There was an issue with updating this playlist.: Det oppstod eit problem ved oppdateringen av denne spelelista.
+      This playlist is protected and cannot be removed.: Denne spelelista er beskytta og kan derfor ikkje fjernes.
+      Playlist {playlistName} has been deleted.: Spelelista {playlistName} har blitt slettet.
+      This playlist does not exist: Denne spelelista finnes ikkje
+      "{videoCount} video(s) have been removed": 1 video har blitt fjerna | {videoCount} videoar har blitt fjerna
+      There were no videos to remove.: Det fant seg ingen videoar å fjerne.
+      This playlist has a video with a duration error: Denne spelelista inneheld minst ein video som ikkje har ei lengde. Den blir sortert som om lengda sin er null.
+      Some videos in the playlist are not loaded yet. Click here to copy anyway.: Nokre videoar i spelelista har ikkje blitt lasta inn enno. Trykk her for å kopiere likevel.
+  Quick Bookmark Enabled: Hurtigbokmerket aktivert
+  Export Playlist: Eksporter denne spelelista
+  Export list of URLs: Eksporter liste med URL-ar
+  The playlist has been successfully exported: Spelelista blei eksportert
+  Cannot delete the quick bookmark target playlist.: Kan ikkje slette spelelista til hurtigbokmerket.
+  Are you sure you want to delete this playlist? This cannot be undone: Er du sikker på at du vil fjerne denne spelelista? Dette kan ikkje bli angra.
+  AddVideoPrompt:
+    N playlists selected: '{playlistCount} valt'
+    Search in Playlists: Søk i spelelister
+    Select a playlist to add your N videos to: Vel ei speleliste for å leggje til videoen din | Vel ei speleliste for å leggje til {videoCount} videoar dine
+    Allow Adding Duplicate Video(s): Tillat å leggje til dupliserte videoar
+    Save: Lagre
+    Added {count} Times: Allereie laga til | Laga til {count} gonger
+    "{videoCount}/{totalVideoCount} Videos Will Be Added": '{videoCount}/{totalVideoCount} videoar vil bli laga til'
+    "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoar allereie laga til'
+    Toast:
+      You haven't selected any playlist yet.: Du har ikkje valt nokre spelelister enno.
 History:
   # On History Page
   History: 'Historikk'
@@ -685,6 +723,8 @@ Open New Window: Opne nytt vindauge
 Search Bar:
   Clear Input: Tøm inndata
   Remove: Fjerna
+  Open Search Container: Opnar søkekontainar
+  Search: Søkje
 Are you sure you want to open this link?: Er du sikker på at du vil opne denne lenka?
 New Window: Nytt vindauge
 Preferences: Innstillingar
@@ -727,3 +767,6 @@ Search character limit: Søket overstig teikngrensa på {searchCharacterLimit}
 Feed:
   Feed Last Updated: '{feedName}straum sist oppdatert: {date}'
   Refresh Feed: Oppfrisk {subscriptionName}
+Compact side navigation: Kompakt sidenavigasjon
+Expand side navigation: Utvid sidenavigasjon
+Right-click or hold to see history: Høgreklikk eller hold musepeikaren over for å sjå historikk

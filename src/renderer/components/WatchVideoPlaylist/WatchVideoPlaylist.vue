@@ -172,6 +172,11 @@
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
           @pause-player="pausePlayer"
         />
+        <p
+          v-if="playlistUnavailableVideoCount > 0"
+        >
+          {{ t('Video.Playlist.Unavailable videos are hidden', { count: playlistUnavailableVideoCount }, playlistUnavailableVideoCount) }}
+        </p>
       </div>
     </div>
   </FtCard>
@@ -189,7 +194,7 @@ import FtListVideoNumbered from '../FtListVideoNumbered/FtListVideoNumbered.vue'
 
 import store from '../../store/index'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, showToast, extractNumberFromString } from '../../helpers/utils'
 import {
   getLocalCachedFeedContinuation,
   getLocalPlaylist,
@@ -235,6 +240,7 @@ const reversePlaylist = ref(false)
 const channelId = ref('')
 const channelName = ref('')
 const playlistTitle = ref('')
+const playlistTotalVideoCount = ref(0)
 const playlistItems = shallowRef([])
 const randomizedPlaylistItems = shallowRef([])
 const showProgressBarPreview = ref(false)
@@ -281,6 +287,8 @@ const currentVideoIndexOneBased = computed(() => currentVideoIndexZeroBased.valu
 const currentVideo = computed(() => playlistItems.value[currentVideoIndexZeroBased.value])
 
 const playlistVideoCount = computed(() => playlistItems.value.length)
+
+const playlistUnavailableVideoCount = computed(() => playlistTotalVideoCount.value - playlistVideoCount.value)
 
 const videoIndexInPlaylistItems = computed(() => {
   const items = shuffleEnabled.value ? randomizedPlaylistItems.value : playlistItems.value
@@ -633,6 +641,7 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
   store.commit('setCachedPlaylist', null)
 
   playlistTitle.value = cachedPlaylist.title
+  playlistTotalVideoCount.value = cachedPlaylist.totalVideoCount
   channelName.value = cachedPlaylist.channelName
   channelId.value = cachedPlaylist.channelId
 
@@ -674,6 +683,7 @@ async function getPlaylistInformationLocal() {
     }
 
     playlistTitle.value = playlist.info.title
+    playlistTotalVideoCount.value = extractNumberFromString(playlist.info.total_items)
     channelName.value = channelName_
     channelId.value = playlist.info.author?.id
 
@@ -707,6 +717,7 @@ async function getPlaylistInformationInvidious() {
     const result = await invidiousGetPlaylistInfo(props.playlistId)
 
     playlistTitle.value = result.title
+    playlistTotalVideoCount.value = result.videoCount
     channelName.value = result.author
     channelId.value = result.authorId
 

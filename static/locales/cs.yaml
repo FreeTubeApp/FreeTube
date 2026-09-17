@@ -518,6 +518,8 @@ Settings:
     Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů
     Hide Subscriptions Posts: Skrýt příspěvky odběrů
     Hide Channel Posts: Skrýt kartu „Příspěvky“ u kanálů
+    Add: Přidat
+    Remove: Odstranit
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -622,6 +624,7 @@ Settings:
     Experimental Settings: Experimentální
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+    Disable Hardware Acceleration: Zakázat hardwarovou akceleraci
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
     Password: Heslo
@@ -704,6 +707,7 @@ Profile:
   Profile Name: Jméno profilu
   Edit Profile Name: Upravit jméno profilu
   Create Profile Name: Vytvořit jméno profilu
+  Go To Profile Manager: Přejít na správce profilů
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
@@ -830,7 +834,7 @@ Video:
     OpeningTemplate: Otevřít {videoOrPlaylist} v {externalPlayer}...
     video: video
     OpenInTemplate: Otevřít v {externalPlayer}
-  Premieres: Premiéra
+  Premieres: Premiéry
   Show Super Chat Comment: Zobrazit komentář Super Chat
   Scroll to Bottom: Posunout dolů
   Upcoming: Nadcházející
@@ -885,6 +889,10 @@ Video:
   Private: Soukromá videa nelze sledovat v aplikaci FreeTube, jelikož vyžadují přihlášení k účtu Google a vlastnictví videa.
   Collapse Playlist: Sbalit playlist
   Expand Playlist: Rozbalit playlist
+  Station: Stanice
+  Playlist:
+    Unavailable videos are hidden: Je skyto 1 nedostupné video | Je skryto {count} nedostupných videí
+  Premiere: Premiéra
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -906,6 +914,7 @@ Playlist:
     VideoDurationDescending: Doba trvání (nejdelší)
     PublishedOldest: Datum zveřejnění (nejstarší)
     PublishedNewest: Datum zveřejnění (nejnovější)
+  Unavailable videos are hidden: Nedostupná videa jsou skryta
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -954,6 +963,7 @@ Comments:
   View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
   View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
   Loading replies: Načítání odpovědí…
+  Comments are turned off: Komentáře jsou vypnuty
 Up Next: 'Další'
 
 #Tooltips
@@ -985,6 +995,7 @@ Tooltips:
     Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.). Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+    Disable Hardware Acceleration: Zakáže GPU hardwarovou akceleraci. Může opravit grafické chyby, ale bude mít nejspíše horší výkon.
   Distraction Free Settings:
     Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených. Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
@@ -1019,6 +1030,8 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
 Search Bar:
   Clear Input: Vymazat
   Remove: Odstranit
+  Open Search Container: Otevřít kontejner vyhledávání
+  Search: Hledat
 External link opening has been disabled in the general settings: Otevírání externích odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 New Window: Nové okno

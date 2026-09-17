@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
     Hide Channel Posts: Masquer l’onglet « Posts » de la chaîne
     Hide Subscriptions Posts: Masquer les posts des abonnements
+    Add: Ajouter
+    Remove: Supprimer
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -616,6 +618,7 @@ Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
     Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes. Utilisez-les à vos risques et périls !
+    Disable Hardware Acceleration: Désactiver l'accélération matérielle
   Password Dialog:
     Password: Mot de passe
     Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
@@ -838,6 +841,10 @@ Video:
   Private: Les vidéos privées ne peuvent pas être visionnées sur FreeTube, car elles nécessitent une connexion à Google et que l'utilisateur soit le propriétaire de la vidéo.
   Collapse Playlist: Replier la playlist
   Expand Playlist: Développer la playlist
+  Station: Chaîne
+  Playlist:
+    Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
+  Premiere: Première
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -859,6 +866,7 @@ Playlist:
     VideoDurationAscending: Durée (la plus courte)
     PublishedNewest: Date de publication (la plus récente)
     PublishedOldest: Date de publication (la plus ancienne)
+  Unavailable videos are hidden: Les vidéos non disponibles sont masquées
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
@@ -906,6 +914,7 @@ Comments:
   View 1 reply from {channelName}: Voir 1 réponse de {channelName}
   View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
   Loading replies: Chargement des réponses...
+  Comments are turned off: Les commentaires sont désactivés
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -966,6 +975,7 @@ Profile:
   Profile Name: Nom du profil
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
+  Go To Profile Manager: Accéder au Gestionnaire de Profil
 The playlist has been reversed: La playlist a été inversée
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible !  Cliquez pour plus de détails
@@ -996,6 +1006,7 @@ Tooltips:
     Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc.). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
+    Disable Hardware Acceleration: Désactive l'accélération matérielle par GPU. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
@@ -1013,6 +1024,8 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
 Search Bar:
   Clear Input: Effacer l'entrée
   Remove: Retirer
+  Open Search Container: Ouvrir le conteneur de recherche
+  Search: Rechercher
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens externes a été désactivée dans les paramètres généraux
 Screenshot Success: Capture d'écran enregistrée

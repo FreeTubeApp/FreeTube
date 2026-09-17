@@ -6,6 +6,7 @@ on:
       - converted_to_draft
       - ready_for_review
 
+cache-mode: none
 permissions: {}
 
 jobs:

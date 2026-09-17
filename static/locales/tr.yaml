@@ -568,6 +568,8 @@ Settings:
     Hide Channel Courses: Kanal "Kurslar" Sekmesini Gizle
     Hide Channel Posts: Kanalın "Gönderiler" sekmesini gizle
     Hide Subscriptions Posts: Abonelik gönderilerini gizle
+    Add: Ekle
+    Remove: Kaldır
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
@@ -622,6 +624,7 @@ Settings:
     Replace HTTP Cache: HTTP Önbelleğini Değiştir
     Warning: Bu ayarlar deneyseldir, etkin durumdayken çökmelere neden olabilirler. Yedekleme yapılması şiddetle tavsiye edilir. Kullanmanız durumunda risk size aittir!
     Experimental Settings: Deneysel
+    Disable Hardware Acceleration: Donanım Hızlandırmasını Devre Dışı Bırak
   Password Dialog:
     Password: Parola
     Enter Password To Unlock: Ayarların kilidini açmak için parolayı girin
@@ -704,6 +707,7 @@ Profile:
   Create Profile Name: Profil Adı Oluştur
   Open Profile Dropdown: Profil Açılır Menüsünü Aç
   Close Profile Dropdown: Profil Açılır Menüsünü Kapat
+  Go To Profile Manager: Profil Yöneticisine Git
 Channel:
   Subscribe: 'Abone ol'
   Unsubscribe: 'Abonelikten çık'
@@ -885,6 +889,10 @@ Video:
   Private: Özel videolar, Google ile oturum açma ve videonun sahibi olma gerekliliği nedeniyle FreeTube'da izlenemez.
   Collapse Playlist: Oynatma Listesini Daralt
   Expand Playlist: Oynatma Listesini Genişlet
+  Station: İstasyon
+  Playlist:
+    Unavailable videos are hidden: 1 kullanılamayan video gizlendi | {count} kullanılamayan video gizlendi
+  Premiere: İlk gösterim
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -906,6 +914,7 @@ Playlist:
     VideoDurationDescending: Süre (En Uzun)
     PublishedOldest: Yayınlanma Tarihi (En Eski)
     PublishedNewest: Yayınlanma Tarihi (En Yeni)
+  Unavailable videos are hidden: Kullanılamayan videolar gizlendi
 Change Format:
   Change Media Formats: 'Medya Biçimlerini Değiştir'
   Use Dash Formats: 'DASH Biçimlerini Kullan'
@@ -954,6 +963,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: '{channelName} kanalından ve diğerlerinden {replyCount} yanıtı görüntüle'
   Loading replies: Yanıtlar yükleniyor...
   Hide Replies: Yanıtı gizle | Yanıtları gizle
+  Comments are turned off: Yorumlar kapalı
 Up Next: 'Sonraki'
 
 # Toast Messages
@@ -1000,6 +1010,7 @@ Tooltips:
     Ignore Default Arguments: Harici oynatıcıya video URL'si dışında herhangi bir öntanımlı argüman gönderme (örn. oynatma hızı, oynatma listesi URL'si vb.). Özel argümanlar yine de gönderilecektir.
   Experimental Settings:
     Replace HTTP Cache: Electron'un disk tabanlı HTTP önbelleğini devre dışı bırakır ve özel bir bellek içi resim önbelleğini etkinleştirir. RAM kullanımının artmasına neden olacaktır.
+    Disable Hardware Acceleration: GPU donanım hızlandırmasını devre dışı bırakır. Grafikle ilgili sorunları çözebilir, ancak performansı düşerebilir.
   Distraction Free Settings:
     Hide Channels: Tüm videoların, oynatma listelerinin ve kanalın kendisinin arama, öne çıkanlar, en popüler ve tavsiye edilenlerde görünmesini engellemek için bir kanal kimliği girin. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harfe duyarlıdır.
     Hide Subscriptions Live: Bu ayar, "{settingsSection}" bölümünün "{subsection}" kısmında yer alan uygulama genelindeki "{appWideSetting}" ayarı tarafından geçersiz kılınıyor
@@ -1017,6 +1028,8 @@ Default Invidious instance has been set to {instance}: Öntanımlı Invidious ö
 Search Bar:
   Clear Input: Girişi Temizle
   Remove: Kaldır
+  Open Search Container: Arama Alanını Aç
+  Search: Ara
 External link opening has been disabled in the general settings: Harici bağlantı açma genel ayarlarda devre dışı bırakıldı
 Are you sure you want to open this link?: Bu bağlantıyı açmak istediğinizden emin misiniz?
 Screenshot Success: Ekran görüntüsü kaydedildi

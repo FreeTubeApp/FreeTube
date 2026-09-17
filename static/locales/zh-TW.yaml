@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: 隱藏頻道“課程”標籤
     Hide Channel Posts: 隱藏頻道「貼文」分頁
     Hide Subscriptions Posts: 隱藏訂閱貼文
+    Add: 新增
+    Remove: 移除
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -616,6 +618,7 @@ Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
     Experimental Settings: 實驗
+    Disable Hardware Acceleration: 停用硬體加速
   Password Settings:
     Set Password To Prevent Access: 設定密碼以防止存取設定
     Remove Password: 移除密碼
@@ -838,6 +841,10 @@ Video:
   Private: 無法在 FreeTube 觀看私人影片，因為觀看私人影片需要 Google 登入和影片所有權。
   Collapse Playlist: 折疊播放清單
   Expand Playlist: 展開播放清單
+  Station: 站台
+  Premiere: 首映
+  Playlist:
+    Unavailable videos are hidden: 1 部無法觀看的影片已被隱藏 | {count} 部無法觀看的影片已被隱藏
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -859,6 +866,7 @@ Playlist:
     VideoDurationAscending: 持續時間（最短）
     PublishedOldest: 發佈日期（最舊）
     PublishedNewest: 發佈日期（最新）
+  Unavailable videos are hidden: 無法播放的影片會被隱藏
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
@@ -906,6 +914,7 @@ Comments:
   View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
   Loading replies: 正在載入回覆⋯⋯
+  Comments are turned off: 留言已關閉
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -966,6 +975,7 @@ Profile:
   Profile Name: 設定檔名稱
   Edit Profile Name: 修改設定檔名稱
   Create Profile Name: 建立設定檔名稱
+  Go To Profile Manager: 前往設定檔管理程式
 The playlist has been reversed: 播放清單已反轉
 Download From Site: 從網站下載
 Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber} ！按此取得更多資訊
@@ -996,6 +1006,7 @@ Tooltips:
     Ignore Default Arguments: 除了影片 URL 之外，不要向外部播放器傳送任何預設引數（例如播放速率、播放清單 URL 等）。 自訂引數仍會被傳遞。
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
+    Disable Hardware Acceleration: 停用 GPU 硬體加速。此舉可能會解決圖形問題，但效能可能會變差。
   Distraction Free Settings:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
@@ -1013,6 +1024,8 @@ Default Invidious instance has been set to {instance}: 預設 Invidious 站台�
 Search Bar:
   Clear Input: 清除輸入
   Remove: 移除
+  Open Search Container: 開放搜尋容器
+  Search: 搜尋
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
 Screenshot Success: 已儲存螢幕截圖
