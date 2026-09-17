@@ -609,6 +609,7 @@ Settings:
     Experimental Settings: Eksperimenta
     Warning: Ĉi tiuj agordoj estas eksperimentaj kaj povus kaŭzi kolapsojn dum ŝaltitaj. Savkopioj ege farindas. Vi estas avertita!
     Replace HTTP Cache: Anstataŭigi HTTP-kaŝmemoron
+    Disable Hardware Acceleration: Malŝalti aparatan plirapidigon
   Password Dialog:
     Password: Pasvorto
     Enter Password To Unlock: Enigu pasvorton por malŝlosi agordojn
@@ -821,6 +822,9 @@ Video:
   Collapse Playlist: Faldi ludliston
   Expand Playlist: Malfaldi ludliston
   Station: Stacio
+  Premiere: Premiero
+  Playlist:
+    Unavailable videos are hidden: 1 nedisponebla videaĵo estas kaŝita | {count} nedisponeblaj videaĵoj estas kaŝitaj
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
@@ -968,6 +972,7 @@ Playlist:
     VideoDurationAscending: Daŭro (plej mallonga)
     VideoDurationDescending: Daŭro (plej longa)
     Custom: Laŭmenda
+  Unavailable videos are hidden: Nedisponeblaj videaĵoj estas kaŝitaj
 Change Format:
   Change Media Formats: Ŝanĝi medioformojn
   Use Dash Formats: Uzi DASH-ajn formojn
@@ -1019,6 +1024,7 @@ Comments:
   Subscribed: Abonata
   Hearted: Koro
   Loading replies: Ŝargado de respondoj...
+  Comments are turned off: La komentoj estas malŝaltitaj
 Up Next: Sekve
 Description:
   Expand Description: '...pli'
@@ -1056,6 +1062,7 @@ Tooltips:
     Fetch Automatically: Dum ŝaltita, FreeTube aŭtomate venigos viajn abonfluojn je startigo kaj kiam nova fenestro malfermiĝas.
   Experimental Settings:
     Replace HTTP Cache: Malŝaltas la HTTP-kaŝmemoron de Electron en la disko kaj ŝaltas laŭmendan bildkaŝmemoron en ĉefmemoro. La uzata memoro pligrandiĝos.
+    Disable Hardware Acceleration: Malŝaltas la aparatan plirapidigon de la grafika procezoro. Tio ĉi povus korekti grafikajn problemojn, sed la rendimento verŝajne malrapidiĝos.
   SponsorBlock Settings:
     UseDeArrowTitles: Anstataŭigi titolojn de videaĵoj per titoloj provizitaj de uzantoj de DeArrow.
     UseDeArrowThumbnails: Anstataŭigi videaĵajn bildetojn per bildetoj de DeArrow.
