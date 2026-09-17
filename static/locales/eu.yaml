@@ -36,6 +36,7 @@ Global:
     View Count: Ikustaldi 1 | {count} ikustaldi
     Like Count: Atsegite 1 | {count} atsegite
     Comment Count: Iruzkin 1 | {count} iruzkin
+    Replies Remaining: "{' '}(1 geratzen da) | {' '}({count} geratzen dira)"
   Live: Zuzenean
   Shorts: Laburrak
   Posts: Argitalpenak
@@ -103,6 +104,8 @@ Subscriptions:
   Load More Posts: Kargatu mezu gehiago
   Subscriptions Tabs: Harpidetzen fitxak
   All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia ikusteko, erakutsi fitxa batzuk "{subsection}" ataleko "{settingsSection}"-ean.
+  Posts:
+    RSS Message: YouTube-k ez du mezuetarako RSS jariorik eskaintzen. Desgaitu "{rssSetting}" ezarpena mezuak ikusteko edo gaitu "{hideSetting}" ezarpena fitxa hau ezkutatzeko.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -516,6 +519,8 @@ Settings:
     Hide Channel Courses: Ezkutatu kanala "Ikastaroak" fitxa
     Hide Channel Posts: Ezkutatu kanalaren "Argitalpenak" fitxa
     Hide Subscriptions Posts: Ezkutatu harpidetza-argitalpenak
+    Add: Gehitu
+    Remove: Kendu
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -622,6 +627,7 @@ Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
     Experimental Settings: Esperimentala
     Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
+    Disable Hardware Acceleration: Desgaitu Hardware azelerazioa
   Password Settings:
     Password Settings: Pasahitza
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
@@ -698,6 +704,7 @@ Profile:
   Edit Profile Name: Editatu profil-izena
   Create Profile Name: Sortu profil-izena
   Profile Name: Profil-izena
+  Go To Profile Manager: Joan Profilen kudeatzailera
 Channel:
   Subscribe: 'Harpidetu'
   Unsubscribe: 'Kendu harpidetza'
@@ -877,6 +884,11 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
   Popout Live Chat: Erakutsi txata
   Private: Bideo pribatuak ezin dira ikusi FreeTube-n, Google-ren saioa irekitzea eta bideoaren jabetza behar baitute.
+  Collapse Playlist: Tolestu erreprodukzio-zerrenda
+  Expand Playlist: Zabaldu erreprodukzio-zerrenda
+  Premiere: Estreinaldia
+  Playlist:
+    Unavailable videos are hidden: Erabilgarri ez dagoen bideo 1 ezkutatuta dago | Erabilgarri ez dauden {count} bideo ezkutatuta daude
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -898,6 +910,7 @@ Playlist:
     VideoDurationAscending: Iraupena (Laburrena)
     PublishedNewest: Argitaratutako dataren arabera (Berriena)
     PublishedOldest: Argitaratutako dataren arabera (Zaharrena)
+  Unavailable videos are hidden: Erabilgarri ez dauden bideoak ezkutatuta daude
 Change Format:
   Change Media Formats: 'Aldatu multimedia-formatuak'
   Use Dash Formats: 'Erabili DASH formatuak'
@@ -946,6 +959,8 @@ Comments:
   View 1 reply from {channelName}: Ikusi {channelName}-ren erantzun bat
   View {replyCount} replies from {channelName} and others: Ikusi {channelName} eta beste batzuen {replyCount} erantzunak
   Loading replies: Erantzunak kargatzen...
+  Hide Replies: Ezkutatu erantzuna | Ezkutatu erantzunak
+  Comments are turned off: Iruzkinak desaktibatuta daude
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -982,6 +997,7 @@ Tooltips:
     Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko du.
+    Disable Hardware Acceleration: GPU hardware azelerazioa desgaitzen du. Arazo grafikoak konpondu ditzake, baina okerragoa ikusiko da ziurrenik.
   SponsorBlock Settings:
     UseDeArrowThumbnails: Ordeztu bideoaren miniaturak DeArrow-en miniaturaz.
     UseDeArrowTitles: Ordeztu bideoen izenburuak DeArrow-en erabiltzaileek bidalitako tituluekin.
@@ -1006,6 +1022,8 @@ No: 'Ez'
 Search Bar:
   Clear Input: Garbitu sarrera
   Remove: Kendu
+  Open Search Container: Ireki Bilaketen edukiontzia
+  Search: Bilatu
 Are you sure you want to open this link?: Ziur al zaude esteka hau ireki nahi duzula?
 Open New Window: Ireki leiho berria
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious instantzia {instance} gisa ezarri da'
