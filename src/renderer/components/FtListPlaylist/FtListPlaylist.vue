@@ -30,18 +30,7 @@
         <div class="inner">
           <div>{{ videoCount }}</div>
           <div>
-            <template v-if="isAlbum">
-              <FontAwesomeIcon :icon="['fas','music']" />
-            </template>
-            <template v-else-if="isPodcast">
-              <FontAwesomeIcon :icon="['fas','podcast']" />
-            </template>
-            <template v-else-if="isCourse">
-              <FontAwesomeIcon :icon="['fas','graduation-cap']" />
-            </template>
-            <template v-else>
-              <FontAwesomeIcon :icon="['fas','list']" />
-            </template>
+            <FontAwesomeIcon :icon="['fas', playlistTypeIcon]" />
           </div>
         </div>
       </div>
@@ -139,9 +128,8 @@ let thumbnail = thumbnailPlaceholder
 let channelId = null
 let channelName = ''
 let videoCount = 0
-let isPodcast = false
-let isAlbum = false
-let isCourse = false
+/** @type {'list' | 'music' | 'podcast' | 'graduation-cap'} */
+let playlistTypeIcon = 'list'
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => store.getters.getListType)
@@ -204,9 +192,10 @@ function parseInvidiousData() {
   channelId = props.data.authorId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
-  isPodcast = props.data.isPodcast === true
-  isAlbum = props.data.isAlbum === true
-  isCourse = props.data.isCourse === true
+
+  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
+  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
+  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
 
   if (props.data.proxyThumbnail === false) {
     thumbnail = props.data.playlistThumbnail
@@ -222,9 +211,9 @@ function parseLocalData() {
   channelId = props.data.channelId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
-  isPodcast = props.data.isPodcast === true
-  isAlbum = props.data.isAlbum === true
-  isCourse = props.data.isCourse === true
+  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
+  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
+  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
 }
 
 function parseUserData() {
@@ -300,6 +289,17 @@ function handleExternalPlayer() {
     })
   }
 }
+
+/**
+ * @param {bool} shouldSetIcon
+ * @param {'podcast' | 'music' | 'graduation-cap'} iconName
+ */
+function setPlaylistTypeIcon(shouldSetIcon, iconName) {
+  if (shouldSetIcon) {
+    playlistTypeIcon = iconName
+  }
+}
+
 </script>
 
 <style scoped lang="scss" src="./FtListPlaylist.scss" />
