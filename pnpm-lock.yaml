@@ -83,8 +83,8 @@ importers:
         specifier: ^8.0.2
         version: 8.0.2(@babel/core@8.0.1)
       '@double-great/stylelint-a11y':
-        specifier: ^3.5.3
-        version: 3.5.3(stylelint@17.15.0)
+        specifier: ^3.5.4
+        version: 3.5.4(stylelint@17.15.0)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.10.0)
@@ -782,8 +782,8 @@ packages:
     resolution: {integrity: sha512-Xc3VhU02wqZ1HvHRJUwL09HkZSTvidqY5Ya0NXBSYOxAp+Ln9dcJr9fySI+CkONzP3PekQo9WdzCv0PGER/mOA==}
     engines: {node: '>=14.17.0'}
 
-  '@double-great/stylelint-a11y@3.5.3':
-    resolution: {integrity: sha512-Zn3sR/+oxthUGvvE/f8tvNoxhG2QwQvNGvOEexK4/P2q+6TLDyInjUlx4/Gi29szs9QKWszcd0OTnYNQE3UZVw==}
+  '@double-great/stylelint-a11y@3.5.4':
+    resolution: {integrity: sha512-KkDMMW1HegHOrhW+cyFNo81yXfA8y0066r5BFjr5clxDQvlpWU7NkAxiECYbSigw5oIANu8xQ4JDf8bIq/UT2A==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       stylelint: '>=16.0.0'
@@ -5929,7 +5929,7 @@ snapshots:
 
   '@discoveryjs/json-ext@1.1.0': {}
 
-  '@double-great/stylelint-a11y@3.5.3(stylelint@17.15.0)':
+  '@double-great/stylelint-a11y@3.5.4(stylelint@17.15.0)':
     dependencies:
       postcss: 8.5.28
       stylelint: 17.15.0(supports-color@10.2.2)(typescript@6.0.3)
