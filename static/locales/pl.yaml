@@ -618,6 +618,7 @@ Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Eksperymentalne
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
+    Disable Hardware Acceleration: Wyłącz wspomaganie sprzętowe
   Password Dialog:
     Enter Password To Unlock: Wprowadź hasło, by odblokować ustawienia
     Password: Hasło
@@ -841,6 +842,9 @@ Video:
   Collapse Playlist: Zwiń listę odtwarzania
   Expand Playlist: Rozwiń listę odtwarzania
   Station: Stacja
+  Premiere: Premiera
+  Playlist:
+    Unavailable videos are hidden: 1 niedostępny film został ukryty | Ukryto {count} film(y/ów), które są niedostępne
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -862,6 +866,7 @@ Playlist:
     VideoDurationAscending: Czasu trwania (od najkrótszych)
     PublishedNewest: Daty publikacji (od najświeższej)
     PublishedOldest: Daty publikacji (od najdawniejszej)
+  Unavailable videos are hidden: Niedostępne filmy zostały ukryte
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -909,6 +914,7 @@ Comments:
   View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
   View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
   Loading replies: Wczytywanie odpowiedzi...
+  Comments are turned off: Komentarze są wyłączone
 Up Next: 'Następne'
 
 # Toast Messages
@@ -1000,6 +1006,7 @@ Tooltips:
     Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje to większe użycie pamięci RAM.
+    Disable Hardware Acceleration: Wyłącza wspomaganie sprzętowe GPU. Być może naprawi to problemy z wyświetlaniem, ale prawdopodobnie pogorszy wydajność.
   Distraction Free Settings:
     Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}” z podgrupy „{subsection}” grupy „{settingsSection}”
