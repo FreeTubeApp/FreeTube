@@ -109,10 +109,10 @@
           aria-labelledby="videosTab"
         />
         <FtFlexBox
-          v-if="currentTab === 'videos' && latestVideos.length === 0"
+          v-if="currentTab === 'videos' && latestVideos.length === 0 && showFetchMoreButton"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+            {{ $t("Channel.Videos.This channel has videos but none could be displayed, try fetching more") }}
           </p>
         </FtFlexBox>
         <FtElementList
