@@ -1378,6 +1378,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
   } else if (playlist.type === 'GridPlaylist') {
     /** @type {import('youtubei.js').YTNodes.GridPlaylist} */
     const gridPlaylist = playlist
+    const isAlbum = playlist.thumbnail_overlays?.some(overlay => overlay.icon_type === 'MUSIC') ?? false
 
     return {
       type: 'playlist',
@@ -1387,7 +1388,8 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
       playlistId: gridPlaylist.id,
       channelName: gridPlaylist.author?.name,
       channelId: gridPlaylist.author?.id,
-      videoCount: extractNumberFromString(gridPlaylist.video_count.text)
+      videoCount: extractNumberFromString(gridPlaylist.video_count.text),
+      isAlbum,
     }
   } else {
     let internalChannelName
