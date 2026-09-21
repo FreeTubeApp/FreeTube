@@ -163,7 +163,7 @@
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
-          {{ t('Global.Counts.View Count', { count: compactViewCount }, viewCount) }}
+          {{ t('Global.Counts.View Count', { count: formattedViewCount }, viewCount) }}
         </span>
         <span
           v-if="uploadedTime !== '' && !isLive"
@@ -1064,7 +1064,7 @@ function parseVideoData() {
   }
 }
 
-const compactViewCount = computed(() => {
+const formattedViewCount = computed(() => {
   if (isNumberRounded(viewCount.value)) {
     return formatNumber(viewCount.value, { notation: 'compact' })
   } else {
