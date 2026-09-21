@@ -1,5 +1,4 @@
 import shaka from 'shaka-player'
-import { deepCopy } from '../utils'
 import i18n from '../../i18n/index'
 import { sponsorBlockSkipSegments } from '../sponsorblock'
 
@@ -26,7 +25,7 @@ export function logShakaError(error, context, videoId, details) {
   const codeText = Object.keys(Code).find((/** @type {keyof Code} */ key) => Code[key] === error.code)
 
   const message =
-    'Player Error (category and code explainations here: https://shaka-player-demo.appspot.com/docs/api/shaka.util.Error.html)\n' +
+    `Player Error (category and code explainations here: https://shaka-project.github.io/shaka-player/docs/api/shaka.util.Error.html#value:${error.code})\n` +
     `Video ID: "${videoId}"\n` +
     `FreeTube player context: "${context}"\n\n` +
     `Severity: ${severityText} (${error.severity})\n` +
@@ -40,7 +39,7 @@ export function logShakaError(error, context, videoId, details) {
   if (error.data && error.data.length > 0) {
     args.push(
       '\n\nshaka-player Data:',
-      error.data
+      JSON.stringify(error.data)
     )
   }
 
@@ -50,7 +49,7 @@ export function logShakaError(error, context, videoId, details) {
       // use deepCopy to get rid of Vue's proxying,
       // as that requires you click the 3 dots for every property in the logged object to see their values
       // doing it like this, results in a "clean" object where everything is immediately visible
-      typeof details === 'object' ? deepCopy(details) : details
+      typeof details === 'object' ? JSON.stringify(details) : details
     )
   }
 
