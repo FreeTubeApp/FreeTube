@@ -14,13 +14,6 @@ const config = {
     main: path.join(__dirname, '../src/main/index.js'),
   },
   module: {
-    rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-    ],
     generator: {
       json: {
         JSONParse: false
