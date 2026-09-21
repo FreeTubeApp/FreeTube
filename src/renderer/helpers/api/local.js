@@ -1886,24 +1886,20 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
 
       let viewCount = null
-      let viewsText = null
       if (lockupView.metadata.metadata?.metadata_rows != null) {
         for (const row of lockupView.metadata.metadata.metadata_rows) {
           const foundText = row.metadata_parts?.find(part => {
             return isViewCountText(part.text?.text)
           })?.text?.text
+
           if (foundText != null) {
-            viewsText = foundText
+            const views = parseLocalSubscriberCount(foundText)
+
+            if (!isNaN(views)) {
+              viewCount = views
+            }
             break
           }
-        }
-      }
-
-      if (viewsText) {
-        const views = parseLocalSubscriberCount(viewsText)
-
-        if (!isNaN(views)) {
-          viewCount = views
         }
       }
 
