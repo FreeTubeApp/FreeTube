@@ -1299,10 +1299,6 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
   const parsedVideos = []
 
   for (const video of videos) {
-    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
-    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
-      continue
-    }
     const parsedVideo = parseLocalListVideo(video, channelId, channelName)
     if (parsedVideo != null) {
       parsedVideos.push(parsedVideo)
@@ -1707,8 +1703,12 @@ export function parseLocalListVideo(item, channelId, channelName) {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
 
-    // When video is passed in via like community post attachment
-    if (video.title?.text === 'This video isn\'t publicly available') {
+    if (
+      // When video is passed in via like community post attachment
+      video.title?.text === 'This video isn\'t publicly available' ||
+      // `BADGE_STYLE_TYPE_MEMBERS_ONLY` is used for both `members only` and `members first` videos
+      video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')
+    ) {
       return null
     }
 
