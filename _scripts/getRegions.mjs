@@ -13,7 +13,7 @@
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'fs'
 import path from 'path'
-import { Innertube, Misc } from 'youtubei.js'
+import { Misc, Session } from 'youtubei.js'
 
 const STATIC_DIRECTORY = path.resolve(import.meta.dirname, '../static')
 
@@ -125,7 +125,7 @@ for (const { youTube, freeTube } of languagesToScrape) {
  * @param {string} youTubeLanguageCode
  */
 async function scrapeLanguage(youTubeLanguageCode) {
-  const session = await Innertube.create({
+  const session = await Session.create({
     retrieve_player: false,
     generate_session_locally: true,
     lang: youTubeLanguageCode
