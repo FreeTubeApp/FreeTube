@@ -25,7 +25,7 @@ export function logShakaError(error, context, videoId, details) {
   const codeText = Object.keys(Code).find((/** @type {keyof Code} */ key) => Code[key] === error.code)
 
   const message =
-    `Player Error (category and code explainations here: https://shaka-project.github.io/shaka-player/docs/api/shaka.util.Error.html#value:${error.code})\n` +
+    `Player Error (category and code explainations here: https://shaka-project.github.io/shaka-player/docs/api/shaka.util.Error.html#value%3A${error.code})\n` +
     `Video ID: "${videoId}"\n` +
     `FreeTube player context: "${context}"\n\n` +
     `Severity: ${severityText} (${error.severity})\n` +
