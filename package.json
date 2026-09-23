@@ -110,7 +110,7 @@
     "terser": "^5.51.2",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.111.0",
+    "webpack": "^5.111.1",
     "webpack-cli": "^7.2.3",
     "webpack-dev-server": "^6.0.0"
   }
