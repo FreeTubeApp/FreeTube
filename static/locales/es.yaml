@@ -101,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Todas las pestañas de las suscripciones están ocultas. Para ver el contenido, por favor, desoculta algunas pestañas en la sección «{subsection}» en «{settingsSection}».
   Load More Posts: Cargar más publicaciones
   Empty Posts: Tus canales suscritos no tienen actualmente ninguna publicación.
+  Posts:
+    RSS Message: YouTube no proporciona suministros RSS para publicaciones. Desactive la configuración «{rssSetting}» para ver publicaciones o active «{hideSetting}» para ocultar esta pestaña.
 Trending:
   Trending: 'Tendencias'
   Trending Tabs: Pestañas de tendencias
@@ -179,7 +181,7 @@ User Playlists:
   Copy Playlist: Copiar lista de reproducción
   Playlist Description: Descripción de la lista de reproducción
   Add to Favorites: Añadir a {playlistName}
-  Remove from Favorites: Eliminar de {playlistName}
+  Remove from Favorites: Quitar de {playlistName}
   Enable Quick Bookmark With This Playlist: Activar marcadores rápidos con esta lista de reproducción
   Playlists with Matching Videos: Listas de reproducción con vídeos relacionados
   Quick Bookmark Enabled: Marcador rápido habilitado
@@ -187,10 +189,10 @@ User Playlists:
   Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar 1 video visto de esta lista de reproducción? Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount} videos vistos de esta lista de reproducción? Esto no se puede deshacer.
   Remove Duplicate Videos: Eliminar vídeos duplicados
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: ¿Estás seguro de que deseas eliminar 1 video duplicado de esta lista de reproducción? Esto no se puede deshacer. | ¿Estás seguro de que deseas eliminar {playlistItemCount} videos duplicados de esta lista de reproducción? Esto no se puede deshacer.
-  Export Playlist: Exportar esta Playlist
-  The playlist has been successfully exported: La playlist se ha exportado correctamente
+  Export Playlist: Exportar esta lista de reproducción
+  The playlist has been successfully exported: Se exportó la lista de reproducción correctamente
   TotalTimePlaylist: 'Duración total: {duration}'
-  Export list of URLs: Exportar lista de URLs
+  Export list of URLs: Exportar lista de URL
   Move Video to the Top: Mover vídeo al principio
   Move Video to the Bottom: Mover vídeo al final
 History:
@@ -205,7 +207,7 @@ History:
   DateNewestHistory: Fecha de visualización (Más reciente)
 Settings:
   # On Settings Page
-  Settings: 'Ajustes'
+  Settings: 'Configuración'
   General Settings:
     General Settings: 'General'
     Fallback to Non-Preferred Backend on Failure: 'Vuelta al backend no preferido en caso de fallo'
@@ -372,7 +374,7 @@ Settings:
   Player Settings:
     Player Settings: 'Reproductor'
     Play Next Video: 'Reproducción automática de videos recomendados'
-    Turn on Subtitles by Default: 'Habilitar subtítulos por defecto'
+    Turn on Subtitles by Default: 'Activar subtítulos de forma predeterminada'
     Autoplay Videos: 'Iniciar videos automáticamente'
     Proxy Videos Through Invidious: 'Enmascarar vídeos a través de Invidious'
     Autoplay Playlists: 'Reproducción automática de videos en la lista de reproducción'
@@ -424,10 +426,13 @@ Settings:
     Autoplay Interruption Timer: Temporizador de interrupción de reproducción automática
     Default Viewing Mode:
       Theater: Teatro
-      Default Viewing Mode: Vista predeterminada
+      Default Viewing Mode: Modo de visualización predeterminado
       External Player: Reproductor externo ({externalPlayerName})
-      Full Screen: Pantalla Completa
-      Picture in Picture: Imagen en imagen
+      Full Screen: Pantalla completa
+      Picture in Picture: Imagen sobre imagen
+      Full Window (Always On): Ventana completa (siempre activo)
+      Full Screen (Always On): Pantalla completa (siempre activo)
+      Tooltip: La mayoría de los modos de visualización predeterminados solo se aplican al inicio de cada sesión de visualización. Los cambios realizados durante la sesión se mantienen hasta que esta finaliza. Los modos de visualización «siempre activos» se aplican cada vez que se cambia a un vídeo nuevo, independientemente de los cambios en el modo de visualización que se hayan realizado al ver el vídeo anterior.
   Privacy Settings:
     Privacy Settings: 'Privacidad'
     Remember History: 'Guardar Historial'
@@ -503,6 +508,11 @@ Settings:
     Export search history: Exportar historial de búsqueda
     All search history has been successfully imported: Todo el historial de búsqueda se ha importado correctamente
     All search history has been successfully exported: Todo el historial de búsqueda se ha exportado correctamente
+    Settings File: Archivo de configuraciones
+    Import Settings: Importar configuraciones
+    Export Settings: Exportar configuraciones
+    All settings have been successfully imported: Se importaron todas las configuraciones correctamente
+    Unknown setting key: 'Clave de configuración desconocida: {key}'
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Ocultar «likes» y «dislikes» de vídeos
     Hide Video Views: Ocultar las vistas del vídeo
@@ -551,6 +561,8 @@ Settings:
     Hide Channel Courses: Ocultar la pestaña "Cursos" del canal
     Hide Channel Posts: Ocultar pestaña "Publicaciones" del canal
     Hide Subscriptions Posts: Ocultar publicaciones de las suscripciones
+    Add: Añadir
+    Remove: Quitar
   The app needs to restart for changes to take effect. Restart and apply change?: ¿Quieres reiniciar FreeTube ahora para aplicar los cambios?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Error al obtener información sobre la red. ¿Has configurado el proxy correctamente?
@@ -607,14 +619,14 @@ Settings:
     Replace HTTP Cache: Reemplazar la caché HTTP
   Password Settings:
     Password Settings: Contraseña
-    Set Password To Prevent Access: Establecer una contraseña para impedir el acceso a los ajustes
+    Set Password To Prevent Access: Establezca una contraseña para impedir el acceso a la configuración
     Set Password: Establecer contraseña
     Remove Password: Eliminar contraseña
   Password Dialog:
     Password: Contraseña
-    Enter Password To Unlock: Introduce la contraseña para desbloquear los ajustes
+    Enter Password To Unlock: Introduzca la contraseña para desbloquear la configuración
   Sort Settings Sections (A-Z): Ordenar secciones de configuración (A-Z)
-  Return to Settings Menu: Volver a los Ajustes
+  Return to Settings Menu: Volver al menú de configuración
 About:
   #On About page
   About: 'Acerca de'
@@ -684,9 +696,10 @@ Profile:
   Profile Name: Nombre del perfil
   Edit Profile Name: Editar el nombre del perfil
   Create Profile Name: Crear un nombre para el perfil
+  Go To Profile Manager: Ir al gestor de perfiles
 Channel:
   Subscribe: 'Suscribirse'
-  Unsubscribe: 'Anular suscripción'
+  Unsubscribe: 'Desuscribirse'
   Search Channel: 'Buscar en canal'
   Your search results have returned 0 results: 'Su búsqueda no encontró resultados'
   Videos:
@@ -715,11 +728,11 @@ Channel:
     Location: Ubicación
   Added channel to your subscriptions: Canal añadido a tus suscripciones
   Removed subscription from {count} other channel(s): Suscripción eliminada de {count} otros canales
-  Channel has been removed from your subscriptions: El canal ha sido eliminado de tus suscripciones
+  Channel has been removed from your subscriptions: Se quitó el canal de sus suscripciones
   This channel does not exist: Este canal no existe
   This channel does not allow searching: Este canal no permite realizar búsquedas
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Este canal tiene restricciones de edad y actualmente no puede verse en FreeTube.
-  Channel Tabs: Ficha del Canal
+  Channel Tabs: Pestañas del canal
   Posts:
     This channel currently does not have any posts: Este canal no tiene actualmente ningún mensaje
     Reveal Answers: Revelar las respuestas
@@ -745,6 +758,7 @@ Channel:
   Courses:
     Courses: Cursos
     This channel does not currently have any courses: Este canal no tiene cursos en este momento
+  View All: Ver todo
 Video:
   Mark As Watched: 'Marcar como visto'
   Remove From History: 'Borrar del historial'
@@ -819,7 +833,7 @@ Video:
   More Options: Más opciones
   Player:
     TranslatedCaptionTemplate: '{language} (traducido de "{originalLanguage}")'
-    Exit Full Window: Salir de la pantalla completa
+    Exit Full Window: Salir de la ventana completa
     Take Screenshot: Hacer una captura de pantalla
     Show Stats: Mostrar estadísticas
     Hide Stats: Ocultar estadísticas
@@ -834,7 +848,7 @@ Video:
       Bandwidth: 'Ancho de banda: {bandwidth} kbps'
       Buffered: 'Almacenado en búfer: {bufferedPercentage}%'
       Dropped Frames / Total Frames: 'Fotogramas eliminados: {droppedFrames} / Fotogramas totales: {totalFrames}'
-      CodecAudio: 'Codec: {audioCodec} ({audioItag})'
+      CodecAudio: 'Códec: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Códecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Códecs: {videoCodec} / {audioCodec}'
     You appear to be offline: Parece que no tienes conexión.
@@ -843,7 +857,7 @@ Video:
     Audio Tracks: Pistas de audio
     Theatre Mode: Modo cine
     Exit Theatre Mode: Salir del modo cine
-    Full Window: Pantalla completa
+    Full Window: Ventana completa
     Autoplay is off: La reproducción automática está desactivada
     Autoplay is on: La reproducción automática está activada
   IP block: YouTube ha bloqueado tu dirección IP para ver vídeos. Por favor, intenta cambiar a otra VPN o proxy.
@@ -862,6 +876,12 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Tiempo restante previo al anuncio: {remindingTimeSeconds} s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tiempo restante de retroceso de SABR: {remindingTimeSeconds} s'
   Private: Videos privados no pueden ser vistos en FreeTube, se necesita iniciar sesión con Google y permiso del dueño del video.
+  Station: Estación
+  Expand Playlist: Expandir lista de reproducción
+  Collapse Playlist: Contraer lista de reproducción
+  Premiere: Estreno
+  Playlist:
+    Unavailable videos are hidden: Se ocultó 1 vídeo no disponible | Se ocultaron {count} vídeos no disponibles
 Playlist:
   #& About
   View Full Playlist: 'Ver la lista de reproducción completa'
@@ -883,6 +903,7 @@ Playlist:
     VideoDurationDescending: Duración (más larga)
     PublishedNewest: Fecha de publicación (Más reciente)
     PublishedOldest: Fecha de publicación (Más antigua)
+  Unavailable videos are hidden: Se ocultan los vídeos no disponibles
 Change Format:
   Change Media Formats: 'Cambiar formato de vídeo'
   Use Dash Formats: 'Utilizar formatos DASH'
@@ -929,6 +950,8 @@ Comments:
   View 1 reply from {channelName}: Ver 1 respuesta de {channelName}
   View {replyCount} replies from {channelName} and others: Ver {replyCount} respuesta de {channelName} y otros
   Hide Replies: Ocultar respuesta | Ocultar respuestas
+  Loading replies: Cargando respuestas…
+  Comments are turned off: Se desactivaron los comentarios
 Up Next: 'A continuación'
 
 # Toast Messages
@@ -994,6 +1017,8 @@ Default Invidious instance has been set to {instance}: La instancia de Invidious
 Search Bar:
   Clear Input: Borrar entrada
   Remove: Eliminar
+  Open Search Container: Abrir contenedor de búsquedas
+  Search: Buscar
 External link opening has been disabled in the general settings: Se ha desactivado la apertura de enlaces externos en la configuración general
 Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este enlace?
 Screenshot Success: Captura de pantalla guardada
