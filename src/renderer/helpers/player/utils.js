@@ -46,9 +46,6 @@ export function logShakaError(error, context, videoId, details) {
   if (details) {
     args.push(
       '\n\nFreeTube data:',
-      // use deepCopy to get rid of Vue's proxying,
-      // as that requires you click the 3 dots for every property in the logged object to see their values
-      // doing it like this, results in a "clean" object where everything is immediately visible
       typeof details === 'object' ? JSON.stringify(details) : details
     )
   }
