@@ -140,12 +140,16 @@
   }
 }
 
-.downloadOptions {
+.downloadOptions,
+.downloadButtons {
   padding: 12px;
-  padding-block-end: 0;
   max-inline-size: min-content;
   min-inline-size: 150px;
   margin-inline: auto;
+}
+
+.downloadOptions {
+  padding-block-end: 0;
 }
 
 .downloadOptions :deep(.ft-input) {
@@ -157,10 +161,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 12px;
-  max-inline-size: min-content;
-  min-inline-size: 150px;
-  margin-inline: auto;
 }
 
 .downloadButtons .action {

@@ -133,7 +133,7 @@
                   :show-action-button="false"
                   :show-label="true"
                   :value="downloadStartTime"
-                  @input="updateDownloadStartTime"
+                  @input="downloadStartTime = $event"
                 />
               </FtFlexBox>
               <FtFlexBox v-if="downloadIncludeTimestamp">
@@ -142,7 +142,7 @@
                   :show-action-button="false"
                   :show-label="true"
                   :value="downloadEndTime"
-                  @input="updateDownloadEndTime"
+                  @input="downloadEndTime = $event"
                 />
               </FtFlexBox>
             </div>
@@ -467,37 +467,17 @@ function updateDownloadIncludeTimestamp() {
 
 /**
  * @param {string} value
- */
-function updateDownloadStartTime(value) {
-  downloadStartTime.value = value
-}
-
-/**
- * @param {string} value
- */
-function updateDownloadEndTime(value) {
-  downloadEndTime.value = value
-}
-
-/**
- * @param {string} value
  * @returns {number | null}
  */
 function parseTimestampToSeconds(value) {
   const trimmed = value.trim()
-  if (trimmed === '') {
+
+  // mm:ss or hh:mm:ss
+  if (!/^\d+(:\d+){1,2}$/.test(trimmed)) {
     return null
   }
 
-  const parts = trimmed.split(':')
-  if (parts.length < 2 || parts.length > 3 || parts.some(part => !/^\d+$/.test(part))) {
-    return null
-  }
-
-  const numbers = parts.map(Number)
-  const [hours, minutes, seconds] = numbers.length === 3 ? numbers : [0, ...numbers]
-
-  return (hours * 3600) + (minutes * 60) + seconds
+  return trimmed.split(':').reduce((total, part) => (total * 60) + Number(part), 0)
 }
 
 /**
@@ -513,22 +493,12 @@ async function handleDownload(mode) {
 
   const result = await window.ftElectron.downloadVideo(props.id, mode, startTime, endTime)
 
-  switch (result) {
-    case 'ok':
-      showToast(mode === 'audio'
-        ? t('Video.Audio download has started')
-        : t('Video.Video download has started'))
-      break
-    case 'cancelled':
-      // user closed the folder picker, nothing to report
-      break
-    case 'disabled':
-    case 'not-configured':
-    case 'error':
-      showToast(t('Video.Download failed - Click to open External Downloader settings'), 10000, () => {
-        router.push({ path: '/settings', query: { section: 'external-downloader' } })
-      })
-      break
+  if (result === 'ok') {
+    showToast(mode === 'audio' ? t('Video.Audio download has started') : t('Video.Video download has started'))
+  } else if (result !== 'cancelled' && result !== 'invalid') {
+    showToast(t('Video.Download failed - Click to open External Downloader settings'), 10000, () => {
+      router.push({ path: '/settings', query: { section: 'external-downloader' } })
+    })
   }
 }
 

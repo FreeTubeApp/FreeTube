@@ -8,15 +8,35 @@ import { isFreeTubeUrl } from './utils'
 
 const execFileAsync = promisify(execFile)
 
-const ID_REGEX = /^[\w-]+$/
+// Linux terminal emulators to try in order, with the arguments that go before `sh -c <command>`
+const LINUX_TERMINALS = [
+  ['x-terminal-emulator', '-e'],
+  ['gnome-terminal', '--'],
+  ['konsole', '-e'],
+  ['xfce4-terminal', '-x'],
+  ['kitty'],
+  ['alacritty', '-e'],
+  ['xterm', '-e'],
+]
+
+/**
+ * @typedef {'ok' | 'invalid' | 'not-configured' | 'disabled' | 'cancelled' | 'error'} DownloadVideoResult
+ */
+
+/**
+ * @param {string} settingId
+ */
+async function getSetting(settingId) {
+  return (await settings._findOne(settingId))?.value || ''
+}
 
 /**
  * @param {string} path
- * @returns {Promise<boolean>}
+ * @param {number} mode
  */
-async function isExecutable(path) {
+async function hasAccess(path, mode) {
   try {
-    await access(path, constants.X_OK)
+    await access(path, mode)
     return true
   } catch {
     return false
@@ -24,112 +44,57 @@ async function isExecutable(path) {
 }
 
 /**
- * @param {string} name
- * @returns {Promise<string | null>}
+ * @param {string} command
+ * @param {string[]} args
+ * @returns {Promise<string | null>} the first line of the output, or null if the command failed
  */
-export async function findExecutableOnPath(name) {
+async function getFirstOutputLine(command, args) {
   try {
-    const { stdout } = process.platform === 'win32'
-      ? await execFileAsync('where', [name])
-      : await execFileAsync('which', [name])
-
+    const { stdout } = await execFileAsync(command, args)
     return stdout.split(/\r?\n/)[0].trim() || null
   } catch {
     return null
   }
+}
+
+/**
+ * @param {string} name
+ */
+function findExecutableOnPath(name) {
+  return getFirstOutputLine(process.platform === 'win32' ? 'where' : 'which', [name])
 }
 
 /**
  * @param {string} name
  * @param {string} currentPath
- * @returns {Promise<string | null>}
  */
 export async function resolveExecutable(name, currentPath) {
-  if (currentPath.length > 0 && await isExecutable(currentPath)) {
-    return currentPath
-  }
-
-  return findExecutableOnPath(name)
+  return currentPath && await hasAccess(currentPath, constants.X_OK) ? currentPath : findExecutableOnPath(name)
 }
 
 /**
  * @param {string} executable
- * @param {string[]} versionArgs
- * @returns {Promise<string | null>}
  */
-async function getVersion(executable, versionArgs) {
-  if (executable.length === 0 || !await isExecutable(executable)) {
-    return null
-  }
-
-  try {
-    const { stdout } = await execFileAsync(executable, versionArgs)
-    return stdout.split(/\r?\n/)[0].trim() || null
-  } catch {
-    return null
-  }
-}
-
-/**
- * @param {string} ytdlpExecutable
- * @returns {Promise<{ ytdlp: string | null }>}
- */
-export async function getExecutableVersions(ytdlpExecutable) {
-  const ytdlp = await getVersion(ytdlpExecutable, ['--version'])
-
-  return { ytdlp }
-}
-
-/**
- * Terminal emulators to try on Linux, in order, along with how each one
- * expects the command to run to be passed.
- * @type {{ name: string, buildArgs: (shellCommand: string) => string[] }[]}
- */
-const LINUX_TERMINALS = [
-  { name: 'x-terminal-emulator', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
-  { name: 'gnome-terminal', buildArgs: (shellCommand) => ['--', 'sh', '-c', shellCommand] },
-  { name: 'konsole', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
-  { name: 'xfce4-terminal', buildArgs: (shellCommand) => ['-x', 'sh', '-c', shellCommand] },
-  { name: 'kitty', buildArgs: (shellCommand) => ['sh', '-c', shellCommand] },
-  { name: 'alacritty', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
-  { name: 'xterm', buildArgs: (shellCommand) => ['-e', 'sh', '-c', shellCommand] },
-]
-
-/**
- * @returns {Promise<{ name: string, buildArgs: (shellCommand: string) => string[] } | null>}
- */
-async function findLinuxTerminal() {
-  for (const terminal of LINUX_TERMINALS) {
-    if (await findExecutableOnPath(terminal.name)) {
-      return terminal
-    }
-  }
-
-  return null
-}
-
-/**
- * @param {string} path
- * @returns {Promise<boolean>}
- */
-async function hasWriteAccess(path) {
-  try {
-    await access(path, constants.W_OK)
-    return true
-  } catch {
-    return false
-  }
+export async function getVersion(executable) {
+  return executable && await hasAccess(executable, constants.X_OK) ? getFirstOutputLine(executable, ['--version']) : null
 }
 
 /**
  * @param {import('electron').WebContents} webContents
- * @param {string | undefined} [defaultPath]
+ * @param {boolean} directory
+ * @param {string} currentPath
  * @returns {Promise<string | null>}
  */
-async function promptForOutputDirectory(webContents, defaultPath) {
+export async function choosePath(webContents, directory, currentPath) {
   const dialogOptions = {
-    defaultPath: typeof defaultPath === 'string' && defaultPath.length > 0 ? defaultPath : app.getPath('downloads'),
-    properties: ['openDirectory']
+    defaultPath: currentPath || (directory ? app.getPath('downloads') : undefined),
+    properties: [directory ? 'openDirectory' : 'openFile'],
+    ...(!directory && process.platform === 'win32' && {
+      filters: [
+        { name: 'Executables', extensions: ['exe'] },
+        { name: 'All Files', extensions: ['*'] }
+      ]
+    })
   }
 
   const window = BrowserWindow.fromWebContents(webContents)
@@ -137,166 +102,107 @@ async function promptForOutputDirectory(webContents, defaultPath) {
     ? await dialog.showOpenDialog(window, dialogOptions)
     : await dialog.showOpenDialog(dialogOptions)
 
-  if (result.canceled) {
-    return null
-  }
-
-  return result.filePaths[0]
+  return result.canceled ? null : result.filePaths[0]
 }
 
 /**
- * @typedef {'ok' | 'invalid' | 'not-configured' | 'disabled' | 'cancelled' | 'error'} DownloadVideoResult
- */
-
-/**
  * @param {import('electron').IpcMainInvokeEvent} event
- * @param {{ videoId: string, mode: 'video' | 'audio', startTime: number | null | undefined, endTime: number | null | undefined }} payload
+ * @param {{ videoId: string, mode: 'video' | 'audio', startTime?: number | null, endTime?: number | null }} payload
  * @returns {Promise<DownloadVideoResult>}
  */
 export async function handleDownloadVideo(event, payload) {
-  if (!isFreeTubeUrl(event.senderFrame.url) || !event.sender.isFocused()) {
-    return 'invalid'
-  }
-
   const { videoId, mode, startTime, endTime } = payload ?? {}
 
-  if (typeof videoId !== 'string' || videoId.length !== 11 || !ID_REGEX.test(videoId)) {
+  if (
+    !isFreeTubeUrl(event.senderFrame.url) || !event.sender.isFocused() ||
+    typeof videoId !== 'string' || !/^[\w-]{11}$/.test(videoId) ||
+    (mode !== 'video' && mode !== 'audio')
+  ) {
     return 'invalid'
   }
 
-  if (mode !== 'video' && mode !== 'audio') {
-    return 'invalid'
-  }
-
-  /** @type {boolean} */
-  const downloadEnabled = (await settings._findOne('ytdlpDownloadEnabled'))?.value || false
-
-  if (!downloadEnabled) {
+  if (!await getSetting('ytdlpDownloadEnabled')) {
     return 'disabled'
   }
 
-  const hasValidStartTime = typeof startTime === 'number' && startTime >= 0
-  const hasValidEndTime = typeof endTime === 'number' && endTime > 0
+  const executable = await getSetting('ytdlpExecutable')
 
-  /** @type {string} */
-  const executable = (await settings._findOne('ytdlpExecutable'))?.value || ''
-
-  if (executable.length === 0) {
+  if (!executable) {
     return 'not-configured'
   }
 
-  /** @type {string} */
-  const downloadMode = (await settings._findOne('ytdlpDownloadMode'))?.value || 'prompt_folder'
+  // Prompt if set to always ask, or if the saved folder is unset or no longer writable
+  // (e.g. a Flatpak-portal-granted folder that got revoked)
+  const savedDirectory = await getSetting('ytdlpOutputDirectory')
+  const useSavedDirectory = savedDirectory && await getSetting('ytdlpDownloadMode') === 'default_folder' &&
+    await hasAccess(normalize(savedDirectory), constants.W_OK)
 
-  /** @type {string} */
-  const storedOutputDirectory = (await settings._findOne('ytdlpOutputDirectory'))?.value || ''
-
-  const canUseStoredDirectory = downloadMode === 'default_folder' && storedOutputDirectory.length > 0 &&
-    await hasWriteAccess(normalize(storedOutputDirectory))
-
-  // Either "always ask" mode, or the stored folder is unset/no longer writable
-  // (e.g. a Flatpak-portal-granted folder that got revoked) - prompt for one.
-  const outputDirectory = canUseStoredDirectory
-    ? storedOutputDirectory
-    : await promptForOutputDirectory(event.sender, storedOutputDirectory)
+  const outputDirectory = useSavedDirectory ? savedDirectory : await choosePath(event.sender, true, savedDirectory)
 
   if (!outputDirectory) {
     return 'cancelled'
   }
 
-  const customArgsSettingId = mode === 'audio' ? 'ytdlpAudioCustomArgs' : 'ytdlpVideoCustomArgs'
-
-  /** @type {string} */
-  const customArgs = (await settings._findOne(customArgsSettingId))?.value || ''
-
-  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`
-
   const args = ['-o', `${outputDirectory}/%(title)s.%(ext)s`]
 
-  if (hasValidStartTime || hasValidEndTime) {
-    const start = hasValidStartTime ? startTime : 0
-    const end = hasValidEndTime ? endTime : 'inf'
-    args.push('--download-sections', `*${start}-${end}`)
+  const hasStartTime = typeof startTime === 'number' && startTime >= 0
+  const hasEndTime = typeof endTime === 'number' && endTime > 0
+
+  if (hasStartTime || hasEndTime) {
+    args.push('--download-sections', `*${hasStartTime ? startTime : 0}-${hasEndTime ? endTime : 'inf'}`)
   }
 
   if (mode === 'audio') {
     args.push('-x')
   }
 
-  if (customArgs.trim().length > 0) {
-    args.push(...customArgs.trim().split(/\s+/))
+  const customArgs = (await getSetting(mode === 'audio' ? 'ytdlpAudioCustomArgs' : 'ytdlpVideoCustomArgs')).trim()
+
+  if (customArgs) {
+    args.push(...customArgs.split(/\s+/))
   }
 
-  args.push(videoUrl)
-
-  const fullCommand = [executable, ...args]
+  const command = [executable, ...args, `https://www.youtube.com/watch?v=${videoId}`]
 
   if (process.platform === 'win32') {
-    // echo doesn't parse quotes, so the display line is only quoted where a part has a space
-    const displayCommand = fullCommand.map(part => part.includes(' ') ? `"${part}"` : part).join(' ')
-    // cmd /k only strips quotes if they enclose the whole string, so wrap it twice
-    const runCommand = fullCommand.map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
-    const innerCommand = `echo ${displayCommand} && ${runCommand}`
+    // echo doesn't parse quotes, so the displayed command is only quoted where a part has a space
+    const displayCommand = command.map(part => part.includes(' ') ? `"${part}"` : part).join(' ')
+    const runCommand = command.map(part => `"${part.replaceAll('"', '""')}"`).join(' ')
 
-    return spawnAndAwait('cmd.exe', ['/c', 'start', '""', '/wait', 'cmd.exe', '/k', `"${innerCommand}"`], {
+    // cmd /k only strips quotes if they enclose the whole string, so wrap it once more
+    return spawnDetached('cmd.exe', ['/c', 'start', '""', '/wait', 'cmd.exe', '/k', `"echo ${displayCommand} && ${runCommand}"`], {
       windowsVerbatimArguments: true
     })
   }
 
-  const shellCommand = `echo ${quoteForShellDisplay(fullCommand)} && exec ${quoteForShell(fullCommand)}`
+  const quotedCommand = command.map(part => `'${part.replaceAll("'", "'\\''")}'`).join(' ')
+  const shellCommand = `echo ${quotedCommand} && exec ${quotedCommand}`
 
   if (process.platform === 'darwin') {
-    const appleScript = `tell application "Terminal" to do script ${quoteForAppleScript(shellCommand)}`
-    return spawnAndAwait('osascript', ['-e', appleScript])
+    const appleScriptString = shellCommand.replaceAll('\\', '\\\\').replaceAll('"', '\\"')
+    return spawnDetached('osascript', ['-e', `tell application "Terminal" to do script "${appleScriptString}"`])
   }
 
-  const terminal = await findLinuxTerminal()
-
-  if (!terminal) {
-    return 'error'
+  for (const [terminal, ...terminalArgs] of LINUX_TERMINALS) {
+    if (await findExecutableOnPath(terminal)) {
+      return spawnDetached(terminal, [...terminalArgs, 'sh', '-c', shellCommand])
+    }
   }
 
-  return spawnAndAwait(terminal.name, terminal.buildArgs(shellCommand))
-}
-
-/**
- * @param {string[]} parts
- * @returns {string}
- */
-function quoteForShell(parts) {
-  return parts.map(part => `'${part.replaceAll("'", "'\\''")}'`).join(' ')
-}
-
-/**
- * @param {string[]} parts
- * @returns {string}
- */
-function quoteForShellDisplay(parts) {
-  return parts.map(part => part.includes(' ') ? `'${part}'` : part).join(' ')
-}
-
-/**
- * @param {string} command
- * @returns {string}
- */
-function quoteForAppleScript(command) {
-  return `"${command.replaceAll('\\', '\\\\').replaceAll('"', '\\"')}"`
+  return 'error'
 }
 
 /**
  * @param {string} command
  * @param {string[]} args
- * @param {import('node:child_process').SpawnOptionsWithoutStdio} [extraOptions]
+ * @param {import('node:child_process').SpawnOptions} [extraOptions]
  * @returns {Promise<DownloadVideoResult>}
  */
-function spawnAndAwait(command, args, extraOptions) {
+function spawnDetached(command, args, extraOptions) {
   return new Promise((resolve) => {
     const child = spawn(command, args, { detached: true, stdio: 'ignore', ...extraOptions })
 
-    child.once('error', () => {
-      resolve('error')
-    })
-
+    child.once('error', () => resolve('error'))
     child.once('spawn', () => {
       child.unref()
       resolve('ok')

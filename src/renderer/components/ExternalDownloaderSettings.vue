@@ -12,7 +12,7 @@
       <FtButton
         :label="t('Settings.External Downloader Settings.yt-dlp Readme')"
         :icon="['fas', 'external-link-alt']"
-        @click="openYtdlpReadme"
+        @click="openExternalLink(`${YTDLP_URL}#readme`)"
       />
     </FtFlexBox>
     <template v-if="downloadEnabled">
@@ -30,7 +30,7 @@
               :aria-label="t('Settings.External Downloader Settings.Download yt-dlp')"
               :title="t('Settings.External Downloader Settings.Download yt-dlp')"
               href="javascript:void(0)"
-              @click="openYtdlpReleases"
+              @click="openExternalLink(`${YTDLP_URL}/releases`)"
             >
               <FontAwesomeIcon :icon="['fas', 'download']" />
             </a>
@@ -51,7 +51,7 @@
           class="folderButton"
           :icon="['fas', 'folder-open']"
           :title="t('Settings.External Downloader Settings.Choose Executable')"
-          @click="chooseYtdlpExecutable"
+          @click="choosePath('ytdlpExecutable')"
         />
       </FtFlexBox>
       <FtFlexBox class="customArgsRow">
@@ -60,7 +60,7 @@
             :placeholder="t('Settings.External Downloader Settings.Output Directory Mode')"
             :value="downloadMode"
             :select-names="downloadModeNames"
-            :select-values="downloadModeValues"
+            :select-values="DOWNLOAD_MODE_VALUES"
             :icon="['fas', 'folder-open']"
             :tooltip="t('Tooltips.External Downloader Settings.Output Directory Mode')"
             @change="updateDownloadMode"
@@ -82,7 +82,7 @@
             class="folderButton"
             :icon="['fas', 'folder-open']"
             :title="t('Settings.External Downloader Settings.Choose Output Directory')"
-            @click="chooseYtdlpOutputDirectory"
+            @click="choosePath('ytdlpOutputDirectory')"
           />
         </div>
       </FtFlexBox>
@@ -114,7 +114,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
@@ -128,10 +128,16 @@ import FtTooltip from './FtTooltip/FtTooltip.vue'
 import store from '../store/index'
 import { debounce, openExternalLink } from '../helpers/utils'
 
+const YTDLP_URL = 'https://github.com/yt-dlp/yt-dlp'
+const DOWNLOAD_MODE_VALUES = ['prompt_folder', 'default_folder']
+
 const { t } = useI18n()
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const downloadEnabled = computed(() => store.getters.getYtdlpDownloadEnabled)
+
+/** @type {import('vue').ComputedRef<'prompt_folder' | 'default_folder'>} */
+const downloadMode = computed(() => store.getters.getYtdlpDownloadMode)
 
 /** @type {import('vue').ComputedRef<string>} */
 const ytdlpExecutable = computed(() => store.getters.getYtdlpExecutable)
@@ -145,21 +151,17 @@ const ytdlpVideoCustomArgs = computed(() => store.getters.getYtdlpVideoCustomArg
 /** @type {import('vue').ComputedRef<string>} */
 const ytdlpAudioCustomArgs = computed(() => store.getters.getYtdlpAudioCustomArgs)
 
+const downloadModeNames = computed(() => [
+  t('Settings.External Downloader Settings.Output Directory Modes.Ask Path'),
+  t('Settings.External Downloader Settings.Output Directory Modes.Save To Folder'),
+])
+
 /**
  * @param {boolean} value
  */
 function updateDownloadEnabled(value) {
   store.dispatch('updateYtdlpDownloadEnabled', value)
 }
-
-const downloadModeNames = computed(() => [
-  t('Settings.External Downloader Settings.Output Directory Modes.Ask Path'),
-  t('Settings.External Downloader Settings.Output Directory Modes.Save To Folder'),
-])
-const downloadModeValues = computed(() => ['prompt_folder', 'default_folder'])
-
-/** @type {import('vue').ComputedRef<'prompt_folder' | 'default_folder'>} */
-const downloadMode = computed(() => store.getters.getYtdlpDownloadMode)
 
 /**
  * @param {'prompt_folder' | 'default_folder'} value
@@ -171,28 +173,8 @@ function updateDownloadMode(value) {
 /**
  * @param {string} value
  */
-async function updateYtdlpExecutable(value) {
+function updateYtdlpExecutable(value) {
   store.dispatch('updateYtdlpExecutable', value)
-  await debouncedRefreshVersion()
-}
-
-async function chooseYtdlpExecutable() {
-  if (process.env.IS_ELECTRON) {
-    const chosenPath = await window.ftElectron.chooseYtdlpExecutable()
-    if (chosenPath) {
-      store.dispatch('updateYtdlpExecutable', chosenPath)
-    }
-    await refreshVersion()
-  }
-}
-
-async function chooseYtdlpOutputDirectory() {
-  if (process.env.IS_ELECTRON) {
-    const chosenPath = await window.ftElectron.chooseYtdlpOutputDirectory()
-    if (chosenPath) {
-      store.dispatch('updateYtdlpOutputDirectory', chosenPath)
-    }
-  }
 }
 
 /**
@@ -216,39 +198,30 @@ function updateYtdlpAudioCustomArgs(value) {
   store.dispatch('updateYtdlpAudioCustomArgs', value)
 }
 
-function openYtdlpReadme() {
-  openExternalLink('https://github.com/yt-dlp/yt-dlp#readme')
-}
-
-function openYtdlpReleases() {
-  openExternalLink('https://github.com/yt-dlp/yt-dlp/releases')
+/**
+ * The main process saves the chosen path, which updates the store via settings sync
+ * @param {'ytdlpExecutable' | 'ytdlpOutputDirectory'} settingId
+ */
+function choosePath(settingId) {
+  if (process.env.IS_ELECTRON) {
+    window.ftElectron.chooseYtdlpPath(settingId)
+  }
 }
 
 const ytdlpVersion = ref('')
 
-async function refreshVersion() {
-  if (!process.env.IS_ELECTRON) {
-    return
+/**
+ * @param {boolean} resolveFromPath
+ */
+async function refreshVersion(resolveFromPath) {
+  if (process.env.IS_ELECTRON) {
+    ytdlpVersion.value = await window.ftElectron.getYtdlpVersion(resolveFromPath) ?? ''
   }
-
-  const { ytdlp } = await window.ftElectron.getDownloaderExecutableVersions()
-  ytdlpVersion.value = ytdlp || ''
 }
 
-const debouncedRefreshVersion = debounce(refreshVersion, 500)
+watch(ytdlpExecutable, debounce(() => refreshVersion(false), 500))
 
-onMounted(async () => {
-  if (!process.env.IS_ELECTRON) {
-    return
-  }
-
-  const resolvedYtdlp = await window.ftElectron.resolveExecutablePath('yt-dlp', 'ytdlpExecutable')
-  if (resolvedYtdlp && resolvedYtdlp !== ytdlpExecutable.value) {
-    store.dispatch('updateYtdlpExecutable', resolvedYtdlp)
-  }
-
-  await refreshVersion()
-})
+onMounted(() => refreshVersion(true))
 </script>
 
 <style scoped>
@@ -298,7 +271,6 @@ onMounted(async () => {
 
 .outputDirectoryField {
   display: flex;
-  flex: 1;
   align-items: flex-end;
   gap: 10px;
   padding-block-start: 5px;

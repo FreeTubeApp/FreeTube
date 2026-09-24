@@ -143,36 +143,6 @@ export default {
   },
 
   /**
-   * @returns {Promise<string | null>}
-   */
-  chooseYtdlpOutputDirectory: () => {
-    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_OUTPUT_DIRECTORY)
-  },
-
-  /**
-   * @returns {Promise<string | null>}
-   */
-  chooseYtdlpExecutable: () => {
-    return ipcRenderer.invoke(IpcChannels.CHOOSE_YTDLP_EXECUTABLE)
-  },
-
-  /**
-   * @param {string} name
-   * @param {'ytdlpExecutable'} settingId
-   * @returns {Promise<string | null>}
-   */
-  resolveExecutablePath: (name, settingId) => {
-    return ipcRenderer.invoke(IpcChannels.FIND_EXECUTABLE_ON_PATH, name, settingId)
-  },
-
-  /**
-   * @returns {Promise<{ ytdlp: string | null }>}
-   */
-  getDownloaderExecutableVersions: () => {
-    return ipcRenderer.invoke(IpcChannels.GET_DOWNLOADER_EXECUTABLE_VERSIONS)
-  },
-
-  /**
    * @param {string} filename
    * @param {ArrayBuffer} contents
    * @returns {Promise<boolean>}
@@ -210,10 +180,25 @@ export default {
   },
 
   /**
+   * @param {'ytdlpExecutable' | 'ytdlpOutputDirectory'} settingId
+   */
+  chooseYtdlpPath: (settingId) => {
+    ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_PATH, settingId)
+  },
+
+  /**
+   * @param {boolean} resolveFromPath fill in the executable path from the PATH environment variable if needed
+   * @returns {Promise<string | null>}
+   */
+  getYtdlpVersion: (resolveFromPath) => {
+    return ipcRenderer.invoke(IpcChannels.GET_YTDLP_VERSION, resolveFromPath)
+  },
+
+  /**
    * @param {string} videoId
    * @param {'video' | 'audio'} mode
-   * @param {number | null} [startTime]
-   * @param {number | null} [endTime]
+   * @param {number | null} startTime
+   * @param {number | null} endTime
    * @returns {Promise<import('../main/download').DownloadVideoResult>}
    */
   downloadVideo: (videoId, mode, startTime, endTime) => {
