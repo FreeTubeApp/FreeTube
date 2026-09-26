@@ -602,6 +602,8 @@ Settings:
     UseDeArrowTitles: Laadi video pealkirjad DeArrow teenusest
     UseDeArrowThumbnails: Pisipiltide jaoks kasuta DeArrow teenust
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Excluded Channels: Välistatud kanalid
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Väline meediamängija
@@ -889,6 +891,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 mittesaadav video on peidetud | {count} mittesaadavat videot on peidetud
   Premiere: Esilinastus
+  Enable SponsorBlock on Channel: Kasuta kanali puhul SponsorBlocki
+  Disable SponsorBlock on Channel: Ära kasuta kanali puhul SponsorBlocki
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
@@ -1152,3 +1156,5 @@ Compact side navigation: Näita külgpaani kompaktsena
 Expand side navigation: Näita külgpaani avatuna
 Screenshot Clipboard Success: Ekraanitõmmis on salvestatud lõikelauale
 Screenshot Clipboard Error: Ekraanitõmmise salvestamine lõikelauale ei õnnestunud
+SponsorBlock Disabled on Channel: SponsorBlock pole „{channel}“ kanalis kasutusel
+SponsorBlock Enabled on Channel: SponsorBlock on „{channel}“ kanalis kasutusel
