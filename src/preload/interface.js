@@ -180,6 +180,37 @@ export default {
   },
 
   /**
+   * @param {'ytdlpExecutable' | 'ytdlpOutputDirectory'} settingId
+   */
+  chooseYtdlpPath: (settingId) => {
+    ipcRenderer.send(IpcChannels.CHOOSE_YTDLP_PATH, settingId)
+  },
+
+  /**
+   * @param {boolean} resolveFromPath fill in the executable path from the PATH environment variable if needed
+   * @returns {Promise<string | null>}
+   */
+  getYtdlpVersion: (resolveFromPath) => {
+    return ipcRenderer.invoke(IpcChannels.GET_YTDLP_VERSION, resolveFromPath)
+  },
+
+  /**
+   * @param {string} videoId
+   * @param {'video' | 'audio'} mode
+   * @param {number | null} startTime
+   * @param {number | null} endTime
+   * @returns {Promise<import('../main/download').DownloadVideoResult>}
+   */
+  downloadVideo: (videoId, mode, startTime, endTime) => {
+    // require the user to have interacted with the page recently
+    if (navigator.userActivation.isActive) {
+      return ipcRenderer.invoke(IpcChannels.DOWNLOAD_VIDEO, { videoId, mode, startTime, endTime })
+    }
+
+    return Promise.resolve('invalid')
+  },
+
+  /**
    * @param {number} factor
    */
   setZoomFactor: (factor) => {

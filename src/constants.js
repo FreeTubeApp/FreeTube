@@ -50,7 +50,11 @@ const IpcChannels = {
   WRITE_TO_DEFAULT_FOLDER: 'write-to-default-folder',
 
   OPEN_IN_EXTERNAL_PLAYER: 'open-in-external-player',
-  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result'
+  OPEN_IN_EXTERNAL_PLAYER_RESULT: 'open-in-external-player-result',
+
+  CHOOSE_YTDLP_PATH: 'choose-ytdlp-path',
+  GET_YTDLP_VERSION: 'get-ytdlp-version',
+  DOWNLOAD_VIDEO: 'download-video'
 }
 
 const DBActions = {
