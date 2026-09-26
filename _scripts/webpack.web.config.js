@@ -80,7 +80,7 @@ const config = {
         ],
         rules: [
           {
-            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
+            resource: require.resolve('shaka-player/dist/controls.css'),
             use: path.join(__dirname, 'patch-shaka-player-loader.js')
           }
         ],
