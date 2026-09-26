@@ -604,6 +604,8 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
     Excluded Channels:
       Excluded Channels: Välistatud kanalid
+      Disabled Message: Mõned kanalid jäid tunnuste alusel välja ja neid ei töödeldud. Funktsionaalsus on blokeeritud, kuni neid tunnuseid uuendatakse
+      Tooltip: SponsorBlocki väljalülitamiseks sisesta kanali tunnus. Selle kanali videotes olevaid sponsorsegmendid ei jää vahele. Sisestatud kanali tunnus peab olema täpne vaste ning suur- ja väiketähted peavad olema samad.
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Väline meediamängija
