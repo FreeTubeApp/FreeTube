@@ -21,7 +21,7 @@ Zoom out: 'Zoum bihanaat'
 Toggle fullscreen: 'Tremen e skramm leun'
 Window: 'Prenestr'
 Minimize: 'Izekaat'
-Close: 'Seriñ'
+Close: 'Serriñ'
 Back: 'Distreiñ'
 Forward: 'War-raok'
 Open New Window: 'Digeriñ ur prenestr nevez'
@@ -77,7 +77,7 @@ Search Filters:
     Prioritize: Prioriziñ
     Popularity: Dre vrud
   Time:
-    Time: 'Padelezh'
+    Time: 'Deiziad'
     Any Time: 'A-holl-viskoaz'
     Today: 'Hiziv'
     This Week: 'Ar sizhun-mañ'
@@ -684,6 +684,8 @@ Settings:
     Category Color: 'Liv ar rummad'
     Excluded Channels:
       Excluded Channels: Chadennoù ezlakaet
+      Disabled Message: Chadennoù 'zo bet laosket da gostez hervez o ID ha n'int ket bet kemeret e kont. Stanket eo an arc’hweladur-mañ e-pad hizivadur an ID-se
+      Tooltip: Lakait ID ur chadenn evit diweredekaat SponsorBlock. Ne vo ket tremenet hebiou ar bruderezh evit ar chadenn-mañ. Ret eo d'an ID bezañ klot ha ret eo doujañ d'ar pennlizherennoù.
   Parental Control Settings:
     Parental Control Settings: 'Kontroll ar gerent'
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
@@ -958,6 +960,9 @@ Video:
   Station: Roll videoioù war-eeun
   Playlist:
     Unavailable videos are hidden: 1 video dihergez a zo kuzhet | {count} video dihergez a zo kuzhet
+  Enable SponsorBlock on Channel: Gweredekaat SponsorBlock war ar Chadenn-mañ
+  Disable SponsorBlock on Channel: Diweredekaat SponsorBlock war ar Chadenn-mañ
+  Premiere: Rakskignañ
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'
@@ -1203,3 +1208,5 @@ Expand side navigation: Astenn ar merdeiñ kostez
 Compact side navigation: Fetisaat ar merdeiñ kostez
 Screenshot Clipboard Success: Enrollet eo an dapadenn-skramm er golver
 Screenshot Clipboard Error: C'hwitet war enrollañ an dapadenn-skramm er golver
+SponsorBlock Disabled on Channel: Diweredekaet eo SponsorBlock war chadenn {channel}
+SponsorBlock Enabled on Channel: Gweredekaet eo SponsorBlock war chadenn {channel}
