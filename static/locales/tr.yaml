@@ -603,6 +603,10 @@ Settings:
     UseDeArrowTitles: DeArrow Video Başlıklarını Kullan
     UseDeArrowThumbnails: Önizleme görselleri için DeArrow kullan
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Önizleme Görseli Oluşturucu API URL'si (Öntanımlı https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Bazı kanallar, kimlik numaraları kullanılarak hariç tutuldu ve işleme alınmadı. Bu kimlik numaraları güncellenirken özellik engellendi
+      Excluded Channels: Hariç Tutulan Kanallar
+      Tooltip: SponsorBlock özelliğinin devre dışı bırakılması için bir kanal kimliği girin. Bu kanaldaki videolardaki sponsor bölümleri atlanmayacaktır. Girilen kanal kimliği tam olarak eşleşmelidir ve büyük/küçük harf duyarlıdır.
   External Player Settings:
     Custom External Player Arguments: Özel Harici Oynatıcı Argümanları
     Custom External Player Executable: Özel Harici Oynatıcı Çalıştırılabilir Dosyası
@@ -893,6 +897,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 kullanılamayan video gizlendi | {count} kullanılamayan video gizlendi
   Premiere: İlk gösterim
+  Enable SponsorBlock on Channel: Kanalda SponsorBlock'u Etkinleştir
+  Disable SponsorBlock on Channel: Kanalda SponsorBlock'u Devre Dışı Bırak
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'
@@ -1156,3 +1162,5 @@ Compact side navigation: Yan gezinmeyi daralt
 Expand side navigation: Yan gezinmeyi genişlet
 Screenshot Clipboard Success: Ekran görüntüsü panoya kaydedildi
 Screenshot Clipboard Error: Ekran görüntüsü panoya kopyalanamadı
+SponsorBlock Disabled on Channel: '{channel} için SponsorBlock devre dışı bırakıldı'
+SponsorBlock Enabled on Channel: '{channel} için SponsorBlock etkinleştirildi'
