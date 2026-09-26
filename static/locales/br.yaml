@@ -682,6 +682,8 @@ Settings:
       Prompt To Skip: 'Kinnig da laoskel a-gostez'
       Do Nothing: 'Ober netra'
     Category Color: 'Liv ar rummad'
+    Excluded Channels:
+      Excluded Channels: Chadennoù ezlakaet
   Parental Control Settings:
     Parental Control Settings: 'Kontroll ar gerent'
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
