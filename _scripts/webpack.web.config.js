@@ -5,8 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MinimizerPlugin = require('minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 const {
   SHAKA_LOCALE_MAPPINGS,
@@ -113,11 +112,27 @@ const config = {
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
     minimizer: [
-      '...', // extend webpack's list instead of overwriting it
-      new JsonMinimizerPlugin({
-        exclude: /\/locales\/.*\.json/
-      }),
-      new CssMinimizerPlugin()
+      new MinimizerPlugin({
+        test: /\.(?:css|js|json)(\?.*)?$/i,
+        exclude: /\/locales\/.*\.json/,
+        minify: [
+          {
+            implementation: MinimizerPlugin.cssnanoMinify
+          },
+          {
+            implementation: MinimizerPlugin.jsonMinify
+          },
+          {
+            implementation: MinimizerPlugin.terserMinify,
+            options: {
+              compress: {
+                // webpack sets passes to 2 in its default minimizer config too
+                passes: 2
+              }
+            }
+          }
+        ]
+      })
     ]
   },
   node: {
