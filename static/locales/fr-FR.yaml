@@ -597,6 +597,10 @@ Settings:
     UseDeArrowTitles: Utiliser DeArrow pour les titres des vidéos
     UseDeArrowThumbnails: Utiliser DeArrow pour les miniatures
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': "URL de l'API du générateur de miniatures DeArrow (par défaut : https://dearrow-thumb.ajay.app)"
+    Excluded Channels:
+      Disabled Message: Certaines chaînes ont été exclues sur la base de leur identifiant et n'ont pas été traitées. La fonctionnalité est bloquée pendant la mise à jour de ces identifiants.
+      Excluded Channels: Chaînes exclues
+      Tooltip: Saisissez l'identifiant d'une chaîne pour désactiver SponsorBlock. Les segments publicitaires dans les vidéos de cette chaîne ne seront pas ignorés. L'identifiant de chaîne saisi doit correspondre exactement et tient compte de la casse.
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les actions non prises en charge
     External Player: Lecteur externe
@@ -845,6 +849,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
   Premiere: Première
+  Enable SponsorBlock on Channel: Activer SponsorBlock sur la chaîne
+  Disable SponsorBlock on Channel: Désactiver SponsorBlock sur la chaîne
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -1153,3 +1159,5 @@ Compact side navigation: Navigation latérale compacte
 Expand side navigation: Développer la navigation latérale
 Screenshot Clipboard Error: Échec de la copie de l'écran vers le presse-papier
 Screenshot Clipboard Success: Copie d'écran enregistrée dans le presse-papier
+SponsorBlock Disabled on Channel: SponsorBlock est désactivé sur {channel}
+SponsorBlock Enabled on Channel: SponsorBlock est activé sur {channel}
