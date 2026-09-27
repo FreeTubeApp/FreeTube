@@ -114,7 +114,6 @@ const config = {
     minimizer: [
       new MinimizerPlugin({
         test: /\.(?:css|js|json)(\?.*)?$/i,
-        exclude: /\/locales\/.*\.json/,
         minify: [
           {
             implementation: MinimizerPlugin.cssnanoMinify
