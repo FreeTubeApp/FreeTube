@@ -600,6 +600,8 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-Thumbnail-Generator-API-URL (Standard ist https://dearrow-thumb.ajay.app)
     Excluded Channels:
       Excluded Channels: Ausgeschlossene Kanäle
+      Disabled Message: Einige Kanäle wurden anhand ihrer ID ausgeschlossen und werden nicht verarbeitet. Die Funktion ist gesperrt, während diese IDs aktualisiert werden.
+      Tooltip: Geben Sie eine Kanal-ID ein, um SponsorBlock zu deaktivieren. Sponsoren-Segmente in Videos dieses Kanals werden dann nicht übersprungen. Die eingegebene Kanal-ID muss exakt übereinstimmen; bei der Eingabe wird zwischen Groß- und Kleinschreibung unterschieden.
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen ignorieren
     External Player: Externer Video-Player
