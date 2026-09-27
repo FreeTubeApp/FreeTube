@@ -596,6 +596,10 @@ Settings:
     UseDeArrowTitles: DeArrow の動画タイトルを使用する
     UseDeArrowThumbnails: DeArrow のサムネイルを使用する
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API Url (デフォルト https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: 一部のチャンネルは ID に基づいて除外され、処理されませんでした。それらの ID の更新中は、この機能は利用できません
+      Excluded Channels: 除外されたチャネル
+      Tooltip: SponsorBlock を無効にするチャンネル ID を入力してください。このチャンネルの動画に含まれるスポンサーセグメントはスキップされなくなります。入力するチャンネル ID は完全に一致している必要があり、大文字と小文字が区別されます。
   External Player Settings:
     Custom External Player Arguments: カスタム外部プレーヤー引数
     Custom External Player Executable: カスタム外部プレーヤーの実行可能ファイル
@@ -841,6 +845,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 再生できない動画が 1 件非表示になっています | 再生できない動画が {count} 件非表示になっています
   Premiere: プレミア
+  Enable SponsorBlock on Channel: チャンネルで SponsorBlock を有効にする
+  Disable SponsorBlock on Channel: チャンネルで SponsorBlock を無効にする
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
@@ -1148,3 +1154,5 @@ Compact side navigation: サイドナビゲーションを折りたたむ
 Expand side navigation: サイドナビゲーションを展開
 Screenshot Clipboard Success: スクリーンショットをクリップボードに保存しました
 Screenshot Clipboard Error: スクリーンショットのクリップボードへのコピーに失敗しました
+SponsorBlock Disabled on Channel: '{channel} で SponsorBlock が無効化されました'
+SponsorBlock Enabled on Channel: '{channel} で SponsorBlock が有効になりました'
