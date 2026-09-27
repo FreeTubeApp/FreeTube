@@ -605,6 +605,10 @@ Settings:
     UseDeArrowTitles: DeArrow-videócímek használata
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
     UseDeArrowThumbnails: DeArrow használata bélyegképekhez
+    Excluded Channels:
+      Disabled Message: Néhány csatorna azonosító (ID) alapján ki lett zárva, ezért nem lettek feldolgozva. A funkció le van tiltva, amíg ezek az azonosítók frissülnek
+      Excluded Channels: Kizárt csatornák
+      Tooltip: Adjon meg egy csatornaazonosítót (ID-t), amelynél le szeretné tiltani a SponsorBlockot. Az adott csatorna videóiban található szponzori szegmensek nem lesznek átugorva. A megadott csatornaazonosítónak teljes egyezésűnek kell lennie, és a kis- és nagybetűk különböznek.
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
@@ -895,6 +899,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 nem elérhető videó el van rejtve | {count} nem elérhető videó el van rejtve
   Premiere: Premier
+  Enable SponsorBlock on Channel: SponsorBlock engedélyezése a csatornán
+  Disable SponsorBlock on Channel: SponsorBlock letiltása a csatornán
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -1158,3 +1164,5 @@ Compact side navigation: Kompakt oldalsó navigáció
 Expand side navigation: Oldalsó navigáció kibontása
 Screenshot Clipboard Success: Képernyőkép mentve a vágólapra
 Screenshot Clipboard Error: Nem sikerült a képernyőképet a vágólapra másolni
+SponsorBlock Disabled on Channel: 'A SponsorBlock letiltva ennél a csatornánál: {channel}'
+SponsorBlock Enabled on Channel: 'A SponsorBlock engedélyezett ennél a csatornánál: {channel}'
