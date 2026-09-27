@@ -71,7 +71,7 @@ Search Filters:
     '> 20 minutes': '> 20 minutos'
     '3 - 20 minutes': 3 - 20 minutos
   Search Results: 'Resultados de la búsqueda'
-  Fetching results. Please wait: 'Obteniendo resultados. Por favor, espere'
+  Fetching results. Please wait: 'Consiguiendo resultados. Espere'
   Fetch more results: 'Obtener más resultados'
 # Sidebar
   There are no more results for this search: No hay más resultados para esta búsqueda
@@ -146,7 +146,7 @@ User Playlists:
       Reverted to use {oldPlaylistName} for quick bookmark: Se volvió a utilizar {oldPlaylistName} para el marcador rápido
       This playlist is already being used for quick bookmark.: Esta lista de reproducción ya se utiliza como marcador rápido.
       This playlist has a video with a duration error: Esta lista de reproducción contiene al menos un vídeo sin duración, se ordenará como si su duración fuera cero.
-      Video has been removed. Click here to undo.: El video ha sido eliminado. Clickea aquí para cancelar.
+      Video has been removed. Click here to undo.: Se quitó el vídeo. Pulse aquí para deshacerlo.
     Search for Videos: Buscar vídeos
   Are you sure you want to delete this playlist? This cannot be undone: ¿Confirma que quiere eliminar esta lista? Esta acción no se puede deshacer.
   Sort By:
@@ -410,7 +410,7 @@ Settings:
       Error:
         Forbidden Characters: Caracteres prohibidos
         Empty File Name: Nombre de archivo vacío
-      Enable: Habilitar capturas de pantalla
+      Enable: Activar capturas de pantalla
       Quality Label: Calidad de las capturas de pantalla
       Format Label: Formato de las capturas de pantalla
       File Name Label: Patrón de nombre de archivo
@@ -448,7 +448,7 @@ Settings:
     Save Watched Videos With Last Viewed Playlist: Guardar vídeos vistos con la última lista de reproducción vista
     All playlists have been removed: Se han eliminado todas las listas de reproducción
     Remove All Playlists: Eliminar todas las listas de reproducción
-    Are you sure you want to remove all your playlists?: ¿Estás seguro de que quieres eliminar todas tus listas de reproducción?
+    Are you sure you want to remove all your playlists?: ¿Confirma que quiere quitar todas sus listas de reproducción?
     Remember Search History: Recordar historial de búsquedas
     Are you sure you want to clear out your search history and cache?: ¿Confirma que quiere vaciar el historial de búsquedas y la antememoria?
     Search history and cache have been cleared: Se vaciaron el historial de búsquedas y la antememoria
@@ -622,7 +622,7 @@ Settings:
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Estas opciones son experimentales y pueden provocar cierres inesperados mientras estén activadas. Se recomienda encarecidamente realizar copias de respaldo. Úselas bajo su propia responsabilidad.
-    Replace HTTP Cache: Reemplazar la caché HTTP
+    Replace HTTP Cache: Reemplazar antememoria HTTP
     Disable Hardware Acceleration: Desactivar aceleración física
   Password Settings:
     Password Settings: Contraseña
@@ -858,7 +858,7 @@ Video:
       CodecAudio: 'Códec: {audioCodec} ({audioItag})'
       CodecsVideoAudio: 'Códecs: {videoCodec} ({videoItag}) / {audioCodec} ({audioItag})'
       CodecsVideoAudioNoItags: 'Códecs: {videoCodec} / {audioCodec}'
-    You appear to be offline: Parece que no tienes conexión.
+    You appear to be offline: Parece que está sin conexión.
     Playback will resume automatically when your connection comes back: La reproducción se reanudará automáticamente cuando se restablezca la conexión.
     Skipped segment: Segmento {segmentCategory} omitido
     Audio Tracks: Pistas de audio
@@ -875,7 +875,7 @@ Video:
     Show Original Details: Mostrar detalles originales
     Show Modified Details: Mostrar detalles modificados
 #& Playlists
-  DRMProtected: Los videos restringidos con DRM no pueden reproducirse en FreeTube, dado que requieren componentes propietarias de fuente cerrada. Si desea ver este video, por favor véalo en la página oficial de YouTube con un buscador que tenga DRM habilitado.
+  DRMProtected: Los vídeos protegidos por DRM no se pueden reproducir en FreeTube ya que requieren componentes de licencia privativa. Si quiere ver este vídeo, use el sitio web oficial de YouTube con un navegador que admita DRM.
   Watched Progress Saved: Progreso de visualización guardado
   Save Watched Progress: Guardar progreso de visualización
   Popout Live Chat: Ventana emergente de chat
@@ -1008,7 +1008,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: '(Predeterminado: «{defaultCustomArguments}»)'
     Ignore Default Arguments: No envíe ningún argumento predeterminado al reproductor externo aparte de la URL del vídeo (por ejemplo, velocidad de reproducción, URL de la lista de reproducción, etc.). Los argumentos personalizados se seguirán transmitiendo.
   Experimental Settings:
-    Replace HTTP Cache: Desactiva la caché HTTP basada en Electron disk y habilite una caché para la imagen en la memoria personalizada. Esto aumentará el uso de la memoria RAM.
+    Replace HTTP Cache: Desactiva la antememoria HTTP basada en disco de Electron y activa una antememoria de imágenes personalizada. Aumentará el consumo de RAM.
     Disable Hardware Acceleration: Desactiva la aceleración física de la GPU. Puede que solucione algunos problemas gráficos, pero tal vez disminuya el rendimiento.
   Distraction Free Settings:
     Hide Channels: Introduzca un ID del canal para ocultar todos los vídeos, listas de reproducción y el propio canal para que no aparezcan en las búsquedas, tendencias, más populares y recomendados. El ID del canal introducido debe coincidir completamente y se debe distinguir entre mayúsculas y minúsculas.
@@ -1030,7 +1030,7 @@ Search Bar:
   Open Search Container: Abrir contenedor de búsquedas
   Search: Buscar
 External link opening has been disabled in the general settings: Se ha desactivado la apertura de enlaces externos en la configuración general
-Are you sure you want to open this link?: ¿Estás seguro/a de que quieres abrir este enlace?
+Are you sure you want to open this link?: ¿Confirma que quiere abrir este enlace?
 Screenshot Success: Captura de pantalla guardada
 Screenshot Error: Captura de pantalla fallida. {error}
 New Window: Nueva ventana
