@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
+const MinimizerPlugin = require('minimizer-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
@@ -33,9 +33,22 @@ const config = {
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
     minimizer: [
-      '...', // extend webpack's list instead of overwriting it
-      new JsonMinimizerPlugin({
-        exclude: /\/locales\/.*\.json/
+      new MinimizerPlugin({
+        test: /\.js(?:on)?(\?.*)?$/i,
+        minify: [
+          {
+            implementation: MinimizerPlugin.jsonMinify
+          },
+          {
+            implementation: MinimizerPlugin.terserMinify,
+            options: {
+              compress: {
+                // webpack sets passes to 2 in its default minimizer config too
+                passes: 2
+              }
+            }
+          }
+        ]
       })
     ]
   },
