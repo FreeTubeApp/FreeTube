@@ -6,7 +6,6 @@ const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const {
   SHAKA_LOCALE_MAPPINGS,
   SHAKA_LOCALES_PREBUNDLED,
@@ -41,6 +40,20 @@ const config = {
     scriptType: 'text/javascript',
     path: path.join(__dirname, '../dist'),
     filename: '[name].js',
+    // Don't need to copy them in dev mode,
+    // as we configure WebpackDevServer to serve them
+    copy: isDevMode
+      ? undefined
+      : [
+          {
+            context: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+            from: `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`,
+            to: 'static/shaka-player-locales',
+            transform: (input) => {
+              return JSON.stringify(JSON.parse(input.toString('utf-8')))
+            }
+          }
+        ]
   },
   module: {
     rules: [
@@ -164,26 +177,6 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    // Don't need to copy them in dev mode,
-    // as we configure WebpackDevServer to serve them
-    ...(isDevMode
-      ? []
-      : [
-          new CopyWebpackPlugin({
-            patterns: [
-              {
-                from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
-                to: path.join(__dirname, '../dist/static/shaka-player-locales'),
-                context: path.join(__dirname, '../node_modules/shaka-player/ui/locales'),
-                transform: {
-                  transformer: (input) => {
-                    return JSON.stringify(JSON.parse(input.toString('utf-8')))
-                  }
-                }
-              }
-            ]
-          })
-        ])
   ],
   resolve: {
     alias: {

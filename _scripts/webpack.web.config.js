@@ -3,7 +3,6 @@ const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -27,6 +26,30 @@ const config = {
   output: {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
+    copy: [
+      {
+        from: 'static/pwabuilder-sw.js',
+        to: '.'
+      },
+      {
+        from: 'static',
+        to: 'static',
+        globOptions: {
+          ignore: [
+            '**/.*',
+            'static/{locales,pwabuilder-sw.js}'
+          ]
+        }
+      },
+      {
+        context: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+        from: `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`,
+        to: 'static/shaka-player-locales',
+        transform: (input) => {
+          return JSON.stringify(JSON.parse(input.toString('utf-8')))
+        }
+      }
+    ]
   },
   externals: {
     'youtubei.js': '{}',
@@ -190,27 +213,6 @@ config.plugins.push(
     'process.env.SHAKA_LOCALE_MAPPINGS': JSON.stringify(SHAKA_LOCALE_MAPPINGS),
     'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
   }),
-  new CopyWebpackPlugin({
-    patterns: [
-      {
-        from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-        to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-      },
-      {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/web/static'),
-        globOptions: {
-          dot: true,
-          ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-        },
-      },
-      {
-        from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
-        to: path.join(__dirname, '../dist/web/static/shaka-player-locales'),
-        context: path.join(__dirname, '../node_modules/shaka-player/ui/locales')
-      }
-    ]
-  })
 )
 
 module.exports = config

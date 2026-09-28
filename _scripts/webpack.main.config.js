@@ -1,6 +1,5 @@
 const path = require('path')
 const webpack = require('webpack')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
 
 const isDevMode = process.env.NODE_ENV === 'development'
@@ -54,25 +53,22 @@ const config = {
     filename: '[name].js',
     libraryTarget: 'commonjs2',
     path: path.join(__dirname, '../dist'),
+    copy: isDevMode
+      ? undefined
+      : [
+          {
+            from: 'static',
+            to: 'static',
+            globOptions: {
+              ignore: [
+                '**/.*',
+                'static/{locales,pwabuilder-sw.js,manifest.json}'
+              ]
+            }
+          }
+        ]
   },
   target: 'electron-main',
-}
-
-if (!isDevMode) {
-  config.plugins.push(
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../static'),
-          to: path.join(__dirname, '../dist/static'),
-          globOptions: {
-            dot: true,
-            ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/manifest.json', '**/dashFiles/**', '**/storyboards/**'],
-          },
-        },
-      ]
-    })
-  )
 }
 
 module.exports = config
