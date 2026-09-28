@@ -441,6 +441,10 @@ Settings:
       Prompt To Skip: Ötürmək Üçün Soruş
       Do Nothing: Heç Nə Etmə
     Category Color: Kateqoriya Rəngi
+    Excluded Channels:
+      Disabled Message: Bəzi kanallar ID vasitəsilə istisna edildi və emal olunmadı. Həmin ID-lər yenilənərkən xüsusiyyət bloklanır
+      Excluded Channels: İstisna Olunmuş Kanallar
+      Tooltip: SponsorBlock-u qapatmaq üçün kanal ID-si daxil edin. Bu kanaldakı videolarda sponsor bölümləri ötürülməyəcək. Daxil edilən kanal ID-si tam uyğunlaşmalıdır və böyük-kiçik hərflərə həssasdır.
   Sort Settings Sections (A-Z): Tənzimləmələr Bölmələrin Çeşidlə (A-Z)
   Return to Settings Menu: Tənzimləmələr Menyusuna Qayıt
   External Player Settings:
@@ -798,6 +802,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 əlçatmaz video gizlədilib | {count} əlçatmaz video gizlədilib
   Premiere: Premyera
+  Enable SponsorBlock on Channel: Kanalda SponsorBlock-u Aktivləşdir
+  Disable SponsorBlock on Channel: Kanalda SponsorBlock-u Qapat
 Tooltips:
   General Settings:
     Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
@@ -1126,3 +1132,5 @@ Yes, Open Link: Bəli, Linki Aç
 KeyboardShortcutTemplate: '{label} ({shortcut})'
 shortcutJoinOperator: +
 shortcutLabelSeparator: ｜
+SponsorBlock Disabled on Channel: SponsorBlock {channel} kanalında qapadılıb
+SponsorBlock Enabled on Channel: SponsorBlock {channel} kanalında aktivdir
