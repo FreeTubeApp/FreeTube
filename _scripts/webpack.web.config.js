@@ -16,8 +16,6 @@ const {
 
 const isDevMode = process.env.NODE_ENV === 'development'
 
-const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
-
 /** @type {import('webpack').Configuration} */
 const config = {
   name: 'web',
@@ -67,23 +65,34 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
+        oneOf: [
           {
-            loader: MiniCssExtractPlugin.loader
+            test: /[/\\]swiper[/\\]/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'swiper-[name].[contenthash][ext]'
+            }
           },
           {
-            loader: 'css-loader',
-            options: {
-              esModule: false
-            }
-          }
-        ],
-        rules: [
-          {
-            resource: require.resolve('shaka-player/dist/controls.css'),
-            use: path.join(__dirname, 'patch-shaka-player-loader.js')
-          }
-        ],
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  esModule: false
+                }
+              }
+            ],
+            rules: [
+              {
+                resource: require.resolve('shaka-player/dist/controls.css'),
+                use: path.join(__dirname, 'patch-shaka-player-loader.js')
+              }
+            ],
+          },
+        ]
       },
       {
         test: /\.html$/,
@@ -136,7 +145,6 @@ const config = {
       __VUE_I18N_LEGACY_API__: 'false',
       __VUE_I18N_FULL_INSTALL__: 'false',
       __INTLIFY_PROD_DEVTOOLS__: 'false',
-      'process.env.SWIPER_VERSION': `'${swiperVersion}'`
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser.js'
@@ -151,18 +159,6 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
-          to: `swiper-${swiperVersion}.css`,
-          context: path.join(__dirname, '../node_modules/swiper/modules'),
-          transformAll: (assets) => {
-            return Buffer.concat(assets.map(asset => asset.data))
-          }
-        }
-      ]
-    })
   ],
   resolve: {
     alias: {

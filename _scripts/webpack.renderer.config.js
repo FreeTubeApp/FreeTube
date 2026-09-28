@@ -1,5 +1,5 @@
 const path = require('path')
-const { readFileSync, readdirSync } = require('fs')
+const { readdirSync } = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
@@ -15,8 +15,6 @@ const {
 const { sigFrameTemplateParameters } = require('./sigFrameConfig')
 
 const isDevMode = process.env.NODE_ENV === 'development'
-
-const { version: swiperVersion } = JSON.parse(readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
 
 const processLocalesPlugin = new ProcessLocalesPlugin({
   compress: !isDevMode,
@@ -77,23 +75,34 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
+        oneOf: [
           {
-            loader: MiniCssExtractPlugin.loader
+            test: /[/\\]swiper[/\\]/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'swiper-[name].[contenthash][ext]'
+            }
           },
           {
-            loader: 'css-loader',
-            options: {
-              esModule: false
-            }
-          }
-        ],
-        rules: [
-          {
-            resource: require.resolve('shaka-player/dist/controls.css'),
-            use: path.join(__dirname, 'patch-shaka-player-loader.js')
-          }
-        ],
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  esModule: false
+                }
+              }
+            ],
+            rules: [
+              {
+                resource: require.resolve('shaka-player/dist/controls.css'),
+                use: path.join(__dirname, 'patch-shaka-player-loader.js')
+              }
+            ],
+          },
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|tif?f|bmp|webp|svg)(\?.*)?$/,
@@ -142,7 +151,6 @@ const config = {
       __INTLIFY_PROD_DEVTOOLS__: 'false',
       'process.env.LOCALE_NAMES': JSON.stringify(processLocalesPlugin.localeNames),
       'process.env.GEOLOCATION_NAMES': JSON.stringify(readdirSync(path.join(__dirname, '..', 'static', 'geolocations')).map(filename => filename.replace('.json', ''))),
-      'process.env.SWIPER_VERSION': `'${swiperVersion}'`,
       'process.env.SHAKA_LOCALE_MAPPINGS': JSON.stringify(SHAKA_LOCALE_MAPPINGS),
       'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
     }),
@@ -156,21 +164,13 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
-          to: `swiper-${swiperVersion}.css`,
-          context: path.join(__dirname, '../node_modules/swiper/modules'),
-          transformAll: (assets) => {
-            return Buffer.concat(assets.map(asset => asset.data))
-          }
-        },
-        // Don't need to copy them in dev mode,
-        // as we configure WebpackDevServer to serve them
-        ...(isDevMode
-          ? []
-          : [
+    // Don't need to copy them in dev mode,
+    // as we configure WebpackDevServer to serve them
+    ...(isDevMode
+      ? []
+      : [
+          new CopyWebpackPlugin({
+            patterns: [
               {
                 from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
                 to: path.join(__dirname, '../dist/static/shaka-player-locales'),
@@ -181,9 +181,9 @@ const config = {
                   }
                 }
               }
-            ])
-      ]
-    })
+            ]
+          })
+        ])
   ],
   resolve: {
     alias: {
