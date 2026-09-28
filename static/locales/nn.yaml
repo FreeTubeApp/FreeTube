@@ -190,6 +190,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoar allereie laga til'
     Toast:
       You haven't selected any playlist yet.: Du har ikkje valt nokre spelelister enno.
+  Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spelelisten
 History:
   # On History Page
   History: 'Historikk'
