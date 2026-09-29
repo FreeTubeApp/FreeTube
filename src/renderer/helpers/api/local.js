@@ -63,23 +63,15 @@ if (process.env.SUPPORTS_LOCAL_API) {
 }
 
 /**
- * Creates a lightweight Innertube instance, which is faster to create or
- * an instance that can decode the streaming URLs, which is slower to create
- * the lightweight one only needs a single web request to create the new session
- * the full one needs 3 (or 2 if the player is cached) web requests to create:
- * 1. the request for the session
- * 2. fetch a page that contains a link to the player
- * 3. if the player isn't cached, it is downloaded and transformed
  * @param {object} options
- * @param {boolean} options.withPlayer set to true to get an Innertube instance that can decode the streaming URLs
+ * @param {boolean} options.withPlayer set to true to get an instance that can decode the streaming URLs
  * @param {string|undefined} options.location the geolocation to pass to YouTube get different content
  * @param {boolean} options.safetyMode whether to hide mature content
  * @param {import('youtubei.js').ClientType} options.clientType use an alterate client
  * @param {boolean} options.generateSessionLocally generate the session locally or let YouTube generate it (local is faster, remote is more accurate)
- * @param {?import('youtubei.js').FetchFunction} options.fetchFunc optional custom fetch function
- * @returns the Innertube instance
+ * @param {?import('youtubei.js').Types.FetchFunction} options.fetchFunc optional custom fetch function
  */
-async function createInnertube({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
+async function createSession({ withPlayer = false, location = undefined, safetyMode = false, clientType = undefined, generateSessionLocally = true, fetchFunc = null } = {}) {
   let cache
   if (withPlayer) {
     if (process.env.IS_ELECTRON) {
@@ -89,8 +81,8 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     }
   }
 
-  return await Innertube.create({
-    // This setting is enabled by default and results in YouTube.js reusing the same session across different Innertube instances.
+  return await Session.create({
+    // This setting is enabled by default and results in YouTube.js reusing the same session across different Session instances.
     // That behavior is highly undesirable for FreeTube, as we want to create a new session every time to limit tracking.
     enable_session_cache: false,
     retrieve_innertube_config: !generateSessionLocally,
@@ -106,6 +98,15 @@ async function createInnertube({ withPlayer = false, location = undefined, safet
     cache,
     generate_session_locally: !!generateSessionLocally
   })
+}
+
+/**
+ * @param {Parameters<createSession>[0]} [options={}]
+ * @see {@linkcode createSession} for the description of the various options
+ */
+async function createInnertube(options = {}) {
+  const session = await createSession(options)
+  return new Innertube(session)
 }
 
 /** @type {Innertube | null} */
@@ -254,19 +255,19 @@ export async function getLocalCachedFeedContinuation(type, continuation) {
   /** @type {SerializedContinuation} */
   const data = JSON.parse(continuation)
 
-  const innertube = await createInnertube()
-  innertube.session.context = data.context
+  const session = await createSession()
+  session.context = data.context
 
-  const page = await innertube.actions.execute(data.path, { ...data.payload, parse: true })
+  const page = await session.actions.execute(data.path, { ...data.payload, parse: true })
 
   if (!page) {
     throw new Utils.InnertubeError('Could not get continuation data')
   }
 
   if (type === 'playlist') {
-    return new YT.Playlist(innertube.actions, page, true)
+    return new YT.Playlist(session.actions, page, true)
   } else {
-    return new YT.Search(innertube.actions, page, true)
+    return new YT.Search(session.actions, page, true)
   }
 }
 
@@ -316,7 +317,7 @@ export async function untilEndOfLocalPlayList(playlist, callback, options = { ru
  * @param {'gaming' | 'sports' | 'podcasts'} tab
  */
 export async function getLocalTrending(location, tab) {
-  const innertube = await createInnertube({ location })
+  const session = await createSession({ location })
 
   let args
 
@@ -346,8 +347,8 @@ export async function getLocalTrending(location, tab) {
       throw new Error('Unknown trending tab')
   }
 
-  const response = await innertube.actions.execute('/browse', args)
-  const feed = new Mixins.Feed(innertube.actions, response)
+  const response = await session.actions.execute('/browse', args)
+  const feed = new Mixins.Feed(session.actions, response)
 
   return feed.videos.map(video => parseLocalListVideo(video)).filter(_ => _)
 }
@@ -941,17 +942,17 @@ export async function getLocalChannel(id) {
  * @param {string} id
  */
 export async function getLocalChannelVideos(id) {
-  const innertube = await createInnertube()
+  const session = await createSession()
 
   try {
-    const response = await innertube.actions.execute('/browse', {
+    const response = await session.actions.execute('/browse', {
       browseId: id,
       params: 'EgZ2aWRlb3PyBgQKAjoA'
       // protobuf for the videos tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
 
-    const videosTab = new YT.Channel(null, response)
+    const videosTab = new YT.Channel(session.actions, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(videosTab, true)
 
     let videos
@@ -962,6 +963,7 @@ export async function getLocalChannelVideos(id) {
       videos = parseLocalChannelVideos(videosTab.videos, channelId, name)
     } else if (name.endsWith('- Topic') && !!videosTab.metadata.music_artist_name) {
       try {
+        const innertube = new Innertube(session)
         const playlist = await innertube.getPlaylist(getChannelPlaylistId(channelId, 'videos', 'newest'))
 
         videos = playlist.items.map(parseLocalPlaylistVideo)
@@ -998,17 +1000,17 @@ export async function getLocalChannelVideos(id) {
  * @param {string} id
  */
 export async function getLocalChannelLiveStreams(id) {
-  const innertube = await createInnertube()
+  const session = await createSession()
 
   try {
-    const response = await innertube.actions.execute('/browse', {
+    const response = await session.actions.execute('/browse', {
       browseId: id,
       params: 'EgdzdHJlYW1z8gYECgJ6AA%3D%3D'
       // protobuf for the live tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
 
-    let liveStreamsTab = new YT.Channel(innertube.actions, response)
+    let liveStreamsTab = new YT.Channel(session.actions, response)
     const { id: channelId = id, name, thumbnailUrl } = parseLocalChannelHeader(liveStreamsTab, true)
 
     let videos
@@ -1046,17 +1048,17 @@ export async function getLocalChannelLiveStreams(id) {
 }
 
 export async function getLocalChannelCommunity(id) {
-  const innertube = await createInnertube()
+  const session = await createSession()
 
   try {
-    const response = await innertube.actions.execute('/browse', {
+    const response = await session.actions.execute('/browse', {
       browseId: id,
       params: 'EgVwb3N0c_IGBAoCSgA%3D'
       // protobuf for the community tab (this is the one that YouTube uses,
       // it has some empty fields in the protobuf but it doesn't work if you remove them)
     })
 
-    const communityTab = new YT.Channel(null, response)
+    const communityTab = new YT.Channel(session.actions, response)
 
     // if the channel doesn't have a community tab, YouTube returns the home tab instead
     // so we need to check that we got the right tab
@@ -1299,10 +1301,6 @@ export function parseLocalChannelVideos(videos, channelId, channelName) {
   const parsedVideos = []
 
   for (const video of videos) {
-    // `BADGE_STYLE_TYPE_MEMBERS_ONLY` used for both `members only` and `members first` videos
-    if (video.is(YTNodes.Video) && video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')) {
-      continue
-    }
     const parsedVideo = parseLocalListVideo(video, channelId, channelName)
     if (parsedVideo != null) {
       parsedVideos.push(parsedVideo)
@@ -1707,8 +1705,12 @@ export function parseLocalListVideo(item, channelId, channelName) {
     /** @type {import('youtubei.js').YTNodes.Video} */
     const video = item
 
-    // When video is passed in via like community post attachment
-    if (video.title?.text === 'This video isn\'t publicly available') {
+    if (
+      // When video is passed in via like community post attachment
+      video.title?.text === 'This video isn\'t publicly available' ||
+      // `BADGE_STYLE_TYPE_MEMBERS_ONLY` is used for both `members only` and `members first` videos
+      video.badges.some(badge => badge.style === 'BADGE_STYLE_TYPE_MEMBERS_ONLY')
+    ) {
       return null
     }
 
@@ -1886,24 +1888,20 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       }
 
       let viewCount = null
-      let viewsText = null
       if (lockupView.metadata.metadata?.metadata_rows != null) {
         for (const row of lockupView.metadata.metadata.metadata_rows) {
           const foundText = row.metadata_parts?.find(part => {
             return isViewCountText(part.text?.text)
           })?.text?.text
+
           if (foundText != null) {
-            viewsText = foundText
+            const views = parseLocalSubscriberCount(foundText)
+
+            if (!isNaN(views)) {
+              viewCount = views
+            }
             break
           }
-        }
-      }
-
-      if (viewsText) {
-        const views = parseLocalSubscriberCount(viewsText)
-
-        if (!isNaN(views)) {
-          viewCount = views
         }
       }
 

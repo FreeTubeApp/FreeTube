@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MinimizerPlugin = require('minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const {
@@ -46,11 +46,6 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -95,7 +90,7 @@ const config = {
         ],
         rules: [
           {
-            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
+            resource: require.resolve('shaka-player/dist/controls.css'),
             use: path.join(__dirname, 'patch-shaka-player-loader.js')
           }
         ],
@@ -124,8 +119,23 @@ const config = {
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
     minimizer: [
-      '...', // extend webpack's list instead of overwriting it
-      new CssMinimizerPlugin()
+      new MinimizerPlugin({
+        test: /\.(?:cs|j)s(\?.*)?$/i,
+        minify: [
+          {
+            implementation: MinimizerPlugin.cssnanoMinify
+          },
+          {
+            implementation: MinimizerPlugin.terserMinify,
+            options: {
+              compress: {
+                // webpack sets passes to 2 in its default minimizer config too
+                passes: 2
+              }
+            }
+          }
+        ]
+      })
     ]
   },
   node: {

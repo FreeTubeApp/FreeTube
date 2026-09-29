@@ -143,7 +143,7 @@ import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 
 import store from '../../store'
 
-import { formatNumber, showToast } from '../../helpers/utils'
+import { formatNumber, showToast, getLocalesWithFallback } from '../../helpers/utils'
 
 const props = defineProps({
   id: {
@@ -279,7 +279,8 @@ const parsedViewCount = computed(() => {
 })
 
 const dateString = computed(() => {
-  const formatter = new Intl.DateTimeFormat([locale.value, 'en'], { dateStyle: 'medium' })
+  const locales = getLocalesWithFallback(locale.value)
+  const formatter = new Intl.DateTimeFormat(locales, { dateStyle: 'medium' })
   const localeDateString = formatter.format(props.published)
   // replace spaces with no break spaces to make the date act as a single entity while wrapping
   return localeDateString.replaceAll(' ', '\u00A0')

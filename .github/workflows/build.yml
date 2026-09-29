@@ -11,6 +11,7 @@ on:
       - '.github/**/*.md'
       - '.github/workflows/autoMerge.yml'
       - '.github/workflows/codeql.yml'
+      - '.github/workflows/compress-images.yml'
       - '.github/workflows/conflicts.yml'
       - '.github/workflows/label-issue.yml'
       - '.github/workflows/label-pr.yml'
@@ -22,6 +23,7 @@ on:
 
   workflow_dispatch:
 
+cache-mode: none
 permissions: {}
 
 jobs:
@@ -34,6 +36,7 @@ jobs:
     # If a fork does need this workflow to run on every push to the default branch, they can change this condition in their fork to include their repository.
     if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
 
+    cache-mode: write
     permissions:
       actions: write
       contents: read
@@ -83,7 +86,7 @@ jobs:
     - name: Install pnpm
       uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 #v6.1.0
       with:
-        version: 10
+        version: 11
         cache: false
 
     - name: Get pnpm cache directory
@@ -103,7 +106,7 @@ jobs:
         key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
 
-    - run: pnpm run ci
+    - run: pnpm install --frozen-lockfile
       shell: bash
     - run: pnpm run lint
       shell: bash

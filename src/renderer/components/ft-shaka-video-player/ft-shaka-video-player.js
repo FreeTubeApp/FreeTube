@@ -115,6 +115,10 @@ export default defineComponent({
       type: String,
       default: ''
     },
+    channelId: {
+      type: String,
+      default: ''
+    },
     title: {
       type: String,
       default: ''
@@ -375,9 +379,19 @@ export default defineComponent({
       return store.getters.getVideoSkipMouseScroll
     })
 
+    /** @type {import('vue').ComputedRef<any[]>} */
+    const sponsorBlockExcludedChannels = computed(() => {
+      return JSON.parse(store.getters.getSponsorBlockExcludedChannels)
+    })
+
     /** @type {import('vue').ComputedRef<boolean>} */
     const useSponsorBlock = computed(() => {
       return store.getters.getUseSponsorBlock
+    })
+
+    /** @type {import('vue').ComputedRef<boolean>} */
+    const shouldSkipSponsorBlockSegmentsOnChannel = computed(() => {
+      return useSponsorBlock.value && !sponsorBlockExcludedChannels.value.some(c => c.name === props.channelId)
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -516,6 +530,10 @@ export default defineComponent({
      * @param {number} currentTime
      */
     function skipSponsorBlockSegments(currentTime) {
+      if (!shouldSkipSponsorBlockSegmentsOnChannel.value) {
+        return
+      }
+
       const { autoSkip } = sponsorSkips.value
 
       if (autoSkip.size === 0) {

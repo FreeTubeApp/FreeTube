@@ -838,6 +838,7 @@ Video:
   Station: Stanica
   Playlist:
     Unavailable videos are hidden: 1 nedostupné video je skryté | {count} nedostupných videí je skrytých
+  Premiere: Premiéra
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'

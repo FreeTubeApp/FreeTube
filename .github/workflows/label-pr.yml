@@ -3,6 +3,7 @@ on:
   pull_request_target:
     types: [opened, reopened, ready_for_review]
 
+cache-mode: none
 permissions: {}
 
 jobs:

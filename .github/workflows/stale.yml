@@ -3,6 +3,7 @@ on:
   schedule:
     - cron: '30 1 * * *'
 
+cache-mode: none
 permissions: {}
 
 jobs:
@@ -13,6 +14,7 @@ jobs:
 
     runs-on: ubuntu-slim
 
+    cache-mode: write
     permissions:
       actions: write
       pull-requests: write

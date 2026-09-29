@@ -6,7 +6,7 @@
       <div class="heading">
         <h2 class="headingText">
           <FontAwesomeIcon
-            :icon="['fas', 'bookmark']"
+            :icon="['fas', 'list']"
             class="headingIcon"
           />
           {{ $t("User Playlists.Your Playlists") }}
