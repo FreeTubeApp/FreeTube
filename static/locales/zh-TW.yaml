@@ -597,6 +597,10 @@ Settings:
     UseDeArrowTitles: 使用 DeArrow 影片標題
     UseDeArrowThumbnails: 使用 DeArrow 製作縮圖
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow 縮圖產生器 API（預設值為 https://dearrow-thumb.ajay.app）
+    Excluded Channels:
+      Disabled Message: 部分頻道是根據 ID 被排除在外的，因此未經處理。當這些 ID 正在更新時，該功能將被暫停
+      Excluded Channels: 已排除的頻道
+      Tooltip: 請輸入頻道 ID 以停用 SponsorBlock 功能。來自此頻道的影片中的贊助商片段將不會被跳過。輸入的頻道 ID 必須完全相符，且區分大小寫。
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -845,6 +849,8 @@ Video:
   Premiere: 首映
   Playlist:
     Unavailable videos are hidden: 1 部無法觀看的影片已被隱藏 | {count} 部無法觀看的影片已被隱藏
+  Enable SponsorBlock on Channel: 在頻道啟用 SponsorBlock
+  Disable SponsorBlock on Channel: 在頻道停用 SponsorBlock
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -1152,3 +1158,5 @@ Compact side navigation: 簡潔側邊導航
 Expand side navigation: 展開側邊導航
 Screenshot Clipboard Success: 儲存螢幕截圖至剪貼簿
 Screenshot Clipboard Error: 複製螢幕截圖到剪貼簿失敗
+SponsorBlock Disabled on Channel: SponsorBlock 已於 {channel} 停用
+SponsorBlock Enabled on Channel: SponsorBlock 已於 {channel} 啟用
