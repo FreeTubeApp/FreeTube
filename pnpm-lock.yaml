@@ -128,8 +128,8 @@ importers:
         specifier: ^76.0.0
         version: 76.0.0(eslint@10.11.0)
       eslint-plugin-vue:
-        specifier: ^10.11.0
-        version: 10.11.0(@stylistic/eslint-plugin@5.10.0)(eslint@10.11.0)(vue-eslint-parser@10.4.1)
+        specifier: ^10.11.1
+        version: 10.11.1(@stylistic/eslint-plugin@5.10.0)(eslint@10.11.0)(vue-eslint-parser@10.4.1)
       eslint-plugin-vuejs-accessibility:
         specifier: ^2.6.0
         version: 2.6.0(eslint@10.11.0)(globals@17.12.0)
@@ -161,11 +161,11 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.28)
       sass:
-        specifier: ^1.104.1
-        version: 1.104.1
+        specifier: ^1.105.0
+        version: 1.105.0
       sass-loader:
         specifier: ^17.0.1
-        version: 17.0.1(sass@1.104.1)(webpack@5.111.1)
+        version: 17.0.1(sass@1.105.0)(webpack@5.111.1)
       stylelint:
         specifier: ^17.15.0
         version: 17.15.0(typescript@6.0.3)
@@ -931,9 +931,6 @@ packages:
 
   '@types/node@24.13.3':
     resolution: {integrity: sha512-Dh8vAsV36ig5wa9OX4pXvMc9D3Veibfw2wix0CUwYODLD8nkj9UsLjASr49nPg+2eKzxhBV+v7L8pXvT4e639Q==}
-
-  '@types/node@26.2.0':
-    resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
 
   '@types/node@26.5.0':
     resolution: {integrity: sha512-dVSGpriSoCgz8WnDNTuSSuSv1PC/ALXihO4ulRZt7Md8k9mlbdin3lGOcDE8SnWOgf513ByWlXd7BK4azmyg/A==}
@@ -2116,8 +2113,8 @@ packages:
     peerDependencies:
       eslint: '>=10.4'
 
-  eslint-plugin-vue@10.11.0:
-    resolution: {integrity: sha512-fGt38SsaPCZ2FmA3bX/3vOW2qdsPNx0/9x+7Aab6NMX++PhynMtK4LWC4vzXgfQBCqpUAler18H38GA+NBAd0Q==}
+  eslint-plugin-vue@10.11.1:
+    resolution: {integrity: sha512-pasVXhl7wUmIvhujoqs/m0mJ9r59QW1IR9XXYKGR0FETzSM+Hhlf4qKIYgWiDDP+9YKv4YfbwskD7LqIdVcgQw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       '@stylistic/eslint-plugin': ^2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0
@@ -3810,8 +3807,8 @@ packages:
       webpack:
         optional: true
 
-  sass@1.104.1:
-    resolution: {integrity: sha512-yDA+1aIG3EHgN4V/BvuhCvu61FF6hEd4e+9DxikUm9U0CAGuvdIZ/UYy7qbOxjhbbWQraoyLlMuzdRGOSV5Bmw==}
+  sass@1.105.0:
+    resolution: {integrity: sha512-4EjSuRTyG8M4yRXXY1PT9OUV5zz23xBxJkbIAprohKHqf6HOU4MCpE3U3vAC+iO1gxobBjESNbcj8rYAQZWnyA==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -4236,9 +4233,6 @@ packages:
 
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
-
-  undici-types@8.3.0:
-    resolution: {integrity: sha512-j375ScV60dom+YkPFIfTLcOiPxkN/buHz5GobjLhixFuANaNs3C9l4GmrWqejgXWJ7BbJcFYpTEUkS1Ge8bpZQ==}
 
   undici-types@8.9.0:
     resolution: {integrity: sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg==}
@@ -5383,7 +5377,7 @@ snapshots:
 
   '@types/bonjour@3.5.13':
     dependencies:
-      '@types/node': 26.2.0
+      '@types/node': 26.5.0
 
   '@types/cacheable-request@6.0.3':
     dependencies:
@@ -5395,7 +5389,7 @@ snapshots:
   '@types/connect-history-api-fallback@1.5.4':
     dependencies:
       '@types/express-serve-static-core': 5.1.1
-      '@types/node': 26.2.0
+      '@types/node': 26.5.0
 
   '@types/connect@3.4.38':
     dependencies:
@@ -5411,7 +5405,7 @@ snapshots:
 
   '@types/express-serve-static-core@5.1.1':
     dependencies:
-      '@types/node': 26.2.0
+      '@types/node': 26.5.0
       '@types/qs': 6.15.1
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -5444,10 +5438,6 @@ snapshots:
     dependencies:
       undici-types: 7.18.2
 
-  '@types/node@26.2.0':
-    dependencies:
-      undici-types: 8.3.0
-
   '@types/node@26.5.0':
     dependencies:
       undici-types: 8.9.0
@@ -5471,14 +5461,14 @@ snapshots:
   '@types/serve-static@2.2.0':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 26.2.0
+      '@types/node': 26.5.0
 
   '@types/trusted-types@2.0.7':
     optional: true
 
   '@types/ws@8.18.1':
     dependencies:
-      '@types/node': 26.2.0
+      '@types/node': 26.5.0
 
   '@typescript-eslint/project-service@8.70.0(typescript@6.0.3)':
     dependencies:
@@ -6749,7 +6739,7 @@ snapshots:
       strip-indent: 4.1.1
       yaml: 2.9.0
 
-  eslint-plugin-vue@10.11.0(@stylistic/eslint-plugin@5.10.0)(eslint@10.11.0)(vue-eslint-parser@10.4.1):
+  eslint-plugin-vue@10.11.1(@stylistic/eslint-plugin@5.10.0)(eslint@10.11.0)(vue-eslint-parser@10.4.1):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.11.0)
       eslint: 10.11.0(jiti@2.7.0)
@@ -8355,12 +8345,12 @@ snapshots:
     dependencies:
       truncate-utf8-bytes: 1.0.2
 
-  sass-loader@17.0.1(sass@1.104.1)(webpack@5.111.1):
+  sass-loader@17.0.1(sass@1.105.0)(webpack@5.111.1):
     optionalDependencies:
-      sass: 1.104.1
+      sass: 1.105.0
       webpack: 5.111.1(cssnano@9.0.5)(postcss@8.5.28)(webpack-cli@7.2.3)
 
-  sass@1.104.1:
+  sass@1.105.0:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
@@ -8844,8 +8834,6 @@ snapshots:
   ufo@1.6.4: {}
 
   undici-types@7.18.2: {}
-
-  undici-types@8.3.0: {}
 
   undici-types@8.9.0: {}
 
