@@ -603,6 +603,10 @@ Settings:
     UseDeArrowTitles: Použít názvy videí z DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Adresa URL API generátoru náhledů DeArrow (výchozí je https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Použít službu DeArrow pro náhledy
+    Excluded Channels:
+      Disabled Message: Některé kanály byly vyloučeny pomocí ID a nebyly zpracovány. Funkce je během aktualizace těchto ID zablokována
+      Excluded Channels: Vyloučené kanály
+      Tooltip: Zadejte ID kanálu pro zakázání funkce SponsorBlock. Sponzorské segmenty ve videích od tohoto kanálu nebudou přeskočeny. ID kanálu musí přesně odpovídat a je závislé na velikosti písmen.
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -893,6 +897,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: Je skyto 1 nedostupné video | Je skryto {count} nedostupných videí
   Premiere: Premiéra
+  Enable SponsorBlock on Channel: Povolit SponsorBlock u kanálu
+  Disable SponsorBlock on Channel: Zakázat SponsorBlock u kanálu
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -1158,3 +1164,5 @@ Compact side navigation: Kompaktní boční navigace
 Expand side navigation: Rozbalit boční navigaci
 Screenshot Clipboard Success: Snímek uložen do schránky
 Screenshot Clipboard Error: Nepodařilo se uložit snímek do schránky
+SponsorBlock Disabled on Channel: SponsorBlock zakázán u kanálu {channel}
+SponsorBlock Enabled on Channel: SponsorBlock povolen u kanálu {channel}
