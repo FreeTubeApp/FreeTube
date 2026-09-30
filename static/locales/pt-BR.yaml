@@ -99,7 +99,7 @@ Subscriptions:
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
   Posts:
-    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desative a configuração "{rssSetting}" para visualizar as postagens ou ative a configuração "{hideSetting}" para ocultar esta aba.
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta aba.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -133,7 +133,7 @@ User Playlists:
   Cancel: Cancelar
   Edit Playlist Info: Editar informação da playlist
   Copy Playlist: Copiar playlist
-  Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" para esta playlist
+  Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" nesta playlist
   Delete Playlist: Excluir playlist
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
@@ -404,7 +404,7 @@ Settings:
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
       File Name Label: Padrão para nome de arquivo
-      Enable: Habilitar captura de tela
+      Enable: Habilitar capturas de tela
       Modes:
         Ask Path: Perguntar onde salvar os arquivos
         Save To Folder: Salvar na pasta
@@ -505,10 +505,10 @@ Settings:
     Export search history: Exportar histórico de buscas
     All search history has been successfully imported: Todo o histórico de buscas foi importado com sucesso
     All search history has been successfully exported: Todo o histórico de buscas foi exportado com sucesso
-    Settings File: Arquivo de Configurações
-    Import Settings: Importar Configurações
-    Export Settings: Exportar Configurações
-    Settings Tooltip: 'Configurações específicas do OS/usuário ou experimentais não podem ser exportadas ou importadas (ex.: proxy, reprodutor externo, pasta de capturas de tela...)'
+    Settings File: Arquivo de configurações
+    Import Settings: Importar configurações
+    Export Settings: Exportar configurações
+    Settings Tooltip: 'As configurações que são específicas do "sistema operacional/usuário" ou experimentais não podem ser exportadas ou importadas (por exemplo, proxy, player externo, pasta de capturas de tela...)'
     All settings have been successfully imported: Todas as configurações foram importadas com sucesso
     All settings have been successfully exported: Todas as configurações foram exportadas com sucesso
     Setting object has insufficient data, skipping item: O objeto de configuração possui dados insuficientes, ignorando o item
@@ -617,12 +617,12 @@ Settings:
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
     Hide Uploader on Watch page: Ocultar o nome do autor na página de reprodução
-    Disable Channel Links: Desativar Links de Canais
+    Disable Channel Links: Desabilitar Links de Canais
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta e risco!
     Replace HTTP Cache: Repor cache HTTP
-    Disable Hardware Acceleration: Desativar aceleração de hardware
+    Disable Hardware Acceleration: Desabilitar aceleração de hardware
   Password Settings:
     Password Settings: Senha
     Set Password: Definir senha
@@ -846,8 +846,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
   Premiere: Premiere
-  Enable SponsorBlock on Channel: Ativar SponsorBlock para este canal
-  Disable SponsorBlock on Channel: Desativar SponsorBlock para este canal
+  Enable SponsorBlock on Channel: Habilitar SponsorBlock neste canal
+  Disable SponsorBlock on Channel: Desabilitar SponsorBlock neste canal
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
@@ -1155,5 +1155,5 @@ Compact side navigation: Navegação lateral compacta
 Expand side navigation: Expandir navegação lateral
 Screenshot Clipboard Success: Captura de tela salva na área de transferência
 Screenshot Clipboard Error: Falha ao copiar captura de tela para área de transferência
-SponsorBlock Disabled on Channel: SponsorBlock desativado para {channel}
+SponsorBlock Disabled on Channel: SponsorBlock desativado em {channel}
 SponsorBlock Enabled on Channel: SponsorBlock ativado para {channel}
