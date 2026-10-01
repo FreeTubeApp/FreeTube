@@ -1817,7 +1817,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       const maybeChannelText = lockupView.metadata?.metadata?.metadata_rows?.[0]?.metadata_parts?.[0]?.text
 
       if (maybeChannelText && maybeChannelText.endpoint?.metadata.page_type === 'WEB_PAGE_TYPE_CHANNEL') {
-        channelName = maybeChannelText.text
+        if (maybeChannelText.text !== 'Playlist') { channelName = maybeChannelText.text }
         channelId = maybeChannelText.endpoint.payload.browseId
       }
 
