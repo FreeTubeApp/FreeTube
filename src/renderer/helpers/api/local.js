@@ -1392,7 +1392,7 @@ export function parseLocalListPlaylist(playlist, channelId = undefined, channelN
     let internalChannelName
     let internalChannelId = null
 
-    if (playlist.author && playlist.author.id !== 'N/A') {
+    if (playlist.author && (playlist.author.id !== 'N/A' && playlist.author.name !== 'N/A')) {
       if (playlist.author instanceof Misc.Text) {
         internalChannelName = playlist.author.text
 
