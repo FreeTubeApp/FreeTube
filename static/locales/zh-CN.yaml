@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: 隐藏频道“课程”标签
     Hide Channel Posts: 隐藏频道“帖子”标签
     Hide Subscriptions Posts: 隐藏订阅者帖子
+    Add: 添加
+    Remove: 删除
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -838,6 +840,7 @@ Video:
   Private: 无法在 FreeTube 中观看私密视频，因它们需要 Google 登录和视频所有权。
   Collapse Playlist: 折叠播放列表
   Expand Playlist: 展开播放列表
+  Station: Station 直播
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
@@ -966,6 +969,7 @@ Profile:
   Profile Name: 配置文件名
   Edit Profile Name: 编辑配置文件名
   Create Profile Name: 创建配置文件名
+  Go To Profile Manager: 转到配置文件管理器
 The playlist has been reversed: 播放列表已反转
 Download From Site: 从网站下载
 Version {versionNumber} is now available!  Click for more details: 版本{versionNumber}已可使用！  点击以取得更多信息
@@ -1009,6 +1013,8 @@ Open New Window: 打开新窗口
 Search Bar:
   Clear Input: 清空输入
   Remove: 删除
+  Open Search Container: 打开搜索容器
+  Search: 搜索
 Are you sure you want to open this link?: 您确定要打开此链接吗？
 Unknown YouTube url type, cannot be opened in app: 未知的 YouTube url 类型，不能在应用程序中打开
 External link opening has been disabled in the general settings: 外部链接打开在常规设置中被禁用
