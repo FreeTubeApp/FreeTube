@@ -72,8 +72,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.5.42(typescript@6.0.3))
       youtubei.js:
-        specifier: ^18.0.0
-        version: 18.0.0
+        specifier: ^18.1.0
+        version: 18.1.0
     devDependencies:
       '@babel/core':
         specifier: ^8.0.1
@@ -5292,8 +5292,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  youtubei.js@18.0.0:
-    resolution: {integrity: sha512-7Tztl5QzNL4nIhiAxa4P/0C8cDDsUe0j4iaUeNiaA+ZfSe/l+HkHxXyoWlQXNW7IPi2n6AW23ysVMJLDh+AwWQ==}
+  youtubei.js@18.1.0:
+    resolution: {integrity: sha512-4Goo3ZeO6/kE8Mq67eC8Z9K1rijeqRwyKxf/YM4lqf8bB4r/s8JC0V3YFx7+l/AJR3LnAsulTsiIj+AFe0cduA==}
 
 snapshots:
 
@@ -10725,7 +10725,7 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  youtubei.js@18.0.0:
+  youtubei.js@18.1.0:
     dependencies:
       '@bufbuild/protobuf': 2.12.1
       fflate: 0.8.3

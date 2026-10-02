@@ -43,6 +43,12 @@
         >
           {{ item.description }}
         </div>
+        <div
+          v-if="item.attribution"
+          class="contentDisclosureAttribution"
+        >
+          {{ item.attribution }}
+        </div>
       </div>
     </div>
     <bdi
