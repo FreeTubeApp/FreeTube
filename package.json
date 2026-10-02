@@ -78,7 +78,7 @@
     "@magda/tree-kill": "1.2.3",
     "@stylistic/eslint-plugin": "^5.10.0",
     "css-loader": "^7.1.5",
-    "cssnano": "^9.0.5",
+    "cssnano": "^9.1.1",
     "electron": "^43.4.0",
     "electron-builder": "^26.17.0",
     "eslint": "^10.11.0",
