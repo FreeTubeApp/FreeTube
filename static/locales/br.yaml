@@ -21,7 +21,7 @@ Zoom out: 'Zoum bihanaat'
 Toggle fullscreen: 'Tremen e skramm leun'
 Window: 'Prenestr'
 Minimize: 'Izekaat'
-Close: 'Seriñ'
+Close: 'Serriñ'
 Back: 'Distreiñ'
 Forward: 'War-raok'
 Open New Window: 'Digeriñ ur prenestr nevez'
@@ -77,7 +77,7 @@ Search Filters:
     Prioritize: Prioriziñ
     Popularity: Dre vrud
   Time:
-    Time: 'Padelezh'
+    Time: 'Deiziad'
     Any Time: 'A-holl-viskoaz'
     Today: 'Hiziv'
     This Week: 'Ar sizhun-mañ'
@@ -682,6 +682,10 @@ Settings:
       Prompt To Skip: 'Kinnig da laoskel a-gostez'
       Do Nothing: 'Ober netra'
     Category Color: 'Liv ar rummad'
+    Excluded Channels:
+      Excluded Channels: Chadennoù ezlakaet
+      Disabled Message: Chadennoù 'zo bet laosket da gostez hervez o ID ha n'int ket bet kemeret e kont. Stanket eo an arc’hweladur-mañ e-pad hizivadur an ID-se
+      Tooltip: Lakait ID ur chadenn evit diweredekaat SponsorBlock. Ne vo ket tremenet hebiou ar bruderezh evit ar chadenn-mañ. Ret eo d'an ID bezañ klot ha ret eo doujañ d'ar pennlizherennoù.
   Parental Control Settings:
     Parental Control Settings: 'Kontroll ar gerent'
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
@@ -693,6 +697,7 @@ Settings:
     Experimental Settings: 'Arnodel'
     Warning: 'Arventennoù arnodel eo, gallout a ra ar sistem chom bout pa vezont gweredekaet. Aliet-tre eo ober enrolladennoù. Kendalc’hit en ho riskl hoc’h-unan !'
     Replace HTTP Cache: 'Erlec''hiañ ar grubuilh HTTP'
+    Disable Hardware Acceleration: Diweredekaat ar Buanadur Periant
   Password Dialog:
     Password: 'Ger-tremen'
     Enter Password To Unlock: 'Enankit ar ger-tremen evit dibrennañ an arventennoù'
@@ -953,6 +958,11 @@ Video:
   Collapse Playlist: Kuzhat ar Roll-videoioù
   Expand Playlist: Diskouez ar Roll-videoioù
   Station: Roll videoioù war-eeun
+  Playlist:
+    Unavailable videos are hidden: 1 video dihergez a zo kuzhet | {count} video dihergez a zo kuzhet
+  Enable SponsorBlock on Channel: Gweredekaat SponsorBlock war ar Chadenn-mañ
+  Disable SponsorBlock on Channel: Diweredekaat SponsorBlock war ar Chadenn-mañ
+  Premiere: Rakskignañ
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'
@@ -977,6 +987,7 @@ Playlist:
 #& Views
     PublishedNewest: Deiziad Embannet (Nevez 'zo)
     PublishedOldest: Deiziad embannet (Pell 'zo)
+  Unavailable videos are hidden: Kuzhet e vez ar videoioù dihegerz
 Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: 'Cheñch furmad ar video'
@@ -1034,6 +1045,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: Diskouez {replyCount} respont gant {channelName} ha reoù all
   Hide Replies: Kuzhat ar respont | Kuzhat ar respontoù
   Loading replies: O kargañ ar respontoù...
+  Comments are turned off: Lazhet eo an evezhiadennoù
 Up Next: 'Da-heul'
 
 #Tooltips
@@ -1070,6 +1082,7 @@ Tooltips:
     Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo lañset pe pa vo digoret ur prenestr nevez.'
   Experimental Settings:
     Replace HTTP Cache: 'Diweredekaat ar grubuilh HTTP diazezet war ar bladenn Electron ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet e vo muioc''h a vemor RAM.'
+    Disable Hardware Acceleration: Diweredek ar Buanadur Periant dre GPU. Gallout a ra diskoulmañ kudennoù grafek 'zo, met gwashaet e vo an digonusted.
   SponsorBlock Settings:
     UseDeArrowTitles: 'Erlec''hiañ titloù ar videoioù gant titloù kinniget gant implijerien DeArrow.'
     UseDeArrowThumbnails: 'Erlec''hiañ skeudennoùigoù ar videoioù gant skeudennoùigoù DeArrow.'
@@ -1195,3 +1208,5 @@ Expand side navigation: Astenn ar merdeiñ kostez
 Compact side navigation: Fetisaat ar merdeiñ kostez
 Screenshot Clipboard Success: Enrollet eo an dapadenn-skramm er golver
 Screenshot Clipboard Error: C'hwitet war enrollañ an dapadenn-skramm er golver
+SponsorBlock Disabled on Channel: Diweredekaet eo SponsorBlock war chadenn {channel}
+SponsorBlock Enabled on Channel: Gweredekaet eo SponsorBlock war chadenn {channel}

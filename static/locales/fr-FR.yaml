@@ -597,6 +597,10 @@ Settings:
     UseDeArrowTitles: Utiliser DeArrow pour les titres des vidéos
     UseDeArrowThumbnails: Utiliser DeArrow pour les miniatures
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': "URL de l'API du générateur de miniatures DeArrow (par défaut : https://dearrow-thumb.ajay.app)"
+    Excluded Channels:
+      Disabled Message: Certaines chaînes ont été exclues sur la base de leur identifiant et n'ont pas été traitées. La fonctionnalité est bloquée pendant la mise à jour de ces identifiants.
+      Excluded Channels: Chaînes exclues
+      Tooltip: Saisissez l'identifiant d'une chaîne pour désactiver SponsorBlock. Les segments publicitaires dans les vidéos de cette chaîne ne seront pas ignorés. L'identifiant de chaîne saisi doit correspondre exactement et tient compte de la casse.
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les actions non prises en charge
     External Player: Lecteur externe
@@ -618,6 +622,7 @@ Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
     Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes. Utilisez-les à vos risques et périls !
+    Disable Hardware Acceleration: Désactiver l'accélération matérielle
   Password Dialog:
     Password: Mot de passe
     Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
@@ -840,7 +845,12 @@ Video:
   Private: Les vidéos privées ne peuvent pas être visionnées sur FreeTube, car elles nécessitent une connexion à Google et que l'utilisateur soit le propriétaire de la vidéo.
   Collapse Playlist: Replier la playlist
   Expand Playlist: Développer la playlist
-  Station: Station
+  Station: Chaîne
+  Playlist:
+    Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
+  Premiere: Première
+  Enable SponsorBlock on Channel: Activer SponsorBlock sur la chaîne
+  Disable SponsorBlock on Channel: Désactiver SponsorBlock sur la chaîne
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -862,6 +872,7 @@ Playlist:
     VideoDurationAscending: Durée (la plus courte)
     PublishedNewest: Date de publication (la plus récente)
     PublishedOldest: Date de publication (la plus ancienne)
+  Unavailable videos are hidden: Les vidéos non disponibles sont masquées
 Change Format:
   Change Media Formats: 'Changer le format de la vidéo'
   Use Dash Formats: 'Utiliser le format DASH'
@@ -909,6 +920,7 @@ Comments:
   View 1 reply from {channelName}: Voir 1 réponse de {channelName}
   View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
   Loading replies: Chargement des réponses...
+  Comments are turned off: Les commentaires sont désactivés
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -1000,6 +1012,7 @@ Tooltips:
     Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc.). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
+    Disable Hardware Acceleration: Désactive l'accélération matérielle par GPU. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
@@ -1146,3 +1159,5 @@ Compact side navigation: Navigation latérale compacte
 Expand side navigation: Développer la navigation latérale
 Screenshot Clipboard Error: Échec de la copie de l'écran vers le presse-papier
 Screenshot Clipboard Success: Copie d'écran enregistrée dans le presse-papier
+SponsorBlock Disabled on Channel: SponsorBlock est désactivé sur {channel}
+SponsorBlock Enabled on Channel: SponsorBlock est activé sur {channel}

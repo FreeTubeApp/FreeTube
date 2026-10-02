@@ -10,53 +10,55 @@
         playlistCount: selectedPlaylistCount,
       }, selectedPlaylistCount) }}
     </p>
-    <div
+    <template
       v-if="allPlaylists.length > 1"
-      class="searchInputsRow"
-    >
-      <FtInput
-        ref="searchBar"
-        :placeholder="t('User Playlists.AddVideoPrompt.Search in Playlists')"
-        :show-clear-text-button="true"
-        :show-action-button="false"
-        :maxlength="255"
-        @input="updateQueryDebounce"
-        @clear="updateQueryDebounce('')"
-      />
-    </div>
-    <div
-      v-if="allPlaylists.length > 1"
-      class="optionsRow"
     >
       <div
-        class="tightOptions"
+        class="searchInputsRow"
       >
-        <FtToggleSwitch
-          class="matchingVideoToggle"
-          :label="t('User Playlists.Playlists with Matching Videos')"
-          :compact="true"
-          :default-value="doSearchPlaylistsWithMatchingVideos"
-          @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
-        />
-        <FtToggleSwitch
-          v-if="anyPlaylistContainsVideosToBeAdded"
-          class="allowDuplicateToggle"
-          :label="t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
-          :compact="true"
-          :default-value="addingDuplicateVideosEnabled"
-          @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+        <FtInput
+          ref="searchBar"
+          :placeholder="t('User Playlists.AddVideoPrompt.Search in Playlists')"
+          :show-clear-text-button="true"
+          :show-action-button="false"
+          :maxlength="255"
+          @input="updateQueryDebounce"
+          @clear="updateQueryDebounce('')"
         />
       </div>
-      <FtSelect
-        class="sortSelect"
-        :value="sortBy"
-        :select-names="sortBySelectNames"
-        :select-values="SORT_BY_SELECT_VALUES"
-        :placeholder="t('Global.Sort By')"
-        :icon="sortBySelectIcon"
-        @change="sortBy = $event"
-      />
-    </div>
+      <div
+        class="optionsRow"
+      >
+        <div
+          class="tightOptions"
+        >
+          <FtToggleSwitch
+            class="matchingVideoToggle"
+            :label="t('User Playlists.Playlists with Matching Videos')"
+            :compact="true"
+            :default-value="doSearchPlaylistsWithMatchingVideos"
+            @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+          />
+          <FtToggleSwitch
+            v-if="anyPlaylistContainsVideosToBeAdded"
+            class="allowDuplicateToggle"
+            :label="t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
+            :compact="true"
+            :default-value="addingDuplicateVideosEnabled"
+            @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+          />
+        </div>
+        <FtSelect
+          class="sortSelect"
+          :value="sortBy"
+          :select-names="sortBySelectNames"
+          :select-values="SORT_BY_SELECT_VALUES"
+          :placeholder="t('Global.Sort By')"
+          :icon="sortBySelectIcon"
+          @change="sortBy = $event"
+        />
+      </div>
+    </template>
     <div class="playlists-container">
       <FtFlexBox>
         <div

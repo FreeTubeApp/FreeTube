@@ -125,7 +125,7 @@ import { vSaferHtml } from '../../directives/vSaferHtml.js'
 
 import store from '../../store/index'
 
-import { formatNumber } from '../../helpers/utils'
+import { formatNumber, getLocalesWithFallback } from '../../helpers/utils'
 
 const { locale } = useI18n()
 
@@ -176,7 +176,8 @@ const searchSettings = computed(() => {
 })
 
 const formattedJoined = computed(() => {
-  return new Intl.DateTimeFormat([locale.value, 'en'], { dateStyle: 'long' }).format(props.joined)
+  const locales = getLocalesWithFallback(locale.value)
+  return new Intl.DateTimeFormat(locales, { dateStyle: 'long' }).format(props.joined)
 })
 
 const formattedViews = computed(() => formatNumber(props.views))

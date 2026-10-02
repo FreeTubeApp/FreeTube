@@ -54,6 +54,12 @@
           :default-value="showDistractionFreeTitles"
           @change="updateShowDistractionFreeTitles"
         />
+        <FtToggleSwitch
+          :label="t('Settings.Distraction Free Settings.Hide Comments')"
+          :compact="true"
+          :default-value="hideComments"
+          @change="updateHideComments"
+        />
       </div>
     </div>
     <br class="hide-on-mobile">
@@ -266,12 +272,6 @@
           :compact="true"
           :default-value="hideRecommendedVideos"
           @change="handleHideRecommendedVideos"
-        />
-        <FtToggleSwitch
-          :label="t('Settings.Distraction Free Settings.Hide Comments')"
-          :compact="true"
-          :default-value="hideComments"
-          @change="updateHideComments"
         />
         <FtToggleSwitch
           :label="t('Settings.Distraction Free Settings.Hide Profile Pictures in Comments')"

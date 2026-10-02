@@ -100,7 +100,7 @@ const chunks = computed(() => [
     icon: ['fab', 'matrix'],
     title: t('About.Chat on Matrix'),
     content: [
-      '<a href="https://matrix.to/#/#freetube:matrix.org">#freetube:matrix.org</a>',
+      '<a href="https://matrix.to/#/#freetubeapp:matrix.org">#freetubeapp:matrix.org</a>',
       t('About.Please read the {roomRulesLink}', {
         roomRulesLink: `<a href="https://docs.freetubeapp.io/community/matrix/">${t('About.room rules')}</a>`,
       }),

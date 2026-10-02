@@ -46,7 +46,11 @@
         }"
       >
         <template v-if="isLive">
-          {{ t("Video.Live") }}
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ isPremiere ? t("Video.Premiere") : t("Video.Live") }}
         </template>
         <template v-else-if="isUpcoming">
           {{ t("Video.Upcoming") }}
@@ -54,7 +58,7 @@
         <template v-else-if="isStation">
           <FontAwesomeIcon
             :icon="['fa', 'tower-broadcast']"
-            class="subscriptionIcon"
+            class="liveIcon"
           />
           {{ t("Video.Station") }}
         </template>
@@ -428,6 +432,7 @@ const is3D = ref(false)
 const hasCaptions = ref(false)
 const isUpcoming = ref(false)
 const isStation = ref(false)
+const isPremiere = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -496,6 +501,12 @@ const progressPercentage = computed(() => {
 
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
 
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
@@ -606,24 +617,46 @@ const dropdownOptions = computed(() => {
     }
   }
 
-  if (channelId.value !== null && !inSubscriptions.value) {
-    const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+  if (channelId.value !== null) {
+    if (!inSubscriptions.value) {
+      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      {
-        type: 'divider'
-      },
+      options.push(
+        {
+          type: 'divider'
+        },
 
-      channelShouldBeHidden
-        ? {
-            label: t('Video.Unhide Channel'),
-            value: 'unhideChannel'
-          }
-        : {
-            label: t('Video.Hide Channel'),
-            value: 'hideChannel'
-          }
-    )
+        channelShouldBeHidden
+          ? {
+              label: t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            }
+          : {
+              label: t('Video.Hide Channel'),
+              value: 'hideChannel'
+            }
+      )
+    }
+
+    if (useSponsorBlock.value) {
+      const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
+
+      options.push(
+        {
+          type: 'divider'
+        },
+
+        isSponsorBlockChannelExcluded
+          ? {
+              label: t('Video.Enable SponsorBlock on Channel'),
+              value: 'enableSponsorBlockOnChannel'
+            }
+          : {
+              label: t('Video.Disable SponsorBlock on Channel'),
+              value: 'disableSponsorBlockOnChannel'
+            }
+      )
+    }
   }
 
   return options
@@ -720,6 +753,12 @@ function handleOptionsClick(option) {
       break
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
+      break
+    case 'disableSponsorBlockOnChannel':
+      disableSponsorBlockOnChannel(channelName.value, channelId.value)
+      break
+    case 'enableSponsorBlockOnChannel':
+      enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1035,6 +1074,7 @@ function parseVideoData() {
 
   description.value = props.data.description
   isStation.value = props.data.isStation === true
+  isPremiere.value = props.data.isPremiere === true
   isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
   is4k.value = props.data.is4k
@@ -1095,6 +1135,7 @@ function markAsWatched() {
     timeWatched: Date.now(),
     isLive: false,
     isStation: false,
+    isPremiere: false,
     type: 'video'
   }
 
@@ -1156,6 +1197,28 @@ function unhideChannel(channelName, channelId) {
   store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function disableSponsorBlockOnChannel(channelName, channelId) {
+  const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
+
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
+
+  showToast(t('SponsorBlock Disabled on Channel', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function enableSponsorBlockOnChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
+
+  showToast(t('SponsorBlock Enabled on Channel', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {
