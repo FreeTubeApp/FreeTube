@@ -29,7 +29,9 @@
         <div class="background" />
         <div class="inner">
           <div>{{ videoCount }}</div>
-          <div><FontAwesomeIcon :icon="['fas','list']" /></div>
+          <div>
+            <FontAwesomeIcon :icon="['fas', playlistTypeIcon]" />
+          </div>
         </div>
       </div>
     </div>
@@ -126,6 +128,8 @@ let thumbnail = thumbnailPlaceholder
 let channelId = null
 let channelName = ''
 let videoCount = 0
+/** @type {'list' | 'music' | 'podcast' | 'graduation-cap'} */
+let playlistTypeIcon = 'list'
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => store.getters.getListType)
@@ -189,6 +193,10 @@ function parseInvidiousData() {
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
 
+  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
+  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
+  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
+
   if (props.data.proxyThumbnail === false) {
     thumbnail = props.data.playlistThumbnail
   }
@@ -203,6 +211,9 @@ function parseLocalData() {
   channelId = props.data.channelId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
+  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
+  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
+  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
 }
 
 function parseUserData() {
@@ -278,6 +289,17 @@ function handleExternalPlayer() {
     })
   }
 }
+
+/**
+ * @param {bool} shouldSetIcon
+ * @param {'podcast' | 'music' | 'graduation-cap'} iconName
+ */
+function setPlaylistTypeIcon(shouldSetIcon, iconName) {
+  if (shouldSetIcon) {
+    playlistTypeIcon = iconName
+  }
+}
+
 </script>
 
 <style scoped lang="scss" src="./FtListPlaylist.scss" />
