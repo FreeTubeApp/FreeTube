@@ -785,11 +785,13 @@ export function extractLocalContentDisclosures(info) {
     )
 
     if (structuredDescPanel?.content?.is(YTNodes.StructuredDescriptionContent)) {
+      const LEARN_MORE_REGEX = /\s*Learn more\.?$/i
+
       const items = structuredDescPanel.content.items
         .filterType(YTNodes.HowThisWasMadeSectionView)
         .map(item => ({
           label: item.body_header?.text ?? '',
-          description: item.body_text?.text?.replace(/\s*Learn more\.?$/i, '').trim() ?? '',
+          description: item.body_text?.text?.replace(LEARN_MORE_REGEX, '').trim() ?? '',
           attribution: item.attribution_text?.text ?? '',
         }))
 

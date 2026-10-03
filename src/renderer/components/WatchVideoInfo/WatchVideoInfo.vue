@@ -265,9 +265,11 @@ const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
 
-const showAiBadge = computed(() =>
-  props.contentDisclosures?.some(item => /\b(ai|artificial intelligence|altered|synthetic)\b/i.test(item.label)) || false
-)
+const showAiBadge = computed(() => {
+  const LABEL_REGEX = /\b(ai|artificial intelligence|altered|synthetic)\b/i
+
+  return props.contentDisclosures?.some(item => LABEL_REGEX.test(item.label)) || false
+})
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)
