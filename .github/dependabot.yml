@@ -31,7 +31,7 @@ updates:
           - "@fortawesome/*"
       webpack:
         patterns:
-          - "css-nano"
+          - "cssnano"
           - "css-loader"
           - "mini-css-extract-plugin"
           - "sass"
