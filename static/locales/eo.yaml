@@ -598,6 +598,10 @@ Settings:
       Prompt To Skip: Inviti por salti
       Do Nothing: Nenion fari
     Category Color: Koloro de kategorio
+    Excluded Channels:
+      Disabled Message: Kelkaj kanaloj estis ekskluzivitaj per identigilo kaj ne estis traktataj. La funkcio estas blokita dum tiuj identigiloj ĝisdatiĝas
+      Excluded Channels: Ekskluzivitaj kanaloj
+      Tooltip: Enigu kanalan identigilon por malŝalti SponsorBlock. Sponsoraj sekcioj en la videaĵoj de tiu ĉi kanalo ne estos saltitaj. La enigita kanala identigilo devas tute kongrui, majuskleco inkluzivita.
   Parental Control Settings:
     Parental Control Settings: Gepatraj enhavlimigoj
     Hide Unsubscribe Button: Kaŝi butonon de malaboni
@@ -825,6 +829,8 @@ Video:
   Premiere: Premiero
   Playlist:
     Unavailable videos are hidden: 1 nedisponebla videaĵo estas kaŝita | {count} nedisponeblaj videaĵoj estas kaŝitaj
+  Enable SponsorBlock on Channel: Ŝalti SponsorBlock en kanalo
+  Disable SponsorBlock on Channel: Malŝalti SponsorBlock en kanalo
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
@@ -1123,3 +1129,5 @@ Keys:
   arrowup: Supra sago
 Screenshot Clipboard Success: Konservis ekrankopion al la tondujo
 Screenshot Clipboard Error: Malsukcesis kopii ekrankopion al la tondujo
+SponsorBlock Disabled on Channel: Malŝaltis SponsorBlock en {channel}
+SponsorBlock Enabled on Channel: Ŝaltis SponsorBlock en {channel}
