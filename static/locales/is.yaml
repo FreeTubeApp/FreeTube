@@ -564,6 +564,8 @@ Settings:
     Export Settings: Flytja út stillingar
     Unknown setting key: 'Óþekktur stillingalykill: {key}'
     Non-transferable setting key: 'Ekki-flytjanlegur stillingalykill: {key}'
+    All settings have been successfully imported: Tókst að flytja inn allar stillingar
+    All settings have been successfully exported: Tókst að flytja út allar stillingar
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -596,6 +598,8 @@ Settings:
     UseDeArrowTitles: Nota DeArrow myndskeiðatitla
     UseDeArrowThumbnails: Nota DeArrow fyrir smámyndir
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Slóð á API-kerfisviðmót DeArrow Thumbnail Generator smámyndagerðar (sjálfgefið er https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Excluded Channels: Útilokaðar rásir
   External Player Settings:
     Custom External Player Arguments: Sérsniðin viðföng fyrir utanaðkomandi spilara
     Custom External Player Executable: Sérsniðin skipun fyrir utanaðkomandi spilara
@@ -879,6 +883,7 @@ Video:
   Collapse Playlist: Fella saman spilunarlista
   Expand Playlist: Fletta út spilunarlista
   Station: Stöð
+  Premiere: Frumsýning
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
