@@ -128,8 +128,8 @@ let thumbnail = thumbnailPlaceholder
 let channelId = null
 let channelName = ''
 let videoCount = 0
-/** @type {'list' | 'music' | 'podcast' | 'graduation-cap'} */
-let playlistTypeIcon = 'list'
+/** @type {'fa-list' | 'fa-music' | 'fa-podcast' | 'fa-graduation-cap'} */
+let playlistTypeIcon = 'fa-list'
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => store.getters.getListType)
@@ -193,9 +193,13 @@ function parseInvidiousData() {
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
 
-  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
-  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
-  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
+  if (props.data.isPodcast === true) {
+    playlistTypeIcon = 'fa-podcast'
+  } else if (props.data.isAlbum === true) {
+    playlistTypeIcon = 'fa-music'
+  } else if (props.data.isCourse === true) {
+    playlistTypeIcon = 'fa-graduation-cap'
+  }
 
   if (props.data.proxyThumbnail === false) {
     thumbnail = props.data.playlistThumbnail
@@ -211,9 +215,13 @@ function parseLocalData() {
   channelId = props.data.channelId
   playlistId = props.data.playlistId
   videoCount = props.data.videoCount
-  setPlaylistTypeIcon(props.data.isPodcast === true, 'podcast')
-  setPlaylistTypeIcon(props.data.isAlbum === true, 'music')
-  setPlaylistTypeIcon(props.data.isCourse === true, 'graduation-cap')
+  if (props.data.isPodcast === true) {
+    playlistTypeIcon = 'fa-podcast'
+  } else if (props.data.isAlbum === true) {
+    playlistTypeIcon = 'fa-music'
+  } else if (props.data.isCourse === true) {
+    playlistTypeIcon = 'fa-graduation-cap'
+  }
 }
 
 function parseUserData() {
@@ -289,17 +297,6 @@ function handleExternalPlayer() {
     })
   }
 }
-
-/**
- * @param {bool} shouldSetIcon
- * @param {'podcast' | 'music' | 'graduation-cap'} iconName
- */
-function setPlaylistTypeIcon(shouldSetIcon, iconName) {
-  if (shouldSetIcon) {
-    playlistTypeIcon = iconName
-  }
-}
-
 </script>
 
 <style scoped lang="scss" src="./FtListPlaylist.scss" />
