@@ -1807,6 +1807,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
   switch (lockupView.content_type) {
     case 'ALBUM':
     case 'PLAYLIST':
+    case 'COURSE':
     case 'PODCAST': {
       const thumbnailOverlayBadgeView = lockupView.content_image.primary_thumbnail.overlays
         .find(overlay => overlay.is(YTNodes.ThumbnailOverlayBadgeView))
@@ -1826,7 +1827,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         channelId = maybeChannelText.endpoint.payload.browseId
       }
 
-      const isCourse = thumbnailOverlayBadgeView.badges.some(e => e.icon_name === 'COURSE')
+      const isCourse = lockupView.content_type === 'COURSE' || thumbnailOverlayBadgeView.badges.some(e => e.icon_name === 'COURSE')
       const isAlbum = lockupView.content_type === 'ALBUM' || thumbnailOverlayBadgeView.badges.some(e => e.icon_name === 'music')
 
       return {
