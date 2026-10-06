@@ -56,7 +56,7 @@
     "autolinker": "^4.1.5",
     "bgutils-js": "^4.0.3",
     "dompurify": "^3.4.16",
-    "electron-context-menu": "^5.0.0",
+    "electron-context-menu": "^5.1.0",
     "googlevideo": "^4.1.1",
     "marked": "^18.0.14",
     "process": "^0.11.10",
