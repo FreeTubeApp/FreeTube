@@ -213,10 +213,4 @@ const config = {
   target: 'web',
 }
 
-if (isDevMode) {
-  // hack to pass it through to the dev-runner.js script
-  // gets removed there before the config object is passed to webpack
-  config.SHAKA_LOCALES_TO_BE_BUNDLED = SHAKA_LOCALES_TO_BE_BUNDLED
-}
-
 module.exports = config
