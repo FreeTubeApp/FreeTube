@@ -38,14 +38,33 @@
         >
       </RouterLink>
       <div
-        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
+        v-if="isLive || isUpcoming || isStation || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
-          live: isLive,
+          live: (isLive || isStation ),
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? t("Video.Live") : (isUpcoming ? t("Video.Upcoming") : displayDuration) }}
+        <template v-if="isLive">
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ isPremiere ? t("Video.Premiere") : t("Video.Live") }}
+        </template>
+        <template v-else-if="isUpcoming">
+          {{ t("Video.Upcoming") }}
+        </template>
+        <template v-else-if="isStation">
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ t("Video.Station") }}
+        </template>
+        <template v-else>
+          {{ displayDuration }}
+        </template>
       </div>
       <FtIconButton
         v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
@@ -159,18 +178,18 @@
           {{ channelName }}
         </bdi>
         <span
-          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          v-if="!isLive && !isUpcoming && !isPremium && !isStation && !hideViews && viewCount != null"
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
           {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
         </span>
         <span
-          v-if="uploadedTime !== '' && !isLive"
+          v-if="uploadedTime !== '' && !isLive && !isStation"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
         <span
-          v-if="isLive && !hideViews"
+          v-if="(isLive || isStation) && !hideViews"
           class="viewCount"
         > • {{ t('Global.Counts.Watching Count', { count: parsedViewCount }, viewCount) }}</span>
       </div>
@@ -412,6 +431,8 @@ const isVr360 = ref(false)
 const is3D = ref(false)
 const hasCaptions = ref(false)
 const isUpcoming = ref(false)
+const isStation = ref(false)
+const isPremiere = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -480,6 +501,12 @@ const progressPercentage = computed(() => {
 
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
 
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
@@ -590,24 +617,46 @@ const dropdownOptions = computed(() => {
     }
   }
 
-  if (channelId.value !== null && !inSubscriptions.value) {
-    const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+  if (channelId.value !== null) {
+    if (!inSubscriptions.value) {
+      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      {
-        type: 'divider'
-      },
+      options.push(
+        {
+          type: 'divider'
+        },
 
-      channelShouldBeHidden
-        ? {
-            label: t('Video.Unhide Channel'),
-            value: 'unhideChannel'
-          }
-        : {
-            label: t('Video.Hide Channel'),
-            value: 'hideChannel'
-          }
-    )
+        channelShouldBeHidden
+          ? {
+              label: t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            }
+          : {
+              label: t('Video.Hide Channel'),
+              value: 'hideChannel'
+            }
+      )
+    }
+
+    if (useSponsorBlock.value) {
+      const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
+
+      options.push(
+        {
+          type: 'divider'
+        },
+
+        isSponsorBlockChannelExcluded
+          ? {
+              label: t('Video.Enable SponsorBlock on Channel'),
+              value: 'enableSponsorBlockOnChannel'
+            }
+          : {
+              label: t('Video.Disable SponsorBlock on Channel'),
+              value: 'disableSponsorBlockOnChannel'
+            }
+      )
+    }
   }
 
   return options
@@ -704,6 +753,12 @@ function handleOptionsClick(option) {
       break
     case 'unhideChannel':
       unhideChannel(channelName.value, channelId.value)
+      break
+    case 'disableSponsorBlockOnChannel':
+      disableSponsorBlockOnChannel(channelName.value, channelId.value)
+      break
+    case 'enableSponsorBlockOnChannel':
+      enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -1018,7 +1073,9 @@ function parseVideoData() {
   }
 
   description.value = props.data.description
-  isLive.value = props.data.liveNow || props.data.lengthSeconds === undefined
+  isStation.value = props.data.isStation === true
+  isPremiere.value = props.data.isPremiere === true
+  isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
   is4k.value = props.data.is4k
   is8k.value = props.data.is8k
@@ -1042,7 +1099,7 @@ function parseVideoData() {
   } else if (props.data.premiereTimestamp !== undefined) {
     uploadedTime.value = new Date(props.data.premiereTimestamp * 1000).toLocaleString([locale.value, 'en'])
     published.value = props.data.premiereTimestamp * 1000
-  } else if (typeof props.data.published === 'number' && !isLive.value) {
+  } else if (typeof props.data.published === 'number' && !isLive.value && !isStation.value) {
     published.value = props.data.published
 
     if (inHistory.value) {
@@ -1077,6 +1134,8 @@ function markAsWatched() {
     watchProgress: 0,
     timeWatched: Date.now(),
     isLive: false,
+    isStation: false,
+    isPremiere: false,
     type: 'video'
   }
 
@@ -1138,6 +1197,28 @@ function unhideChannel(channelName, channelId) {
   store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function disableSponsorBlockOnChannel(channelName, channelId) {
+  const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
+
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
+
+  showToast(t('SponsorBlock Disabled on Channel', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function enableSponsorBlockOnChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
+
+  showToast(t('SponsorBlock Enabled on Channel', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {

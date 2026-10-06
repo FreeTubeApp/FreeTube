@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 espectadores | {count} espectadores
     Like Count: 1 gosto | {count} gostos
     Comment Count: 1 comentários | {count} comentários
+    Replies Remaining: "{' '}(1 restantes) | {' '}({count} restantes)"
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber} está disponível! Clique aqui para mais informações.'
 Download From Site: 'Descarregar do site'
 
@@ -987,6 +988,7 @@ Tooltips:
 Search Bar:
   Clear Input: Limpar entrada
   Remove: Remover
+  Search: Pesquisar
 Are you sure you want to open this link?: Tem a certeza de que deseja abrir esta ligação?
 External link opening has been disabled in the general settings: A abertura de hiperligações externas foi desativada nas definições
 Screenshot Success: Captura de ecrã guardada

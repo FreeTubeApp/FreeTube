@@ -3,61 +3,65 @@
     <FtLoader
       v-if="isLoading"
     />
-    <div
-      v-if="!isLoading && errorChannels.length !== 0"
+    <template
+      v-else
     >
-      <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
-      <FtFlexBox>
-        <FtChannelBubble
-          v-for="channel in errorChannels"
-          :key="channel.id"
-          :channel-name="channel.name"
-          :channel-id="channel.id"
-          :channel-thumbnail="channel.thumbnail"
-        />
+      <div
+        v-if="errorChannels.length !== 0"
+      >
+        <h3> {{ $t("Subscriptions.Error Channels") }}</h3>
+        <FtFlexBox>
+          <FtChannelBubble
+            v-for="channel in errorChannels"
+            :key="channel.id"
+            :channel-name="channel.name"
+            :channel-id="channel.id"
+            :channel-thumbnail="channel.thumbnail"
+          />
+        </FtFlexBox>
+      </div>
+      <FtFlexBox
+        v-if="activeVideoList.length === 0"
+      >
+        <p
+          v-if="!activeProfileHasSubscriptions"
+          class="message"
+        >
+          {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
+        </p>
+        <p
+          v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
+          class="message"
+        >
+          {{ $t("Subscriptions.Disabled Automatic Fetching") }}
+        </p>
+        <p
+          v-else
+          class="message"
+        >
+          {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
+        </p>
       </FtFlexBox>
-    </div>
-    <FtFlexBox
-      v-if="!isLoading && activeVideoList.length === 0"
-    >
-      <p
-        v-if="!activeProfileHasSubscriptions"
-        class="message"
-      >
-        {{ $t("Subscriptions['Your Subscription list is currently empty. Start adding subscriptions to see them here.']") }}
-      </p>
-      <p
-        v-else-if="!fetchSubscriptionsAutomatically && !attemptedFetch"
-        class="message"
-      >
-        {{ $t("Subscriptions.Disabled Automatic Fetching") }}
-      </p>
-      <p
+      <FtElementList
         v-else
-        class="message"
+        :data="activeVideoList"
+        :use-channels-hidden-preference="false"
+        :display="isCommunity ? 'list' : ''"
+      />
+      <FtAutoLoadNextPageWrapper
+        v-if="videoList.length > dataLimit"
+        @load-next-page="increaseLimit"
       >
-        {{ isCommunity ? $t("Subscriptions.Empty Posts") : $t("Subscriptions.Empty Channels") }}
-      </p>
-    </FtFlexBox>
-    <FtElementList
-      v-if="!isLoading && activeVideoList.length > 0"
-      :data="activeVideoList"
-      :use-channels-hidden-preference="false"
-      :display="isCommunity ? 'list' : ''"
-    />
-    <FtAutoLoadNextPageWrapper
-      v-if="!isLoading && videoList.length > dataLimit"
-      @load-next-page="increaseLimit"
-    >
-      <FtFlexBox>
-        <FtButton
-          :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
-          background-color="var(--primary-color)"
-          text-color="var(--text-with-main-color)"
-          @click="increaseLimit"
-        />
-      </FtFlexBox>
-    </FtAutoLoadNextPageWrapper>
+        <FtFlexBox>
+          <FtButton
+            :label="isCommunity ? $t('Subscriptions.Load More Posts') : $t('Subscriptions.Load More Videos')"
+            background-color="var(--primary-color)"
+            text-color="var(--text-with-main-color)"
+            @click="increaseLimit"
+          />
+        </FtFlexBox>
+      </FtAutoLoadNextPageWrapper>
+    </template>
 
     <FtRefreshWidget
       :disable-refresh="isLoading || !activeProfileHasSubscriptions"

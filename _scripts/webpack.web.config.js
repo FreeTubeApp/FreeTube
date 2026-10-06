@@ -3,10 +3,8 @@ const fs = require('fs')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const JsonMinimizerPlugin = require('json-minimizer-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const MinimizerPlugin = require('minimizer-webpack-plugin')
 const ProcessLocalesPlugin = require('./ProcessLocalesPlugin')
 const {
   SHAKA_LOCALE_MAPPINGS,
@@ -15,8 +13,6 @@ const {
 } = require('./getShakaLocales')
 
 const isDevMode = process.env.NODE_ENV === 'development'
-
-const { version: swiperVersion } = JSON.parse(fs.readFileSync(path.join(__dirname, '../node_modules/swiper/package.json')))
 
 /** @type {import('webpack').Configuration} */
 const config = {
@@ -29,6 +25,30 @@ const config = {
   output: {
     path: path.join(__dirname, '../dist/web'),
     filename: '[name].js',
+    copy: [
+      {
+        from: 'static/pwabuilder-sw.js',
+        to: '.'
+      },
+      {
+        from: 'static',
+        to: 'static',
+        globOptions: {
+          ignore: [
+            '**/.*',
+            'static/{locales,pwabuilder-sw.js}'
+          ]
+        }
+      },
+      {
+        context: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+        from: `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`,
+        to: 'static/shaka-player-locales',
+        transform: (input) => {
+          return JSON.stringify(JSON.parse(input.toString('utf-8')))
+        }
+      }
+    ]
   },
   externals: {
     'youtubei.js': '{}',
@@ -36,11 +56,6 @@ const config = {
   },
   module: {
     rules: [
-      {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: /node_modules/,
-      },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
@@ -72,23 +87,34 @@ const config = {
       },
       {
         test: /\.css$/,
-        use: [
+        oneOf: [
           {
-            loader: MiniCssExtractPlugin.loader
+            test: /[/\\]swiper[/\\]/,
+            type: 'asset/resource',
+            generator: {
+              filename: 'swiper-[name].[contenthash][ext]'
+            }
           },
           {
-            loader: 'css-loader',
-            options: {
-              esModule: false
-            }
-          }
-        ],
-        rules: [
-          {
-            resource: path.resolve(__dirname, '../node_modules/shaka-player/dist/controls.css'),
-            use: path.join(__dirname, 'patch-shaka-player-loader.js')
-          }
-        ],
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader
+              },
+              {
+                loader: 'css-loader',
+                options: {
+                  esModule: false
+                }
+              }
+            ],
+            rules: [
+              {
+                resource: require.resolve('shaka-player/dist/controls.css'),
+                use: path.join(__dirname, 'patch-shaka-player-loader.js')
+              }
+            ],
+          },
+        ]
       },
       {
         test: /\.html$/,
@@ -118,11 +144,26 @@ const config = {
   // webpack defaults to only optimising the production builds, so having this here is fine
   optimization: {
     minimizer: [
-      '...', // extend webpack's list instead of overwriting it
-      new JsonMinimizerPlugin({
-        exclude: /\/locales\/.*\.json/
-      }),
-      new CssMinimizerPlugin()
+      new MinimizerPlugin({
+        test: /\.(?:css|js|json)(\?.*)?$/i,
+        minify: [
+          {
+            implementation: MinimizerPlugin.cssnanoMinify
+          },
+          {
+            implementation: MinimizerPlugin.jsonMinify
+          },
+          {
+            implementation: MinimizerPlugin.terserMinify,
+            options: {
+              compress: {
+                // webpack sets passes to 2 in its default minimizer config too
+                passes: 2
+              }
+            }
+          }
+        ]
+      })
     ]
   },
   node: {
@@ -141,7 +182,6 @@ const config = {
       __VUE_I18N_LEGACY_API__: 'false',
       __VUE_I18N_FULL_INSTALL__: 'false',
       __INTLIFY_PROD_DEVTOOLS__: 'false',
-      'process.env.SWIPER_VERSION': `'${swiperVersion}'`
     }),
     new webpack.ProvidePlugin({
       process: 'process/browser.js'
@@ -156,18 +196,6 @@ const config = {
       filename: isDevMode ? '[name].css' : '[name].[contenthash].css',
       chunkFilename: isDevMode ? '[id].css' : '[id].[contenthash].css',
     }),
-    new CopyWebpackPlugin({
-      patterns: [
-        {
-          from: path.join(__dirname, '../node_modules/swiper/modules/{a11y,navigation,pagination}-element.css').replaceAll('\\', '/'),
-          to: `swiper-${swiperVersion}.css`,
-          context: path.join(__dirname, '../node_modules/swiper/modules'),
-          transformAll: (assets) => {
-            return Buffer.concat(assets.map(asset => asset.data))
-          }
-        }
-      ]
-    })
   ],
   resolve: {
     alias: {
@@ -199,27 +227,6 @@ config.plugins.push(
     'process.env.SHAKA_LOCALE_MAPPINGS': JSON.stringify(SHAKA_LOCALE_MAPPINGS),
     'process.env.SHAKA_LOCALES_PREBUNDLED': JSON.stringify(SHAKA_LOCALES_PREBUNDLED)
   }),
-  new CopyWebpackPlugin({
-    patterns: [
-      {
-        from: path.join(__dirname, '../static/pwabuilder-sw.js'),
-        to: path.join(__dirname, '../dist/web/pwabuilder-sw.js'),
-      },
-      {
-        from: path.join(__dirname, '../static'),
-        to: path.join(__dirname, '../dist/web/static'),
-        globOptions: {
-          dot: true,
-          ignore: ['**/.*', '**/locales/**', '**/pwabuilder-sw.js', '**/dashFiles/**', '**/storyboards/**'],
-        },
-      },
-      {
-        from: path.join(__dirname, '../node_modules/shaka-player/ui/locales', `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`).replaceAll('\\', '/'),
-        to: path.join(__dirname, '../dist/web/static/shaka-player-locales'),
-        context: path.join(__dirname, '../node_modules/shaka-player/ui/locales')
-      }
-    ]
-  })
 )
 
 module.exports = config

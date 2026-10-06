@@ -78,7 +78,7 @@
       </swiper-slide>
     </swiper-container>
     <div
-      v-if="postType === 'image' && postContent.content.length > 0"
+      v-else-if="postType === 'image' && postContent.content.length > 0"
     >
       <img
         :src="getBestQualityImage(postContent.content)"
@@ -87,7 +87,7 @@
       >
     </div>
     <div
-      v-if="postType === 'video'"
+      v-else-if="postType === 'video'"
     >
       <FtListVideo
         v-if="!hideVideo"
@@ -102,12 +102,12 @@
       </p>
     </div>
     <div
-      v-if="postType === 'poll' || postType === 'quiz'"
+      v-else-if="postType === 'poll' || postType === 'quiz'"
     >
       <FtCommunityPoll :data="postContent" />
     </div>
     <div
-      v-if="postType === 'playlist'"
+      v-else-if="postType === 'playlist'"
       class="playlistWrapper"
     >
       <FtListPlaylist
@@ -138,6 +138,7 @@
         :aria-label="$t('Channel.Posts.View Full Post')"
       >
         <span
+          v-if="!hideComments"
           class="commentCount"
           :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
           :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
@@ -149,7 +150,7 @@
           /> {{ formattedCommentCount }}</span>
       </router-link>
       <span
-        v-else-if="commentCount != null"
+        v-else-if="commentCount != null && !hideComments"
         class="commentCount"
         :title="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
         :aria-label="$t('Global.Counts.Comment Count', {count: formattedCommentCount}, commentCount)"
@@ -172,6 +173,9 @@
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import autolinker from 'autolinker'
+import swiperA11yCssUrl from 'swiper/element/css/a11y'
+import swiperNavigationCssUrl from 'swiper/element/css/navigation'
+import swiperPaginationCssUrl from 'swiper/element/css/pagination'
 import { A11y, Navigation, Pagination } from 'swiper/modules'
 import { computed, onMounted, useTemplateRef } from 'vue'
 
@@ -184,7 +188,6 @@ import { vSaferHtml } from '../../directives/vSaferHtml.js'
 import store from '../../store/index'
 
 import {
-  createWebURL,
   formatNumber,
   getRelativeTimeFromDate,
 } from '../../helpers/utils'
@@ -230,6 +233,11 @@ const hideSharingActions = computed(() => store.getters.getHideSharingActions)
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => {
   return store.getters.getBackendPreference
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideComments = computed(() => {
+  return store.getters.getHideComments
 })
 
 let postType = ''
@@ -319,9 +327,9 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
       modules: [A11y, Navigation, Pagination],
 
       injectStylesUrls: [
-        // This file is created with the copy webpack plugin in the web and renderer webpack configs.
-        // If you add more modules, please remember to add their CSS files to the list in webpack config files.
-        createWebURL(`/swiper-${process.env.SWIPER_VERSION}.css`)
+        swiperA11yCssUrl,
+        swiperNavigationCssUrl,
+        swiperPaginationCssUrl
       ],
 
       a11y: true,

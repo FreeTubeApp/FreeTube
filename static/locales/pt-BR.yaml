@@ -99,7 +99,7 @@ Subscriptions:
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
   Posts:
-    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desative a configuração "{rssSetting}" para visualizar as postagens ou ative a configuração "{hideSetting}" para ocultar esta aba.
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta aba.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -133,7 +133,7 @@ User Playlists:
   Cancel: Cancelar
   Edit Playlist Info: Editar informação da playlist
   Copy Playlist: Copiar playlist
-  Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" para esta playlist
+  Enable Quick Bookmark With This Playlist: Habilitar "Quick Bookmark" nesta playlist
   Delete Playlist: Excluir playlist
   Are you sure you want to delete this playlist? This cannot be undone: Tem certeza de que deseja excluir esta playlist? Isto não pode ser desfeito.
   Sort By:
@@ -404,7 +404,7 @@ Settings:
     Video Playback Rate Interval: Intervalo da taxa de reprodução de vídeo
     Screenshot:
       File Name Label: Padrão para nome de arquivo
-      Enable: Habilitar captura de tela
+      Enable: Habilitar capturas de tela
       Modes:
         Ask Path: Perguntar onde salvar os arquivos
         Save To Folder: Salvar na pasta
@@ -505,10 +505,10 @@ Settings:
     Export search history: Exportar histórico de buscas
     All search history has been successfully imported: Todo o histórico de buscas foi importado com sucesso
     All search history has been successfully exported: Todo o histórico de buscas foi exportado com sucesso
-    Settings File: Arquivo de Configurações
-    Import Settings: Importar Configurações
-    Export Settings: Exportar Configurações
-    Settings Tooltip: 'Configurações específicas do OS/usuário ou experimentais não podem ser exportadas ou importadas (ex.: proxy, reprodutor externo, pasta de capturas de tela...)'
+    Settings File: Arquivo de configurações
+    Import Settings: Importar configurações
+    Export Settings: Exportar configurações
+    Settings Tooltip: 'As configurações que são específicas do "sistema operacional/usuário" ou experimentais não podem ser exportadas ou importadas (por exemplo, proxy, player externo, pasta de capturas de tela...)'
     All settings have been successfully imported: Todas as configurações foram importadas com sucesso
     All settings have been successfully exported: Todas as configurações foram exportadas com sucesso
     Setting object has insufficient data, skipping item: O objeto de configuração possui dados insuficientes, ignorando o item
@@ -562,6 +562,8 @@ Settings:
     Hide Channel Courses: Ocultar a guia “Cursos” do canal
     Hide Subscriptions Posts: Ocultar inscrições na guia de postagens
     Hide Channel Posts: Ocultar a guia "Posts" do canal
+    Add: Adicionar
+    Remove: Remover
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -595,6 +597,10 @@ Settings:
     UseDeArrowTitles: Usar títulos de vídeo no estilo DeArrow
     UseDeArrowThumbnails: Usar miniaturas no estilo DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL da API para gerar miniaturas no estilo DeArrow (o padrão é https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Alguns canais foram excluídos com base no ID e não foram processados. A funcionalidade está bloqueada enquanto esses IDs estão sendo atualizados
+      Excluded Channels: Canais excluídos
+      Tooltip: Insira o ID do canal para desativar o SponsorBlock. Os segmentos de patrocinadores em vídeos desse canal não serão ignorados. O ID do canal inserido deve corresponder exatamente ao original, respeitando letras maiúsculas e minúsculas.
   External Player Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     External Player: Player externo
@@ -611,11 +617,12 @@ Settings:
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
     Hide Uploader on Watch page: Ocultar o nome do autor na página de reprodução
-    Disable Channel Links: Desativar Links de Canais
+    Disable Channel Links: Desabilitar Links de Canais
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta e risco!
     Replace HTTP Cache: Repor cache HTTP
+    Disable Hardware Acceleration: Desabilitar aceleração de hardware
   Password Settings:
     Password Settings: Senha
     Set Password: Definir senha
@@ -678,7 +685,7 @@ Channel:
     Channel Description: 'Descrição do canal'
     Featured Channels: 'Canais em destaque'
     Tags:
-      Search for: Procurar por “{tag}”
+      Search for: Buscar por “{tag}”
       Tags: Tags
     Details: Detalhes
     Location: Localização
@@ -835,6 +842,12 @@ Video:
   Private: Vídeos privados não podem ser assistidos no FreeTube, pois exigem login do Google e propriedade do vídeo.
   Collapse Playlist: Recolher playlist
   Expand Playlist: Expandir playlist
+  Station: Estação
+  Playlist:
+    Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
+  Premiere: Premiere
+  Enable SponsorBlock on Channel: Habilitar SponsorBlock neste canal
+  Disable SponsorBlock on Channel: Desabilitar SponsorBlock neste canal
 Playlist:
   #& About
   View Full Playlist: 'Mostrar playlist completa'
@@ -856,6 +869,7 @@ Playlist:
     VideoDurationDescending: Duração (a mais longa)
     PublishedOldest: Data de publicação (mais antiga)
     PublishedNewest: Data de publicação (mais recente)
+  Unavailable videos are hidden: Vídeos indisponíveis estão ocultos
 Change Format:
   Change Media Formats: 'Mudar formato do vídeo'
   Use Dash Formats: 'Usar formatos DASH'
@@ -903,6 +917,7 @@ Comments:
   View 1 reply from {channelName}: Mostrar 1 resposta de {channelName}
   View {replyCount} replies from {channelName} and others: Mostrar {replyCount} respostas de {channelName} e outros
   Loading replies: Carregando respostas...
+  Comments are turned off: Os comentários estão desativados
 Up Next: 'Próximo'
 
 # Toast Messages
@@ -963,6 +978,7 @@ Profile:
   Create Profile Name: Criar nome de perfil
   Open Profile Dropdown: Abrir menu de perfis
   Close Profile Dropdown: Fechar menu de perfis
+  Go To Profile Manager: Acessar Gerenciador de Perfis
 Version {versionNumber} is now available!  Click for more details: A versão {versionNumber} já está disponível! Clique para mais detalhes
 Download From Site: Faça o download no site
 The playlist has been reversed: A playlist foi invertida
@@ -993,6 +1009,7 @@ Tooltips:
     Ignore Default Arguments: Não envie nenhum argumento padrão ao player externo além do URL do vídeo (por exemplo, taxa de reprodução, URL da playlist, etc.). Argumentos personalizados ainda serão transmitidos.
   Experimental Settings:
     Replace HTTP Cache: Desabilita o cache HTTP baseado em disco do Electron e habilita um cache de imagem em memória personalizado. Levará ao aumento do uso de RAM.
+    Disable Hardware Acceleration: Desativa a aceleração de hardware da GPU. Pode corrigir problemas gráficos, mas provavelmente resultará em desempenho inferior.
   Distraction Free Settings:
     Hide Channels: Insira o ID de um canal para impedir que todos os vídeos, playlists e o próprio canal apareçam nas buscas, em alta, mais populares e recomendados. O ID do canal inserido deve ser uma correspondência completa e diferenciar maiúsculas de minúsculas.
     Hide Subscriptions Live: Esta definição é substituída pela definição de toda a aplicação "{appWideSetting}", na seção "{subsection}" da "{settingsSection}"
@@ -1010,6 +1027,8 @@ Default Invidious instance has been set to {instance}: A instância padrão Invi
 Search Bar:
   Clear Input: Excluir texto
   Remove: Remover
+  Open Search Container: Abrir contêiner de buscas
+  Search: Buscar
 External link opening has been disabled in the general settings: Abrir links externos está desabilitado nas configurações gerais
 Are you sure you want to open this link?: Tem certeza de que deseja abrir este link?
 New Window: Nova janela
@@ -1136,3 +1155,5 @@ Compact side navigation: Navegação lateral compacta
 Expand side navigation: Expandir navegação lateral
 Screenshot Clipboard Success: Captura de tela salva na área de transferência
 Screenshot Clipboard Error: Falha ao copiar captura de tela para área de transferência
+SponsorBlock Disabled on Channel: SponsorBlock desativado em {channel}
+SponsorBlock Enabled on Channel: SponsorBlock ativado para {channel}

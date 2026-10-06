@@ -10,8 +10,8 @@ on:
       - 'README.md'
       - '.github/**/*.md'
       - '.github/workflows/autoMerge.yml'
-      - '.github/workflows/calibreapp-image-actions.yml'
       - '.github/workflows/codeql.yml'
+      - '.github/workflows/compress-images.yml'
       - '.github/workflows/conflicts.yml'
       - '.github/workflows/label-issue.yml'
       - '.github/workflows/label-pr.yml'
@@ -23,6 +23,7 @@ on:
 
   workflow_dispatch:
 
+cache-mode: none
 permissions: {}
 
 jobs:
@@ -35,6 +36,7 @@ jobs:
     # If a fork does need this workflow to run on every push to the default branch, they can change this condition in their fork to include their repository.
     if: github.repository == 'FreeTubeApp/FreeTube' || github.event_name == 'workflow_dispatch'
 
+    cache-mode: write
     permissions:
       actions: write
       contents: read
@@ -44,7 +46,6 @@ jobs:
         node-version: [24.x]
         runtime:
           - linux-x64
-          - linux-armv7l
           - linux-arm64
           - win-x64
           - win-arm64
@@ -52,9 +53,6 @@ jobs:
           - osx-arm64
         include:
         - runtime: linux-x64
-          os: ubuntu-latest
-
-        - runtime: linux-armv7l
           os: ubuntu-latest
 
         - runtime: linux-arm64
@@ -86,9 +84,9 @@ jobs:
         package-manager-cache: false
 
     - name: Install pnpm
-      uses: pnpm/action-setup@0977fd99725f1db4007ccb2928dbb4e90d06cc86 #v6.0.10
+      uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 #v6.1.0
       with:
-        version: 10
+        version: 11
         cache: false
 
     - name: Get pnpm cache directory
@@ -108,7 +106,7 @@ jobs:
         key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
 
-    - run: pnpm run ci
+    - run: pnpm install --frozen-lockfile
       shell: bash
     - run: pnpm run lint
       shell: bash
@@ -144,11 +142,6 @@ jobs:
       shell: bash
       run: pnpm run build
 
-    - name: Build ARMv7l with Node.js ${{ matrix.node-version}}
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      shell: bash
-      run: pnpm run build:arm32
-
     - name: Build ARM64 with Node.js ${{ matrix.node-version}}
       if: contains(matrix.runtime, 'arm64')
       shell: bash
@@ -167,20 +160,6 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.version }}-linux-x64-portable.7z
         path: build/freetube-${{ steps.versionNumber.outputs.version }}.7z
-
-    - name: Upload Linux .zip ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-linux-armv7l-portable.zip
-        path: build/freetube-${{ steps.versionNumber.outputs.version }}-armv7l.zip
-
-    - name: Upload Linux .7z ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-linux-armv7l-portable.7z
-        path: build/freetube-${{ steps.versionNumber.outputs.version }}-armv7l.7z
 
     - name: Upload Linux .zip ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
@@ -203,13 +182,6 @@ jobs:
         name: freetube_${{ steps.versionNumber.outputs.version }}_amd64.deb
         path: build/freetube_${{ steps.versionNumber.outputs.version }}_amd64.deb
 
-    - name: Upload .deb ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube_${{ steps.versionNumber.outputs.version }}_armv7l.deb
-        path: build/freetube_${{ steps.versionNumber.outputs.version }}_armv7l.deb
-
     - name: Upload .deb ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -224,13 +196,6 @@ jobs:
         name: freetube-${{ steps.versionNumber.outputs.version }}-amd64.AppImage
         path: build/FreeTube-${{ steps.versionNumber.outputs.version }}.AppImage
 
-    - name: Upload AppImage ARMv7l Artifact
-      uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
-      if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-armv7l')
-      with:
-        name: freetube-${{ steps.versionNumber.outputs.version }}-armv7l.AppImage
-        path: build/FreeTube-${{ steps.versionNumber.outputs.version }}-armv7l.AppImage
-
     - name: Upload AppImage ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
@@ -244,8 +209,6 @@ jobs:
       with:
         name: freetube-${{ steps.versionNumber.outputs.version }}.amd64.rpm
         path: build/freetube-${{ steps.versionNumber.outputs.version }}.x86_64.rpm
-
-    # rpm are not built for armv7l
 
     - name: Upload .rpm ARM64 Artifact
       uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a #v7.0.1
