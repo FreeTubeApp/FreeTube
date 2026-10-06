@@ -960,6 +960,8 @@ export default defineComponent({
           playbackRates: playbackRates.value,
           tapSeekDistance: defaultSkipInterval.value,
 
+          showUIOnPaused: false,
+
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
 
