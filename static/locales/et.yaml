@@ -722,6 +722,7 @@ Channel:
       Newest: 'Uusimad'
       Oldest: 'Vanimad'
       Most Popular: 'Kõike populaarsemad'
+    This channel has videos but none could be displayed, try fetching more: Sellel kanalil on videod olemas, aga neist ühegi kuvamine ei õnnestunud. Proovi veel videoid laadida
   Playlists:
     Playlists: 'Esitusloendid'
     This channel does not currently have any playlists: 'Sellel kanalil pole hetkel ühtegi esitusloendit'
