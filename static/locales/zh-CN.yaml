@@ -675,6 +675,7 @@ Channel:
       Newest: '最新'
       Oldest: '最早'
       Most Popular: '最流行'
+    This channel has videos but none could be displayed, try fetching more: 此频道有视频，但没一个能显示，尝试获取更多
   Playlists:
     Playlists: '播放列表'
     This channel does not currently have any playlists: '这个频道目前没有任何播放列表'
