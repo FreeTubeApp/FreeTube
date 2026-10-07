@@ -212,11 +212,6 @@ const props = defineProps({
   },
 })
 
-/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
-const listType = computed(() => {
-  return store.getters.getListType
-})
-
 /** @type {import('vue').ComputedRef<string[]>} */
 const forbiddenTitles = computed(() => {
   if (!props.hideForbiddenTitles) { return [] }
