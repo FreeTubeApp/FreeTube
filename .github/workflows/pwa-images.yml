@@ -1,0 +1,154 @@
+name: PWA Docker images
+
+# Builds the images of the self-hosted FreeTube PWA (pwa/) and publishes them to the GitHub Container Registry.
+# An image is only rebuilt when its inputs changed: the repository files it is built from
+# or one of its base images (e.g. a new Invidious version), so Watchtower doesn't restart containers needlessly.
+
+on:
+  push:
+    branches:
+      - master
+  # Pushes of the upstream sync workflow don't trigger `push`, as they use the GITHUB_TOKEN
+  workflow_run:
+    workflows:
+      - Sync Upstream Master
+    types:
+      - completed
+  # Picks up new versions of the base images (Invidious, Invidious companion, PostgreSQL, nginx)
+  schedule:
+    - cron: "30 4 * * *"
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Build and publish the images even if nothing changed
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: pwa-images
+  cancel-in-progress: false
+
+env:
+  IMAGE_PREFIX: ghcr.io/b263
+
+jobs:
+  image:
+    if: >-
+      github.repository == 'b263/FreeTube' &&
+      (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: freetube-pwa
+            context: .
+            dockerfile: pwa/Dockerfile
+            # Files of the repository the image is built from (git pathspec)
+            inputs: ". :!pwa/invidious :!.github :!*.md"
+          - name: invidious-aio
+            context: pwa/invidious
+            dockerfile: pwa/invidious/Dockerfile
+            inputs: pwa/invidious
+
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+        with:
+          ref: master
+          persist-credentials: false
+
+      - name: Log in to the GitHub Container Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f #v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check whether the image needs to be rebuilt
+        id: check
+        shell: bash
+        env:
+          IMAGE: ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:latest
+          DOCKERFILE: ${{ matrix.dockerfile }}
+          INPUTS: ${{ matrix.inputs }}
+          FORCE: ${{ inputs.force || false }}
+        run: |
+          # Base images from the FROM lines of the Dockerfile, with the default values of ARGs filled in
+          declare -A args=()
+          while IFS='=' read -r name value; do
+            args[$name]=$value
+          done < <(sed -nE 's/^ARG ([A-Za-z_]+)=(.*)$/\1=\2/p' "$DOCKERFILE")
+
+          base_images=()
+          while read -r ref; do
+            for name in "${!args[@]}"; do
+              ref=${ref//\$\{$name\}/${args[$name]}}
+            done
+            base_images+=("$ref")
+          done < <(sed -nE 's/^FROM (--platform=[^ ]+ )?([^ ]+).*/\2/p' "$DOCKERFILE")
+
+          {
+            # shellcheck disable=SC2086 # INPUTS is a list of pathspecs
+            git ls-files --stage -- $INPUTS
+            for ref in "${base_images[@]}"; do
+              echo "$ref $(docker buildx imagetools inspect "$ref" --format '{{json .Manifest.Digest}}')"
+            done
+          } > inputs.txt
+
+          fingerprint=$(sha256sum inputs.txt | cut -d ' ' -f 1)
+          echo "fingerprint=$fingerprint" >> "$GITHUB_OUTPUT"
+          echo "Base images: ${base_images[*]}"
+          echo "Fingerprint: $fingerprint"
+
+          published=$(docker buildx imagetools inspect "$IMAGE" --format '{{json .Image}}' 2>/dev/null \
+            | jq -r '[.. | objects | select(has("Labels")) | .Labels["pwa.fingerprint"] // empty] | first // empty' || true)
+          echo "Published fingerprint: ${published:-none}"
+
+          if [[ "$FORCE" == true || "$fingerprint" != "$published" ]]; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Nothing changed, skipping the build."
+            echo "build=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up QEMU
+        if: steps.check.outputs.build == 'true'
+        uses: docker/setup-qemu-action@99012661954931238ded8c8b007157a8430204e1 #v4.4.0
+
+      - name: Set up Docker Buildx
+        if: steps.check.outputs.build == 'true'
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 #v4.4.1
+
+      - name: Get commit
+        if: steps.check.outputs.build == 'true'
+        id: commit
+        shell: bash
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: Build and publish
+        if: steps.check.outputs.build == 'true'
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc #v7.4.0
+        with:
+          context: ${{ matrix.context }}
+          file: ${{ matrix.dockerfile }}
+          platforms: linux/amd64,linux/arm64
+          pull: true
+          push: true
+          tags: |
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:latest
+            ${{ env.IMAGE_PREFIX }}/${{ matrix.name }}:sha-${{ steps.commit.outputs.sha }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ steps.commit.outputs.sha }}
+            pwa.fingerprint=${{ steps.check.outputs.fingerprint }}
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,scope=${{ matrix.name }},mode=max

@@ -1,0 +1,50 @@
+# FreeTube PWA with its own Invidious instance, self-hosted
+#
+# Only this file and a .env file next to it are needed (see .env.example), then:
+#   docker compose up -d
+#
+# The images are built and published by .github/workflows/pwa-images.yml. Watchtower (or `docker compose pull`)
+# keeps them up to date. To build them locally instead, see compose.build.yaml.
+#
+# Service workers and installing the PWA only work over HTTPS (localhost is the exception),
+# so put both containers behind a reverse proxy with TLS (e.g. Caddy, Traefik, nginx), see README.md.
+
+services:
+  freetube:
+    image: ghcr.io/b263/freetube-pwa:latest
+    restart: unless-stopped
+    ports:
+      - "${FREETUBE_PORT:-8080}:8080"
+    environment:
+      FREETUBE_DEFAULT_INVIDIOUS_INSTANCE: ${INVIDIOUS_PUBLIC_URL:?Set INVIDIOUS_PUBLIC_URL in .env}
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:8080/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  # Invidious, Invidious companion and PostgreSQL in a single container, see invidious/
+  invidious:
+    image: ghcr.io/b263/invidious-aio:latest
+    restart: unless-stopped
+    ports:
+      - "${INVIDIOUS_PORT:-3000}:3000"
+    environment:
+      INVIDIOUS_PUBLIC_URL: ${INVIDIOUS_PUBLIC_URL:?Set INVIDIOUS_PUBLIC_URL in .env}
+      # Optional, generated on the first start and stored in the volume if empty
+      INVIDIOUS_HMAC_KEY: ${INVIDIOUS_HMAC_KEY:-}
+      INVIDIOUS_COMPANION_KEY: ${INVIDIOUS_COMPANION_KEY:-}
+      INVIDIOUS_RESTART_INTERVAL: ${INVIDIOUS_RESTART_INTERVAL:-1h}
+    volumes:
+      - invidious-data:/var/lib/postgresql/data
+    labels:
+      com.centurylinklabs.watchtower.enable: "true"
+    logging:
+      options:
+        max-size: "100m"
+        max-file: "4"
+
+volumes:
+  invidious-data: {}

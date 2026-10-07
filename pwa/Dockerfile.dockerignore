@@ -1,0 +1,11 @@
+# Used by BuildKit for pwa/Dockerfile (the build context is the repository root)
+.git
+**/node_modules
+dist
+build
+coverage
+**/.DS_Store
+static/dashFiles
+static/storyboards
+# Secrets for compose.yaml, not needed for the build
+pwa/.env

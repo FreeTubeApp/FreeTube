@@ -1,0 +1,12 @@
+# Builds the images locally from this repository instead of pulling them, from the repository root:
+#   docker compose -f pwa/compose.yaml -f pwa/compose.build.yaml up -d --build
+
+services:
+  freetube:
+    build:
+      context: ..
+      dockerfile: pwa/Dockerfile
+
+  invidious:
+    build:
+      context: invidious

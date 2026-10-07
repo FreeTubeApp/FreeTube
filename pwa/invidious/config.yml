@@ -1,0 +1,29 @@
+# Base configuration for the all-in-one Invidious image.
+#
+# Every top-level option can be overridden with an environment variable named INVIDIOUS_<OPTION IN UPPER CASE>,
+# e.g. INVIDIOUS_DOMAIN or INVIDIOUS_REGISTRATION_ENABLED. See all options at
+# https://github.com/iv-org/invidious/blob/master/config/config.example.yml
+
+# PostgreSQL runs in the same container and only listens on 127.0.0.1
+db:
+  dbname: invidious
+  user: kemal
+  password: kemal
+  host: 127.0.0.1
+  port: 5432
+
+# Creates the database tables on startup
+check_tables: true
+
+port: 3000
+host_binding: 0.0.0.0
+
+# Invidious companion runs in the same container,
+# video streams are proxied through Invidious under /companion
+invidious_companion:
+  - private_url: "http://127.0.0.1:8282/companion"
+
+# Set by entrypoint.sh, either from the environment variables INVIDIOUS_HMAC_KEY and INVIDIOUS_COMPANION_KEY
+# or generated on the first start
+hmac_key: ""
+invidious_companion_key: ""
