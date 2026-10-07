@@ -92,6 +92,7 @@
         v-if="!hideVideo"
         :data="data.postContent.content"
         appearance=""
+        force-list-type="grid"
       />
       <p
         v-else
