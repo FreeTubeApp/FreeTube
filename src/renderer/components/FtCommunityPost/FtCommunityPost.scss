@@ -12,6 +12,10 @@
 
 .ft-list-post {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  padding-block-end: 20px;
 }
 
 .hiddenVideo {
