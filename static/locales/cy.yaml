@@ -48,12 +48,15 @@ Global:
 # Search Bar
     Like Count: 1 hoffi | {count} hoffi
     Comment Count: 1 sylw | {count} sylw
+    Replies Remaining: "{' '}(1 yn weddill) | {' '}({count} yn weddill)"
   Posts: Postiadau
 Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:
   Clear Input: 'Clirio Mewnbwn'
   # In Filter Button
   Remove: Tynnu
+  Open Search Container: Agor Cynhwysydd Chwilio
+  Search: Chwilio
 Search Filters:
   Search Filters: 'Hidlyddion Chwilio'
   Prioritize:
@@ -113,6 +116,8 @@ Subscriptions:
   Load More Posts: 'Llwytho Mwy o Bostiadau'
   Subscriptions Tabs: 'Tabiau Tanysgrifio'
   All Subscription Tabs Hidden: 'Mae pob tab tanysgrifio wedi''i guddio. I weld cynnwys yma, dadguddiwch rhai tabiau yn yr adran "{subsection}" yn "{settingsSection}".'
+  Posts:
+    RSS Message: Dyw YouTube ddim yn darparu ffrydiau RSS ar gyfer postiadau. Analluogwch y gosodiad "{rssSetting}"i weld postiadau neu alluogi gosodiad "{hideSetting}" i guddio'r tab hwn.
 More: 'Rhagor'
 Channels:
   Channels: 'Sianeli'
@@ -543,6 +548,8 @@ Settings:
     Hide Channel Courses: Cuddio Tab "Cyrsiau" Sianel
     Hide Channel Posts: Cuddio Tab Sianel "Postiadau"
     Hide Subscriptions Posts: Cuddio Tabiau Tanysgrifiadau
+    Add: Ychwanegu
+    Remove: Tynnu
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Dewis y Math o Allforio'
@@ -625,6 +632,9 @@ Settings:
     Category Color: 'Lliw Categori'
     UseDeArrowThumbnails: Defnyddio DeArrow ar gyfer lluniau bach
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API (Y rhagosodiad yw https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Cafodd rhai sianeli eu eithrio wrth ddefnyddio'r ID ac felly heb eu prosesu. Mae'r nodwedd wedi'i rwystro wrth ddiweddaru'r ID
+      Excluded Channels: Sianeli wedi'u Heithrio
   Parental Control Settings:
     Parental Control Settings: 'Rheolaeth Rhieni'
     Hide Unsubscribe Button: 'Cuddio Botwm Dad-danysgrifio'
