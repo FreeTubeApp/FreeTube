@@ -728,6 +728,7 @@ Channel:
       Newest: 'Legújabb'
       Oldest: 'Legrégebbi'
       Most Popular: 'Legnépszerűbb'
+    This channel has videos but none could be displayed, try fetching more: Ez a csatorna tartalmaz videókat, de egyik sem jeleníthető meg, további videók lekérése
   Playlists:
     Playlists: 'Lejátszási listák'
     This channel does not currently have any playlists: 'Ennek a csatornának jelenleg nincsenek lejátszási listái'
