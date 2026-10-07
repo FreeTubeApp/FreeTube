@@ -333,7 +333,9 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
         enabled: true,
         clickable: true
       },
-      slidesPerView: 1
+      slidesPerView: 1,
+      // prevents slides from bleeding over due to rounding errors
+      spaceBetween: 10
     }
 
     Object.assign(swiperContainerRef.value, swiperOptions)
