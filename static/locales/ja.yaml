@@ -671,6 +671,7 @@ Channel:
       Newest: '新しい'
       Oldest: '古い'
       Most Popular: '人気'
+    This channel has videos but none could be displayed, try fetching more: このチャンネルには動画がありますが、表示できるものがありません。さらに読み込んでみてください
   Playlists:
     Playlists: '再生リスト'
     This channel does not currently have any playlists: 'このチャンネルには再生リストがありません'
