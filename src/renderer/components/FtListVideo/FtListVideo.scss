@@ -1,7 +1,5 @@
 @use '../../scss-partials/ft-list-item';
 
-$grab-bar-padding: 1em;
-
 .thumbnailLink:hover {
   outline: 3px solid var(--side-nav-hover-color);
 }
@@ -13,7 +11,7 @@ $grab-bar-padding: 1em;
   user-select: none;
 
   // Space a bit from the thumbnail.
-  padding-block: $grab-bar-padding;
+  padding-block: ft-list-item.$grid-mode-grab-bar-padding;
 
   svg {
     // Make icon appears more centered from default `-0.125em` from FA style
@@ -25,7 +23,7 @@ $grab-bar-padding: 1em;
   // Only grid mode has `.grabBar`
   // Make top & bottom padding look consistent
   /* stylelint-disable-next-line declaration-property-value-no-unknown */
-  padding-block: 0 $grab-bar-padding;
+  padding-block-start: 0;
 }
 
 .grabBar.grabBarDisabled {
