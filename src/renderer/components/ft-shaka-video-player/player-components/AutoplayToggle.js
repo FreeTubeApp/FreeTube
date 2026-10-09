@@ -62,16 +62,6 @@ export class AutoplayToggle extends shaka.ui.Element {
       this.updateLocalisedStrings_()
     })
 
-    if (this.isSubMenu) {
-      this.eventManager.listen(this.controls, 'submenuopen', () => {
-        this.updateVisibility_()
-      })
-
-      this.eventManager.listen(this.controls, 'submenuclose', () => {
-        this.updateVisibility_()
-      })
-    }
-
     this.updateLocalisedStrings_()
   }
 
@@ -86,8 +76,8 @@ export class AutoplayToggle extends shaka.ui.Element {
     this.button_.ariaLabel = this.autoplayEnabled_ ? i18n.global.t('Video.Player.Autoplay is on') : i18n.global.t('Video.Player.Autoplay is off')
   }
 
-  /** @private */
-  updateVisibility_() {
+  /** @overide */
+  checkAvailability() {
     if (this.isSubMenuOpened) {
       this.button_.classList.add('shaka-hidden')
     } else {
