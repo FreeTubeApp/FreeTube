@@ -92,7 +92,7 @@
     "globals": "^17.13.0",
     "html-webpack-plugin": "^5.6.8",
     "js-yaml": "^5.4.3",
-    "lefthook": "^2.1.15",
+    "lefthook": "^2.1.17",
     "mini-css-extract-plugin": "^2.10.2",
     "minimizer-webpack-plugin": "^5.13.0",
     "postcss": "^8.5.29",
