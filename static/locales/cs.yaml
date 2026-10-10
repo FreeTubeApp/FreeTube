@@ -726,6 +726,7 @@ Channel:
       Newest: 'Nejnovější'
       Oldest: 'Nejstarší'
       Most Popular: 'Populární'
+    This channel has videos but none could be displayed, try fetching more: Tento kanál má videa, ale žádná se nepodařilo zobrazit, zkuste načíst více
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál nemá žádné playlisty'
