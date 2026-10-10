@@ -190,6 +190,7 @@ User Playlists:
     "{videoCount}/{totalVideoCount} Videos Already Added": '{videoCount}/{totalVideoCount} videoar allereie laga til'
     Toast:
       You haven't selected any playlist yet.: Du har ikkje valt nokre spelelister enno.
+  Enable Quick Bookmark With This Playlist: Slå på hurtigbokmerket med denne spelelisten
 History:
   # On History Page
   History: 'Historikk'
@@ -533,7 +534,6 @@ Channel:
   Your search results have returned 0 results: 'Søket gitt gav 0 resultat'
   Videos:
     Videos: 'Videoar'
-    This channel does not currently have any videos: 'Kanalen har ingen videoar enda'
     Sort Types:
       Newest: 'Nyaste'
       Oldest: 'Eldste'

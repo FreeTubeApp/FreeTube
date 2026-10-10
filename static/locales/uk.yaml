@@ -692,7 +692,6 @@ Channel:
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
   Videos:
     Videos: 'Відео'
-    This channel does not currently have any videos: 'Наразі на цьому каналі немає жодного відео'
     Sort Types:
       Newest: 'Найновіші'
       Oldest: 'Найдавніші'
@@ -1116,5 +1115,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Компактна бічна навігація
 Expand side navigation: Розгорнути бічну навігацію
-Screenshot Clipboard Success: Знімок єкрану збережно у буфер обміну
+Screenshot Clipboard Success: Знімок екрану збережено до буферу обміну
 Screenshot Clipboard Error: Не вдалося скопіювати знімок екрана в буфер обміну

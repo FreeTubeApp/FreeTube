@@ -21,16 +21,12 @@ let rendererConfig
 let preloadConfig
 let botGuardScriptConfig
 let webConfig
-let SHAKA_LOCALES_TO_BE_BUNDLED
 
 if (!web) {
   mainConfig = require('./webpack.main.config')
   rendererConfig = require('./webpack.renderer.config')
   preloadConfig = require('./webpack.preload.config.js')
   botGuardScriptConfig = require('./webpack.botGuardScript.config')
-
-  SHAKA_LOCALES_TO_BE_BUNDLED = rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
-  delete rendererConfig.SHAKA_LOCALES_TO_BE_BUNDLED
 } else {
   webConfig = require('./webpack.web.config')
 }
@@ -179,20 +175,17 @@ function startRenderer(callback) {
         directory: path.resolve(__dirname, '..', 'static'),
         watch: {
           ignored: [
-            /(dashFiles|storyboards)\/*/,
-            '**/.DS_Store',
-            '**/static/locales/*'
+            /\.DS_Store/,
+            path.resolve(__dirname, '..', 'static', 'locales'),
+            path.resolve(__dirname, '..', 'static', 'pwabuilder-sw.js'),
+            path.resolve(__dirname, '..', 'static', 'manifest.json')
           ]
         },
         publicPath: '/static'
       },
       {
-        directory: path.resolve(__dirname, '..', 'node_modules', 'shaka-player', 'ui', 'locales'),
-        publicPath: '/static/shaka-player-locales',
-        watch: {
-          // Ignore everything that isn't one of the locales that we would bundle in production mode
-          ignored: `**/!(${SHAKA_LOCALES_TO_BE_BUNDLED.join('|')}).json`
-        }
+        directory: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+        publicPath: '/static/shaka-player-locales'
       }
     ],
     port
@@ -226,16 +219,22 @@ function startWeb () {
 
   const server = new WebpackDevServer({
     open: true,
-    static: {
-      directory: path.resolve(__dirname, '..', 'static'),
-      watch: {
-        ignored: [
-          /(dashFiles|storyboards)\/*/,
-          '**/.DS_Store',
-          '**/static/locales/*'
-        ]
+    static: [
+      {
+        directory: path.resolve(__dirname, '..', 'static'),
+        watch: {
+          ignored: [
+            /\.DS_Store/,
+            path.resolve(__dirname, '..', 'static', 'locales')
+          ]
+        },
+        publicPath: '/static'
+      },
+      {
+        directory: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+        publicPath: '/static/shaka-player-locales'
       }
-    },
+    ],
     port
   })
 

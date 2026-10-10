@@ -602,6 +602,10 @@ Settings:
     UseDeArrowTitles: Laadi video pealkirjad DeArrow teenusest
     UseDeArrowThumbnails: Pisipiltide jaoks kasuta DeArrow teenust
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow pisipiltide loomise teenuse API url (Vaikimisi on see https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Excluded Channels: Välistatud kanalid
+      Disabled Message: Mõned kanalid jäid tunnuste alusel välja ja neid ei töödeldud. Funktsionaalsus on blokeeritud, kuni neid tunnuseid uuendatakse
+      Tooltip: SponsorBlocki väljalülitamiseks sisesta kanali tunnus. Selle kanali videotes olevaid sponsorsegmendid ei jää vahele. Sisestatud kanali tunnus peab olema täpne vaste ning suur- ja väiketähted peavad olema samad.
   External Player Settings:
     External Player: Väline meediamängija
     External Player Settings: Väline meediamängija
@@ -714,11 +718,11 @@ Channel:
   Your search results have returned 0 results: 'Otsingul on 0 tulemust'
   Videos:
     Videos: 'Videod'
-    This channel does not currently have any videos: 'Sellel kanalik pole hetkel ühtegi videot'
     Sort Types:
       Newest: 'Uusimad'
       Oldest: 'Vanimad'
       Most Popular: 'Kõike populaarsemad'
+    This channel has videos but none could be displayed, try fetching more: Sellel kanalil on videod olemas, aga neist ühegi kuvamine ei õnnestunud. Proovi veel videoid laadida
   Playlists:
     Playlists: 'Esitusloendid'
     This channel does not currently have any playlists: 'Sellel kanalil pole hetkel ühtegi esitusloendit'
@@ -889,6 +893,8 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 mittesaadav video on peidetud | {count} mittesaadavat videot on peidetud
   Premiere: Esilinastus
+  Enable SponsorBlock on Channel: Kasuta kanali puhul SponsorBlocki
+  Disable SponsorBlock on Channel: Ära kasuta kanali puhul SponsorBlocki
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
@@ -1152,3 +1158,5 @@ Compact side navigation: Näita külgpaani kompaktsena
 Expand side navigation: Näita külgpaani avatuna
 Screenshot Clipboard Success: Ekraanitõmmis on salvestatud lõikelauale
 Screenshot Clipboard Error: Ekraanitõmmise salvestamine lõikelauale ei õnnestunud
+SponsorBlock Disabled on Channel: SponsorBlock pole „{channel}“ kanalis kasutusel
+SponsorBlock Enabled on Channel: SponsorBlock on „{channel}“ kanalis kasutusel

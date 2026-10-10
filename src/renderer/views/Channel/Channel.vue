@@ -109,10 +109,10 @@
           aria-labelledby="videosTab"
         />
         <FtFlexBox
-          v-if="currentTab === 'videos' && latestVideos.length === 0"
+          v-if="currentTab === 'videos' && latestVideos.length === 0 && showFetchMoreButton"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+            {{ $t("Channel.Videos.This channel has videos but none could be displayed, try fetching more") }}
           </p>
         </FtFlexBox>
         <FtElementList
@@ -1565,7 +1565,7 @@ async function getChannelPlaylistsLocal() {
       return
     }
 
-    latestPlaylists.value = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    latestPlaylists.value = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value)).filter(e => e)
     playlistContinuationData.value = playlistsTab.has_continuation ? playlistsTab : null
     isElementListLoading.value = false
   } catch (err) {
@@ -1590,7 +1590,7 @@ async function getChannelPlaylistsLocalMore() {
      */
     const continuation = await playlistContinuationData.value.getContinuation()
 
-    const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value)).filter(e => e)
     latestPlaylists.value = latestPlaylists.value.concat(parsedPlaylists)
     playlistContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
