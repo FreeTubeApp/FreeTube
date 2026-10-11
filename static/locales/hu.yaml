@@ -901,6 +901,9 @@ Video:
   Premiere: Premier
   Enable SponsorBlock on Channel: SponsorBlock engedélyezése a csatornán
   Disable SponsorBlock on Channel: SponsorBlock letiltása a csatornán
+  AI: MI
+  'AI: Content was made with AI': 'MI: A tartalom mesterséges intelligencia felhasználásával készült'
+  How this was made: Hogyan készült ez
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
