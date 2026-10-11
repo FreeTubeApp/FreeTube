@@ -895,6 +895,9 @@ Video:
   Premiere: Esilinastus
   Enable SponsorBlock on Channel: Kasuta kanali puhul SponsorBlocki
   Disable SponsorBlock on Channel: Ära kasuta kanali puhul SponsorBlocki
+  AI: Tehisaru
+  'AI: Content was made with AI': 'Tehisaru: sisu on loodud tehisaru abil'
+  How this was made: Kuidas see video on tehtud
 Playlist:
   #& About
   View Full Playlist: 'Näita kogu esitusloendit'
