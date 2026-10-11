@@ -22,7 +22,6 @@
 .ft-list-video:has(.grabBar) {
   // Only grid mode has `.grabBar`
   // Make top & bottom padding look consistent
-  /* stylelint-disable-next-line declaration-property-value-no-unknown */
   padding-block-start: 0;
 }
 
