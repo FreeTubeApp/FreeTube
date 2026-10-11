@@ -847,6 +847,9 @@ Video:
   Premiere: プレミア
   Enable SponsorBlock on Channel: チャンネルで SponsorBlock を有効にする
   Disable SponsorBlock on Channel: チャンネルで SponsorBlock を無効にする
+  AI: AI
+  'AI: Content was made with AI': 'AI : このコンテンツは AI によって作成されました'
+  How this was made: 制作過程
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'
