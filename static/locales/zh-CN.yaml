@@ -851,6 +851,9 @@ Video:
   Premiere: 首映
   Enable SponsorBlock on Channel: 对频道启用 SponsorBlock
   Disable SponsorBlock on Channel: 对频道禁用 SponsorBlock
+  AI: AI
+  'AI: Content was made with AI': AI：内容由 AI 制作
+  How this was made: 这是怎么制作的
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'
