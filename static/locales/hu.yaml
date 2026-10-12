@@ -477,7 +477,7 @@ Settings:
     Import Subscriptions: 'Feliratkozások importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
     Export FreeTube: 'FreeTube exportálása'
-    Export YouTube: 'YouTube exportálása'
+    Export YouTube: 'YouTube-formátumba exportálás'
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
@@ -1010,7 +1010,7 @@ Tooltips:
     Fetch Automatically: Ha engedélyezve van, a FreeTube automatikusan lekéri a feliratkozási hírcsatornát indításkor, valamint új ablak megnyitásakor.
   Player Settings:
     Default Video Format: A videóhoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
-    Proxy Videos Through Invidious: A videók lejátszásához a YouTube helyett az Invidioushoz csatlakozik.
+    Proxy Videos Through Invidious: A videók lejátszásához a YouTube helyett az Invidioust használja.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja meg és tartsa lenyomva a Control billentyűt (Mac számítógépen a Command billentyű), és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához. Tartsa lenyomva a Control billentyűt (Mac számítógépen a Command billentyű), majd kattintson az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: Használja az egérgörgőt a videóban való előre- és visszaugráshoz, MPV-stílusban.
   External Player Settings:
