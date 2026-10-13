@@ -700,6 +700,14 @@ export default defineComponent({
             this.isLoading = false
             this.updateTitle()
             return
+          } else if (playabilityStatus.reason === 'Please sign in' && playabilityStatus.error_screen?.content?.description?.text === 'This helps protect our community') {
+            // YouTube may prevent signed-out users from accessing YouTube videos when they’re attempting to download material
+            // for offline use or view certain content featuring minors
+            // so there is no point trying any other backends as it will always fail
+            this.errorMessage = this.t('Video.CommunityProtection')
+            this.isLoading = false
+            this.updateTitle()
+            return
           }
 
           let errorText
