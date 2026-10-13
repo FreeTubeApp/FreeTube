@@ -807,6 +807,7 @@ Video:
   AI: Sİ
   'AI: Content was made with AI': 'Süni intellekt: Məzmun süni intellektlə hazırlanmışdır'
   How this was made: Bu necə hazırlanıb
+  Reload Page: Səhifəni Yenidən Yüklə
 Tooltips:
   General Settings:
     Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
