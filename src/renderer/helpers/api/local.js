@@ -543,6 +543,8 @@ function buildSessionFromYtConfig(ytConfig, fetchFunc) {
 
 /**
  * @param {string} id
+ * @param {object} [options]
+ * @param {boolean} [options.forceEnableMwebWorkaround]
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
  *   poToken: string | undefined,
@@ -552,10 +554,11 @@ function buildSessionFromYtConfig(ytConfig, fetchFunc) {
  *     osName: string,
  *     osVersion: string
  *   },
- *   adEndTimeUnixMs: number
+ *   adEndTimeUnixMs: number,
+ *   contentDisclosures: { label: string, description: string, attribution: string }[] | null
  * }>}
  */
-export async function getLocalVideoInfo(id) {
+export async function getLocalVideoInfo(id, options = {}) {
   let responseTime
   let totalAdTimeMilliseconds = 0
 
@@ -591,6 +594,8 @@ export async function getLocalVideoInfo(id) {
     // If we found the player ID in the HTML we can pass it in to save one request inside Player.create()
     htmlExtracts.playerId
   )
+
+  htmlExtracts.session.player = player
 
   // based on the videoId
   let contentPoToken
@@ -692,6 +697,32 @@ export async function getLocalVideoInfo(id) {
       }
     } catch (error) {
       console.warn('WEB_EMBEDDED fallback errored, using the original response instead', error)
+    }
+  }
+
+  if (options.forceEnableMwebWorkaround) {
+    try {
+      const mwebInnertube = await createInnertube({ clientType: ClientType.MWEB })
+      mwebInnertube.session.context.client.visitorData = context.client.visitorData
+      mwebInnertube.session.player = player
+
+      const originalAudioTrackFormat = info.streaming_data?.adaptive_formats?.find(format => {
+        return format.has_audio && format.is_original && format.language
+      })
+      if (originalAudioTrackFormat) {
+        mwebInnertube.session.context.client.hl = originalAudioTrackFormat.language
+      }
+
+      const mwebInfo = await mwebInnertube.getBasicInfo(id, { client: 'MWEB', po_token: contentPoToken })
+      if (mwebInfo.playability_status.status === 'OK' && mwebInfo.streaming_data?.adaptive_formats) {
+        info.playability_status = mwebInfo.playability_status
+        info.streaming_data.adaptive_formats = mwebInfo.streaming_data.adaptive_formats
+        if (info.streaming_data.server_abr_streaming_url) {
+          delete info.streaming_data.server_abr_streaming_url
+        }
+      }
+    } catch (error) {
+      console.warn('MWEB fallback errored, using the original response instead', error)
     }
   }
 

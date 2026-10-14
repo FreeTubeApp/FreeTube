@@ -80,6 +80,7 @@ export default defineComponent({
     'ft-age-restricted': FtAgeRestricted
   },
   beforeRouteLeave: async function (to, from, next) {
+    this.sabrReloadCount = 0
     this.handleRouteChange()
     window.removeEventListener('beforeunload', this.handleWatchProgressAutoSave)
     document.removeEventListener('keydown', this.resetAutoplayInterruptionTimeout)
@@ -143,6 +144,8 @@ export default defineComponent({
       manifestMimeType: MANIFEST_TYPE_DASH,
       /** @type {SabrData | null} */
       sabrData: null,
+      /** @type {number} */
+      sabrReloadCount: 0,
       legacyFormats: [],
       captions: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
@@ -334,9 +337,20 @@ export default defineComponent({
       } else {
         return ''
       }
+    },
+    /**
+     * Determines whether SABR playback has repeatedly failed and reloaded on the current video.
+     * @returns {boolean}
+     */
+    sabrReloadedTooManyTimes() {
+      // 3 reloads on the same video indicates SABR playback failure / retry loop
+      return this.sabrReloadCount >= 3
     }
   },
   watch: {
+    videoId() {
+      this.sabrReloadCount = 0
+    },
     async $route() {
       await this.reloadView()
     },
@@ -505,7 +519,7 @@ export default defineComponent({
       }
 
       try {
-        const videoInfo = await getLocalVideoInfo(this.videoId)
+        const videoInfo = await getLocalVideoInfo(this.videoId, { forceEnableMwebWorkaround: this.sabrReloadedTooManyTimes })
         const { info: result, poToken, clientInfo, adEndTimeUnixMs, contentDisclosures } = videoInfo
         this.contentDisclosures = contentDisclosures || null
 
@@ -913,6 +927,7 @@ export default defineComponent({
               ?.projection_type ?? null
 
             if (
+              !this.sabrReloadedTooManyTimes &&
               videoInfo.info.streaming_data?.server_abr_streaming_url &&
               videoInfo.info.player_config.media_common_config.media_ustreamer_request_config
             ) {
@@ -2004,11 +2019,20 @@ export default defineComponent({
       await this.reloadView()
     }, 1000),
 
-    async onSabrReloadRequested() {
-      showToast('Reloading player according to SABR request')
+    /**
+     * Handles reload requests initiated by the SABR stream plugin.
+     * Throttled to prevent simultaneous reloads from concurrent audio and video streams.
+     */
+    onSabrReloadRequested: throttle(async function () {
+      this.sabrReloadCount++
+      if (this.sabrReloadedTooManyTimes) {
+        showToast('SABR playback failed repeatedly; falling back to standard stream')
+      } else {
+        showToast('Reloading player according to SABR request')
+      }
       await this.saveWatchProgressForReload()
       await this.reloadView()
-    },
+    }, 2000),
 
     ...mapActions([
       'updateHistory',
