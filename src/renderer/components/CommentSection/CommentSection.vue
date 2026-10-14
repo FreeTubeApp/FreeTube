@@ -111,6 +111,7 @@
 <script setup>
 import { computed, ref, shallowRef } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtComment from '../FtComment/FtComment.vue'

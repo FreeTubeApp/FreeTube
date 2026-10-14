@@ -66,6 +66,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
