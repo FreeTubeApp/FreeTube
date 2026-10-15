@@ -713,8 +713,9 @@ export default defineComponent({
           } else {
             errorText = `[${playabilityStatus.status}] ${playabilityStatus.reason}`
 
-            if (playabilityStatus.error_screen?.subreason) {
-              errorText += `: ${playabilityStatus.error_screen.subreason.text}`
+            const subreason = playabilityStatus.error_screen?.subreason?.text
+            if (subreason) {
+              errorText += `: ${subreason}`
             }
           }
 
