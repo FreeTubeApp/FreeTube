@@ -12,16 +12,18 @@
     >
       <FontAwesomeIcon :icon="['fas', 'question-circle']" />
     </button>
-    <p
-      :id="id"
-      ref="tooltipRef"
-      class="text"
-      :class="[resolvedPosition, { visible }]"
-      :style="tooltipStyle"
-      role="tooltip"
-    >
-      {{ tooltip }}
-    </p>
+    <Teleport to="#app">
+      <p
+        :id="id"
+        ref="tooltipRef"
+        class="text"
+        :class="[resolvedPosition, { visible }]"
+        :style="tooltipStyle"
+        role="tooltip"
+      >
+        {{ tooltip }}
+      </p>
+    </Teleport>
   </div>
 </template>
 
