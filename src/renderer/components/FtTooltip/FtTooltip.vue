@@ -17,7 +17,7 @@
         :id="id"
         ref="tooltipRef"
         class="text"
-        :class="[resolvedPosition, { visible }]"
+        :class="[resolvedPosition, { visible: shown }]"
         :style="tooltipStyle"
         role="tooltip"
       >
@@ -58,17 +58,28 @@ const buttonRef = useTemplateRef('buttonRef')
 const tooltipRef = useTemplateRef('tooltipRef')
 const hovered = ref(false)
 const focused = ref(false)
-const visible = computed(() => hovered.value || focused.value)
+const outOfView = ref(false)
 const tooltipStyle = ref({ top: '0px', left: '0px' })
 const resolvedPosition = ref(props.position)
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const visible = computed(() => hovered.value || focused.value)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const shown = computed(() => visible.value && !outOfView.value)
+
 function updatePosition() {
   const buttonRect = buttonRef.value.getBoundingClientRect()
-  const tooltipRect = tooltipRef.value.getBoundingClientRect()
   const viewportWidth = document.documentElement.clientWidth
   const viewportHeight = document.documentElement.clientHeight
-  const isRtl = getComputedStyle(buttonRef.value).direction === 'rtl'
 
+  outOfView.value = buttonRect.bottom < 0 || buttonRect.top > viewportHeight || buttonRect.right < 0 || buttonRect.left > viewportWidth
+  if (outOfView.value) {
+    return
+  }
+
+  const tooltipRect = tooltipRef.value.getBoundingClientRect()
+  const isRtl = getComputedStyle(buttonRef.value).direction === 'rtl'
   const isBottomLeft = props.position === 'bottom-left'
 
   let position = props.position
