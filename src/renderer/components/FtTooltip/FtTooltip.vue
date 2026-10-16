@@ -17,7 +17,7 @@
         :id="id"
         ref="tooltipRef"
         class="text"
-        :class="[resolvedPosition, { visible: shown }]"
+        :class="[resolvedPosition, { visible: isVisible }]"
         :style="tooltipStyle"
         role="tooltip"
       >
@@ -56,25 +56,25 @@ const OPPOSITE_POSITIONS = {
 
 const buttonRef = useTemplateRef('buttonRef')
 const tooltipRef = useTemplateRef('tooltipRef')
-const hovered = ref(false)
-const focused = ref(false)
-const outOfView = ref(false)
+const isHovered = ref(false)
+const isFocused = ref(false)
+const isBttnOutOfView = ref(false)
 const tooltipStyle = ref({ top: '0px', left: '0px' })
 const resolvedPosition = ref(props.position)
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const visible = computed(() => hovered.value || focused.value)
+const isActive = computed(() => isHovered.value || isFocused.value)
 
 /** @type {import('vue').ComputedRef<boolean>} */
-const shown = computed(() => visible.value && !outOfView.value)
+const isVisible = computed(() => isActive.value && !isBttnOutOfView.value)
 
 function updatePosition() {
   const buttonRect = buttonRef.value.getBoundingClientRect()
   const viewportWidth = document.documentElement.clientWidth
   const viewportHeight = document.documentElement.clientHeight
 
-  outOfView.value = buttonRect.bottom < 0 || buttonRect.top > viewportHeight || buttonRect.right < 0 || buttonRect.left > viewportWidth
-  if (outOfView.value) {
+  isBttnOutOfView.value = buttonRect.bottom < 0 || buttonRect.top > viewportHeight || buttonRect.right < 0 || buttonRect.left > viewportWidth
+  if (isBttnOutOfView.value) {
     return
   }
 
@@ -89,32 +89,31 @@ function updatePosition() {
     position = OPPOSITE_POSITIONS[position]
   }
 
-  const room = {
+  const availableSpace = {
     top: buttonRect.top - ANCHOR_GAP - VIEWPORT_MARGIN,
     bottom: viewportHeight - buttonRect.bottom - ANCHOR_GAP - VIEWPORT_MARGIN,
     left: buttonRect.left - ANCHOR_GAP - VIEWPORT_MARGIN,
     right: viewportWidth - buttonRect.right - ANCHOR_GAP - VIEWPORT_MARGIN,
   }
 
-  const needed = position === 'top' || position === 'bottom' ? tooltipRect.height : tooltipRect.width
+  const requiredSpace = position === 'top' || position === 'bottom' ? tooltipRect.height : tooltipRect.width
 
   // Flip to the opposite side only if the tooltip doesn't fit on the preferred one and the opposite side has more room
-  if (room[position] < needed) {
-    const oppositePlacement = OPPOSITE_POSITIONS[position]
-    if (room[oppositePlacement] > room[position]) {
-      position = oppositePlacement
+  if (availableSpace[position] < requiredSpace) {
+    const oppositePosition = OPPOSITE_POSITIONS[position]
+    if (availableSpace[oppositePosition] > availableSpace[position]) {
+      position = oppositePosition
     }
   }
 
-  // 'bottom-left' shifts the tooltip towards the start side of the page (the right in RTL)
-  const horizontalShift = isBottomLeft ? ((isRtl ? 1 : -1) * (tooltipRect.width / 2 - buttonRect.width)) : 0
+  const horizontalOffset = isBottomLeft ? ((isRtl ? 1 : -1) * (tooltipRect.width / 2 - buttonRect.width)) : 0
 
   let top
   let left
   switch (position) {
     case 'top':
       top = buttonRect.top - ANCHOR_GAP - tooltipRect.height
-      left = buttonRect.left + buttonRect.width / 2 - tooltipRect.width / 2 + horizontalShift
+      left = buttonRect.left + buttonRect.width / 2 - tooltipRect.width / 2 + horizontalOffset
       break
     case 'left':
       top = buttonRect.top + buttonRect.height / 2 - tooltipRect.height / 2
@@ -126,7 +125,7 @@ function updatePosition() {
       break
     case 'bottom':
       top = buttonRect.bottom + ANCHOR_GAP
-      left = buttonRect.left + buttonRect.width / 2 - tooltipRect.width / 2 + horizontalShift
+      left = buttonRect.left + buttonRect.width / 2 - tooltipRect.width / 2 + horizontalOffset
       break
   }
 
@@ -147,17 +146,17 @@ function updatePosition() {
 }
 
 function setHovered(value) {
-  hovered.value = value
+  isHovered.value = value
   refresh()
 }
 
 function setFocused(value) {
-  focused.value = value
+  isFocused.value = value
   refresh()
 }
 
 function refresh() {
-  if (visible.value) {
+  if (isActive.value) {
     show()
   } else {
     removeListeners()
