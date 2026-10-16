@@ -70,7 +70,7 @@
     "youtubei.js": "^18.1.0"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.5.4",
+    "@double-great/stylelint-a11y": "^3.8.1",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.5.1",
     "@magda/tree-kill": "1.2.3",
@@ -95,7 +95,7 @@
     "lefthook": "^2.2.1",
     "mini-css-extract-plugin": "^2.10.2",
     "minimizer-webpack-plugin": "^5.13.0",
-    "postcss": "^8.5.29",
+    "postcss": "^8.5.30",
     "postcss-scss": "^4.0.9",
     "sass": "^1.105.1",
     "sass-loader": "^17.0.1",
