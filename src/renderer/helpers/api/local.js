@@ -390,7 +390,16 @@ async function getHTMLPage(url, kind) {
     {
       headers: {
         // We need to be able to parse the localised strings in the /next response data (e.g. view counts and published dates)
-        'Accept-Language': 'en-US'
+        'Accept-Language': 'en-US',
+        ...(
+          // The "Cookie" header is forbidden by the fetch spec, so we set it as X-Cookie here
+          // and then convert it to the Cookie header in the main process
+          process.env.IS_ELECTRON
+            ? {
+                'X-Cookie': `PREF=tz=${Intl.DateTimeFormat().resolvedOptions().timeZone.replace('/', '.')}`
+              }
+            : {}
+        )
       }
     }
   )
