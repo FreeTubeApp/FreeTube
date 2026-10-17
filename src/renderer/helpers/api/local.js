@@ -1804,7 +1804,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
   }
 }
 
-const VIEWS_OR_WATCHING_REGEX = /views?|watching|waiting/i
+const VIEWS_OR_WATCHING_REGEX = /\d+(\.\d)?[bkm]? views?|watching|waiting/i
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[bkm]?$/i
 const PREMIERES_TIME_REGEX = /^(premieres|scheduled for) /i
 // Sometimes got `Streamed N (unit) ago`
