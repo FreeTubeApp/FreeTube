@@ -268,7 +268,8 @@ export default defineComponent({
 
     watch(displayVideoPlayButton, (newValue) => {
       ui.configure({
-        bigButtons: newValue ? ['play_pause'] : []
+        bigButtons: newValue ? ['play_pause_buffering'] : [],
+        showBufferingSpinner: !newValue
       })
     })
 
@@ -320,8 +321,20 @@ export default defineComponent({
       return parseInt(store.getters.getMaxVideoPlaybackRate)
     })
 
+    watch(maxVideoPlaybackRate, (newValue) => {
+      ui.configure({
+        playbackRateSliderMax: newValue
+      })
+    })
+
     const videoPlaybackRateInterval = computed(() => {
       return parseFloat(store.getters.getVideoPlaybackRateInterval)
+    })
+
+    watch(videoPlaybackRateInterval, (newValue) => {
+      ui.configure({
+        playbackRateSliderMin: newValue
+      })
     })
 
     const playbackRates = computed(() => {
@@ -330,7 +343,7 @@ export default defineComponent({
       let i = interval
 
       while (i <= maxVideoPlaybackRate.value) {
-        playbackRates.unshift(i)
+        playbackRates.push(i)
         i += interval
         i = parseFloat(i.toFixed(2))
       }
@@ -652,7 +665,7 @@ export default defineComponent({
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
-        preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : []
+        preferredVideo: typeof props.vrProjection === 'string' ? [{ codec: 'av01' }, { codec: 'avc1' }] : []
       }
     }
 
@@ -812,8 +825,7 @@ export default defineComponent({
         'ft_skip_previous',
         'play_pause',
         'ft_skip_next',
-        'mute',
-        'volume',
+        'mute_volume',
         'time_and_duration',
         'spacer'
       ]
@@ -958,10 +970,15 @@ export default defineComponent({
           },
 
           // these have their own watchers
-          bigButtons: displayVideoPlayButton.value ? ['play_pause'] : [],
+          bigButtons: displayVideoPlayButton.value ? ['play_pause_buffering'] : [],
+          showBufferingSpinner: !displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
+          playbackRateSliderMax: maxVideoPlaybackRate.value,
+          playbackRateSliderMin: videoPlaybackRateInterval.value,
           playbackRates: playbackRates.value,
           tapSeekDistance: defaultSkipInterval.value,
+
+          showUIOnPaused: false,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
