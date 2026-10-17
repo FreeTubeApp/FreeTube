@@ -722,11 +722,11 @@ Channel:
   Your search results have returned 0 results: 'Arama sonuçlarınız 0 sonuç verdi'
   Videos:
     Videos: 'Videolar'
-    This channel does not currently have any videos: 'Bu kanalda şu anda herhangi bir video yok'
     Sort Types:
       Newest: 'En yeni'
       Oldest: 'En eski'
       Most Popular: 'En Popüler'
+    This channel has videos but none could be displayed, try fetching more: Bu kanalda videolar var ancak hiçbiri görüntülenemedi, daha fazlasını getirmeyi deneyin
   Playlists:
     Playlists: 'Oynatma Listeleri'
     This channel does not currently have any playlists: 'Bu kanalda şu anda herhangi bir oynatma listesi yok'
@@ -899,6 +899,10 @@ Video:
   Premiere: İlk gösterim
   Enable SponsorBlock on Channel: Kanalda SponsorBlock'u Etkinleştir
   Disable SponsorBlock on Channel: Kanalda SponsorBlock'u Devre Dışı Bırak
+  AI: YZ
+  'AI: Content was made with AI': 'YZ: İçerik YZ ile yapıldı'
+  How this was made: Nasıl yapıldı
+  Reload Page: Sayfayı Yeniden Yükle
 Playlist:
   #& About
   View Full Playlist: 'Tüm oynatma listesini görüntüle'

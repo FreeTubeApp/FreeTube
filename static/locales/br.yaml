@@ -790,11 +790,11 @@ Channel:
   Channel Tabs: 'Ivinelloù ar chadenn'
   Videos:
     Videos: 'Videoioù'
-    This channel does not currently have any videos: 'N''eus ket a video evit poent gant ar chadenn-mañ'
     Sort Types:
       Newest: 'Nevesañ'
       Oldest: 'Koshañ'
       Most Popular: 'Ar muiañ a verzh ganto'
+    This channel has videos but none could be displayed, try fetching more: Videoioù a zo e-barzh ar chadenn-mañ, met hini ne c'hall bezañ diskouezet, klaskit diskouez muioc'h
   Shorts:
     This channel does not currently have any shorts: 'N''eus ket a video short evit poent gant ar chadenn-mañ'
   Live:
@@ -963,6 +963,10 @@ Video:
   Enable SponsorBlock on Channel: Gweredekaat SponsorBlock war ar Chadenn-mañ
   Disable SponsorBlock on Channel: Diweredekaat SponsorBlock war ar Chadenn-mañ
   Premiere: Rakskignañ
+  AI: IA
+  'AI: Content was made with AI': 'IA : Krouet eo bet gant Intent Artifisiel'
+  How this was made: Penaos eo bet krouet
+  Reload Page: Adkargañ ar bajenn
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'

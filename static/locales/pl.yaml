@@ -597,6 +597,10 @@ Settings:
     UseDeArrowTitles: Użyj tytułów filmów z DeArrow
     UseDeArrowThumbnails: Użyj DeArrow do miniaturek
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL do API generatora miniaturek DeArrow (Domyślny jest https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Niektóre kanały zostały wykluczone na podstawie identyfikatorów i nie zostały przetworzone. Funkcja jest zablokowana na czas aktualizacji tych identyfikatorów
+      Excluded Channels: Wykluczone Kanały
+      Tooltip: Wprowadź identyfikator kanału, aby wyłączyć funkcję SponsorBlock. Segmenty reklamowe w filmach z tego kanału nie będą pomijane. Wprowadzony identyfikator kanału musi być dokładnie taki sam, przy czym należy uwzględnić wielkość liter.
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego odtwarzacza
@@ -667,11 +671,11 @@ Channel:
   Your search results have returned 0 results: 'Twoje zapytanie zwróciło 0 wyników'
   Videos:
     Videos: 'Filmy'
-    This channel does not currently have any videos: 'Ten kanał nie ma obecnie żadnych filmów'
     Sort Types:
       Newest: 'Najnowsze'
       Oldest: 'Najstarsze'
       Most Popular: 'Najpopularniejsze'
+    This channel has videos but none could be displayed, try fetching more: Ten kanał zawiera filmy, ale nie udało się wyświetlić żadnego z nich. Spróbuj pobrać więcej
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Ten kanał nie ma żadnych playlist'
@@ -845,6 +849,12 @@ Video:
   Premiere: Premiera
   Playlist:
     Unavailable videos are hidden: 1 niedostępny film został ukryty | Ukryto {count} film(y/ów), które są niedostępne
+  Enable SponsorBlock on Channel: Włącz funkcję SponsorBlock na kanale
+  Disable SponsorBlock on Channel: Wyłącz funkcję SponsorBlock na kanale
+  AI: AI
+  'AI: Content was made with AI': 'AI: Treść została stworzona przy użyciu sztucznej inteligencji'
+  How this was made: Jak to powstało
+  Reload Page: Przeładuj stronę
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -1152,3 +1162,5 @@ Compact side navigation: Skompresuj boczną nawigację
 Expand side navigation: Rozwiń boczną nawigację
 Screenshot Clipboard Success: Zapisano zrzut ekranu do schowka
 Screenshot Clipboard Error: Zapisanie kopii zrzutu do schowka nie powiodło się
+SponsorBlock Disabled on Channel: Funkcja SponsorBlock została wyłączona na kanale {channel}
+SponsorBlock Enabled on Channel: Funkcja SponsorBlock została włączona na kanale {channel}

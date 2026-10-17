@@ -671,11 +671,11 @@ Channel:
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Videos:
     Videos: 'Video'
-    This channel does not currently have any videos: 'Questo canale attualmente non ha alcun video'
     Sort Types:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
       Most Popular: 'Più popolari'
+    This channel has videos but none could be displayed, try fetching more: Questo canale contiene video, ma non è stato possibile visualizzarne alcuno; prova a caricarne altri
   Playlists:
     Playlists: 'Playlist'
     This channel does not currently have any playlists: 'Questo canale attualmente non ha alcuna playlist'
@@ -851,6 +851,10 @@ Video:
   Premiere: Première
   Enable SponsorBlock on Channel: Attiva SponsorBlock sul canale
   Disable SponsorBlock on Channel: Disabilita SponsorBlock sul canale
+  AI: IA
+  'AI: Content was made with AI': "IA: Il contenuto è stato creato con l'IA"
+  How this was made: Come è stato realizzato
+  Reload Page: Ricarica pagina
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'

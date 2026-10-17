@@ -594,6 +594,10 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API generátora náhľadov DeArrow (predvolená adresa je https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Použiť DeArrow pre náhľady
     UseDeArrowTitles: Použiť titulky videa DeArrow
+    Excluded Channels:
+      Disabled Message: Niektoré kanály boli vylúčené pomocou ID a neboli spracované. Funkcia je zablokovaná, kým sa tieto ID aktualizujú
+      Excluded Channels: Vylúčené kanály
+      Tooltip: Zadajte ID kanála, aby bol SponsorBlock na ňom vypnutý. Sponzorské segmenty vo videách z tohto kanála sa nebudú preskakovať. Zadané ID kanála musí byť úplne zhodné a rozlišuje sa veľkosť písmen.
   External Player Settings:
     Custom External Player Arguments: Vlastné argumenty externého prehrávača
     External Player: Externý prehrávač
@@ -662,11 +666,11 @@ Channel:
   Your search results have returned 0 results: 'Vaše vyhľadávanie vrátilo 0 výsledkov'
   Videos:
     Videos: 'Videá'
-    This channel does not currently have any videos: 'Tento kanál momentálne nemá žiadne videá'
     Sort Types:
       Newest: 'Najnovšie'
       Oldest: 'Najstaršie'
       Most Popular: 'Najpopulárnejšie'
+    This channel has videos but none could be displayed, try fetching more: Tento kanál obsahuje videá, ale žiadne sa nepodarilo zobraziť. Skúste načítať ďalšie
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál momentálne nemá žiadne playlisty'
@@ -839,6 +843,12 @@ Video:
   Playlist:
     Unavailable videos are hidden: 1 nedostupné video je skryté | {count} nedostupných videí je skrytých
   Premiere: Premiéra
+  Enable SponsorBlock on Channel: Zapnúť SponsorBlock na kanáli
+  Disable SponsorBlock on Channel: Vypnúť SponsorBlock na kanáli
+  AI: AI
+  'AI: Content was made with AI': 'AI: Obsah bol vytvorený pomocou AI'
+  How this was made: Ako bolo toto urobené
+  Reload Page: Znovu načítať stránku
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -1146,3 +1156,5 @@ Compact side navigation: Kompaktná bočná navigácia
 Expand side navigation: Rozbaliť bočnú navigáciu
 Screenshot Clipboard Success: Snímka obrazovky uložená do schránky
 Screenshot Clipboard Error: Kopírovanie snímky obrazovky do schránky sa nepodarilo
+SponsorBlock Disabled on Channel: SponsorBlock vypnutý na {channel}
+SponsorBlock Enabled on Channel: SponsorBlock zapnutý na {channel}

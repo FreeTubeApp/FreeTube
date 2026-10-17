@@ -669,11 +669,11 @@ Channel:
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Videos:
     Videos: Videos
-    This channel does not currently have any videos: Dieser Kanal hat aktuell keine Videos
     Sort Types:
       Newest: Neueste
       Oldest: Älteste
       Most Popular: Beliebteste
+    This channel has videos but none could be displayed, try fetching more: Dieser Kanal enthält Videos, aber es konnte kein Video angezeigt werden. Versuchen Sie, weitere Videos abzurufen
   Playlists:
     Playlists: Playlists
     This channel does not currently have any playlists: Dieser Kanal hat derzeit keine Playlists
@@ -850,6 +850,10 @@ Video:
   Premiere: Premiere
   Enable SponsorBlock on Channel: SponsorBlock auf Kanal aktivieren
   Disable SponsorBlock on Channel: SponsorBlock auf Kanal deaktivieren
+  AI: KI
+  'AI: Content was made with AI': 'KI: Inhalte wurden mit KI erstellt'
+  How this was made: Wie es erstellt wurde
+  Reload Page: Seite neu laden
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen

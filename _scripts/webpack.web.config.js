@@ -30,24 +30,29 @@ const config = {
         from: 'static/pwabuilder-sw.js',
         to: '.'
       },
-      {
-        from: 'static',
-        to: 'static',
-        globOptions: {
-          ignore: [
-            '**/.*',
-            'static/{locales,pwabuilder-sw.js}'
+      ...(isDevMode
+        ? []
+        : [
+            {
+              from: 'static',
+              to: 'static',
+              globOptions: {
+                ignore: [
+                  '**/.*',
+                  'static/{locales,pwabuilder-sw.js}'
+                ]
+              }
+            },
+            {
+              context: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
+              from: `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`,
+              to: 'static/shaka-player-locales',
+              transform: (input) => {
+                return JSON.stringify(JSON.parse(input.toString('utf-8')))
+              }
+            }
           ]
-        }
-      },
-      {
-        context: path.dirname(require.resolve('shaka-player/ui/locales/en.json')),
-        from: `{${SHAKA_LOCALES_TO_BE_BUNDLED.join(',')}}.json`,
-        to: 'static/shaka-player-locales',
-        transform: (input) => {
-          return JSON.stringify(JSON.parse(input.toString('utf-8')))
-        }
-      }
+      ),
     ]
   },
   externals: {

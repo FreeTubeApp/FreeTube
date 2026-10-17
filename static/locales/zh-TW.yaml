@@ -671,11 +671,11 @@ Channel:
   Your search results have returned 0 results: '搜尋結果為零'
   Videos:
     Videos: '影片'
-    This channel does not currently have any videos: '這個頻道目前沒有任何影片'
     Sort Types:
       Newest: '最新'
       Oldest: '最舊'
       Most Popular: '最熱門'
+    This channel has videos but none could be displayed, try fetching more: 此頻道有影片，但均無法顯示，請嘗試載入更多影片
   Playlists:
     Playlists: '播放清單'
     This channel does not currently have any playlists: '這個頻道目前沒有任何播放清單'
@@ -851,6 +851,10 @@ Video:
     Unavailable videos are hidden: 1 部無法觀看的影片已被隱藏 | {count} 部無法觀看的影片已被隱藏
   Enable SponsorBlock on Channel: 在頻道啟用 SponsorBlock
   Disable SponsorBlock on Channel: 在頻道停用 SponsorBlock
+  AI: 人工智慧
+  'AI: Content was made with AI': 人工智慧：內容使用人工智慧製作
+  How this was made: 這部作品的製作過程
+  Reload Page: 重新載入頁面
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'

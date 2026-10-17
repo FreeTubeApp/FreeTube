@@ -39,7 +39,7 @@ Global:
     Watching Count: 1 se uită | {count} se uită
     Comment Count: 1 comentariu | {count} comentarii
     Like Count: 1 apreciere | {count} aprecieri
-    Replies Remaining: "{' '}(1 rămas) | {' '}({count} rămase)"
+    Replies Remaining: "{' '}(1 rămas) | {' '}({număr} rămase)"
 Version {versionNumber} is now available!  Click for more details: 'Versiunea {versionNumber} este acum disponibilă!  Click pentru mai multe detalii'
 Download From Site: 'Descărcați de pe site'
 
@@ -103,6 +103,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din "{settingsSection}”.
   Empty Posts: Canalele tale abonate nu au momentan nicio postare.
   Load More Posts: Încarcă mai multe postări
+  Posts:
+    RSS Message: YouTube nu oferă fluxuri RSS pentru postări. Dezactivează setarea „{rssSetting}” pentru a vizualiza postările sau activează setarea „{hideSetting}” pentru a ascunde această filă.
 Trending:
   Trending: 'Tendințe'
   Trending Tabs: File în tendințe
@@ -693,7 +695,6 @@ Channel:
   Your search results have returned 0 results: 'Rezultatele căutării tale au returnat 0 rezultate'
   Videos:
     Videos: 'Videoclipuri'
-    This channel does not currently have any videos: 'Acest canal nu are în prezent niciun videoclip'
     Sort Types:
       Newest: 'Cele mai noi'
       Oldest: 'Cele mai vechi'
@@ -944,6 +945,8 @@ More: Mai multe
 Search Bar:
   Clear Input: Ștergeți intrarea
   Remove: Șterge
+  Open Search Container: Deschide containerul de căutare
+  Search: Căutare
 Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest link?
 Open New Window: Deschide fereastră nouă
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
@@ -1106,4 +1109,4 @@ KeyboardShortcutTemplate: '{label} ({shortcut})'
 Yes, Restart: Da, repornire
 shortcutJoinOperator: +
 Compact side navigation: Navigatie Compacta pe o parte
-Expand side navigation: Expandează navigația de pe margini
+Expand side navigation: Extinde meniul de navigare lateral

@@ -722,11 +722,11 @@ Channel:
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
   Videos:
     Videos: 'Videa'
-    This channel does not currently have any videos: 'Tento kanál momentálně nemá žádné videa'
     Sort Types:
       Newest: 'Nejnovější'
       Oldest: 'Nejstarší'
       Most Popular: 'Populární'
+    This channel has videos but none could be displayed, try fetching more: Tento kanál má videa, ale žádná se nepodařilo zobrazit, zkuste načíst více
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál nemá žádné playlisty'
@@ -899,6 +899,10 @@ Video:
   Premiere: Premiéra
   Enable SponsorBlock on Channel: Povolit SponsorBlock u kanálu
   Disable SponsorBlock on Channel: Zakázat SponsorBlock u kanálu
+  AI: AI
+  'AI: Content was made with AI': 'AI: Obsah byl vytvořen pomocí umělé inteligence'
+  How this was made: Jak byl tento obsah vytvořen
+  Reload Page: Znovu načíst stránku
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'

@@ -671,11 +671,11 @@ Channel:
   Your search results have returned 0 results: '您的搜索结果是0结果'
   Videos:
     Videos: '视频'
-    This channel does not currently have any videos: '这个频道目前没有任何视频'
     Sort Types:
       Newest: '最新'
       Oldest: '最早'
       Most Popular: '最流行'
+    This channel has videos but none could be displayed, try fetching more: 此频道有视频，但没一个能显示，尝试获取更多
   Playlists:
     Playlists: '播放列表'
     This channel does not currently have any playlists: '这个频道目前没有任何播放列表'
@@ -851,6 +851,10 @@ Video:
   Premiere: 首映
   Enable SponsorBlock on Channel: 对频道启用 SponsorBlock
   Disable SponsorBlock on Channel: 对频道禁用 SponsorBlock
+  AI: AI
+  'AI: Content was made with AI': AI：内容由 AI 制作
+  How this was made: 这是怎么制作的
+  Reload Page: 重新加载页面
 Playlist:
   #& About
   View Full Playlist: '查看完整播放列表'

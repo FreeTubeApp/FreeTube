@@ -21,6 +21,7 @@ import {
   extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
+  throttle,
   getLocalesWithFallback,
   showToast
 } from '../../helpers/utils'
@@ -174,6 +175,7 @@ export default defineComponent({
       /** @type {string[]|null} */
       customErrorIcon: null,
       videoGenreIsMusic: false,
+      contentDisclosures: null,
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
@@ -401,6 +403,7 @@ export default defineComponent({
       this.videoDescription = ''
       this.videoDescriptionHtml = ''
       this.license = ''
+      this.contentDisclosures = null
       this.videoViewCount = 0
       this.videoLikeCount = 0
       this.videoDislikeCount = 0
@@ -503,7 +506,8 @@ export default defineComponent({
 
       try {
         const videoInfo = await getLocalVideoInfo(this.videoId)
-        const { info: result, poToken, clientInfo, adEndTimeUnixMs } = videoInfo
+        const { info: result, poToken, clientInfo, adEndTimeUnixMs, contentDisclosures } = videoInfo
+        this.contentDisclosures = contentDisclosures || null
 
         const playabilityStatus = result.playability_status
         this.playabilityStatus = playabilityStatus.status
@@ -709,8 +713,9 @@ export default defineComponent({
           } else {
             errorText = `[${playabilityStatus.status}] ${playabilityStatus.reason}`
 
-            if (playabilityStatus.error_screen?.subreason) {
-              errorText += `: ${playabilityStatus.error_screen.subreason.text}`
+            const subreason = playabilityStatus.error_screen?.subreason?.text
+            if (subreason) {
+              errorText += `: ${subreason}`
             }
           }
 
@@ -1033,6 +1038,7 @@ export default defineComponent({
           this.isFamilyFriendly = result.isFamilyFriendly
           this.isPostLiveDvr = !!result.isPostLiveDvr
           this.isUnlisted = !result.isListed
+          this.contentDisclosures = null
 
           this.captions = sortCaptions(result.captions.map(caption => {
             return {
@@ -1975,9 +1981,7 @@ export default defineComponent({
       this.startNextVideoInPip = uiState.startNextVideoInPip
     },
 
-    async onPlayerReloadRequested() {
-      showToast('Reloading player according to SABR request')
-
+    async saveWatchProgressForReload() {
       const timestamp = this.getTimestamp()
       if (timestamp > 0) {
         // Reload at the middle should restart at current timestamp
@@ -1994,6 +1998,16 @@ export default defineComponent({
           }
         }
       }
+    },
+
+    onManualReloadRequested: throttle(async function () {
+      await this.saveWatchProgressForReload()
+      await this.reloadView()
+    }, 1000),
+
+    async onSabrReloadRequested() {
+      showToast('Reloading player according to SABR request')
+      await this.saveWatchProgressForReload()
       await this.reloadView()
     },
 

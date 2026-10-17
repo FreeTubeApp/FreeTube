@@ -667,11 +667,11 @@ Channel:
   Your search results have returned 0 results: '検索結果が0件です'
   Videos:
     Videos: '動画'
-    This channel does not currently have any videos: 'このチャンネルには動画がありません'
     Sort Types:
       Newest: '新しい'
       Oldest: '古い'
       Most Popular: '人気'
+    This channel has videos but none could be displayed, try fetching more: このチャンネルには動画がありますが、表示できるものがありません。さらに読み込んでみてください
   Playlists:
     Playlists: '再生リスト'
     This channel does not currently have any playlists: 'このチャンネルには再生リストがありません'
@@ -847,6 +847,10 @@ Video:
   Premiere: プレミア
   Enable SponsorBlock on Channel: チャンネルで SponsorBlock を有効にする
   Disable SponsorBlock on Channel: チャンネルで SponsorBlock を無効にする
+  AI: AI
+  'AI: Content was made with AI': 'AI : このコンテンツは AI によって作成されました'
+  How this was made: 制作過程
+  Reload Page: ページを再読み込み
 Playlist:
   #& About
   View Full Playlist: '完全な再生リストの表示'

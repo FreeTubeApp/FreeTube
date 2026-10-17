@@ -55,7 +55,7 @@
           @playback-rate-updated="updatePlaybackRate"
           @skip-to-next="handleSkipToNext"
           @skip-to-prev="handleSkipToPrev"
-          @player-reload-requested="onPlayerReloadRequested"
+          @player-reload-requested="onSabrReloadRequested"
         />
         <div
           v-if="!isLoading && (isUpcoming || errorMessage)"
@@ -152,12 +152,14 @@
         :video-thumbnail="thumbnail"
         :in-user-playlist="!!selectedUserPlaylist"
         :is-unlisted="isUnlisted"
+        :content-disclosures="contentDisclosures"
         :can-save-watched-progress="canSaveWatchProgress"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @change-format="handleFormatChange"
         @pause-player="pausePlayer"
         @save-watched-progress="handleWatchProgressManualSave"
+        @reload-player="onManualReloadRequested"
       />
       <watch-video-chapters
         v-if="!hideChapters && !isLoading && videoChapters.length > 0"
@@ -173,6 +175,7 @@
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
         :license="license"
+        :content-disclosures="contentDisclosures"
         class="watchVideo"
         :class="{ theatreWatchVideo: useTheatreMode }"
         @timestamp-event="changeTimestamp"

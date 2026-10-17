@@ -807,8 +807,7 @@ Channel:
   View All: View All
   Videos:
     Videos: Videos
-    This channel does not currently have any videos: This channel does not currently
-      have any videos
+    This channel has videos but none could be displayed, try fetching more: This channel has videos but none could be displayed, try fetching more
     Sort Types:
       Newest: Newest
       Oldest: Oldest
@@ -902,6 +901,9 @@ Video:
   Premieres: Premieres
   Upcoming: Upcoming
   Unlisted: Unlisted
+  AI: AI
+  'AI: Content was made with AI': 'AI: Content was made with AI'
+  How this was made: How this was made
   Station: Station
   Premiere: Premiere
   Live: Live
@@ -924,6 +926,7 @@ Video:
   Published on: Published on
   Streamed on: Streamed on
   Started streaming on: Started streaming on
+  Reload Page: Reload Page
   DeArrow:
     Show Original Details: Show Original Details
     Show Modified Details: Show Modified Details

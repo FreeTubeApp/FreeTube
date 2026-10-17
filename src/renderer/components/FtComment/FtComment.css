@@ -124,7 +124,7 @@
   /* stylelint-disable-next-line liberty/use-logical-spec */
   margin-left: -10px;
   margin-inline-start: calc(var(--comment-thumb-size) + 10px);
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
 }
 
 /* stylelint-disable liberty/use-logical-spec */
