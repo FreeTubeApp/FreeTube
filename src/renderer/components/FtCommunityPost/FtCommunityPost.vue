@@ -2,7 +2,6 @@
   <div
     class="ft-list-post ft-list-item outside"
     :appearance="appearance"
-    :class="{ list: listType === 'list', grid: listType === 'grid' }"
   >
     <div
       class="author-div"
@@ -93,6 +92,7 @@
         v-if="!hideVideo"
         :data="data.postContent.content"
         appearance=""
+        force-list-type="grid"
       />
       <p
         v-else
@@ -210,11 +210,6 @@ const props = defineProps({
     type: Boolean,
     default: false
   },
-})
-
-/** @type {import('vue').ComputedRef<'grid' | 'list'>} */
-const listType = computed(() => {
-  return store.getters.getListType
 })
 
 /** @type {import('vue').ComputedRef<string[]>} */
@@ -338,7 +333,9 @@ if (postType === 'multiImage' && postContent.content.length > 0) {
         enabled: true,
         clickable: true
       },
-      slidesPerView: 1
+      slidesPerView: 1,
+      // prevents slides from bleeding over due to rounding errors
+      spaceBetween: 10
     }
 
     Object.assign(swiperContainerRef.value, swiperOptions)
