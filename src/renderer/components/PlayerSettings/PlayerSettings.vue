@@ -103,6 +103,14 @@
         @change="updateDefaultQuality"
       />
       <FtSelect
+        :placeholder="t('Settings.Player Settings.Default Language.Default Language')"
+        :value="defaultAudioLanguage"
+        :select-names="AUDIO_LANGUAGE_NAMES"
+        :select-values="AUDIO_LANGUAGE_VALUES"
+        :icon="['fas', 'language']"
+        @change="updateDefaultAudioLanguage"
+      />
+      <FtSelect
         :placeholder="t('Settings.Player Settings.Video Playback Rate Interval')"
         :value="videoPlaybackRateIntervalString"
         :select-names="PLAYBACK_RATE_INTERVAL_VALUES"
@@ -507,6 +515,113 @@ const defaultQuality = computed(() => {
  */
 function updateDefaultQuality(value) {
   store.dispatch('updateDefaultQuality', value)
+}
+
+const AUDIO_LANGUAGE_VALUES = [
+  'system',
+  'af',
+  'am',
+  'ar',
+  'as',
+  'az',
+  'be',
+  'bg',
+  'bn',
+  'bs',
+  'ca',
+  'cs',
+  'da',
+  'de',
+  'el',
+  'en',
+  'en-GB',
+  'en-IN',
+  'es',
+  'es-419',
+  'es-US',
+  'et',
+  'eu',
+  'fa',
+  'fi',
+  'fil',
+  'fr',
+  'fr-CA',
+  'gl',
+  'gu',
+  'hi',
+  'hr',
+  'hu',
+  'hy',
+  'id',
+  'is',
+  'it',
+  'iw',
+  'ja',
+  'ka',
+  'kk',
+  'km',
+  'kn',
+  'ko',
+  'ky',
+  'lo',
+  'lt',
+  'lv',
+  'mk',
+  'ml',
+  'mn',
+  'mr',
+  'ms',
+  'my',
+  'ne',
+  'nl',
+  'no',
+  'or',
+  'pa',
+  'pl',
+  'pt',
+  'pt-PT',
+  'ro',
+  'ru',
+  'si',
+  'sk',
+  'sl',
+  'sq',
+  'sr',
+  'sr-Latn',
+  'sv',
+  'sw',
+  'ta',
+  'te',
+  'th',
+  'tr',
+  'uk',
+  'ur',
+  'uz',
+  'vi',
+  'zh-CN',
+  'zh-HK',
+  'zh-Hans',
+  'zh-Hant',
+  'zh-TW',
+  'zu'
+]
+
+const AUDIO_LANGUAGE_NAMES = AUDIO_LANGUAGE_VALUES.map((language, index) => {
+  if (index === 0) {
+    return t('Settings.Player Settings.Default Language.System Language')
+  }
+
+  return new Intl.DisplayNames('en', { type: 'language', languageDisplay: 'standard' }).of(language) ?? language
+})
+
+/** @type {import('vue').ComputedRef<string>} */
+const defaultAudioLanguage = computed(() => store.getters.getDefaultAudioLanguage)
+
+/**
+ * @param {string} value
+ */
+function updateDefaultAudioLanguage(value) {
+  store.dispatch('updateDefaultAudioLanguage', value)
 }
 
 const PLAYBACK_RATE_INTERVAL_VALUES = ['0.1', '0.25', '0.5', '1']
