@@ -27,6 +27,10 @@
   align-items: center;
 }
 
+.isSideNavOpen .settingsMenu {
+  display: none;
+}
+
 /* prevent hover styling from showing on title click for mobile */
 @media (hover: hover) {
   .title:hover {
@@ -112,6 +116,10 @@
   /* hide the settings icon on mobile to avoid confusion */
   .headingIcon {
     display: none;
+  }
+
+  .isSideNavOpen .settingsMenu {
+    display: unset;
   }
 }
 
