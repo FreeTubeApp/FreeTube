@@ -27,10 +27,6 @@
   align-items: center;
 }
 
-.isSideNavOpen .settingsMenu {
-  display: none;
-}
-
 /* prevent hover styling from showing on title click for mobile */
 @media (hover: hover) {
   .title:hover {
@@ -59,6 +55,12 @@
 
   /* prevent "active" border from visibly pushing the content up */
   border-block-end: 4px solid transparent;
+}
+
+@media only screen and (width <= 1200px) {
+  .isSideNavOpen .settingsMenu {
+    display: none;
+  }
 }
 
 @media only screen and (width >= 1015px) {
