@@ -333,29 +333,13 @@ export default defineComponent({
 
     watch(videoPlaybackRateInterval, (newValue) => {
       ui.configure({
-        playbackRateSliderMin: newValue
+        playbackRateSliderMin: newValue,
+        playbackRateSliderStep: newValue,
       })
     })
 
-    const playbackRates = computed(() => {
-      const interval = videoPlaybackRateInterval.value
-      const playbackRates = []
-      let i = interval
-
-      while (i <= maxVideoPlaybackRate.value) {
-        playbackRates.push(i)
-        i += interval
-        i = parseFloat(i.toFixed(2))
-      }
-
-      return playbackRates
-    })
-
-    watch(playbackRates, (newValue) => {
-      ui.configure({
-        playbackRates: newValue
-      })
-    })
+    // 5 pills only as default for mobile
+    const playbackRates = [0.5, 0.75, 1, 1.5, 2]
 
     /** @type {import('vue').ComputedRef<boolean>} */
     const enableScreenshot = computed(() => {
@@ -975,7 +959,8 @@ export default defineComponent({
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
           playbackRateSliderMax: maxVideoPlaybackRate.value,
           playbackRateSliderMin: videoPlaybackRateInterval.value,
-          playbackRates: playbackRates.value,
+          playbackRateSliderStep: videoPlaybackRateInterval.value,
+          playbackRates: playbackRates,
           tapSeekDistance: defaultSkipInterval.value,
 
           showUIOnPaused: false,
