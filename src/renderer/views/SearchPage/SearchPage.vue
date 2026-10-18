@@ -363,6 +363,7 @@ async function nextPage() {
       await getNextpageLocal(payload)
     } else {
       showToast(t('Search Filters.There are no more results for this search'))
+      hasMoreResults.value = false
     }
   } else {
     showToast(t('Search Filters["Fetching results. Please wait"]'))
