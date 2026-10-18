@@ -325,7 +325,7 @@ import {
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo,
+  parseLocalPlaylistVideos,
   parseChannelHomeTab
 } from '../../helpers/api/local'
 
@@ -1117,7 +1117,7 @@ async function getChannelVideosLocal() {
         return
       }
 
-      latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
+      latestVideos.value = parseLocalPlaylistVideos(playlist.items)
       videoContinuationData.value = playlist.has_continuation ? playlist : null
       isElementListLoading.value = false
     } else {
@@ -1173,7 +1173,7 @@ async function getChannelVideosLocalMore() {
       /** @type {import('youtubei.js').YT.Playlist} */
       const continuation = await videoContinuationData.value.getContinuation()
 
-      latestVideos.value = latestVideos.value.concat(continuation.items.map(parseLocalPlaylistVideo))
+      latestVideos.value = latestVideos.value.concat(parseLocalPlaylistVideos(continuation.items))
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     } else {
       /**

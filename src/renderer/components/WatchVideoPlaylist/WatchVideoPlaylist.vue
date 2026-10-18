@@ -198,7 +198,7 @@ import { copyToClipboard, showToast, extractNumberFromString } from '../../helpe
 import {
   getLocalCachedFeedContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo,
+  parseLocalPlaylistVideos,
   untilEndOfLocalPlayList,
 } from '../../helpers/api/local'
 import { invidiousGetPlaylistInfo, fetchAllInvidiousPlaylistVideos } from '../../helpers/api/invidious'
@@ -654,10 +654,10 @@ async function loadCachedPlaylistInformation(cachedPlaylist) {
     }
   } else if (cachedPlaylist.continuationData !== null) {
     const continuationData = await getLocalCachedFeedContinuation('playlist', cachedPlaylist.continuationData)
-    videos.push(...continuationData.items.map(parseLocalPlaylistVideo))
+    videos.push(...parseLocalPlaylistVideos(continuationData.items))
 
     await untilEndOfLocalPlayList(continuationData, (p) => {
-      videos.push(...p.items.map(parseLocalPlaylistVideo))
+      videos.push(...parseLocalPlaylistVideos(p.items))
     }, { runCallbackOnceFirst: false })
   }
   playlistItems.value = videos
@@ -689,7 +689,7 @@ async function getPlaylistInformationLocal() {
 
     const videos = []
     await untilEndOfLocalPlayList(playlist, (p) => {
-      videos.push(...p.items.map(parseLocalPlaylistVideo))
+      videos.push(...parseLocalPlaylistVideos(p.items))
     })
 
     playlistItems.value = videos
