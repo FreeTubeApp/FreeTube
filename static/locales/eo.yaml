@@ -665,6 +665,7 @@ Channel:
       Newest: Plej novaj
       Oldest: Plej malnovaj
       Most Popular: Plej popularaj
+    This channel has videos but none could be displayed, try fetching more: Ĉi tiu kanalo havas videaĵojn sed ne eblis montri iun ajn; provu plu venigi
   Subscribe: Aboni
   Unsubscribe: Malaboni
   Channel has been removed from your subscriptions: La kanalo estis forigita el viaj abonoj
@@ -830,6 +831,10 @@ Video:
     Unavailable videos are hidden: 1 nedisponebla videaĵo estas kaŝita | {count} nedisponeblaj videaĵoj estas kaŝitaj
   Enable SponsorBlock on Channel: Ŝalti SponsorBlock en kanalo
   Disable SponsorBlock on Channel: Malŝalti SponsorBlock en kanalo
+  AI: AI
+  'AI: Content was made with AI': 'AI: La enhavo estis kreita helpe de AI'
+  How this was made: Kiel tio ĉi estis kreita
+  Reload Page: Reŝargi paĝon
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
