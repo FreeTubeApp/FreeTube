@@ -19,7 +19,7 @@
         :data="shownResults"
       />
       <FtAutoLoadNextPageWrapper
-        v-if="!isNextPageLoading"
+        v-if="!isNextPageLoading && hasMoreResults"
         @load-next-page="nextPage"
       >
         <div
@@ -73,6 +73,7 @@ const searchPage = ref(1)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Search | string | null>} */
 const nextPageRef = shallowRef(null)
 const shownResults = shallowRef([])
+const hasMoreResults = ref(true)
 
 const query = ref('')
 const processedQuery = computed(() => query.value.trim())
@@ -203,6 +204,10 @@ async function performSearchLocal(payload) {
 
     shownResults.value = results
     nextPageRef.value = continuationData
+    hasMoreResults.value = results.length > 0
+    if (results.length === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+    }
 
     isLoading.value = false
 
@@ -239,6 +244,8 @@ async function getNextpageLocal(payload) {
     const { results, continuationData } = await getLocalSearchContinuation(payload.options.nextPageRef)
 
     if (results.length === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+      hasMoreResults.value = false
       return
     }
 
@@ -296,11 +303,17 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
       shownResults.value = shownResults.value.concat(results)
     } else {
       shownResults.value = results
+      hasMoreResults.value = results.length > 0
     }
 
     isLoading.value = false
 
     searchPage.value++
+
+    if (results.length === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+      hasMoreResults.value = false
+    }
 
     const historyPayload = {
       query: payload.query,
