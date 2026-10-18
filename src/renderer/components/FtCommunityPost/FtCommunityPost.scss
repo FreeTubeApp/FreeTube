@@ -12,6 +12,10 @@
 
 .ft-list-post {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+  padding-block-end: 20px;
 }
 
 .hiddenVideo {
@@ -23,6 +27,7 @@
 .communityImage {
   block-size: 100%;
   inline-size: 100%;
+  object-fit: contain;
 }
 
 .communityThumbnail {
@@ -145,11 +150,6 @@
       inline-size: 100%;
     }
   }
-}
-
-.ft-list-item.grid {
-  min-block-size: 0 !important;
-  padding-block-end: 20px;
 }
 
 .sliderContainer {
