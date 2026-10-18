@@ -261,8 +261,9 @@ import { getRandomColorClass } from '../../helpers/colors'
 import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
 
 const props = defineProps({
+  /** @type {import('vue').PropType<import('youtubei.js').YT.LiveChat | null>} */
   liveChat: {
-    type: EventTarget,
+    type: Object,
     default: null
   },
   videoId: {
