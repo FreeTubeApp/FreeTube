@@ -98,7 +98,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Den här profilen har många prenumerationer. RSS används för att undvika frekvensbegränsning
   Load More Videos: Hämta fler videor
   Error Channels: Kanaler med fel
-  Disabled Automatic Fetching: Automatisk hämtning av prenumerationer är inaktiverad. Uppdatera prenumerationerna för att visa dem här.
+  Disabled Automatic Fetching: Automatisk hämtning av prenumerationsflödet är inaktiverad. Uppdatera flödet för att visa innehållet här.
   Empty Channels: Kanalerna du prenumererar på har inga videor.
   Subscriptions Tabs: Prenumerationsflikar
   All Subscription Tabs Hidden: Alla prenumerationsflikar är dolda. Visa några flikar igen under ”{subsection}” i ”{settingsSection}” för att se innehåll här.
@@ -128,24 +128,24 @@ User Playlists:
   Move Video Up: Flytta videon uppåt
   Move Video Down: Flytta videon nedåt
   Remove from Playlist: Ta bort från spellistan
-  You have no playlists. Click on the create new playlist button to create a new one.: Du har inga spellistor. Klicka på knappen Skapa ny spellista för att skapa en ny.
+  You have no playlists. Click on the create new playlist button to create a new one.: Du har inga spellistor. Klicka på ”Skapa ny spellista” för att skapa en.
   This playlist currently has no videos.: Den här spellistan har för närvarande inga videor.
   Add to Playlist: Lägg till i spellista
   Sort By:
-    EarliestPlayedFirst: Spelad (äldst)
-    EarliestUpdatedFirst: Uppdaterad (äldst)
+    EarliestPlayedFirst: Spelad (äldst först)
+    EarliestUpdatedFirst: Uppdaterad (äldst först)
     NameAscending: Namn (A–Ö)
     NameDescending: Namn (Ö–A)
-    LatestCreatedFirst: Skapad (nyast)
-    EarliestCreatedFirst: Skapad (äldst)
-    LatestUpdatedFirst: Uppdaterad (nyast)
-    LatestPlayedFirst: Spelad (nyast)
+    LatestCreatedFirst: Skapad (nyast först)
+    EarliestCreatedFirst: Skapad (äldst först)
+    LatestUpdatedFirst: Uppdaterad (nyast först)
+    LatestPlayedFirst: Spelad (nyast först)
   Are you sure you want to delete this playlist? This cannot be undone: Är du säker på att du vill ta bort den här spellistan? Detta kan inte ångras.
   AddVideoPrompt:
     Added {count} Times: Tillagd en gång | Tillagd {count} gånger
     Save: Spara
     Search in Playlists: Sök i spellistor
-    Select a playlist to add your N videos to: Välj en spellista att lägga till videon i | Välj en spellista att lägga till de {videoCount} videorna i
+    Select a playlist to add your N videos to: Välj en spellista att lägga till videon i | Välj en spellista att lägga till dina {videoCount} videor i
     N playlists selected: 'Valda spellistor: {playlistCount}'
     Toast:
       You haven't selected any playlist yet.: Du har inte valt någon spellista ännu.
@@ -166,7 +166,7 @@ User Playlists:
       Some videos in the playlist are not loaded yet. Click here to copy anyway.: Vissa videor i spellistan är inte inlästa ännu. Klicka här för att kopiera ändå.
       Playlist name cannot be empty. Please input a name.: Spellistans namn får inte vara tomt. Ange ett namn.
       Playlist has been updated.: Spellistan har uppdaterats.
-      There was an issue with updating this playlist.: Det uppstod ett problem med uppdateringen av den här spellistan.
+      There was an issue with updating this playlist.: Det gick inte att uppdatera spellistan.
       This playlist is protected and cannot be removed.: Den här spellistan är skyddad och kan inte tas bort.
       Playlist {playlistName} has been deleted.: Spellistan {playlistName} har tagits bort.
       This playlist does not exist: Den här spellistan finns inte
@@ -204,8 +204,8 @@ History:
   Empty Search Message: Det finns inga videor i din historik som matchar din sökning
   Search bar placeholder: Sök i historiken
   Case Sensitive Search: Skiftlägeskänslig sökning
-  DateOldestHistory: Visad (äldst)
-  DateNewestHistory: Visad (nyast)
+  DateOldestHistory: Visad (äldst först)
+  DateNewestHistory: Visad (nyast först)
 Settings:
   # On Settings Page
   Settings: 'Inställningar'
@@ -221,7 +221,7 @@ Settings:
       Local API: 'Lokalt API'
       Invidious API: 'Invidious-API'
     Video View Type:
-      Video View Type: 'Videovisningstyp'
+      Video View Type: 'Visningsläge för videor'
       Grid: 'Rutnät'
       List: 'Lista'
     Thumbnail Preference:
@@ -377,7 +377,7 @@ Settings:
     Play Next Video: 'Spela upp nästa rekommenderade video automatiskt'
     Turn on Subtitles by Default: 'Aktivera undertexter som standard'
     Autoplay Videos: 'Spela upp videor automatiskt'
-    Proxy Videos Through Invidious: 'Hämta videor via Invidious'
+    Proxy Videos Through Invidious: 'Spela upp videor via Invidious'
     Autoplay Playlists: 'Spela upp videor i spellistan automatiskt'
     Enable Theatre Mode by Default: 'Aktivera Bioläge som standard'
     Default Volume: 'Förvald volym'
@@ -446,7 +446,7 @@ Settings:
     Watch history has been cleared: 'Visningshistoriken har rensats'
     Remove All Subscriptions / Profiles: 'Ta bort alla prenumerationer och profiler'
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Vill du verkligen ta bort alla prenumerationer och profiler? Detta kan inte ångras.'
-    Save Watched Videos With Last Viewed Playlist: Spara sedda videor med senast visade spellista
+    Save Watched Videos With Last Viewed Playlist: Spara sedda videor med den senast visade spellistan
     Remember Search History: Spara sökhistorik
     Clear Search History and Cache: Rensa sökhistorik och cacheminne
     All playlists have been removed: Alla spellistor har tagits bort
@@ -455,7 +455,7 @@ Settings:
     Remove All Playlists: Ta bort alla spellistor
     Are you sure you want to clear out your search history and cache?: Vill du verkligen rensa sökhistoriken och cacheminnet?
     Watched Progress Saving Mode:
-      Tooltip: Automatiskt = Sparar visningspositionen när en videosida stängs, när videon tar slut och vid fel, exempelvis frekvensbegränsning eller en utgången visningssession. Semiautomatiskt = Som automatiskt, men inte när en videosida stängs. Visningspositionen kan sparas manuellt med knappen Spara visningsposition under videospelaren.
+      Tooltip: 'Automatiskt: sparar visningspositionen när en videosida stängs, när videon tar slut och vid fel, exempelvis frekvensbegränsning eller en utgången visningssession. Semiautomatiskt: samma som automatiskt, men inte när en videosida stängs. Visningspositionen kan sparas manuellt med knappen ”Spara visningsposition” under videospelaren.'
       Modes:
         Semi-auto: Semiautomatiskt
         Auto: Automatiskt
@@ -463,7 +463,7 @@ Settings:
   Subscription Settings:
     Subscription Settings: 'Prenumerationer'
     Fetch Feeds from RSS: 'Hämta flöden via RSS'
-    Fetch Automatically: Hämta prenumerationer automatiskt
+    Fetch Automatically: Hämta prenumerationsflödet automatiskt
     'Limit the number of videos displayed for each channel': Begränsa antalet videor som visas för varje kanal
     To: Till
     Confirm Before Unsubscribing: Bekräfta innan du avslutar prenumerationen
@@ -525,14 +525,14 @@ Settings:
     Hide Recommended Videos: Dölj rekommenderade videor
     Hide Comment Likes: Dölj gillamarkeringar på kommentarer
     Hide Video Likes And Dislikes: Dölj gilla- och ogillamarkeringar för videor
-    Hide Channel Subscribers: Dölj kanalens antal prenumeranter
-    Hide Video Views: Dölj videovisningar
+    Hide Channel Subscribers: Dölj antalet prenumeranter på kanalen
+    Hide Video Views: Dölj antalet videovisningar
     Distraction Free Settings: Distraktionsfritt läge
     Hide Active Subscriptions: Dölj aktiva prenumerationer
     Hide Playlists: Dölj spellistor
     Hide Comments: Dölj kommentarer
     Hide Chapters: Dölj kapitel
-    Hide Channels: Dölj videor från kanaler
+    Hide Channels: Dölj kanaler
     Hide Video Description: Dölj videobeskrivning
     Hide Sharing Actions: Dölj delningsåtgärder
     Hide Videos on Watch: 'Dölj sedda videor'
@@ -710,16 +710,16 @@ Channel:
   Videos:
     Videos: 'Videor'
     Sort Types:
-      Newest: 'Nyaste'
-      Oldest: 'Äldsta'
-      Most Popular: 'Mest populärt'
+      Newest: 'Nyaste först'
+      Oldest: 'Äldsta först'
+      Most Popular: 'Mest populära'
   Playlists:
     Playlists: 'Spellistor'
     This channel does not currently have any playlists: 'Den här kanalen har för närvarande inga spellistor'
     Sort Types:
       Last Video Added: 'Senast tillagda video'
-      Newest: 'Nyaste'
-      Oldest: 'Äldsta'
+      Newest: 'Nyaste först'
+      Oldest: 'Äldsta först'
   About:
     About: 'Om'
     Channel Description: 'Kanalbeskrivning'
@@ -802,7 +802,7 @@ Video:
   Video has been saved: Videon har sparats
   Save Video: Spara videon
   Sponsor Block category:
-    music offtopic: Icke-musikaliska avsnitt
+    music offtopic: Avsnitt utan musik
     interaction: Interaktion
     self-promotion: Självmarknadsföring
     outro: Avslutning
@@ -834,7 +834,7 @@ Video:
 #& Playlists
   Player:
     Full Window: Helfönsterläge
-    Exit Full Window: Avsluta helfönsterläge
+    Exit Full Window: Avsluta helfönsterläget
     Stats:
       CodecAudio: 'Kodek: {audioCodec} ({audioItag})'
       Media Formats: 'Medieformat: {formats}'
@@ -863,11 +863,11 @@ Video:
     TranslatedCaptionTemplate: '{language} (översatt från ”{originalLanguage}”)'
   More Options: Fler alternativ
   AgeRestricted: Åldersbegränsade videor kan inte ses med FreeTube eftersom de kräver Google-inloggning och användning av ett åldersverifierat YouTube-konto.
-  IP block: YouTube har blockerat din IP-adress från videouppspelning. Försök byta VPN-server eller proxy.
+  IP block: YouTube har blockerat videouppspelning från din IP-adress. Försök byta VPN-server eller proxy.
   DRMProtected: DRM-skyddade videor kan inte spelas upp i FreeTube eftersom de kräver proprietära komponenter med sluten källkod. Öppna videon på YouTubes officiella webbplats i en DRM-kompatibel webbläsare.
   DeArrow:
-    Show Original Details: Visa originaldetaljer
-    Show Modified Details: Visa ändrade detaljer
+    Show Original Details: Visa ursprungliga uppgifter
+    Show Modified Details: Visa ändrade uppgifter
   Unlisted: Olistad
   MembersOnly: Videor endast för medlemmar kan inte ses med FreeTube eftersom de kräver Google-inloggning och betalt medlemskap på uppladdarens kanal.
   Watched Progress Saved: Visningspositionen har sparats
@@ -888,15 +888,15 @@ Playlist:
   Playlist: Spellista
   Sort By:
     AuthorAscending: Upphovsperson (A–Ö)
-    VideoDurationDescending: Längd (längst)
+    VideoDurationDescending: Längd (längst först)
     AuthorDescending: Upphovsperson (Ö–A)
-    VideoDurationAscending: Längd (kortast)
-    DateAddedOldest: Tillagd (äldst)
+    VideoDurationAscending: Längd (kortast först)
+    DateAddedOldest: Tillagd (äldst först)
     VideoTitleAscending: Titel (A–Ö)
     VideoTitleDescending: Titel (Ö–A)
-    DateAddedNewest: Tillagd (nyast)
-    PublishedNewest: Publiceringsdatum (nyast)
-    PublishedOldest: Publiceringsdatum (äldst)
+    DateAddedNewest: Tillagd (nyast först)
+    PublishedNewest: Publiceringsdatum (nyast först)
+    PublishedOldest: Publiceringsdatum (äldst först)
     Custom: Anpassad
 Change Format:
   Change Media Formats: 'Ändra medieformat'
@@ -983,7 +983,7 @@ Tooltips:
     External Link Handling: "Välj vad som ska hända när du klickar på en länk som inte kan öppnas i FreeTube.\nSom standard öppnas länken i den förvalda webbläsaren.\n"
     Open Deep Links In New Window: Webbadresser som skickas till FreeTube, till exempel via omdirigering av webbläsartillägg eller kommandoradsargument, öppnas i ett nytt fönster.
   External Player Settings:
-    Custom External Player Arguments: Alla anpassade kommandoradsargument ska skickas till den externa spelaren.
+    Custom External Player Arguments: Anpassade kommandoradsargument som ska skickas till den externa spelaren.
     Ignore Warnings: Dölj varningar när den valda externa spelaren inte stöder en åtgärd, exempelvis att vända en spellistas ordning.
     Custom External Player Executable: Som standard antar FreeTube att den valda externa spelaren kan hittas via miljövariabeln PATH. Om det behövs kan du ange en anpassad sökväg här.
     External Player: När en extern spelare har valts visas en ikon på miniatyrbilden för att öppna videon, eller spellistan om det stöds, i den externa spelaren. Invidious-inställningarna påverkar inte externa videospelare.
@@ -991,7 +991,7 @@ Tooltips:
     Ignore Default Arguments: Skicka inga förvalda argument till den externa spelaren utöver videons webbadress, exempelvis uppspelningshastighet eller spellistans webbadress. Anpassade argument skickas fortfarande vidare.
   Distraction Free Settings:
     Hide Channels: Ange ett kanal-ID för att dölja kanalens videor, spellistor och kanalsida från sökresultat, rekommendationer och sidorna ”Populärt just nu” och ”Mest populärt”. Kanal-ID:t måste matcha exakt och är skiftlägeskänsligt.
-    Hide Subscriptions Live: Den här inställningen åsidosätts av inställningen ”{appWideSetting}” för hela programmet under ”{subsection}” i ”{settingsSection}”.
+    Hide Subscriptions Live: Den här inställningen åsidosätts av inställningen ”{appWideSetting}” för hela appen under ”{subsection}” i ”{settingsSection}”.
     Hide Videos, Playlists and Channels Containing Text: Ange ett ord, ordfragment eller en fras för att dölja videor, spellistor och kanaler vars ursprungliga titlar innehåller texten. Matchningen är inte skiftlägeskänslig och gäller i hela FreeTube, förutom historiken, dina spellistor och videor i spellistor.
     Hide Videos on Watch: Dölj sedda videor på flikarna ”Videor”, ”Shorts” och ”Live” på prenumerations- och kanalsidorna. Fliken ”Hem” på kanalsidorna påverkas inte.
   Experimental Settings:
@@ -1130,7 +1130,7 @@ Keys:
   arrowleft: Vänsterpil
   arrowright: Högerpil
   arrowup: Uppåtpil
-Compact side navigation: Fäll in sidnavigeringen
-Expand side navigation: Fäll ut sidnavigeringen
+Compact side navigation: Fäll in sidpanelen
+Expand side navigation: Fäll ut sidpanelen
 Screenshot Clipboard Success: Skärmdumpen har kopierats till urklipp
 Screenshot Clipboard Error: Det gick inte att kopiera skärmdumpen till urklipp
