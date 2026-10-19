@@ -5,10 +5,10 @@
       :aria-labelledby="id"
       class="button"
       type="button"
-      @mouseenter="setHovered(true)"
-      @mouseleave="setHovered(false)"
-      @focus="setFocused(true)"
-      @blur="setFocused(false)"
+      @mouseenter="setHovered"
+      @mouseleave="setHovered"
+      @focus="setFocused"
+      @blur="setFocused"
     >
       <FontAwesomeIcon :icon="['fas', 'question-circle']" />
     </button>
@@ -29,7 +29,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, onBeforeUnmount, ref, useTemplateRef, useId } from 'vue'
+import { computed, onBeforeUnmount, ref, reactive, useTemplateRef, useId } from 'vue'
 
 const props = defineProps({
   position: {
@@ -59,7 +59,7 @@ const tooltipRef = useTemplateRef('tooltipRef')
 const isHovered = ref(false)
 const isFocused = ref(false)
 const isBttnOutOfView = ref(false)
-const tooltipStyle = ref({ top: '0px', left: '0px' })
+const tooltipStyle = reactive({ top: '0px', left: '0px' })
 const resolvedPosition = ref(props.position)
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -138,20 +138,24 @@ function updatePosition() {
   const maxLeft = viewportWidth - VIEWPORT_MARGIN - tooltipRect.width
   left = Math.max(minLeft, Math.min(left, maxLeft))
 
-  tooltipStyle.value = {
-    top: `${top}px`,
-    left: `${left}px`,
-  }
+  tooltipStyle.top = `${top}px`
+  tooltipStyle.left = `${left}px`
   resolvedPosition.value = position
 }
 
-function setHovered(value) {
-  isHovered.value = value
+/**
+ * @param {PointerEvent} event
+ */
+function setHovered(event) {
+  isHovered.value = event.type === 'mouseenter'
   refresh()
 }
 
-function setFocused(value) {
-  isFocused.value = value
+/**
+ * @param {FocusEvent} event
+ */
+function setFocused(event) {
+  isFocused.value = event.type === 'focus'
   refresh()
 }
 
