@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue'
+import { defineComponent, shallowRef } from 'vue'
 import { isNavigationFailure, NavigationFailureType } from 'vue-router'
 import { mapActions, mapMutations } from 'vuex'
 import shaka from 'shaka-player'
@@ -94,7 +94,9 @@ export default defineComponent({
   setup: function () {
     const { t, locale } = useI18n()
 
-    return { t, currentLocale: locale }
+    const liveChat = shallowRef(null)
+
+    return { t, currentLocale: locale, liveChat }
   },
   data: function () {
     return {
@@ -107,7 +109,6 @@ export default defineComponent({
       videoPlayerLoaded: false,
       isFamilyFriendly: false,
       isLive: false,
-      liveChat: null,
       isLiveContent: false,
       isUpcoming: false,
       isPostLiveDvr: false,
