@@ -613,6 +613,10 @@ Settings:
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
     UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URLa (lehenetsia https://dearrow-thumb.ajay.app da)
+    Excluded Channels:
+      Disabled Message: Kanal batzuk IDaren bidez baztertu dira eta ez dira prozesatu. Funtzioa blokeatuta dago ID horiek eguneratzen diren bitartean
+      Excluded Channels: Baztertutako kanalak
+      Tooltip: Idatzi kanal baten IDa SponsorBlock desgaitzeko. Kanal honetako bideoetako babesle-zatiak ez dira saltatuko. Idatzitako kanalaren IDak guztiz bat etorri behar du, eta maiuskulak eta minuskulak bereizten ditu.
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
     Hide Unsubscribe Button: Ezkutatu harpidetza kentzeko botoia
@@ -719,6 +723,7 @@ Channel:
       Newest: 'Berrienak'
       Oldest: 'Zaharrenak'
       Most Popular: 'Jarraituenak'
+    This channel has videos but none could be displayed, try fetching more: Kanal honek bideoak ditu, baina ezin izan da bat ere erakutsi; saiatu gehiago eskuratzen
   Playlists:
     Playlists: 'Erreprodukzio-zerrendak'
     This channel does not currently have any playlists: 'Kanal honek ez du erreprodukzio-zerrendarik'
@@ -888,6 +893,13 @@ Video:
   Premiere: Estreinaldia
   Playlist:
     Unavailable videos are hidden: Erabilgarri ez dagoen bideo 1 ezkutatuta dago | Erabilgarri ez dauden {count} bideo ezkutatuta daude
+  Enable SponsorBlock on Channel: Gaitu SponsorBlock kanalean
+  Disable SponsorBlock on Channel: Desgaitu SponsorBlock kanalean
+  AI: AA
+  'AI: Content was made with AI': 'AA: edukia adimen artifizialarekin egin da'
+  How this was made: Nola egin den
+  Station: Irratia
+  Reload Page: Freskatu orria
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -968,7 +980,7 @@ Tooltips:
     Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen motorra. Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari bat behar du konektatzeko.'
     Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen ordezko metodo gisa, posible denean.'
     Thumbnail Preference: 'FreeTubeko miniatura guztiak bideoaren fotograma batekin ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
-    Invidious Instance: 'API deietan Freetube konektatuko den Individious instantzia.'
+    Invidious Instance: 'FreeTube API deietarako konektatuko den Invidious instantzia. Ezarpen honen aldaketek uneko leihoari soilik eragiten diote, instantzia hau lehenetsi gisa ezartzen ez baduzu.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun herrialdeko joerako bideoak hautatzeko.'
     External Link Handling: "Lehenetsitako portaera hautatu, Freetuben ireki ezin den esteka bat klikatua izan denean.\nLehentasunez, Freetubek lehenetsitako nabigatazailean irekiko du klikatutako esteka.\n"
     Open Deep Links In New Window: FreeTubera pasatzen diren URLak, birbideratzeko arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean irekiko dira.
@@ -1153,3 +1165,5 @@ Compact side navigation: Trinkotu alboko nabigazioa
 Expand side navigation: Zabaldu alboko nabigazioa
 Screenshot Clipboard Success: Pantaila-argazkia arbelean gorde da
 Screenshot Clipboard Error: Pantaila-argazkia arbelean kopiatzeak huts egin du
+SponsorBlock Disabled on Channel: SponsorBlock desgaituta dago {channel} kanalean
+SponsorBlock Enabled on Channel: SponsorBlock gaituta dago {channel} kanalean
