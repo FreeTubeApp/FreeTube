@@ -303,17 +303,15 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
       shownResults.value = shownResults.value.concat(results)
     } else {
       shownResults.value = results
-      hasMoreResults.value = results.length > 0
+    }
+    hasMoreResults.value = results.length > 0
+    if (results.length === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
     }
 
     isLoading.value = false
 
     searchPage.value++
-
-    if (results.length === 0) {
-      showToast(t('Search Filters.There are no more results for this search'))
-      hasMoreResults.value = false
-    }
 
     const historyPayload = {
       query: payload.query,
