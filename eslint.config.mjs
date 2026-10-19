@@ -323,6 +323,7 @@ export default defineConfig([
 
       'vue/no-unused-emit-declarations': 'error',
       'vue/prefer-use-template-ref': 'error',
+      'vue/no-undef-directives': 'error',
 
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-property-names': 'error',

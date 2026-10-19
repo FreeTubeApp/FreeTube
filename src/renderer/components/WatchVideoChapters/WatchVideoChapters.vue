@@ -68,6 +68,7 @@
 <script setup>
 import { computed, ref, useTemplateRef, watch } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import FtCard from '../ft-card/ft-card.vue'
 
