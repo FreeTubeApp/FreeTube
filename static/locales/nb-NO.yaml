@@ -195,6 +195,7 @@ User Playlists:
   Export list of URLs: Eksporter liste over URL-er
   Move Video to the Top: Flytt videoen til toppen
   Move Video to the Bottom: Flytt videoen til bunnen
+  This playlist is private or does not exist.: Denne spillelisten er privat eller finnes ikke.
 History:
   # On History Page
   History: 'Historikk'
@@ -582,6 +583,8 @@ Settings:
     Hide Channel Courses: Skjul «Kurs»-fanen i kanaler
     Hide Subscriptions Posts: Skjul innlegg fra abonnementer
     Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
+    Add: Legg til
+    Remove: Fjern
   The app needs to restart for changes to take effect. Restart and apply change?: Start programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet over
@@ -598,6 +601,10 @@ Settings:
     UseDeArrowTitles: Bruk DeArrow-videotitler
     UseDeArrowThumbnails: Bruk DeArrow for miniatyrbilder
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow miniatyrbildegenerator API-adresse (standard er https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Noen kanaler ble ekskludert utifra ID og ble ikke prossesert. Denne funksjonen er deaktivtert inntil ID-ene er oppdatert
+      Excluded Channels: Ekskluderte kanaler
+      Tooltip: Skriv inn en kanal-ID for å deaktive SponsorBlock på deres videoer. Sponsorsegmenter på deres videoer vil da ikke hoppes over. Kanal-ID-en må samsvare fullstendig og skiller mellom store og små bokstaver.
   External Player Settings:
     Custom External Player Arguments: Egendefinerte argumenter for ekstern avspiller
     Custom External Player Executable: Egendefinert kjørbar fil for ekstern avspiller
@@ -1012,6 +1019,8 @@ External link opening has been disabled in the general settings: Åpning av ekst
 Search Bar:
   Clear Input: Tøm inndata
   Remove: Fjern
+  Open Search Container: Åpne søkecontainer
+  Search: Søk
 Are you sure you want to open this link?: Er du sikker på at du vil åpne denne lenken?
 New Window: Nytt vindu
 Channels:
