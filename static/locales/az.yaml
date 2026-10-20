@@ -189,6 +189,7 @@ User Playlists:
   Move Video to the Bottom: Videonu Ən Aşağıya Keçir
   Export list of URLs: URL-lərin siyahısını ixrac et
   TotalTimePlaylist: 'Ümumi vaxt: {duration}'
+  This playlist is private or does not exist.: Bu pleylist ya şəxsidir, ya da mövcud deyil.
 History:
   # On History Page
   History: 'Tarixçə'
