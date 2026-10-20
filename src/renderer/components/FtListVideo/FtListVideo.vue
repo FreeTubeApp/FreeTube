@@ -28,7 +28,7 @@
         class="thumbnailLink"
         tabindex="-1"
         :to="watchVideoRouterLink"
-        @click="handleWatchPageLinkClick"
+        @click.capture="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -155,7 +155,7 @@
       <RouterLink
         class="title"
         :to="watchVideoRouterLink"
-        @click="handleWatchPageLinkClick"
+        @click.capture="handleWatchPageLinkClick"
       >
         <h3
           class="h3Title"
@@ -930,17 +930,10 @@ const watchPageLinkQuery = computed(() => {
   return query
 })
 
-const watchVideoRouterLink = computed(() => {
-  // For `router-link` attribute `to`
-  if (!externalPlayerIsDefaultViewingMode.value) {
-    return {
-      path: `/watch/${id.value}`,
-      query: watchPageLinkQuery.value,
-    }
-  } else {
-    return {}
-  }
-})
+const watchVideoRouterLink = computed(() => ({
+  path: `/watch/${id.value}`,
+  query: watchPageLinkQuery.value,
+}))
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useDeArrowTitles = computed(() => store.getters.getUseDeArrowTitles)
@@ -964,8 +957,12 @@ const deArrowCache = computed(() => store.getters.getDeArrowCache[id.value])
 
 const disableChannelLinks = computed(() => store.getters.getDisableChannelLinks)
 
-function handleWatchPageLinkClick() {
+/**
+ * @param {PointerEvent} event
+ */
+function handleWatchPageLinkClick(event) {
   if (externalPlayerIsDefaultViewingMode.value) {
+    event.preventDefault()
     handleExternalPlayer()
   }
 }
