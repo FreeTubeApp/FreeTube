@@ -626,6 +626,7 @@ Settings:
     Experimental Settings: Eksperimentelt
     Replace HTTP Cache: Erstatt HTTP-hurtiglager
     Warning: Disse innstillingene er eksperimentelle, og kan gjøre at programmet krasjer. Det anbefales at du tar kopi av dataene dine. Bruk på egen risiko!
+    Disable Hardware Acceleration: Deaktiver maskinvareakselerering
   Password Settings:
     Remove Password: Fjern passord
     Password Settings: Passord
@@ -675,6 +676,7 @@ Channel:
       Newest: 'Nyeste'
       Oldest: 'Eldste'
       Most Popular: 'Mest populære'
+    This channel has videos but none could be displayed, try fetching more: Denne kanalen har videoer, men ingen kunne vises. Prøv å hente inn flere.
   Playlists:
     Playlists: 'Spillelister'
     This channel does not currently have any playlists: 'Kanalen har ingen spillelister'
@@ -844,6 +846,16 @@ Video:
   Private: Private videoer kan ikke sees i FreeTube, da de krever Google-innlogging og eierskap over videoen.
   Collapse Playlist: Minske spilleliste
   Expand Playlist: Utvid spilleliste
+  Enable SponsorBlock on Channel: Aktiver SponsorBlock på en kanal
+  Disable SponsorBlock on Channel: Deaktiver SponsorBlock på en kanal
+  AI: KI
+  'AI: Content was made with AI': 'KI: Innholdet ble laget med KI'
+  How this was made: Hvordan dette ble laget
+  Station: Stasjon
+  Premiere: Premiere
+  Reload Page: Last inn side på nytt
+  Playlist:
+    Unavailable videos are hidden: 1 utilgjengelig video vises ikke | {count} utilgjengelige videoer vises ikke
 Playlist:
   #& About
   View Full Playlist: 'Vis full spilleliste'
@@ -865,6 +877,7 @@ Playlist:
     VideoTitleDescending: Tittel (Å-A)
     Custom: Tilpasset
     VideoDurationAscending: Varighet (korteste)
+  Unavailable videos are hidden: Utilgjengelige videoer vises ikke
 Change Format:
   Change Media Formats: 'Endre videoformater'
   Use Dash Formats: 'Bruk DASH-formater'
@@ -912,6 +925,7 @@ Comments:
   View 1 reply from {channelName}: Vis 1 svar fra {channelName}
   View {replyCount} replies from {channelName} and others: Vis {replyCount} svar fra {channelName} og andre
   Loading replies: Laster inn svar...
+  Comments are turned off: Kommentarer er skrudd av
 Up Next: 'Neste'
 
 # Toast Messages
@@ -971,6 +985,7 @@ Profile:
   Edit Profile Name: Endre profilnavn
   Close Profile Dropdown: Lukk profilrullgardinmenyen
   Open Profile Dropdown: Åpne profilrullgardinmenyen
+  Go To Profile Manager: Gå til profiladministrasjon
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Denne videoen er utilgjengelig på grunn av manglende formater. Dette kan skyldes tilgangbegrensninger i landet ditt.
 Tooltips:
   General Settings:
@@ -998,6 +1013,7 @@ Tooltips:
     Ignore Default Arguments: Ikke send noen standardargumenter til den eksterne spilleren utenom videolenken (f.eks avspillingshastighet, spillelistelenke, osv.). Egenvalgte argumenter vil fortsatt bli videresendt.
   Experimental Settings:
     Replace HTTP Cache: Skrur av Electrons diskbaserte HTTP-hurtiglager og skrur på bildehurtiglager i minne. Medfører økt minnebruk.
+    Disable Hardware Acceleration: Skrur av maskinvareakselerasjon som bruker grafikkortet ditt. Dette kan fikse grafikkproblemer, men du vil se redusert ytelse.
   Distraction Free Settings:
     Hide Channels: Skiv inn en kanal-ID for å skjule alle videoer, spillelister og selve kanalen fra å vises i søk eller andre steder. Kanal-ID-en må være et nøyaktig treff, og skiller mellom små og store bokstaver.
     Hide Subscriptions Live: Innstillingen overstyres av «{appWideSetting}» for hele programmet, i «{subsection}»-delen av «{settingsSection}»
@@ -1146,3 +1162,5 @@ Compact side navigation: Kompakt sidenavigasjon
 Expand side navigation: Utvid sidenavigasjon
 Screenshot Clipboard Success: Lagret skjermbilde til utklippstavlen
 Screenshot Clipboard Error: Kopiering av skjermbilde til utklippstavlen mislyktes
+SponsorBlock Disabled on Channel: SponsorBlock deaktivert på {channel}
+SponsorBlock Enabled on Channel: SponsorBlock aktivert på {channel}
