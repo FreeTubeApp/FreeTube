@@ -192,6 +192,7 @@ User Playlists:
   Export list of URLs: Exporter la liste des URL
   Move Video to the Top: Déplacer la vidéo au début
   Move Video to the Bottom: Déplacer la vidéo à la fin
+  This playlist is private or does not exist.: Cette playlist est privée ou n’existe pas.
 History:
   # On History Page
   History: 'Historique'
@@ -673,7 +674,7 @@ Channel:
     Videos: 'Vidéos'
     Sort Types:
       Newest: 'Plus récent'
-      Oldest: 'Plus ancien'
+      Oldest: 'Plus anciennes'
       Most Popular: 'Les plus populaires'
     This channel has videos but none could be displayed, try fetching more: Cette chaîne a des vidéos mais aucune n'a pu être affichée, tenter d'en récupérer davantage
   Playlists:
