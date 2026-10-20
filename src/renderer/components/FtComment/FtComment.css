@@ -109,6 +109,7 @@
 
 .commentOwner {
   background-color: var(--secondary-card-bg-color);
+  border: 1px solid var(--tertiary-text-color);
   border-radius: 10px;
   padding-inline: 10px;
 }
