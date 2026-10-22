@@ -382,8 +382,7 @@ Settings:
     Enable Theatre Mode by Default: 'Kinomodus som forvalg'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Standard avspillingshastighet'
-    Default Video Format:
-      Default Video Format: 'Standard videoformat'
+    Default Media Format:
       Dash Formats: 'DASH-formater'
       Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
@@ -1000,7 +999,7 @@ Tooltips:
     Fetch Feeds from RSS: Bruk RSS istedenfor FreeTube sin standardmetode for innhenting av abonnementsstrømmen din. RSS er raskere og forhindrer IP-blokkering, men mangler noe informasjon som videovarighet, sanntidsstatus og innlegg
     Fetch Automatically: Hent abonnementer når programmet starter og når et nytt vindu åpnes.
   Player Settings:
-    Default Video Format: Velg formater som blir brukt når en video spilles. DASH-formater kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p, men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
+    Default Media Format: Velg formater som blir brukt når en video spilles. DASH-formater kan spilles i høyere kvalitet. Foreldede formater er begrenset opptil 360p, men bruker mindre båndbredde. Lydformater er kun lydstrømmer.
     Proxy Videos Through Invidious: Kobler til Invidious for å servere videoer istedenfor å koble direkte til YouTube.
     Skip by Scrolling Over Video Player: Bruk rullehjulet for å hoppe rundt gjennom videoen i MPV-stil.
     Scroll Playback Rate Over Video Player: Når pekeren er over videoen kan du trykke og holde Ctrl-tasten (⌘ på Mac) og rulle musehjulet forover eller bakover for å kontrollere avspillingshastigheten. Trykk og hold Ctrl-tasten (⌘ på Mac) og venstreklikk på musen for å gå tilbake til den vanlige avspillingshastighet (1x med mindre det har blitt endret i innstillingene).

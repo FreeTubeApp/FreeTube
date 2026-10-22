@@ -384,8 +384,8 @@ Settings:
     Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
     Default Volume: 'Default volume'
     Default Playback Rate: 'Default playback rate'
-    Default Video Format:
-      Default Video Format: 'Default video format'
+    Default Media Format:
+      Default Media Format: 'Default media format'
       Dash Formats: 'DASH formats'
       Legacy Formats: 'Legacy formats'
       Audio Formats: 'Audio formats'
@@ -974,7 +974,7 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default method to grab your subscription feed. RSS is faster and prevents IP blocking, but it doesn’t provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription feed on startup and when a new window is opened.
   Player Settings:
-    Default Video Format: Set the formats used when a video plays. DASH formats can play higher qualities. Legacy formats are limited to a max of 360p but use less bandwidth. Audio formats are audio only streams.
+    Default Media Format: Set the formats used when a video plays. DASH formats can play higher qualities. Legacy formats are limited to a max of 360p but use less bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead of making a direct connection to YouTube.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse to quickly return to the default playback rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.

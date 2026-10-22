@@ -380,8 +380,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activar modo cinema por defecto'
     Default Volume: 'Volume predeterminado'
     Default Playback Rate: 'Velocidade de reprodución predeterminada'
-    Default Video Format:
-      Default Video Format: 'Formato de vídeo predeterminado'
+    Default Media Format:
       Dash Formats: 'Formato dash'
       Legacy Formats: 'Formato antigo (Legacy)'
       Audio Formats: 'Formato de audio'
@@ -937,7 +936,7 @@ Tooltips:
     Open Deep Links In New Window: As URL enviadas a FreeTube, como as que proveñen de extensións do navegador ou argumentos da liña de comandos, ábrense nunha nova xanela.
   Player Settings:
     Proxy Videos Through Invidious: 'Conectarase a Invidious para obter vídeos no canto de recorrer directamente a YouTube.'
-    Default Video Format: 'Establece os formatos usados cando se reproduce un vídeo. Os formatos DASH poden reproducir calidades máis altas. Os formatos legados están limitados a un máximo de 360p, pero usan menos ancho de banda. Os formatos de audio son fluxos só de son.'
+    Default Media Format: 'Establece os formatos usados cando se reproduce un vídeo. Os formatos DASH poden reproducir calidades máis altas. Os formatos legados están limitados a un máximo de 360p, pero usan menos ancho de banda. Os formatos de audio son fluxos só de son.'
     Scroll Playback Rate Over Video Player: Mentres o cursor está sobre o vídeo, manteña premida a tecla Control (tecla Comando no Mac) e desprácese coa roda do rato cara adiante ou cara atrás para controlala velocidade da reprodución. Manteña premida a tecla Control (tecla Comando no Mac) e prema co botón esquerdo do rato para voltar rapidamente á taxa de reprodución predeterminada (1x a menos que o modificase na configuración).
     Skip by Scrolling Over Video Player: Usala roda de desprazamento para saltalo vídeo, estilo MPV.
   Subscription Settings:

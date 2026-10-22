@@ -378,8 +378,7 @@ Settings:
     Enable Theatre Mode by Default: 'Habilitar "Modo Teatro" por padrão'
     Default Volume: 'Volume'
     Default Playback Rate: 'Velocidade de reprodução'
-    Default Video Format:
-      Default Video Format: 'Formato de vídeo'
+    Default Media Format:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formato de áudio'
@@ -992,7 +991,7 @@ Tooltips:
     Fetch Feeds from RSS: Quando habilitado, o FreeTube usará RSS em vez de seu método padrão para obter o feed de sua inscrição. O RSS é mais rápido e evita bloqueio de IP, mas não fornece certas informações como duração do vídeo, status ao vivo ou postagens
     Fetch Automatically: Quando habilitado, o FreeTube buscará automaticamente seu feed de inscrições na inicialização e quando uma nova janela for aberta.
   Player Settings:
-    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são limitados a um máximo de 360p, mas usam menos largura de banda. Formatos de áudio são para transmissões sem vídeo.
+    Default Media Format: Define os formatos usados quando um vídeo é reproduzido. Formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos são limitados a um máximo de 360p, mas usam menos largura de banda. Formatos de áudio são para transmissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta com o YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, pressione e segure a tecla Ctrl (tecla Command no Mac) e role a roda do mouse para frente ou para trás para controlar a taxa de reprodução. Pressione e segure a tecla Ctrl (tecla Command no Mac) e clique com o botão esquerdo do mouse para retornar rapidamente à taxa de reprodução padrão (1x a menos que tenha sido alterada nas configurações).
     Skip by Scrolling Over Video Player: Use o botão de rolagem do mouse para avançar ou retroceder o vídeo, estilo MPV.

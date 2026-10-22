@@ -211,8 +211,7 @@ Settings:
     Enable Theatre Mode by Default: 'Samodejno vklopi gledališki način'
     Default Volume: 'Prevzeta glasnost'
     Default Playback Rate: 'Prevzeta hitrost predvajanja'
-    Default Video Format:
-      Default Video Format: 'Prevzeta oblika videoposnetka'
+    Default Media Format:
       Dash Formats: 'DASH oblike'
       Legacy Formats: 'Zapuščinske oblike'
       Audio Formats: 'Audio oblike'

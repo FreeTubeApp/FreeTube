@@ -305,8 +305,7 @@ Settings:
     Enable Theatre Mode by Default: 'Kinomodus som standard'
     Default Volume: 'Standardvolum'
     Default Playback Rate: 'Avspelingshastigheit'
-    Default Video Format:
-      Default Video Format: 'Videoformat'
+    Default Media Format:
       Dash Formats: 'DASH-format'
       Legacy Formats: 'Utdaterte format'
       Audio Formats: 'Lydformat'
@@ -681,7 +680,7 @@ Tooltips:
     External Link Handling: "Vel kva FreeTube skal gjer, når ein trykker på ei lenke, som ikkje kan bli opna av FreeTube. \nFreeTube vil vanlegvis opne lenka i din standardnettlesar.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Koplar til Invidious for å servere videoar i staden for å kople direkte til YouTube.'
-    Default Video Format: 'Sett format som blir brukt når ein video spelast. DASH-format kan spele høgare kvalitet. Utdaterte format er avgrensa til maks 720p, men bruker mindre bandbreidde. Lydformat er berre for lydstraumar.'
+    Default Media Format: 'Sett format som blir brukt når ein video spelast. DASH-format kan spele høgare kvalitet. Utdaterte format er avgrensa til maks 720p, men bruker mindre bandbreidde. Lydformat er berre for lydstraumar.'
     Skip by Scrolling Over Video Player: Bla for å hoppe deg gjennom videoen i MPV-stil.
     Scroll Playback Rate Over Video Player: Mens musepeikaren er over videoen, trykk og hald inne CTRL-tasten (kommandotasen på Mac) og bla opp og ned for å kontrollere avspelingshastigheita. Trykk og hald inne CTRL-tasten (kommandotasten på Mac) og venstretrykk rakst for å gå tilbake til standard avspelingshastigheita. Standard avspelingshastigheit er 1x med mindre den har blitt endra i innstillingane.
   Subscription Settings:

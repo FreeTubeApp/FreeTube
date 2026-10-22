@@ -428,8 +428,7 @@ Settings:
     Default Playback Rate: 'Verstekafspeelsnelheid'
     Max Video Playback Rate: 'Maksimum video-afspeelsnelheid'
     Video Playback Rate Interval: 'Video-afspeelsnelheidinterval'
-    Default Video Format:
-      Default Video Format: 'Verstekvideoformaat'
+    Default Media Format:
       Dash Formats: 'DASH-formate'
       Legacy Formats: 'Verouderde formate'
       Audio Formats: 'Oudioformate'
@@ -962,7 +961,7 @@ Tooltips:
     Open Deep Links In New Window: Bronadresse wat aan FreeTube gegee word, soos wat deur blaaieruitbreidings of bevellynargumente gestuur word, word in ’n nuwe venster geopen.
   Player Settings:
     Proxy Videos Through Invidious: 'FreeTube sal verbind met Invidious en die video’s van daar aflaai eerder as om ’n direkte verbinding met YouTube te maak.'
-    Default Video Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel. DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks van 360p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
+    Default Media Format: 'Kies die formate wat gebruik word wanneer ’n video afspeel. DASH-formate kan hoër kwaliteit afspeel. Legaat formate word beperk tot ’n maks van 360p maar gebruik minder bandwydte. Oudio formate is slegs oudio strome.'
     Scroll Playback Rate Over Video Player: 'Terwyl die muis oor die video is, druk en hou die Control-toets (Command-toets op Mac) en rol met die muis om die afspeelsnelheid te beheer. Druk en hou die Control-toets (Command-toets op Mac) en klik met die linker muisknop om vinnig terug te keer na die verstek afspeelsnelheid (1x tensy aangepas in die instellings).'
     Skip by Scrolling Over Video Player: 'Gebruik die rolwiel om deur die video te spoel, soos by MPV.'
   External Player Settings:

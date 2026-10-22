@@ -378,8 +378,7 @@ Settings:
     Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
     Default Volume: 'Predvolená hlasitosť'
     Default Playback Rate: 'Predvolená rýchlosť prehrávania'
-    Default Video Format:
-      Default Video Format: 'Predvolený formát videa'
+    Default Media Format:
       Dash Formats: 'Formáty DASH'
       Legacy Formats: 'Staré formáty'
       Audio Formats: 'Zvukové formáty'
@@ -944,7 +943,7 @@ Tooltips:
     Fetch Feeds from RSS: Keď je zapnuté, FreeTube použije RSS namiesto predvolenej metódy na získanie vášho odoberaného kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie ako trvanie videa, stav naživo alebo príspevky
     Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberaný kanál pri spustení a keď je otvorené nové okno.
   Player Settings:
-    Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
+    Default Media Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
     Proxy Videos Through Invidious: Pripojí sa k Invidious na poskytovanie videí namiesto priameho pripojenia k YouTube.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves Command na Macu) a kliknite ľavým tlačidlom myši pre rýchly návrat k predvolenej rýchlosti prehrávania (1x, ak nebola zmenená v nastaveniach).
     Skip by Scrolling Over Video Player: Použite koliesko myši na preskakovanie cez video v štýle MPV.

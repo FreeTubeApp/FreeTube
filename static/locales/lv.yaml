@@ -332,8 +332,7 @@ Settings:
     Default Playback Rate: 'Noklusējuma atskaņošanas ātrums'
     Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums'
     Video Playback Rate Interval: 'Video atskaņošanas ātruma intervāls'
-    Default Video Format:
-      Default Video Format: 'Noklusējuma video formāts'
+    Default Media Format:
       Dash Formats: 'DASH formāti'
       Legacy Formats: 'Mantojuma formāti'
       Audio Formats: 'Audio formāti'
@@ -805,7 +804,7 @@ Tooltips:
     External Link Handling: |
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Default Media Format: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

@@ -378,8 +378,7 @@ Settings:
     Enable Theatre Mode by Default: 'Standardno aktiviraj kazališni modus'
     Default Volume: 'Standardna glasnoća'
     Default Playback Rate: 'Standardna brzina reprodukcije'
-    Default Video Format:
-      Default Video Format: 'Standardni videoformat'
+    Default Media Format:
       Dash Formats: 'DASH formati'
       Legacy Formats: 'Stari formati'
       Audio Formats: 'Audioformati'
@@ -965,7 +964,7 @@ Version {versionNumber} is now available!  Click for more details: Dostupna je v
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Ovaj video nije dostupan zbog nedostajućih formata. Uzrok tome može biti nedostupnost u zemlji.
 Tooltips:
   Player Settings:
-    Default Video Format: Postavi formate za reprodukciju videa. DASH formati mogu reproducirati višu kvalitetu slike. Stari formati su ograničeni na 360 p, ali su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
+    Default Media Format: Postavi formate za reprodukciju videa. DASH formati mogu reproducirati višu kvalitetu slike. Stari formati su ograničeni na 360 p, ali su zato brži. Audioformati sadrže samo prijenose audiosnimaka.
     Proxy Videos Through Invidious: Za reprodukciju videa povezat će se s Invidiousom umjesto izravnog povezivanja s YouTubeom.
     Scroll Playback Rate Over Video Player: Dok se pokazivač nalazi na videu, pritisni i drži tipku Control (Command tipka na Macu) i pomiči kotačić miša naprijed ili natrag za upravljanje brzine reprodukcije. Pritisni i drži tipku Control (Command tipka na Macu) i pritisni lijevom tipkom miša za brzo vraćanje na standardnu brzinu reprodukcije (jednostruka brzina, ukoliko nije promijenjena u postavkama).
     Skip by Scrolling Over Video Player: Koristi kotačić za pregledavanje videa, MPV stil.

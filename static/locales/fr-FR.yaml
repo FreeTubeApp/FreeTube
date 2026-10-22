@@ -379,8 +379,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
-    Default Video Format:
-      Default Video Format: 'Format de vidéo par défaut'
+    Default Media Format:
       Dash Formats: 'Formats DASH'
       Legacy Formats: 'Format Legacy'
       Audio Formats: 'Formats audio'
@@ -996,7 +995,7 @@ Tooltips:
     Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations comme la durée de la vidéo, le statut en direct ou les posts
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement le flux de votre abonnement au démarrage et à l'ouverture d'une nouvelle fenêtre.
   Player Settings:
-    Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo. Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy sont limités à un maximum de 360p mais utilisent moins de bande passante. Les formats audio sont des flux audio uniquement.
+    Default Media Format: Définir les formats utilisés lors de la lecture d'une vidéo. Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy sont limités à un maximum de 360p mais utilisent moins de bande passante. Les formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo, maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse de lecture. Maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et cliquez sur le bouton gauche de la souris pour revenir rapidement à la vitesse de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer d'une vidéo à l'autre, en style MPV.
