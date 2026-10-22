@@ -391,6 +391,7 @@ Settings:
       Dash Formats: 'DASH formatuak'
       Legacy Formats: 'Formatu zaharrak'
       Audio Formats: 'Audio-formatuak'
+      Default Media Format: Multimedia-formatu lehenetsia
     Default Quality:
       Default Quality: 'Lehenetsitako kalitatea'
       Auto: 'Automatikoa'
