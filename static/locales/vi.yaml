@@ -375,8 +375,7 @@ Settings:
     Enable Theatre Mode by Default: 'Bật chế độ rạp hát theo mặc định'
     Default Volume: 'Âm lượng mặc định'
     Default Playback Rate: 'Tốc độ phát mặc định'
-    Default Video Format:
-      Default Video Format: 'Định dạng video mặc định'
+    Default Media Format:
       Dash Formats: 'Định dạng DASH'
       Legacy Formats: 'Định dạng Legacy'
       Audio Formats: 'Định dạng âm thanh'
@@ -971,7 +970,7 @@ Tooltips:
     Open Deep Links In New Window: Các URL được truyền đến FreeTube, chẳng hạn như thông qua các trình mở rộng trình duyệt tự động chuyển hướng hay đối số khị mở qua dòng lệnh, sẽ được mở trên một cửa sổ mới.
   Player Settings:
     Proxy Videos Through Invidious: Sẽ kết nối với Invidious để cung cấp video thay vì kết nối trực tiếp với YouTube.
-    Default Video Format: Cài đặt các định dạng được dùng khi phát video. Định dạng DASH có thể phát với chất lượng cao hơn. Các định dạng cũ được giới hạn ở mức tối đa là 360p nhưng chúng tiêu tốn ít băng thông hơn. Định dạng âm thanh là những luồng chỉ phát âm thanh.
+    Default Media Format: Cài đặt các định dạng được dùng khi phát video. Định dạng DASH có thể phát với chất lượng cao hơn. Các định dạng cũ được giới hạn ở mức tối đa là 360p nhưng chúng tiêu tốn ít băng thông hơn. Định dạng âm thanh là những luồng chỉ phát âm thanh.
     Scroll Playback Rate Over Video Player: Khi con trỏ chuột ở trên video, hãy nhấn và giữ phím Control (Phím Command trên máy Mac) và cuộn con lăn chuột tới hoặc lui để kiểm soát tốc độ phát. Nhấn và giữ phím Control (Phím Command trên Mac) và nhấp chuột trái để lập tức trở về tốc độ phát mặc định (1x trừ khi nó đã được thay đổi trong cài đặt).
     Skip by Scrolling Over Video Player: Sử dụng con lăn chuột để bỏ qua video, kiểu MPV.
   External Player Settings:

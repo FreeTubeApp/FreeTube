@@ -377,8 +377,7 @@ Settings:
     Enable Theatre Mode by Default: 'Theater­modus standaard inschakelen'
     Default Volume: 'Standaardvolume'
     Default Playback Rate: 'Standaard­afspeel­snelheid'
-    Default Video Format:
-      Default Video Format: 'Standaard­video­formaat'
+    Default Media Format:
       Dash Formats: 'DASH-formaten'
       Legacy Formats: 'Legacy formaten'
       Audio Formats: 'Audioformaten'
@@ -939,7 +938,7 @@ Version {versionNumber} is now available!  Click for more details: Versie {versi
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Deze video is niet beschikbaar vanwege ontbrekende videoformaten. Dit kan gebeuren als de video niet in uw land beschikbaar is.
 Tooltips:
   Player Settings:
-    Default Video Format: Selecteer de video indeling die wordt gebruikt wanneer u een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen. Legacy gaat niet hoger dan 360p maar gebruikt minder bandbreedte. Audio zal alleen het geluid streamen.
+    Default Media Format: Selecteer de video indeling die wordt gebruikt wanneer u een video afspeelt. DASH kan video's afspelen met hogere kwaliteitsinstellingen. Legacy gaat niet hoger dan 360p maar gebruikt minder bandbreedte. Audio zal alleen het geluid streamen.
     Proxy Videos Through Invidious: FreeTube zal verbinden met Invidious en daar de video's downloaden in de plaats van de video's rechtstreeks bij YouTube vandaan te halen.
     Scroll Playback Rate Over Video Player: Terwijl de muis zich over de video bevindt, houd de Control-toets (Command-toets op Mac) ingedrukt en scroll met de muis om de afspeelsnelheid te besturen. Houd de Control-toets (Command-toets op Mac) ingedrukt en klik met de linker muisknop om snel terug te schakelen naar de standaard afspeelsnelheid (1x tenzij aangepast in de instellingen).
     Skip by Scrolling Over Video Player: Gebruik het scroll-wieltje om door de video te spoelen, zoals bij MPV.

@@ -381,8 +381,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activar el modo cine por defecto'
     Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
-    Default Video Format:
-      Default Video Format: 'Formato de vídeo predeterminado'
+    Default Media Format:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos heredados'
       Audio Formats: 'Formatos de audio'
@@ -987,7 +986,7 @@ Tooltips:
     Fetch Feeds from RSS: Cuando se active, FreeTube usará RSS en lugar de su método predeterminado para obtener su suministro de suscripción. RSS es más rápido y evita el bloqueo de direcciones IP, pero no ofrece cierta información, como la duración de los vídeos, el estado de la retransmisión en directo o las publicaciones
     Fetch Automatically: Cuando esté habilitado, FreeTube obtendrá automáticamente su feed de suscripciones al iniciar y cuando se abra una nueva ventana.
   Player Settings:
-    Default Video Format: Selecciona el formato usado para reproducir vídeos. El formato DASH puede reproducir resoluciones más altas. El formato Legacy está limitado a 360p, pero requiere menos ancho de banda. El formato del audio se limita al reproducir solo audio.
+    Default Media Format: Selecciona el formato usado para reproducir vídeos. El formato DASH puede reproducir resoluciones más altas. El formato Legacy está limitado a 360p, pero requiere menos ancho de banda. El formato del audio se limita al reproducir solo audio.
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener vídeos en lugar de conectar directamente con YouTube.
     Scroll Playback Rate Over Video Player: Mientras el cursor se encuentre sobre el vídeo, mantenga presionada la tecla Control (tecla ⌘ en Mac) y gire la rueda del ratón hacia delante o hacia atrás para controlar la velocidad de reproducción. Mantenga la tecla Control (⌘ en Mac) y pulse con el botón izquierdo del ratón para volver rápidamente a la velocidad de reproducción predeterminada (1×, a menos que se haya modificado en la configuración).
     Skip by Scrolling Over Video Player: Use la rueda de desplazamiento para saltar el vídeo, estilo MPV.

@@ -372,8 +372,7 @@ Settings:
     Enable Theatre Mode by Default: 'Ota teatteritila käyttöön oletusarvoisesti'
     Default Volume: 'Äänenvoimakkuuden oletusarvo'
     Default Playback Rate: 'Toiston oletusnopeus'
-    Default Video Format:
-      Default Video Format: 'Videon oletusmuoto'
+    Default Media Format:
       Dash Formats: 'DASH-formaatit'
       Legacy Formats: 'Vanhat formaatit'
       Audio Formats: 'Ääniformaatit'
@@ -949,7 +948,7 @@ Tooltips:
     Fetch Feeds from RSS: Kun valittuna, FreeTube käyttää RSS-syötettä oletusmetodin sijaan tilauslistasi hakemisessa. RSS on nopeampi ja ehkäisee IP-estoa, mutta ei anna tietoja, kuten videon kesto tai livetila
     Fetch Automatically: Kun tämä on käytössä, FreeTube hakee automaattisesti tilauksesi syötteen, kun uusi ikkuna avataan.
   Player Settings:
-    Default Video Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 360p-resoluutioon, mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
+    Default Media Format: Aseta videon toistamisessa käytätettävä formaatti. DASH-formaatit toistavat korkealaatuisempia videoita. Legacy-formaatit ovat rajoitettu 360p-resoluutioon, mutta käyttävät vähemmän dataa. Audioformaatit ovat vain äänistriimeihin.
     Proxy Videos Through Invidious: Yhdistää Invidious-palvelimeen suoran YouTuben-yhteyden sijaan.
     Scroll Playback Rate Over Video Player: Kursorin ollessa videon päällä, paina Ctrl (Komentopainike Mac-tietokoneessa) pohjaan ja käytä hiiren rullaa muuttaaksesi toiston nopeutta. Palataksesi alkuperäiseen toistonopeuteen (1x ellei toisin määritelty asetuksissa), pidä Ctrl-painike (Komentopainike Mac-tietokoneessa) painettuna ja paina hiiren vasenta näppäintä.
     Skip by Scrolling Over Video Player: Käytä vieritysrullaa videon selaamiseen, MPV-tyyliin.

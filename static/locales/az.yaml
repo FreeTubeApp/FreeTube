@@ -410,8 +410,7 @@ Settings:
     Default Playback Rate: İlkin Oynatma Sürəti
     Max Video Playback Rate: Ən Yüksək Video Oynatma Sürəti
     Video Playback Rate Interval: Video Oynatma Sürəti Aralığı
-    Default Video Format:
-      Default Video Format: İlkin Video Formatı
+    Default Media Format:
       Dash Formats: DASH Formatları
       Legacy Formats: Köhnə Formatlar
       Audio Formats: Səs Formatları
@@ -822,7 +821,7 @@ Tooltips:
     Open Deep Links In New Window: Brauzer yönləndirmə əlavələri və ya əmr xətti arqumentləri ilə FreeTube-a ötürülən URL-lər yeni pəncərədə açılır.
   Player Settings:
     Proxy Videos Through Invidious: Videoları YouTube-a birbaşa qoşulmaq əvəzinə təqdim etmək üçün Invidious-a qoşulacaq.
-    Default Video Format: Video oynadılarkən istifadə olunan formatları təyin et. DASH formatları daha yüksək keyfiyyətdə oynadıla bilir. Köhnə formatlar maksimum 360p ilə məhdudlaşır, lakin daha az şəbəkə trafiki istifadə edir. Səs formatları isə yalnız səsdən ibarət yayımlardır.
+    Default Media Format: Video oynadılarkən istifadə olunan formatları təyin et. DASH formatları daha yüksək keyfiyyətdə oynadıla bilir. Köhnə formatlar maksimum 360p ilə məhdudlaşır, lakin daha az şəbəkə trafiki istifadə edir. Səs formatları isə yalnız səsdən ibarət yayımlardır.
     Scroll Playback Rate Over Video Player: Kursor videonun üzərindəykən, oynatma sürətini tənzimləmək üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçan çarxını irəli və ya geriyə sürüşdürün. İlkin oynatma sürətinə (tənzimləmələrdə dəyişdirilməyibsə, 1x) cəld qayıtmaq üçün Control düyməsini (Mac-də Command düyməsini) basıb saxlayın və siçanın sol düyməsini klikləyin.
     Skip by Scrolling Over Video Player: MPV üslubundakı kimi, videoda ötürmək üçün siçan çarxın istifadə et.
   External Player Settings:

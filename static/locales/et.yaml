@@ -385,8 +385,7 @@ Settings:
     Enable Theatre Mode by Default: 'Vaikimisi kasuta teatrivaadet (laia vaadet)'
     Default Volume: 'Vaikimisi helivaljus'
     Default Playback Rate: 'Vaikimisi videoesituse kiirus'
-    Default Video Format:
-      Default Video Format: 'Vaikimisi videovorming'
+    Default Media Format:
       Dash Formats: 'DASH-vormingud'
       Legacy Formats: 'Pärandvormingud'
       Audio Formats: 'Helivormingud'
@@ -1014,7 +1013,7 @@ Tooltips:
     External Link Handling: "Vali vaikekäitumine, kui vajutatakse linki, mida ei saa avada FreeTubes.\nVaikimisi avaneb link kasutaja vaikebrauseris.\n"
     Open Deep Links In New Window: FreeTube'ile brauseritest või käsurealt antud võrguaadressid avatakse uues aknas.
   Player Settings:
-    Default Video Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 360p ja seetõttu kasutavad nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
+    Default Media Format: Vali kasutatavad videovormingud. DASH-vormingutel on üldjuhul parem kvaliteet. Pärandvormingute kvaliteedi ülempiir on 360p ja seetõttu kasutavad nad vähem ribalaiust. Helivormingud kehtivad vaid helifailide jaoks.
     Proxy Videos Through Invidious: Kasutab videote esitamiseks Invidious'e teenust ega tee päringuid otse YouTube serveri pihta.
     Scroll Playback Rate Over Video Player: Kui kursor on video kohal, siis vajuta Ctrl klahvi (Mac'is ⌘ klahvi) ja taasesituse kiiruse muutmiseks keri hiireratast edasi ja tagasi. Tavakiiruse taastamiseks (kui sa seda seadistustest pole muutnud, siis on see 1x) hoia all Ctrl klahvi (Mac'is ⌘ klahvi) ja klõpsi hiire vasakut nuppu.
     Skip by Scrolling Over Video Player: MPV-stiilis video läbilappamiseks kasuta hiire ratast.

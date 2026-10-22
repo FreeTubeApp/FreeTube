@@ -414,8 +414,7 @@ Settings:
     Default Playback Rate: 'Cyfradd Chwarae Rhagosodedig'
     Max Video Playback Rate: 'Cyfradd Uchaf Chwarae Fideo'
     Video Playback Rate Interval: 'Ysbaid Cyfradd Chwarae Fideo'
-    Default Video Format:
-      Default Video Format: 'Fformat Fideo Rhagosodedig'
+    Default Media Format:
       Dash Formats: 'Fformatau DASH'
       Legacy Formats: 'Hen Fformatau'
       Audio Formats: 'Fformatau Sain'
@@ -994,7 +993,7 @@ Tooltips:
     Open Deep Links In New Window: Mae URLau wedi'u trosglwyddo i FreeTube, megis trwy ailgyfeirio estyniadau porwr neu ymresymiadau llinell orchymyn, yn cael eu hagor mewn ffenestr newydd.
   Player Settings:
     Proxy Videos Through Invidious: 'Bydd yn cysylltu ag Invidious i weini fideos yn lle gwneud cysylltiad uniongyrchol â YouTube.'
-    Default Video Format: 'Gosodwch y fformatau i''w defnyddio pan fydd fideo yn chwarae. Gall fformatau DASH chwarae ansoddau uwch. Mae hen fformatau wedi''u cyfyngu i uchafswm o 360p ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau sain yn unig.'
+    Default Media Format: 'Gosodwch y fformatau i''w defnyddio pan fydd fideo yn chwarae. Gall fformatau DASH chwarae ansoddau uwch. Mae hen fformatau wedi''u cyfyngu i uchafswm o 360p ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau sain yn unig.'
     Scroll Playback Rate Over Video Player: 'Tra bod y cyrchwr dros y fideo, pwyswch a daliwch y fysell Control (Command Key ar Mac) a sgroliwch olwyn y llygoden ymlaen neu yn ôl i reoli''r gyfradd chwarae. Pwyswch a dal y fysell Rheoli (Command Key ar Mac) a chliciwch i''r chwith ar y llygoden i ddychwelyd yn gyflym i''r gyfradd chwarae rhagosodedig (1x oni bai ei fod wedi''i newid yn y gosodiadau).'
     Skip by Scrolling Over Video Player: 'Defnyddiwch yr olwyn sgrolio i symud yn gyflym trwy''r fideo, arddull MPV.'
   External Player Settings:

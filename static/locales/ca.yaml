@@ -188,8 +188,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: 'Volum per defecte'
     Default Playback Rate: 'Velocitat de reproducció predeterminada'
-    Default Video Format:
-      Default Video Format: 'Format de vídeo predeterminat'
+    Default Media Format:
       Dash Formats: 'Formats DASH'
       Legacy Formats: 'Formats antics'
       Audio Formats: 'Formats d''àudio'

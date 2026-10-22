@@ -393,8 +393,7 @@ Settings:
     Default Playback Rate: Defaŭlta ludrapido
     Max Video Playback Rate: Maksimuma ludrapido
     Video Playback Rate Interval: Ludrapida intervalo
-    Default Video Format:
-      Default Video Format: Defaŭlta videaĵoformo
+    Default Media Format:
       Dash Formats: DASH-aj formoj
       Legacy Formats: Heredaĵaj formoj
       Audio Formats: Aŭdiaj formoj
@@ -1052,7 +1051,7 @@ Tooltips:
     Open Deep Links In New Window: URL-oj donataj al FreeTube, ekzemple de retumilaj etendaĵoj de alidirekto aŭ de komandliniaj argumentoj, estos malfermitaj en nova fenestro.
   Player Settings:
     Proxy Videos Through Invidious: Konektiĝos al Invidious por servi videaĵojn anstataŭ konektiĝi rekte al YouTube.
-    Default Video Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
+    Default Media Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
     Scroll Playback Rate Over Video Player: Kiam la kursoro estas sur la videaĵo, ade premu la stirklavon (komandklavon sur Mac) kaj rulumi supre aŭ malsupre por regi la ludrapidon. Ade premu la stirklavon (komandklavon sur Mac) kaj alklaku por tuje reveni al la defaŭlta ludrapido (1x krom se tio estis ŝanĝita en la agordoj).
     Skip by Scrolling Over Video Player: Rulumi por salti tra la videaĵo, kiel MPV.
   External Player Settings:

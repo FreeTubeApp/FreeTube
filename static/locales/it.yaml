@@ -382,8 +382,7 @@ Settings:
     Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
-    Default Video Format:
-      Default Video Format: 'Formato video predefinito'
+    Default Media Format:
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati compatibili'
       Audio Formats: 'Formati audio'
@@ -992,7 +991,7 @@ Profile:
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo video non è disponibile a causa di alcuni formati mancanti. Questo può succedere in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
-    Default Video Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
+    Default Media Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video invece di una connessione diretta a YouTube.
     Scroll Playback Rate Over Video Player: Mentre il cursore si trova sul video, tieni premuto il tasto Control (Command su Mac) e ruota la rotellina del mouse in avanti o all'indietro per regolare la velocità di riproduzione. Tieni premuto il tasto Control (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x, a meno che non sia stata modificata nelle impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare il video, in stile MPV.

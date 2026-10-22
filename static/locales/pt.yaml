@@ -378,8 +378,7 @@ Settings:
     Enable Theatre Mode by Default: 'Ativar modo cinema por omissão'
     Default Volume: 'Volume padrão'
     Default Playback Rate: 'Velocidade de reprodução padrão'
-    Default Video Format:
-      Default Video Format: 'Formato de vídeo padrão'
+    Default Media Format:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formatos de áudio'
@@ -962,7 +961,7 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Padrão: '{defaultCustomArguments}')"
     Ignore Default Arguments: 'Não enviar quaisquer argumentos padrão ao reprodutor externo a não ser o URL (ex: velocidade de reprodução, URL da lista de reprodução...). Os argumentos personalizados serão enviados.'
   Player Settings:
-    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para emissões sem vídeo.
+    Default Media Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para emissões sem vídeo.
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta ao YouTube.
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, mantenha premida a tecla Ctrl (Comando em Mac) e desloque a roda do rato para controlar a velocidade de reprodução. Mantenha premida a tecla Ctrl (Comando em Mac) e clique com o botão esquerdo do rato para voltar rapidamente à velocidade de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para avançar ou recuar o vídeo, estilo MPV.

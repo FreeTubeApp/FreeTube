@@ -387,8 +387,7 @@ Settings:
     Enable Theatre Mode by Default: 'Gaitu antzerki modua lehenespenez'
     Default Volume: 'Lehenetsitako bolumena'
     Default Playback Rate: 'Lehenetsitako erreprodukzio-tasa'
-    Default Video Format:
-      Default Video Format: 'Lehenetsitako bideo-formatua'
+    Default Media Format:
       Dash Formats: 'DASH formatuak'
       Legacy Formats: 'Formatu zaharrak'
       Audio Formats: 'Audio-formatuak'
@@ -987,7 +986,7 @@ Tooltips:
     Open Deep Links In New Window: FreeTubera pasatzen diren URLak, birbideratzeko arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean irekiko dira.
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidiousera konektatuko da, YouTubera zuzeneko konexioa egin beharrean.'
-    Default Video Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak. DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute. Audio formatuak audio-jarioak soilik dira.'
+    Default Media Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak. DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute. Audio formatuak audio-jarioak soilik dira.'
     Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta saguaren gurpila aurrera eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta ondoren saguaren ezkerreko botoia sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan aldaketarik egin ez bada).
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko, MPV estiloa.
   Subscription Settings:

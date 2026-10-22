@@ -456,8 +456,7 @@ Settings:
     Default Playback Rate: 'Feur lenn dre ziouer'
     Max Video Playback Rate: 'Feur lenn uhelañ ar videoioù'
     Video Playback Rate Interval: 'Esaouenn feur lenn ar videoioù'
-    Default Video Format:
-      Default Video Format: 'Furmad video dre ziouer'
+    Default Media Format:
       Dash Formats: 'Furmad DASH'
       Legacy Formats: 'Furmad Legacy'
       Audio Formats: 'Furmadoù son'
@@ -1067,7 +1066,7 @@ Tooltips:
     Open Deep Links In New Window: An URLoù kaset da FreeTube gant askouezhioù ur merdeer web pe roet war arroudenn an arc'had, a vo digoret e-barzh ur prenestr nevez.
   Player Settings:
     Proxy Videos Through Invidious: 'Kevreañ a raio ouzh Invidious evit mont da gerc''hat ar videoioù e-lec''h kevreañ war-eeun ouzh YouTube.'
-    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
+    Default Media Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
     Scroll Playback Rate Over Video Player: 'Pa vez ar biz-red war ar video, dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha dibunit rodellig al logodenn war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha klikit war bouton kleiz al logodenn a-benn distreiñ buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
     Skip by Scrolling Over Video Player: 'Tremen d''ur video d''egile en ur zibunañ rodellig al logodenn war al lenner video, doare MPV.'
   External Player Settings:

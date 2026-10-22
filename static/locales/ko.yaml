@@ -231,8 +231,7 @@ Settings:
     Enable Theatre Mode by Default: '기본으로 극장모드 설정'
     Default Volume: '기본 음량'
     Default Playback Rate: '기본 재생속도'
-    Default Video Format:
-      Default Video Format: '기본 비디오 포맷'
+    Default Media Format:
       Dash Formats: 'DASH 포맷'
       Legacy Formats: '레거시'
       Audio Formats: '오디오'
@@ -609,7 +608,7 @@ Tooltips:
     External Link Handling: "FreeTube에서 열 수 없는 링크를 클릭할 때 기본 동작을 선택합니다.\n기본적으로 FreeTube는 기본 브라우저에서 클릭한 링크를 엽니다.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'YouTube에 직접 연결하는 대신 Invidious에 연결하여 동영상을 제공합니다. API 기본 설정을 재정의합니다.'
-    Default Video Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다. 레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
+    Default Media Format: '동영상 재생 시 사용되는 형식을 설정합니다. DASH 형식은 더 높은 품질을 재생할 수 있습니다. 레거시 형식은 최대 720p로 제한되지만 더 적은 대역폭을 사용합니다. 오디오 형식은 오디오 전용 스트림입니다.'
     Scroll Playback Rate Over Video Player: 커서가 비디오 위에 있는 동안 Control 키( Mac의 경우 Command 키)를 길게 누르고 마우스 휠을 앞뒤로 스크롤하여 재생 속도를 제어합니다. Control 키 (Mac의 경우 Command 키)를 길게 누르고 마우스 왼쪽 버튼을 클릭하여 기본 재생 속도(설정에서 변경되지 않은 경우 1배)로 빠르게 돌아갑니다.
     Skip by Scrolling Over Video Player: MPV 방식으로 마우스 스크롤을 이용해 영상을 스킵합니다.
   Subscription Settings:
