@@ -1,4 +1,3 @@
-/* stylelint-disable no-descending-specificity */
 .radio {
   border: 0;
   clip-path: circle(0);
@@ -10,15 +9,6 @@
   inline-size: 1px;
 }
 
-.radio:focus + .label::before,
-.radio:hover + .label::before {
-  border: 2px solid var(--primary-color);
-}
-
-.radio:active + .label::before {
-  transition-duration: 0s;
-}
-
 .label {
   position: relative;
   padding-inline-start: 2em;
@@ -28,12 +18,17 @@
   margin-block-start: 10px;
 }
 
-.label::before {
+.label::before,
+.label::after {
+  border-radius: 50%;
   box-sizing: content-box;
   content: '';
-  color: var(--primary-text-color);
   position: absolute;
   inset-block-start: 50%;
+}
+
+.label::before {
+  color: var(--primary-text-color);
   inset-inline-start: 0;
   inline-size: 14px;
   block-size: 14px;
@@ -44,11 +39,7 @@
 }
 
 .label::after {
-  box-sizing: content-box;
-  content: '';
   background-color: var(--primary-text-color);
-  position: absolute;
-  inset-block-start: 50%;
   inset-inline-start: 4px;
   inline-size: 10px;
   block-size: 10px;
@@ -58,8 +49,21 @@
   transition: transform 200ms ease-out;
 }
 
+.radio:focus + .label::before,
+.radio:hover + .label::before {
+  border: 2px solid var(--primary-color);
+}
+
+.radio:active + .label::before {
+  transition-duration: 0s;
+}
+
 .radio:disabled + .label::before {
   border-color: #ccc;
+}
+
+.radio:checked + .label::before {
+  animation: borderscale 300ms ease-in;
 }
 
 .radio:disabled:focus + .label::before,
@@ -71,22 +75,12 @@
   background-color: #ccc;
 }
 
-
-.radio:checked + .label::before {
-  animation: borderscale 300ms ease-in;
-}
-
 .radio:focus + .label::after {
   background-color: var(--primary-color);
 }
 
 .radio:checked + .label::after {
   transform: scale(1);
-}
-
-.label::before,
-.label::after {
-  border-radius: 50%;
 }
 
 @keyframes borderscale {
