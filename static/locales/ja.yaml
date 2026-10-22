@@ -192,6 +192,7 @@ User Playlists:
   Export list of URLs: URL のリストをエクスポート
   Move Video to the Top: 動画を一番上に移動
   Move Video to the Bottom: 動画を一番下に移動
+  This playlist is private or does not exist.: このプレイリストは非公開であるか、存在しません。
 History:
   # On History Page
   History: '履歴'
