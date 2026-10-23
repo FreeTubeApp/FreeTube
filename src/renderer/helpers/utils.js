@@ -751,6 +751,31 @@ export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.global.locale.value, 'en'], options).format(number)
 }
 
+export function isNumberRounded(number) {
+  switch (number.toString().length) {
+    case 11:
+    case 10:
+      return number % 100000000 === 0
+    case 9:
+    case 8:
+      return number % 1000000 === 0
+    case 7:
+      return number % 100000 === 0
+    case 6:
+    case 5:
+      return number % 1000 === 0
+    case 4:
+      return number % 100 === 0
+    default:
+      return false
+  }
+}
+
+export function formatSubscriberCount(number) {
+  // aligns with subscriber count precision outlined here: https://support.google.com/youtube/answer/6051134
+  return formatNumber(number, number >= 1000 ? { notation: 'compact', maximumSignificantDigits: 3 } : undefined)
+}
+
 export function getTodayDateStrLocalTimezone() {
   const timeNow = new Date()
   // `Date#getTimezoneOffset` returns the difference, in minutes
