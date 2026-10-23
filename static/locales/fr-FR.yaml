@@ -383,6 +383,7 @@ Settings:
       Dash Formats: 'Formats DASH'
       Legacy Formats: 'Format Legacy'
       Audio Formats: 'Formats audio'
+      Default Media Format: Format du média par défaut
     Default Quality:
       Default Quality: 'Qualité par défaut'
       Auto: 'Auto'
@@ -878,7 +879,7 @@ Playlist:
     PublishedOldest: Date de publication (la plus ancienne)
   Unavailable videos are hidden: Les vidéos non disponibles sont masquées
 Change Format:
-  Change Media Formats: 'Changer le format de la vidéo'
+  Change Media Formats: 'Changer le format du média'
   Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'
