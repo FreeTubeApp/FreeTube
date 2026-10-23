@@ -140,8 +140,8 @@ importers:
         specifier: ^5.6.8
         version: 5.6.8(webpack@5.112.0)
       js-yaml:
-        specifier: ^5.4.3
-        version: 5.4.3
+        specifier: ^5.5.0
+        version: 5.5.0
       lefthook:
         specifier: ^2.2.2
         version: 2.2.2
@@ -192,7 +192,7 @@ importers:
         version: 5.112.0(clean-css@5.3.3)(cssnano@9.9.0)(csso@5.0.5)(html-minifier-terser@6.1.0)(postcss@8.5.31)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-cli:
         specifier: ^7.2.3
-        version: 7.2.3(js-yaml@5.4.3)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
+        version: 7.2.3(js-yaml@5.5.0)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
       webpack-dev-server:
         specifier: ^6.1.0
         version: 6.1.0(supports-color@10.2.2)(webpack-cli@7.2.3)(webpack@5.112.0)
@@ -1315,6 +1315,9 @@ packages:
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
+
+  argparse@3.0.3:
+    resolution: {integrity: sha512-Sn98ftV3KfsO8xfLPHG6oT8y+b0yvbrLgZjgPDXsharNY15tTAjqIsIju4S32nl6/iEUNNE4v+yL2Zhm8ooP3w==}
 
   aria-query@5.3.2:
     resolution: {integrity: sha512-COROpnaoap1E2F000S62r6A60uHZnmlvomhfyT2DlTcrY1OrBKn2UhH7qn5wTC9zMvD0AY7csdPSNwKP+7WiQw==}
@@ -2762,8 +2765,8 @@ packages:
     resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
 
-  js-yaml@5.4.3:
-    resolution: {integrity: sha512-yzzNtgczwgoVHNigCyKTXcQJU4Y8t/ikU4UxXW0BvrLfHTGWZhsNcOT2s/a7vn81/4KqVnNmHjaUEPlvWnNwVw==}
+  js-yaml@5.5.0:
+    resolution: {integrity: sha512-paNr4LFIFPjeeSmwNYdrb8FafLLG/Cr2Af3GjbsHJ5CxIjH4r0c2emlmRdAtpPAieP1gRVzk6buBbVP5gBMGAg==}
     hasBin: true
 
   jsdoc-type-pratt-parser@9.2.2:
@@ -5775,6 +5778,8 @@ snapshots:
 
   argparse@2.0.1: {}
 
+  argparse@3.0.3: {}
+
   aria-query@5.3.2: {}
 
   asn1js@3.0.10:
@@ -6590,7 +6595,7 @@ snapshots:
       globals: 15.15.0
       globrex: 0.1.2
       ignore: 5.3.2
-      js-yaml: 5.4.3
+      js-yaml: 5.5.0
       semver: 7.8.5
     optionalDependencies:
       ts-declaration-location: 1.0.7(typescript@6.0.3)
@@ -7339,9 +7344,9 @@ snapshots:
     dependencies:
       argparse: 2.0.1
 
-  js-yaml@5.4.3:
+  js-yaml@5.5.0:
     dependencies:
-      argparse: 2.0.1
+      argparse: 3.0.3
 
   jsdoc-type-pratt-parser@9.2.2:
     dependencies:
@@ -8917,7 +8922,7 @@ snapshots:
       asn1js: 3.0.10
       tslib: 2.8.1
 
-  webpack-cli@7.2.3(js-yaml@5.4.3)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0):
+  webpack-cli@7.2.3(js-yaml@5.5.0)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0):
     dependencies:
       '@discoveryjs/json-ext': 1.1.0
       commander: 14.0.3
@@ -8929,7 +8934,7 @@ snapshots:
       webpack: 5.112.0(clean-css@5.3.3)(cssnano@9.9.0)(csso@5.0.5)(html-minifier-terser@6.1.0)(postcss@8.5.31)(svgo@4.1.0)(webpack-cli@7.2.3)
       webpack-merge: 6.0.1
     optionalDependencies:
-      js-yaml: 5.4.3
+      js-yaml: 5.5.0
       json5: 2.2.3
       webpack-dev-server: 6.1.0(supports-color@10.2.2)(webpack-cli@7.2.3)(webpack@5.112.0)
 
@@ -8974,7 +8979,7 @@ snapshots:
       ws: 8.21.0
     optionalDependencies:
       webpack: 5.112.0(clean-css@5.3.3)(cssnano@9.9.0)(csso@5.0.5)(html-minifier-terser@6.1.0)(postcss@8.5.31)(svgo@4.1.0)(webpack-cli@7.2.3)
-      webpack-cli: 7.2.3(js-yaml@5.4.3)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
+      webpack-cli: 7.2.3(js-yaml@5.5.0)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
     transitivePeerDependencies:
       - bufferutil
       - supports-color
@@ -9010,7 +9015,7 @@ snapshots:
       watchpack: 2.6.3
       webpack-sources: 3.6.0
     optionalDependencies:
-      webpack-cli: 7.2.3(js-yaml@5.4.3)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
+      webpack-cli: 7.2.3(js-yaml@5.5.0)(json5@2.2.3)(webpack-dev-server@6.1.0)(webpack@5.112.0)
     transitivePeerDependencies:
       - '@minify-html/node'
       - '@napi-rs/image'
