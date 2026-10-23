@@ -457,9 +457,10 @@ Settings:
     Max Video Playback Rate: 'Feur lenn uhelañ ar videoioù'
     Video Playback Rate Interval: 'Esaouenn feur lenn ar videoioù'
     Default Media Format:
-      Dash Formats: 'Furmad DASH'
-      Legacy Formats: 'Furmad Legacy'
+      Dash Formats: 'Furmadoù DASH'
+      Legacy Formats: 'Furmadoù Legacy'
       Audio Formats: 'Furmadoù son'
+      Default Media Format: Furmad ar media dre ziouer
     Default Quality:
       Default Quality: 'Kalite dre ziouer'
       Auto: 'Emgefreek'
