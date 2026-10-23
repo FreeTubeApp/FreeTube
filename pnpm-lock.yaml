@@ -73,8 +73,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0(vue@3.5.44)
       youtubei.js:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: ^18.3.0
+        version: 18.3.0
     devDependencies:
       '@double-great/stylelint-a11y':
         specifier: ^3.8.1
@@ -1266,11 +1266,6 @@ packages:
 
   ajv-formats@2.1.1:
     resolution: {integrity: sha512-Wx0Kx52hxE7C18hkMEggYlEifqWZtYaRgouJor+WMdPnQyEK13vgEWyVNup7SoeeoLMsr4kf5h6dOW11I15MUA==}
-    peerDependencies:
-      ajv: ^8.0.0
-    peerDependenciesMeta:
-      ajv:
-        optional: true
 
   ajv-formats@3.0.1:
     resolution: {integrity: sha512-8iUql50EUR+uUcdRQ3HDqa6EVyo3docL8g5WJ3FNcWmu62IbkGUue/pEyLBW8VGKKucTPgqeks4fIU1DA4yowQ==}
@@ -4662,8 +4657,8 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  youtubei.js@18.2.0:
-    resolution: {integrity: sha512-4xvEEOk7ezu/MrYcQUABzWGKn4I2hRgjtrS8EYJmZsNXTirpF02y856tp4ART4F1tvb9XCitAYPnCFQSlz0XYA==}
+  youtubei.js@18.3.0:
+    resolution: {integrity: sha512-6Cwn/U8a+OjpZp5XgqOjwy7Lk0RrGavm3I5zO7qZWO+fes20vhWMZnlUs0h/97SwjS0AsxAZrZ5bJ85XBJVWTw==}
 
 snapshots:
 
@@ -5870,8 +5865,8 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ajv-formats@2.1.1(ajv@8.20.0):
-    optionalDependencies:
+  ajv-formats@2.1.1:
+    dependencies:
       ajv: 8.20.0
 
   ajv-formats@3.0.1:
@@ -8642,7 +8637,7 @@ snapshots:
     dependencies:
       '@types/json-schema': 7.0.15
       ajv: 8.20.0
-      ajv-formats: 2.1.1(ajv@8.20.0)
+      ajv-formats: 2.1.1
       ajv-keywords: 5.1.0(ajv@8.20.0)
 
   schema-utils@4.5.0:
@@ -9499,7 +9494,7 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  youtubei.js@18.2.0:
+  youtubei.js@18.3.0:
     dependencies:
       '@bufbuild/protobuf': 2.12.1
       fflate: 0.8.3
