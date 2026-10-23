@@ -386,6 +386,7 @@ Settings:
       Dash Formats: 'DASH-formater'
       Legacy Formats: 'Gamle formater'
       Audio Formats: 'Lydformater'
+      Default Media Format: Standard medieformat
     Default Quality:
       Default Quality: 'Standardkvalitet'
       Auto: 'Automatisk'
