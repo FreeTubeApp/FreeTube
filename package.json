@@ -76,7 +76,7 @@
     "@magda/tree-kill": "1.2.3",
     "@stylistic/eslint-plugin": "^5.10.0",
     "css-loader": "^7.1.5",
-    "cssnano": "^9.8.0",
+    "cssnano": "^9.9.0",
     "electron": "^44.7.2",
     "electron-builder": "^26.17.0",
     "eslint": "^10.13.0",
@@ -94,10 +94,10 @@
     "js-yaml": "^5.4.3",
     "lefthook": "^2.2.2",
     "mini-css-extract-plugin": "^2.10.2",
-    "minimizer-webpack-plugin": "^5.13.0",
+    "minimizer-webpack-plugin": "^5.13.1",
     "postcss": "^8.5.31",
     "postcss-scss": "^4.0.9",
-    "sass": "^1.105.1",
+    "sass": "^1.105.2",
     "sass-loader": "^17.0.1",
     "stylelint": "^17.16.0",
     "stylelint-config-sass-guidelines": "^13.0.0",
@@ -107,8 +107,8 @@
     "terser": "^5.51.2",
     "vue-eslint-parser": "^10.4.1",
     "vue-loader": "^17.4.2",
-    "webpack": "^5.111.1",
+    "webpack": "^5.112.0",
     "webpack-cli": "^7.2.3",
-    "webpack-dev-server": "^6.0.0"
+    "webpack-dev-server": "^6.1.0"
   }
 }
