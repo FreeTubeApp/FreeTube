@@ -389,6 +389,7 @@ Settings:
       Dash Formats: 'DASH Biçimleri'
       Legacy Formats: 'Eski Biçimler'
       Audio Formats: 'Ses Biçimleri'
+      Default Media Format: Öntanımlı Medya Biçimi
     Default Quality:
       Default Quality: 'Öntanımlı Kalite'
       Auto: 'Otomatik'
