@@ -1479,9 +1479,12 @@ function handleSearchResponse(response) {
   if (!response.results) {
     return {
       results: [],
-      continuationData: null
+      continuationData: null,
+      rawResultsCount: 0,
     }
   }
+
+  const rawResultsCount = response.results.length
 
   const results = response.results
     .filter((item) => {
@@ -1493,7 +1496,8 @@ function handleSearchResponse(response) {
   return {
     results,
     // check the length of the results, as there can be continuations for things that we've filtered out, which we don't want
-    continuationData: response.has_continuation && results.length > 0 ? response : null
+    continuationData: response.has_continuation && results.length > 0 ? response : null,
+    rawResultsCount,
   }
 }
 

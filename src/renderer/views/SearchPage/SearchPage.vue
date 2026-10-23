@@ -19,7 +19,7 @@
         :data="shownResults"
       />
       <FtAutoLoadNextPageWrapper
-        v-if="!isNextPageLoading"
+        v-if="!isNextPageLoading && hasMoreResults"
         @load-next-page="nextPage"
       >
         <div
@@ -73,6 +73,7 @@ const searchPage = ref(1)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Search | string | null>} */
 const nextPageRef = shallowRef(null)
 const shownResults = shallowRef([])
+const hasMoreResults = ref(true)
 
 const query = ref('')
 const processedQuery = computed(() => query.value.trim())
@@ -193,7 +194,7 @@ async function performSearchLocal(payload) {
   isLoading.value = true
 
   try {
-    const { results, continuationData } = await getLocalSearchResults(
+    const { results, continuationData, rawResultsCount } = await getLocalSearchResults(
       payload.query,
       payload.searchSettings,
       showFamilyFriendlyOnly.value
@@ -203,6 +204,10 @@ async function performSearchLocal(payload) {
 
     shownResults.value = results
     nextPageRef.value = continuationData
+    hasMoreResults.value = rawResultsCount > 0
+    if (rawResultsCount === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+    }
 
     isLoading.value = false
 
@@ -236,9 +241,11 @@ async function performSearchLocal(payload) {
 
 async function getNextpageLocal(payload) {
   try {
-    const { results, continuationData } = await getLocalSearchContinuation(payload.options.nextPageRef)
+    const { results, continuationData, rawResultsCount } = await getLocalSearchContinuation(payload.options.nextPageRef)
 
-    if (results.length === 0) {
+    if (rawResultsCount === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+      hasMoreResults.value = false
       return
     }
 
@@ -285,7 +292,10 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
   }
 
   try {
-    const results = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
+    const {
+      results,
+      rawResultsCount,
+    } = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
     if (!results) {
       return
     }
@@ -296,6 +306,10 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
       shownResults.value = shownResults.value.concat(results)
     } else {
       shownResults.value = results
+    }
+    hasMoreResults.value = rawResultsCount > 0
+    if (rawResultsCount === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
     }
 
     isLoading.value = false
@@ -350,6 +364,7 @@ async function nextPage() {
       await getNextpageLocal(payload)
     } else {
       showToast(t('Search Filters.There are no more results for this search'))
+      hasMoreResults.value = false
     }
   } else {
     showToast(t('Search Filters["Fetching results. Please wait"]'))

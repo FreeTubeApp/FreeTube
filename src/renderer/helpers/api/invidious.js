@@ -633,9 +633,13 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
   })
 
   if (!results) {
-    return null
+    return {
+      results: null,
+      rawResultsCount: 0,
+    }
   }
 
+  const rawResultsCount = results.size
   results = results.filter((item) => {
     return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
   })
@@ -647,7 +651,10 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     }
   })
 
-  return results
+  return {
+    results,
+    rawResultsCount,
+  }
 }
 
 /**
