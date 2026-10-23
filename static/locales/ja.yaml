@@ -383,6 +383,7 @@ Settings:
       Dash Formats: 'DASH 形式'
       Legacy Formats: '旧形式'
       Audio Formats: '音声形式'
+      Default Media Format: 既定のメディア形式
     Default Quality:
       Default Quality: '動画品質の設定'
       Auto: '自動'
