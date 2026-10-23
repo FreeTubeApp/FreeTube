@@ -190,6 +190,7 @@ import store from '../../store/index'
 import {
   formatNumber,
   getRelativeTimeFromDate,
+  isNumberRounded,
 } from '../../helpers/utils'
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
 
@@ -249,11 +250,9 @@ let commentCount = null
 parseCommunityData()
 
 const formattedCommentCount = computed(() => {
-  if (commentCount != null) {
-    return formatNumber(commentCount)
-  }
-
-  return ''
+  if (commentCount == null) return ''
+  if (props.singlePost) return formatNumber(commentCount)
+  return formatNumber(commentCount, isNumberRounded(commentCount) ? { notation: 'compact' } : undefined)
 })
 
 const formattedVoteCount = computed(() => {

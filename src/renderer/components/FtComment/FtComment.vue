@@ -77,7 +77,7 @@
         <FontAwesomeIcon
           :icon="['fas', 'thumbs-up']"
         />
-        {{ comment.likes || '' }}
+        {{ formattedLikeCount }}
       </template>
       <span
         v-if="comment.isHearted"
@@ -167,7 +167,7 @@ import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, isNumberRounded, showToast } from '../../helpers/utils'
 import { parseLocalComment } from '../../helpers/api/local'
 
 const { t } = useI18n()
@@ -212,6 +212,11 @@ const props = defineProps({
     type: Boolean,
     required: true
   }
+})
+
+const formattedLikeCount = computed(() => {
+  const likes = props.comment.likes
+  return likes && isNumberRounded(likes) ? formatNumber(likes, { notation: 'compact' }) : likes || ''
 })
 
 const emit = defineEmits(['timestamp-event'])

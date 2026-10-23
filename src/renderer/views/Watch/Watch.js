@@ -21,6 +21,7 @@ import {
   extractNumberFromString,
   formatDurationAsTimestamp,
   formatNumber,
+  formatSubscriberCount,
   throttle,
   getLocalesWithFallback,
   showToast
@@ -617,7 +618,7 @@ export default defineComponent({
         const subCount = !result.secondary_info.owner.subscriber_count.isEmpty() ? parseLocalSubscriberCount(result.secondary_info.owner.subscriber_count.text) : NaN
 
         if (!isNaN(subCount)) {
-          this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
+          this.channelSubscriptionCountText = subCount >= 10000 ? formatNumber(subCount, { notation: 'compact' }) : formatSubscriberCount(subCount)
         } else {
           this.channelSubscriptionCountText = ''
         }
@@ -995,7 +996,7 @@ export default defineComponent({
 
           const subCount = parseLocalSubscriberCount(result.subCountText)
           if (!isNaN(subCount)) {
-            this.channelSubscriptionCountText = formatNumber(subCount, subCount >= 10000 ? { notation: 'compact' } : undefined)
+            this.channelSubscriptionCountText = subCount >= 10000 ? formatNumber(subCount, { notation: 'compact' }) : formatSubscriberCount(subCount)
           } else {
             this.channelSubscriptionCountText = ''
           }
