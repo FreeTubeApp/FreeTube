@@ -391,6 +391,7 @@ Settings:
       Dash Formats: 'DASH-formátumok'
       Legacy Formats: 'Örökölt formátumok'
       Audio Formats: 'Hangformátumok'
+      Default Media Format: Alapértelmezett médiaformátum
     Default Quality:
       Default Quality: 'Alapértelmezett felbontás'
       Auto: 'Automatikus'
