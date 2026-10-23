@@ -383,6 +383,7 @@ Settings:
       Dash Formats: 'Dash格式'
       Legacy Formats: '传统格式'
       Audio Formats: '音频格式'
+      Default Media Format: 默认媒体格式
     Default Quality:
       Default Quality: '默认质量'
       Auto: '自动'
