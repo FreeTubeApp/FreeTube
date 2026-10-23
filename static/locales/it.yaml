@@ -386,6 +386,7 @@ Settings:
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati compatibili'
       Audio Formats: 'Formati audio'
+      Default Media Format: Formato multimediale predefinito
     Default Quality:
       Default Quality: 'Qualità predefinita'
       Auto: 'Automatica'
