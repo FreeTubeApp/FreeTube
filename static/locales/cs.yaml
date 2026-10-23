@@ -390,6 +390,7 @@ Settings:
       Dash Formats: 'Formát DASH'
       Legacy Formats: 'Starší formáty'
       Audio Formats: 'Zvukové formáty'
+      Default Media Format: Výchozí formát médií
     Default Quality:
       Default Quality: 'Výchozí kvalita'
       Auto: 'Automaticky'
