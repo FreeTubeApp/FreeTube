@@ -9,9 +9,8 @@
       <template
         v-if="authorThumbnail"
       >
-        <component
-          :is="enableChannelLinks ? 'router-link' : 'div'"
-          v-if="authorId"
+        <router-link
+          v-if="enableChannelLinks && authorId"
           :to="`/channel/${authorId}`"
           tabindex="-1"
           aria-hidden="true"
@@ -21,7 +20,7 @@
             class="communityThumbnail"
             alt=""
           >
-        </component>
+        </router-link>
         <img
           v-else
           :src="authorThumbnail"
