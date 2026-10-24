@@ -389,6 +389,7 @@ Settings:
       Dash Formats: 'DASH-vormingud'
       Legacy Formats: 'Pärandvormingud'
       Audio Formats: 'Helivormingud'
+      Default Media Format: Vaikimisi meediumivorming
     Default Quality:
       Default Quality: 'Vaikimisi videokvaliteet'
       Auto: 'Vali automaatselt'
