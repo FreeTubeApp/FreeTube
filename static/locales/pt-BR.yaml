@@ -192,6 +192,7 @@ User Playlists:
   Export list of URLs: Exportar lista de URLs
   Move Video to the Top: Mover Vídeo Pro Topo
   Move Video to the Bottom: Mover Vídeo pro Final
+  This playlist is private or does not exist.: Esta playlist não é pública ou não existe.
 History:
   # On History Page
   History: 'Histórico'
@@ -382,6 +383,7 @@ Settings:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formato de áudio'
+      Default Media Format: Formato de mídia padrão
     Default Quality:
       Default Quality: 'Qualidade'
       Auto: 'Auto'
