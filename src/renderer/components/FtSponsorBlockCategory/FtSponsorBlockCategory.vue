@@ -1,5 +1,8 @@
 <template>
-  <div class="sponsorBlockCategory">
+  <div
+    class="sponsorBlockCategory"
+    :data-settings-search-context="translatedCategoryName"
+  >
     <div
       :id="id"
       class="sponsorTitle"

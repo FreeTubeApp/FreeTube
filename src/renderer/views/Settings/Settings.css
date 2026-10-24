@@ -11,9 +11,157 @@
 
 .switchRow {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin-inline-end: auto;
   align-items: center;
   margin-block-end: 5px;
+}
+
+@media only screen and (width >= 1016px) {
+  .switchRow {
+    position: sticky;
+    inset-block-start: 60px;
+    z-index: 3;
+    background-color: var(--bg-color);
+  }
+}
+
+.settingsSearchDesktop {
+  inline-size: min(320px, 100%);
+}
+
+.settingsSearchMobile {
+  inline-size: 100%;
+  box-sizing: border-box;
+  margin-block-start: 10px;
+}
+
+.settingsSearchDesktop.search.showClearTextButton,
+.settingsSearchMobile.search.showClearTextButton {
+  padding-inline-start: 0;
+}
+
+.settingsSearchDesktop.search :deep(.ft-input),
+.settingsSearchMobile.search :deep(.ft-input) {
+  padding-inline-start: 46px;
+  margin-block-end: 0;
+  border: 1px solid var(--tertiary-text-color);
+  border-color: color-mix(in srgb, var(--tertiary-text-color) 99%, var(--search-bar-color));
+}
+
+.settingsSearchDesktop.search :deep(.ft-input) {
+  block-size: 41px;
+  padding-block: 10px;
+}
+
+.settingsSearchDesktop.search :deep(.ft-input::placeholder),
+.settingsSearchMobile.search :deep(.ft-input::placeholder) {
+  color: var(--secondary-text-color);
+  opacity: 1;
+}
+
+.settingsSearchDesktop.search :deep(.clearInputTextButton),
+.settingsSearchMobile.search :deep(.clearInputTextButton) {
+  inset-block-start: 4px;
+}
+
+.settingsSearchDesktop.search :deep(.clearInputTextButton) {
+  inset-block-start: 2px;
+}
+
+.settingsSearchDesktop:focus-within,
+.settingsSearchMobile:focus-within {
+  border-radius: 5px;
+  outline: 2px solid var(--primary-text-color);
+  outline-offset: -2px;
+}
+
+.settingsContentSearch {
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.settingsSearchResults {
+  inline-size: min(780px, 100%);
+  box-sizing: border-box;
+  padding-inline: 16px;
+  overflow-anchor: none;
+}
+
+.settingsSearchGroup {
+  margin-block-end: 24px;
+}
+
+.settingsSearchGroup h2 {
+  margin-block: 14px 8px;
+  font-size: 20px;
+}
+
+.settingsSearchResult {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  inline-size: 100%;
+  padding-block: 12px;
+  padding-inline: 16px;
+  border: 0;
+  border-block-end: 1px solid var(--tertiary-text-color);
+  background: transparent;
+  color: var(--primary-text-color);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.settingsSearchResult:hover {
+  background: var(--card-bg-color);
+}
+
+.settingsSearchResult:focus-visible {
+  background: var(--card-bg-color);
+  outline: 2px solid var(--primary-text-color);
+  outline-offset: -2px;
+}
+
+.settingsSearchResult small {
+  color: var(--secondary-text-color);
+}
+
+.settingsSearchEmpty {
+  padding-block: 24px;
+  margin: 0;
+  color: var(--tertiary-text-color);
+  text-align: center;
+}
+
+.settingsSearchStatus {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.settingsSections :deep([data-search-highlight]:not(.select)),
+.switchRow :deep([data-search-highlight]) {
+  outline: 2px solid var(--primary-text-color);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.settingsSections :deep(.select[data-search-highlight]::before) {
+  content: '';
+  position: absolute;
+  inset-block: -24px -4px;
+  inset-inline: -4px;
+  border: 2px solid var(--primary-text-color);
+  border-radius: 8px;
+  pointer-events: none;
 }
 
 .settingsToggle {
@@ -59,6 +207,10 @@
 
   .switchRow {
     display: none;
+  }
+
+  .settingsSearchResults {
+    margin-inline: auto;
   }
 
   .settingsSections {

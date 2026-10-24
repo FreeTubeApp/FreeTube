@@ -1,7 +1,7 @@
 <template>
   <div class="settingsPage">
     <template v-if="unlocked">
-      <div v-show="settingsSectionTypeOpenInMobile != null">
+      <div v-show="settingsSectionTypeOpenInMobile != null && !isSearching">
         <button
           class="returnToMenuMobileButton"
           :aria-label="t('Settings.Return to Settings Menu')"
@@ -14,18 +14,54 @@
           />
         </button>
       </div>
+      <p
+        class="settingsSearchStatus"
+        role="status"
+        aria-atomic="true"
+      >
+        {{ isSearching ? searchResultsStatus : '' }}
+      </p>
+      <FtInput
+        v-if="!isInDesktopView"
+        ref="mobileSearchRef"
+        class="settingsSearchMobile"
+        :placeholder="t('Settings.Search Settings')"
+        :value="searchQuery"
+        :show-action-button="false"
+        :show-clear-text-button="searchQuery.length > 0"
+        :is-search="true"
+        @input="updateSearchQuery"
+        @clear="clearSearch"
+      />
       <FtSettingsMenu
-        v-show="isInDesktopView || settingsSectionTypeOpenInMobile == null"
+        v-show="isInDesktopView || (!isSearching && settingsSectionTypeOpenInMobile == null)"
         ref="menuRef"
         :settings-sections="settingsSectionComponents"
         :active-section="activeSection"
         @navigate-to-section="navigateToSection"
       />
       <div
-        v-show="isInDesktopView || settingsSectionTypeOpenInMobile != null"
+        v-show="isInDesktopView || isSearching || settingsSectionTypeOpenInMobile != null"
         class="settingsContent"
+        :class="{ settingsContentSearch: isSearching }"
       >
-        <div class="switchRow">
+        <div
+          ref="switchRowRef"
+          class="switchRow"
+          data-section="general"
+        >
+          <FtInput
+            v-if="isInDesktopView"
+            ref="desktopSearchRef"
+            class="settingsSearchDesktop"
+            :placeholder="t('Settings.Search Settings')"
+            :value="searchQuery"
+            :show-action-button="false"
+            :show-clear-text-button="searchQuery.length > 0"
+            :is-search="true"
+            @input="updateSearchQuery"
+            @clear="clearSearch"
+          />
           <FtButton
             v-if="USING_ELECTRON"
             :label="t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')"
@@ -39,7 +75,40 @@
             @change="updateSettingsSectionSortEnabled"
           />
         </div>
-        <div class="settingsSections">
+        <div
+          v-if="isSearching"
+          class="settingsSearchResults"
+        >
+          <p
+            v-if="matchingSections.length === 0"
+            class="settingsSearchEmpty"
+          >
+            {{ t('Settings.No Matching Settings') }}
+          </p>
+          <section
+            v-for="section in matchingSections"
+            :key="section.type"
+            class="settingsSearchGroup"
+          >
+            <h2>
+              {{ section.title }}
+            </h2>
+            <button
+              v-for="(result, index) in section.results"
+              :key="index"
+              class="settingsSearchResult"
+              @click="selectSearchResult(result)"
+            >
+              <span>{{ result.label }}</span>
+              <small v-if="result.context">{{ result.context }}</small>
+            </button>
+          </section>
+        </div>
+        <div
+          v-show="!isSearching"
+          ref="settingsSectionsRef"
+          class="settingsSections"
+        >
           <component
             :is="section.component"
             v-for="section in settingsSectionComponents"
@@ -61,7 +130,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 import GeneralSettings from '../../components/GeneralSettings/GeneralSettings.vue'
@@ -80,7 +149,9 @@ import PasswordSettings from '../../components/PasswordSettings/PasswordSettings
 import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
+import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
+import { ctrlFHandler } from '../../helpers/utils'
 
 import store from '../../store/index'
 
@@ -92,6 +163,17 @@ const { locale, t } = useI18n()
 const isInDesktopView = ref(true)
 const settingsSectionTypeOpenInMobile = ref(null)
 const activeSection = ref(null)
+const searchQuery = ref('')
+const searchEntries = shallowRef([])
+const isSearching = computed(() => searchQuery.value.trim().length > 0)
+const desktopSearchRef = useTemplateRef('desktopSearchRef')
+const mobileSearchRef = useTemplateRef('mobileSearchRef')
+const switchRowRef = useTemplateRef('switchRowRef')
+const settingsSectionsRef = useTemplateRef('settingsSectionsRef')
+let searchObserver
+let searchHighlightTimer
+let highlightedElement
+let searchStartScrollY = null
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const settingsSectionSortEnabled = computed(() => store.getters.getSettingsSectionSortEnabled)
@@ -208,6 +290,23 @@ const settingsSectionComponents = computed(() => {
   return [generalSettingsEntry, ...settingsSections]
 })
 
+const matchingSections = computed(() => {
+  const words = searchQuery.value.trim().toLocaleLowerCase(locale.value).split(/\s+/)
+
+  return settingsSectionComponents.value.flatMap(section => {
+    const results = searchEntries.value.filter(entry => {
+      const text = `${entry.label} ${entry.context}`.toLocaleLowerCase(locale.value)
+      return entry.sectionType === section.type && (isInDesktopView.value || !entry.element.closest('.switchRow')) && words.every(word => text.includes(word))
+    })
+    return results.length ? [{ ...section, results }] : []
+  })
+})
+
+const searchResultsStatus = computed(() => {
+  const count = matchingSections.value.reduce((total, section) => total + section.results.length, 0)
+  return t('Settings.Settings found', { count }, count)
+})
+
 const unlocked = ref(store.getters.getSettingsPassword === '')
 
 if (unlocked.value) {
@@ -224,7 +323,10 @@ function handleUnlock() {
 
 onBeforeUnmount(() => {
   document.removeEventListener('scroll', markScrolledToSectionAsActive)
+  document.removeEventListener('keydown', handleSearchShortcut)
   window.removeEventListener('resize', handleResize)
+  searchObserver?.disconnect()
+  clearSearchHighlight()
 })
 
 function showKeyboardShortcutPrompt() {
@@ -242,9 +344,125 @@ function handleMounted() {
   handleResize()
   window.addEventListener('resize', handleResize)
   document.addEventListener('scroll', markScrolledToSectionAsActive)
+  document.addEventListener('keydown', handleSearchShortcut)
+  refreshSearchEntries()
+  searchObserver = new MutationObserver(refreshSearchEntries)
+  const observerOptions = {
+    childList: true,
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['data-settings-search-label', 'data-settings-search-context']
+  }
+  searchObserver.observe(settingsSectionsRef.value, observerOptions)
+  searchObserver.observe(switchRowRef.value, observerOptions)
 
   // mark first section as active before any scrolling has taken place
   activeSection.value = settingsSectionComponents.value[0].type
+}
+
+function refreshSearchEntries() {
+  const controls = [
+    ...settingsSectionsRef.value.querySelectorAll('[data-settings-search-label]'),
+    ...switchRowRef.value.querySelectorAll('[data-settings-search-label]')
+  ]
+  searchEntries.value = controls.map(element => ({
+    element,
+    sectionType: element.closest('[data-section]')?.dataset.section,
+    label: element.dataset.settingsSearchLabel,
+    context: element.closest('[data-settings-search-context]')?.dataset.settingsSearchContext || ''
+  })).filter(entry => entry.sectionType && entry.label && !entry.element.closest('.settingsSearchDesktop'))
+}
+
+function updateSearchQuery(value) {
+  if (!isSearching.value && value.trim() && searchStartScrollY === null) {
+    searchStartScrollY = window.scrollY
+  }
+  searchQuery.value = value
+  if (!value.trim()) {
+    restoreSearchScroll()
+  }
+}
+
+function clearSearch() {
+  const isDesktop = isInDesktopView.value
+  searchQuery.value = ''
+  restoreSearchScroll()
+  nextTick(() => {
+    const searchRef = isDesktop ? desktopSearchRef.value : mobileSearchRef.value
+    const searchInput = searchRef?.$el.querySelector('input')
+    if (!searchInput) return
+
+    searchInput.focus({ preventScroll: isDesktop })
+    if (!isDesktop) {
+      const searchTop = searchInput.getBoundingClientRect().top
+      const navigationBottom = document.querySelector('.topNav')?.getBoundingClientRect().bottom
+      if (navigationBottom !== undefined && searchTop < navigationBottom) {
+        window.scrollBy(0, searchTop - navigationBottom - 10)
+      }
+    }
+  })
+}
+
+function restoreSearchScroll() {
+  if (searchStartScrollY !== null && isInDesktopView.value) {
+    const scrollY = searchStartScrollY
+    nextTick(() => window.requestAnimationFrame(() => {
+      if (isSearching.value || !settingsSectionsRef.value?.isConnected) return
+      window.scrollTo(0, scrollY)
+    }))
+  }
+  searchStartScrollY = null
+}
+
+async function selectSearchResult(result) {
+  searchStartScrollY = null
+  searchQuery.value = ''
+  if (!isInDesktopView.value) {
+    settingsSectionTypeOpenInMobile.value = result.sectionType
+  }
+  await nextTick()
+  if (!result.element.isConnected) return
+
+  if (isInDesktopView.value) {
+    activeSection.value = result.sectionType
+  }
+  clearSearchHighlight()
+  highlightedElement = result.element
+  highlightedElement.dataset.searchHighlight = ''
+  result.element.scrollIntoView({ block: 'center' })
+  const control = result.element.matches('button')
+    ? result.element
+    : result.element.querySelector('input:not(:disabled), select:not(:disabled)')
+  if (control) {
+    control.focus({ preventScroll: true })
+  } else {
+    result.element.tabIndex = -1
+    result.element.focus({ preventScroll: true })
+  }
+  document.addEventListener('pointerdown', clearSearchHighlight, { once: true })
+  document.addEventListener('keydown', clearSearchHighlight, { once: true })
+  document.addEventListener('wheel', clearSearchHighlight, { once: true })
+  document.addEventListener('touchmove', clearSearchHighlight, { once: true })
+  searchHighlightTimer = window.setTimeout(clearSearchHighlight, 5000)
+}
+
+function clearSearchHighlight() {
+  if (highlightedElement) {
+    delete highlightedElement.dataset.searchHighlight
+    highlightedElement = null
+  }
+  window.clearTimeout(searchHighlightTimer)
+  document.removeEventListener('pointerdown', clearSearchHighlight)
+  document.removeEventListener('keydown', clearSearchHighlight)
+  document.removeEventListener('wheel', clearSearchHighlight)
+  document.removeEventListener('touchmove', clearSearchHighlight)
+}
+
+function handleSearchShortcut(event) {
+  if ((event.key === 'f' || event.key === 'F') && (process.platform === 'darwin' ? event.metaKey : event.ctrlKey) && !isSearching.value && searchStartScrollY === null) {
+    searchStartScrollY = window.scrollY
+  }
+  ctrlFHandler(event, isInDesktopView.value ? desktopSearchRef.value : mobileSearchRef.value)
 }
 
 const sectionRefs = useTemplateRef('sectionRefs')
@@ -253,6 +471,11 @@ const sectionRefs = useTemplateRef('sectionRefs')
  * @param {string} sectionType
  */
 function navigateToSection(sectionType) {
+  if (isSearching.value) {
+    searchStartScrollY = null
+    searchQuery.value = ''
+  }
+
   if (isInDesktopView.value) {
     nextTick(() => {
       const sectionElement = sectionRefs.value.find(sectionRef => {
@@ -290,6 +513,12 @@ function markScrolledToSectionAsActive() {
     return
   }
 
+  const highlightedSection = highlightedElement?.closest('[data-section]')
+  if (highlightedSection) {
+    activeSection.value = highlightedSection.dataset.section
+    return
+  }
+
   const scrollY = window.scrollY + window.innerHeight / 4
 
   for (const sectionRef of sectionRefs.value) {
@@ -308,6 +537,11 @@ function markScrolledToSectionAsActive() {
 function handleResize() {
   const wasNotInDesktopView = !isInDesktopView.value
   isInDesktopView.value = window.innerWidth > SETTINGS_MOBILE_WIDTH_THRESHOLD
+
+  if (isSearching.value) {
+    if (isInDesktopView.value) settingsSectionTypeOpenInMobile.value = null
+    return
+  }
 
   // navigate to section that was open in mobile or desktop view, if any
   if (isInDesktopView.value && wasNotInDesktopView && settingsSectionTypeOpenInMobile.value != null) {

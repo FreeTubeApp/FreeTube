@@ -1,6 +1,7 @@
 <template>
   <button
     class="btn ripple"
+    :data-settings-search-label="label || null"
     :style="{
       color: textColor,
       backgroundColor: backgroundColor,
