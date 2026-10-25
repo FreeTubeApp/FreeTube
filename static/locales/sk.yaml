@@ -192,6 +192,7 @@ User Playlists:
   Export list of URLs: Exportovať zoznam adries URL
   Move Video to the Top: Presunúť video na začiatok
   Move Video to the Bottom: Presunúť video na koniec
+  This playlist is private or does not exist.: Tento playlist je súkromný alebo neexistuje.
 History:
   # On History Page
   History: 'História'
@@ -382,6 +383,7 @@ Settings:
       Dash Formats: 'Formáty DASH'
       Legacy Formats: 'Staré formáty'
       Audio Formats: 'Zvukové formáty'
+      Default Media Format: Predvolený formát médií
     Default Quality:
       Default Quality: 'Predvolená kvalita'
       Auto: 'Automaticky'
