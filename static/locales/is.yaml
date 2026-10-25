@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér, skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
   Load More Posts: Hlaða inn fleiri færslum
   Empty Posts: Rásirnar sem þú ert áskrifandi að eru ekki með neinar færslur.
+  Posts:
+    RSS Message: YouTube býður ekki upp á RSS-strauma fyrir færslur. Afvirktu stillinguna "{rssSetting}" til að skoða færslur eða virktu stillinguna "{hideSetting}" til að fela þennan flipa.
 More: 'Meira'
 Trending:
   Trending: 'Í umræðunni'
@@ -197,6 +199,7 @@ User Playlists:
   Export list of URLs: Flytja út lista með vefslóðum
   Move Video to the Top: Færa myndskeið efst
   Move Video to the Bottom: Færa myndskeið neðst
+  This playlist is private or does not exist.: Þessi spilunarlisti er lokaður eða ekki tiltækur.
 History:
   # On History Page
   History: 'Áhorf'
