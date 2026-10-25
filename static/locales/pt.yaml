@@ -968,7 +968,7 @@ Tooltips:
   General Settings:
     Region for Trending: A região permite-lhe escolher de que país virão os vídeos na secção de tendências.
     Invidious Instance: A instância Invidious à qual o FreeTube se irá ligar para invocar a API.
-    Thumbnail Preference: Todas as miniaturas dos vídeos no FreeTube serão substituídas por um fotograma do vídeo, borrado ou oculto em vez da miniatura original.
+    Thumbnail Preference: Todas as miniaturas no FreeTube serão substituídas por um fotograma do vídeo, que aparecerá desfocado ou oculto, em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Se a sua API preferida tiver um problema, FreeTube tentará usar automaticamente a API secundária, caso esta opção esteja ativada.
     Preferred API Backend: Escolha o sistema que o FreeTube usa para se ligar ao YouTube. A API local é um extrator incorporado. A API Invidious requer um servidor Invidious para fazer a ligação.
     External Link Handling: "Escolha o comportamento padrão quando uma hiperligação, que não pode ser aberta no FreeTube, é clicada.\nPor definição, o FreeTube abrirá a hiperligação no seu navegador de Internet.\n"
