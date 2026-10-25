@@ -21,18 +21,21 @@
       >
         {{ isSearching ? searchResultsStatus : '' }}
       </p>
-      <FtInput
+      <FtCard
         v-if="!isInDesktopView"
-        ref="mobileSearchRef"
-        class="settingsSearchMobile"
-        :placeholder="t('Settings.Search Settings')"
-        :value="searchQuery"
-        :show-action-button="false"
-        :show-clear-text-button="searchQuery.length > 0"
-        :is-search="true"
-        @input="updateSearchQuery"
-        @clear="clearSearch"
-      />
+        class="settingsSearchMobileCard"
+      >
+        <FtInput
+          ref="mobileSearchRef"
+          class="settingsSearchMobile"
+          :placeholder="t('Settings.Search Settings')"
+          :value="searchQuery"
+          :show-action-button="false"
+          :show-clear-text-button="true"
+          @input="updateSearchQuery"
+          @clear="clearSearch"
+        />
+      </FtCard>
       <FtSettingsMenu
         v-show="isInDesktopView || (!isSearching && settingsSectionTypeOpenInMobile == null)"
         ref="menuRef"
@@ -43,7 +46,6 @@
       <div
         v-show="isInDesktopView || isSearching || settingsSectionTypeOpenInMobile != null"
         class="settingsContent"
-        :class="{ settingsContentSearch: isSearching }"
       >
         <div
           ref="switchRowRef"
@@ -57,8 +59,7 @@
             :placeholder="t('Settings.Search Settings')"
             :value="searchQuery"
             :show-action-button="false"
-            :show-clear-text-button="searchQuery.length > 0"
-            :is-search="true"
+            :show-clear-text-button="true"
             @input="updateSearchQuery"
             @clear="clearSearch"
           />
@@ -78,13 +79,16 @@
         <div
           v-if="isSearching"
           class="settingsSearchResults"
+          :class="{ settingsSearchResultsEmpty: matchingSections.length === 0 }"
         >
-          <p
+          <FtCard
             v-if="matchingSections.length === 0"
-            class="settingsSearchEmpty"
+            class="settingsSearchEmptyCard"
           >
-            {{ t('Settings.No Matching Settings') }}
-          </p>
+            <p class="settingsSearchEmpty">
+              {{ t('Settings.No Matching Settings') }}
+            </p>
+          </FtCard>
           <section
             v-for="section in matchingSections"
             :key="section.type"
@@ -149,6 +153,7 @@ import PasswordSettings from '../../components/PasswordSettings/PasswordSettings
 import PasswordDialog from '../../components/PasswordDialog/PasswordDialog.vue'
 import FtToggleSwitch from '../../components/FtToggleSwitch/FtToggleSwitch.vue'
 import FtButton from '../../components/FtButton/FtButton.vue'
+import FtCard from '../../components/ft-card/ft-card.vue'
 import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
 import { ctrlFHandler } from '../../helpers/utils'

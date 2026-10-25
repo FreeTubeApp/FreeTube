@@ -13,17 +13,23 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding-block: 8px;
+  padding-inline: 16px;
   margin-inline-end: auto;
   align-items: center;
   margin-block-end: 5px;
+  background-color: var(--card-bg-color);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 }
 
 @media only screen and (width >= 1016px) {
   .switchRow {
     position: sticky;
     inset-block-start: 60px;
+    margin-block-start: -36px;
     z-index: 3;
-    background-color: var(--bg-color);
   }
 }
 
@@ -31,53 +37,23 @@
   inline-size: min(320px, 100%);
 }
 
-.settingsSearchMobile {
+.settingsSearchMobileCard {
   inline-size: 100%;
   box-sizing: border-box;
-  margin-block-start: 10px;
+  margin-block: 7px 0;
+  margin-inline: 0;
 }
 
-.settingsSearchDesktop.search.showClearTextButton,
-.settingsSearchMobile.search.showClearTextButton {
-  padding-inline-start: 0;
+.settingsSearchMobile {
+  inline-size: 100%;
 }
 
-.settingsSearchDesktop.search :deep(.ft-input),
-.settingsSearchMobile.search :deep(.ft-input) {
-  padding-inline-start: 46px;
+.settingsSearchDesktop :deep(.ft-input),
+.settingsSearchMobile :deep(.ft-input) {
   margin-block-end: 0;
-  border: 1px solid var(--tertiary-text-color);
-  border-color: color-mix(in srgb, var(--tertiary-text-color) 99%, var(--search-bar-color));
 }
 
-.settingsSearchDesktop.search :deep(.ft-input) {
-  block-size: 41px;
-  padding-block: 10px;
-}
-
-.settingsSearchDesktop.search :deep(.ft-input::placeholder),
-.settingsSearchMobile.search :deep(.ft-input::placeholder) {
-  color: var(--secondary-text-color);
-  opacity: 1;
-}
-
-.settingsSearchDesktop.search :deep(.clearInputTextButton),
-.settingsSearchMobile.search :deep(.clearInputTextButton) {
-  inset-block-start: 4px;
-}
-
-.settingsSearchDesktop.search :deep(.clearInputTextButton) {
-  inset-block-start: 2px;
-}
-
-.settingsSearchDesktop:focus-within,
-.settingsSearchMobile:focus-within {
-  border-radius: 5px;
-  outline: 2px solid var(--primary-text-color);
-  outline-offset: -2px;
-}
-
-.settingsContentSearch {
+.settingsContent {
   flex: 1;
   min-inline-size: 0;
 }
@@ -87,6 +63,19 @@
   box-sizing: border-box;
   padding-inline: 16px;
   overflow-anchor: none;
+}
+
+.settingsSearchResultsEmpty {
+  inline-size: 100%;
+  max-inline-size: 90%;
+  padding-inline: 0;
+}
+
+.settingsSearchEmptyCard {
+  box-sizing: border-box;
+  inline-size: 100%;
+  padding-block: 24px;
+  margin: 0;
 }
 
 .settingsSearchGroup {
@@ -129,7 +118,6 @@
 }
 
 .settingsSearchEmpty {
-  padding-block: 24px;
   margin: 0;
   color: var(--tertiary-text-color);
   text-align: center;
@@ -187,7 +175,8 @@
 
 @media only screen and (width <= 1200px) {
   .settingsSections,
-  .switchRow {
+  .switchRow,
+  .settingsSearchResultsEmpty {
     max-inline-size: 100%;
   }
 }
@@ -211,6 +200,10 @@
 
   .settingsSearchResults {
     margin-inline: auto;
+  }
+
+  .settingsSearchResultsEmpty {
+    max-inline-size: 100%;
   }
 
   .settingsSections {
