@@ -1,19 +1,6 @@
 <template>
   <div class="settingsPage">
     <template v-if="unlocked">
-      <div v-show="settingsSectionTypeOpenInMobile != null && !isSearching">
-        <button
-          class="returnToMenuMobileButton"
-          :aria-label="t('Settings.Return to Settings Menu')"
-          :title="t('Settings.Return to Settings Menu')"
-          @click="returnToSettingsMenu"
-        >
-          <FontAwesomeIcon
-            class="returnToMenuMobileIcon"
-            :icon="['fas', 'angle-left']"
-          />
-        </button>
-      </div>
       <p
         class="settingsSearchStatus"
         role="status"
@@ -25,16 +12,33 @@
         v-if="!isInDesktopView"
         class="settingsSearchMobileCard"
       >
-        <FtInput
-          ref="mobileSearchRef"
-          class="settingsSearchMobile"
-          :placeholder="t('Settings.Search Settings')"
-          :value="searchQuery"
-          :show-action-button="false"
-          :show-clear-text-button="true"
-          @input="updateSearchQuery"
-          @clear="clearSearch"
-        />
+        <div class="settingsSearchMobileRow">
+          <button
+            v-if="settingsSectionTypeOpenInMobile != null"
+            class="returnToMenuMobileButton"
+            :class="{ returnToMenuMobileButtonHidden: isSearching }"
+            :aria-label="t('Settings.Return to Settings Menu')"
+            :aria-hidden="isSearching"
+            :tabindex="isSearching ? -1 : 0"
+            :title="t('Settings.Return to Settings Menu')"
+            @click="returnToSettingsMenu"
+          >
+            <FontAwesomeIcon
+              class="returnToMenuMobileIcon"
+              :icon="['fas', 'angle-left']"
+            />
+          </button>
+          <FtInput
+            ref="settingsSearchMobileRef"
+            class="settingsSearchMobile"
+            :placeholder="t('Settings.Search Settings')"
+            :value="searchQuery"
+            :show-action-button="false"
+            :show-clear-text-button="true"
+            @input="updateSearchQuery"
+            @clear="clearSearch"
+          />
+        </div>
       </FtCard>
       <FtSettingsMenu
         v-show="isInDesktopView || (!isSearching && settingsSectionTypeOpenInMobile == null)"
@@ -54,7 +58,7 @@
         >
           <FtInput
             v-if="isInDesktopView"
-            ref="desktopSearchRef"
+            ref="settingsSearchDesktopRef"
             class="settingsSearchDesktop"
             :placeholder="t('Settings.Search Settings')"
             :value="searchQuery"
@@ -171,8 +175,8 @@ const activeSection = ref(null)
 const searchQuery = ref('')
 const searchEntries = shallowRef([])
 const isSearching = computed(() => searchQuery.value.trim().length > 0)
-const desktopSearchRef = useTemplateRef('desktopSearchRef')
-const mobileSearchRef = useTemplateRef('mobileSearchRef')
+const settingsSearchDesktopRef = useTemplateRef('settingsSearchDesktopRef')
+const settingsSearchMobileRef = useTemplateRef('settingsSearchMobileRef')
 const switchRowRef = useTemplateRef('switchRowRef')
 const settingsSectionsRef = useTemplateRef('settingsSectionsRef')
 let searchObserver
@@ -393,7 +397,7 @@ function clearSearch() {
   searchQuery.value = ''
   restoreSearchScroll()
   nextTick(() => {
-    const searchRef = isDesktop ? desktopSearchRef.value : mobileSearchRef.value
+    const searchRef = isDesktop ? settingsSearchDesktopRef.value : settingsSearchMobileRef.value
     const searchInput = searchRef?.$el.querySelector('input')
     if (!searchInput) return
 
@@ -467,7 +471,7 @@ function handleSearchShortcut(event) {
   if ((event.key === 'f' || event.key === 'F') && (process.platform === 'darwin' ? event.metaKey : event.ctrlKey) && !isSearching.value && searchStartScrollY === null) {
     searchStartScrollY = window.scrollY
   }
-  ctrlFHandler(event, isInDesktopView.value ? desktopSearchRef.value : mobileSearchRef.value)
+  ctrlFHandler(event, isInDesktopView.value ? settingsSearchDesktopRef.value : settingsSearchMobileRef.value)
 }
 
 const sectionRefs = useTemplateRef('sectionRefs')

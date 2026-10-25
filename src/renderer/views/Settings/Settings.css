@@ -40,12 +40,20 @@
 .settingsSearchMobileCard {
   inline-size: 100%;
   box-sizing: border-box;
-  margin-block: 7px 0;
+  padding-block: 8px;
+  margin-block: 0;
   margin-inline: 0;
 }
 
 .settingsSearchMobile {
-  inline-size: 100%;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.settingsSearchMobileRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .settingsSearchDesktop :deep(.ft-input),
@@ -216,7 +224,14 @@
   }
 
   .returnToMenuMobileButton {
-    margin-block-start: 20px;
+    display: flex;
+    flex: 0 0 40px;
+    inline-size: 40px;
+    block-size: 45px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
     background-color: transparent;
     color: inherit;
     cursor: pointer;
@@ -225,7 +240,17 @@
     line-height: 1em;
   }
 
+  .returnToMenuMobileButtonHidden {
+    visibility: hidden;
+  }
+
   .returnToMenuMobileIcon {
     inline-size: 1em;
+  }
+}
+
+@media only screen and (width > 680px) and (width <= 1015px) {
+  .settingsSearchMobileCard {
+    margin-block-start: -18px;
   }
 }
