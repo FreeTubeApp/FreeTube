@@ -191,6 +191,7 @@ User Playlists:
       There was an issue with creating the playlist.: Estis problemo dum la kreado de la ludlisto.
   Move Video to the Top: Movi videaĵon al la supro
   Move Video to the Bottom: Movi videaĵon al la malsupro
+  This playlist is private or does not exist.: Tiu ĉu ludlisto estas privata aŭ ne ekzistas.
 History:
   # On History Page
   History: 'Historio'
@@ -397,6 +398,7 @@ Settings:
       Dash Formats: DASH-aj formoj
       Legacy Formats: Heredaĵaj formoj
       Audio Formats: Aŭdiaj formoj
+      Default Media Format: Defaŭlta medioformo
     Default Quality:
       Default Quality: Defaŭlta kvalito
       Auto: Aŭtomata
