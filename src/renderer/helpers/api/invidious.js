@@ -276,7 +276,11 @@ export async function getInvidiousChannelCourses(channelId, continuation) {
  */
 export async function getInvidiousChannelShows(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('shows', channelId, continuation)
+  const shows = await getInvidiousChannelTab('shows', channelId, continuation)
+  for (const showPlaylist of shows.playlists) {
+    showPlaylist.isShow = true
+  }
+  return shows
 }
 
 /**

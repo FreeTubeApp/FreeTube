@@ -128,7 +128,7 @@ let thumbnail = thumbnailPlaceholder
 let channelId = null
 let channelName = ''
 let videoCount = 0
-/** @type {'fa-list' | 'fa-music' | 'fa-podcast' | 'fa-graduation-cap'} */
+/** @type {'fa-list' | 'fa-music' | 'fa-podcast' | 'fa-graduation-cap' | 'fa-tv'} */
 let playlistTypeIcon = 'fa-list'
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
@@ -199,6 +199,8 @@ function parseInvidiousData() {
     playlistTypeIcon = 'fa-music'
   } else if (props.data.isCourse === true) {
     playlistTypeIcon = 'fa-graduation-cap'
+  } else if (props.data.isShow === true) {
+    playlistTypeIcon = 'fa-tv'
   }
 
   if (props.data.proxyThumbnail === false) {
@@ -221,6 +223,8 @@ function parseLocalData() {
     playlistTypeIcon = 'fa-music'
   } else if (props.data.isCourse === true) {
     playlistTypeIcon = 'fa-graduation-cap'
+  } else if (props.data.isShow === true) {
+    playlistTypeIcon = 'fa-tv'
   }
 }
 
