@@ -1811,6 +1811,7 @@ export function parseLocalListVideo(item, channelId, channelName) {
       isUpcoming: video.is_upcoming || video.is_premiere,
       premiereDate: video.upcoming,
       isPremiere: video.is_premiere,
+      isMusic: video.thumbnail_overlays.firstOfType(YTNodes.ThumbnailOverlayTimeStatus)?.icon_type === 'MUSIC',
       is4k: video.is_4k,
       is8k: video.badges.some(badge => badge.label === '8K'),
       isNew: video.badges.some(badge => badge.label === 'New'),
@@ -1910,6 +1911,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
       let liveNow = false
       let isUpcoming = false
       let isPremiere = false
+      let isMusic = false
       let premiereDate
 
       const isMemberOnly = lockupView.metadata.metadata?.metadata_rows.some(row => {
@@ -1953,6 +1955,10 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
               }
             }
           }
+        }
+
+        if (thumbnailBottomOverlayView.badges.some(badge => badge.icon_name === 'MUSIC')) {
+          isMusic = true
         }
       }
 
@@ -2006,6 +2012,7 @@ function parseLockupView(lockupView, channelId = undefined, channelName = undefi
         isUpcoming,
         isStation,
         isPremiere,
+        isMusic,
         premiereDate
       }
     }
