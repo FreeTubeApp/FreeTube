@@ -322,8 +322,12 @@ const matchingSections = computed(() => {
 
   return settingsSectionComponents.value.flatMap(section => {
     const results = searchEntries.value.filter(entry => {
+      if (entry.sectionType !== section.type || (!isInDesktopView.value && entry.element.closest('.switchRow'))) {
+        return false
+      }
+
       const text = `${entry.label} ${entry.context}`.toLocaleLowerCase(locale.value)
-      return entry.sectionType === section.type && (isInDesktopView.value || !entry.element.closest('.switchRow')) && words.every(word => text.includes(word))
+      return words.every(word => text.includes(word))
     })
     return results.length ? [{ ...section, results }] : []
   })
@@ -401,8 +405,13 @@ function refreshSearchEntries() {
 }
 
 function updateSearchQuery(value) {
-  if (!isSearching.value && value.trim() && searchStartScrollY === null) {
-    searchStartScrollY = window.scrollY
+  if (!isSearching.value && value.trim()) {
+    if (searchStartScrollY === null) {
+      searchStartScrollY = window.scrollY
+    }
+    if (isInDesktopView.value) {
+      window.scrollTo(0, 0)
+    }
   }
   searchQuery.value = value
   if (!value.trim()) {
