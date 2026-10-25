@@ -1,13 +1,6 @@
 <template>
   <div class="settingsPage">
     <template v-if="unlocked">
-      <p
-        class="settingsSearchStatus"
-        role="status"
-        aria-atomic="true"
-      >
-        {{ isSearching ? searchResultsStatus : '' }}
-      </p>
       <FtCard
         v-if="!isInDesktopView"
         class="settingsSearchMobileCard"
@@ -83,34 +76,59 @@
         <div
           v-if="isSearching"
           class="settingsSearchResults"
-          :class="{ settingsSearchResultsEmpty: matchingSections.length === 0 }"
         >
           <FtCard
             v-if="matchingSections.length === 0"
             class="settingsSearchEmptyCard"
           >
+            <p
+              class="settingsSearchStatus settingsSearchStatusHidden"
+              role="status"
+              aria-atomic="true"
+            >
+              {{ searchResultsStatus }}
+            </p>
             <p class="settingsSearchEmpty">
               {{ t('Settings.No Matching Settings') }}
             </p>
           </FtCard>
-          <section
-            v-for="section in matchingSections"
-            :key="section.type"
-            class="settingsSearchGroup"
+          <FtCard
+            v-else
+            class="settingsSearchResultsCard"
           >
-            <h2>
-              {{ section.title }}
-            </h2>
-            <button
-              v-for="(result, index) in section.results"
-              :key="index"
-              class="settingsSearchResult"
-              @click="selectSearchResult(result)"
+            <p
+              class="settingsSearchStatus"
+              role="status"
+              aria-atomic="true"
             >
-              <span>{{ result.label }}</span>
-              <small v-if="result.context">{{ result.context }}</small>
-            </button>
-          </section>
+              {{ searchResultsStatus }}
+            </p>
+            <section
+              v-for="section in matchingSections"
+              :key="section.type"
+              class="settingsSearchGroup"
+            >
+              <h2>
+                {{ section.title }}
+              </h2>
+              <button
+                v-for="(result, index) in section.results"
+                :key="index"
+                class="settingsSearchResult"
+                @click="selectSearchResult(result)"
+              >
+                <span class="settingsSearchResultText">
+                  <span>{{ result.label }}</span>
+                  <small v-if="result.context">{{ result.context }}</small>
+                </span>
+                <FontAwesomeIcon
+                  class="settingsSearchResultIcon"
+                  :icon="['fas', 'chevron-right']"
+                  aria-hidden="true"
+                />
+              </button>
+            </section>
+          </FtCard>
         </div>
         <div
           v-show="!isSearching"
