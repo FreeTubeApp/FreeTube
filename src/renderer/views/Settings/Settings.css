@@ -19,9 +19,9 @@
   padding-inline: 16px;
   margin-inline-end: auto;
   align-items: center;
-  margin-block-end: 5px;
+  margin-block-end: 16px;
   background-color: var(--card-bg-color);
-  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 1px 0 var(--primary-shadow-color);
 }
 
 @media only screen and (width >= 1016px) {
@@ -295,6 +295,12 @@
 
   .returnToMenuMobileIcon {
     inline-size: 1em;
+  }
+}
+
+@media only screen and (width <= 680px) {
+  .settingsSearchResults {
+    margin-block-end: 80px;
   }
 }
 
