@@ -256,7 +256,7 @@ const formattedCommentCount = computed(() => {
 })
 
 const formattedVoteCount = computed(() => {
-  return formatNumber(voteCount)
+  return formatNumber(voteCount, voteCount != null && isNumberRounded(voteCount) ? { notation: 'compact' } : undefined)
 })
 
 const publishedText = computed(() => {
