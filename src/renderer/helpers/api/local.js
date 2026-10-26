@@ -551,6 +551,47 @@ function buildSessionFromYtConfig(ytConfig, fetchFunc) {
 }
 
 /**
+ * @param {string} videoId
+ * @param {number} signatureTimestamp
+ * @param {string} poToken
+ * @param {string | undefined} [clientOverride]
+ */
+function createPlayerRequestBody(videoId, signatureTimestamp, poToken, clientOverride) {
+  return {
+    videoId,
+    racyCheckOk: true,
+    contentCheckOk: true,
+    playbackContext: {
+      contentPlaybackContext: {
+        vis: 0,
+        splay: false,
+        lactMilliseconds: '-1',
+        signatureTimestamp
+      }
+    },
+    serviceIntegrityDimensions: {
+      poToken
+    },
+    client: clientOverride
+  }
+}
+
+/**
+ * @param {string} videoId
+ */
+function createWatchNextRequestBody(videoId) {
+  return {
+    videoId,
+    racyCheckOk: true,
+    contentCheckOk: true,
+    playbackContext: {
+      vis: 0,
+      lactMilliseconds: '-1'
+    }
+  }
+}
+
+/**
  * @param {string} id
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
@@ -624,37 +665,39 @@ export async function getLocalVideoInfo(id) {
   let nextResponse
   const context = htmlExtracts.session.context
 
-  if (htmlExtracts.playerResponse) {
-    totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(htmlExtracts.playerResponse)
-
-    playerResponse = { data: htmlExtracts.playerResponse }
-  } else {
-    playerResponse = await htmlExtracts.session.actions.execute('/player', {
-      videoId: id,
-      racyCheckOk: true,
-      contentCheckOk: true,
-      playbackContext: {
-        contentPlaybackContext: {
-          vis: 0,
-          splay: false,
-          lactMilliseconds: '-1',
-          signatureTimestamp: player.signature_timestamp
-        }
-      },
-      serviceIntegrityDimensions: {
-        poToken: contentPoToken
-      }
+  if (!htmlExtracts.playerResponse && !htmlExtracts.nextResponse) {
+    const combinedResponse = await htmlExtracts.session.actions.execute('/get_watch', {
+      playerRequest: createPlayerRequestBody(id, player.signature_timestamp, contentPoToken),
+      watchNextRequest: createWatchNextRequestBody(id)
     })
-  }
 
-  if (htmlExtracts.nextResponse) {
-    nextResponse = { data: htmlExtracts.nextResponse }
+    playerResponse = {
+      data: combinedResponse.data.find(response => {
+        return response.responseType === 'STREAMING_WATCH_RESPONSE_TYPE_PLAYER_RESPONSE'
+      }).playerResponse
+    }
+
+    nextResponse = {
+      data: combinedResponse.data.find(response => {
+        return response.responseType === 'STREAMING_WATCH_RESPONSE_TYPE_WATCH_NEXT_RESPONSE'
+      }).watchNextResponse
+    }
   } else {
-    nextResponse = await htmlExtracts.session.actions.execute('/next', {
-      videoId: id,
-      racyCheckOk: true,
-      contentCheckOk: true
-    })
+    if (htmlExtracts.playerResponse) {
+      totalAdTimeMilliseconds = extractTotalAdTimeMilliseconds(htmlExtracts.playerResponse)
+
+      playerResponse = { data: htmlExtracts.playerResponse }
+    } else {
+      const requestBody = createPlayerRequestBody(id, player.signature_timestamp, contentPoToken)
+      playerResponse = await htmlExtracts.session.actions.execute('/player', requestBody)
+    }
+
+    if (htmlExtracts.nextResponse) {
+      nextResponse = { data: htmlExtracts.nextResponse }
+    } else {
+      const requestBody = createWatchNextRequestBody(id)
+      nextResponse = await htmlExtracts.session.actions.execute('/next', requestBody)
+    }
   }
 
   const cpn = Utils.generateRandomString(16)
