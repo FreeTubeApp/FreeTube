@@ -69,17 +69,17 @@
   color: var(--secondary-text-color);
   display: inline;
   font-size: 12px;
-  max-block-size: 200px;
+  max-block-size: min(60vh, 500px);
   margin-block: -10px 0;
   margin-inline: 5px 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   text-align: center;
   user-select: none;
   z-index: 3;
 
   /* accounts for parent's left and right margins */
-  inline-size: calc(100% - 10px);
+  inline-size: max(calc(100% - 10px), 250px);
 }
 
 .profileList {
