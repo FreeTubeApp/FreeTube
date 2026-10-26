@@ -66,6 +66,31 @@
       </table>
     </template>
     <template
+      v-if="externalLinks.length > 0"
+    >
+      <h2>{{ $t('Channel.About.Links') }}</h2>
+      <ul
+        class="aboutLinks"
+      >
+        <li
+          v-for="(link, index) in externalLinks"
+          :key="`${link.url}-${index}`"
+          class="aboutLink"
+        >
+          <span class="aboutLinkTitle">
+            {{ link.title }}
+          </span>
+          <a
+            class="aboutLinkDestination"
+            :href="link.url"
+            :title="link.url"
+          >
+            {{ link.displayUrl }}
+          </a>
+        </li>
+      </ul>
+    </template>
+    <template
       v-if="tags.length > 0"
     >
       <h2>{{ $t('Channel.About.Tags.Tags') }}</h2>
@@ -149,6 +174,10 @@ const props = defineProps({
   location: {
     type: String,
     default: null
+  },
+  externalLinks: {
+    type: Array,
+    default: () => []
   },
   tags: {
     type: Array,

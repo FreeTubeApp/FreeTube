@@ -33,6 +33,26 @@
   text-decoration: none;
 }
 
+.aboutLinks {
+  margin: 0;
+  padding: 0;
+}
+
+.aboutLink {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-block: 14px;
+}
+
+.aboutLinkTitle {
+  font-weight: 600;
+}
+
+.aboutLinkDestination {
+  overflow-wrap: anywhere;
+}
+
 .aboutDetails {
   text-align: start;
 }

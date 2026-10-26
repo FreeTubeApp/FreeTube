@@ -15,6 +15,8 @@ import {
 } from '../utils'
 import { parseVideoClipsParams } from './shared'
 
+export { parseLocalChannelAboutLinks } from './channelAboutLinks'
+
 const TRACKING_PARAM_NAMES = [
   'utm_source',
   'utm_medium',

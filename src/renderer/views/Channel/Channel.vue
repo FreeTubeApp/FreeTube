@@ -35,6 +35,7 @@
         :views="viewCount"
         :videos="videoCount"
         :location="location"
+        :external-links="channelAboutLinks"
         :tags="tags"
         :related-channels="relatedChannels"
       />
@@ -326,7 +327,8 @@ import {
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
   parseLocalPlaylistVideos,
-  parseChannelHomeTab
+  parseChannelHomeTab,
+  parseLocalChannelAboutLinks
 } from '../../helpers/api/local'
 
 const { t } = useI18n()
@@ -362,6 +364,7 @@ const viewCount = ref(0)
 const videoCount = ref(0)
 const joined = ref(0)
 const location = ref(null)
+const channelAboutLinks = shallowRef([])
 const relatedChannels = shallowRef([])
 const isArtistTopicChannel = ref(false)
 const isFamilyFriendly = ref(false)
@@ -552,6 +555,7 @@ watch(route, () => {
 
   id.value = route.params.id
   searchPage = 1
+  channelAboutLinks.value = []
   relatedChannels.value = []
   latestVideos.value = []
   latestShorts.value = []
@@ -856,8 +860,15 @@ async function getChannelLocal() {
 
 async function getChannelAboutLocal() {
   try {
+    const expectedId = id.value
     await ensureChannelInstance()
     const about = await channelInstance.getAbout()
+
+    if (expectedId !== id.value || apiUsed !== 'local') {
+      return
+    }
+
+    channelAboutLinks.value = parseLocalChannelAboutLinks(about)
 
     if (about.is(YTNodes.ChannelAboutFullMetadata)) {
       description.value = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
@@ -956,6 +967,7 @@ async function getChannelInfoInvidious() {
   isLoading.value = true
   apiUsed = 'invidious'
   channelInstance = null
+  channelAboutLinks.value = []
 
   const expectedId = id.value
   try {
