@@ -382,6 +382,7 @@ function handleOptionClick(index) {
   searchState.showOptions = false
   searchState.isPointerInList = false
   inputData.value = visibleDataList.value[index]
+  searchState.keyboardSelectedOptionIndex = -1
   emit('input', inputData.value)
   handleClick()
 }
