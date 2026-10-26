@@ -198,7 +198,6 @@ const settingsSearchMobileRef = useTemplateRef('settingsSearchMobileRef')
 const switchRowRef = useTemplateRef('switchRowRef')
 const settingsSectionsRef = useTemplateRef('settingsSectionsRef')
 let searchObserver
-let searchHighlightTimer
 let highlightedElement
 let searchStartScrollY = null
 
@@ -466,32 +465,28 @@ async function selectSearchResult(result) {
   highlightedElement = result.element
   highlightedElement.dataset.searchHighlight = ''
   result.element.scrollIntoView({ block: 'center' })
-  const control = result.element.matches('button')
+  const focusTarget = result.element.matches('button')
     ? result.element
     : result.element.querySelector('input:not(:disabled), select:not(:disabled)')
-  if (control) {
-    control.focus({ preventScroll: true })
+  if (focusTarget) {
+    focusTarget.focus({ preventScroll: true })
   } else {
     result.element.tabIndex = -1
     result.element.focus({ preventScroll: true })
   }
-  document.addEventListener('pointerdown', clearSearchHighlight, { once: true })
-  document.addEventListener('keydown', clearSearchHighlight, { once: true })
-  document.addEventListener('wheel', clearSearchHighlight, { once: true })
-  document.addEventListener('touchmove', clearSearchHighlight, { once: true })
-  searchHighlightTimer = window.setTimeout(clearSearchHighlight, 5000)
+  document.addEventListener('click', clearSearchHighlight, { capture: true, once: true })
+  highlightedElement.addEventListener('focusout', clearSearchHighlight, { once: true })
+  highlightedElement.addEventListener('input', clearSearchHighlight, { once: true })
 }
 
 function clearSearchHighlight() {
   if (highlightedElement) {
+    highlightedElement.removeEventListener('focusout', clearSearchHighlight)
+    highlightedElement.removeEventListener('input', clearSearchHighlight)
     delete highlightedElement.dataset.searchHighlight
     highlightedElement = null
   }
-  window.clearTimeout(searchHighlightTimer)
-  document.removeEventListener('pointerdown', clearSearchHighlight)
-  document.removeEventListener('keydown', clearSearchHighlight)
-  document.removeEventListener('wheel', clearSearchHighlight)
-  document.removeEventListener('touchmove', clearSearchHighlight)
+  document.removeEventListener('click', clearSearchHighlight, true)
 }
 
 function handleSearchShortcut(event) {

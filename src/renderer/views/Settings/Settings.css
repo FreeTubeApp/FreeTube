@@ -192,10 +192,17 @@
   text-align: center;
 }
 
-.settingsSections :deep([data-search-highlight]:not(.select)),
-.switchRow :deep([data-search-highlight]) {
+.settingsSections :deep([data-search-highlight]:not(.select, .switch-ctn)),
+.switchRow :deep([data-search-highlight]:not(.switch-ctn)) {
   outline: 2px solid var(--primary-text-color);
   outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.settingsSections :deep(.switch-ctn[data-search-highlight] .switch-label),
+.switchRow :deep(.switch-ctn[data-search-highlight] .switch-label) {
+  outline: 2px solid var(--primary-text-color);
+  outline-offset: -2px;
   border-radius: 4px;
 }
 
