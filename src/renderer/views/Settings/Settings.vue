@@ -474,19 +474,24 @@ async function selectSearchResult(result) {
     result.element.tabIndex = -1
     result.element.focus({ preventScroll: true })
   }
-  document.addEventListener('click', clearSearchHighlight, { capture: true, once: true })
-  highlightedElement.addEventListener('focusout', clearSearchHighlight, { once: true })
-  highlightedElement.addEventListener('input', clearSearchHighlight, { once: true })
+  highlightedElement.addEventListener('focusout', handleSearchHighlightFocusOut)
+}
+
+function handleSearchHighlightFocusOut(event) {
+  const element = event.currentTarget
+  window.requestAnimationFrame(() => {
+    if (highlightedElement === element && !element.contains(document.activeElement)) {
+      clearSearchHighlight()
+    }
+  })
 }
 
 function clearSearchHighlight() {
   if (highlightedElement) {
-    highlightedElement.removeEventListener('focusout', clearSearchHighlight)
-    highlightedElement.removeEventListener('input', clearSearchHighlight)
+    highlightedElement.removeEventListener('focusout', handleSearchHighlightFocusOut)
     delete highlightedElement.dataset.searchHighlight
     highlightedElement = null
   }
-  document.removeEventListener('click', clearSearchHighlight, true)
 }
 
 function handleSearchShortcut(event) {
