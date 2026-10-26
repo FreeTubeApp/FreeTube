@@ -268,7 +268,8 @@ export default defineComponent({
 
     watch(displayVideoPlayButton, (newValue) => {
       ui.configure({
-        bigButtons: newValue ? ['play_pause'] : []
+        bigButtons: newValue ? ['play_pause_buffering'] : [],
+        showBufferingSpinner: !newValue
       })
     })
 
@@ -320,29 +321,25 @@ export default defineComponent({
       return parseInt(store.getters.getMaxVideoPlaybackRate)
     })
 
+    watch(maxVideoPlaybackRate, (newValue) => {
+      ui.configure({
+        playbackRateSliderMax: newValue
+      })
+    })
+
     const videoPlaybackRateInterval = computed(() => {
       return parseFloat(store.getters.getVideoPlaybackRateInterval)
     })
 
-    const playbackRates = computed(() => {
-      const interval = videoPlaybackRateInterval.value
-      const playbackRates = []
-      let i = interval
-
-      while (i <= maxVideoPlaybackRate.value) {
-        playbackRates.unshift(i)
-        i += interval
-        i = parseFloat(i.toFixed(2))
-      }
-
-      return playbackRates
-    })
-
-    watch(playbackRates, (newValue) => {
+    watch(videoPlaybackRateInterval, (newValue) => {
       ui.configure({
-        playbackRates: newValue
+        playbackRateSliderMin: newValue,
+        playbackRateSliderStep: newValue,
       })
     })
+
+    // 5 pills only as default for mobile
+    const playbackRates = [0.5, 0.75, 1, 1.5, 2]
 
     /** @type {import('vue').ComputedRef<boolean>} */
     const enableScreenshot = computed(() => {
@@ -652,7 +649,7 @@ export default defineComponent({
         // Electron doesn't like YouTube's vp9 VR video streams and throws:
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
-        preferredVideoCodecs: typeof props.vrProjection === 'string' ? ['av01', 'avc1'] : []
+        preferredVideo: typeof props.vrProjection === 'string' ? [{ codec: 'av01' }, { codec: 'avc1' }] : []
       }
     }
 
@@ -812,8 +809,7 @@ export default defineComponent({
         'ft_skip_previous',
         'play_pause',
         'ft_skip_next',
-        'mute',
-        'volume',
+        'mute_volume',
         'time_and_duration',
         'spacer'
       ]
@@ -958,10 +954,16 @@ export default defineComponent({
           },
 
           // these have their own watchers
-          bigButtons: displayVideoPlayButton.value ? ['play_pause'] : [],
+          bigButtons: displayVideoPlayButton.value ? ['play_pause_buffering'] : [],
+          showBufferingSpinner: !displayVideoPlayButton.value,
           enableFullscreenOnRotation: enterFullscreenOnDisplayRotate.value,
-          playbackRates: playbackRates.value,
+          playbackRateSliderMax: maxVideoPlaybackRate.value,
+          playbackRateSliderMin: videoPlaybackRateInterval.value,
+          playbackRateSliderStep: videoPlaybackRateInterval.value,
+          playbackRates: playbackRates,
           tapSeekDistance: defaultSkipInterval.value,
+
+          showUIOnPaused: false,
 
           // we have our own ones (shaka-player's ones are quite limited)
           enableKeyboardPlaybackControls: false,
@@ -2071,11 +2073,33 @@ export default defineComponent({
     }
 
     /**
-     * @param {number} step
+     * @param {number} delta
+     * @param {boolean} snapToClosestInterval
      */
-    function changePlayBackRate(step) {
-      const newPlaybackRateString = (player.getPlaybackRate() + step).toFixed(2)
-      const newPlaybackRate = parseFloat(newPlaybackRateString)
+    function changePlayBackRate(delta, snapToClosestInterval = false) {
+      let newPlaybackRateString = (player.getPlaybackRate() + delta).toFixed(2)
+      let newPlaybackRate = parseFloat(newPlaybackRateString)
+
+      if (snapToClosestInterval) {
+        const currentPlaybackRate = player.getPlaybackRate()
+        const videoPlaybackRateIntervalVal = videoPlaybackRateInterval.value
+
+        // Modified from https://github.com/shaka-project/shaka-player/blob/v5.3.2/ui/playback_rate_selection.js#L206-L221
+        const min = videoPlaybackRateInterval.value
+        const max = maxVideoPlaybackRate.value
+        const current = currentPlaybackRate
+        const step = videoPlaybackRateIntervalVal
+        // Snap current rate to the nearest step grid point, then apply delta.
+        // Slightly different from `shaka-player
+        // When delta > 0, snap to lower number & vice versa (by adding or subtracting 0.001
+        const snapped = Math.round(current / step + (delta < 0 ? 0.001 : -0.001)) * step
+        const raw = snapped + delta
+        // Eliminate floating-point noise (e.g. 0.05 * 20 → 1.0000000000000002).
+        const next = parseFloat((Math.round(raw / step) * step).toPrecision(10))
+        const clamped = Math.max(min, Math.min(max, next))
+        newPlaybackRate = clamped
+        newPlaybackRateString = clamped.toFixed(2)
+      }
 
       // The following error is thrown if you go below 0.07:
       // The provided playback rate (0.05) is not in the supported playback range.
@@ -2436,13 +2460,13 @@ export default defineComponent({
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.DECREASE_VIDEO_SPEED_ALT:
           // Decrease playback rate by user configured interval
           event.preventDefault()
-          changePlayBackRate(-videoPlaybackRateInterval.value)
+          changePlayBackRate(-videoPlaybackRateInterval.value, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED:
         case KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.INCREASE_VIDEO_SPEED_ALT:
           // Increase playback rate by user configured interval
           event.preventDefault()
-          changePlayBackRate(videoPlaybackRateInterval.value)
+          changePlayBackRate(videoPlaybackRateInterval.value, true)
           break
         case KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS: {
           // Toggle caption/subtitles
