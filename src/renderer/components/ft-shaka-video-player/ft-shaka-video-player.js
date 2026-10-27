@@ -606,8 +606,10 @@ export default defineComponent({
 
       const match = props.manifestSrc.match(/\/(?:manifest|playlist)_duration\/(\d+)\//)
 
-      // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
-      return match != null && parseInt(match[1] || '0') > 30
+      // Post live DVR HLS manifests URLs contain /force_finished/1
+      return props.manifestSrc.includes('/force_finished/1') ||
+        // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
+        (match != null && parseInt(match[1] || '0') > 30)
     })
 
     /**
@@ -1624,32 +1626,24 @@ export default defineComponent({
 
       stats.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
 
-      // Combined audio and video HLS streams
-      if (newTrack.videoCodec?.includes(',')) {
-        stats.codecs.audioItag = ''
-        stats.codecs.videoItag = ''
+      const isHls = newTrack.mimeType === 'video/mp2t'
 
-        const [audioCodec, videoCodec] = newTrack.videoCodec.split(',')
+      stats.codecs.audioCodec = newTrack.audioCodec
 
-        stats.codecs.audioCodec = audioCodec
-        stats.codecs.videoCodec = videoCodec
+      stats.codecs.audioItag = isHls
+        ? ''
+        : newTrack.originalAudioId.split('-', 1)[0]
+
+      if (props.format === 'dash') {
+        stats.codecs.videoCodec = newTrack.videoCodec
 
         stats.resolution.frameRate = newTrack.frameRate
         stats.resolution.width = newTrack.width
         stats.resolution.height = newTrack.height
-      } else {
-        stats.codecs.audioItag = newTrack.originalAudioId.split('-', 1)[0]
-        stats.codecs.audioCodec = newTrack.audioCodec
 
-        if (props.format === 'dash') {
-          stats.resolution.frameRate = newTrack.frameRate
-
-          stats.codecs.videoItag = newTrack.originalVideoId.split('-', 1)[0]
-          stats.codecs.videoCodec = newTrack.videoCodec
-
-          stats.resolution.width = newTrack.width
-          stats.resolution.height = newTrack.height
-        }
+        stats.codecs.videoItag = isHls
+          ? ''
+          : newTrack.originalVideoId.split('-', 1)[0]
       }
     }
 
@@ -2121,7 +2115,7 @@ export default defineComponent({
 
       const seekRange = player.seekRange()
 
-      // Seeking not possible e.g. with HLS
+      // Seeking not possible e.g. with live HLS
       if (seekRange.start === seekRange.end || !seekingIsPossible.value) {
         return false
       }

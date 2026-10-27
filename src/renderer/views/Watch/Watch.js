@@ -738,34 +738,12 @@ export default defineComponent({
         }
 
         if ((this.isLive || this.isPostLiveDvr) && !this.isUpcoming) {
-          let useRemoteManifest = true
-
-          if (this.isPostLiveDvr) {
-            // I wasn't able to get SABR working with Post-Live-DVR yet, so for the moment we'll use YouTube's provided DASH manifest instead.
-            // It only contains the last 4 hours of the stream, instead of starting from the beginning but that is better than nothing.
-            if (
-              result.streaming_data.adaptive_formats[0]?.url ||
-              result.streaming_data.adaptive_formats[0]?.signature_cipher ||
-              result.streaming_data.adaptive_formats[0]?.cipher
-            ) {
-              try {
-                this.manifestSrc = await this.createLocalDashManifest(result, true)
-                this.manifestMimeType = MANIFEST_TYPE_DASH
-                useRemoteManifest = false
-              } catch (error) {
-                console.error(`Failed to generate DASH manifest for this Post Live DVR video ${this.videoId}, falling back to using YouTube's provided one...`, error)
-              }
-            }
-          }
-
-          if (useRemoteManifest) {
-            if (result.streaming_data.dash_manifest_url) {
-              this.manifestSrc = result.streaming_data.dash_manifest_url
-              this.manifestMimeType = MANIFEST_TYPE_DASH
-            } else {
-              this.manifestSrc = result.streaming_data.hls_manifest_url
-              this.manifestMimeType = MANIFEST_TYPE_HLS
-            }
+          if (result.streaming_data.dash_manifest_url) {
+            this.manifestSrc = result.streaming_data.dash_manifest_url
+            this.manifestMimeType = MANIFEST_TYPE_DASH
+          } else {
+            this.manifestSrc = result.streaming_data.hls_manifest_url
+            this.manifestMimeType = MANIFEST_TYPE_HLS
           }
 
           this.streamingDataExpiryDate = result.streaming_data.expires
