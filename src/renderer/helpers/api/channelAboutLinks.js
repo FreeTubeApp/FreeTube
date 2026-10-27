@@ -21,7 +21,7 @@ function getDirectUrl(endpoint) {
 
 /**
  * @param {import('youtubei.js').YTNodes.ChannelAboutFullMetadata | import('youtubei.js').YTNodes.AboutChannel} about
- * @returns {{ title: string, url: string, displayUrl: string }[]}
+ * @returns {{ title: string, url: string, displayUrl: string, iconUrl: string }[]}
  */
 export function parseLocalChannelAboutLinks(about) {
   const links = about.primary_links ?? about.metadata?.links ?? []
@@ -35,10 +35,13 @@ export function parseLocalChannelAboutLinks(about) {
       continue
     }
 
+    const icons = link.icon ?? link.favicon ?? []
+
     parsedLinks.push({
       title: link.title.text?.trim() ?? '',
       url,
-      displayUrl: url.replace(/^https?:\/\/(?:www\.)?/, '')
+      displayUrl: url.replace(/^https?:\/\/(?:www\.)?/, ''),
+      iconUrl: icons[0]?.url ?? ''
     })
   }
 

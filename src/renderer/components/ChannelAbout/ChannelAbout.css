@@ -40,9 +40,22 @@
 
 .aboutLink {
   display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block: 14px;
+}
+
+.aboutLinkIcon {
+  flex: 0 0 32px;
+  block-size: 32px;
+  object-fit: contain;
+}
+
+.aboutLinkText {
+  display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-block: 14px;
+  min-inline-size: 0;
 }
 
 .aboutLinkTitle {

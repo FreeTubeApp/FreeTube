@@ -77,19 +77,30 @@
           :key="`${link.url}-${index}`"
           class="aboutLink"
         >
-          <span
-            v-if="link.title"
-            class="aboutLinkTitle"
+          <img
+            v-if="link.iconUrl"
+            class="aboutLinkIcon"
+            :src="link.iconUrl"
+            alt=""
+            loading="lazy"
           >
-            {{ link.title }}
-          </span>
-          <a
-            class="aboutLinkDestination"
-            :href="link.url"
-            :title="link.url"
-          >
-            {{ link.displayUrl }}
-          </a>
+          <div class="aboutLinkText">
+            <span
+              v-if="link.title"
+              class="aboutLinkTitle"
+              dir="auto"
+            >
+              {{ link.title }}
+            </span>
+            <a
+              class="aboutLinkDestination"
+              :href="link.url"
+              :title="link.url"
+              dir="auto"
+            >
+              {{ link.displayUrl }}
+            </a>
+          </div>
         </li>
       </ul>
     </template>
