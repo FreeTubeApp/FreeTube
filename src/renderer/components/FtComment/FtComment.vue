@@ -271,7 +271,7 @@ const toggleCommentRepliesText = computed(() => {
   const replyCount = props.comment.numReplies
 
   if (showReplies.value) {
-    return t('Comments.Hide Replies', replyCount)
+    return t('Comments.Hide Replies')
   }
 
   if (props.comment.hasOwnerReplied) {
