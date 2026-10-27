@@ -1,5 +1,9 @@
 const YOUTUBE_REDIRECT_HOSTS = ['youtube.com', 'www.youtube.com']
 
+/**
+ * @param {import('youtubei.js').YTNodes.NavigationEndpoint} endpoint
+ * @returns {string|null}
+ */
 function getDirectUrl(endpoint) {
   try {
     let url = new URL(endpoint.toURL())
@@ -14,6 +18,10 @@ function getDirectUrl(endpoint) {
   }
 }
 
+/**
+ * @param {import('youtubei.js').YTNodes.ChannelAboutFullMetadata | import('youtubei.js').YTNodes.AboutChannel} about
+ * @returns {{ title: string, url: string, displayUrl: string }[]}
+ */
 export function parseLocalChannelAboutLinks(about) {
   const links = about.primary_links ?? about.metadata.links
   const parsedLinks = []
