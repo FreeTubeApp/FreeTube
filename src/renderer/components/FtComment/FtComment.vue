@@ -282,7 +282,8 @@ const toggleCommentRepliesText = computed(() => {
     return t('Comments.View 1 reply from {channelName}', { channelName })
   }
 
-  return t('Comments.View {replyCount} replies', { replyCount: replyCount }, replyCount)
+  const formattedReplyCount = isNumberRounded(replyCount) ? formatNumber(replyCount, { notation: 'compact' }) : replyCount
+  return t('Comments.View {replyCount} replies', { replyCount: formattedReplyCount }, replyCount)
 })
 
 onMounted(() => {
