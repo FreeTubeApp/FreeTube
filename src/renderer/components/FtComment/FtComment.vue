@@ -282,7 +282,7 @@ const toggleCommentRepliesText = computed(() => {
     return t('Comments.View 1 reply from {channelName}', { channelName })
   }
 
-  return t('Comments.View {replyCount} replies', { replyCount: `${replyCount >= 1000 ? '~' : ''}${replyCount}` }, replyCount)
+  return t('Comments.View {replyCount} replies', { replyCount: replyCount }, replyCount)
 })
 
 onMounted(() => {
