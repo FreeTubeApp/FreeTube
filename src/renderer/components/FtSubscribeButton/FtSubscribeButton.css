@@ -57,20 +57,15 @@
   block-size: 2em;
 }
 
-.subscribeButton.dropdownOpened,
-.profileDropdownToggle.dropdownOpened {
-  border-end-start-radius: 0;
-  border-end-end-radius: 0;
-}
-
 .profileDropdown {
   background-color: var(--side-nav-color);
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  border-radius: 4px;
   color: var(--secondary-text-color);
   display: inline;
   font-size: 12px;
   max-block-size: min(60vh, 500px);
-  margin-block: -10px 0;
+  margin-block: 4px 0;
   margin-inline: 5px 0;
   overflow-y: auto;
   position: absolute;
