@@ -1,4 +1,5 @@
 const YOUTUBE_REDIRECT_HOSTS = ['youtube.com', 'www.youtube.com']
+const ALLOWED_LINK_PROTOCOLS = ['http:', 'https:']
 
 /**
  * @param {import('youtubei.js').YTNodes.NavigationEndpoint} endpoint
@@ -12,7 +13,7 @@ function getDirectUrl(endpoint) {
       url = new URL(url.searchParams.get('q'))
     }
 
-    return ['http:', 'https:'].includes(url.protocol) ? url.href : null
+    return ALLOWED_LINK_PROTOCOLS.includes(url.protocol) ? url.href : null
   } catch {
     return null
   }
@@ -23,7 +24,7 @@ function getDirectUrl(endpoint) {
  * @returns {{ title: string, url: string, displayUrl: string }[]}
  */
 export function parseLocalChannelAboutLinks(about) {
-  const links = about.primary_links ?? about.metadata.links
+  const links = about.primary_links ?? about.metadata?.links ?? []
   const parsedLinks = []
 
   for (const link of links) {
@@ -34,12 +35,10 @@ export function parseLocalChannelAboutLinks(about) {
       continue
     }
 
-    const title = link.title.toString().trim()
-
     parsedLinks.push({
-      title: title || url,
+      title: link.title.toString(),
       url,
-      displayUrl: url.replace(/^https:\/\//, '')
+      displayUrl: url.replace(/^https?:\/\/(?:www\.)?/, '')
     })
   }
 
