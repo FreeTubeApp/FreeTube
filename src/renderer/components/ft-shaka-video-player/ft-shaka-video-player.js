@@ -2710,17 +2710,9 @@ export default defineComponent({
           markerDiv.className = 'chapterMarker'
           // Due to unknown reasons, there are offsets to the left of actual timestamp on seek bar for later timestamps
           // The markers will be adjusted to the left to align with the chapter previews
-          let extraOffsetToLeftSeconds = 0
-          if (chapter.startSeconds > duration * 0.9) {
-            extraOffsetToLeftSeconds = 2
-          } else if (chapter.startSeconds > duration * 0.75) {
-            extraOffsetToLeftSeconds = 1.5
-          } else if (chapter.startSeconds > duration * 0.6) {
-            extraOffsetToLeftSeconds = 1
-          } else if (chapter.startSeconds > duration * 0.5) {
-            extraOffsetToLeftSeconds = 0.5
-          }
-          markerDiv.style.left = `calc(${((chapter.startSeconds - extraOffsetToLeftSeconds) / duration) * 100}% - 1px)`
+          const extraOffsetPercentAbs = Math.pow(((chapter.startSeconds - (duration * 0.5)) / duration) * 100, 2) / 10000
+          const extraOffsetPercent = chapter.startSeconds > duration * 0.5 ? -extraOffsetPercentAbs : extraOffsetPercentAbs
+          markerDiv.style.left = `calc(${((chapter.startSeconds) / duration) * 100 + extraOffsetPercent}% - 1px)`
 
           return markerDiv
         })
