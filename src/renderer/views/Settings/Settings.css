@@ -152,12 +152,9 @@
 .settingsSearchResult:focus-visible {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);
-  transition: background 0.2s ease-in;
-}
-
-.settingsSearchResult:focus-visible {
   outline: 2px solid var(--side-nav-hover-text-color);
   outline-offset: -2px;
+  transition: background 0.2s ease-in;
 }
 
 .settingsSearchResult:active {
