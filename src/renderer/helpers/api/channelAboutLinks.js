@@ -1,4 +1,5 @@
-const YOUTUBE_REDIRECT_HOSTS = ['youtube.com', 'www.youtube.com']
+import { getYouTubeRedirectTarget } from './youtubeRedirect.js'
+
 const ALLOWED_LINK_PROTOCOLS = ['http:', 'https:']
 
 /**
@@ -9,8 +10,9 @@ function getDirectUrl(endpoint) {
   try {
     let url = new URL(endpoint.toURL())
 
-    if (YOUTUBE_REDIRECT_HOSTS.includes(url.hostname) && url.pathname === '/redirect') {
-      url = new URL(url.searchParams.get('q'))
+    const redirectTarget = getYouTubeRedirectTarget(url)
+    if (redirectTarget !== undefined) {
+      url = new URL(redirectTarget)
     }
 
     return ALLOWED_LINK_PROTOCOLS.includes(url.protocol) ? url.href : null
