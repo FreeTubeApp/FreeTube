@@ -77,7 +77,10 @@
           :key="`${link.url}-${index}`"
           class="aboutLink"
         >
-          <span class="aboutLinkTitle">
+          <span
+            v-if="link.title"
+            class="aboutLinkTitle"
+          >
             {{ link.title }}
           </span>
           <a

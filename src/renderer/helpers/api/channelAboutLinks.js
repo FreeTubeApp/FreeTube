@@ -36,7 +36,7 @@ export function parseLocalChannelAboutLinks(about) {
     }
 
     parsedLinks.push({
-      title: link.title.toString(),
+      title: link.title.text?.trim() ?? '',
       url,
       displayUrl: url.replace(/^https?:\/\/(?:www\.)?/, '')
     })
