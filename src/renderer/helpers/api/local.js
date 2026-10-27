@@ -1484,12 +1484,12 @@ function handleSearchResponse(response) {
     }
   }
 
-  const rawResultsCount = response.results.length
-
-  const results = response.results
+  const resultsWithValidTypes = response.results
     .filter((item) => {
       return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie' || item.type === 'LockupView'
     })
+  const rawResultsCount = resultsWithValidTypes.length
+  const results = resultsWithValidTypes
     .map((item) => parseListItem(item))
     .filter((item) => item)
 

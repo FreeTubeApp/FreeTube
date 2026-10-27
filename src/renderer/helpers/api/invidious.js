@@ -639,7 +639,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     }
   }
 
-  const rawResultsCount = results.size
+  const rawResultsCount = results.length
   results = results.filter((item) => {
     return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
   })
