@@ -1,3 +1,4 @@
+import { toRaw } from 'vue'
 import { DBPlaylistHandlers } from '../../../datastores/handlers/index'
 import { generateRandomUniqueId, processToBeAddedPlaylistVideo } from '../../helpers/playlists'
 import { deepCopy } from '../../helpers/utils'
@@ -197,7 +198,7 @@ const actions = {
 
       const newVideoObjects = videos.map((video) => {
         // Create a new object to prevent changing existing values outside
-        const videoData = Object.assign({}, video)
+        const videoData = Object.assign({}, toRaw(video))
         if (videoData.timeAdded == null) {
           videoData.timeAdded = currentTime
         }
