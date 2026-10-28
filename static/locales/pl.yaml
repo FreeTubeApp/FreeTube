@@ -192,6 +192,7 @@ User Playlists:
   Export list of URLs: Eksportuj listę adresów URL
   Move Video to the Top: Przenieś film na początek
   Move Video to the Bottom: Przenieś film na koniec
+  This playlist is private or does not exist.: Ta playlista jest prywatna albo nie istnieje.
 History:
   # On History Page
   History: 'Historia'
@@ -382,6 +383,7 @@ Settings:
       Dash Formats: 'Formaty DASH'
       Legacy Formats: 'Stare formaty'
       Audio Formats: 'Formaty audio'
+      Default Media Format: Domyślny format filmów
     Default Quality:
       Default Quality: 'Domyślna jakość'
       Auto: 'Auto'
