@@ -2284,7 +2284,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           default: {
             const url = new URL((endpoint.dialog?.type === 'ConfirmDialog' && endpoint.dialog.confirm_button.endpoint.payload.url) || endpoint.payload.url)
             const redirectTarget = getYouTubeRedirectTarget(url)
-            if (url.hostname === 'www.youtube.com' && redirectTarget != null) {
+            if (redirectTarget != null) {
               // remove utm tracking parameters
               const realURL = new URL(redirectTarget)
               let urlChanged = false
