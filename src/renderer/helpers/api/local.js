@@ -2191,6 +2191,7 @@ export function parseLocalWatchNextVideo(video) {
       title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
+      collaborators: parseLocalCollaborators(video.author.collaborators),
       lengthSeconds: video.duration.seconds
     }
   } else if (video.is(YTNodes.LockupView)) {
@@ -2210,6 +2211,7 @@ export function parseLocalWatchNextVideo(video) {
       title: video.title.text?.trim(),
       author: video.author.name,
       authorId: video.author.id,
+      collaborators: parseLocalCollaborators(video.author.collaborators),
       viewCount: video.view_count == null ? null : extractNumberFromString(video.view_count.text),
       published,
       lengthSeconds: isNaN(video.duration.seconds) ? '' : video.duration.seconds,
