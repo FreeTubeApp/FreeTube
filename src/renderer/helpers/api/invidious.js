@@ -325,7 +325,8 @@ export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
   })
 
   let nextIndex = index + playlist.videos.length
-  if (nextIndex >= playlist.videoCount) {
+  // Invidious API can return less videos than 'videoCount'
+  if (playlist.videos.length === 0 || nextIndex >= playlist.videoCount) {
     nextIndex = -1
   }
 
