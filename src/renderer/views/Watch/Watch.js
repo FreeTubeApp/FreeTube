@@ -147,6 +147,8 @@ export default defineComponent({
       sabrData: null,
       legacyFormats: [],
       captions: [],
+      /** @type {import('youtubei.js').Misc.Format[]} */
+      hlsAudioMetadata: [],
       /** @type {'EQUIRECTANGULAR' | 'EQUIRECTANGULAR_THREED_TOP_BOTTOM' | 'MESH'| null} */
       vrProjection: null,
       autoplayNextRecommendedVideo: false,
@@ -677,6 +679,7 @@ export default defineComponent({
 
         this.videoChapters = chapters
         this.videoChaptersKind = chaptersKind
+        this.hlsAudioMetadata = []
 
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
@@ -744,6 +747,9 @@ export default defineComponent({
           } else {
             this.manifestSrc = result.streaming_data.hls_manifest_url
             this.manifestMimeType = MANIFEST_TYPE_HLS
+
+            this.hlsAudioMetadata = result.streaming_data.adaptive_formats
+              .filter((format) => format.mime_type.startsWith('audio/mp4'))
           }
 
           this.streamingDataExpiryDate = result.streaming_data.expires
@@ -1064,6 +1070,7 @@ export default defineComponent({
           }
           this.videoChapters = chapters
           this.videoChaptersKind = 'chapters'
+          this.hlsAudioMetadata = []
 
           if (this.isLive || this.isPostLiveDvr) {
             // The live DASH manifest is currently unusable as it returns 403s after 1 minute of playback

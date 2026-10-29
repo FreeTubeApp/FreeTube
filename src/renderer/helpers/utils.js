@@ -9,6 +9,8 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
+export const MIME_TYPE_CODECS_REGEX = /codecs="?([^"]+)"?/
+
 /**
  * @param {string} sortPreference
  * @returns {string[]}

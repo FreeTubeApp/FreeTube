@@ -17,6 +17,7 @@ import {
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
   logShakaError,
+  patchLiveHlsMainManifest,
   repairInvidiousManifest,
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
@@ -92,6 +93,11 @@ export default defineComponent({
       default: null
     },
     captions: {
+      type: Array,
+      default: () => ([])
+    },
+    /** @type {import('vue').PropType<import('youtubei.js').Misc.Format[]>} */
+    hlsAudioMetadata: {
       type: Array,
       default: () => ([])
     },
@@ -1412,6 +1418,12 @@ export default defineComponent({
             response.data = new TextEncoder().encode(cleaned).buffer
           }
         }
+      } else if (type === RequestType.MANIFEST && context.type === AdvancedRequestType.MASTER_PLAYLIST) {
+        const result = patchLiveHlsMainManifest(response.data, props.hlsAudioMetadata)
+
+        if (result !== response.data) {
+          response.data = result
+        }
       } else if (type === RequestType.MANIFEST && context.type === AdvancedRequestType.MEDIA_PLAYLIST) {
         const url = new URL(response.uri)
 
@@ -1626,7 +1638,7 @@ export default defineComponent({
 
       stats.bitrate = (newTrack.bandwidth / 1000).toFixed(2)
 
-      const isHls = newTrack.mimeType === 'video/mp2t'
+      const isHls = newTrack.audioMimeType === 'video/mp2t'
 
       stats.codecs.audioCodec = newTrack.audioCodec
 
