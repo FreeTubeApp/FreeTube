@@ -99,7 +99,7 @@ Subscriptions:
   Load More Videos: 'Hlaða inn fleiri myndskeiðum'
   Error Channels: Hugbúnaðarrásir með villum
   Disabled Automatic Fetching: Þú hefur gert sjálfvirkt niðurhal áskrifta óvirkt. Endurlestu áskriftirnar og þær munu birtast hér.
-  Empty Channels: Rásirnar sem þú ert með í áskrift eru er ekki með nein myndskeið.
+  Empty Channels: Rásirnar sem þú ert með í áskrift eru ekki með nein myndskeið.
   Subscriptions Tabs: Áskriftaflipar
   All Subscription Tabs Hidden: Allir áskriftaflipar eru faldir. Til að sjá efni hér, skaltu gera einhverja flipa sýnilega í "{subsection}" hlutanum í "{settingsSection}".
   Load More Posts: Hlaða inn fleiri færslum
@@ -391,6 +391,7 @@ Settings:
       Dash Formats: 'DASH-skráasnið'
       Legacy Formats: 'Eldri skráasnið'
       Audio Formats: 'Hljóðskráasnið'
+      Default Media Format: Sjálfgefið snið myndskráa
     Default Quality:
       Default Quality: 'Sjálfgefin gæði'
       Auto: 'Sjálfvirkt'
@@ -568,6 +569,7 @@ Settings:
     Non-transferable setting key: 'Ekki-flytjanlegur stillingalykill: {key}'
     All settings have been successfully imported: Tókst að flytja inn allar stillingar
     All settings have been successfully exported: Tókst að flytja út allar stillingar
+    Setting object has insufficient data, skipping item: Grunnstillingaatriðið er ekki með næg gögn, sleppi því
   Proxy Settings:
     Proxy Settings: 'Milliþjónn (proxy)'
     Enable Tor / Proxy: 'Virkja Tor / milliþjón'
@@ -703,6 +705,7 @@ Profile:
   Create Profile Name: Útbúa heiti á notkunarsnið
   Open Profile Dropdown: Opna fellivalmynd notkunarsniðs
   Close Profile Dropdown: Loka fellivalmynd notkunarsniðs
+  Go To Profile Manager: Fara í umsýslu notkunarsniða
 Channel:
   Subscribe: 'Gerast áskrifandi'
   Unsubscribe: 'Segja upp áskrift'
@@ -717,6 +720,7 @@ Channel:
       Newest: 'Nýjast'
       Oldest: 'Elst'
       Most Popular: 'Vinsælast'
+    This channel has videos but none could be displayed, try fetching more: Þessi rás er með myndskeið, en ekki var hægt að birta nein þeirra, reyni að sækja fleiri
   Playlists:
     Playlists: 'Spilunarlistar'
     This channel does not currently have any playlists: 'Þessi rás er ekki með neina spilunarlista'
@@ -885,6 +889,14 @@ Video:
   Expand Playlist: Fletta út spilunarlista
   Station: Stöð
   Premiere: Frumsýning
+  Enable SponsorBlock on Channel: Virkja SponsorBlock á rás
+  Disable SponsorBlock on Channel: Gera SponsorBlock óvirkt á rás
+  AI: AI
+  'AI: Content was made with AI': 'AI: Efnið var framleitt með vitlíki'
+  How this was made: Hvernig þetta var framleitt
+  Reload Page: Endurlesa síðu
+  Playlist:
+    Unavailable videos are hidden: 1 ótiltækt myndskeið er falið | {count} ótiltæk myndskeið eru falin
 Playlist:
   #& About
   View Full Playlist: 'Sjá allan spilunarlistann'
@@ -1149,3 +1161,5 @@ Compact side navigation: Þjöppuð hliðarflakkstika
 Expand side navigation: Fella út hliðarflakkstiku
 Screenshot Clipboard Success: Vistaði skjámynd á klippispjald
 Screenshot Clipboard Error: Mistókst að vista skjámynd á klippispjald
+SponsorBlock Disabled on Channel: SponsorBlock er óvirkt á {channel}
+SponsorBlock Enabled on Channel: SponsorBlock er virkt á {channel}
