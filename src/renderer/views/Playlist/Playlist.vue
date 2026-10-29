@@ -551,7 +551,7 @@ async function getPlaylistInvidious() {
 
     playlistTitle.value = result.title
     playlistDescription.value = result.description
-    firstVideoId.value = result.videos[0].videoId
+    firstVideoId.value = result.videos[0]?.videoId || ''
     viewCount.value = result.viewCount
     videoCount.value = result.videoCount
     channelName.value = result.author
