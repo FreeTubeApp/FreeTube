@@ -2379,10 +2379,12 @@ export function parseLocalComment(comment, commentThread = undefined) {
   const replyToken = commentThread ?? null
   let hasOwnerReplied = false
   let hasReplyToken = false
+  let numReplies = 0
 
   if (commentThread?.has_replies) {
     hasOwnerReplied = !!commentThread.comment_replies_data?.has_channel_owner_replied
     hasReplyToken = true
+    numReplies = parseLocalSubscriberCount(commentThread.comment_replies_data?.view_replies?.text || '0')
   }
 
   const commentTextRuns = comment.voice_reply_container?.transcript_text?.runs ?? comment.content?.runs ?? []
@@ -2405,7 +2407,7 @@ export function parseLocalComment(comment, commentThread = undefined) {
     memberIconUrl: comment.member_badge?.url ?? '',
     time: getRelativeTimeFromDate(calculatePublishedDate((comment.published_time ?? '').replace('(edited)', '').trim()) ?? 0, false),
     likes: parseLocalSubscriberCount(comment.like_count?.trim() || '0'),
-    numReplies: hasReplyToken ? parseLocalSubscriberCount(commentThread.comment_replies_data.view_replies.text ?? '0') : 0
+    numReplies
   }
 }
 
