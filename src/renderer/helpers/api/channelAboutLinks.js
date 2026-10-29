@@ -12,6 +12,7 @@ function getDirectUrl(endpoint) {
 
     const redirectTarget = getYouTubeRedirectTarget(url)
     if (redirectTarget !== undefined) {
+      if (!redirectTarget) return null
       url = new URL(redirectTarget)
     }
 
