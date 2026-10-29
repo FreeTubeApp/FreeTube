@@ -307,6 +307,7 @@ const INCLUDED_DEFAULT_PAGE_NAMES = [
   'userPlaylists',
   'history',
   'settings',
+  'about',
   ...(process.env.SUPPORTS_LOCAL_API ? ['trending'] : [])
 ]
 
@@ -335,11 +336,11 @@ const defaultPageValues = computed(() => {
   return defaultPages.value.map((route) => route.path.slice(1))
 })
 
-/** @type {import('vue').ComputedRef<'subscriptions' | 'subscribedChannels' | 'popular' | 'userPlaylists' | 'history' | 'settings' | 'trending'>} */
+/** @type {import('vue').ComputedRef<'subscriptions' | 'subscribedChannels' | 'popular' | 'userPlaylists' | 'history' | 'settings' | 'about' | 'trending'>} */
 const landingPage = computed(() => store.getters.getLandingPage)
 
 /**
- * @param {'subscriptions' | 'subscribedChannels' | 'popular' | 'userPlaylists' | 'history' | 'settings' | 'trending'} value
+ * @param {'subscriptions' | 'subscribedChannels' | 'popular' | 'userPlaylists' | 'history' | 'settings' | 'about' | 'trending'} value
  */
 function updateLandingPage(value) {
   store.dispatch('updateLandingPage', value)
