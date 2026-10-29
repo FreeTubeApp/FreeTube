@@ -827,7 +827,7 @@ Video:
     Hide Stats: Statistiken ausblenden
     Autoplay is off: Automatische Wiedergabe ist ausgeschaltet
     Autoplay is on: Automatische Wiedergabe ist eingeschaltet
-  IP block: YouTube hat deine IP-Adresse für die Videowiedergabe gesperrt. Bitte versuche, einen anderen VPN oder Proxy zu nutzen.
+  IP block: YouTube hat Ihre IP-Adresse für das Ansehen von Videos gesperrt, oder dieses Video enthält möglicherweise Inhalte mit Minderjährigen, auf die YouTube für nicht angemeldete Nutzer den Zugriff einschränkt. Sollte es sich um eine IP-Sperre handeln, versuchen Sie es mit einem anderen VPN oder Proxy.
   Unlisted: Nicht gelistet
   MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht angesehen werden, da sie einen Google-Login und eine kostenpflichtige Kanalmitgliedschaft erfordern.
   AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften YouTube-Kontos erfordern.
