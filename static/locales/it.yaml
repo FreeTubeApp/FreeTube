@@ -828,7 +828,7 @@ Video:
     Skipped segment: Segmento {segmentCategory} saltato
     Autoplay is off: La riproduzione automatica è disattivata
     Autoplay is on: La riproduzione automatica è attivata
-  IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video. Prova a passare a una VPN o a un proxy diverso.
+  IP block: YouTube ha bloccato il tuo indirizzo IP, impedendoti di guardare i video; in alternativa, il video potrebbe contenere materiale che vede protagonisti dei minori, per il quale YouTube limita l'accesso agli utenti non collegati al proprio account. Se si tratta di un blocco dell'indirizzo IP, prova a udare una VPN o un proxy diverso.
   Unlisted: Non elencato
   MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube, poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente che li ha caricati.
   AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età verificata.
