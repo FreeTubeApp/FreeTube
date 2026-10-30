@@ -312,8 +312,25 @@ export default defineComponent({
       })
     })
 
+    const seekingIsPossible = computed(() => {
+      if (props.manifestMimeType !== 'application/x-mpegurl') {
+        return true
+      }
+
+      const match = props.manifestSrc.match(/\/(?:manifest|playlist)_duration\/(\d+)\//)
+
+      // Post live DVR HLS manifests URLs contain /force_finished/1
+      return props.manifestSrc.includes('/force_finished/1') ||
+        // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
+        (match != null && parseInt(match[1] || '0') > 30)
+    })
+
     /** @type {import('vue').ComputedRef<number>} */
     const defaultPlaybackRate = computed(() => {
+      if (!seekingIsPossible.value) {
+        return 1
+      }
+
       return store.getters.getDefaultPlayback
     })
 
@@ -374,7 +391,7 @@ export default defineComponent({
 
     /** @type {import('vue').ComputedRef<boolean>} */
     const videoPlaybackRateMouseScroll = computed(() => {
-      return store.getters.getVideoPlaybackRateMouseScroll
+      return store.getters.getVideoPlaybackRateMouseScroll && seekingIsPossible.value
     })
 
     /** @type {import('vue').ComputedRef<boolean>} */
@@ -604,19 +621,6 @@ export default defineComponent({
     // #endregion SponsorBlock
 
     // #region player config
-
-    const seekingIsPossible = computed(() => {
-      if (props.manifestMimeType !== 'application/x-mpegurl') {
-        return true
-      }
-
-      const match = props.manifestSrc.match(/\/(?:manifest|playlist)_duration\/(\d+)\//)
-
-      // Post live DVR HLS manifests URLs contain /force_finished/1
-      return props.manifestSrc.includes('/force_finished/1') ||
-        // Check how many seconds we are allowed to seek, 30 is too short, 3600 is an hour which is great
-        (match != null && parseInt(match[1] || '0') > 30)
-    })
 
     /**
      * @param {'dash'|'audio'|'legacy'} format
@@ -917,6 +921,10 @@ export default defineComponent({
         removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'chapter')
       }
 
+      if (!seekingIsPossible.value) {
+        removeFromArrayIfExists(uiConfig.overflowMenuButtons, 'playback_rate')
+      }
+
       return uiConfig
     })
 
@@ -1014,13 +1022,13 @@ export default defineComponent({
         //
 
         if (event.ctrlKey || event.metaKey) {
-          if (videoPlaybackRateMouseScroll.value) {
+          if (videoPlaybackRateMouseScroll.value && canSeek()) {
             mouseScrollPlaybackRateHandler(event)
           }
         } else {
           if (videoVolumeMouseScroll.value) {
             mouseScrollVolumeHandler(event)
-          } else if (videoSkipMouseScroll.value) {
+          } else if (videoSkipMouseScroll.value && canSeek()) {
             mouseScrollSkipHandler(event)
           }
         }
@@ -1053,7 +1061,7 @@ export default defineComponent({
           controlsContainer.addEventListener('wheel', handleControlsContainerWheel)
         }
 
-        if (videoPlaybackRateMouseScroll.value) {
+        if (videoPlaybackRateMouseScroll.value && canSeek()) {
           controlsContainer.addEventListener('click', handleControlsContainerClick, true)
         }
       }
