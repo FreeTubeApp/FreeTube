@@ -836,7 +836,7 @@ export default defineComponent({
           'ft_autoplay_toggle',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'playback_rate',
-          'captions',
+          'captions-settings',
           'ft_audio_tracks',
           'chapter',
           'loop',
@@ -863,7 +863,7 @@ export default defineComponent({
 
         uiConfig.overflowMenuButtons.push(
           'ft_audio_tracks',
-          'captions',
+          'captions-settings',
           'playback_rate',
           props.format === 'legacy' ? 'ft_legacy_quality' : 'quality',
           'chapter',
