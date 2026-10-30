@@ -161,8 +161,8 @@ importers:
         specifier: ^1.106.1
         version: 1.106.1
       sass-loader:
-        specifier: ^17.0.1
-        version: 17.0.1(sass@1.106.1)(webpack@5.112.2)
+        specifier: ^17.1.0
+        version: 17.1.0(sass@1.106.1)(webpack@5.112.2)
       stylelint:
         specifier: ^17.16.0
         version: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
@@ -3720,8 +3720,8 @@ packages:
   sanitize-filename@1.6.4:
     resolution: {integrity: sha512-9ZyI08PsvdQl2r/bBIGubpVdR3RR9sY6RDiWFPreA21C/EFlQhmgo20UZlNjZMMZNubusLhAQozkA0Od5J21Eg==}
 
-  sass-loader@17.0.1:
-    resolution: {integrity: sha512-pgJMwCuLjVTSIWsv/2luVRXKlCeaViUGcgSe8dx95zMG4hUwqIMFmjbhq29ypFLflJU0GyiJZeLM9iI1n3KYAA==}
+  sass-loader@17.1.0:
+    resolution: {integrity: sha512-EZ/u/bLkAErTKvIq/f81Bz6tgL/5Brt8hWOABdTsVdO+nX0PWx2rQhR6fyxVME+MhnQrrwecMDlm2G1y07hhpQ==}
     engines: {node: '>= 22.11.0'}
     peerDependencies:
       '@rspack/core': 0.x || ^1.0.0 || ^2.0.0-0
@@ -8296,7 +8296,7 @@ snapshots:
     dependencies:
       truncate-utf8-bytes: 1.0.2
 
-  sass-loader@17.0.1(sass@1.106.1)(webpack@5.112.2):
+  sass-loader@17.1.0(sass@1.106.1)(webpack@5.112.2):
     optionalDependencies:
       sass: 1.106.1
       webpack: 5.112.2(clean-css@5.3.3)(cssnano@9.9.0)(csso@5.0.5)(html-minifier-terser@6.1.0)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.2.3)
