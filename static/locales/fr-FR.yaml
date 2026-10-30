@@ -828,7 +828,7 @@ Video:
     Playback will resume automatically when your connection comes back: La lecture reprendra automatiquement quand votre connexion reviendra.
     Autoplay is on: La lecture automatique est activée
     Autoplay is off: La lecture automatique est désactivée
-  IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez essayer de changer de VPN ou de proxy.
+  IP block: YouTube a bloqué votre adresse IP et vous empêche de regarder des vidéos, ou bien cette vidéo contient peut-être du contenu mettant en scène des mineurs, dont YouTube restreint l'accès aux utilisateurs non connectés. S'il s'agit d'un blocage d'adresse IP, essayez d'utiliser un autre VPN ou un autre proxy.
   Unlisted: Non répertorié
   AgeRestricted: Les vidéos soumises à des restrictions d'âge ne peuvent pas être regardées avec FreeTube car elles nécessitent une connexion Google et l'utilisation d'un compte YouTube dont l'âge a été vérifié.
   MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec FreeTube, car elles nécessitent une connexion Google et une adhésion payante à la chaîne du vidéaste.
