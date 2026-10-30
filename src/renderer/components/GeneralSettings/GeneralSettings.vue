@@ -127,6 +127,7 @@
           :data-list="invidiousInstancesList"
           :tooltip="t('Tooltips.General Settings.Invidious Instance')"
           @blur="handleInvidiousInstanceBlur"
+          @click="handleInvidiousInstanceBlur"
         />
       </FtFlexBox>
       <FtFlexBox>
