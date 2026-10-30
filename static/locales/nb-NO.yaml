@@ -832,7 +832,7 @@ Video:
   Hide Channel: Skjul kanal
   AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom det kreves en Google-pålogging og at man bruker en YouTube-bruker med verifisert alder.
   MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de krever en Google-pålogging og et betalt medlemsskap i opplasterens kanal.
-  IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til en annen VPN eller mellomtjener.
+  IP block: YouTube har blokkert din IP adresse fra å se videoer, eller så avbilder denne videoen mindreårige, som gjør at YouTube begrenser tilgang til videoen til innloggede brukere. Hvis dette er en IP-blokkering, prøv å bytte til en annen VPN eller mellomtjener.
   DRMProtected: Kopibeskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube-nettsiden i en støttet nettleser for å spille av denne videoen.
   Save Watched Progress: Lagre sted i videoen
   Watched Progress Saved: Sted i videoen lagret
