@@ -824,7 +824,7 @@ Video:
     Show Stats: 統計を表示
     Autoplay is off: 自動再生 オフ
     Autoplay is on: 自動再生 オン
-  IP block: YouTube はあなたのIPアドレスからの動画視聴をブロックしました。別の VPN またはプロキシに切り替えてみてください。
+  IP block: YouTube により、お使いの IP アドレスからの動画視聴がブロックされているか、またはこの動画には、ログインしていないユーザーへのアクセスを YouTube が制限している未成年者が登場するコンテンツが含まれている可能性があります。IP ブロックによるものである場合は、別の VPN やプロキシに切り替えてみてください。
   Unlisted: 限定公開
   MembersOnly: メンバー限定動画は Google にログインし、投稿チャンネルに課金する必要があるので FreeTube から直接見ることはできません。
   AgeRestricted: 年齢制限がかかっている 動画 は Google にログインしておりかつ年齢確認を済ましている YouTube アカウントが必要なため、FreeTube から直接見ることはできません。
