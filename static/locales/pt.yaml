@@ -880,7 +880,7 @@ Video:
     Autoplay is on: A reprodução automática está ativada
     Autoplay is off: A reprodução automática está desativada
   MembersOnly: Vídeos exclusivos para membros não podem ser assistidos com o FreeTube, pois exigem login do Google e assinatura paga do canal do remetente.
-  IP block: O YouTube bloqueou seu endereço IP para assistir a vídeos. Tente mudar para uma VPN ou proxy diferente.
+  IP block: O YouTube bloqueou seu endereço IP, impedindo que você assista a vídeos, ou este vídeo pode conter conteúdo com menores de idade, cujo acesso é restrito pelo YouTube para usuários que não estiverem conectados. Se for um bloqueio de IP, tente usar uma VPN ou um proxy diferente.
   AgeRestricted: Vídeos com restrição de idade não podem ser assistidos com o FreeTube, pois exigem login do Google e uso de uma conta do YouTube com verificação de idade.
   Unlisted: Não listado
 #& Playlists
