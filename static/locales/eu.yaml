@@ -876,7 +876,7 @@ Video:
   MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTuberekin ikusi, Googleren saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen baitute.
   Unlisted: Zerrendatu gabeak
   AgeRestricted: Adin muga duten bideoak ezin dira FreeTuberekin ikusi, Googlen saioa hasi eta adinak egiaztatutako YouTubeko kontu bat erabili behar delako.
-  IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu VPN edo proxy desberdin batera aldatzen.
+  IP block: YouTube-k zure IP helbidea blokeatu du bideoak ikus ez ditzazun, edo baliteke bideo honek adingabeak agertzen diren edukia izatea; YouTube-k eduki horretarako sarbidea mugatzen die saioa hasi ez duten erabiltzaileei. IP blokeo bat bada, saiatu beste VPN edo proxy bat erabiltzen.
   DeArrow:
     Show Original Details: Erakutsi jatorrizko xehetasunak
     Show Modified Details: Erakutsi aldatutako xehetasunak
