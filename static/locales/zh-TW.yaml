@@ -383,6 +383,7 @@ Settings:
       Dash Formats: 'DASH 格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
+      Default Media Format: 預設媒體格式
     Default Quality:
       Default Quality: '預設畫質'
       Auto: '自動'
@@ -827,7 +828,7 @@ Video:
     Skipped segment: 已跳過 {segmentCategory} 段
     Autoplay is on: 自動播放已開啟
     Autoplay is off: 自動播放已關閉
-  IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
+  IP block: YouTube 已封鎖您的 IP 位址，使其無法觀看影片；或者，這支影片可能包含涉及未成年人的內容，而 YouTube 會限制未登入帳號的使用者觀看此類內容。若這是 IP 封鎖，請嘗試切換至其他 VPN 或代理伺服器。
   MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
   AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
   Unlisted: 未公開
