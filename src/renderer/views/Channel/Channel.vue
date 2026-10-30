@@ -864,7 +864,7 @@ async function getChannelAboutLocal() {
     await ensureChannelInstance()
     const about = await channelInstance.getAbout()
 
-    if (expectedId !== id.value || apiUsed !== 'local') {
+    if (expectedId !== id.value) {
       return
     }
 
