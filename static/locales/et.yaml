@@ -872,7 +872,7 @@ Video:
     You appear to be offline: Sa ei tundu olema võrgus.
     Autoplay is off: Automaatne esitamine on kasutusel
     Autoplay is on: Automaatne esitamine pole kasutusel
-  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise. Palun kasuta mõnda muud lahendust, nagu VPN-teenust või puhverserverit.
+  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise või videos on sellist sisu, mida autentimata kasutajad vaadata ei saa. Kui tegemist on IP-aadressi blokeerimisega, siis palun kasuta mõnda muud lahendust, nagu VPN-teenust või puhverserverit.
   MembersOnly: Kuna vajalik on sisselogimine Google'i kontoga ja tasuline liikmelisus üleslaadija kanalis, siis ainult liikmetele mõeldud videoid ei saa FreeTube'is vaadata.
   AgeRestricted: Kuna vajalik on sisselogimine Google'i kontoga, kus vanus on kontrollitud, siis vanusepiiranguga videoid ei saa FreeTube'is vaadata.
   Unlisted: Registriväline
