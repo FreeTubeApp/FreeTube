@@ -95,7 +95,7 @@
     "lefthook": "^2.2.2",
     "mini-css-extract-plugin": "^2.10.2",
     "minimizer-webpack-plugin": "^5.13.1",
-    "postcss": "^8.5.31",
+    "postcss": "^8.5.32",
     "postcss-scss": "^4.0.9",
     "sass": "^1.105.2",
     "sass-loader": "^17.0.1",
