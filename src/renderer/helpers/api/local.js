@@ -14,6 +14,7 @@ import {
   getRelativeTimeFromDate,
 } from '../utils'
 import { parseVideoClipsParams } from './shared'
+
 const TRACKING_PARAM_NAMES = [
   'utm_source',
   'utm_medium',

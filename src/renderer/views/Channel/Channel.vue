@@ -364,6 +364,7 @@ const viewCount = ref(0)
 const videoCount = ref(0)
 const joined = ref(0)
 const location = ref(null)
+/** @type {import('vue').ShallowRef<{ title: string, url: string, displayUrl: string, iconUrl: string }[]>} */
 const channelAboutLinks = shallowRef([])
 const relatedChannels = shallowRef([])
 const isArtistTopicChannel = ref(false)
