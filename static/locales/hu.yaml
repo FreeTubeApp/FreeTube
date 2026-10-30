@@ -878,7 +878,7 @@ Video:
     Playback will resume automatically when your connection comes back: A lejátszás automatikusan folytatódik, amikor a kapcsolat helyreáll.
     Autoplay is off: Az automatikus lejátszás ki van kapcsolva
     Autoplay is on: Az automatikus lejátszás be van kapcsolva
-  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg másik VPN-re vagy proxyra váltani.
+  IP block: A YouTube letiltotta az IP-címéről történő videómegtekintést, vagy előfordulhat, hogy a videó olyan tartalmat tartalmaz, amelyben kiskorúak szerepelnek, és amelyhez a YouTube korlátozza a hozzáférést a bejelentkezés nélkül használók számára. Ha IP-cím alapú tiltásról van szó, akkor próbáljon meg másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
   AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google-bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
   MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google-bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
