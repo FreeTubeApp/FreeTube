@@ -828,7 +828,7 @@ Video:
     Skipped segment: 跳过了 {segmentCategory} 部分
     Autoplay is off: 自动播放关闭
     Autoplay is on: 自动播放开启
-  IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
+  IP block: 你的 IP 地址被 Youtube 禁止观看视频。或者该视频可能包含 YouTube 限制未登录用户访问的主打未成年人的内容。如果这是 IP 封锁，试着切换到不同的 VPN 或代理。
   MembersOnly: 无法用 FreeTube 观看仅供会员的视频，因这些视频需要 Google 登录以及上传者频道的付费会员身份。
   AgeRestricted: 无法用 FreeTube 观看受限年龄的视频，因这些视频需要 Google 登录并使用验证过年龄的 YouTube 账户。
   Unlisted: 不公开列出的视频
