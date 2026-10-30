@@ -828,7 +828,7 @@ Video:
     Full Window: Pełne okno
     Autoplay is off: Autoodtwarzanie jest wyłączone
     Autoplay is on: Autoodtwarzanie jest włączone
-  IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz spróbować przełączyć się na inny, korzystając z VPN lub proxy.
+  IP block: Serwis YouTube zablokował Twój adres IP, uniemożliwiając oglądanie filmów, lub ten film może zawierać treści przedstawiające osoby niepełnoletnie, do których serwis YouTube ogranicza dostęp użytkownikom niezalogowanym. Jeśli jest to blokada adresu IP, spróbuj przełączyć się na inną sieć VPN lub serwer proxy.
   AgeRestricted: Filmy z ograniczeniem wiekowym nie mogą być odtwarzane przez FreeTube, ponieważ wymagają danych logowania do konta Google z potwierdzonym wiekiem użytkownika.
   MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube, ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
   Unlisted: Niepubliczny
