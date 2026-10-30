@@ -1,6 +1,7 @@
 import { getYouTubeRedirectTarget } from './youtubeRedirect.js'
 
 const ALLOWED_LINK_PROTOCOLS = ['http:', 'https:']
+const SCHEMELESS_DOMAIN_URL_PATTERN = /^(?:\/\/)?[^./?#:@\s]+(?:\.[^./?#:@\s]+)+(?::\d+)?(?:[/?#]|$)/
 
 /**
  * @param {import('youtubei.js').YTNodes.NavigationEndpoint} endpoint
@@ -13,7 +14,10 @@ function getDirectUrl(endpoint) {
     const redirectTarget = getYouTubeRedirectTarget(url)
     if (redirectTarget !== undefined) {
       if (!redirectTarget) return null
-      url = new URL(redirectTarget)
+      const destination = SCHEMELESS_DOMAIN_URL_PATTERN.test(redirectTarget)
+        ? `https://${redirectTarget.replace(/^\/\//, '')}`
+        : redirectTarget
+      url = new URL(destination)
     }
 
     return ALLOWED_LINK_PROTOCOLS.includes(url.protocol) ? url.href : null
