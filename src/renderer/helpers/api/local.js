@@ -1480,15 +1480,15 @@ function handleSearchResponse(response) {
     return {
       results: [],
       continuationData: null,
-      rawResultsCount: 0,
+      validResultsCount: 0,
     }
   }
 
+  const validResultsCount = response.results.length
   const resultsWithValidTypes = response.results
     .filter((item) => {
       return item.type === 'Video' || item.type === 'Channel' || item.type === 'Playlist' || item.type === 'HashtagTile' || item.type === 'Movie' || item.type === 'LockupView'
     })
-  const rawResultsCount = resultsWithValidTypes.length
   const results = resultsWithValidTypes
     .map((item) => parseListItem(item))
     .filter((item) => item)
@@ -1497,7 +1497,7 @@ function handleSearchResponse(response) {
     results,
     // check the length of the results, as there can be continuations for things that we've filtered out, which we don't want
     continuationData: response.has_continuation && results.length > 0 ? response : null,
-    rawResultsCount,
+    validResultsCount,
   }
 }
 
