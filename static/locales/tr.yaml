@@ -876,7 +876,7 @@ Video:
     Skipped segment: '{segmentCategory} bölümü atlandı'
     Autoplay is off: Otomatik Oynat Kapalı
     Autoplay is on: Otomatik Oynat Açık
-  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir VPN veya vekil sunucuya geçmeyi deneyin.
+  IP block: YouTube, IP adresinizin videoları izlemesini engelledi, veya bu videoda, YouTube'un oturumu kapalı kullanıcılar için erişimini kısıtladığı, reşit olmayan kişilerin yer aldığı içerik bulunabilir. Eğer bu bir IP engeli ise, farklı bir VPN veya vekil sunucu kullanmayı deneyin.
   Unlisted: Listelenmemiş
   AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden izlenemez.
   MembersOnly: Sadece üyelere özel videolar, Google hesabına giriş ve yükleyicinin kanalına ücretli abonelik gerektirdiği için FreeTube üzerinden izlenemez.
