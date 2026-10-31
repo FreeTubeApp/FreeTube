@@ -57,29 +57,24 @@
   block-size: 2em;
 }
 
-.subscribeButton.dropdownOpened,
-.profileDropdownToggle.dropdownOpened {
-  border-end-start-radius: 0;
-  border-end-end-radius: 0;
-}
-
 .profileDropdown {
   background-color: var(--side-nav-color);
   box-shadow: 0 1px 2px rgb(0 0 0 / 50%);
+  border-radius: 4px;
   color: var(--secondary-text-color);
   display: inline;
   font-size: 12px;
-  max-block-size: 200px;
-  margin-block: -10px 0;
+  max-block-size: min(60vh, 500px);
+  margin-block: 4px 0;
   margin-inline: 5px 0;
-  overflow-y: scroll;
+  overflow-y: auto;
   position: absolute;
   text-align: center;
   user-select: none;
   z-index: 3;
 
   /* accounts for parent's left and right margins */
-  inline-size: calc(100% - 10px);
+  inline-size: max(calc(100% - 10px), 250px);
 }
 
 .profileList {
