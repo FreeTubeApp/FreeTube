@@ -13,6 +13,45 @@
       />
     </template>
     <template
+      v-if="externalLinks.length > 0"
+    >
+      <h2>{{ $t('Channel.About.Links') }}</h2>
+      <ul
+        class="aboutLinks"
+      >
+        <li
+          v-for="(link, index) in externalLinks"
+          :key="`${link.url}-${index}`"
+          class="aboutLink"
+        >
+          <img
+            v-if="link.iconUrl"
+            class="aboutLinkIcon"
+            :src="link.iconUrl"
+            alt=""
+            loading="lazy"
+          >
+          <div class="aboutLinkText">
+            <span
+              v-if="link.title"
+              class="aboutLinkTitle"
+              dir="auto"
+            >
+              {{ link.title }}
+            </span>
+            <a
+              class="aboutLinkDestination"
+              :href="link.url"
+              :title="link.url"
+              dir="auto"
+            >
+              {{ link.displayUrl }}
+            </a>
+          </div>
+        </li>
+      </ul>
+    </template>
+    <template
       v-if="joined || views !== null || videos !== null || location"
     >
       <h2>{{ $t('Channel.About.Details') }}</h2>
@@ -64,45 +103,6 @@
           </td>
         </tr>
       </table>
-    </template>
-    <template
-      v-if="externalLinks.length > 0"
-    >
-      <h2>{{ $t('Channel.About.Links') }}</h2>
-      <ul
-        class="aboutLinks"
-      >
-        <li
-          v-for="(link, index) in externalLinks"
-          :key="`${link.url}-${index}`"
-          class="aboutLink"
-        >
-          <img
-            v-if="link.iconUrl"
-            class="aboutLinkIcon"
-            :src="link.iconUrl"
-            alt=""
-            loading="lazy"
-          >
-          <div class="aboutLinkText">
-            <span
-              v-if="link.title"
-              class="aboutLinkTitle"
-              dir="auto"
-            >
-              {{ link.title }}
-            </span>
-            <a
-              class="aboutLinkDestination"
-              :href="link.url"
-              :title="link.url"
-              dir="auto"
-            >
-              {{ link.displayUrl }}
-            </a>
-          </div>
-        </li>
-      </ul>
     </template>
     <template
       v-if="tags.length > 0"
