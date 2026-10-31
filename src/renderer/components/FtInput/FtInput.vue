@@ -66,6 +66,8 @@
           enabled: inputDataPresent,
           withLabel: showLabel
         }"
+        :aria-label="actionButtonLabel"
+        :title="actionButtonLabel"
         @click="handleClick"
       >
         <FontAwesomeIcon
@@ -154,6 +156,10 @@ const props = defineProps({
     type: Boolean,
     default: true
   },
+  actionButtonLabel: {
+    type: String,
+    default: '',
+  },
   forceActionButtonIconName: {
     type: Array,
     default: null
@@ -196,7 +202,7 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['clear', 'click', 'input', 'remove'])
+const emit = defineEmits(['clear', 'click', 'input', 'remove', 'blur'])
 
 const id = useId()
 
@@ -325,6 +331,7 @@ async function handleActionIconChange() {
     switch (result.urlType) {
       case 'video':
       case 'playlist':
+      case 'show':
       case 'search':
       case 'channel':
       case 'hashtag':
@@ -333,6 +340,7 @@ async function handleActionIconChange() {
       case 'subscriptions':
       case 'history':
       case 'userplaylists':
+      case 'clip':
         isYoutubeLink = true
         break
 
@@ -374,6 +382,7 @@ function handleOptionClick(index) {
   searchState.showOptions = false
   searchState.isPointerInList = false
   inputData.value = visibleDataList.value[index]
+  searchState.keyboardSelectedOptionIndex = -1
   emit('input', inputData.value)
   handleClick()
 }
@@ -465,6 +474,7 @@ function handleInputBlur() {
   if (!searchState.isPointerInList) {
     searchState.showOptions = false
   }
+  emit('blur', inputData.value)
 }
 
 function handleFocus() {

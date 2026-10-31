@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Alle Registerkarten für Abos sind ausgeblendet. Um den Inhalt hier zu sehen, blende bitte einige Registerkarten im Abschnitt „{subsection}“ in „{settingsSection}“ ein.
   Load More Posts: Weitere Beiträge laden
   Empty Posts: Deine abonnierten Kanäle haben derzeit keine Beiträge.
+  Posts:
+    RSS Message: YouTube stellt keine RSS-Feeds für Beiträge bereit. Deaktivieren Sie die Einstellung „{rssSetting}“, um Beiträge anzuzeigen, oder aktivieren Sie die Einstellung „{hideSetting}“, um diese Registerkarte auszublenden.
 Trending:
   Trending: Trends
   Trending Tabs: Trends-Tabs
@@ -188,6 +190,9 @@ User Playlists:
   The playlist has been successfully exported: Die Playlist wurde erfolgreich exportiert
   TotalTimePlaylist: 'Gesamtzeit: {duration}'
   Export list of URLs: Liste der URLs exportieren
+  Move Video to the Top: Video nach oben verschieben
+  Move Video to the Bottom: Video nach unten verschieben
+  This playlist is private or does not exist.: Diese Wiedergabeliste ist privat oder existiert nicht.
 History:
   # On History Page
   History: Verlauf
@@ -375,11 +380,11 @@ Settings:
     Enable Theatre Mode by Default: Kinomodus standardmäßig aktivieren
     Default Volume: Standard-Lautstärke
     Default Playback Rate: Standard-Wiedergabegeschwindigkeit
-    Default Video Format:
-      Default Video Format: Standard-Videoformat
+    Default Media Format:
       Dash Formats: DASH-Formate
       Legacy Formats: Veraltete Formate
       Audio Formats: Audioformate
+      Default Media Format: Standard-Medienformat
     Default Quality:
       Default Quality: Standardqualität
       Auto: Automatisch
@@ -424,6 +429,9 @@ Settings:
       External Player: Externer Player ({externalPlayerName})
       Full Screen: Vollbild
       Default Viewing Mode: Standard-Ansichtsmodus
+      Full Window (Always On): Volles Fenster (Immer Ein)
+      Full Screen (Always On): Vollbild (Immer Ein)
+      Tooltip: Die meisten Standardanzeigemodi werden nur zu Beginn jeder Videoschausitzung angewendet. Die während der Sitzung vorgenommenen Änderungen bestehen bis zum Ende. Immer eingeschaltete Anzeigemodi werden angewendet, wenn Sie zu einem neuen Video wechseln, unabhängig davon, ob der Anzeigemodus beim Betrachten des vorherigen Videos geändert wird.
   Subscription Settings:
     Subscription Settings: Abo
     Fetch Feeds from RSS: Abos via RSS abrufen
@@ -556,6 +564,8 @@ Settings:
     Hide Channel Courses: Tab „Kurse“ im Kanal ausblenden
     Hide Channel Posts: Tab „Beiträge“ im Kanal ausblenden
     Hide Subscriptions Posts: Beiträge aus Abos ausblenden
+    Add: Hinzufügen
+    Remove: Entfernen
   The app needs to restart for changes to take effect. Restart and apply change?: Die App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten und Änderung übernehmen?
   Proxy Settings:
     Ip: IP-Adresse
@@ -589,6 +599,10 @@ Settings:
     UseDeArrowTitles: DeArrow-Videotitel verwenden
     UseDeArrowThumbnails: DeArrow für Miniaturansichten verwenden
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow-Thumbnail-Generator-API-URL (Standard ist https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Excluded Channels: Ausgeschlossene Kanäle
+      Disabled Message: Einige Kanäle wurden anhand ihrer ID ausgeschlossen und werden nicht verarbeitet. Die Funktion ist gesperrt, während diese IDs aktualisiert werden.
+      Tooltip: Geben Sie eine Kanal-ID ein, um SponsorBlock zu deaktivieren. Sponsoren-Segmente in Videos dieses Kanals werden dann nicht übersprungen. Die eingegebene Kanal-ID muss exakt übereinstimmen; bei der Eingabe wird zwischen Groß- und Kleinschreibung unterschieden.
   External Player Settings:
     Ignore Unsupported Action Warnings: Warnungen vor nicht unterstützten Aktionen ignorieren
     External Player: Externer Video-Player
@@ -610,6 +624,7 @@ Settings:
     Experimental Settings: Experimentell
     Warning: Diese Einstellungen sind experimentell und können zu Abstürzen führen, wenn sie aktiviert sind. Es wird dringend empfohlen, Backups zu erstellen. Verwendung auf eigene Gefahr!
     Replace HTTP Cache: HTTP-Cache ersetzen
+    Disable Hardware Acceleration: Hardwarebeschleunigung deaktivieren
   Password Dialog:
     Password: Passwort
     Enter Password To Unlock: Passwort eingeben, um die Einstellungen zu entsperren
@@ -628,7 +643,6 @@ About:
   Website: Website
   Credits: Danksagungen
   FAQ: Häufig gestellte Fragen
-  Email: E-Mail
   Beta: Beta
   Donate: Spenden
   Help: Hilfe
@@ -656,11 +670,11 @@ Channel:
   Your search results have returned 0 results: Deine Suche hat 0 Ergebnisse geliefert
   Videos:
     Videos: Videos
-    This channel does not currently have any videos: Dieser Kanal hat aktuell keine Videos
     Sort Types:
       Newest: Neueste
       Oldest: Älteste
       Most Popular: Beliebteste
+    This channel has videos but none could be displayed, try fetching more: Dieser Kanal enthält Videos, aber es konnte kein Video angezeigt werden. Versuchen Sie, weitere Videos abzurufen
   Playlists:
     Playlists: Playlists
     This channel does not currently have any playlists: Dieser Kanal hat derzeit keine Playlists
@@ -813,7 +827,7 @@ Video:
     Hide Stats: Statistiken ausblenden
     Autoplay is off: Automatische Wiedergabe ist ausgeschaltet
     Autoplay is on: Automatische Wiedergabe ist eingeschaltet
-  IP block: YouTube hat deine IP-Adresse für die Videowiedergabe gesperrt. Bitte versuche, einen anderen VPN oder Proxy zu nutzen.
+  IP block: YouTube hat Ihre IP-Adresse für das Ansehen von Videos gesperrt, oder dieses Video enthält möglicherweise Inhalte mit Minderjährigen, auf die YouTube für nicht angemeldete Nutzer den Zugriff einschränkt. Sollte es sich um eine IP-Sperre handeln, versuchen Sie es mit einem anderen VPN oder Proxy.
   Unlisted: Nicht gelistet
   MembersOnly: Videos, die nur für Mitglieder bestimmt sind, können mit FreeTube nicht angesehen werden, da sie einen Google-Login und eine kostenpflichtige Kanalmitgliedschaft erfordern.
   AgeRestricted: Videos mit Altersbeschränkung können mit FreeTube nicht angesehen werden, da sie eine Google-Anmeldung und die Verwendung eines altersgeprüften YouTube-Kontos erfordern.
@@ -829,6 +843,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Verbleibende SABR-Wartezeit: {remindingTimeSeconds}s'
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Verbleibende Werbezeit: {remindingTimeSeconds}s'
   Private: Private Videos können in FreeTube nicht angesehen werden, da sie Google-Anmeldung und den Besitz des Videos erfordern.
+  Collapse Playlist: Wiedergabeliste ausblenden
+  Expand Playlist: Wiedergabeliste einblenden
+  Station: Station
+  Playlist:
+    Unavailable videos are hidden: 1 nicht verfügbares Video ist ausgeblendet | {count} nicht verfügbare Videos sind ausgeblendet
+  Premiere: Premiere
+  Enable SponsorBlock on Channel: SponsorBlock auf Kanal aktivieren
+  Disable SponsorBlock on Channel: SponsorBlock auf Kanal deaktivieren
+  AI: KI
+  'AI: Content was made with AI': 'KI: Inhalte wurden mit KI erstellt'
+  How this was made: Wie es erstellt wurde
+  Reload Page: Seite neu laden
 Playlist:
   #& About
   View Full Playlist: Vollständige Playlist ansehen
@@ -850,6 +876,7 @@ Playlist:
     VideoDurationDescending: Dauer (längste)
     PublishedNewest: Veröffentlichungsdatum (neueste)
     PublishedOldest: Veröffentlichungsdatum (älteste)
+  Unavailable videos are hidden: Nicht verfügbare Videos sind ausgeblendet
 Change Format:
   Change Media Formats: Medienformate ändern
   Use Dash Formats: DASH-Formate verwenden
@@ -896,6 +923,8 @@ Comments:
   Hide Replies: Antworten ausblenden
   View 1 reply from {channelName}: 1 Antwort von {channelName} ansehen
   View {replyCount} replies from {channelName} and others: '{replyCount} Antworten von {channelName} und anderen ansehen'
+  Loading replies: Antworten laden...
+  Comments are turned off: Kommentare sind deaktiviert
 Up Next: Nächster Titel
 
 # Toast Messages
@@ -957,13 +986,14 @@ Profile:
   Create Profile Name: Profilname erstellen
   Open Profile Dropdown: Profil-Klappliste öffnen
   Close Profile Dropdown: Profil-Klappliste schließen
+  Go To Profile Manager: Zum Profil Manager wechseln
 The playlist has been reversed: Die Playlist wurde umgedreht
 Download From Site: Von der Website herunterladen
 Version {versionNumber} is now available!  Click for more details: Version {versionNumber} ist jetzt verfügbar!  Für mehr Details klicken
 Tooltips:
   General Settings:
     Thumbnail Preference: Alle Vorschaubilder in FreeTube werden verpixelt, versteckt oder durch ein Einzelbild aus dem Video ersetzt, anstatt das Standard-Vorschaubild anzuzeigen.
-    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe verbinden wird.
+    Invidious Instance: Die Invidious-Instanz, mit der sich FreeTube für API-Aufrufe verbinden wird. Änderungen an dieser Einstellung gelten nur für das aktuelle Fenster, es sei denn, Sie legen diese Instanz als Standard fest.
     Fallback to Non-Preferred Backend on Failure: Wenn deine bevorzugte API ein Problem hat, wird FreeTube automatisch versuchen, deine nicht-bevorzugte API als Ausweichmethode zu verwenden, wenn sie aktiviert ist.
     Preferred API Backend: Wähle das Backend aus, welches FreeTube zum Laden der Daten nutzen soll. Die lokale API ist ein eingebauter Extrahierer. Die Invidious-API erfordert einen Invidious-Server, zu dem eine Verbindung hergestellt werden muss.
     Region for Trending: Die Trendregion erlaubt es dir auszuwählen, aus welchem Land die Trends angezeigt werden sollen.
@@ -973,7 +1003,7 @@ Tooltips:
     Fetch Feeds from RSS: Wenn aktiviert, verwendet FreeTube RSS anstelle der Standardmethode, um deinen Abo-Feed abzurufen. RSS ist schneller und verhindert die IP-Sperren, liefert aber bestimmte Informationen wie Videodauer, den Live-Status oder Beiträge nicht
     Fetch Automatically: Wenn aktiviert, ruft FreeTube deine Abos automatisch beim Start und beim Öffnen eines neuen Fensters ab.
   Player Settings:
-    Default Video Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Auflösungen wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
+    Default Media Format: Lege die Formate fest, die bei der Wiedergabe eines Videos verwendet werden. DASH-Formate können höhere Auflösungen wiedergeben. Altformate sind auf maximal 360p beschränkt, verbrauchen aber weniger Bandbreite. Audioformate sind reine Audiostreams.
     Proxy Videos Through Invidious: Stellt eine Verbindung mit Invidious her, um Videos bereitzustellen, anstatt eine direkte Verbindung mit YouTube herzustellen.
     Scroll Playback Rate Over Video Player: Während sich der Cursor über dem Video befindet, halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und bewege das Mausrad vorwärts oder rückwärts, um die Abspielgeschwindigkeit zu steuern. Halte die Strg-Taste (Befehlstaste auf dem Mac) gedrückt und klicke mit der linken Maustaste, um schnell zur Standard-Wiedergabegeschwindigkeit zurückzukehren (1x, sofern sie nicht in den Einstellungen geändert wurde).
     Skip by Scrolling Over Video Player: Verwende das Scrollrad, um durch das Video zu springen, MPV-Stil.
@@ -986,6 +1016,7 @@ Tooltips:
     Ignore Default Arguments: Schicke keine Standardargumente an den externen Video-Player außer der Video-URL (z.B. Abspiel-Geschwindigkeit, Playlist-URL etc.). Besondere Argumente werden weiterhin weitergeleitet.
   Experimental Settings:
     Replace HTTP Cache: Deaktiviert den festplattenbasierten HTTP-Cache von Electron und aktiviert einen benutzerdefinierten In-Memory-Image-Cache. Dies führt zu einer erhöhten RAM-Auslastung.
+    Disable Hardware Acceleration: Deaktiviert die GPU-Hardwarebeschleunigung. Dies kann Grafikprobleme beheben, führt jedoch wahrscheinlich zu einer geringeren Leistung.
   Distraction Free Settings:
     Hide Channels: Gib eine Kanal-ID ein, um zu verhindern, dass alle Videos, Playlists und der Kanal selbst in der Suche, den Trends, den beliebtesten und den empfohlenen Videos angezeigt werden. Die eingegebene Kanal-ID muss vollständig übereinstimmen, und es wird zwischen Groß- und Kleinschreibung unterschieden.
     Hide Subscriptions Live: Diese Einstellung wird durch die App-weite Einstellung „{appWideSetting}“ im Abschnitt „{subsection}“ der „{settingsSection}“ außer Kraft gesetzt
@@ -1003,6 +1034,8 @@ Default Invidious instance has been set to {instance}: Standardmäßige Invidiou
 Search Bar:
   Clear Input: Eingabe löschen
   Remove: Entfernen
+  Open Search Container: Suchcontainer öffnen
+  Search: Suche
 Are you sure you want to open this link?: Bist du sicher, dass du diesen Link öffnen willst?
 External link opening has been disabled in the general settings: Das Öffnen externer Links wurde in den allgemeinen Einstellungen deaktiviert
 Screenshot Success: Screenshot wurde gespeichert
@@ -1129,3 +1162,5 @@ Compact side navigation: Seitenleiste minimieren
 Expand side navigation: Seitenleiste erweitern
 Screenshot Clipboard Success: Screenshot in der Zwischenablage gespeichert
 Screenshot Clipboard Error: Screenshot-Kopie in die Zwischenablage ist fehlgeschlagen
+SponsorBlock Disabled on Channel: SponsorBlock auf {channel} deaktiviert
+SponsorBlock Enabled on Channel: SponsorBlock auf {channel} aktiviert

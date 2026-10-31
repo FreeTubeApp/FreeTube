@@ -188,8 +188,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activa el mode teatre per defecte'
     Default Volume: 'Volum per defecte'
     Default Playback Rate: 'Velocitat de reproducció predeterminada'
-    Default Video Format:
-      Default Video Format: 'Format de vídeo predeterminat'
+    Default Media Format:
       Dash Formats: 'Formats DASH'
       Legacy Formats: 'Formats antics'
       Audio Formats: 'Formats d''àudio'
@@ -301,7 +300,6 @@ About:
   About: 'Quant a'
   #& About
   Website: Lloc web
-  Email: Correu-e
   Help: Ajuda
   Downloads / Changelog: Descàrregues / Registre de canvis
   Chat on Matrix: Xat a Matrix
@@ -365,7 +363,6 @@ Channel:
   Your search results have returned 0 results: 'Els resultats de la teva cerca han retornat 0 resultats'
   Videos:
     Videos: 'Vídeos'
-    This channel does not currently have any videos: 'Aquest canal no té actualment cap vídeo'
     Sort Types:
       Newest: 'Més Nou'
       Oldest: 'Més Vell'

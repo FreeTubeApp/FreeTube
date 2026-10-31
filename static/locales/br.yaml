@@ -21,7 +21,7 @@ Zoom out: 'Zoum bihanaat'
 Toggle fullscreen: 'Tremen e skramm leun'
 Window: 'Prenestr'
 Minimize: 'Izekaat'
-Close: 'Seriñ'
+Close: 'Serriñ'
 Back: 'Distreiñ'
 Forward: 'War-raok'
 Open New Window: 'Digeriñ ur prenestr nevez'
@@ -49,11 +49,14 @@ Global:
     Watching Count: '1 den o sellet | {count} den o sellet'
 
 # Search Bar
+    Replies Remaining: "{' '}(1 a chom) | {' '}({count} a chom)"
   Posts: Pennadoù
 Search / Go to URL: 'Klask / Mont betek un URL'
 Search Bar:
   Clear Input: 'Skarzhañ an enankad'
   Remove: Dilemel
+  Search: Klask
+  Open Search Container: Digeriñ an endalc’her klask
 Search character limit: 'Ar c''hlask a ya dreist an hirder brasañ aotreet : {searchCharacterLimit} arouezenn'
 Search Listing:
   Label:
@@ -74,7 +77,7 @@ Search Filters:
     Prioritize: Prioriziñ
     Popularity: Dre vrud
   Time:
-    Time: 'Padelezh'
+    Time: 'Deiziad'
     Any Time: 'A-holl-viskoaz'
     Today: 'Hiziv'
     This Week: 'Ar sizhun-mañ'
@@ -126,6 +129,8 @@ Subscriptions:
   Load More Posts: 'Kargañ muioc''h a bennadoù'
   Subscriptions Tabs: 'Ivinelloù ar c''houmanantoù'
   All Subscription Tabs Hidden: 'Kuzhet eo holl ivinelloù ar c''houmanantoù. Evit gwelet traoù amañ, diguzhit un nebeud ivinelloù e lodenn "{subsection}" e-barzh "{settingsSection}".'
+  Posts:
+    RSS Message: YouTube ne ginnig gwazh RSS ebet evit an notennoù. Diweredekaat an arventenn "{rssSetting}" evit gwelet an notennoù pe gweredekaat an arventenn "{hideSetting}" evit kuzhat an ivinell-mañ.
 More: 'Muioc''h'
 Channels:
   Channels: 'Chadennoù'
@@ -249,6 +254,9 @@ User Playlists:
   The playlist has been successfully exported: Ezporzhiet eo bet ar roll-videoioù gant berzh
   TotalTimePlaylist: 'Amzer hollek : {duration}'
   Export list of URLs: Ezporzhiañ roll an URLoù
+  Move Video to the Top: Kas ar Video en Nec’h
+  Move Video to the Bottom: Kas ar Video en Traoñ
+  This playlist is private or does not exist.: Prevez eo ar roll-videoioù-mañ pe n'eus ket anezhañ.
 History:
   # On History Page
   History: 'Roll istor'
@@ -448,11 +456,11 @@ Settings:
     Default Playback Rate: 'Feur lenn dre ziouer'
     Max Video Playback Rate: 'Feur lenn uhelañ ar videoioù'
     Video Playback Rate Interval: 'Esaouenn feur lenn ar videoioù'
-    Default Video Format:
-      Default Video Format: 'Furmad video dre ziouer'
-      Dash Formats: 'Furmad DASH'
-      Legacy Formats: 'Furmad Legacy'
+    Default Media Format:
+      Dash Formats: 'Furmadoù DASH'
+      Legacy Formats: 'Furmadoù Legacy'
       Audio Formats: 'Furmadoù son'
+      Default Media Format: Furmad ar media dre ziouer
     Default Quality:
       Default Quality: 'Kalite dre ziouer'
       Auto: 'Emgefreek'
@@ -471,6 +479,8 @@ Settings:
       Quality Label: 'Kalite an tapadennoù-skramm'
       Modes:
         Ask Path: 'Goulenn war-lerc''h an teuliad enrollañ'
+        Save To Folder: Enrollañ en Teuliad
+        Clipboard: Eilañ er Golver
       Folder Label: 'Teuliad an tapadennoù-skramm'
       Folder Button: 'Diuzañ un teuliad'
       File Name Label: 'Patrom anv restr'
@@ -478,6 +488,7 @@ Settings:
       Error:
         Forbidden Characters: 'Arouezennoù difennet'
         Empty File Name: 'Goullo eo anv ar restr'
+      Mode: Mod Tapadenn skramm
     Autoplay Interruption Timer: Munuter evit paouez al lenn emgefreek
     Default Viewing Mode:
       Theater: C'hoariva
@@ -485,6 +496,9 @@ Settings:
       Full Screen: Skramm Leun
       Picture in Picture: Mod skeudenn-ouzh-skeudenn
       External Player: Lenner Diavaez ({externalPlayerName})
+      Full Window (Always On): Prenestr a-bezh (Bepred Gweredekaet)
+      Full Screen (Always On): Skramm a-bezh (Bepred Gweredekaet)
+      Tooltip: An darn vrasañ eus ar modoù gwelet dre ziouer a zo gwir evit penn-kentañ ur prantad lenn nemetken. Ar c'hemmoù bet graet e-pad ur prantad lenn a vo gwir betek fin ar prantad. Ar modoù gweredekaet bepred a vo adlakaet evit pep video nevez, daoust d'ar cheñchamantoù bet graet pa oac'h o sellet ouzh ar video a-raok.
   External Player Settings:
     External Player Settings: 'Lenner diavaez'
     External Player: 'Lenner diavaez'
@@ -578,6 +592,8 @@ Settings:
     Hide Channel Home: Kuzhat ivinell "Degemer" ar chadenn
     Hide Channel Courses: Kuzhat ivinell "Kentelioù" ar chadenn
     Show Added Items: Diskouez an elfennoù ouzhpennet
+    Add: Ouzhpennañ
+    Remove: Skarzhañ
   Data Settings:
     Data Settings: 'Roadennoù'
     Select Export Type: 'Choaz doare ezporzhiañ'
@@ -626,6 +642,15 @@ Settings:
     Search history file: Restr roll istor ar c'hlask
     All search history has been successfully imported: Enporzhiet eo bet roll istor ar c'hlask gant berzh
     All search history has been successfully exported: Ezporzhiet eo bet roll istor ar c'hlask gant berzh
+    Settings File: Restr an Arventennoù
+    Import Settings: Enporzhiañ an Arventennoù
+    Export Settings: Ezporzhiañ an Arventennoù
+    All settings have been successfully imported: Enporzhiet eo bet an holl arventennoù gant berzh
+    All settings have been successfully exported: Ezporzhiet eo bet an holl arventennoù gant berzh
+    Setting object has insufficient data, skipping item: Diouer a roadennoù evit an elfenn arventenniñ, o leuskel an elfenn a-gostez
+    Unknown setting key: "Alc'hwez kefluniañ dianav : {key}"
+    Non-transferable setting key: "Alc'hwez kefluniañ dibosupl da dreuzkas : {key}"
+    Settings Tooltip: N'haller ket ezporzhiañ pe enporzhiañ arventennoù a denn d'an OS/implijer pe d'ar re arnodel (da sk., proksi, lenner diavaez, teuliad tapadennoù-skramm...)
   Proxy Settings:
     Proxy Settings: 'Proksi'
     Enable Tor / Proxy: 'Gweredekaat Tor / Proksi'
@@ -658,16 +683,22 @@ Settings:
       Prompt To Skip: 'Kinnig da laoskel a-gostez'
       Do Nothing: 'Ober netra'
     Category Color: 'Liv ar rummad'
+    Excluded Channels:
+      Excluded Channels: Chadennoù ezlakaet
+      Disabled Message: Chadennoù 'zo bet laosket da gostez hervez o ID ha n'int ket bet kemeret e kont. Stanket eo an arc’hweladur-mañ e-pad hizivadur an ID-se
+      Tooltip: Lakait ID ur chadenn evit diweredekaat SponsorBlock. Ne vo ket tremenet hebiou ar bruderezh evit ar chadenn-mañ. Ret eo d'an ID bezañ klot ha ret eo doujañ d'ar pennlizherennoù.
   Parental Control Settings:
     Parental Control Settings: 'Kontroll ar gerent'
     Hide Unsubscribe Button: 'Kuzhat ar bouton digoumanantiñ'
     Show Family Friendly Only: 'Diskouez videoioù evit ar familh hepken'
     Hide Search Bar: 'Kuzhat ar varenn glask'
     Hide Uploader on Watch page: Kuzhat ar chadenn war ar bajenn lenn
+    Disable Channel Links: Diweredekaat Liammoù ar Chadennoù
   Experimental Settings:
     Experimental Settings: 'Arnodel'
     Warning: 'Arventennoù arnodel eo, gallout a ra ar sistem chom bout pa vezont gweredekaet. Aliet-tre eo ober enrolladennoù. Kendalc’hit en ho riskl hoc’h-unan !'
     Replace HTTP Cache: 'Erlec''hiañ ar grubuilh HTTP'
+    Disable Hardware Acceleration: Diweredekaat ar Buanadur Periant
   Password Dialog:
     Password: 'Ger-tremen'
     Enter Password To Unlock: 'Enankit ar ger-tremen evit dibrennañ an arventennoù'
@@ -692,7 +723,6 @@ About:
   GitHub issues: 'Kudennoù renablet war GitHub'
   Please check for duplicates before posting: 'Gwiriekait an doublennoù a-raok embann, mar-plij'
   Website: 'Lec''hienn web'
-  Email: 'Chomlec’h postel'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Flapañ war Matrix'
   room rules: 'reolennoù ar sal'
@@ -746,6 +776,7 @@ Profile:
   Close Profile Dropdown: 'Serriñ roll ar profil'
   Open Profile Dropdown: 'Digeriñ roll ar profil'
 #On Channel Page
+  Go To Profile Manager: Mont da verañ ar profil
 Channel:
   Subscribe: 'Koumanantiñ'
   Unsubscribe: 'Digoumanantiñ'
@@ -760,11 +791,11 @@ Channel:
   Channel Tabs: 'Ivinelloù ar chadenn'
   Videos:
     Videos: 'Videoioù'
-    This channel does not currently have any videos: 'N''eus ket a video evit poent gant ar chadenn-mañ'
     Sort Types:
       Newest: 'Nevesañ'
       Oldest: 'Koshañ'
       Most Popular: 'Ar muiañ a verzh ganto'
+    This channel has videos but none could be displayed, try fetching more: Videoioù a zo e-barzh ar chadenn-mañ, met hini ne c'hall bezañ diskouezet, klaskit diskouez muioc'h
   Shorts:
     This channel does not currently have any shorts: 'N''eus ket a video short evit poent gant ar chadenn-mañ'
   Live:
@@ -793,6 +824,7 @@ Channel:
     Joined: 'Enskrivet'
     Location: 'Lec''hiadur'
     Featured Channels: 'Chadennoù lakaet war-wel'
+    Links: Liammoù
   Posts:
     This channel currently does not have any posts: 'N''eus ket a gaozeadenn evit poent gant ar chadenn-mañ'
     votes: '{votes} a vouezhioù'
@@ -807,6 +839,7 @@ Channel:
   Courses:
     Courses: Kentelioù
     This channel does not currently have any courses: Ar chadenn-mañ n'eus kentel ebet evit poent
+  View All: Gwelet an holl
 Video:
   IP block: 'Stanket eo bet ho chomlec''h IP gant YouTube. Klaskit cheñch VPN pe proksi evit lenn ar videoioù.'
   More Options: 'Muioc''h a zibarzhioù'
@@ -923,6 +956,19 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Amzer bruderezh pre-roll hag a chom : {remindingTimeSeconds}'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Amzer gortoz SABR hag a chom : {remindingTimeSeconds}'
+  Private: N'haller ket sellet ouzh ar videoioù prevez gant FreeTube peogwir eo ret bezañ luget gant ur gont Google ha bezañ perc'henn war ar video.
+  Collapse Playlist: Kuzhat ar Roll-videoioù
+  Expand Playlist: Diskouez ar Roll-videoioù
+  Station: Roll videoioù war-eeun
+  Playlist:
+    Unavailable videos are hidden: 1 video dihergez a zo kuzhet | {count} video dihergez a zo kuzhet
+  Enable SponsorBlock on Channel: Gweredekaat SponsorBlock war ar Chadenn-mañ
+  Disable SponsorBlock on Channel: Diweredekaat SponsorBlock war ar Chadenn-mañ
+  Premiere: Rakskignañ
+  AI: IA
+  'AI: Content was made with AI': 'IA : Krouet eo bet gant Intent Artifisiel'
+  How this was made: Penaos eo bet krouet
+  Reload Page: Adkargañ ar bajenn
 Playlist:
   #& About
   Playlist: 'Roll-videoioù'
@@ -947,6 +993,7 @@ Playlist:
 #& Views
     PublishedNewest: Deiziad Embannet (Nevez 'zo)
     PublishedOldest: Deiziad embannet (Pell 'zo)
+  Unavailable videos are hidden: Kuzhet e vez ar videoioù dihegerz
 Toggle Theatre Mode: ''
 Change Format:
   Change Media Formats: 'Cheñch furmad ar video'
@@ -1002,6 +1049,9 @@ Comments:
   Hide {replyCount} replies: Kuzhat 1 respont | Kuzhat {replyCount} respont
   View 1 reply from {channelName}: Diskouez 1 respont gant {channelName}
   View {replyCount} replies from {channelName} and others: Diskouez {replyCount} respont gant {channelName} ha reoù all
+  Hide Replies: Kuzhat ar respont | Kuzhat ar respontoù
+  Loading replies: O kargañ ar respontoù...
+  Comments are turned off: Lazhet eo an evezhiadennoù
 Up Next: 'Da-heul'
 
 #Tooltips
@@ -1010,7 +1060,7 @@ Tooltips:
     Preferred API Backend: 'Choazit ar backend implijet gant FreeTube evit tapout ar roadennoù. Un eztenner enkorfet eo an API lec''hel. Ezhomm en deus an API Invidious da gaout ur servijer Invidious evit kevreañ outañ.'
     Fallback to Non-Preferred Backend on Failure: 'Pa c''hoarvezo ur gudenn gant hoc''h API karetañ, e klasko FreeTube implijout an API ha n''eo ket hoc''h hini karetañ evel doare sikour ma vez gweredekaet.'
     Thumbnail Preference: 'Erlec''hiet e vo an holl skeudennoùigoù war FreeTube gant ur skeudenn tennet eus ar video, kuzhet pe displannet, e-lec''h ar skeudennig dre ziouer.'
-    Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API.'
+    Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API. Ar cheñchamantoù a vo gwir evit ar prenestr-mañ hepken, nemet ma ve lakaet an istañs-mañ dre ziouer ganeoc''h.'
     Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù diouzh ar c''hiz a faot deoc''h gwelet.'
     External Link Handling: |
       Choazit an emzalc'h dre ziouer pa vo kliket war ul liamm ha n'hall ket bezañ digoret gant FreeTube.
@@ -1018,7 +1068,7 @@ Tooltips:
     Open Deep Links In New Window: An URLoù kaset da FreeTube gant askouezhioù ur merdeer web pe roet war arroudenn an arc'had, a vo digoret e-barzh ur prenestr nevez.
   Player Settings:
     Proxy Videos Through Invidious: 'Kevreañ a raio ouzh Invidious evit mont da gerc''hat ar videoioù e-lec''h kevreañ war-eeun ouzh YouTube.'
-    Default Video Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
+    Default Media Format: 'Arventennañ ar furmadoù implijet pa vez lennet ur video. Ar furmadoù DASH a c''hell bezañ lennet gant ur c''halite uheloc''h. Bevennet eo ar furmadoù Legacy da 360p d''ar muiañ met nebeutoc''h a vann- drafet a vez implijet. Ar furmadoù aodio zo lanvioù aodio hepken.'
     Scroll Playback Rate Over Video Player: 'Pa vez ar biz-red war ar video, dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha dibunit rodellig al logodenn war-raok pe war-gil evit cheñch ar feur lenn. Dalc''hit pouezet war an douchenn Ctrl (Command war Mac) ha klikit war bouton kleiz al logodenn a-benn distreiñ buan d''ar feur lenn dre ziouer (1x, nemet ma ''z eo bet kemmet en arventennoù).'
     Skip by Scrolling Over Video Player: 'Tremen d''ur video d''egile en ur zibunañ rodellig al logodenn war al lenner video, doare MPV.'
   External Player Settings:
@@ -1038,6 +1088,7 @@ Tooltips:
     Fetch Automatically: 'Pa vo gweredekaet e vo adtapet ho kwazh koumanantiñ gant FreeTube ent emgefre pa vo lañset pe pa vo digoret ur prenestr nevez.'
   Experimental Settings:
     Replace HTTP Cache: 'Diweredekaat ar grubuilh HTTP diazezet war ar bladenn Electron ha gweredekaat krubuilh personelaet ar skeudennoù e-barzh ar memor. Implijet e vo muioc''h a vemor RAM.'
+    Disable Hardware Acceleration: Diweredek ar Buanadur Periant dre GPU. Gallout a ra diskoulmañ kudennoù grafek 'zo, met gwashaet e vo an digonusted.
   SponsorBlock Settings:
     UseDeArrowTitles: 'Erlec''hiañ titloù ar videoioù gant titloù kinniget gant implijerien DeArrow.'
     UseDeArrowThumbnails: 'Erlec''hiañ skeudennoùigoù ar videoioù gant skeudennoùigoù DeArrow.'
@@ -1161,3 +1212,7 @@ Keys:
   arrowup: Bir sevel
 Expand side navigation: Astenn ar merdeiñ kostez
 Compact side navigation: Fetisaat ar merdeiñ kostez
+Screenshot Clipboard Success: Enrollet eo an dapadenn-skramm er golver
+Screenshot Clipboard Error: C'hwitet war enrollañ an dapadenn-skramm er golver
+SponsorBlock Disabled on Channel: Diweredekaet eo SponsorBlock war chadenn {channel}
+SponsorBlock Enabled on Channel: Gweredekaet eo SponsorBlock war chadenn {channel}

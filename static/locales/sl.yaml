@@ -41,6 +41,8 @@ Search Filters:
   Search Filters: 'Iskalni filtri'
   Prioritize:
     Most Relevant: 'Ustreznost'
+    Prioritize: Prednost
+    Popularity: Priljubljenost
   Time:
     Time: 'Čas'
     Any Time: 'Vsak čas'
@@ -66,6 +68,17 @@ Search Filters:
   Fetch more results: 'Pridobi več rezultatov'
 # Sidebar
   There are no more results for this search: Nič več rezultatov
+  Features:
+    Features: Lastnosti
+    HD: HD
+    Subtitles: Podnapisi
+    Creative Commons: Creative Commons
+    3D: 3D
+    Live: V živo
+    4K: 4K
+    Location: Lokacija
+    HDR: HDR
+    VR180: VR180
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Naročnine'
@@ -198,8 +211,7 @@ Settings:
     Enable Theatre Mode by Default: 'Samodejno vklopi gledališki način'
     Default Volume: 'Prevzeta glasnost'
     Default Playback Rate: 'Prevzeta hitrost predvajanja'
-    Default Video Format:
-      Default Video Format: 'Prevzeta oblika videoposnetka'
+    Default Media Format:
       Dash Formats: 'DASH oblike'
       Legacy Formats: 'Zapuščinske oblike'
       Audio Formats: 'Audio oblike'
@@ -325,7 +337,6 @@ About:
   room rules: sobna pravila
   Chat on Matrix: Klepetajte na Matrixu
   Mastodon: Mastodon
-  Email: E-pošta
   Website: Spletna stran
   Please check for duplicates before posting: Prosimo, da pred pošiljanjem preverite, da ni dvojnikov
   GitHub issues: GitHub težave
@@ -383,7 +394,6 @@ Channel:
   Your search results have returned 0 results: 'Najdenih ni bilo nobenih rezultatov'
   Videos:
     Videos: 'Videoposnetki'
-    This channel does not currently have any videos: 'Ta kanal trenutno nima nobenih videoposnetkov'
     Sort Types:
       Newest: 'Najnovejši'
       Oldest: 'Najstarejši'
@@ -399,6 +409,8 @@ Channel:
     About: 'O kanalu'
     Channel Description: 'Opis kanala'
     Featured Channels: 'Izpostavljeni kanali'
+  Courses:
+    Courses: Tečaji
 Video:
   Mark As Watched: 'Označi kot ogledano'
   Remove From History: 'Izbriši iz zgodovine'

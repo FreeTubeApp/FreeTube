@@ -50,6 +50,8 @@ Search Filters:
   Search Filters: 'Филтери претраге'
   Prioritize:
     Most Relevant: 'Најрелевантније'
+    Prioritize: Приоритет има
+    Popularity: Популарност
   Time:
     Time: 'Време'
     Any Time: 'Било које време'
@@ -106,6 +108,7 @@ Trending:
   Trending: 'У тренду'
   Gaming: Видео игре
   Trending Tabs: Картице у тренду
+  Sports: Спорт
 Most Popular: 'Најпопуларније'
 Playlists: 'Плејлисте'
 User Playlists:
@@ -374,8 +377,7 @@ Settings:
     Enable Theatre Mode by Default: 'Подразумевано омогући биоскопски режим'
     Default Volume: 'Подразумевана јачина звука'
     Default Playback Rate: 'Подразумевана брзина репродукције'
-    Default Video Format:
-      Default Video Format: 'Подразумевани формат видео снимка'
+    Default Media Format:
       Dash Formats: 'DASH формати'
       Legacy Formats: 'Застарели формати'
       Audio Formats: 'Аудио формати'
@@ -610,7 +612,6 @@ About:
   GitHub issues: 'Пријава проблема на GitHub-у'
   Please check for duplicates before posting: 'Проверите да ли има дупликата пре објављивања'
   Website: 'Веб-сајт'
-  Email: 'Имејл'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Ћаскање на Matrix-у'
   room rules: 'правила собе'
@@ -673,7 +674,6 @@ Channel:
   Your search results have returned 0 results: 'Резултати претраге су дали 0 резултата'
   Videos:
     Videos: 'Видео снимци'
-    This channel does not currently have any videos: 'Овај канал тренутно нема ниједан видео снимак'
     Sort Types:
       Newest: 'Најновије'
       Oldest: 'Најстарије'
@@ -861,7 +861,7 @@ Tooltips:
     Hide Videos, Playlists and Channels Containing Text: Унесите реч, део речи или фразу (не разликује велика и мала слова) да бисте сакрили све видео снимке и плејлисте чији их оригинални наслови садрже у целом FreeTube-у, искључујући само историју, ваше плејлисте и видео снимке унутар плејлиста.
     Hide Videos on Watch: Скрива гледане видео снимке са картица „Видео снимци“, „Shorts“ и „Уживо“ на страницама „Праћења“ и „Канал“. Ово не утиче на картицу „Почетна“ на страницама „Канал“
   Player Settings:
-    Default Video Format: Подесите формате који се користе приликом репродукције видеа. DASH формати могу да репродукују бољи квалитет. Застарели формати су ограничени на највише 360p, али користе мањи пропусни опсег. Звучни формати су само звучни стримови.
+    Default Media Format: Подесите формате који се користе приликом репродукције видеа. DASH формати могу да репродукују бољи квалитет. Застарели формати су ограничени на највише 360p, али користе мањи пропусни опсег. Звучни формати су само звучни стримови.
     Proxy Videos Through Invidious: Повезаће се сa Invidious-ом ради приказивања видео снимака уместо директног повезивања са YouTube-ом.
     Scroll Playback Rate Over Video Player: Док је курсор изнад видео снимка, притисните и држите тастер „Control“ (тастер „Command“ на Mac-у) и померајте точкић миша унапред или уназад да бисте контролисали брзину репродукције. Притисните и држите тастер „Control“ (тастер „Command„ на Mac-у) и кликните левим тастером миша да бисте се брзо вратили на подразумевану брзину репродукције (1x, осим ако није промењено у подешавањима).
     Skip by Scrolling Over Video Player: Користите точкић миша да бисте прескакали кроз видео снимак, MPV стил.

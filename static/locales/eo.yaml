@@ -35,6 +35,7 @@ Global:
     Like Count: 1 ŝato | {count} ŝatoj
     Comment Count: 1 komento | {count} komentoj
     Watching Count: 1 spektanto | {count} spektantoj
+    Replies Remaining: "{' '}(1 restanta) | {' '}({count} restantaj)"
 Version {versionNumber} is now available!  Click for more details: 'Versio {versionNumber} disponeblas nun!  Alklaku por pli da informoj'
 Download From Site: 'Elŝuti el retejo'
 Search / Go to URL: 'Serĉi / Iri al URL'
@@ -96,6 +97,8 @@ Subscriptions:
   Load More Posts: Ŝargi pli da afiŝoj
   Subscriptions Tabs: Abonaj langetoj
   All Subscription Tabs Hidden: Ĉiuj abonaj langetoj estas kaŝitaj. Por vidi enhavon ĉi tie, bonvolu malkaŝi kelkajn langetojn en la sekcio "{subsection}" en "{settingsSection}".
+  Posts:
+    RSS Message: Jutubo ne provizas RSS-fluojn por afiŝoj. Malŝaltu la agordon "{rssSetting}" por vidi afiŝojn, aŭ ŝaltu la agordon "{hideSetting}" por kaŝi tiun ĉi langeton.
 Trending:
   Trending: 'Tendencoj'
   Gaming: Ludismo
@@ -186,6 +189,9 @@ User Playlists:
       There is already a playlist with this name. Please pick a different name.: Jam estas ludlisto kun tiu ĉi nomo. Bonvolu elekti alian nomon.
       Playlist {playlistName} has been successfully created.: La ludlisto {playlistName} estis sukcese kreita.
       There was an issue with creating the playlist.: Estis problemo dum la kreado de la ludlisto.
+  Move Video to the Top: Movi videaĵon al la supro
+  Move Video to the Bottom: Movi videaĵon al la malsupro
+  This playlist is private or does not exist.: Tiu ĉu ludlisto estas privata aŭ ne ekzistas.
 History:
   # On History Page
   History: 'Historio'
@@ -373,6 +379,9 @@ Settings:
       Full Screen: Plenekrane
       Picture in Picture: Bildenbildo
       External Player: Ekstera ludilo ({externalPlayerName})
+      Full Window (Always On): Plenfenestre (ĉiam ŝaltita)
+      Full Screen (Always On): Plenekrane (ĉiam ŝaltita)
+      Tooltip: La plejparto de la defaŭltaj spektoreĝimoj nur estas aplikataj je la komenco de ĉiu seanco de spektado. Ŝanĝoj dum iu seanco persistas ĝis la fino de tiu. La "ĉiam ŝaltita"-aj spektoreĝimoj estas aplikataj kiam oni ekspektas novan videaĵon malgraŭ iu ajn ŝanĝo dum la spektado de la antaŭa.
     Scroll Volume Over Video Player: Ŝanĝi laŭtecon per rulumi sur ludilo
     Scroll Playback Rate Over Video Player: Ŝanĝi ludrapidon per rulumi sur ludilo
     Skip by Scrolling Over Video Player: Salti per rulumi sur ludilo
@@ -385,11 +394,11 @@ Settings:
     Default Playback Rate: Defaŭlta ludrapido
     Max Video Playback Rate: Maksimuma ludrapido
     Video Playback Rate Interval: Ludrapida intervalo
-    Default Video Format:
-      Default Video Format: Defaŭlta videaĵoformo
+    Default Media Format:
       Dash Formats: DASH-aj formoj
       Legacy Formats: Heredaĵaj formoj
       Audio Formats: Aŭdiaj formoj
+      Default Media Format: Defaŭlta medioformo
     Default Quality:
       Default Quality: Defaŭlta kvalito
       Auto: Aŭtomata
@@ -509,6 +518,8 @@ Settings:
     Hide Subscriptions Live: Kaŝi tujelsendojn de abonoj
     Hide Subscriptions Posts: Kaŝi afiŝojn de abonoj
     Show Added Items: Montri aldonitajn elementojn
+    Add: Aldoni
+    Remove: Forigi
   Data Settings:
     Data Settings: Datumoj
     Select Export Type: Elekti elportotipon
@@ -537,7 +548,7 @@ Settings:
     History object has insufficient data, skipping item: Historia objekto havas nesufiĉajn datumojn, elemento estos saltita
     All watched history has been successfully imported: Videaĵa historio estis sukcese enportita
     All watched history has been successfully exported: Videaĵa historio estis sukcese elportita
-    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos ŝaltita
+    Playlist insufficient data: Nesufiĉaj datumoj por la ludlisto "{playlist}", elemento estos saltita
     All playlists has been successfully imported: Ĉiuj ludlistoj estis sukcese enportitaj
     All playlists has been successfully exported: Ĉiuj ludlistoj estis sukcese elportitaj
     All search history has been successfully imported: Serĉa historio estis sukcese enportita
@@ -547,6 +558,15 @@ Settings:
     Unknown data key: Nekonata datuma ŝlosilo
     How do I import my subscriptions?: Kiel mi enportas miajn abonojn?
     Manage Subscriptions: Administri abonojn
+    Settings File: Agordodosiero
+    Import Settings: Enporti agordojn
+    Export Settings: Elporti agordojn
+    Settings Tooltip: Agordoj kiuj estas eksperimentaj aŭ nur por specifaj operaciumoj aŭ uzantoj nek elporteblas nek enporteblas (ekz. prokurilo, ekstera ludilo, dosierujo por ekrankopioj...)
+    All settings have been successfully imported: Ĉiuj agordoj estis sukcese enportitaj
+    All settings have been successfully exported: Ĉiuj agordoj estis sukcese elportitaj
+    Setting object has insufficient data, skipping item: Agorda objekto havas nesufiĉajn datumojn, elemento estos saltita
+    Unknown setting key: 'Nekonata agorda ŝlosilo: {key}'
+    Non-transferable setting key: 'Netransdonebla agorda ŝlosilo: {key}'
   Proxy Settings:
     Proxy Settings: Prokurilo
     Proxy Warning: FreeTube ne provizas prokurilon, sed ĝi kapablas konektiĝi al ekstera prokurilo, ekzemple prokurilo sur via maŝino kiel Tor aŭ ekstera prokurilo kiel SOCKS5 provizita de kelkaj VPR-oj. Se ŝaltita, certigu ke via prokurilo/Tor estas ĝuste agordita, aŭ FreeTube ne povos venigi iun ajn datumon.
@@ -579,6 +599,10 @@ Settings:
       Prompt To Skip: Inviti por salti
       Do Nothing: Nenion fari
     Category Color: Koloro de kategorio
+    Excluded Channels:
+      Disabled Message: Kelkaj kanaloj estis ekskluzivitaj per identigilo kaj ne estis traktataj. La funkcio estas blokita dum tiuj identigiloj ĝisdatiĝas
+      Excluded Channels: Ekskluzivitaj kanaloj
+      Tooltip: Enigu kanalan identigilon por malŝalti SponsorBlock. Sponsoraj sekcioj en la videaĵoj de tiu ĉi kanalo ne estos saltitaj. La enigita kanala identigilo devas tute kongrui, majuskleco inkluzivita.
   Parental Control Settings:
     Parental Control Settings: Gepatraj enhavlimigoj
     Hide Unsubscribe Button: Kaŝi butonon de malaboni
@@ -590,6 +614,7 @@ Settings:
     Experimental Settings: Eksperimenta
     Warning: Ĉi tiuj agordoj estas eksperimentaj kaj povus kaŭzi kolapsojn dum ŝaltitaj. Savkopioj ege farindas. Vi estas avertita!
     Replace HTTP Cache: Anstataŭigi HTTP-kaŝmemoron
+    Disable Hardware Acceleration: Malŝalti aparatan plirapidigon
   Password Dialog:
     Password: Pasvorto
     Enter Password To Unlock: Enigu pasvorton por malŝlosi agordojn
@@ -601,7 +626,6 @@ Settings:
 About:
   #On About page
   Website: Retejo
-  Email: Retpoŝto
   About: Pri
   Beta: Beta
   Source code: Fontkodo
@@ -638,11 +662,11 @@ Channel:
     Featured Channels: Rekomenditaj kanaloj
   Videos:
     Videos: Videaĵoj
-    This channel does not currently have any videos: Tiu ĉi kanalo aktuale ne havas iun ajn videaĵon
     Sort Types:
       Newest: Plej novaj
       Oldest: Plej malnovaj
       Most Popular: Plej popularaj
+    This channel has videos but none could be displayed, try fetching more: Ĉi tiu kanalo havas videaĵojn sed ne eblis montri iun ajn; provu plu venigi
   Subscribe: Aboni
   Unsubscribe: Malaboni
   Channel has been removed from your subscriptions: La kanalo estis forigita el viaj abonoj
@@ -685,6 +709,7 @@ Channel:
     Reveal Answers: Montri respondojn
     Hide Answers: Kaŝi respondojn
     Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
+  View All: Montri ĉion
 Video:
   IP block: YouTube blokis vian IP-adreson por spekti videaĵojn. Bonvolu provi ŝanĝiĝi de VPN aŭ prokurilo.
   MembersOnly: Videaĵoj nur por membroj ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj pagitan membrecon de la publikiganta kanalo.
@@ -799,10 +824,24 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Restanta tempo de komenca anonco: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Restanta tempo de atendo por SABR: {remindingTimeSeconds}s'
   Private: Privataj videaĵoj ne spekteblas per FreeTube, ĉar ili postulas ensaluton de Google kaj la videaĵo devas aparteni al la uzanto.
+  Collapse Playlist: Faldi ludliston
+  Expand Playlist: Malfaldi ludliston
+  Station: Stacio
+  Premiere: Premiero
+  Playlist:
+    Unavailable videos are hidden: 1 nedisponebla videaĵo estas kaŝita | {count} nedisponeblaj videaĵoj estas kaŝitaj
+  Enable SponsorBlock on Channel: Ŝalti SponsorBlock en kanalo
+  Disable SponsorBlock on Channel: Malŝalti SponsorBlock en kanalo
+  AI: AI
+  'AI: Content was made with AI': 'AI: La enhavo estis kreita helpe de AI'
+  How this was made: Kiel tio ĉi estis kreita
+  Reload Page: Reŝargi paĝon
 More: Pli
 Search Bar:
   Clear Input: Klarigi enigon
   Remove: Forigi
+  Open Search Container: Malfermi serĉujon
+  Search: Serĉi
 Are you sure you want to open this link?: Ĉu vi certe volas malfermi ĉi-ligilon?
 Open New Window: Malfermi novan fenestron
 Preferences: Preferoj
@@ -850,6 +889,7 @@ Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Ĉi vi certas, ke vi volas forigi la elektitajn kanalojn?  Tio ĉi ne forigas kanalon el iu ajn alia profilo.
   Close Profile Dropdown: Fermi profilan falmenuon
   Open Profile Dropdown: Malfermi profilan falmenuon
+  Go To Profile Manager: Iri al profiloadministrilo
 KeyboardShortcutPrompt:
   Zoom In: Zomi
   Zoom Out: Malzomi
@@ -943,6 +983,7 @@ Playlist:
     VideoDurationAscending: Daŭro (plej mallonga)
     VideoDurationDescending: Daŭro (plej longa)
     Custom: Laŭmenda
+  Unavailable videos are hidden: Nedisponeblaj videaĵoj estas kaŝitaj
 Change Format:
   Change Media Formats: Ŝanĝi medioformojn
   Use Dash Formats: Uzi DASH-ajn formojn
@@ -993,6 +1034,8 @@ Comments:
   Member: Membro
   Subscribed: Abonata
   Hearted: Koro
+  Loading replies: Ŝargado de respondoj...
+  Comments are turned off: La komentoj estas malŝaltitaj
 Up Next: Sekve
 Description:
   Expand Description: '...pli'
@@ -1002,7 +1045,7 @@ Tooltips:
     Preferred API Backend: Elektu la internan API ke FreeTube uzas por akiri datumojn. La loka API estas integrita elĉerpilo. La API de Invidious bezonas Invidious-servilon al kiu konektiĝi.
     Fallback to Non-Preferred Backend on Failure: Kiam via prefera API havas problemon, FreeTube aŭtomate klopodos uzi la nepreferitan API kiel retropaŝo kiam ŝaltita.
     Thumbnail Preference: Ĉiuj bildetoj en FreeTube estos anstataŭigitaj de bildo de la videaĵo, nebuligitaj, aŭ kaŝitaj anstataŭ la defaŭltaj bildetoj.
-    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj.
+    Invidious Instance: La Invidious-servilo al kiu FreeTube konektiĝos por API-vokoj. Ŝanĝoj al tiu ĉi agordo nur afektas la aktualan fenestron, krom se vi difinas tiun ĉi servilon kiel la defaŭlta.
     Region for Trending: La regiono de tendencoj permesas al vi elekti la landon kies plej popularaj videaĵoj estos montrataj.
     External Link Handling: |
       Elektu la defaŭltan agon kiam ligilo kiu ne malfermeblas per FreeTube estas alklakita.
@@ -1010,7 +1053,7 @@ Tooltips:
     Open Deep Links In New Window: URL-oj donataj al FreeTube, ekzemple de retumilaj etendaĵoj de alidirekto aŭ de komandliniaj argumentoj, estos malfermitaj en nova fenestro.
   Player Settings:
     Proxy Videos Through Invidious: Konektiĝos al Invidious por servi videaĵojn anstataŭ konektiĝi rekte al YouTube.
-    Default Video Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
+    Default Media Format: Difinas la videaĵoformojn uzatajn por la ludado. DASH-aj formoj ofertas pli altajn kvalitojn. Heredaĵaj formoj estas limigitaj al 360p maksimume sed uzas malpli da kapacito. Aŭdiaj formoj nur enhavas sonon.
     Scroll Playback Rate Over Video Player: Kiam la kursoro estas sur la videaĵo, ade premu la stirklavon (komandklavon sur Mac) kaj rulumi supre aŭ malsupre por regi la ludrapidon. Ade premu la stirklavon (komandklavon sur Mac) kaj alklaku por tuje reveni al la defaŭlta ludrapido (1x krom se tio estis ŝanĝita en la agordoj).
     Skip by Scrolling Over Video Player: Rulumi por salti tra la videaĵo, kiel MPV.
   External Player Settings:
@@ -1030,6 +1073,7 @@ Tooltips:
     Fetch Automatically: Dum ŝaltita, FreeTube aŭtomate venigos viajn abonfluojn je startigo kaj kiam nova fenestro malfermiĝas.
   Experimental Settings:
     Replace HTTP Cache: Malŝaltas la HTTP-kaŝmemoron de Electron en la disko kaj ŝaltas laŭmendan bildkaŝmemoron en ĉefmemoro. La uzata memoro pligrandiĝos.
+    Disable Hardware Acceleration: Malŝaltas la aparatan plirapidigon de la grafika procezoro. Tio ĉi povus korekti grafikajn problemojn, sed la rendimento verŝajne malrapidiĝos.
   SponsorBlock Settings:
     UseDeArrowTitles: Anstataŭigi titolojn de videaĵoj per titoloj provizitaj de uzantoj de DeArrow.
     UseDeArrowThumbnails: Anstataŭigi videaĵajn bildetojn per bildetoj de DeArrow.
@@ -1090,3 +1134,5 @@ Keys:
   arrowup: Supra sago
 Screenshot Clipboard Success: Konservis ekrankopion al la tondujo
 Screenshot Clipboard Error: Malsukcesis kopii ekrankopion al la tondujo
+SponsorBlock Disabled on Channel: Malŝaltis SponsorBlock en {channel}
+SponsorBlock Enabled on Channel: Ŝaltis SponsorBlock en {channel}

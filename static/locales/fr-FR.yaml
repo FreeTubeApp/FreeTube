@@ -96,8 +96,10 @@ Subscriptions:
   Empty Channels: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement aucune vidéo.
   Subscriptions Tabs: Onglets Abonnements
   All Subscription Tabs Hidden: Tous les onglets d’abonnement sont cachés. Pour voir le contenu ici, veuillez désactiver certains onglets dans la section « {subsection} » dans « {settingsSection} ».
-  Load More Posts: Charger plus de billets
-  Empty Posts: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement aucun billet.
+  Load More Posts: Charger plus de posts
+  Empty Posts: Les chaînes auxquelles vous êtes abonné(e) ne contiennent actuellement aucun post.
+  Posts:
+    RSS Message: YouTube ne fournit pas de flux RSS pour les posts. Désactiver le paramètre "{rssSetting}" pour afficher les posts ou activer le paramètre "{hideSetting}" pour masquer cet onglet.
 Trending:
   Trending: 'Tendance'
   Trending Tabs: Onglets des Tendances
@@ -188,6 +190,9 @@ User Playlists:
   Export Playlist: Exporter cette playlist
   TotalTimePlaylist: 'Durée totale : {duration}'
   Export list of URLs: Exporter la liste des URL
+  Move Video to the Top: Déplacer la vidéo au début
+  Move Video to the Bottom: Déplacer la vidéo à la fin
+  This playlist is private or does not exist.: Cette playlist est privée ou n’existe pas.
 History:
   # On History Page
   History: 'Historique'
@@ -203,7 +208,7 @@ Settings:
   Settings: 'Paramètres'
   General Settings:
     General Settings: 'Général'
-    Fallback to Non-Preferred Backend on Failure: 'Basculer vers un backend non préféré en cas d''échec'
+    Fallback to Non-Preferred Backend on Failure: 'Basculer vers l''API interne non préférée en cas d''échec'
     Enable Search Suggestions: 'Activer les suggestions de recherche'
     Default Landing Page: 'Page de lancement par défaut'
     Locale Preference: 'Paramètres régionaux'
@@ -374,11 +379,11 @@ Settings:
     Enable Theatre Mode by Default: 'Activer le mode cinéma par défaut'
     Default Volume: 'Volume par défaut'
     Default Playback Rate: 'Vitesse de lecture par défaut'
-    Default Video Format:
-      Default Video Format: 'Format de vidéo par défaut'
+    Default Media Format:
       Dash Formats: 'Formats DASH'
       Legacy Formats: 'Format Legacy'
       Audio Formats: 'Formats audio'
+      Default Media Format: Format du média par défaut
     Default Quality:
       Default Quality: 'Qualité par défaut'
       Auto: 'Auto'
@@ -423,6 +428,9 @@ Settings:
       External Player: Lecteur externe ({externalPlayerName})
       Full Screen: Plein écran
       Theater: Mode cinéma
+      Full Window (Always On): Pleine fenêtre (toujours activé)
+      Full Screen (Always On): Plein écran (toujours activé)
+      Tooltip: La plupart des modes d'affichage par défaut ne s'appliquent qu'au début de chaque session de visionnage. Les modifications apportées au cours de la session sont conservées jusqu'à la fin de celle-ci. Les modes d'affichage permanents s'appliquent chaque fois que vous passez à une nouvelle vidéo, quelles que soient les modifications de mode d'affichage effectuées lors du visionnage de la vidéo précédente.
   Subscription Settings:
     Subscription Settings: 'Abonnements'
     Fetch Feeds from RSS: Récupération de flux RSS
@@ -467,8 +475,8 @@ Settings:
     Export NewPipe: Export NewPipe
     Export YouTube: Export YouTube
     Export FreeTube: Export FreeTube
-    Export Subscriptions: Exporter vos abonnements
-    Import Subscriptions: Importer vos abonnements
+    Export Subscriptions: Exporter les abonnements
+    Import Subscriptions: Importer les abonnements
     Select Export Type: Sélectionner le type d'exportation
     Unknown data key: Clé de données inconnue
     Unable to write file: Impossible d'écrire le fichier
@@ -481,26 +489,26 @@ Settings:
     History object has insufficient data, skipping item: Ignorer cet élément car les données d'historique sont insuffisantes
     Profile object has insufficient data, skipping item: Ignorer cet élément car les données de profil sont insuffisantes
     Manage Subscriptions: Gérer les abonnements
-    Import Playlists: Importer des playlists
-    Export Playlists: Exporter des playlists
+    Import Playlists: Importer les playlists
+    Export Playlists: Exporter les playlists
     Playlist insufficient data: Données insuffisantes pour la playlist « {playlist} », saut de l'élément
     All playlists has been successfully imported: Toutes les playlists ont été importées avec succès
     All playlists has been successfully exported: Toutes les playlists ont été exportées avec succès
-    History File: Fichier de l'historique
-    Subscription File: Fichier des abonnements
-    Playlist File: Fichier des playlists
+    History File: Fichier d'historique
+    Subscription File: Fichier d'abonnements
+    Playlist File: Fichier de playlists
     Export Playlists For Older FreeTube Versions:
       Tooltip: "Cette option permet d'exporter les vidéos de toutes les listes de lecture vers une seule liste de lecture nommée « Favorites ».\nComment exporter et importer des vidéos dans des sélections pour une ancienne version de FreeTube :\n 1. Exportez vos sélections avec cette option activée.\n2. Supprimez toutes vos sélections existantes à l'aide de l'option Supprimer toutes les sélections sous Paramètres de confidentialité.\n3. Lancez l'ancienne version de FreeTube et importez les listes de lecture exportées. »"
       Label: Exportation des listes de lecture pour les anciennes versions de FreeTube
-    Search history file: Fichier d'historique de recherche
+    Search history file: Fichier d'historique des recherches
     Search history: Historique des recherches
-    Import search history: Importer l'historique de recherche
+    Import search history: Importer l'historique des recherches
     Export search history: Exporter l'historique des recherches
     All search history has been successfully imported: Tous les historiques de recherche ont été importées avec succès
     All search history has been successfully exported: Tous les historiques de recherche ont été exportées avec succès
     Settings File: Fichier de paramètres
-    Import Settings: Paramètres d'importation
-    Export Settings: Paramètres d'exportation
+    Import Settings: Importer les paramètres
+    Export Settings: Exporter les paramètres
     Settings Tooltip: "Les paramètres spécifiques au système d'exploitation ou à l'utilisateur, ou encore ceux de nature expérimentale, ne peuvent être ni exportés ni importés (par exemple : proxy, lecteur externe, dossier de captures d'écran...)"
     All settings have been successfully imported: Tous les paramètres ont été importés avec succès
     All settings have been successfully exported: Tous les paramètres ont été exportés avec succès
@@ -529,7 +537,7 @@ Settings:
     Hide Channels: Masquer les vidéos des chaînes
     Hide Channels Placeholder: Identifiant de la chaîne
     Display Titles Without Excessive Capitalisation: Afficher les titres sans majuscules ni ponctuation excessives
-    Hide Channel Playlists: Masquer l’onglet « Playlists » de la chaîne
+    Hide Channel Playlists: Masquer l’onglet « playlists » de la chaîne
     Hide Featured Channels: Masquer les chaînes en vedette
     Hide Channel Shorts: Masquer l’onglet « Shorts » de la chaîne
     Sections:
@@ -555,6 +563,8 @@ Settings:
     Hide Channel Courses: Masquer l’onglet « Cours » de la chaîne
     Hide Channel Posts: Masquer l’onglet « Posts » de la chaîne
     Hide Subscriptions Posts: Masquer les posts des abonnements
+    Add: Ajouter
+    Remove: Supprimer
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -588,6 +598,10 @@ Settings:
     UseDeArrowTitles: Utiliser DeArrow pour les titres des vidéos
     UseDeArrowThumbnails: Utiliser DeArrow pour les miniatures
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': "URL de l'API du générateur de miniatures DeArrow (par défaut : https://dearrow-thumb.ajay.app)"
+    Excluded Channels:
+      Disabled Message: Certaines chaînes ont été exclues sur la base de leur identifiant et n'ont pas été traitées. La fonctionnalité est bloquée pendant la mise à jour de ces identifiants.
+      Excluded Channels: Chaînes exclues
+      Tooltip: Saisissez l'identifiant d'une chaîne pour désactiver SponsorBlock. Les segments publicitaires dans les vidéos de cette chaîne ne seront pas ignorés. L'identifiant de chaîne saisi doit correspondre exactement et tient compte de la casse.
   External Player Settings:
     Ignore Unsupported Action Warnings: Ignorer les avertissements concernant les actions non prises en charge
     External Player: Lecteur externe
@@ -609,6 +623,7 @@ Settings:
     Replace HTTP Cache: Remplacer le cache HTTP
     Experimental Settings: Expérimental
     Warning: Ces paramètres sont expérimentaux ; ils peuvent provoquer des plantages lorsqu'ils sont activés. Il est fortement recommandé de faire des sauvegardes. Utilisez-les à vos risques et périls !
+    Disable Hardware Acceleration: Désactiver l'accélération matérielle
   Password Dialog:
     Password: Mot de passe
     Enter Password To Unlock: Entrez le mot de passe pour déverrouiller les paramètres
@@ -628,7 +643,6 @@ About:
   #& About
 #On Channel Page
   Website: Site web
-  Email: Courriel
   Help: Aide
   Credits: Crédits
   FAQ: FAQ
@@ -658,11 +672,11 @@ Channel:
   Your search results have returned 0 results: 'Les résultats de votre recherche ont donné 0 résultat'
   Videos:
     Videos: 'Vidéos'
-    This channel does not currently have any videos: 'Cette chaîne n''a pas de vidéos actuellement'
     Sort Types:
       Newest: 'Plus récent'
-      Oldest: 'Plus ancien'
+      Oldest: 'Plus anciennes'
       Most Popular: 'Les plus populaires'
+    This channel has videos but none could be displayed, try fetching more: Cette chaîne a des vidéos mais aucune n'a pu être affichée, tenter d'en récupérer davantage
   Playlists:
     Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Cette chaîne n’a pas encore de playlist'
@@ -688,7 +702,7 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Cette chaîne est limitée par l'âge et ne peut actuellement pas être visionnée dans FreeTube.
   Channel Tabs: Onglets des chaînes
   Posts:
-    This channel currently does not have any posts: Cette chaîne n'a actuellement aucune publication
+    This channel currently does not have any posts: Cette chaîne n'a actuellement aucun post
     votes: '{votes} votes'
     Reveal Answers: Afficher les réponses
     Hide Answers: Masquer les réponses
@@ -708,7 +722,7 @@ Channel:
     This channel does not currently have any podcasts: Cette chaîne n’a pas encore de podcast
   Home:
     Home: Accueil
-    View Playlist: Afficher la playlist
+    View Playlist: Afficher playlist
   Courses:
     Courses: Cours
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
@@ -789,7 +803,7 @@ Video:
     Audio Tracks: Pistes audio
     Theatre Mode: Mode théâtre
     Exit Theatre Mode: Quitter le mode théâtre
-    Full Window: Plein écran
+    Full Window: Pleine fenêtre
     Show Stats: Afficher les stats
     Hide Stats: Masquer les stats
     Stats:
@@ -808,13 +822,13 @@ Video:
       Dropped Frames / Total Frames: 'Images perdues : {droppedFrames} / Images totales : {totalFrames}'
     Skipped segment: Segment {segmentCategory} ignoré
     TranslatedCaptionTemplate: '{language} (traduit depuis : {originalLanguage})'
-    Exit Full Window: Quitter le plein écran
+    Exit Full Window: Quitter le mode pleine fenêtre
     Take Screenshot: Prendre une capture d'écran
     You appear to be offline: Vous semblez être hors ligne.
     Playback will resume automatically when your connection comes back: La lecture reprendra automatiquement quand votre connexion reviendra.
     Autoplay is on: La lecture automatique est activée
     Autoplay is off: La lecture automatique est désactivée
-  IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez essayer de changer de VPN ou de proxy.
+  IP block: YouTube a bloqué votre adresse IP et vous empêche de regarder des vidéos, ou bien cette vidéo contient peut-être du contenu mettant en scène des mineurs, dont YouTube restreint l'accès aux utilisateurs non connectés. S'il s'agit d'un blocage d'adresse IP, essayez d'utiliser un autre VPN ou un autre proxy.
   Unlisted: Non répertorié
   AgeRestricted: Les vidéos soumises à des restrictions d'âge ne peuvent pas être regardées avec FreeTube car elles nécessitent une connexion Google et l'utilisation d'un compte YouTube dont l'âge a été vérifié.
   MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec FreeTube, car elles nécessitent une connexion Google et une adhésion payante à la chaîne du vidéaste.
@@ -830,6 +844,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Temps d’attente SABR restant : {remindingTimeSeconds}s'
   Popout Live Chat: Ouvrir le chat dans une nouvelle fenêtre
   Private: Les vidéos privées ne peuvent pas être visionnées sur FreeTube, car elles nécessitent une connexion à Google et que l'utilisateur soit le propriétaire de la vidéo.
+  Collapse Playlist: Replier la playlist
+  Expand Playlist: Développer la playlist
+  Station: Chaîne
+  Playlist:
+    Unavailable videos are hidden: 1 vidéo non disponible est masquée | {count} vidéos non disponibles sont masquées
+  Premiere: Première
+  Enable SponsorBlock on Channel: Activer SponsorBlock sur la chaîne
+  Disable SponsorBlock on Channel: Désactiver SponsorBlock sur la chaîne
+  AI: IA
+  'AI: Content was made with AI': "IA : Ce contenu a été créé à l'aide de l'IA"
+  How this was made: Comment cela a été réalisé
+  Reload Page: Recharger page
 Playlist:
   #& About
   View Full Playlist: 'Afficher la playlist complète'
@@ -851,8 +877,9 @@ Playlist:
     VideoDurationAscending: Durée (la plus courte)
     PublishedNewest: Date de publication (la plus récente)
     PublishedOldest: Date de publication (la plus ancienne)
+  Unavailable videos are hidden: Les vidéos non disponibles sont masquées
 Change Format:
-  Change Media Formats: 'Changer le format de la vidéo'
+  Change Media Formats: 'Changer le format du média'
   Use Dash Formats: 'Utiliser le format DASH'
   Use Legacy Formats: 'Utiliser le format Legacy'
   Use Audio Formats: 'Utiliser le format Audio'
@@ -875,7 +902,7 @@ Share:
   YouTube Channel URL copied to clipboard: L'URL YouTube de la chaîne est copiée dans le presse-papiers
   Invidious Channel URL copied to clipboard: L'URL Invidious de la chaîne est copiée dans le presse-papiers
   Share Channel: Partager la chaîne
-  Share Post: Partager la publication
+  Share Post: Partager le post
 Mini Player: 'Mini-lecteur'
 Comments:
   Comments: 'Commentaires'
@@ -893,10 +920,12 @@ Comments:
   Hearted: Aimé
   View {replyCount} replies: Voir 1 réponse | Voir {replyCount} réponses
   Subscribed: Abonné(e)
-  There are no comments available for this post: Il n'y a pas de commentaire associé à ce message
+  There are no comments available for this post: Il n'y a pas de commentaire associé à ce post
   Hide Replies: Masquer la réponse | Masquer les réponses
   View 1 reply from {channelName}: Voir 1 réponse de {channelName}
   View {replyCount} replies from {channelName} and others: Afficher {replyCount} réponses de {channelName} et autres
+  Loading replies: Chargement des réponses...
+  Comments are turned off: Les commentaires sont désactivés
 Up Next: 'À suivre'
 
 # Toast Messages
@@ -957,21 +986,22 @@ Profile:
   Profile Name: Nom du profil
   Edit Profile Name: Modifier le nom du profil
   Create Profile Name: Créer un nom de profil
+  Go To Profile Manager: Accéder au Gestionnaire de Profil
 The playlist has been reversed: La playlist a été inversée
 Download From Site: Télécharger depuis le site
 Version {versionNumber} is now available!  Click for more details: La version {versionNumber} est maintenant disponible !  Cliquez pour plus de détails
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Cette vidéo est indisponible car elle n'est pas dans un format valide. Cela peut arriver en raison de restrictions d'accès dans certains pays.
 Tooltips:
   Subscription Settings:
-    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations comme la durée de la vidéo, le statut en direct ou les commentaires
+    Fetch Feeds from RSS: Lorsqu'il est activé, FreeTube utilisera RSS au lieu de sa méthode par défaut pour récupérer votre flux d'abonnement. RSS est plus rapide et empêche le blocage d'IP, mais ne fournit pas certaines informations comme la durée de la vidéo, le statut en direct ou les posts
     Fetch Automatically: Lorsque cette option est activée, FreeTube récupère automatiquement le flux de votre abonnement au démarrage et à l'ouverture d'une nouvelle fenêtre.
   Player Settings:
-    Default Video Format: Définir les formats utilisés lors de la lecture d'une vidéo. Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy sont limités à un maximum de 360p mais utilisent moins de bande passante. Les formats audio sont des flux audio uniquement.
+    Default Media Format: Définir les formats utilisés lors de la lecture d'une vidéo. Les formats DASH peuvent être lus en qualité supérieure. Les formats Legacy sont limités à un maximum de 360p mais utilisent moins de bande passante. Les formats audio sont des flux audio uniquement.
     Proxy Videos Through Invidious: Se connectera à Invidious pour lire des vidéos au lieu d'établir une connexion directe avec YouTube.
     Scroll Playback Rate Over Video Player: Lorsque le curseur se trouve sur la vidéo, maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et faites défiler la molette de la souris vers l'avant ou l'arrière pour contrôler la vitesse de lecture. Maintenez la touche Contrôle (touche Commande sur Mac) enfoncée et cliquez sur le bouton gauche de la souris pour revenir rapidement à la vitesse de lecture par défaut (1x, sauf si elle a été modifiée dans les paramètres).
     Skip by Scrolling Over Video Player: Utilisez la molette de défilement pour passer d'une vidéo à l'autre, en style MPV.
   General Settings:
-    Invidious Instance: L'instance Invidious à laquelle FreeTube se connectera pour les appels API.
+    Invidious Instance: Instance Invidious à laquelle FreeTube se connectera pour les appels API. Les modifications apportées à ce paramètre ne s'appliquent qu'à la fenêtre actuelle, sauf si vous définissez cette instance comme instance par défaut.
     Thumbnail Preference: Toutes les miniatures dans FreeTube seront remplacées par une image extraite de la vidéo, floutée ou masquée, au lieu de la miniature par défaut.
     Fallback to Non-Preferred Backend on Failure: Lorsque votre API préférée a un problème, FreeTube tentera automatiquement d'utiliser votre API non préférée comme méthode de secours lorsqu'elle est activée.
     Preferred API Backend: 'Choisissez l’API interne que FreeTube utilise pour obtenir les données : l’API locale est un extracteur intégré, l’API Invidious nécessite un serveur Invidious pour se connecter.'
@@ -982,11 +1012,12 @@ Tooltips:
     Custom External Player Arguments: Tous les arguments de ligne de commande personnalisés, que vous souhaitez transmettre au lecteur externe.
     Ignore Warnings: Suppression des avertissements lorsque le lecteur externe actuel ne prend pas en charge l'action en cours (par exemple, inversion des playlists, etc.).
     Custom External Player Executable: Par défaut, FreeTube suppose que le lecteur externe choisi peut être trouvé via la variable d'environnement PATH. Si nécessaire, un chemin personnalisé peut être défini ici.
-    External Player: La sélection du lecteur externe affichera une icône sur la miniature qui ouvrira la vidéo (playlist, si prise en charge) dans le lecteur externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
+    External Player: La sélection du lecteur externe affichera une icône sur la miniature qui ouvrira la vidéo (la playlist, si prise en charge) dans le lecteur externe. Attention, les paramètres Invidious n'affectent pas les lecteurs externes.
     DefaultCustomArgumentsTemplate: '(Par défaut : « {defaultCustomArguments} »)'
-    Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc...). Les arguments personnalisés seront toujours transmis.
+    Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc.). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
+    Disable Hardware Acceleration: Désactive l'accélération matérielle par GPU. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »
@@ -1004,6 +1035,8 @@ Default Invidious instance has been set to {instance}: L'instance Invidious par 
 Search Bar:
   Clear Input: Effacer l'entrée
   Remove: Retirer
+  Open Search Container: Ouvrir le conteneur de recherche
+  Search: Rechercher
 Are you sure you want to open this link?: Êtes-vous sûr(e) de vouloir ouvrir ce lien ?
 External link opening has been disabled in the general settings: L'ouverture des liens externes a été désactivée dans les paramètres généraux
 Screenshot Success: Capture d'écran enregistrée
@@ -1120,7 +1153,7 @@ KeyboardShortcutPrompt:
   Small Fast Forward: Avancer de X secondes en fonction de l'intervalle d'avance rapide et de la vitesse de lecture vidéo actuelle
   Last Chapter: Dernier chapitre
   Next Chapter: Chapitre suivant
-  Full Window: Activer/désactiver la fenêtre maximisée
+  Full Window: Activer/désactiver le mode pleine fenêtre
   Skip by Tenths: Sauter dans la vidéo par pourcentage (3 sauts pour atteindre 30 % de la durée)
   Home: Aller au début de la vidéo
   End: Aller à la fin de la vidéo
@@ -1131,3 +1164,5 @@ Compact side navigation: Navigation latérale compacte
 Expand side navigation: Développer la navigation latérale
 Screenshot Clipboard Error: Échec de la copie de l'écran vers le presse-papier
 Screenshot Clipboard Success: Copie d'écran enregistrée dans le presse-papier
+SponsorBlock Disabled on Channel: SponsorBlock est désactivé sur {channel}
+SponsorBlock Enabled on Channel: SponsorBlock est activé sur {channel}

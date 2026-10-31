@@ -77,7 +77,7 @@
         <FontAwesomeIcon
           :icon="['fas', 'thumbs-up']"
         />
-        {{ comment.likes || '' }}
+        {{ formattedLikeCount }}
       </template>
       <span
         v-if="comment.isHearted"
@@ -167,7 +167,7 @@ import FtTimestampCatcher from '../FtTimestampCatcher.vue'
 
 import store from '../../store/index'
 
-import { copyToClipboard, showToast } from '../../helpers/utils'
+import { copyToClipboard, formatNumber, isNumberRounded, showToast } from '../../helpers/utils'
 import { parseLocalComment } from '../../helpers/api/local'
 
 const { t } = useI18n()
@@ -212,6 +212,11 @@ const props = defineProps({
     type: Boolean,
     required: true
   }
+})
+
+const formattedLikeCount = computed(() => {
+  const likes = props.comment.likes
+  return likes && isNumberRounded(likes) ? formatNumber(likes, { notation: 'compact' }) : likes || ''
 })
 
 const emit = defineEmits(['timestamp-event'])
@@ -263,21 +268,23 @@ const numRepliesRemainingText = computed(() => {
 
 const toggleCommentRepliesText = computed(() => {
   const channelName = props.channelName
-  const replyCount = props.comment.numReplies
 
   if (showReplies.value) {
-    return t('Comments.Hide Replies', replyCount)
+    return t('Comments.Hide Replies')
   }
+
+  const replyCount = props.comment.numReplies
+  const formattedReplyCount = isNumberRounded(replyCount) ? formatNumber(replyCount, { notation: 'compact' }) : replyCount
 
   if (props.comment.hasOwnerReplied) {
     if (replyCount > 1) {
-      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount, channelName })
+      return t('Comments.View {replyCount} replies from {channelName} and others', { replyCount: formattedReplyCount, channelName })
     }
 
     return t('Comments.View 1 reply from {channelName}', { channelName })
   }
 
-  return t('Comments.View {replyCount} replies', { replyCount: `${replyCount >= 1000 ? '~' : ''}${replyCount}` }, replyCount)
+  return t('Comments.View {replyCount} replies', { replyCount: formattedReplyCount }, replyCount)
 })
 
 onMounted(() => {

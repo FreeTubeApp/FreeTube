@@ -152,6 +152,10 @@
   block-size: 1.3em;
 }
 
+.disabledIcon {
+  pointer-events: none;
+}
+
 @media only screen and (width > 680px) {
   ::-webkit-scrollbar {
     inline-size: 10px;

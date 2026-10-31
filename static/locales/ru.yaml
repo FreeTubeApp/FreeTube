@@ -38,6 +38,7 @@ Global:
     Channel Count: 1 канал | {count} канала(ов)
     Comment Count: 1 комментарий | {count} комментариев
     Like Count: 1 лайк | {count} лайков
+    Replies Remaining: "{' '}(остался 1) | {' '}(осталось {count})"
 Search / Go to URL: 'Поиск / Перейти по адресу'
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Все вкладки подписок скрыты. Чтобы увидеть содержимое здесь, пожалуйста, раскройте некоторые вкладки в разделе «{subsection}» в «{settingsSection}».
   Empty Posts: Ваши подписанные каналы в настоящее время не имеют записей.
   Load More Posts: Загрузить больше записей
+  Posts:
+    RSS Message: YouTube не предоставляет RSS-ленты для публикаций. Отключите настройку «{rssSetting}», чтобы просматривать публикации, или включите настройку «{hideSetting}», чтобы скрыть эту вкладку.
 Trending:
   Trending: 'В тренде'
   Trending Tabs: Вкладки В тренде
@@ -187,6 +190,9 @@ User Playlists:
   The playlist has been successfully exported: Плейлист успешно экспортирован
   TotalTimePlaylist: 'Общее время: {duration}'
   Export list of URLs: Экспортировать список URL-адресов
+  This playlist is private or does not exist.: Этот плейлист является приватным или не существует.
+  Move Video to the Top: Переместить видео в начало
+  Move Video to the Bottom: Переместить видео в конец
 History:
   # On History Page
   History: 'История'
@@ -373,11 +379,11 @@ Settings:
     Enable Theatre Mode by Default: 'Включать режим широкого экрана'
     Default Volume: 'Громкость по умолчанию'
     Default Playback Rate: 'Скорость воспроизведения по умолчанию'
-    Default Video Format:
-      Default Video Format: 'Формат видео по умолчанию'
+    Default Media Format:
       Dash Formats: 'DASH форматы'
       Legacy Formats: 'Устаревшие форматы'
       Audio Formats: 'Звуковые форматы'
+      Default Media Format: Формат медиа по умолчанию
     Default Quality:
       Default Quality: 'Качество по умолчанию'
       Auto: 'Авто'
@@ -412,6 +418,7 @@ Settings:
       Quality Label: Качество скриншотов
       File Name Label: Шаблон имени файла
       File Name Tooltip: Вы можете использовать эти переменные. %Y Год 4 цифры. %M Месяц 2 цифры. %D День 2 цифры. %H Час 2 цифры. %N Минуты 2 цифры. %S Секунды 2 цифры. %T Миллисекунды 3 цифры. %s Секунды видео. %t Миллисекунды видео 3 цифры. %i Идентификатор видео.
+      Mode: Режим скриншотов
     Enter Fullscreen on Display Rotate: Входить в полноэкранный режим при повороте дисплея
     Skip by Scrolling Over Video Player: Пропустить, прокручивая видеопроигрыватель
     Autoplay Interruption Timer: Таймер прерывания автопроигрывания
@@ -421,6 +428,9 @@ Settings:
       Full Screen: На весь экран
       Picture in Picture: Картинка в картинке
       External Player: Внешний проигрыватель ({externalPlayerName})
+      Full Window (Always On): Полное окно (всегда включено)
+      Full Screen (Always On): Полноэкранный режим (всегда включён)
+      Tooltip: Большинство режимов просмотра по умолчанию применяются только в начале каждого сеанса просмотра. Изменения, внесённые во время сеанса, действуют до его окончания. Постоянно включённые режимы просмотра применяются при каждом переключении на новое видео, независимо от любых изменений режима просмотра, сделанных при просмотре предыдущего видео.
   Subscription Settings:
     Subscription Settings: 'Подписки'
     Fetch Feeds from RSS: Загружать Ленты из RSS
@@ -496,6 +506,15 @@ Settings:
     Export search history: Экспортировать историю поиска
     All search history has been successfully imported: Вся история поиска успешно импортирована
     All search history has been successfully exported: Вся история поиска успешно экспортирована
+    Settings File: Файл настроек
+    Import Settings: Импортировать настройки
+    Export Settings: Экспортировать настройки
+    Settings Tooltip: Настройки, зависящие от ОС или пользователя, а также экспериментальные, нельзя экспортировать или импортировать (например, прокси, внешний проигрыватель, папка скриншотов...).
+    All settings have been successfully imported: Все настройки успешно импортированы
+    All settings have been successfully exported: Все настройки успешно экспортированы
+    Setting object has insufficient data, skipping item: В объекте настройки недостаточно данных, элемент пропускается
+    Unknown setting key: 'Неизвестный ключ настройки: {key}'
+    Non-transferable setting key: 'Непередаваемый ключ настройки: {key}'
   Distraction Free Settings:
     Hide Live Chat: Скрыть чат прямой трансляции
     Hide Popular Videos: Скрыть популярные видео
@@ -544,6 +563,8 @@ Settings:
     Hide Channel Courses: Скрыть вкладку «Курсы» канала
     Hide Channel Posts: Скрыть вкладку "Записи" канала
     Hide Subscriptions Posts: Скрывать записи в подписках
+    Add: Добавить
+    Remove: Удалить
   The app needs to restart for changes to take effect. Restart and apply change?: Чтобы изменения вступили в силу, необходимо перезапустить приложение. Перезапустить и применить изменения?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ошибка при получении информации о сети. Правильно ли настроен ваш прокси-сервер?
@@ -577,6 +598,10 @@ Settings:
     UseDeArrowTitles: Использовать заголовки видео DeArrow
     UseDeArrowThumbnails: Использовать миниатюры видео DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL-адрес DeArrow API для генерации миниатюр (по умолчанию https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Некоторые каналы были исключены по ID и не были обработаны. Функция заблокирована, пока эти ID обновляются
+      Excluded Channels: Исключённые каналы
+      Tooltip: Введите ID канала, чтобы отключить SponsorBlock. Спонсорские сегменты в видео с этого канала не будут пропускаться. Введённый ID канала должен полностью совпадать и учитывать регистр.
   External Player Settings:
     Custom External Player Arguments: Аргументы внешнего проигрывателя
     Custom External Player Executable: Исполняемый файл внешнего проигрывателя
@@ -593,10 +618,12 @@ Settings:
     Hide Unsubscribe Button: Скрыть кнопку отписки
     Hide Search Bar: Скрыть строку поиска
     Hide Uploader on Watch page: Скрыть канал на странице просмотра
+    Disable Channel Links: Отключить ссылки на каналы
   Experimental Settings:
     Experimental Settings: Эксперименты
     Replace HTTP Cache: Заменить HTTP-кэш
     Warning: Экспериментальные настройки. При их включении возможны ошибки. Настоятельно рекомендуется делать резервные копии. Используйте на свой страх и риск!
+    Disable Hardware Acceleration: Отключить аппаратное ускорение
   Password Dialog:
     Password: Пароль
     Enter Password To Unlock: Введите пароль для разблокировки настроек
@@ -622,7 +649,6 @@ About:
   room rules: правила комнаты
   Chat on Matrix: Чат на Matrix
   Mastodon: Mastodon
-  Email: Электронная почта
   Website: Сайт
   Report a problem: Сообщить о проблеме
   FAQ: ЧАВО
@@ -646,11 +672,11 @@ Channel:
   Your search results have returned 0 results: 'По вашему запросу ничего не найдено'
   Videos:
     Videos: 'Видео'
-    This channel does not currently have any videos: 'На этом канале в настоящее время нет видео'
     Sort Types:
       Newest: 'Новым'
       Oldest: 'Старым'
       Most Popular: 'Самым популярным'
+    This channel has videos but none could be displayed, try fetching more: У этого канала есть видео, но ни одно не удалось отобразить, попробуйте загрузить больше
   Playlists:
     Playlists: 'Плейлисты'
     This channel does not currently have any playlists: 'На этом канале в настоящее время нет плейлистов'
@@ -700,6 +726,7 @@ Channel:
   Courses:
     Courses: Курсы
     This channel does not currently have any courses: На этом канале в настоящее время нет курсов
+  View All: Показать все
 Video:
   Mark As Watched: 'Отметить как просмотренное'
   Remove From History: 'Удалить из истории'
@@ -816,6 +843,19 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Оставшееся время preroll-рекламы: {remindingTimeSeconds} сек'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Оставшееся время задержки SABR: {remindingTimeSeconds} сек'
   Popout Live Chat: Вынести чат в отдельное окно
+  Private: Приватные видео нельзя смотреть в FreeTube, так как они требуют входа в Google и владения видео.
+  Enable SponsorBlock on Channel: Включить SponsorBlock для канала
+  Disable SponsorBlock on Channel: Отключить SponsorBlock для канала
+  Collapse Playlist: Свернуть плейлист
+  Expand Playlist: Развернуть плейлист
+  AI: ИИ
+  'AI: Content was made with AI': 'ИИ: контент создан с помощью ИИ'
+  How this was made: Как это сделано
+  Station: Станция
+  Premiere: Премьера
+  Reload Page: Перезагрузить страницу
+  Playlist:
+    Unavailable videos are hidden: 1 недоступное видео скрыто | {count} недоступных видео скрыто | {count} недоступных видео скрыто
 Playlist:
   #& About
   View Full Playlist: 'Посмотреть весь плейлист'
@@ -837,6 +877,7 @@ Playlist:
     VideoDurationDescending: Продолжительность (Длиннейшие)
     PublishedNewest: Дата публикации (Сначала новые)
     PublishedOldest: Дата публикации (Сначала старые)
+  Unavailable videos are hidden: Недоступные видео скрыты
 Change Format:
   Change Media Formats: 'Изменить форматы видео'
   Use Dash Formats: 'Использовать форматы DASH'
@@ -883,6 +924,8 @@ Comments:
   Hide Replies: Скрыть ответ | Скрыть ответы
   View 1 reply from {channelName}: Смотреть 1 ответ от {channelName}
   View {replyCount} replies from {channelName} and others: Смотреть {replyCount} ответа(ов) от {channelName} и других
+  Loading replies: Загрузка ответов...
+  Comments are turned off: Комментарии отключены
 Up Next: 'Следующий'
 
 # Toast Messages
@@ -943,6 +986,7 @@ Profile:
   Edit Profile Name: Изменить название профиля
   Close Profile Dropdown: Закрыть выпадающий список профилей
   Open Profile Dropdown: Открыть выпадающий список профилей
+  Go To Profile Manager: Перейти в менеджер профилей
 The playlist has been reversed: Порядок плейлиста был обёрнут
 Download From Site: Скачать с сайта
 Version {versionNumber} is now available!  Click for more details: Версия {versionNumber} теперь доступна!  Нажмите для получения более подробной информации
@@ -950,7 +994,7 @@ This video is unavailable because of missing formats. This can happen due to cou
 Tooltips:
   General Settings:
     Thumbnail Preference: Все заставки на FreeTube будут заменены снимком из видео, размытым или скрытым, вместо заставки по умолчанию.
-    Invidious Instance: Образец Invidious, к которому FreeTube будет подключаться для вызовов набора функций.
+    Invidious Instance: Экземпляр Invidious, к которому FreeTube будет подключаться для вызовов API. Изменения этой настройки применяются только к текущему окну, если только вы не сделаете этот экземпляр экземпляром по умолчанию.
     Fallback to Non-Preferred Backend on Failure: Если у вашего предпочитаемого набора функций есть проблема, FreeTube автоматически попытается использовать ваш нежелательный набор функций в качестве запасного метода, если он включен.
     Preferred API Backend: Выберите движок, который FreeTube будет использовать для получения данных. Локальный набор функций — это встроенный экстрактор. Набор функций Invidious требует подключения к серверу Invidious.
     Region for Trending: Регион трендов позволяет выбрать, в какой стране будут отображаться трендовые видео.
@@ -960,7 +1004,7 @@ Tooltips:
     Fetch Feeds from RSS: Если эта настройка включена, FreeTube будет получать вашу ленту подписок с помощью RSS, вместо метода по умолчанию. RSS работает быстрее и предотвращает блокировку IP, но не предоставляет определённую информацию, такую как продолжительность видео , статус прямого эфира или публикации
     Fetch Automatically: Если эта функция включена, FreeTube будет автоматически загружать ленту вашей подписки при запуске и при открытии нового окна.
   Player Settings:
-    Default Video Format: Устанавливает форматы, используемые при воспроизведении видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы ограничены пределом в 360p, но используют меньшую пропускную способность. Звуковые форматы — только звуковые потоки.
+    Default Media Format: Устанавливает форматы, используемые при воспроизведении видео. Формат DASH может воспроизводить более высокое качество. Устаревшие форматы ограничены пределом в 360p, но используют меньшую пропускную способность. Звуковые форматы — только звуковые потоки.
     Proxy Videos Through Invidious: Будет подключаться к Invidious для показа видео вместо прямого подключения к YouTube.
     Scroll Playback Rate Over Video Player: Пока указатель мыши находится над видео, нажмите и удерживайте клавишу Control (клавиша Command на Mac) и прокрутите колесо мыши вперед или назад, чтобы изменять скорость воспроизведения. Нажмите и удерживайте клавишу Control (клавиша Command на Mac) и щелкните левой кнопкой мыши, чтобы быстро вернуться к обычной скорости воспроизведения (1x, если она не была изменена в настройках).
     Skip by Scrolling Over Video Player: Используйте колесо прокрутки, чтобы пропустить видео в стиле MPV.
@@ -973,6 +1017,7 @@ Tooltips:
     Ignore Default Arguments: 'Не передавать никаких аргументов внешнему проигрывателю по умолчанию, кроме адреса видео (напр.: частота проигрывания, адрес плейлиста и т. д.). Пользовательские аргументы всё ещё будут передаваться.'
   Experimental Settings:
     Replace HTTP Cache: Отключает дисковый HTTP-кэш Electron и включает пользовательский кэш изображений в памяти. Приведёт к увеличению использования оперативной памяти.
+    Disable Hardware Acceleration: Отключает аппаратное ускорение ГП. Может исправить графические проблемы, но, вероятно, будет работать медленнее.
   Distraction Free Settings:
     Hide Channels: Введите ID канала, чтобы скрыть все видео, плейлисты и сам канал от появления в результатах поиска, трендах, самых популярных и рекомендуемых. Введенный ID канала должен полностью совпадать и чувствителен к регистру.
     Hide Subscriptions Live: Эта настройка переопределена общей настройкой «{appWideSetting}», в подразделе «{subsection}» раздела «{settingsSection}»
@@ -991,6 +1036,8 @@ External link opening has been disabled in the general settings: Открыти�
 Search Bar:
   Clear Input: Очистить
   Remove: Удалить
+  Open Search Container: Открыть поле поиска
+  Search: Поиск
 Are you sure you want to open this link?: Вы действительно хотите открыть эту ссылку?
 Screenshot Success: Сохраненный скриншот
 Screenshot Error: Не удалось сделать скриншот. {error}
@@ -1072,7 +1119,7 @@ KeyboardShortcutPrompt:
       Playback: 'Видео: Воспроизведение'
       General: 'Видео: Общее'
   Show Keyboard Shortcuts: Показать сочетания клавиш
-  History Backward: Перейти на одну страницу
+  History Backward: Вернуться на одну страницу
   Keyboard Shortcuts: Ярлыки клавиатуры
   History Forward: Переместить одну страницу
   New Window: Создать новое окно
@@ -1114,3 +1161,7 @@ Autoplay Interruption Timer: Автоигра отменена из-за {autopl
 shortcutLabelSeparator: ｜
 Compact side navigation: Свернуть боковую панель
 Expand side navigation: Развернуть боковую панель
+Screenshot Clipboard Success: Скриншот сохранён в буфер обмена
+Screenshot Clipboard Error: Не удалось скопировать скриншот в буфер обмена
+SponsorBlock Disabled on Channel: SponsorBlock отключён для канала {channel}
+SponsorBlock Enabled on Channel: SponsorBlock включён для канала {channel}

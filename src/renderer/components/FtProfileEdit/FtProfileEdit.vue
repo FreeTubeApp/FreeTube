@@ -17,8 +17,7 @@
               tabindex="0"
               role="button"
               @click="profileBgColor = color"
-              @keydown.space.prevent="profileBgColor = color"
-              @keydown.enter.prevent="profileBgColor = color"
+              @keydown.enter.space.prevent="profileBgColor = color"
             />
           </FtFlexBox>
           <div class="customColorSection">

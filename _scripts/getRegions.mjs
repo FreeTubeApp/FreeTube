@@ -13,7 +13,7 @@
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'fs'
 import path from 'path'
-import { Innertube, Misc } from 'youtubei.js'
+import { Misc, Session } from 'youtubei.js'
 
 const STATIC_DIRECTORY = path.resolve(import.meta.dirname, '../static')
 
@@ -28,6 +28,7 @@ const initialResponse = await scrapeLanguage('en')
 
 /** @type {string[]} */
 const youTubeLanguages = initialResponse.data.actions[0].openPopupAction.popup.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items[2].compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].getMultiPageMenuAction.menu.multiPageMenuRenderer.sections[0].multiPageMenuSectionRenderer.items
+  .filter(({ compactLinkRenderer }) => compactLinkRenderer)
   .map(({ compactLinkRenderer }) => {
     return compactLinkRenderer.serviceEndpoint.signalServiceEndpoint.actions[0].selectLanguageCommand.hl
   })
@@ -124,7 +125,7 @@ for (const { youTube, freeTube } of languagesToScrape) {
  * @param {string} youTubeLanguageCode
  */
 async function scrapeLanguage(youTubeLanguageCode) {
-  const session = await Innertube.create({
+  const session = await Session.create({
     retrieve_player: false,
     generate_session_locally: true,
     lang: youTubeLanguageCode

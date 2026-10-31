@@ -380,8 +380,7 @@ Settings:
     Enable Theatre Mode by Default: 'Типово увімкнути режим театру'
     Default Volume: 'Типова гучність'
     Default Playback Rate: 'Типова швидкість відтворення'
-    Default Video Format:
-      Default Video Format: 'Типовий формат відео'
+    Default Media Format:
       Dash Formats: 'Формати DASH'
       Legacy Formats: 'Застарілі формати'
       Audio Formats: 'Аудіо формати'
@@ -615,7 +614,7 @@ Settings:
   Sort Settings Sections (A-Z): Сортувати розділи налаштувань (А-Я)
 About:
   #On About page
-  About: 'Про додаток'
+  About: 'Про програму'
   #& About
   Donate: Підтримати
   these people and projects: цим людям та проєктам
@@ -624,7 +623,6 @@ About:
   room rules: правила кімнати
   Chat on Matrix: Чат у Matrix
   Mastodon: Mastodon
-  Email: Електронна пошта
   Website: Вебсайт
   Please check for duplicates before posting: Будь ласка, перевірте наявність повторів перед публікацією
   GitHub issues: Проблеми на GitHub
@@ -693,7 +691,6 @@ Channel:
   Your search results have returned 0 results: 'Пошук дав 0 результатів'
   Videos:
     Videos: 'Відео'
-    This channel does not currently have any videos: 'Наразі на цьому каналі немає жодного відео'
     Sort Types:
       Newest: 'Найновіші'
       Oldest: 'Найдавніші'
@@ -942,7 +939,7 @@ Tooltips:
     Open Deep Links In New Window: URL-адреси, передані в FreeTube, наприклад через розширення для браузера або аргументи командного рядка, відкриваються в новому вікні.
   Player Settings:
     Proxy Videos Through Invidious: 'Під’єднається до Invidious, щоб дивитися відео, а не встановлювати пряме з’єднання з YouTube.'
-    Default Video Format: 'Встановіть формати, що використовуються при відтворенні відео. Формати DASH підтримують вищі якості. Старі формати обмежені максимальним роздільною здатністю 360p, але використовують менше пропускної здатності. Аудіоформати — це потоки тільки з аудіо.'
+    Default Media Format: 'Встановіть формати, що використовуються при відтворенні відео. Формати DASH підтримують вищі якості. Старі формати обмежені максимальним роздільною здатністю 360p, але використовують менше пропускної здатності. Аудіоформати — це потоки тільки з аудіо.'
     Scroll Playback Rate Over Video Player: Поки курсор знаходиться над відео, натисніть і утримуйте клавішу Control (клавіша Command на Mac) і прокрутіть коліщатко миші вперед або назад, щоб контролювати швидкість відтворення. Натисніть і утримуйте клавішу Control (клавіша Command на Mac) і клацніть лівою кнопкою миші, щоб швидко повернутися до типової швидкості відтворення (1x, якщо вона не була змінена в налаштуваннях).
     Skip by Scrolling Over Video Player: Використовувати колесо прокрутки для прокручування відео в стилі MPV.
   Subscription Settings:
@@ -1070,7 +1067,7 @@ KeyboardShortcutPrompt:
       Playback: 'Відео: Відтворення'
       General: 'Відео: Загальні'
     App:
-      Situational: 'Додаток: Ситуаційне'
+      Situational: 'Програма: Ситуаційне'
       General: 'Додаток: Загальне'
   Show Keyboard Shortcuts: Показати клавіатурні скорочення
   History Backward: Повернутися на одну сторінку назад
@@ -1117,5 +1114,5 @@ KeyboardShortcutPrompt:
 shortcutLabelSeparator: ｜
 Compact side navigation: Компактна бічна навігація
 Expand side navigation: Розгорнути бічну навігацію
-Screenshot Clipboard Success: Знімок єкрану збережно у буфер обміну
+Screenshot Clipboard Success: Знімок екрану збережено до буферу обміну
 Screenshot Clipboard Error: Не вдалося скопіювати знімок екрана в буфер обміну

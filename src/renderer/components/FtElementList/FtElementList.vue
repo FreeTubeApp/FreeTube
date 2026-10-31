@@ -24,13 +24,15 @@
       :playlist-type="playlistType"
       :playlist-item-id="result.playlistItemId"
       :dragged-video="draggedVideo"
-      :is-sort-order-custom="isSortOrderCustom"
       :is-video-dragging="isVideoDragging"
+      :video-dragging-possible="videoDraggingPossible"
       @drag-video="dragVideo"
       @move-dragged-video="moveDraggedVideo"
       @drag-video-end="afterDrag"
       @move-video-up="moveVideoUp"
       @move-video-down="moveVideoDown"
+      @move-video-to-the-top="moveVideoToTheTop"
+      @move-video-to-the-bottom="moveVideoToTheBottom"
       @remove-from-playlist="removeFromPlaylist"
     />
   </FtAutoGrid>
@@ -119,17 +121,26 @@ const props = defineProps({
     type: Object,
     default: () => ({ videoId: null, playlistItemId: null }),
   },
-  isSortOrderCustom: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
-  isVideoDragging: {
+  videoDraggingPossible: {
     type: Boolean,
     default: false,
   },
 })
 
-const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+const emit = defineEmits([
+  'move-dragged-video',
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'remove-from-playlist',
+  'drag-video',
+  'drag-video-end'
+])
 
 /** @type {import('vue').ComputedRef<'grid' | 'list'>} */
 const listType = computed(() => {
@@ -155,6 +166,22 @@ function moveVideoUp(videoId, playlistItemId) {
  */
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheTop(videoId, playlistItemId) {
+  emit('move-video-to-the-top', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheBottom(videoId, playlistItemId) {
+  emit('move-video-to-the-bottom', videoId, playlistItemId)
 }
 
 /**

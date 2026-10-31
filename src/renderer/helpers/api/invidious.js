@@ -3,6 +3,7 @@ import { calculatePublishedDate, getRelativeTimeFromDate } from '../utils'
 import { isNullOrEmpty } from '../strings'
 import autolinker from 'autolinker'
 import { FormatUtils, Misc, Player } from 'youtubei.js'
+import { parseVideoClipsParams } from './shared'
 
 /** @typedef {{url: string, width: number, height: number}} InvidiousImageObject */
 /** @typedef {{quality: string, url: string, width: number, height: number}} InvidiousThumbnailObject */
@@ -234,7 +235,12 @@ export async function getInvidiousChannelPlaylists(channelId, sortBy, continuati
  */
 export async function getInvidiousChannelReleases(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('releases', channelId, continuation)
+  const releases = await getInvidiousChannelTab('releases', channelId, continuation)
+
+  for (const releasePlaylist of releases.playlists) {
+    releasePlaylist.isAlbum = true
+  }
+  return releases
 }
 
 /**
@@ -243,7 +249,12 @@ export async function getInvidiousChannelReleases(channelId, continuation) {
  */
 export async function getInvidiousChannelPodcasts(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('podcasts', channelId, continuation)
+  const podcasts = await getInvidiousChannelTab('podcasts', channelId, continuation)
+
+  for (const podcastPlaylist of podcasts.playlists) {
+    podcastPlaylist.isPodcast = true
+  }
+  return podcasts
 }
 
 /**
@@ -252,7 +263,11 @@ export async function getInvidiousChannelPodcasts(channelId, continuation) {
  */
 export async function getInvidiousChannelCourses(channelId, continuation) {
   /** @type {{continuation: string?, playlists: InvidiousPlaylistObject[]}} */
-  return await getInvidiousChannelTab('courses', channelId, continuation)
+  const courses = await getInvidiousChannelTab('courses', channelId, continuation)
+  for (const coursePlaylist of courses.playlists) {
+    coursePlaylist.isCourse = true
+  }
+  return courses
 }
 
 /**
@@ -284,18 +299,63 @@ export async function searchInvidiousChannel(channelId, query, page) {
 
 /**
  * @param {string} playlistId
+ * @param {number} index
  * @returns {Promise<{
- *  title: string,
- *  playlistId: string,
- *  author: string,
- *  authorId: string,
- *  authorThumbnails: InvidiousImageObject[],
- *  description: string,
- *  descriptionHtml: string,
- *  videoCount: number,
- *  viewCount: number,
- *  updated: number,
- *  videos: {
+ *  playlist: {
+ *    title: string,
+ *    playlistId: string,
+ *    author: string,
+ *    authorId: string,
+ *    authorThumbnails: InvidiousImageObject[],
+ *    description: string,
+ *    descriptionHtml: string,
+ *    videoCount: number,
+ *    viewCount: number,
+ *    updated: number,
+ *    videos: {
+ *      title: string,
+ *      videoId: string,
+ *      author: string,
+ *      authorId: string,
+ *      authorUrl: string,
+ *      videoThumbnails: InvidiousThumbnailObject[],
+ *      index: number,
+ *      lengthSeconds: number
+ *    }[]
+ *  },
+ *  nextIndex: number | -1
+ * }>}
+ */
+export async function invidiousGetPlaylistInfo(playlistId, index = 0) {
+  // The Invidious API offsets the index by 50 to apply a lookback window
+  // By increasing the index by 50, we skip those overlapping videos and avoid de-duplicating them from the response
+  // See: https://github.com/iv-org/invidious/blob/66fb829dbc0f96cbf4319798f3b9090bc88a7012/src/invidious/routes/api/v1/misc.cr#L67
+  const offsetIndex = index + 50
+  const playlist = await invidiousAPICall({
+    resource: 'playlists',
+    id: playlistId,
+    params: {
+      index: offsetIndex
+    }
+  })
+
+  let nextIndex = index + playlist.videos.length
+  // Invidious API can return less videos than 'videoCount'
+  if (playlist.videos.length === 0 || nextIndex >= playlist.videoCount) {
+    nextIndex = -1
+  }
+
+  playlist.videos = filterUnavailableInvidiousVideos(playlist.videos)
+  normalizeManyInvidiousVideosAttributes(playlist.videos)
+  setMultiplePublishedTimestamps(playlist.videos)
+
+  return { playlist, nextIndex }
+}
+
+/**
+ * @param {string} playlistId
+ * @param {number} index
+ * @returns {{
  *    title: string,
  *    videoId: string,
  *    author: string,
@@ -304,19 +364,19 @@ export async function searchInvidiousChannel(channelId, query, page) {
  *    videoThumbnails: InvidiousThumbnailObject[],
  *    index: number,
  *    lengthSeconds: number
- *  }[]
- * }>}
+ *  }[]}
  */
-export async function invidiousGetPlaylistInfo(playlistId) {
-  const playlist = await invidiousAPICall({
-    resource: 'playlists',
-    id: playlistId,
-  })
+export async function fetchAllInvidiousPlaylistVideos(playlistId, index = 0) {
+  let currentIndex = index
+  const videos = []
 
-  normalizeManyInvidiousVideosAttributes(playlist.videos)
-  setMultiplePublishedTimestamps(playlist.videos)
+  while (currentIndex !== -1) {
+    const { playlist, nextIndex } = await invidiousGetPlaylistInfo(playlistId, currentIndex)
+    videos.push(...playlist.videos)
+    currentIndex = nextIndex
+  }
 
-  return playlist
+  return videos
 }
 
 /**
@@ -860,6 +920,27 @@ export async function getHashtagInvidious(hashtag, page = 1) {
   return response.results
 }
 
+export async function getClipInvidious(clipId) {
+  if (process.env.SUPPORTS_LOCAL_API) {
+    // reuse parsing from local api
+    const response = await resolveUrl('https://www.youtube.com/clip/' + clipId)
+    return parseVideoClipsParams(response.videoId, response.params)
+  }
+
+  // fallback to invidious clips api when local api isn't available (makes an expensive fetch video call)
+  const clipResponse = await invidiousAPICall({
+    resource: 'clips',
+    id: clipId,
+  })
+
+  return {
+    videoId: clipResponse.video.videoId,
+    startTime: clipResponse.startTime,
+    endTime: clipResponse.endTime,
+    clipTitle: clipResponse.clipTitle,
+  }
+}
+
 /**
  * Generates a DASH manifest locally from Invidious' adaptive formats and manifest,
  * doing so allows us to support multiple audio tracks, which Invidious doesn't support yet
@@ -970,6 +1051,17 @@ export function mapInvidiousLegacyFormat(format) {
     width: parseInt(stringWidth),
     url: format.url
   }
+}
+
+/**
+ * @param {{
+ *  title: string,
+ *  author: string,
+ *  authorId: string | null
+ * }[]} videos
+ */
+function filterUnavailableInvidiousVideos(videos) {
+  return videos.filter(video => video.title !== '' && video.author !== '' && video.authorId !== null)
 }
 
 /**

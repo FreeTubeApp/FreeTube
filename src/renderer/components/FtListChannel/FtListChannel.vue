@@ -88,7 +88,7 @@ import { vSaferHtml } from '../../directives/vSaferHtml'
 import store from '../../store/index'
 
 import { youtubeImageUrlToInvidious } from '../../helpers/api/invidious'
-import { formatNumber } from '../../helpers/utils'
+import { formatNumber, formatSubscriberCount } from '../../helpers/utils'
 
 const props = defineProps({
   data: {
@@ -143,7 +143,7 @@ if (process.env.SUPPORTS_LOCAL_API && props.data.dataSource === 'local') {
 
 const formattedSubscriberCount = computed(() => {
   if (subscriberCount != null) {
-    return formatNumber(subscriberCount)
+    return formatSubscriberCount(subscriberCount)
   }
 
   return ''

@@ -16,7 +16,9 @@ import eslintPluginPromise from 'eslint-plugin-promise'
 
 import activeLocales from './static/locales/activeLocales.json' with { type: 'json' }
 
-export default [
+import { defineConfig } from 'eslint/config';
+
+export default defineConfig([
   {
     ignores: [
       'build/',
@@ -321,6 +323,7 @@ export default [
 
       'vue/no-unused-emit-declarations': 'error',
       'vue/prefer-use-template-ref': 'error',
+      'vue/no-undef-directives': 'error',
 
       'jsdoc/check-alignment': 'error',
       'jsdoc/check-property-names': 'error',
@@ -341,14 +344,13 @@ export default [
       }
     }
   },
-
-  ...eslintPluginJsonc.configs.base,
   {
     files: ['**/*.json'],
     ignores: [
       '_scripts/',
     ],
 
+    extends: [eslintPluginJsonc.configs.base],
     rules: {
       '@stylistic/no-tabs': 'off',
       '@stylistic/comma-spacing': 'off',
@@ -363,14 +365,14 @@ export default [
       },
     },
   },
-
-  ...eslintPluginYml.configs.recommended,
   {
     files: ['**/*.{yml,yaml}'],
     ignores: [
       '.github/',
       '_scripts/'
     ],
+
+    extends: [eslintPluginYml.configs.recommended],
 
     rules: {
       'yml/no-irregular-whitespace': 'off',
@@ -443,4 +445,4 @@ export default [
       'unicorn/prefer-array-index-of': 'error',
     }
   }
-]
+])

@@ -10,84 +10,51 @@
 .text {
   background-color: color-mix(in srgb, var(--primary-text-color) 80%, transparent);
   border-radius: 20px;
+  box-sizing: border-box;
   color: var(--card-bg-color);
   font-size: 1rem;
   line-height: 120%;
   margin: 0;
-  max-inline-size: max-content;
-  min-inline-size: 15em;
+  inline-size: 15em;
+  overflow-wrap: anywhere;
   opacity: 0;
   padding-block: 10px;
   padding-inline: 8px;
   pointer-events: none;
-  position: absolute;
+  position: fixed;
   text-align: center;
   transition-duration: 275ms;
   transition-property: opacity, transform, visibility;
   visibility: hidden;
-  z-index: 2;
+
+  /* Higher than nav bar and top bar */
+  z-index: 99;
 }
 
 .text.bottom {
-  margin-block-start: 1em;
-  inset-block-start: 100%;
-  inset-inline-start: 50%;
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
+  transform: translateY(-1em);
 }
 
 .text.bottom-left {
-  margin-block-start: 1em;
-  inset-block-start: 100%;
-  inset-inline-start: -100px;
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), -1em);
+  transform: translateY(-1em);
 }
 
 .text.left {
-  margin-inline-end: 1em;
-  inset-inline-end: 100%;
-  inset-block-start: 50%;
-  transform: translate(calc(1em * var(--horizontal-directionality-coefficient)), -50%);
+  transform: translateX(1em);
 }
 
 .text.right {
-  inset-inline-start: 100%;
-  margin-inline-start: 1em;
-  inset-block-start: 50%;
-  transform: translate(calc(-1em * var(--horizontal-directionality-coefficient)), -50%);
+  transform: translateX(-1em);
 }
 
 .text.top {
-  inset-block-end: 100%;
-  inset-inline-start: 50%;
-  margin-block-end: 1em;
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 1em);
+  transform: translateY(1em);
 }
 
-.button:focus + .text,
-.button:hover + .text {
+.text.visible {
   opacity: 1;
+  transform: none;
   visibility: visible;
-}
-
-.button:focus + .text.bottom,
-.button:hover + .text.bottom,
-.button:hover + .text.bottom-left,
-.button:focus + .text.top,
-.button:hover + .text.top {
-  transform: translate(calc(-50% * var(--horizontal-directionality-coefficient)), 0);
-}
-
-.button:focus + .text.left,
-.button:hover + .text.left,
-.button:focus + .text.right,
-.button:hover + .text.right {
-  transform: translate(0, -50%);
-}
-
-.text.allowNewlines {
-  white-space: pre-wrap;
-  text-align: start;
-  inline-size: 55vw;
 }
 
 .tooltip {

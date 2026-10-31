@@ -395,8 +395,7 @@ Settings:
     Default Playback Rate: Zadana brzina reprodukcije
     Max Video Playback Rate: Maksimalna brzina reprodukcije videa
     Video Playback Rate Interval: Interval brzine reprodukcije videa
-    Default Video Format:
-      Default Video Format: Zadani video format
+    Default Media Format:
       Dash Formats: DASH formati
       Legacy Formats: Zastarjeli formati
       Audio Formats: Audio formati
