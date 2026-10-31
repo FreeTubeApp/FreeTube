@@ -33,6 +33,39 @@
   text-decoration: none;
 }
 
+.aboutLinks {
+  margin: 0;
+  padding: 0;
+}
+
+.aboutLink {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-block: 14px;
+}
+
+.aboutLinkIcon {
+  flex: 0 0 32px;
+  block-size: 32px;
+  object-fit: contain;
+}
+
+.aboutLinkText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-inline-size: 0;
+}
+
+.aboutLinkTitle {
+  font-weight: 600;
+}
+
+.aboutLinkDestination {
+  overflow-wrap: anywhere;
+}
+
 .aboutDetails {
   text-align: start;
 }

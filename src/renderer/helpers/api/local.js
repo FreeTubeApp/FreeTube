@@ -22,6 +22,21 @@ const TRACKING_PARAM_NAMES = [
   'utm_term',
   'utm_content',
 ]
+const ALLOWED_LINK_PROTOCOLS = ['http:', 'https:']
+const SCHEMELESS_DOMAIN_URL_PATTERN = /^(?:\/\/)?[^./?#:@\s]+(?:\.[^./?#:@\s]+)+(?::\d+)?(?:[/?#]|$)/
+const YOUTUBE_REDIRECT_HOSTS = ['youtube.com', 'www.youtube.com']
+
+/**
+ * @param {URL} url
+ * @returns {string|null|undefined} The q value, null when missing, or undefined for a non-redirect URL.
+ */
+function getYouTubeRedirectTarget(url) {
+  if (!YOUTUBE_REDIRECT_HOSTS.includes(url.hostname) || url.pathname !== '/redirect') {
+    return undefined
+  }
+
+  return url.searchParams.get('q')
+}
 
 if (process.env.SUPPORTS_LOCAL_API) {
   Platform.shim.eval = (data) => {
@@ -1224,6 +1239,58 @@ export async function getLocalArtistTopicChannelReleasesContinuation(channel, co
 }
 
 /**
+ * @param {import('youtubei.js').YTNodes.NavigationEndpoint} endpoint
+ * @returns {string|null}
+ */
+function getDirectChannelAboutUrl(endpoint) {
+  try {
+    let url = new URL(endpoint.toURL())
+
+    const redirectTarget = getYouTubeRedirectTarget(url)
+    if (redirectTarget !== undefined) {
+      if (!redirectTarget) return null
+      const destination = SCHEMELESS_DOMAIN_URL_PATTERN.test(redirectTarget)
+        ? `https://${redirectTarget.replace(/^\/\//, '')}`
+        : redirectTarget
+      url = new URL(destination)
+    }
+
+    return ALLOWED_LINK_PROTOCOLS.includes(url.protocol) ? url.href : null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * @param {import('youtubei.js').YTNodes.ChannelAboutFullMetadata | import('youtubei.js').YTNodes.AboutChannel} about
+ * @returns {{ title: string, url: string, displayUrl: string, iconUrl: string }[]}
+ */
+export function parseLocalChannelAboutLinks(about) {
+  const links = about.primary_links ?? about.metadata?.links ?? []
+  const parsedLinks = []
+
+  for (const link of links) {
+    const endpoint = link.endpoint ?? link.link.endpoint
+    const url = getDirectChannelAboutUrl(endpoint)
+
+    if (!url) {
+      continue
+    }
+
+    const icons = link.icon ?? link.favicon ?? []
+
+    parsedLinks.push({
+      title: link.title.text?.trim() ?? '',
+      url,
+      displayUrl: url.replace(/^https?:\/\/(?:www\.)?/, ''),
+      iconUrl: icons[0]?.url ?? ''
+    })
+  }
+
+  return parsedLinks
+}
+
+/**
  * @param {YT.Channel} channel
  * @param {boolean} onlyIdNameThumbnail
  */
@@ -2347,10 +2414,10 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
           case 'WEB_PAGE_TYPE_UNKNOWN':
           default: {
             const url = new URL((endpoint.dialog?.type === 'ConfirmDialog' && endpoint.dialog.confirm_button.endpoint.payload.url) || endpoint.payload.url)
-            if (url.hostname === 'www.youtube.com' && url.pathname === '/redirect' && url.searchParams.has('q')) {
+            const redirectTarget = getYouTubeRedirectTarget(url)
+            if (redirectTarget != null) {
               // remove utm tracking parameters
-              const realURLStr = url.searchParams.get('q')
-              const realURL = new URL(realURLStr)
+              const realURL = new URL(redirectTarget)
               let urlChanged = false
 
               TRACKING_PARAM_NAMES.forEach((paramName) => {
@@ -2362,7 +2429,7 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
 
               // `searchParams.delete` changes query string unnecessarily
               // Using original unless there is any change
-              parsedRuns.push(urlChanged ? realURL.toString() : realURLStr)
+              parsedRuns.push(urlChanged ? realURL.toString() : redirectTarget)
             } else {
               // this is probably a special YouTube URL like http://www.youtube.com/approachingnirvana
               parsedRuns.push(endpoint.payload.url)
