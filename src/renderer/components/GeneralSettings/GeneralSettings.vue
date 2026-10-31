@@ -126,7 +126,8 @@
           :value="currentInvidiousInstance"
           :data-list="invidiousInstancesList"
           :tooltip="t('Tooltips.General Settings.Invidious Instance')"
-          @blur="handleInvidiousInstanceBlur"
+          @blur="handleInvidiousInstanceSelection"
+          @click="handleInvidiousInstanceSelection"
         />
       </FtFlexBox>
       <FtFlexBox>
@@ -465,7 +466,7 @@ onBeforeUnmount(() => {
 /**
  * @param {string} input
  */
-function handleInvidiousInstanceBlur(input) {
+function handleInvidiousInstanceSelection(input) {
   let instance = input
   // If NOT something like https:// (1-2 slashes), remove trailing slash
   if (!/^https?:\/{1,2}$/.test(input)) {
