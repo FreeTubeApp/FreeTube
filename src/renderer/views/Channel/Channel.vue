@@ -423,9 +423,9 @@ const SUPPORTED_CHANNEL_TABS = [
   'shorts',
   'live',
   'releases',
+  'shows',
   'podcasts',
   'courses',
-  'shows',
   'playlists',
   'community',
   'about'
@@ -436,9 +436,9 @@ const channelTabs = shallowRef([
   'shorts',
   'live',
   'releases',
+  'shows',
   'podcasts',
   'courses',
-  'shows',
   'playlists',
   'community',
   'about'
