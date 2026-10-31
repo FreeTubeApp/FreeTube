@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 import i18n from '../../i18n/index'
 import { sponsorBlockSkipSegments } from '../sponsorblock'
+import { MIME_TYPE_CODECS_REGEX } from '../utils'
 
 /** @typedef {import('../sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
 
@@ -343,4 +344,128 @@ export function deduplicateAudioTracks(tracks) {
   }
 
   return knownTracks
+}
+
+const HLS_AUDIO_PARAMS_ITAG_REGEX = /\/sgoap\/[^/]*?itag%3D(\d+)/
+// eslint-disable-next-line no-control-regex
+const HLS_QUOTED_STRING_REGEX = /[\0-\u001F"\u007F-\u009F]/g
+const ITAG_139_SAMPLE_RATE = '22050'
+
+/**
+ * The HLS spec forbids control characters and double quotes inside strings
+ * @param {string} text
+ */
+function cleanHlsString(text) {
+  return text.trim().replaceAll(HLS_QUOTED_STRING_REGEX, '')
+}
+
+/**
+ * @param {import('youtubei.js').Misc.Format} format
+ */
+function getAudioTrackName(format) {
+  if (format.audio_track?.display_name) {
+    return format.audio_track.display_name
+  }
+
+  if (format.language) {
+    const languageName = new Intl.DisplayNames('en-US', {
+      type: 'language',
+      languageDisplay: 'standard',
+      fallback: 'none'
+    }).of(format.language)
+
+    if (languageName !== undefined) {
+      return languageName
+    }
+  }
+
+  return 'Untitled'
+}
+
+/**
+ * @param {string} codec
+ * @param {number} channels
+ * @param {number} sampleRate
+ */
+function createHlsAudioGroupId(codec, channels, sampleRate) {
+  return `${codec.split('.', 1)[0]}-${channels}-${sampleRate || 0}`
+}
+
+/**
+ * Patches the missing audio metadata into the HLS manifest
+ * so that shaka-player treats the audio streams as the same track at different qualities
+ * @param {ArrayBuffer | ArrayBufferView<ArrayBufferLike>} data
+ * @param {import('youtubei.js').Misc.Format[]} audioFormats
+ */
+export function patchLiveHlsMainManifest(data, audioFormats) {
+  const stringBody = new TextDecoder().decode(data)
+
+  const linesToInsert = []
+  const lines = stringBody.trim().split('\n')
+
+  let firstStreamIndex = -1
+
+  for (let i = 0; i < lines.length; i++) {
+    if (!lines[i].startsWith('#EXT-X-STREAM-INF:')) {
+      continue
+    }
+
+    if (firstStreamIndex === -1) {
+      firstStreamIndex = i
+    }
+
+    const itagMatch = lines[i + 1].match(HLS_AUDIO_PARAMS_ITAG_REGEX)
+
+    if (itagMatch !== null) {
+      const itag = parseInt(itagMatch[1])
+
+      // Theoretically there could be xtags that we should match too
+      // but I have yet to see a YouTube livestream with multiple audio tracks
+      // so we'll only match by itag for now
+      let format = audioFormats.find(format => format.itag === itag)
+
+      if (!format && itag === 139) {
+        // itag 139 appears in the HLS manifest but usually doesn't appear in the API response
+        // it seems to be the same as itag 140 but with half the sample rate,
+        // so we'll use everything but the sample rate from itag 140 instead
+        format = audioFormats.find(format => format.itag === 140)
+      }
+
+      if (format) {
+        const sampleRate = itag === 139 && format.itag !== 139 ? ITAG_139_SAMPLE_RATE : format.audio_sample_rate.toFixed(0)
+
+        const groupId = createHlsAudioGroupId(format.mime_type.match(MIME_TYPE_CODECS_REGEX)[1], format.audio_channels, sampleRate)
+
+        const mediaLine = `\
+#EXT-X-MEDIA:\
+TYPE=AUDIO,\
+GROUP-ID="${groupId}",\
+NAME="${cleanHlsString(getAudioTrackName(format))}",\
+LANGUAGE="${format.language ? cleanHlsString(format.language) : 'und'}",\
+DEFAULT=${format.is_original ? 'YES' : 'NO'},\
+AUTOSELECT=${format.is_auto_dubbed ? 'NO' : 'YES'},\
+CHANNELS=${format.audio_channels.toFixed(0)},\
+SAMPLE-RATE=${sampleRate}`
+
+        lines[i] = lines[i] + `,AUDIO=${groupId}`
+
+        if (!linesToInsert.includes(mediaLine)) {
+          linesToInsert.push(mediaLine)
+        }
+      }
+    }
+
+    // the next line is the URL line, which we can skip as it definitely won't match the stream info regex
+    i++
+  }
+
+  if (linesToInsert.length > 0) {
+    lines.splice(firstStreamIndex, 0, ...linesToInsert)
+    lines.splice(1, 0, '#EXT-X-VERSION:7')
+
+    const newString = lines.join('\n') + '\n'
+    return new TextEncoder().encode(newString)
+  }
+
+  return data
 }

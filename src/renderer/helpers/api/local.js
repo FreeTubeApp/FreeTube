@@ -700,6 +700,21 @@ export async function getLocalVideoInfo(id) {
     }
   }
 
+  if (
+    playerResponse?.data &&
+    (playerResponse.data.videoDetails?.isLive ||
+    playerResponse.data.videoDetails?.isPostLiveDvr) &&
+    !playerResponse.data.videoDetails?.isUpcoming &&
+    !playerResponse.data.streamingData?.hlsManifestUrl
+  ) {
+    const mwebRequestBody = createPlayerRequestBody(id, player.signature_timestamp, contentPoToken, 'MWEB')
+
+    const fields = 'streamingData,playabilityStatus,adSlots'
+    const mwebPlayerResponse = await htmlExtracts.session.actions.execute(`/player?$fields=${fields}`, mwebRequestBody)
+
+    Object.assign(playerResponse.data, mwebPlayerResponse.data)
+  }
+
   const cpn = Utils.generateRandomString(16)
 
   const info = new YT.VideoInfo([playerResponse, nextResponse], htmlExtracts.session.actions, cpn)
