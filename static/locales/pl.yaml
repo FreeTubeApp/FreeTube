@@ -209,6 +209,7 @@ Settings:
   General Settings:
     General Settings: 'Ogólne'
     Fallback to Non-Preferred Backend on Failure: 'Wycofaj się do niepreferowanego back-endu przy niepowodzeniu'
+    Prefer Original YouTube Metadata: Preferuj oryginalne metadane YouTube
     Enable Search Suggestions: 'Włącz sugestie wyszukiwania'
     Default Landing Page: 'Domyślna karta startowa'
     Locale Preference: 'Ustawienia regionalne'
@@ -997,6 +998,7 @@ Tooltips:
     Fetch Automatically: Po włączeniu lub przy otwarciu nowego okna FreeTube będzie automatycznie odświeżał Twoje subskrypcje.
   General Settings:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API jako metody zapasowej.
+    Prefer Original YouTube Metadata: Przywróć oryginalne tytuły, nazwy kanałów, opisy, rozdziały, miniatury, dźwięk i napisy, gdy są dostępne. Wymaga lokalnego API.
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego chciałbyś zobaczyć filmy zdobywające popularność.
     Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań API. Zmiana tego ustawienia wpływa tylko na aktywne okno, chyba że instancja zostanie ustawiona jako domyślna.

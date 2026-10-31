@@ -211,6 +211,7 @@ Settings:
     General Settings: 'Загальні'
     Check for Updates: 'Перевіряти наявність оновлень'
     Fallback to Non-Preferred Backend on Failure: 'Повернення до допоміжного бекенду у разі невдачі'
+    Prefer Original YouTube Metadata: Надавати перевагу оригінальним метаданим YouTube
     Enable Search Suggestions: 'Увімкнути рекомендації пошуку'
     Default Landing Page: 'Типова головна сторінка'
     Locale Preference: 'Локальні налаштування'
@@ -932,6 +933,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Виберіть сервер, який FreeTube використовує для отримання даних. Локальний API є вбудованим видобувачем. Для API Invidious потрібен сервер Invidious для з'' єднання.'
     Fallback to Non-Preferred Backend on Failure: 'Коли бажаний API має проблеми, FreeTube автоматично спробує використовувати ваш не вибраний API як запасний метод, коли його увімкнено.'
+    Prefer Original YouTube Metadata: Відновлювати оригінальні назви, назви каналів, описи, розділи, мініатюри, аудіо та субтитри, коли вони доступні. Потрібен локальний API.
     Thumbnail Preference: 'Усі ескізи у FreeTube будуть замінені на кадр з відео, розмитий або схований замість стандартного ескізу.'
     Invidious Instance: 'Сервер Invidious, до якого FreeTube під''єднуватиметься для викликів API.'
     Region for Trending: 'Регіон популярного дозволяє вам вибрати популярні відео країни, які ви хочете бачити.'

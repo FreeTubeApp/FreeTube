@@ -172,6 +172,7 @@
       />
       <watch-video-description
         v-if="!isLoading && !hideVideoDescription"
+        :key="preferOriginalMetadataEnabled"
         :description="videoDescription"
         :description-html="videoDescriptionHtml"
         :license="license"

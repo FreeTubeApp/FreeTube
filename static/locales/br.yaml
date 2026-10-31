@@ -278,6 +278,7 @@ Settings:
     General Settings: 'Hollek'
     Check for Updates: 'Klask Hizivadurioù'
     Fallback to Non-Preferred Backend on Failure: 'Distreiñ d''ar Backend ha n''eo ket hoc''h hini karetañ ma c''hoarvez ur gudenn'
+    Prefer Original YouTube Metadata: Gwellvezioù ar metaroadennoù orin YouTube
     Enable Search Suggestions: 'Gweredekaat Kinnigoù klask'
     Auto Load Next Page:
       Label: 'Kargañ ar bajenn da heul ent emgefreek'
@@ -1058,6 +1059,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Choazit ar backend implijet gant FreeTube evit tapout ar roadennoù. Un eztenner enkorfet eo an API lec''hel. Ezhomm en deus an API Invidious da gaout ur servijer Invidious evit kevreañ outañ.'
     Fallback to Non-Preferred Backend on Failure: 'Pa c''hoarvezo ur gudenn gant hoc''h API karetañ, e klasko FreeTube implijout an API ha n''eo ket hoc''h hini karetañ evel doare sikour ma vez gweredekaet.'
+    Prefer Original YouTube Metadata: Adsevel an titloù orin, anvioù ar c'hanaloù, an deskrivadurioù, ar chabistroù, ar skeudennoùigoù, ar son hag an istitloù pa vezont hegerz. Rekis an API lec'hel.
     Thumbnail Preference: 'Erlec''hiet e vo an holl skeudennoùigoù war FreeTube gant ur skeudenn tennet eus ar video, kuzhet pe displannet, e-lec''h ar skeudennig dre ziouer.'
     Invidious Instance: 'Istañs Invidious implijet gant FreeTube evit galvoù API. Ar cheñchamantoù a vo gwir evit ar prenestr-mañ hepken, nemet ma ve lakaet an istañs-mañ dre ziouer ganeoc''h.'
     Region for Trending: 'Gant an dra-se e c''hallit dibab ar vro evit ar videoioù diouzh ar c''hiz a faot deoc''h gwelet.'

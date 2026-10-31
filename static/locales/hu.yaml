@@ -218,6 +218,7 @@ Settings:
     General Settings: 'Általános'
     Check for Updates: 'Frissítések keresése'
     Fallback to Non-Preferred Backend on Failure: 'Nem előnyben részesített háttéralkalmazásra történő visszatérés hiba esetén'
+    Prefer Original YouTube Metadata: Eredeti YouTube-metaadatok előnyben részesítése
     Enable Search Suggestions: 'Keresési javaslatok engedélyezése'
     Default Landing Page: 'Alapértelmezett kezdőlap'
     Locale Preference: 'Területi beállítás'
@@ -1004,6 +1005,7 @@ Tooltips:
     Invidious Instance: Az Invidious-példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
     Thumbnail Preference: A FreeTube-ban minden videó bélyegképe az alapértelmezett miniatűr helyett a videóból kiválasztott képkockára lesz cserélve, amely elmosódott vagy rejtett is lehet.
     Fallback to Non-Preferred Backend on Failure: Ha a választott API-val probléma adódik, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t használni tartalék módszerként, ha ez a funkció engedélyezve van.
+    Prefer Original YouTube Metadata: Az eredeti címek, csatornanevek, leírások, fejezetek, bélyegképek, hang és feliratok visszaállítása, ha elérhetők. A helyi API szükséges.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy olyan hivatkozásra kattint, amelyet FreeTube nem tud megnyitni.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
     Open Deep Links In New Window: A FreeTube-nak átadott webcímek, például a böngészőbővítmények vagy parancssori argumentumok átirányításával, új ablakban nyílnak meg.
   Subscription Settings:

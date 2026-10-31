@@ -223,6 +223,7 @@ Settings:
     General Settings: 'Агульныя'
     Check for Updates: 'Правяраць наяўнасць абнаўленняў'
     Fallback to Non-Preferred Backend on Failure: 'Вяртанне да непераважнага бэкэнда ў выпадку няўдачы'
+    Prefer Original YouTube Metadata: Аддаваць перавагу арыгінальным метаданым YouTube
     Enable Search Suggestions: 'Уключыць прапановы пошуку'
     Default Landing Page: 'Хатняя старонка'
     Locale Preference: 'Рэгіянальныя налады'
@@ -924,6 +925,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Выберыце бэкэнд, які FreeTube выкарыстоўвае для атрымання даных. Лакальны API - гэта ўбудаваны экстрактар. Для падключэння Invidious API патрабуецца сервер Invidious.'
     Fallback to Non-Preferred Backend on Failure: 'Калі ў вашым абраным API ўзнікае праблема, FreeTube аўтаматычна паспрабуе выкарыстаць непрыярытэтны API у якасці рэзервовага метаду, калі ён уключаны.'
+    Prefer Original YouTube Metadata: Аднаўляць арыгінальныя загалоўкі, назвы каналаў, апісанні, раздзелы, мініятуры, аўдыя і субцітры, калі яны даступныя. Патрабуе лакальны API.
     Thumbnail Preference: 'Усе мініяцюры FreeTube будуць заменены кадрам відэа, размыты або схаваны замест мініяцюр па змаўчанні.'
     Invidious Instance: 'Экзэмпляр Invidious, да якога FreeTube будзе падключацца для выклікаў API.'
     Region for Trending: 'Рэгіён трэндаў дазваляе вам выбраць папулярныя відэа краіны, якія вы жадаеце паказваць.'

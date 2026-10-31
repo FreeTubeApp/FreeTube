@@ -178,6 +178,8 @@ export default defineComponent({
       customErrorIcon: null,
       videoGenreIsMusic: false,
       contentDisclosures: null,
+      /** @type {{ localized: object, original: object } | null} */
+      metadataSources: null,
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
@@ -207,6 +209,11 @@ export default defineComponent({
     },
     backendFallback: function () {
       return this.$store.getters.getBackendFallback
+    },
+    preferOriginalMetadataEnabled: function () {
+      return !!process.env.SUPPORTS_LOCAL_API &&
+        this.backendPreference === 'local' &&
+        this.$store.getters.getPreferOriginalMetadata
     },
     currentInvidiousInstanceUrl: function () {
       return this.$store.getters.getCurrentInvidiousInstanceUrl
@@ -345,6 +352,9 @@ export default defineComponent({
     userPlaylistsReady() {
       this.onMountedDependOnLocalStateLoading()
     },
+    preferOriginalMetadataEnabled() {
+      this.applyMetadataPreference()
+    },
   },
   created: function () {
     this.videoId = this.$route.params.id
@@ -433,6 +443,27 @@ export default defineComponent({
       this.customErrorIcon = null
       this.videoGenreIsMusic = false
       this.streamingDataExpiryDate = null
+      this.metadataSources = null
+      this.updateTitle()
+    },
+
+    applyMetadataPreference: function () {
+      if (this.metadataSources === null) {
+        return
+      }
+
+      const metadata = this.preferOriginalMetadataEnabled
+        ? this.metadataSources.original
+        : this.metadataSources.localized
+
+      this.videoTitle = metadata.title
+      this.channelName = metadata.author
+      this.videoDescription = metadata.description
+      this.videoChapters = metadata.chapters
+      this.videoChaptersKind = metadata.chaptersKind
+      this.videoCurrentChapterIndex = 0
+      this.updateCurrentChapter(this.$refs.player?.getCurrentTime?.() ?? 0)
+
       this.updateTitle()
     },
 
@@ -625,7 +656,9 @@ export default defineComponent({
 
         let chapters = []
         let chaptersKind = 'chapters'
+        let originalChapters = []
         if (!this.hideChapters) {
+          originalChapters = this.getChaptersFromDescription(result.basic_info.short_description, result.basic_info.duration)
           const rawChapters = result.player_overlays?.decorated_player_bar?.player_bar?.markers_map
             ?.find(marker => marker.marker_key === 'DESCRIPTION_CHAPTERS')?.value.chapters
 
@@ -675,8 +708,23 @@ export default defineComponent({
           }
         }
 
-        this.videoChapters = chapters
-        this.videoChaptersKind = chaptersKind
+        this.metadataSources = {
+          localized: {
+            title: this.videoTitle,
+            author: this.channelName,
+            description: this.videoDescription,
+            chapters,
+            chaptersKind
+          },
+          original: {
+            title: result.basic_info.title?.trim() || this.videoTitle,
+            author: result.basic_info.author || this.channelName,
+            description: result.basic_info.short_description || this.videoDescription,
+            chapters: originalChapters.length > 0 ? originalChapters : chapters,
+            chaptersKind: originalChapters.length > 0 ? 'chapters' : chaptersKind
+          }
+        }
+        this.applyMetadataPreference()
 
         // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
         const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
@@ -850,7 +898,8 @@ export default defineComponent({
                   url: url.toString(),
                   label: caption.name.text,
                   language: caption.language_code,
-                  mimeType: 'text/vtt'
+                  mimeType: 'text/vtt',
+                  isAutomatic: caption.kind === 'asr'
                 }
               }) ?? []
 
@@ -872,7 +921,7 @@ export default defineComponent({
                     break
                 }
 
-                if (!captionTracks.some(captionTrack => languagesSet.has(captionTrack.language))) {
+                if (!this.preferOriginalMetadataEnabled && !captionTracks.some(captionTrack => languagesSet.has(captionTrack.language))) {
                   const translatedCaptionTrack = this.getTranslatedLocaleCaption(result.captions, languagesSet)
 
                   if (translatedCaptionTrack) {
@@ -881,7 +930,24 @@ export default defineComponent({
                 }
               }
 
-              this.captions = sortCaptions(captionTracks)
+              const sortedCaptions = sortCaptions(captionTracks)
+
+              if (this.preferOriginalMetadataEnabled && sortedCaptions.length > 0) {
+                const defaultAudioTrack = result.captions.audio_tracks?.[result.captions.default_audio_track_index ?? 0]
+                const originalLanguage = defaultAudioTrack?.audio_track_id?.split('.')[0]?.split('-')[0] ??
+                  result.captions.caption_tracks.find(caption => caption.kind === 'asr')?.language_code
+
+                if (originalLanguage) {
+                  const originalLanguageCaptions = sortedCaptions.filter(caption => caption.language.split('-')[0] === originalLanguage)
+                  const otherCaptions = sortedCaptions.filter(caption => caption.language.split('-')[0] !== originalLanguage)
+                  originalLanguageCaptions.sort((a, b) => Number(a.isAutomatic) - Number(b.isAutomatic))
+                  this.captions = [...originalLanguageCaptions, ...otherCaptions]
+                } else {
+                  this.captions = sortedCaptions
+                }
+              } else {
+                this.captions = sortedCaptions
+              }
             }
           } else {
             // video might be region locked or something else. This leads to no formats being available
@@ -981,6 +1047,8 @@ export default defineComponent({
     },
 
     getVideoInformationInvidious: function () {
+      this.metadataSources = null
+
       if (this.firstLoad) {
         this.isLoading = true
       }
@@ -1185,6 +1253,26 @@ export default defineComponent({
       return isLightTheme
         ? UNAVAILABLE_VIDEO_THUMBNAILS.light
         : UNAVAILABLE_VIDEO_THUMBNAILS.dark
+    },
+
+    /**
+     * @param {string?} description
+     * @param {number} duration
+     */
+    getChaptersFromDescription: function (description, duration) {
+      const chapters = this.extractChaptersFromDescription(description)
+
+      if (chapters.length > 0) {
+        this.addChaptersEndSeconds(chapters, duration)
+
+        // prevent vue from adding reactivity which isn't needed
+        // as the chapter objects are read-only after this anyway
+        // the chapters are checked for every timeupdate event that the player emits
+        // this should lessen the performance and memory impact of the chapters
+        chapters.forEach(Object.freeze)
+      }
+
+      return chapters
     },
 
     /**

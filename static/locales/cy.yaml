@@ -236,6 +236,7 @@ Settings:
     General Settings: 'Cyffredinol'
     Check for Updates: 'Chwilio am Ddiweddariadau'
     Fallback to Non-Preferred Backend on Failure: 'Nôl i''r Cefn Diddewis ar Fethiant'
+    Prefer Original YouTube Metadata: Ffafrio Metadata Gwreiddiol YouTube
     Enable Search Suggestions: 'Galluogi Awgrymiadau Chwilio'
     Default Landing Page: 'Tudalen Glanio Ragosodedig'
     Locale Preference: 'Dewis Iaith'
@@ -984,6 +985,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Dewiswch y peirianwaith cefn y mae FreeTube yn ei ddefnyddio i gael data. Mae''r API lleol yn echdynnwr mewnol. Mae''r API Invidious angen gweinydd Invidious i gysylltu ag ef.'
     Fallback to Non-Preferred Backend on Failure: 'Pan fydd gan eich API dewisol broblem, bydd FreeTube yn ceisio defnyddio''ch API nad yw''n well gennych yn awtomatig fel dull wrth gefn pan fydd wedi''i alluogi.'
+    Prefer Original YouTube Metadata: Adfer teitlau, enwau sianeli, disgrifiadau, penodau, lluniau bach, sain ac isdeitlau gwreiddiol pan fyddant ar gael. Mae angen yr API Lleol.
     Thumbnail Preference: 'Bydd holl luniau bach FreeTube yn cael eu newid i ffrâm o''r fideo, pŵl neu gudd yn lle''r llun bach rhagosodedig.'
     Invidious Instance: 'Yr enghraifft Invidious y bydd FreeTube yn cysylltu ag ef ar gyfer galwadau API.'
     Region for Trending: 'Mae''r rhanbarth o dueddiadau yn caniatáu ichi ddewis fideos tueddiadol o''r wlad rydych chi am eu gweld.'

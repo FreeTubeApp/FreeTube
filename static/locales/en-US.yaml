@@ -281,6 +281,7 @@ Settings:
     Check for Updates: Check for Updates
     Fallback to Non-Preferred Backend on Failure: Fallback to Non-Preferred Backend
       on Failure
+    Prefer Original YouTube Metadata: Prefer Original YouTube Metadata
     Enable Search Suggestions: Enable Search Suggestions
     Open Deep Links In New Window: Open URLs Passed to FreeTube in a New Window
     Minimize to system tray: Minimize to system tray
@@ -1085,6 +1086,9 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem,
       FreeTube will automatically attempt to use your non-preferred API as a fallback
       method when enabled.
+    Prefer Original YouTube Metadata: Restore original titles, channel names,
+      descriptions, chapters, thumbnails, audio, and subtitles when available.
+      Requires the Local API.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with
       a frame of the video, blurred or hidden instead of the default thumbnail.
     Invidious Instance: The Invidious instance that FreeTube will connect to for API

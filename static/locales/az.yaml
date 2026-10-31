@@ -208,6 +208,7 @@ Settings:
     General Settings: 'Ümumi'
     Check for Updates: 'Yeniləmələri Yoxlayın'
     Fallback to Non-Preferred Backend on Failure: 'Uğursuzluqda Üstünlük Verilməyən Arxa Uca Qayıdış'
+    Prefer Original YouTube Metadata: Orijinal YouTube Metadatasına Üstünlük Ver
     Enable Search Suggestions: 'Axtarış Təkliflərini Aktivləşdirin'
     Default Landing Page: 'İlkin Açılış Səhifəsi'
     Locale Preference: 'Bölgə Üstünlüyü'
@@ -813,6 +814,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: FreeTube-un məlumatları əldə etmək üçün istifadə edəcəyi arxa uc sistemini seçin. Yerli API daxili çıxarıcıdır. Invidious API isə Invidious serverinə qoşulmağı tələb edir.
     Fallback to Non-Preferred Backend on Failure: Üstünlük verdiyiniz API-də problem yarandıqda, aktiv edilibsə FreeTube avtomatik olaraq ehtiyat üsul kimi digər API-ni istifadə etməyə cəhd edəcək.
+    Prefer Original YouTube Metadata: Mövcud olduqda orijinal başlıqları, kanal adlarını, təsvirləri, bölmələri, miniatürləri, səsi və altyazıları bərpa edin. Yerli API tələb edir.
     Thumbnail Preference: FreeTube üzrə bütün miniatürlər standart miniatür əvəzinə videodan bir kadrla əvəz olunacaq, bulanıqlaşdırılacaq və ya gizlədiləcək.
     Invidious Instance: FreeTube-un API sorğuları üçün qoşulacağı Invidious serveri. Bu serveri standart olaraq təyin etməsəniz, bu seçim üçün dəyişikliklər yalnız cari pəncərəyə tətbiq olunacaq.
     Region for Trending: Trendlər bölgəsi baxmaq istədiyiniz trend videoların hansı ölkəyə aid olacağını seçməyə sizə imkan verir.

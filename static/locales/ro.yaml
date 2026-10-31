@@ -214,6 +214,7 @@ Settings:
     General Settings: 'Setări generale'
     Check for Updates: 'Căutați actualizări'
     Fallback to Non-Preferred Backend on Failure: 'Revenire la backend-ul nepreferat în caz de eroare'
+    Prefer Original YouTube Metadata: Preferă metadatele originale YouTube
     Enable Search Suggestions: 'Activați sugestiile de căutare'
     Default Landing Page: 'Pagina de pornire implicită'
     Locale Preference: 'Preferința de localizare'
@@ -974,6 +975,7 @@ Tooltips:
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile API.
     Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru al videoclipului, încețoșat sau ascuns în loc de miniatura implicită.
     Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă de rezervă, atunci când este activat.
+    Prefer Original YouTube Metadata: Restabilește titlurile, numele canalelor, descrierile, capitolele, miniaturile, audio și subtitrările originale când sunt disponibile. Necesită API-ul local.
     Preferred API Backend: Alegeți backend-ul pe care FreeTube îl folosește pentru a obține date. API-ul local este un extractor incorporat. API-ul Invidious necesită un server Invidious la care să vă conectați.
     Open Deep Links In New Window: URL-urile transmise către FreeTube, cum ar fi prin redirecționarea extensiilor de browser sau a argumentelor din linia de comandă, sunt deschise într-o fereastră nouă.
   Distraction Free Settings:

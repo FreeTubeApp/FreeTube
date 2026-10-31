@@ -301,7 +301,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -323,6 +323,7 @@ import {
   debounce
 } from '../../helpers/utils.js'
 import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock.js'
+import { getOriginalVideoMetadata, isOriginalMetadataEnabled } from '../../helpers/originalMetadata.js'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 const props = defineProps({
@@ -445,6 +446,7 @@ const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
 const showDeArrowTitle = ref(false)
 const showDeArrowThumbnail = ref(false)
+const originalMetadata = ref(null)
 
 const historyEntry = computed(() => store.getters.getHistoryCacheById[id.value])
 
@@ -474,6 +476,9 @@ const blurThumbnails = computed(() => store.getters.getBlurThumbnails)
 
 /** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
 const backendPreference = computed(() => store.getters.getBackendPreference)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const preferOriginalMetadataEnabled = computed(() => isOriginalMetadataEnabled())
 
 /** @type {import('vue').ComputedRef<string>} */
 const currentInvidiousInstanceUrl = computed(() => store.getters.getCurrentInvidiousInstanceUrl)
@@ -783,6 +788,10 @@ const thumbnail = computed(() => {
     return deArrowCache.value.thumbnail
   }
 
+  if (preferOriginalMetadataEnabled.value && ['', 'blur'].includes(thumbnailPreference.value) && originalMetadata.value?.thumbnail) {
+    return originalMetadata.value.thumbnail
+  }
+
   let baseUrl
   if (backendPreference.value === 'invidious') {
     baseUrl = currentInvidiousInstanceUrl.value
@@ -950,7 +959,7 @@ const useDeArrowThumbnails = computed(() => store.getters.getUseDeArrowThumbnail
 const deArrowChangedContent = computed(() => {
   return (useDeArrowThumbnails.value && deArrowCache.value?.thumbnail) ||
       (useDeArrowTitles.value && deArrowCache.value?.title &&
-        props.data.title.localeCompare(deArrowCache.value.title, undefined, { sensitivity: 'accent' }) !== 0)
+        title.value.localeCompare(deArrowCache.value.title, undefined, { sensitivity: 'accent' }) !== 0)
 })
 
 const deArrowToggleTitle = computed(() => {
@@ -1063,6 +1072,30 @@ function handleExternalPlayer() {
   if (rememberHistory.value) {
     markAsWatched()
   }
+}
+
+async function updateOriginalMetadata() {
+  const videoId = id.value
+  const useOriginalMetadata = preferOriginalMetadataEnabled.value
+
+  if (!useOriginalMetadata) {
+    originalMetadata.value = null
+    title.value = props.data.title
+    channelName.value = props.data.author ?? null
+    return
+  }
+
+  const metadata = await getOriginalVideoMetadata(videoId)
+
+  // The component may have changed videos or the setting may have been disabled
+  // while the request was in flight.
+  if (videoId !== id.value || !preferOriginalMetadataEnabled.value) {
+    return
+  }
+
+  originalMetadata.value = metadata
+  title.value = metadata?.title ?? props.data.title
+  channelName.value = metadata?.author ?? props.data.author ?? null
 }
 
 function parseVideoData() {
@@ -1316,6 +1349,12 @@ function onDragStart(event) {
 }
 
 parseVideoData()
+
+watch(preferOriginalMetadataEnabled, updateOriginalMetadata)
+
+if (preferOriginalMetadataEnabled.value) {
+  updateOriginalMetadata()
+}
 
 showDeArrowTitle.value = useDeArrowTitles.value
 showDeArrowThumbnail.value = useDeArrowThumbnails.value

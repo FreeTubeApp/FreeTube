@@ -218,6 +218,7 @@ Settings:
     General Settings: 'Almennt'
     Check for Updates: 'Athuga með uppfærslur'
     Fallback to Non-Preferred Backend on Failure: 'Nota varaleið um ekki-forgangsbakenda þegar villa kemur upp'
+    Prefer Original YouTube Metadata: Velja upprunaleg lýsigögn YouTube
     Enable Search Suggestions: 'Virkja tillögur í leit'
     Default Landing Page: 'Sjálfgefin upphafssíða'
     Locale Preference: 'Umbeðin staðfærsla'
@@ -976,6 +977,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Veldu bakendann sem FreeTube notar til að ná í gögn. Staðværa API-kerfisviðmótið er innbyggður skrapari. Invidious API-kerfisviðmótið krefst tengingar við Invidious-netþjón.'
     Fallback to Non-Preferred Backend on Failure: 'Þegar forgangsbakendi API-kerfisviðmóts á í vandræðum, mun FreeTube reyna sjálfkrafa að nota ekki-forgangsbakenda API-kerfisviðmóts sem varaleið, þegar þetta er virkjað.'
+    Prefer Original YouTube Metadata: Endurheimtu upprunaleg titla, heiti rása, lýsingar, kafla, smámyndir, hljóð og skjátexta þegar þau eru tiltæk. Krefst staðværa API-kerfisviðmótsins.
     Thumbnail Preference: 'Öllum smámyndum í FreeTube verður skipt út fyrir ramma með myndskeiðinu, móskaðan eða falinn, í stað sjálfgefinnar smámyndar.'
     Invidious Instance: 'Tilvik Invidious-netþjóns sem FreeTube mun tengjast fyrir beiðnir í API-kerfisviðmót. Breytingar á þessari stillingu eiga einungis við fyrirliggjandi glugga, nema þú setjir þetta tilvik sem sjálfgefið.'
     Region for Trending: 'Landssvæði sem skal miða vinsældir við gerir þér kleift að velja í hvaða landi aukning á vinsældum í umræðunni skal miða við.'

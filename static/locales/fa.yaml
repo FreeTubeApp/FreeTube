@@ -188,6 +188,7 @@ Settings:
     General Settings: 'عمومی'
     Check for Updates: 'بررسی برای به روزرسانی ها'
     Fallback to Non-Preferred Backend on Failure: 'بازگشت به Backend غیر ترجیحی در صورت شکست'
+    Prefer Original YouTube Metadata: ترجیح ابرداده‌های اصلی YouTube
     Enable Search Suggestions: 'فعال کردن پیشنهادات جستجو'
     Default Landing Page: 'صفحه اول پیشفرض'
     Locale Preference: 'تغیر زبان سیستم'
@@ -754,6 +755,7 @@ Tooltips:
     Thumbnail Preference: تمام تصاویر کوچک در سراسر FreeTube با یک قاب از ویدیو، به جای تصویر کوچک پیش‌فرض، محو یا پنهان می‌شوند.
     Invidious Instance: نمونه Invidious که FreeTube برای تماس های API به آن متصل می شود.
     Fallback to Non-Preferred Backend on Failure: هنگامی که API ترجیحی شما با مشکل مواجه شود، FreeTube به طور خودکار سعی می کند از API غیر ترجیحی شما به عنوان روش بازگشتی در صورت فعال شدن استفاده کند.
+    Prefer Original YouTube Metadata: بازیابی عنوان‌ها، نام کانال‌ها، توضیحات، فصل‌ها، کاورها، صدا و زیرنویس‌های اصلی در صورت موجود بودن. نیازمند API محلی است.
     Preferred API Backend: پس زمینه ای را انتخاب کنید که FreeTube برای به دست آوردن داده ها استفاده می کند. API محلی یک استخراج کننده داخلی است. Invidious API برای اتصال به سرور Invidious نیاز دارد.
     Open Deep Links In New Window: نشانی هایی که به FreeTube ارسال می شوند، مانند پسوندهای مرورگر تغییر مسیر یا برهان های خط فرمان، در یک پنجره جدید باز می شوند.
   SponsorBlock Settings:

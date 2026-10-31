@@ -182,6 +182,7 @@ Settings:
   General Settings:
     General Settings: 'General'
     Fallback to Non-Preferred Backend on Failure: 'Usar una Alternativa en Caso de Problemas con la Opción Preferida'
+    Prefer Original YouTube Metadata: Preferir metadatos originales de YouTube
     Enable Search Suggestions: 'Habilitar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Preferencia regional'
@@ -546,6 +547,8 @@ Channels:
   Count: '{number} canal(es) encontrado(s).'
 Preferences: Preferencias
 Tooltips:
+  General Settings:
+    Prefer Original YouTube Metadata: Restaurá los títulos, nombres de canales, descripciones, capítulos, miniaturas, audio y subtítulos originales cuando estén disponibles. Requiere la API local.
   Distraction Free Settings:
     Hide Subscriptions Live: Esta configuración se reemplaza por la configuración «{appWideSetting}» de toda la aplicación, en la sección «{subsection}» de «{settingsSection}»
 Go to page: Ir a {page}

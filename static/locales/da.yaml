@@ -209,6 +209,7 @@ Settings:
     General Settings: 'Generel'
     Check for Updates: 'Søg efter opdateringer'
     Fallback to Non-Preferred Backend on Failure: 'Fallback til ikke-foretrukken backend ved fejl'
+    Prefer Original YouTube Metadata: Foretræk oprindelige YouTube-metadata
     Enable Search Suggestions: 'Aktivér søgeforslag'
     Default Landing Page: 'Standard landingsside'
     Locale Preference: 'Sprogindstilling'
@@ -934,6 +935,7 @@ Tooltips:
     Invidious Instance: Den Invidious-instans, som FreeTube forbinder til for API-opkald.
     Thumbnail Preference: Alle miniaturebilleder på FreeTube erstattes med et billede af videoen, sløret eller skjult, i stedet for standardminiaturebilledet.
     Fallback to Non-Preferred Backend on Failure: Når din foretrukne API har et problem, vil FreeTube automatisk forsøge at bruge din ikke-foretrukne API som en fallback-metode, hvis den er aktiveret.
+    Prefer Original YouTube Metadata: Gendan oprindelige titler, kanalnavne, beskrivelser, kapitler, miniaturebilleder, lyd og undertekster, når de er tilgængelige. Kræver den lokale API.
     External Link Handling: "Vælg standardadfærd, når du klikker på et link, som ikke kan åbnes i FreeTube.\nSom standard vil FreeTube åbne det klikkede link i din standardbrowser.\n"
     Open Deep Links In New Window: URL'er, der sendes til FreeTube, f.eks. ved at omdirigere browserudvidelser eller kommandolinjeargumenter, åbnes i et nyt vindue.
   External Player Settings:

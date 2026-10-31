@@ -114,6 +114,7 @@ Settings:
     General Settings: 'Bendrieji nustatymai'
     Check for Updates: 'Tikrinti ar yra atnaujinimų'
     Fallback to Non-Preferred Backend on Failure: 'Nepavykus rinktis alternatyvią posistemę'
+    Prefer Original YouTube Metadata: Pirmenybė originaliems „YouTube“ metaduomenims
     Enable Search Suggestions: 'Įjungti paieškos pasiūlymus'
     Default Landing Page: 'Numatytasis pradinis puslapis'
     Locale Preference: 'Kalbos pasirinkimas'
@@ -580,6 +581,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Pasirinkite posistemę, kurią „FreeTube“ naudoja duomenims gauti. Vietinis API yra su integruota ištraukimo funkciją. Norint prisijungti prie „Invidious“ API reikalingas „Invidious“ serveris.'
     Fallback to Non-Preferred Backend on Failure: 'Kai jūsų pageidaujamoje API kyla problemų, „FreeTube“ automatiškai bandys naudoti jūsų nepasirinktą API kaip atsarginį metodą, kai tai yra įgalinta.'
+    Prefer Original YouTube Metadata: Atkurkite originalius pavadinimus, kanalų pavadinimus, aprašymus, skirsnius, miniatiūras, garsą ir subtitrus, kai jie pasiekiami. Reikia vietinio API.
     Thumbnail Preference: 'Visos FreeTube vaizdo įrašų miniatiūros vietoje numatytosios bus pakeistos atitinkamu vaizdo įrašo stop kardu.'
     Invidious Instance: 'Invidious perdavimo šaltinis, prie kurio FreeTube prisijungs, kad gautų API pasikreipimus.'
     Region for Trending: '„Dabar populiaru“ regionas leidžia pasirinkti, kurios šalies populiarius vaizdo įrašus norite rodyti.'

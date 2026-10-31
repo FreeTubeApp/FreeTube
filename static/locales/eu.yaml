@@ -218,6 +218,7 @@ Settings:
     General Settings: 'Orokorra'
     Check for Updates: 'Bilatu eguneraketak'
     Fallback to Non-Preferred Backend on Failure: 'Hutsegitean, joan hobetsi gabeko motorrera'
+    Prefer Original YouTube Metadata: Hobetsi YouTube-ko jatorrizko metadatuak
     Enable Search Suggestions: 'Gaitu bilaketa-iradokizunak'
     Default Landing Page: 'Lehenetsitako hasierako orria'
     Locale Preference: 'Tokiko hobespena'
@@ -980,6 +981,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen motorra. Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari bat behar du konektatzeko.'
     Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen ordezko metodo gisa, posible denean.'
+    Prefer Original YouTube Metadata: Leheneratu jatorrizko izenburuak, kanalen izenak, deskribapenak, kapituluak, miniaturak, audioa eta azpitituluak eskuragarri daudenean. Tokiko APIa behar du.
     Thumbnail Preference: 'FreeTubeko miniatura guztiak bideoaren fotograma batekin ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
     Invidious Instance: 'FreeTube API deietarako konektatuko den Invidious instantzia. Ezarpen honen aldaketek uneko leihoari soilik eragiten diote, instantzia hau lehenetsi gisa ezartzen ez baduzu.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun herrialdeko joerako bideoak hautatzeko.'

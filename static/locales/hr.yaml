@@ -208,6 +208,7 @@ Settings:
   General Settings:
     General Settings: 'Opće'
     Fallback to Non-Preferred Backend on Failure: 'U slučaju problema koristi sekundarni pozadinski sustav'
+    Prefer Original YouTube Metadata: Preferiraj izvorne YouTube metapodatke
     Enable Search Suggestions: 'Aktiviraj prijedloge pretrage'
     Default Landing Page: 'Standardna početna stranica'
     Locale Preference: 'Jezik'
@@ -972,6 +973,7 @@ Tooltips:
     Invidious Instance: Invidious primjerak na koji će se FreeTube povezati za pozive API-a.
     Thumbnail Preference: U FreeTubeu će se sve minijature zamijeniti s jednim kadrom videa – zamućeno ili skriveno – umjesto standardne minijature.
     Fallback to Non-Preferred Backend on Failure: Ako primarno odabrano sučelje ima problema, FreeTube će automatski pokušati koristiti sekundarno sučelje kao zamjensku metodu, ako je aktivirano.
+    Prefer Original YouTube Metadata: Vrati izvorne naslove, nazive kanala, opise, poglavlja, minijature, audio i titlove kada su dostupni. Zahtijeva lokalno sučelje.
     Preferred API Backend: Odaberi pozadinski sustav koji FreeTube koristi za dobivanje podataka. Lokalno sučelje je ugrađeni sustav. Invidious sučelje zahtijeva Invidious poslužitelja na koji će se povezati.
     Region for Trending: 'Regija trendova omogućuje biranje prikaza videa u trendu za određenu zemlju.'
     External Link Handling: "Odaberi standardno ponašanje kad se pritisne poveznica koja se ne može otvoriti u FreeTubeu.\nFreeTube takve poveznice otvara u tvom standardnom pregledniku.\n"

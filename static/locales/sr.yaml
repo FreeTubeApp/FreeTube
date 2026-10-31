@@ -211,6 +211,7 @@ Settings:
     General Settings: 'Опште'
     Check for Updates: 'Провера ажурирања'
     Fallback to Non-Preferred Backend on Failure: 'Повратак на непреферирани бек-енд у случају неуспеха'
+    Prefer Original YouTube Metadata: Преферирај оригиналне метаподатке YouTube
     Enable Search Suggestions: 'Омогући предлоге за претрагу'
     Default Landing Page: 'Подразумевана почетна страница'
     Locale Preference: 'Локална преференција'
@@ -843,6 +844,7 @@ Tooltips:
   General Settings:
     External Link Handling: "Изаберите подразумевано понашање када се кликне на линк који се не може отворити у FreeTube-у.\nПодразумевано, FreeTube ће отворити линк на који сте кликнули у вашем подразумеваном прегледачу.\n"
     Fallback to Non-Preferred Backend on Failure: Када ваш преферирани API има проблем, FreeTube ће аутоматски покушати да користи ваш непреферирани API као резервни метод, када је омогућено.
+    Prefer Original YouTube Metadata: Вратите оригиналне наслове, називе канала, описе, поглавља, сличице, аудио и титлове када су доступни. Захтева локални API.
     Preferred API Backend: Изаберите бек-енд коју FreeTube користи за добијање података. Локални API је уграђени екстрактор. Invidious API захтева Invidious сервер за повезивање.
     Thumbnail Preference: Све сличице на FreeTube-у биће замењене оквиром видеа, замућеним или скривеним уместо подразумеване сличице.
     Region for Trending: Регион трендова вам омогућава да изаберете државу за видео снимке у тренду коју желите да се приказује.

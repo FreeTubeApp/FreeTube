@@ -206,6 +206,7 @@ Settings:
   General Settings:
     General Settings: 'العامة'
     Fallback to Non-Preferred Backend on Failure: 'الرجوع إلى الواجهة الخلفية الغير مفضلة عند الفشل'
+    Prefer Original YouTube Metadata: تفضيل بيانات YouTube الوصفية الأصلية
     Enable Search Suggestions: 'تفعيل الإقتراحات عند البحث'
     Default Landing Page: 'الصفحة ‪المقصودة الافتراضية'
     Locale Preference: 'اللغات المفضلة'
@@ -949,6 +950,7 @@ Tooltips:
     Preferred API Backend: اختر الواجهة الخلفية التي يستخدمها FreeTube لجلب البيانات. الواجهة البرمجية المحلية للتطبيق هي مستخرج محلي. الواجهة البرمجية للتطبيق التابعة لInvidious (بديل لموقع يوتيوب) يتطلب التواصل مع خادم شبكة Invidious.
     Invidious Instance: مثيل Invidious الذي سيتصل به FreeTube لاستدعاءات API.
     Fallback to Non-Preferred Backend on Failure: عند التفعيل اذا واجه الAPI المفضّل لديك أيّ مشكلة، سيحاول FreeTube استخدام الAPI الغير مفضّل لديك تلقائيّاً كإجراء التراجع.
+    Prefer Original YouTube Metadata: استعادة العناوين وأسماء القنوات والأوصاف والفصول والصور المصغرة والصوت والترجمات الأصلية عند توفرها. يتطلب واجهة برمجة التطبيقات المحلية.
     External Link Handling: "اختر السلوك الافتراضي عند النقر فوق رابط، لا يمكن فتحه في FreeTube.\nبشكل افتراضي، سيفتح FreeTube الرابط الذي تم النقر عليه في المتصفح الافتراضي.\n"
     Region for Trending: الانتشار المحلي (Trend) يسمح لك بأن تشاهد الفيديوهات الأكثر انتشارا حسب الدولة. ليست كل الدول المعروضة في هذه القائمة مدعومة من طرف يوتيوب.
     Open Deep Links In New Window: يتم فتح عناوين URL التي تم تمريرها إلى FreeTube، مثل إعادة توجيه ملحقات المتصفح أو حجج سطر الأوامر، في نافذة جديدة.

@@ -19,6 +19,15 @@
           @change="updateBackendFallback"
         />
         <FtToggleSwitch
+          v-if="SUPPORTS_LOCAL_API"
+          :label="t('Settings.General Settings.Prefer Original YouTube Metadata')"
+          :default-value="preferOriginalMetadata"
+          :compact="true"
+          :disabled="backendPreference !== 'local'"
+          :tooltip="t('Tooltips.General Settings.Prefer Original YouTube Metadata')"
+          @change="updatePreferOriginalMetadata"
+        />
+        <FtToggleSwitch
           :label="t('Settings.General Settings.Auto Load Next Page.Label')"
           :default-value="generalAutoLoadMorePaginatedItemsEnabled"
           :compact="true"
@@ -220,6 +229,16 @@ const backendFallback = computed(() => store.getters.getBackendFallback)
  */
 function updateBackendFallback(value) {
   store.dispatch('updateBackendFallback', value)
+}
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const preferOriginalMetadata = computed(() => store.getters.getPreferOriginalMetadata)
+
+/**
+ * @param {boolean} value
+ */
+function updatePreferOriginalMetadata(value) {
+  store.dispatch('updatePreferOriginalMetadata', value)
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

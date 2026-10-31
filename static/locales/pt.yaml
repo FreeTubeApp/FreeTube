@@ -216,6 +216,7 @@ Settings:
     General Settings: 'Geral'
     Check for Updates: 'Buscar por atualizações'
     Fallback to Non-Preferred Backend on Failure: 'Usar mecanismo de busca alternativo em caso de falha'
+    Prefer Original YouTube Metadata: Preferir metadados originais do YouTube
     Enable Search Suggestions: 'Habilitar sugestões de busca'
     Default Landing Page: 'Página inicial preferida'
     Locale Preference: 'Idioma'
@@ -1024,6 +1025,7 @@ Tooltips:
     Invidious Instance: A instância Invidious à qual o FreeTube se conectará para chamadas de API. As alterações nesta configuração aplicam-se apenas à janela atual, a menos que você defina esta instância como padrão.
     Thumbnail Preference: Todas as miniaturas no FreeTube serão substituídas por um quadro do vídeo, desfocado ou oculto, em vez da miniatura padrão.
     Fallback to Non-Preferred Backend on Failure: Quando sua API preferida tiver um problema, o FreeTube tentará automaticamente usar sua API não preferencial como método alternativo quando habilitada.
+    Prefer Original YouTube Metadata: Restaure títulos, nomes de canais, descrições, capítulos, miniaturas, áudio e legendas originais quando disponíveis. Requer a API local.
     Preferred API Backend: Escolha o mecanismo de processamento que o FreeTube usa para obter os dados. A API local é um extrator integrado. A API Invidious requer um servidor Invidious para se conectar.
     External Link Handling: "Escolha o comportamento padrão quando um link que não pode ser aberto no FreeTube for clicado.\nPor padrão, o FreeTube abrirá o link clicado em seu navegador padrão.\n"
     Open Deep Links In New Window: Os URLs a partir do FreeTube, como por extensões de navegador de redirecionamento ou argumentos de linha de comando, são abertos em uma nova janela.

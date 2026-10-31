@@ -212,6 +212,7 @@ Settings:
     General Settings: 'Общи'
     Check for Updates: 'Проверка за актуализации'
     Fallback to Non-Preferred Backend on Failure: 'При грешка, връщане към непредпочитан интерфейс'
+    Prefer Original YouTube Metadata: Предпочитане на оригиналните метаданни на YouTube
     Enable Search Suggestions: 'Активиране на препоръките при търсене'
     Default Landing Page: 'Страница по подразбиране'
     Locale Preference: 'Език'
@@ -977,6 +978,7 @@ Tooltips:
     Invidious Instance: Сървър на Invidious, към който FreeTube ще се свързва.
     Thumbnail Preference: Всички миниатюри във FreeTube ще бъдат подменени с кадър от видеото, замъглени или скрити, вместо тези по подразбиране.
     Fallback to Non-Preferred Backend on Failure: Когато избраният интерфейс срещне проблем, FreeTube ще опита да премине автоматично към друг метод, ако има избран такъв.
+    Prefer Original YouTube Metadata: Възстановяване на оригиналните заглавия, имена на канали, описания, глави, миниатюри, аудио и субтитри, когато са налични. Изисква локалния API.
     Preferred API Backend: Избиране на начина, по който FreeTube получава данните. Локалният интерфейс има вградено извличане. Invidious интерфейсът изисква Invidious сървър, към който да се свърже.
     External Link Handling: "Избор на поведението по подразбиране, когато щракнете върху връзка, която не може да бъде отворена във FreeTube.\nПо подразбиране FreeTube ще отвори връзката в браузъра по подразбиране.\n"
     Open Deep Links In New Window: URL адресите, преминаващи през FreeTube, например чрез разширения на браузъра или аргументи от командния ред, се отварят в нов прозорец.

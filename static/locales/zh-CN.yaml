@@ -209,6 +209,7 @@ Settings:
   General Settings:
     General Settings: '常规'
     Fallback to Non-Preferred Backend on Failure: '失败时回撤到非首选后端'
+    Prefer Original YouTube Metadata: 优先使用 YouTube 原始元数据
     Enable Search Suggestions: '允许搜索建议'
     Default Landing Page: '默认加载页面'
     Locale Preference: '地域偏好'
@@ -1004,6 +1005,7 @@ Tooltips:
     Invidious Instance: FreeTube 要连接到哪个 Invidious 实例进行 API 调用。更改此设置只应用到当前窗口，除非你将此实例设为默认。
     Thumbnail Preference: FreeTube 中所有缩略图会被替换为模糊不清或隐藏的视频帧而非默认缩略图。
     Fallback to Non-Preferred Backend on Failure: 当您的首选API有问题时，FreeTube将自动尝试使用您的非首选API 作为后备方案。
+    Prefer Original YouTube Metadata: 在可用时恢复原始标题、频道名称、描述、章节、缩略图、音频和字幕。需要本地 API。
     Preferred API Backend: 选择FreeTube 要用于取得数据的后端。本地API 是内置提取器。Invidious API需要Invidious服务器才能连接。
     Region for Trending: 热门区域让您挑选您想要显示哪个国家的热门视频。
     External Link Handling: "选择单击一个无法在 FreeTube 中打开的链接时触发的默认操作。\n默认情况下，FreeTube 将在您的默认浏览器中打开所点击链接。\n"

@@ -112,6 +112,7 @@ Settings:
     General Settings: 'Splošne nastavitve'
     Check for Updates: 'Preveri posodobitve'
     Fallback to Non-Preferred Backend on Failure: 'Ob napaki začasno uporabi sekundarni zaledni sistem'
+    Prefer Original YouTube Metadata: Prednost daj izvirnim metapodatkom YouTube
     Enable Search Suggestions: 'Vklopi iskalne predloge'
     Default Landing Page: 'Prevzeta vstopna stran'
     Locale Preference: 'Izbira lokacije'
@@ -523,6 +524,7 @@ More: Več
 Tooltips:
   General Settings:
     Preferred API Backend: Izberite zaledje, ki ga FreeTube uporablja za pridobivanje podatkov. Lokalni APV je vgrajeni . Invidious APV za delovanje potrebuje Invidious strežnik.
+    Prefer Original YouTube Metadata: Obnovi izvirne naslove, imena kanalov, opise, poglavja, sličice, zvok in podnapise, ko so na voljo. Zahteva lokalni APV.
   Subscription Settings:
     Fetch Feeds from RSS: Ko je omogočeno, bo FreeTube namesto privzete metode uporabljal RSS za pridobivanje vašega vira naročnin. RSS je hitrejši in preprečuje blokiranje IP-ja, vendar ne zagotavlja določenih informacij, kot je trajanje videa ali status stanja v živo
   Player Settings:

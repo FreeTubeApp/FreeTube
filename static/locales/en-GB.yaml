@@ -214,6 +214,7 @@ Settings:
     General Settings: 'General'
     Check for Updates: 'Check for updates'
     Fallback to Non-Preferred Backend on Failure: 'Revert to non-preferred backend on failure'
+    Prefer Original YouTube Metadata: Prefer original YouTube metadata
     Enable Search Suggestions: 'Enable search suggestions'
     Default Landing Page: 'Default landing page'
     Locale Preference: 'Language preference'
@@ -983,6 +984,7 @@ Tooltips:
     Invidious Instance: The Invidious instance that FreeTube will connect to for API calls.
     Thumbnail Preference: All thumbnails throughout FreeTube will be replaced with a frame of the video, blurred or hidden instead of the default thumbnail.
     Fallback to Non-Preferred Backend on Failure: When your preferred API has a problem, FreeTube will automatically attempt to use your non-preferred API as a fallback method when enabled.
+    Prefer Original YouTube Metadata: Restore original titles, channel names, descriptions, chapters, thumbnails, audio and subtitles when available. Requires the Local API.
     Preferred API Backend: Choose the back-end that FreeTube uses to obtain data. The local API is a built-in extractor. The Invidious API requires an Invidious server to connect to.
     External Link Handling: "Choose the default behaviour when a link, which cannot be opened in FreeTube, is clicked.\nBy default FreeTube will open the clicked link in your default browser.\n"
     Open Deep Links In New Window: URLs passed to FreeTube, such as by redirect browser extensions or command line arguments, are opened in a new window.

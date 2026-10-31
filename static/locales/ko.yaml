@@ -132,6 +132,7 @@ Settings:
     General Settings: '일반 설정'
     Check for Updates: '업데이트 확인하기'
     Fallback to Non-Preferred Backend on Failure: '실패시 선호되지않는 백엔드로 대체하기'
+    Prefer Original YouTube Metadata: YouTube 원본 메타데이터 우선
     Enable Search Suggestions: '검색추천 허용'
     Default Landing Page: '기본 페이지'
     Locale Preference: '로케일 설정'
@@ -602,6 +603,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'FreeTube가 데이터를 얻기 위해 사용하는 백엔드를 선택하십시오. 로컬 API는 기본 제공 추출기입니다. Invidious API는 연결할 Invidious 서버가 필요합니다.'
     Fallback to Non-Preferred Backend on Failure: '선호하는 API에 문제가 있는 경우 FreeTube는 활성화될 때, 선호하지 않는 API를 대체 방법으로 사용하려고 자동으로 시도합니다.'
+    Prefer Original YouTube Metadata: 사용 가능한 경우 원본 제목, 채널 이름, 설명, 챕터, 썸네일, 오디오 및 자막을 복원합니다. 로컬 API가 필요합니다.
     Thumbnail Preference: 'FreeTube 전체의 모든 썸네일은 기본 썸네일 대신 비디오 프레임으로 대체됩니다.'
     Invidious Instance: 'FreeTube가 API 호출을 위해 연결할 Invidious 인스턴스입니다.'
     Region for Trending: '트렌드 지역을 통해 표시하고 싶은 국가의 트렌드 비디오를 선택할 수 있습니다.'

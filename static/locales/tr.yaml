@@ -216,6 +216,7 @@ Settings:
     General Settings: 'Genel'
     Check for Updates: 'Güncellemeleri Denetle'
     Fallback to Non-Preferred Backend on Failure: 'Hata Durumunda Tercih Edilmeyen Arka Uca Geç'
+    Prefer Original YouTube Metadata: Orijinal YouTube Meta Verilerini Tercih Et
     Enable Search Suggestions: 'Arama Önerilerini Etkinleştir'
     Default Landing Page: 'Öntanımlı Açılış Ekranı'
     Locale Preference: 'Tercih Edilen Yerel Ayar'
@@ -1008,6 +1009,7 @@ Tooltips:
     Invidious Instance: FreeTube'un API çağrıları için bağlanacağı Invidious örneği. Bu ayardaki değişiklikler, bu örneği öntanımlı olarak belirlemediğiniz sürece yalnızca geçerli pencereye uygulanır.
     Thumbnail Preference: FreeTube'daki tüm küçük resimler, varsayılan küçük resim yerine videonun bir karesiyle, bulanık veya gizli şekilde değiştirilecektir.
     Fallback to Non-Preferred Backend on Failure: Etkinleştirildiğinde, tercih ettiğiniz API'de bir sorun olduğunda FreeTube otomatik olarak tercih edilmeyen API'nizi yedek yöntem olarak kullanmaya çalışır.
+    Prefer Original YouTube Metadata: Kullanılabilir olduğunda orijinal başlıkları, kanal adlarını, açıklamaları, bölümleri, önizleme görsellerini, sesi ve altyazıları geri yükle. Yerel API gerektirir.
     Preferred API Backend: FreeTube'un veri elde etmek için kullandığı arka ucu seçin. Yerel API yerleşik bir çıkarıcıdır. Invidious API'si, bağlanmak için bir Invidious sunucusu gerektirir.
     Region for Trending: Öne çıkanların bölgesi, hangi ülkenin öne çıkan videolarını görüntülemek istediğinizi seçmenize olanak tanır.
     External Link Handling: "FreeTube'da açılamayan bir bağlantı tıklandığında öntanımlı davranışı seçin.\nÖntanımlı olarak FreeTube, tıklanan bağlantıyı öntanımlı tarayıcınızda açacaktır.\n"

@@ -187,6 +187,7 @@ Settings:
   General Settings:
     General Settings: 'Ajustes generales'
     Fallback to Non-Preferred Backend on Failure: 'Recurrir a otro motor en caso de fallo'
+    Prefer Original YouTube Metadata: Preferir metadatos originales de YouTube
     Enable Search Suggestions: 'Activar sugerencias de búsqueda'
     Default Landing Page: 'Página de destino predeterminada'
     Locale Preference: 'Ajustes de ubicación'
@@ -654,6 +655,7 @@ Tooltips:
     Thumbnail Preference: Todas las miniaturas a través de FreeTube serán reemplazadas con un fotograma del video en vez de su miniatura por defecto.
     External Link Handling: "Elija el comportamiento previsto para cuando un link, que no pueda ser abierto en FreeTube, sea cliqueado.\nPor defecto FreeTube abrirá el link cliqueado en su navegador predeterminado.\n"
     Fallback to Non-Preferred Backend on Failure: Si la API que eligió sufre algún problema, FreeTube intentará usar automáticamente otra API como método de respaldo al activar esta opción.
+    Prefer Original YouTube Metadata: Restaura los títulos, nombres de canales, descripciones, capítulos, miniaturas, audio y subtítulos originales cuando estén disponibles. Requiere la API local.
   External Player Settings:
     Custom External Player Arguments: Cualquier argumento, que deseé anticipar al reproductor externo.
     DefaultCustomArgumentsTemplate: "(Por defecto: '{defaultCustomArguments}')"

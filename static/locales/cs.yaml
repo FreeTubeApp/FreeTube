@@ -217,6 +217,7 @@ Settings:
     General Settings: 'Obecné'
     Check for Updates: 'Kontrolovat aktualizace'
     Fallback to Non-Preferred Backend on Failure: 'Při chybě přepnout na nepreferovaný backend'
+    Prefer Original YouTube Metadata: Upřednostňovat původní metadata YouTube
     Enable Search Suggestions: 'Zapnout návrhy vyhledávání'
     Default Landing Page: 'Výchozí vstupní stránka'
     Locale Preference: 'Předvolby jazyka'
@@ -982,6 +983,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Vyberte backend, který FreeTube používá k získávání informací. Místní API má integrovaný extraktor. Invidious API vyžaduje připojení k server Invidious.'
     Fallback to Non-Preferred Backend on Failure: 'Pokud má vaše preferované API problém, FreeTube se automaticky pokusí použít vaše nepreferované API jako záložní metodu, pokud je povoleno.'
+    Prefer Original YouTube Metadata: Obnovte původní názvy, názvy kanálů, popisy, kapitoly, náhledy, zvuk a titulky, když jsou k dispozici. Vyžaduje lokální API.
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem z videa, rozmazány nebo skryty namísto výchozí miniatury.'
     Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem volání API. Změny tohoto nastavení se použijí pouze na toto okno, pokud nenastavíte tuto instanci jako výchozí.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si přejete zobrazovat videa v trendech.'

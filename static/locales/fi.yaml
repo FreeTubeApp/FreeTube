@@ -202,6 +202,7 @@ Settings:
   General Settings:
     General Settings: 'Yleistä'
     Fallback to Non-Preferred Backend on Failure: 'Vikatilanteessa palaa toissijaiseen taustaohjelmaan'
+    Prefer Original YouTube Metadata: Suosi YouTuben alkuperäisiä metatietoja
     Enable Search Suggestions: 'Salli hakuehdotukset'
     Default Landing Page: 'Oletusaloitussivu'
     Locale Preference: 'Maa-asetus'
@@ -942,6 +943,7 @@ Tooltips:
     Invidious Instance: Invidious instanssi, jota Freetube käyttää.
     Thumbnail Preference: Kaikki pikkukuvat Freetubessa korvataan ruudulla videosta sumennettuna tai piilotettuna alkuperäisen pikkukuvan sijaan.
     Fallback to Non-Preferred Backend on Failure: Kun valitsemasi API kohtaa ongelman, Freetube yrittää automaattisestia käyttää toissijaista vaihtoehtoa.
+    Prefer Original YouTube Metadata: Palauta alkuperäiset otsikot, kanavien nimet, kuvaukset, kappaleet, pikkukuvat, ääni ja tekstitykset, kun ne ovat saatavilla. Vaatii paikallisen API:n.
     External Link Handling: "Valitse oletuskäyttäytyminen, kun linkkiä, jota ei voi avata FreeTubessa, napsautetaan.\nOletusarvoisesti FreeTube avaa napsautetun linkin oletusselaimessasi.\n"
     Open Deep Links In New Window: FreeTubeen syötetyt URL:t, esimerkiksi selaimen uudelleenohjauslisäosista tai komentoriviargumenteista johtuen, avataan uudessa ikkunassa.
   Subscription Settings:

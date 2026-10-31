@@ -105,6 +105,7 @@ Settings:
     General Settings: 'Paràmetres generals'
     Check for Updates: 'Comprovar si hi ha actualitzacions'
     Fallback to Non-Preferred Backend on Failure: 'Torna al motor per defecte en cas d''error'
+    Prefer Original YouTube Metadata: Prefereix les metadades originals de YouTube
     Enable Search Suggestions: 'Habilitar els suggeriments de cerca'
     Default Landing Page: 'Pàgina d''aterratge per defecte'
     Locale Preference: 'Preferència de configuració regional'
@@ -494,3 +495,7 @@ Expand side navigation: Expandir navegació lateral
 Right-click or hold to see history: Clic dret o manté pressionat per veure l'historial
 Go to page: Ves a {page}
 Close Banner: Tanca el bàner
+
+Tooltips:
+  General Settings:
+    Prefer Original YouTube Metadata: Restaura els títols, els noms dels canals, les descripcions, els capítols, les miniatures, l'àudio i els subtítols originals quan estiguin disponibles. Requereix l'API local.

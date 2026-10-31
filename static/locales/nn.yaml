@@ -206,6 +206,7 @@ Settings:
     General Settings: 'Generelle innstillingar'
     Check for Updates: 'Sjå etter oppdateringar'
     Fallback to Non-Preferred Backend on Failure: 'Tilbakefall til ikkje-føretrekte backend ved feil'
+    Prefer Original YouTube Metadata: Føretrekk originale YouTube-metadata
     Enable Search Suggestions: 'Slå på søkeforslag'
     Default Landing Page: 'Standardlandingside'
     Locale Preference: 'Språkinnstilling'
@@ -674,6 +675,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Vel metoden FreeTube bruker for å hente data. Det lokale API-et er ein innebygd utpakkar. Invidious-API-et krev ein Invidious-tenar å kople til.'
     Fallback to Non-Preferred Backend on Failure: 'Når ditt føretrekte API har eit problem, vil FreeTube prøve å automatisk bruke ditt ikkje-føretrekte API som ein tilbakefallingsmetode dersom det er aktivert.'
+    Prefer Original YouTube Metadata: Gjenopprett originale titlar, kanalnamn, skildringar, kapittel, miniatyrbilete, lyd og undertekstar når dei er tilgjengelege. Krev det lokale API-et.
     Thumbnail Preference: 'Alle miniatyrbilete i FreeTube vil bli erstatta av eit bilete av videoen i staden for standardminiatyrbiletet'
     Invidious Instance: 'Invidious-førekomsten som FreeTube vil kople til for API-kall.'
     Region for Trending: 'Trendsregionen lar deg enkelt velje kva lands populære videoar du ynskjer å vise.'

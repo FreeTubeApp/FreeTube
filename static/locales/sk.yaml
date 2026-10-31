@@ -209,6 +209,7 @@ Settings:
   General Settings:
     General Settings: 'Všeobecné'
     Fallback to Non-Preferred Backend on Failure: 'Pri chybe prepnúť na alternatívny backend'
+    Prefer Original YouTube Metadata: Uprednostňovať pôvodné metadáta YouTube
     Enable Search Suggestions: 'Zapnúť návrhy vyhľadávania'
     Default Landing Page: 'Predvolená vstupná stránka'
     Locale Preference: 'Nastaviť jazyk'
@@ -954,6 +955,7 @@ Tooltips:
     Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí na účely volania API. Zmeny tohto nastavenia sa vzťahujú len na aktuálne okno, pokiaľ túto inštanciu nenastavíte ako predvolenú.
     Thumbnail Preference: Všetky náhľady vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzieho náhľadu.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
+    Prefer Original YouTube Metadata: Obnovte pôvodné názvy, názvy kanálov, popisy, kapitoly, náhľady, zvuk a titulky, keď sú dostupné. Vyžaduje lokálne API.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
     External Link Handling: "Vyberte predvolené správanie pri kliknutí na odkaz, ktorý nemožno otvoriť vo FreeTube.\nV predvolenom nastavení FreeTube otvorí odkaz, na ktorý ste klikli, vo vašom predvolenom prehliadači.\n"
     Open Deep Links In New Window: URL adresy odovzdané do FreeTube, napríklad presmerovaním rozšírení prehliadača alebo cez argumenty príkazového riadku, sa otvoria v novom okne.

@@ -209,6 +209,7 @@ Settings:
   General Settings:
     General Settings: '一般'
     Fallback to Non-Preferred Backend on Failure: 'データ取得の問題発生時には取得方法を自動変更'
+    Prefer Original YouTube Metadata: YouTube の元のメタデータを優先
     Enable Search Suggestions: '検索候補の有効化'
     Default Landing Page: '既定の言語ページ'
     Locale Preference: '言語設定'
@@ -1001,6 +1002,7 @@ Tooltips:
     Preferred API Backend: FreeTube がデータを取得するために使用する方法を選択してください。内部 API はアプリ内蔵の取得機能です。 Invidious API は、 Invidious サーバーへの接続が必要です。
     Thumbnail Preference: FreeTube 全体のすべてのサムネイルが、デフォルトのサムネイルの代わりに動画のフレームに置き換えられ、ぼかされるか非表示になります。
     Fallback to Non-Preferred Backend on Failure: 有効にすると、選択した API で取得できなければ、FreeTube は自動的に他の API での取得を試みます。
+    Prefer Original YouTube Metadata: 利用可能な場合、元のタイトル、チャンネル名、説明、チャプター、サムネイル、音声、字幕を復元します。内部 API が必要です。
     Region for Trending: 急上昇の地域設定では、急上昇動画を表示する国を選択できます。
     External Link Handling: "FreeTube で開けないリンクをクリックしたときのデフォルトの動作を選択します。\nデフォルトでは、FreeTube はクリックしたリンクをデフォルトのブラウザで開きます。\n"
     Open Deep Links In New Window: FreeTube に渡された URL は、ブラウザの拡張機能やコマンドライン引数などによって、新しいウィンドウで開かれます。

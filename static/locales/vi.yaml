@@ -205,6 +205,7 @@ Settings:
   General Settings:
     General Settings: 'Chung'
     Fallback to Non-Preferred Backend on Failure: 'Trở về Backend không mong muốn khi có lỗi'
+    Prefer Original YouTube Metadata: Ưu tiên siêu dữ liệu gốc của YouTube
     Enable Search Suggestions: 'Bật gợi ý tìm kiếm'
     Default Landing Page: 'Trang mặc định'
     Locale Preference: 'Ngôn ngữ'
@@ -964,6 +965,7 @@ Tooltips:
     Thumbnail Preference: Tất cả các hình thu nhỏ trên FreeTube sẽ được thay thế bằng khung hình của video, làm mờ hoặc ẩn thay vì hình thu nhỏ mặc định.
     External Link Handling: "Chọn tác vụ mặc định khi một liên kết không thể mở được nhập vào FreeTube.\nTheo mặc định, FreeTube sẽ mở liên kết này trong trình duyệt mặc định của bạn.\n"
     Fallback to Non-Preferred Backend on Failure: Khi API ưu tiên của bạn gặp sự cố, FreeTube sẽ tự động sử dụng API không ưu tiên của bạn làm phương án dự phòng khi nó được bật lên.
+    Prefer Original YouTube Metadata: Khôi phục tiêu đề, tên kênh, mô tả, chương, hình thu nhỏ, âm thanh và phụ đề gốc khi có sẵn. Yêu cầu API cục bộ.
     Preferred API Backend: Chọn backend mà FreeTube sử dụng để lấy dữ liệu. API cục bộ là một trình trích xuất tích hợp sẵn. API Invidious yêu cầu máy chủ Invidious để kết nối.
     Invidious Instance: Phiên bản Invidious mà FreeTube sẽ kết nối với để gọi các lệnh API.
     Region for Trending: Xu hướng khu vực cho phép bạn chọn các video thịnh hành của quốc gia mà bạn muốn hiển thị.

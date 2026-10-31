@@ -207,6 +207,7 @@ Settings:
   General Settings:
     General Settings: 'Algemeen'
     Fallback to Non-Preferred Backend on Failure: 'Terugvallen op alternatieve backend bij problemen'
+    Prefer Original YouTube Metadata: Voorkeur voor originele YouTube-metagegevens
     Enable Search Suggestions: 'Zoeksuggesties inschakelen'
     Default Landing Page: 'Standaard startscherm'
     Locale Preference: 'Regiovoorkeur'
@@ -949,6 +950,7 @@ Tooltips:
     Invidious Instance: Dit is de Invidious-instantie waar FreeTube mee zal verbinden om API calls te maken.
     Thumbnail Preference: Alle miniaturen in FreeTube zullen worden vervangen met een moment­opname uit de video, worden vervaagd, of worden verborgen, in plaats van de standaard­miniatuur.
     Fallback to Non-Preferred Backend on Failure: Wanneer het API met voorkeur problemen geeft dan zal FreeTube automatisch terugvallen op het alternatieve niet-voorkeur API wanneer deze instelling is ingeschakeld.
+    Prefer Original YouTube Metadata: Herstel originele titels, kanaalnamen, beschrijvingen, hoofdstukken, miniaturen, audio en ondertiteling wanneer beschikbaar. Vereist de lokale API.
     Preferred API Backend: Kies de backend die FreeTube gebruikt om data te verzamelen. De lokale API is een ingebouwde inhoudsverzamelaar. De Invidious API moet worden verbonden met een Invidious server.
     Region for Trending: Met trend regio kan je instellen uit welk land je trending video's je wil zien.
     External Link Handling: "Kies het standaard gedrag voor wanneer een link dat niet kan worden geopend in FreeTube is aangeklikt.\nStandaard zal FreeTube de aangeklikte link openen in je standaardbrowser.\n"

@@ -212,6 +212,7 @@ Settings:
   General Settings:
     General Settings: 'Generale'
     Fallback to Non-Preferred Backend on Failure: 'Ritorna al backend non preferito in caso di errore'
+    Prefer Original YouTube Metadata: Preferisci i metadati originali di YouTube
     Enable Search Suggestions: 'Abilita suggerimenti di ricerca'
     Default Landing Page: 'Pagina iniziale predefinita'
     Locale Preference: 'Lingua predefinita'
@@ -1003,6 +1004,7 @@ Tooltips:
     Invidious Instance: L'istanza di Invidious a cui FreeTube si connetterà per le chiamate API. Le modifiche a questa impostazione si applicano solo alla finestra corrente, a meno che non si imposti questa istanza come predefinita.
     Thumbnail Preference: Tutte le miniature su FreeTube verranno sostituite con un fotogramma del video, sfocato o nascosto al posto della miniatura predefinita.
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un problema, FreeTube userà automaticamente le API secondarie come riserva (se abilitate).
+    Prefer Original YouTube Metadata: Ripristina titoli, nomi dei canali, descrizioni, capitoli, miniature, audio e sottotitoli originali quando disponibili. Richiede le API locali.
     Preferred API Backend: Scegli il backend usato da FreeTube per ottenere i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono un server Invidious al quale connettersi.
     Region for Trending: La regione delle tendenze permette di scegliere la nazione di cui si vogliono vedere i video di tendenza.
     External Link Handling: "Scegli il comportamento predefinito quando si fa clic su un link che non può essere aperto in FreeTube.\nPer impostazione predefinita, FreeTube aprirà il link cliccato nel browser predefinito.\n"

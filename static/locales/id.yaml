@@ -215,6 +215,7 @@ Settings:
     General Settings: 'Umum'
     Check for Updates: 'Cek Pembaruan'
     Fallback to Non-Preferred Backend on Failure: 'Beralih ke Layanan Cadangan saat terjadi Kegagalan'
+    Prefer Original YouTube Metadata: Utamakan Metadata Asli YouTube
     Enable Search Suggestions: 'Aktifkan Saran Pencarian'
     Default Landing Page: 'Halaman Awal Baku'
     Locale Preference: 'Bahasa'
@@ -994,6 +995,7 @@ Tooltips:
     Invidious Instance: Instance Invidious yang akan dihubungkan oleh FreeTube untuk panggilan API. Perubahan pada pengaturan ini hanya berlaku untuk jendela saat ini, kecuali Anda menetapkan instance ini sebagai default.
     Thumbnail Preference: Semua gambar mini di dalam aplikasi FreeTube akan diganti dengan frame dari video, diburamkan atau disembunyikan alih-alih menggunakan gambar mini bawaan.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai cadangan jika diaktifkan.
+    Prefer Original YouTube Metadata: Pulihkan judul, nama kanal, deskripsi, bab, thumbnail, audio, dan subtitel asli jika tersedia. Memerlukan API Lokal.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan ke server Invidious.
     External Link Handling: "Pilih perilaku default ketika tautan, yang tidak dapat dibuka di FreeTube, diklik.\nSecara default FreeTube akan membuka tautan yang diklik dengan browser default Anda.\n"
     Open Deep Links In New Window: URL yang diteruskan ke FreeTube, seperti melalui ekstensi browser pengalihan atau argumen baris perintah, dibuka di jendela baru.

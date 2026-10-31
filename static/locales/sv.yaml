@@ -213,6 +213,7 @@ Settings:
     General Settings: 'Allmänt'
     Check for Updates: 'Sök efter uppdateringar'
     Fallback to Non-Preferred Backend on Failure: 'Använd en alternativ API-källa vid fel'
+    Prefer Original YouTube Metadata: Föredra YouTubes ursprungliga metadata
     Enable Search Suggestions: 'Aktivera sökförslag'
     Default Landing Page: 'Förvald startsida'
     Locale Preference: 'Språk'
@@ -978,6 +979,7 @@ Tooltips:
     Invidious Instance: Invidious-instansen som FreeTube använder för API-anrop.
     Thumbnail Preference: Ersätt videornas vanliga miniatyrbilder med en bildruta från videon, en suddig bild eller en dold miniatyrbild.
     Fallback to Non-Preferred Backend on Failure: När den föredragna API-källan inte fungerar försöker FreeTube automatiskt använda den alternativa API-källan.
+    Prefer Original YouTube Metadata: Återställ ursprungliga titlar, kanalnamn, beskrivningar, kapitel, miniatyrbilder, ljud och undertexter när de är tillgängliga. Kräver det lokala API:et.
     Preferred API Backend: Välj vilken datakälla FreeTube ska använda. Det lokala API:et använder FreeTubes inbyggda extraktor. Invidious-API:et kräver anslutning till en Invidious-instans.
     External Link Handling: "Välj vad som ska hända när du klickar på en länk som inte kan öppnas i FreeTube.\nSom standard öppnas länken i den förvalda webbläsaren.\n"
     Open Deep Links In New Window: Webbadresser som skickas till FreeTube, till exempel via omdirigering av webbläsartillägg eller kommandoradsargument, öppnas i ett nytt fönster.

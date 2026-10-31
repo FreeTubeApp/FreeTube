@@ -210,6 +210,7 @@ Settings:
     General Settings: 'כללי'
     Check for Updates: 'לבדוק אם קיימים עדכונים'
     Fallback to Non-Preferred Backend on Failure: 'נסיגה למנגנון שאינו מועדף בעת כשל'
+    Prefer Original YouTube Metadata: העדפת מטא-נתונים מקוריים של YouTube
     Enable Search Suggestions: 'לאפשר הצעות לחיפוש'
     Default Landing Page: 'דף נחיתה כברירת מחדל'
     Locale Preference: 'שפה מועדפת'
@@ -946,6 +947,7 @@ No: 'לא'
 Tooltips:
   General Settings:
     Fallback to Non-Preferred Backend on Failure: כאשר ל־API המועדף עליך יש בעיה, FreeTube ינסה להשתמש ב־API בעדיפות הנמוכה יותר באופן אוטומטי כשיטת נסיגה כאשר האפשרות פעילה.
+    Prefer Original YouTube Metadata: שחזור כותרות, שמות ערוצים, תיאורים, פרקים, תמונות ממוזערות, שמע וכתוביות מקוריים כאשר הם זמינים. דורש את ה־API המקומי.
     Preferred API Backend: נא לבחור את המנגנון לשימוש FreeTube כדי לקבל נתונים. ה־API המקומי הוא מחלץ מובנה. ה־API של Invidious דורש התחברות לשרת Invidious.
     Invidious Instance: העותק של Invidious שאליו FreeTube יתחבר לקבלת פניות API.
     Thumbnail Preference: כל התמונות הממוזערות ברחבי FreeTube יוחלפו בתמונית מתוך הסרטון, בצורה מטושטשת או מוסתרת במקום התמונה הממוזערת כברירת המחדל.

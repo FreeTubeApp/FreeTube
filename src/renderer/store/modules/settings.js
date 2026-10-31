@@ -238,6 +238,7 @@ const state = {
   onlyShowLatestFromChannelNumber: 1,
   openDeepLinksInNewWindow: false,
   playNextVideo: false,
+  preferOriginalMetadata: false,
   proxyHostname: '127.0.0.1',
   proxyPort: '9050',
   proxyUsername: '',
@@ -451,6 +452,7 @@ export const NON_TRANSFERABLE_SETTINGS = new Set([
   /* Depends on process.env.SUPPORTS_LOCAL_API */
   'backendFallback',
   'backendPreference',
+  'preferOriginalMetadata',
   'proxyVideos',
 ])
 

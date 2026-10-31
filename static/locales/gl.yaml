@@ -211,6 +211,7 @@ Settings:
     General Settings: 'Xeral'
     Check for Updates: 'Comprobar actualizacións'
     Fallback to Non-Preferred Backend on Failure: 'Usar motor API non preferido en caso de falla'
+    Prefer Original YouTube Metadata: Preferir os metadatos orixinais de YouTube
     Enable Search Suggestions: 'Activar suxestións de busca'
     Default Landing Page: 'Páxina inicial'
     Locale Preference: 'Preferencia de localización'
@@ -929,6 +930,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: 'Escolle o back-end que FreeTube utiliza para obter os datos. A API local é un extractor incluído. A API de Invidious require un servidor Invidious ao que se conectar.'
     Fallback to Non-Preferred Backend on Failure: 'Cando a túa API preferida teña un problema, FreeTube tentará usar automaticamente a túa API non preferida como método alternativo cando estea activo.'
+    Prefer Original YouTube Metadata: Restaura os títulos, nomes de canles, descricións, capítulos, miniaturas, audio e subtítulos orixinais cando estean dispoñibles. Require a API local.
     Thumbnail Preference: 'Tódalas miniaturas de FreeTube substituiranse por un fotograma do vídeo, borroso ou oculto en lugar da miniatura predeterminada.'
     Invidious Instance: 'A instancia de Invidious á que se conectará FreeTube para as chamadas da aplicacion.'
     Region for Trending: 'A rexión das tendencias permíteche escoller os vídeos máis populares nun Estado.'
