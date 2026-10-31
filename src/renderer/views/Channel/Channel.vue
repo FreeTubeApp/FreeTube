@@ -1013,41 +1013,43 @@ async function getChannelInfoInvidious() {
     // some channels only have a few tabs
     // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
 
+    const tabs = ['about', ...response.tabs]
+
     channelTabs.value = SUPPORTED_CHANNEL_TABS.filter(tab => {
-      return response.tabs.includes(tab) && tab !== 'home'
+      return tabs.includes(tab) && tab !== 'home'
     })
 
     currentTab.value = currentOrFirstTab(route.params.currentTab)
 
-    if (response.tabs.includes('videos')) {
+    if (tabs.includes('videos')) {
       channelInvidiousVideos()
     }
 
-    if (!hideChannelShorts.value && response.tabs.includes('shorts')) {
+    if (!hideChannelShorts.value && tabs.includes('shorts')) {
       channelInvidiousShorts()
     }
 
-    if (!hideLiveStreams.value && response.tabs.includes('live')) {
+    if (!hideLiveStreams.value && tabs.includes('live')) {
       channelInvidiousLive()
     }
 
-    if (!hideChannelPodcasts.value && response.tabs.includes('podcasts')) {
+    if (!hideChannelPodcasts.value && tabs.includes('podcasts')) {
       channelInvidiousPodcasts()
     }
 
-    if (!hideChannelReleases.value && response.tabs.includes('releases')) {
+    if (!hideChannelReleases.value && tabs.includes('releases')) {
       channelInvidiousReleases()
     }
 
-    if (!hideChannelCourses.value && response.tabs.includes('courses')) {
+    if (!hideChannelCourses.value && tabs.includes('courses')) {
       channelInvidiousCourses()
     }
 
-    if (!hideChannelPlaylists.value && response.tabs.includes('playlists')) {
+    if (!hideChannelPlaylists.value && tabs.includes('playlists')) {
       getPlaylistsInvidious()
     }
 
-    if (!hideChannelCommunity.value && response.tabs.includes('community')) {
+    if (!hideChannelCommunity.value && tabs.includes('community')) {
       getCommunityPostsInvidious()
     }
 
