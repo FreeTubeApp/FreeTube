@@ -617,7 +617,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     over_twenty_mins: 'long',
   }
 
-  /** @type {Promise<(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null>} */
+  /** @type {(InvidiousChannelObject | InvidiousPlaylistObject | InvidiousVideoType | InvidiousHashtagObject)[] | null} */
   let results = await invidiousAPICall({
     resource: 'search',
     id: '',
@@ -633,7 +633,10 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
   })
 
   if (!results) {
-    return null
+    return {
+      results: null,
+      validResultsCount: 0,
+    }
   }
 
   results = results.filter((item) => {
@@ -647,7 +650,10 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     }
   })
 
-  return results
+  return {
+    results,
+    validResultsCount: results.length,
+  }
 }
 
 /**
