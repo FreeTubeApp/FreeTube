@@ -200,13 +200,6 @@
           role="tabpanel"
           aria-labelledby="showsTab"
         />
-        <FtFlexBox
-          v-if="!hideChannelShows && currentTab === 'shows' && latestShows.length === 0"
-        >
-          <p class="message">
-            {{ $t("Channel.Shows.This channel does not currently have any shows") }}
-          </p>
-        </FtFlexBox>
         <FtElementList
           v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
@@ -1041,7 +1034,7 @@ async function getChannelInfoInvidious() {
     errorMessage.value = ''
 
     // some channels only have a few tabs
-    // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
+    // here are all possible values: home, videos, shorts, streams, playlists, podcasts, releases, courses, shows community, channels, about
 
     const tabs = ['about', ...response.tabs]
 
