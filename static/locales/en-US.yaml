@@ -272,6 +272,9 @@ History:
 Settings:
   # On Settings Page
   Settings: Settings
+  Search Settings: Search Settings
+  Settings found: '1 setting found | {count} settings found'
+  No Matching Settings: No settings match your search.
   Sort Settings Sections (A-Z): Sort Settings Sections (A-Z)
   Return to Settings Menu: Return to Settings Menu
   The app needs to restart for changes to take effect. Restart and apply change?: The

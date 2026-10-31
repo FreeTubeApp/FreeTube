@@ -2,6 +2,7 @@
 <template>
   <div
     class="ft-input-component"
+    :data-settings-search-label="showLabel && label ? label : placeholder"
     :class="{
       search: isSearch,
       forceTextColor,

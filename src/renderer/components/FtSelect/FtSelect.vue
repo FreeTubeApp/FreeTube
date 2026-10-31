@@ -1,5 +1,8 @@
 <template>
-  <div class="select">
+  <div
+    class="select"
+    :data-settings-search-label="placeholder"
+  >
     <select
       :id="id"
       :aria-describedby="describeById"
