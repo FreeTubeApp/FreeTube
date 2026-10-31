@@ -694,6 +694,7 @@ Channel:
     Details: 详情
     Joined: 已加入
     Location: 位置
+    Links: 链接
   Removed subscription from {count} other channel(s): 从{count}个其他频道移除订阅
   Added channel to your subscriptions: 已新增频道至您的订阅
   Channel has been removed from your subscriptions: 频道已从您的订阅中移除
