@@ -19,6 +19,13 @@ import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import store from '../store/index'
 
+const props = defineProps({
+  enabled: {
+    type: Boolean,
+    default: true,
+  }
+})
+
 const emit = defineEmits(['load-next-page'])
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -27,7 +34,7 @@ const generalAutoLoadMorePaginatedItemsEnabled = computed(() => {
 })
 
 const observeVisibilityOptions = computed(() => {
-  if (generalAutoLoadMorePaginatedItemsEnabled.value) {
+  if (generalAutoLoadMorePaginatedItemsEnabled.value && props.enabled) {
     return {
       callback: (isVisible, _entry) => {
         // This is also fired when **hidden**

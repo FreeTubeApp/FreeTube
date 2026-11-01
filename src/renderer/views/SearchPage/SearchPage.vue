@@ -19,7 +19,8 @@
         :data="shownResults"
       />
       <FtAutoLoadNextPageWrapper
-        v-if="!isNextPageLoading"
+        v-if="!isNextPageLoading && nextPagePossible"
+        :enabled="lastSearchHasSomeValidResults"
         @load-next-page="nextPage"
       >
         <div
@@ -73,6 +74,7 @@ const searchPage = ref(1)
 /** @type {import('vue').ShallowRef<import('youtubei.js').YT.Search | string | null>} */
 const nextPageRef = shallowRef(null)
 const shownResults = shallowRef([])
+const lastSearchHasSomeValidResults = ref(true)
 
 const query = ref('')
 const processedQuery = computed(() => query.value.trim())
@@ -91,6 +93,13 @@ const showFamilyFriendlyOnly = computed(() => store.getters.getShowFamilyFriendl
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const rememberSearchHistory = computed(() => store.getters.getRememberSearchHistory)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const nextPagePossible = computed(() => {
+  if (apiUsed.value === 'local') { return nextPageRef.value != null }
+
+  return true
+})
 
 watch(route, () => {
   const query_ = route.params.query.trim()
@@ -193,7 +202,7 @@ async function performSearchLocal(payload) {
   isLoading.value = true
 
   try {
-    const { results, continuationData } = await getLocalSearchResults(
+    const { results, continuationData, validResultsCount } = await getLocalSearchResults(
       payload.query,
       payload.searchSettings,
       showFamilyFriendlyOnly.value
@@ -203,6 +212,10 @@ async function performSearchLocal(payload) {
 
     shownResults.value = results
     nextPageRef.value = continuationData
+    lastSearchHasSomeValidResults.value = validResultsCount > 0
+    if (validResultsCount === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+    }
 
     isLoading.value = false
 
@@ -236,9 +249,10 @@ async function performSearchLocal(payload) {
 
 async function getNextpageLocal(payload) {
   try {
-    const { results, continuationData } = await getLocalSearchContinuation(payload.options.nextPageRef)
+    const { results, continuationData, validResultsCount } = await getLocalSearchContinuation(payload.options.nextPageRef)
 
-    if (results.length === 0) {
+    if (validResultsCount === 0) {
+      lastSearchHasSomeValidResults.value = false
       return
     }
 
@@ -258,6 +272,10 @@ async function getNextpageLocal(payload) {
     store.commit('addToSessionSearchHistory', historyPayload)
 
     updateSubscriptionDetails(results)
+
+    if (continuationData == null) {
+      showToast(t('Search Filters.There are no more results for this search'))
+    }
   } catch (err) {
     console.error(err)
 
@@ -285,7 +303,10 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
   }
 
   try {
-    const results = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
+    const {
+      results,
+      validResultsCount,
+    } = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
     if (!results) {
       return
     }
@@ -297,6 +318,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
     } else {
       shownResults.value = results
     }
+    lastSearchHasSomeValidResults.value = validResultsCount > 0
 
     isLoading.value = false
 
@@ -344,15 +366,10 @@ async function nextPage() {
     }
   }
 
+  showToast(t('Search Filters["Fetching results. Please wait"]'))
   if (apiUsed.value === 'local') {
-    if (nextPageRef.value !== null) {
-      showToast(t('Search Filters["Fetching results. Please wait"]'))
-      await getNextpageLocal(payload)
-    } else {
-      showToast(t('Search Filters.There are no more results for this search'))
-    }
+    await getNextpageLocal(payload)
   } else {
-    showToast(t('Search Filters["Fetching results. Please wait"]'))
     await performSearchInvidious(payload)
   }
 
