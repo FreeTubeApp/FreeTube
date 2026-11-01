@@ -47,7 +47,7 @@
   grid-template-columns: auto auto;
   justify-content: space-evenly;
 
-  @media only screen and (width <= 680px) {
+  @media only screen and (width <= 800px) {
     grid-template-columns: auto;
   }
 }
