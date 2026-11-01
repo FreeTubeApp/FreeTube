@@ -216,8 +216,7 @@ Settings:
     Next Video Interval: 'Sekantis vaizdo įrašas bus paleistas po'
     Default Volume: 'Numatytasis garsumas'
     Default Playback Rate: 'Numatytasis atkūrimo greitis'
-    Default Video Format:
-      Default Video Format: 'Numatytasis vaizdo įrašo formatas'
+    Default Media Format:
       Dash Formats: 'DASH formatai'
       Legacy Formats: 'Senieji formatai'
       Audio Formats: 'Audio formatai'
@@ -392,7 +391,6 @@ About:
   GitHub issues: 'GitHub problemos'
   Please check for duplicates before posting: 'Prieš pranešdami patikrinkite, ar užklausa nesidubliuos su jau esančia'
   Website: 'Tinklalapis'
-  Email: 'El. paštas'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Pokalbis Matrix'
   room rules: 'kambario taisykles'
@@ -447,7 +445,6 @@ Channel:
   Your search results have returned 0 results: 'Paieškos rezultatai gražino 0 rezultatų'
   Videos:
     Videos: 'Vaizdo įrašai'
-    This channel does not currently have any videos: 'Šiuo metu šiame kanale nėra vaizdo įrašų'
     Sort Types:
       Newest: 'Naujausi'
       Oldest: 'Seniausi'
@@ -589,7 +586,7 @@ Tooltips:
     External Link Handling: "Pasirinkite numatytąjį elgesį, kai spustelėjama nuoroda, kurios negalima atidaryti „FreeTube“.\nPagal numatytuosius nustatymus „FreeTube“ atidarys spustelėtą nuorodą numatytojoje naršyklėje.\n"
   Player Settings:
     Proxy Videos Through Invidious: 'Bus prisijungęs prie „Invidious“, kad galėtų teikti vaizdo įrašus, užuot užmezgęs tiesioginį ryšį su „YouTube“.'
-    Default Video Format: 'Nustatykite vaizdo įrašo atkūrimo formatus. DASH formatai gali rodyti aukštesnes kokybės vaizdo įrašus. Senieji formatai (Legacy) gali būti ne daugiau kaip 720p kokybės, tačiau jie reikalauja mažesnių tinklo resursų. Garso formatai -tai tik garsas, vaizdo įrašas nėra rodomas ar siunčiamas.'
+    Default Media Format: 'Nustatykite vaizdo įrašo atkūrimo formatus. DASH formatai gali rodyti aukštesnes kokybės vaizdo įrašus. Senieji formatai (Legacy) gali būti ne daugiau kaip 720p kokybės, tačiau jie reikalauja mažesnių tinklo resursų. Garso formatai -tai tik garsas, vaizdo įrašas nėra rodomas ar siunčiamas.'
     Scroll Playback Rate Over Video Player: Kai žymeklis yra virš vaizdo įrašo, paspauskite ir laikykite nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir slinkite pelės ratuką pirmyn arba atgal, kad valdytumėte atkūrimo greitį. Paspauskite ir laikykite nuspaudę valdymo klavišą („Mac“ komandų klavišas) ir spustelėkite kairįjį pelės klavišą, kad greitai grįžtumėte į numatytąjį atkūrimo greitį (1 kartą, nebent jis buvo pakeistas nustatymuose).
   External Player Settings:
     External Player: 'Pasirinkus išorinį grotuvą, miniatiūroje bus rodoma piktograma, leidžianti atidaryti vaizdo įrašą (grojaraštį, jei palaikoma) išoriniame grotuve. Įspėjimas, Invidious nustatymai neturi įtakos išoriniams grotuvams.'

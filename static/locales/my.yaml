@@ -407,8 +407,8 @@ Settings:
     Default Playback Rate: ''
     Max Video Playback Rate: ''
     Video Playback Rate Interval: ''
-    Default Video Format:
-      Default Video Format: ''
+    Default Media Format:
+      Default Media Format: ''
       Dash Formats: ''
       Legacy Formats: ''
       Audio Formats: ''
@@ -613,7 +613,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Email: ''
   Mastodon: ''
   Chat on Matrix: ''
   room rules: ''
@@ -679,7 +678,6 @@ Channel:
   Channel Tabs: ''
   Videos:
     Videos: ''
-    This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
       Oldest: ''
@@ -919,7 +917,7 @@ Tooltips:
     Open Deep Links In New Window: ''
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Default Media Format: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

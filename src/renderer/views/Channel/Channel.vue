@@ -35,6 +35,7 @@
         :views="viewCount"
         :videos="videoCount"
         :location="location"
+        :external-links="channelAboutLinks"
         :tags="tags"
         :related-channels="relatedChannels"
       />
@@ -109,10 +110,10 @@
           aria-labelledby="videosTab"
         />
         <FtFlexBox
-          v-if="currentTab === 'videos' && latestVideos.length === 0"
+          v-if="currentTab === 'videos' && latestVideos.length === 0 && showFetchMoreButton"
         >
           <p class="message">
-            {{ $t("Channel.Videos.This channel does not currently have any videos") }}
+            {{ $t("Channel.Videos.This channel has videos but none could be displayed, try fetching more") }}
           </p>
         </FtFlexBox>
         <FtElementList
@@ -236,7 +237,7 @@
           </p>
         </FtFlexBox>
         <FtAutoLoadNextPageWrapper
-          v-if="showFetchMoreButton"
+          v-if="showFetchMoreButton && !isFetchMoreLoading"
           @load-next-page="handleFetchMore"
         >
           <div
@@ -244,8 +245,7 @@
             role="button"
             tabindex="0"
             @click="handleFetchMore"
-            @keydown.space.prevent="handleFetchMore"
-            @keydown.enter.prevent="handleFetchMore"
+            @keydown.enter.space.prevent="handleFetchMore"
           >
             <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
           </div>
@@ -326,8 +326,9 @@ import {
   parseLocalSubscriberCount,
   getLocalArtistTopicChannelReleasesContinuation,
   getLocalPlaylist,
-  parseLocalPlaylistVideo,
-  parseChannelHomeTab
+  parseLocalPlaylistVideos,
+  parseChannelHomeTab,
+  parseLocalChannelAboutLinks
 } from '../../helpers/api/local'
 
 const { t } = useI18n()
@@ -345,6 +346,7 @@ let mayContainContentFromOtherChannels = false
 const isLoading = ref(true)
 const isElementListLoading = ref(false)
 const isSearchTabLoading = ref(false)
+const isFetchMoreLoading = ref(false)
 const currentTab = ref('videos')
 
 const isCurrentTabLoading = computed(() => {
@@ -362,6 +364,8 @@ const viewCount = ref(0)
 const videoCount = ref(0)
 const joined = ref(0)
 const location = ref(null)
+/** @type {import('vue').ShallowRef<{ title: string, url: string, displayUrl: string, iconUrl: string }[]>} */
+const channelAboutLinks = shallowRef([])
 const relatedChannels = shallowRef([])
 const isArtistTopicChannel = ref(false)
 const isFamilyFriendly = ref(false)
@@ -552,6 +556,7 @@ watch(route, () => {
 
   id.value = route.params.id
   searchPage = 1
+  channelAboutLinks.value = []
   relatedChannels.value = []
   latestVideos.value = []
   latestShorts.value = []
@@ -856,8 +861,15 @@ async function getChannelLocal() {
 
 async function getChannelAboutLocal() {
   try {
+    const expectedId = id.value
     await ensureChannelInstance()
     const about = await channelInstance.getAbout()
+
+    if (expectedId !== id.value) {
+      return
+    }
+
+    channelAboutLinks.value = parseLocalChannelAboutLinks(about)
 
     if (about.is(YTNodes.ChannelAboutFullMetadata)) {
       description.value = about.description.isEmpty() ? '' : autolinker.link(about.description.text)
@@ -956,6 +968,7 @@ async function getChannelInfoInvidious() {
   isLoading.value = true
   apiUsed = 'invidious'
   channelInstance = null
+  channelAboutLinks.value = []
 
   const expectedId = id.value
   try {
@@ -1000,41 +1013,43 @@ async function getChannelInfoInvidious() {
     // some channels only have a few tabs
     // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
 
+    const tabs = ['about', ...response.tabs]
+
     channelTabs.value = SUPPORTED_CHANNEL_TABS.filter(tab => {
-      return response.tabs.includes(tab) && tab !== 'home'
+      return tabs.includes(tab) && tab !== 'home'
     })
 
     currentTab.value = currentOrFirstTab(route.params.currentTab)
 
-    if (response.tabs.includes('videos')) {
+    if (tabs.includes('videos')) {
       channelInvidiousVideos()
     }
 
-    if (!hideChannelShorts.value && response.tabs.includes('shorts')) {
+    if (!hideChannelShorts.value && tabs.includes('shorts')) {
       channelInvidiousShorts()
     }
 
-    if (!hideLiveStreams.value && response.tabs.includes('live')) {
+    if (!hideLiveStreams.value && tabs.includes('live')) {
       channelInvidiousLive()
     }
 
-    if (!hideChannelPodcasts.value && response.tabs.includes('podcasts')) {
+    if (!hideChannelPodcasts.value && tabs.includes('podcasts')) {
       channelInvidiousPodcasts()
     }
 
-    if (!hideChannelReleases.value && response.tabs.includes('releases')) {
+    if (!hideChannelReleases.value && tabs.includes('releases')) {
       channelInvidiousReleases()
     }
 
-    if (!hideChannelCourses.value && response.tabs.includes('courses')) {
+    if (!hideChannelCourses.value && tabs.includes('courses')) {
       channelInvidiousCourses()
     }
 
-    if (!hideChannelPlaylists.value && response.tabs.includes('playlists')) {
+    if (!hideChannelPlaylists.value && tabs.includes('playlists')) {
       getPlaylistsInvidious()
     }
 
-    if (!hideChannelCommunity.value && response.tabs.includes('community')) {
+    if (!hideChannelCommunity.value && tabs.includes('community')) {
       getCommunityPostsInvidious()
     }
 
@@ -1117,7 +1132,7 @@ async function getChannelVideosLocal() {
         return
       }
 
-      latestVideos.value = playlist.items.map(parseLocalPlaylistVideo)
+      latestVideos.value = parseLocalPlaylistVideos(playlist.items)
       videoContinuationData.value = playlist.has_continuation ? playlist : null
       isElementListLoading.value = false
     } else {
@@ -1175,7 +1190,7 @@ async function getChannelVideosLocalMore() {
       /** @type {import('youtubei.js').YT.Playlist} */
       const continuation = await videoContinuationData.value.getContinuation()
 
-      latestVideos.value = latestVideos.value.concat(continuation.items.map(parseLocalPlaylistVideo))
+      latestVideos.value = latestVideos.value.concat(parseLocalPlaylistVideos(continuation.items))
       videoContinuationData.value = continuation.has_continuation ? continuation : null
     } else {
       /**
@@ -1575,7 +1590,7 @@ async function getChannelPlaylistsLocal() {
       return
     }
 
-    latestPlaylists.value = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    latestPlaylists.value = playlistsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value)).filter(e => e)
     playlistContinuationData.value = playlistsTab.has_continuation ? playlistsTab : null
     isElementListLoading.value = false
   } catch (err) {
@@ -1600,7 +1615,7 @@ async function getChannelPlaylistsLocalMore() {
      */
     const continuation = await playlistContinuationData.value.getContinuation()
 
-    const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    const parsedPlaylists = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value)).filter(e => e)
     latestPlaylists.value = latestPlaylists.value.concat(parsedPlaylists)
     playlistContinuationData.value = continuation.has_continuation ? continuation : null
   } catch (err) {
@@ -2260,74 +2275,80 @@ const showFetchMoreButton = computed(() => {
   }
 })
 
-function handleFetchMore() {
+async function handleFetchMore() {
+  if (isFetchMoreLoading.value) return
+
+  isFetchMoreLoading.value = true
+
   switch (currentTab.value) {
     case 'videos':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelVideosLocalMore()
+        await getChannelVideosLocalMore()
       } else {
-        channelInvidiousVideos()
+        await channelInvidiousVideos()
       }
       break
     case 'shorts':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelShortsLocalMore()
+        await getChannelShortsLocalMore()
       } else {
-        channelInvidiousShorts()
+        await channelInvidiousShorts()
       }
       break
     case 'live':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelLiveLocalMore()
+        await getChannelLiveLocalMore()
       } else {
-        channelInvidiousLive()
+        await channelInvidiousLive()
       }
       break
     case 'releases':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelReleasesLocalMore()
+        await getChannelReleasesLocalMore()
       } else {
-        channelInvidiousReleasesMore()
+        await channelInvidiousReleasesMore()
       }
       break
     case 'podcasts':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelPodcastsLocalMore()
+        await getChannelPodcastsLocalMore()
       } else {
-        channelInvidiousPodcastsMore()
+        await channelInvidiousPodcastsMore()
       }
       break
     case 'courses':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelCoursesLocalMore()
+        await getChannelCoursesLocalMore()
       } else {
-        channelInvidiousCoursesMore()
+        await channelInvidiousCoursesMore()
       }
       break
     case 'playlists':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getChannelPlaylistsLocalMore()
+        await getChannelPlaylistsLocalMore()
       } else {
-        getPlaylistsInvidiousMore()
+        await getPlaylistsInvidiousMore()
       }
       break
     case 'search':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        searchChannelLocal()
+        await searchChannelLocal()
       } else {
-        searchChannelInvidious()
+        await searchChannelInvidious()
       }
       break
     case 'community':
       if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
-        getCommunityPostsLocalMore()
+        await getCommunityPostsLocalMore()
       } else {
-        getCommunityPostsInvidious()
+        await getCommunityPostsInvidious()
       }
       break
     default:
       console.error(currentTab.value)
   }
+
+  isFetchMoreLoading.value = false
 }
 
 function changeTab(tab) {
@@ -2337,7 +2358,6 @@ function changeTab(tab) {
 
   if (newTabNode != null) {
     newTabNode.focus()
-    store.commit('setOutlinesHidden', false)
   }
 }
 

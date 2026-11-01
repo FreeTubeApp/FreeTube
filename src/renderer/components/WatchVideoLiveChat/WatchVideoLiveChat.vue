@@ -81,8 +81,7 @@
           role="button"
           tabindex="0"
           @click="showSuperChatComment(comment)"
-          @keydown.space.prevent="showSuperChatComment(comment)"
-          @keydown.enter.prevent="showSuperChatComment(comment)"
+          @keydown.enter.space.prevent="showSuperChatComment(comment)"
         >
           <img
             :src="comment.author.thumbnailUrl"
@@ -107,8 +106,7 @@
         role="button"
         tabindex="0"
         @click="hideSuperChat"
-        @keydown.space.prevent="hideSuperChat"
-        @keydown.enter.prevent="hideSuperChat"
+        @keydown.enter.space.prevent="hideSuperChat"
       >
         <div
           class="superChatMessage"
@@ -233,8 +231,7 @@
         role="button"
         tabindex="0"
         @click="scrollToBottom"
-        @keydown.space.prevent="scrollToBottom"
-        @keydown.enter.prevent="scrollToBottom"
+        @keydown.enter.space.prevent="scrollToBottom"
       >
         <FontAwesomeIcon
           class="icon"
@@ -264,8 +261,9 @@ import { getRandomColorClass } from '../../helpers/colors'
 import { getLocalVideoInfo, parseLocalTextRuns } from '../../helpers/api/local'
 
 const props = defineProps({
+  /** @type {import('vue').PropType<import('youtubei.js').YT.LiveChat | null>} */
   liveChat: {
-    type: EventTarget,
+    type: Object,
     default: null
   },
   videoId: {
@@ -569,6 +567,7 @@ function showSuperChatComment(comment) {
  * @param {boolean} [isScrollEnd]
  */
 function onScroll(event, isScrollEnd = false) {
+  const SCROLL_BOTTOM_THRESHOLD_PX = 20
   const liveChatComments = commentsRef.value
   if (event.wheelDelta >= 0 && stayAtBottom) {
     stayAtBottom = false
@@ -576,7 +575,11 @@ function onScroll(event, isScrollEnd = false) {
     if (liveChatComments.scrollHeight > liveChatComments.clientHeight) {
       showScrollToBottom.value = true
     }
-  } else if ((isScrollEnd || event.wheelDelta < 0) && !stayAtBottom && (liveChatComments.scrollHeight - liveChatComments.scrollTop) === liveChatComments.clientHeight) {
+  } else if (
+    (isScrollEnd || event.wheelDelta < 0) &&
+    !stayAtBottom &&
+    liveChatComments.scrollHeight - liveChatComments.scrollTop - liveChatComments.clientHeight <= SCROLL_BOTTOM_THRESHOLD_PX
+  ) {
     scrollToBottom()
   }
 }

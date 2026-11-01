@@ -30,9 +30,12 @@
         :can-move-video-down="canMoveVideoDown"
         :can-remove-from-playlist="canRemoveFromPlaylist"
         :layout="layout"
-        :show-grab-bar="isDraggable && layout === 'grid'"
+        :show-grab-bar="showGrabBar && layout === 'grid'"
+        :grab-bar-enabled="isDraggable && layout === 'grid'"
         @move-video-up="moveVideoUp"
         @move-video-down="moveVideoDown"
+        @move-video-to-the-top="moveVideoToTheTop"
+        @move-video-to-the-bottom="moveVideoToTheBottom"
         @remove-from-playlist="removeFromPlaylist"
       />
       <FtListChannel
@@ -63,6 +66,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 
@@ -152,20 +156,30 @@ const props = defineProps({
     type: Object,
     default: () => ({ videoId: null, playlistItemId: null }),
   },
-  isSortOrderCustom: {
+  isVideoDragging: {
     type: Boolean,
     default: false,
   },
-  isVideoDragging: {
+  videoDraggingPossible: {
     type: Boolean,
     default: false,
   },
 })
 
-const emit = defineEmits(['move-dragged-video', 'move-video-down', 'move-video-up', 'remove-from-playlist', 'drag-video', 'drag-video-end'])
+const emit = defineEmits([
+  'move-dragged-video',
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'remove-from-playlist',
+  'drag-video',
+  'drag-video-end'
+])
 
 const inUserPlaylist = props.playlistType === 'user'
-const isDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
+const showGrabBar = computed(() => inUserPlaylist && props.videoDraggingPossible)
+const isDraggable = computed(() => showGrabBar.value && (props.canMoveVideoUp || props.canMoveVideoDown))
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
 const draggableEventHandlers = {
   dragstart: onDragVideo,
@@ -246,14 +260,16 @@ const showResult = computed(() => {
 
     const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-    if (channelsHidden.value.some(ch => ch.name === props.data.authorId) || channelsHidden.value.some(ch => ch.name === props.data.author) || (forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text)))) {
+    if (channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaborators?.length > 0 && ch.name === props.data.collaborators[0].id)) ||
+    channelsHidden.value.some(ch => ch.name === props.data.author) ||
+    (lowerCaseAuthor != null && forbiddenTitles.value.some(text => lowerCaseAuthor.includes(text)))) {
       // hide videos by author
       return false
     }
 
     const lowerCaseTitle = props.data.title?.toLowerCase()
 
-    if (forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) {
+    if (lowerCaseTitle != null && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) {
       return false
     }
   } else if (dataType === 'channel') {
@@ -270,7 +286,7 @@ const showResult = computed(() => {
     const lowerCaseName = props.data.name?.toLowerCase()
 
     if ((attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) ||
-      (forbiddenTitles.value.some((text) => lowerCaseName.includes(text)))) {
+      (lowerCaseName != null && forbiddenTitles.value.some((text) => lowerCaseName.includes(text)))) {
       // hide channels by author
       return false
     }
@@ -278,8 +294,8 @@ const showResult = computed(() => {
     const lowerCaseTitle = props.data.title?.toLowerCase()
     const lowerCaseChannelName = props.data.channelName?.toLowerCase()
 
-    if ((forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
-      (forbiddenTitles.value.some((text) => lowerCaseChannelName.includes(text)))) {
+    if ((lowerCaseTitle != null && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
+      (lowerCaseChannelName != null && forbiddenTitles.value.some((text) => lowerCaseChannelName.includes(text)))) {
       return false
     }
 
@@ -326,6 +342,22 @@ function moveVideoUp(videoId, playlistItemId) {
  */
 function moveVideoDown(videoId, playlistItemId) {
   emit('move-video-down', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheTop(videoId, playlistItemId) {
+  emit('move-video-to-the-top', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheBottom(videoId, playlistItemId) {
+  emit('move-video-to-the-bottom', videoId, playlistItemId)
 }
 
 /**

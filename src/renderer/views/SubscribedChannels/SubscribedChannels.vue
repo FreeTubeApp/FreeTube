@@ -36,7 +36,8 @@
             :key="channel.id"
             class="channel"
           >
-            <router-link
+            <component
+              :is="enableChannelLinks ? 'router-link' : 'span'"
               tabindex="-1"
               class="thumbnailContainer"
               :to="`/channel/${channel.id}`"
@@ -53,15 +54,16 @@
                 class="channelThumbnail"
                 :icon="['fas', 'circle-user']"
               />
-            </router-link>
-            <router-link
+            </component>
+            <component
+              :is="enableChannelLinks ? 'router-link' : 'span'"
               class="channelName"
               dir="auto"
               :title="channel.name"
               :to="`/channel/${channel.id}`"
             >
               {{ channel.name }}
-            </router-link>
+            </component>
             <div
               v-if="!hideUnsubscribeButton"
               class="unsubscribeContainer"
@@ -288,5 +290,8 @@ onMounted(() => {
 onBeforeUnmount(() => {
   document.removeEventListener('keydown', keyboardShortcutHandler)
 })
+
+const enableChannelLinks = computed(() => !store.getters.getDisableChannelLinks)
+
 </script>
 <style scoped src="./SubscribedChannels.css" />

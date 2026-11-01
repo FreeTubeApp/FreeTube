@@ -10,53 +10,55 @@
         playlistCount: selectedPlaylistCount,
       }, selectedPlaylistCount) }}
     </p>
-    <div
+    <template
       v-if="allPlaylists.length > 1"
-      class="searchInputsRow"
-    >
-      <FtInput
-        ref="searchBar"
-        :placeholder="t('User Playlists.AddVideoPrompt.Search in Playlists')"
-        :show-clear-text-button="true"
-        :show-action-button="false"
-        :maxlength="255"
-        @input="updateQueryDebounce"
-        @clear="updateQueryDebounce('')"
-      />
-    </div>
-    <div
-      v-if="allPlaylists.length > 1"
-      class="optionsRow"
     >
       <div
-        class="tightOptions"
+        class="searchInputsRow"
       >
-        <FtToggleSwitch
-          class="matchingVideoToggle"
-          :label="t('User Playlists.Playlists with Matching Videos')"
-          :compact="true"
-          :default-value="doSearchPlaylistsWithMatchingVideos"
-          @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
-        />
-        <FtToggleSwitch
-          v-if="anyPlaylistContainsVideosToBeAdded"
-          class="allowDuplicateToggle"
-          :label="t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
-          :compact="true"
-          :default-value="addingDuplicateVideosEnabled"
-          @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+        <FtInput
+          ref="searchBar"
+          :placeholder="t('User Playlists.AddVideoPrompt.Search in Playlists')"
+          :show-clear-text-button="true"
+          :show-action-button="false"
+          :maxlength="255"
+          @input="updateQueryDebounce"
+          @clear="updateQueryDebounce('')"
         />
       </div>
-      <FtSelect
-        class="sortSelect"
-        :value="sortBy"
-        :select-names="sortBySelectNames"
-        :select-values="SORT_BY_SELECT_VALUES"
-        :placeholder="t('Global.Sort By')"
-        :icon="sortBySelectIcon"
-        @change="sortBy = $event"
-      />
-    </div>
+      <div
+        class="optionsRow"
+      >
+        <div
+          class="tightOptions"
+        >
+          <FtToggleSwitch
+            class="matchingVideoToggle"
+            :label="t('User Playlists.Playlists with Matching Videos')"
+            :compact="true"
+            :default-value="doSearchPlaylistsWithMatchingVideos"
+            @change="doSearchPlaylistsWithMatchingVideos = !doSearchPlaylistsWithMatchingVideos"
+          />
+          <FtToggleSwitch
+            v-if="anyPlaylistContainsVideosToBeAdded"
+            class="allowDuplicateToggle"
+            :label="t('User Playlists.AddVideoPrompt.Allow Adding Duplicate Video(s)')"
+            :compact="true"
+            :default-value="addingDuplicateVideosEnabled"
+            @change="addingDuplicateVideosEnabled = !addingDuplicateVideosEnabled"
+          />
+        </div>
+        <FtSelect
+          class="sortSelect"
+          :value="sortBy"
+          :select-names="sortBySelectNames"
+          :select-values="SORT_BY_SELECT_VALUES"
+          :placeholder="t('Global.Sort By')"
+          :icon="sortBySelectIcon"
+          @change="sortBy = $event"
+        />
+      </div>
+    </template>
     <div class="playlists-container">
       <FtFlexBox>
         <div
@@ -261,7 +263,7 @@ const activePlaylists = computed(() => {
   })
 })
 
-const playlistIdsContainingVideosToBeAdded = computed(() => {
+const getPlaylistIdsFiltered = (filter) => {
   /** @type {Set<string>} */
   const ids = new Set()
 
@@ -270,12 +272,24 @@ const playlistIdsContainingVideosToBeAdded = computed(() => {
   allPlaylists.value.forEach((playlist) => {
     const playlistVideoIdSet = playlist.videos.reduce((s, v) => s.add(v.videoId), new Set())
 
-    if (toBeAddedToPlaylistVideoIdList_.some((vid) => playlistVideoIdSet.has(vid))) {
+    if (filter(toBeAddedToPlaylistVideoIdList_, playlistVideoIdSet)) {
       ids.add(playlist._id)
     }
   })
 
   return ids
+}
+
+const playlistIdsContainingVideosToBeAdded = computed(() => {
+  return getPlaylistIdsFiltered((videoIdsToAdd, playlistVideoIds) =>
+    videoIdsToAdd.some((videoId) => playlistVideoIds.has(videoId))
+  )
+})
+
+const playlistIdsContainingAllVideosToBeAdded = computed(() => {
+  return getPlaylistIdsFiltered((videoIdsToAdd, playlistVideoIds) =>
+    videoIdsToAdd.every((videoId) => playlistVideoIds.has(videoId))
+  )
 })
 
 const anyPlaylistContainsVideosToBeAdded = computed(() => {
@@ -340,7 +354,7 @@ watch(addingDuplicateVideosEnabled, (val) => {
     // Only care when addingDuplicateVideosEnabled disabled
     // Remove disabled playlists
     selectedPlaylistIdList.value = selectedPlaylistIdList.value.filter(playlistId => {
-      return !playlistIdsContainingVideosToBeAdded.value.has(playlistId)
+      return !playlistIdsContainingAllVideosToBeAdded.value.has(playlistId)
     })
   }
 })
@@ -443,7 +457,7 @@ function playlistDisabled(playlistId) {
     return false
   }
 
-  return playlistIdsContainingVideosToBeAdded.value.has(playlistId)
+  return playlistIdsContainingAllVideosToBeAdded.value.has(playlistId)
 }
 </script>
 

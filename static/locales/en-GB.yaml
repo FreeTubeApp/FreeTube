@@ -99,7 +99,7 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: This profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   Error Channels: Channels with errors
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
-  Empty Channels: Your subscribed channels currently does not have any videos.
+  Empty Channels: Your subscribed channels currently do not have any videos.
   Subscriptions Tabs: Subscriptions tabs
   All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here, please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
   Empty Posts: Your subscribed channels currently do not have any posts.
@@ -195,6 +195,8 @@ User Playlists:
   The playlist has been successfully exported: The playlist has been successfully exported
   TotalTimePlaylist: 'Total time: {duration}'
   Export list of URLs: Export list of URLs
+  Move Video to the Top: Move Video to the Top
+  Move Video to the Bottom: Move Video to the Bottom
 History:
   # On History Page
   History: 'History'
@@ -382,8 +384,8 @@ Settings:
     Scroll Volume Over Video Player: 'Scroll Volume Over Video Player'
     Default Volume: 'Default volume'
     Default Playback Rate: 'Default playback rate'
-    Default Video Format:
-      Default Video Format: 'Default video format'
+    Default Media Format:
+      Default Media Format: 'Default media format'
       Dash Formats: 'DASH formats'
       Legacy Formats: 'Legacy formats'
       Audio Formats: 'Audio formats'
@@ -430,6 +432,9 @@ Settings:
       Picture in Picture: Picture in Picture
       External Player: External Player ({externalPlayerName})
       Theater: Cinema
+      Full Window (Always On): Full Window (Always On)
+      Full Screen (Always On): Full Screen (Always On)
+      Tooltip: Most default viewing modes are only applied at the start of each watch session. Changes made during the session persist until it ends. Always-on viewing modes are applied whenever you switch to a new video, regardless of any viewing mode changes made when viewing the previous video.
   External Player Settings:
     External Player Settings: External Player
     External Player: External Player
@@ -515,6 +520,15 @@ Settings:
     Export search history: Export search history
     All search history has been successfully imported: All search history has been successfully imported
     All search history has been successfully exported: All search history has been successfully exported
+    Settings File: Settings File
+    Import Settings: Import Settings
+    Export Settings: Export Settings
+    Settings Tooltip: Settings that are OS/user-specific or experimental cannot be exported or imported (e.g., proxy, external player, screenshot folder...)
+    All settings have been successfully imported: All settings have been successfully imported
+    All settings have been successfully exported: All settings have been successfully exported
+    Setting object has insufficient data, skipping item: Setting object has insufficient data, skipping item
+    Unknown setting key: 'Unknown setting key: {key}'
+    Non-transferable setting key: 'Non-transferable setting key: {key}'
   Distraction Free Settings:
     Hide Live Chat: Hide Live Chat
     Hide Popular Videos: Hide Popular Videos
@@ -623,7 +637,6 @@ About:
   Help: Help
   Donate: Donate
   Beta: Beta
-  Email: E-mail
   FAQ: FAQ
   Credits: Credits
   Website: Website
@@ -697,7 +710,6 @@ Channel:
   Your search results have returned 0 results: 'Your search results have returned 0 results'
   Videos:
     Videos: 'Videos'
-    This channel does not currently have any videos: 'This channel does not currently have any videos'
     Sort Types:
       Newest: 'Newest'
       Oldest: 'Oldest'
@@ -748,6 +760,7 @@ Channel:
   Courses:
     Courses: Courses
     This channel does not currently have any courses: This channel does not currently have any courses
+  View All: View All
 Video:
   Mark As Watched: 'Mark As Watched'
   Remove From History: 'Remove From History'
@@ -932,6 +945,7 @@ Comments:
   Hide Replies: Hide reply | Hide replies
   View 1 reply from {channelName}: View 1 reply from {channelName}
   View {replyCount} replies from {channelName} and others: View {replyCount} replies from {channelName} and others
+  Loading replies: Loading replies...
 Up Next: 'Up Next'
 Description:
   Expand Description: '...more'
@@ -960,7 +974,7 @@ Tooltips:
     Fetch Feeds from RSS: When enabled, FreeTube will use RSS instead of its default method to grab your subscription feed. RSS is faster and prevents IP blocking, but it doesn’t provide certain information like video duration, live status or posts
     Fetch Automatically: When enabled, FreeTube will automatically fetch your subscription feed on startup and when a new window is opened.
   Player Settings:
-    Default Video Format: Set the formats used when a video plays. DASH formats can play higher qualities. Legacy formats are limited to a max of 360p but use less bandwidth. Audio formats are audio only streams.
+    Default Media Format: Set the formats used when a video plays. DASH formats can play higher qualities. Legacy formats are limited to a max of 360p but use less bandwidth. Audio formats are audio only streams.
     Proxy Videos Through Invidious: Will connect to Invidious to serve videos instead of making a direct connection to YouTube.
     Scroll Playback Rate Over Video Player: While the cursor is over the video, press and hold the Control key (Command Key on Mac) and scroll the mouse wheel forwards or backwards to control the playback rate. Press and hold the Control key (Command Key on Mac) and left click the mouse to quickly return to the default playback rate (1x unless it has been changed in the settings).
     Skip by Scrolling Over Video Player: Use the scroll wheel to skip through the video, MPV style.

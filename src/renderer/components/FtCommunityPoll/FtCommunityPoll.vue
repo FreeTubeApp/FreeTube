@@ -3,7 +3,6 @@
     <div
       class="vote-count"
     >
-      <!-- Format the votes to be split by commas ie. 1000 -> 1,000 -->
       {{ $t('Channel.Posts.votes', {votes: formattedVotes}) }}
     </div>
     <div
@@ -12,7 +11,7 @@
     >
       <div
         v-if="data.type === 'quiz'"
-        class="option quiz-option"
+        class="option"
         :class="revealAnswer && choice.isCorrect ? 'correct-option' : ''"
       >
         <span class="empty-circle">
@@ -27,7 +26,7 @@
       </div>
       <div
         v-else
-        class="option poll-option"
+        class="option"
       >
         <span class="empty-circle" />
         <img
@@ -49,8 +48,7 @@
       tabindex="0"
       role="button"
       @click="revealAnswer = !revealAnswer"
-      @keydown.enter.prevent="revealAnswer = !revealAnswer"
-      @keydown.space.prevent="revealAnswer = !revealAnswer"
+      @keydown.enter.space.prevent="revealAnswer = !revealAnswer"
     >
       <div
         v-if="!revealAnswer"
@@ -72,7 +70,7 @@
 import { computed, ref } from 'vue'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-import { formatNumber } from '../../helpers/utils'
+import { formatNumber, isNumberRounded } from '../../helpers/utils'
 
 const props = defineProps({
   data: {
@@ -82,7 +80,8 @@ const props = defineProps({
 })
 
 const formattedVotes = computed(() => {
-  return formatNumber(props.data.totalVotes)
+  const votes = props.data.totalVotes
+  return formatNumber(votes, votes != null && isNumberRounded(votes) ? { notation: 'compact' } : undefined)
 })
 
 const revealAnswer = ref(false)

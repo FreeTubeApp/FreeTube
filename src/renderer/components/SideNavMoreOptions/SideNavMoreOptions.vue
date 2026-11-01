@@ -10,8 +10,7 @@
       aria-labelledby="moreNavLabel"
       :title="$t('More')"
       @click="openMoreOptions = !openMoreOptions"
-      @keydown.space.prevent="openMoreOptions = !openMoreOptions"
-      @keydown.enter.prevent="openMoreOptions = !openMoreOptions"
+      @keydown.enter.space.prevent="openMoreOptions = !openMoreOptions"
     >
       <FontAwesomeIcon
         :icon="['fas', 'ellipsis-h']"

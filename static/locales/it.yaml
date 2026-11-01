@@ -101,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Tutte le schede di iscrizione sono nascoste. Per vedere i contenuti qui, scopri le schede nella sezione "{subsection}" in "{settingsSection}".
   Load More Posts: Carica più post
   Empty Posts: I canali a cui sei iscritto attualmente non hanno post.
+  Posts:
+    RSS Message: YouTube non fornisce feed RSS per i post. Disattiva l'impostazione "{rssSetting}" per visualizzare i post oppure attiva l'impostazione "{hideSetting}" per nascondere questa scheda.
 Trending:
   Trending: 'Tendenze'
   Trending Tabs: Schede di tendenza
@@ -168,10 +170,10 @@ User Playlists:
     New Playlist Name: Nuovo nome della playlist
   This playlist currently has no videos.: Questa playlist attualmente non contiene video.
   Add to Playlist: Aggiungi alla playlist
-  Move Video Down: Sposta il video in basso
+  Move Video Down: Sposta il video giù
   Playlist Name: Nome della playlist
   Remove Watched Videos: Rimuovi i video guardati
-  Move Video Up: Sposta il video in alto
+  Move Video Up: Sposta il video su
   Cancel: Annulla
   Delete Playlist: Elimina playlist
   Create New Playlist: Crea nuova playlist
@@ -191,6 +193,9 @@ User Playlists:
   The playlist has been successfully exported: La playlist è stata esportata correttamente
   TotalTimePlaylist: 'Tempo totale: {duration}'
   Export list of URLs: Esporta l'elenco degli URL
+  Move Video to the Top: Sposta il video in alto
+  Move Video to the Bottom: Sposta il video in basso
+  This playlist is private or does not exist.: Questa playlist è privata o non esiste.
 History:
   # On History Page
   History: 'Cronologia'
@@ -377,11 +382,11 @@ Settings:
     Enable Theatre Mode by Default: 'Abilita la modalità teatro come predefinita'
     Default Volume: 'Volume predefinito'
     Default Playback Rate: 'Velocità di riproduzione predefinita'
-    Default Video Format:
-      Default Video Format: 'Formato video predefinito'
+    Default Media Format:
       Dash Formats: 'Formati DASH'
       Legacy Formats: 'Formati compatibili'
       Audio Formats: 'Formati audio'
+      Default Media Format: Formato multimediale predefinito
     Default Quality:
       Default Quality: 'Qualità predefinita'
       Auto: 'Automatica'
@@ -426,6 +431,9 @@ Settings:
       External Player: Lettore esterno ({externalPlayerName})
       Default Viewing Mode: Modalità di visualizzazione predefinita
       Theater: Teatro
+      Full Window (Always On): Finestra intera (sempre attiva)
+      Full Screen (Always On): Schermo intero (sempre attivo)
+      Tooltip: La maggior parte delle modalità di visualizzazione predefinite viene applicata solo all'inizio di ogni sessione di visione. Le modifiche apportate durante la sessione permangono fino alla sua conclusione. Le modalità di visualizzazione sempre attive vengono applicate ogni volta che si passa a un nuovo video, indipendentemente dalle modifiche apportate alla modalità di visualizzazione durante la visione del video precedente.
   Privacy Settings:
     Privacy Settings: 'Privacy'
     Remember History: 'Ricorda la Cronologia delle visualizzazioni'
@@ -501,6 +509,15 @@ Settings:
     Export search history: Esporta cronologia ricerche
     All search history has been successfully imported: Tutta la cronologia ricerche è stata importata correttamente
     All search history has been successfully exported: Tutta la cronologia ricerche è stata esportata correttamente
+    Settings File: File delle impostazioni
+    Import Settings: Importa le impostazioni
+    Export Settings: Esporta le impostazioni
+    All settings have been successfully imported: Tutte le impostazioni sono state importate con sucesso
+    All settings have been successfully exported: Tutte le impostazioni sono state esportate con sucesso
+    Settings Tooltip: Le impostazioni specifiche del sistema operativo/utente o quelle sperimentali non possono essere esportate o importate (ad esempio, proxy, lettore esterno, cartella degli screenshot...)
+    Setting object has insufficient data, skipping item: L'oggetto delle impostazioni ha dati insufficienti, elemento saltato
+    Unknown setting key: 'Chiave delle impostazioni sconosciuta: {key}'
+    Non-transferable setting key: 'Chiave delle impostazioni non trasferibile: {key}'
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -524,16 +541,16 @@ Settings:
     Hide Channels Placeholder: ID del canale
     Display Titles Without Excessive Capitalisation: Visualizza i titoli senza maiuscole e punteggiatura eccessive
     Hide Featured Channels: Nascondi i canali in evidenza
-    Hide Channel Playlists: Nascondi la scheda "Playlist" del canale
-    Hide Channel Shorts: Nascondi i "Video brevi" del canale
+    Hide Channel Playlists: Nascondi la scheda Playlist del canale
+    Hide Channel Shorts: Nascondi i Video brevi del canale
     Sections:
       General: Generale
       Watch Page: Pagina di visualizzazione
       Side Bar: Barra laterale
       Channel Page: Pagina del canale
       Subscriptions Page: Pagina delle iscrizioni
-    Hide Channel Podcasts: Nascondi la scheda "Podcast" del canale
-    Hide Channel Releases: Nascondi la scheda "Rilasci" del canale
+    Hide Channel Podcasts: Nascondi la scheda Podcast del canale
+    Hide Channel Releases: Nascondi la scheda Rilasci del canale
     Hide Subscriptions Live: Nascondi le iscrizioni dal vivo
     Hide Subscriptions Videos: Nascondi i video delle iscrizioni
     Hide Subscriptions Shorts: Nascondi le iscrizioni ai video brevi
@@ -544,11 +561,13 @@ Settings:
     Hide Channels API Error: Errore durante il recupero dell'utente con l'ID fornito. Controlla di nuovo se l'ID è corretto.
     Hide Videos, Playlists and Channels Containing Text: Nascondi i video e le playlist contenenti il testo
     Hide Videos, Playlists and Channels Containing Text Placeholder: Parola, frammento di parola o frase
-    Hide Channel Home: Nascondi la scheda "Pagina iniziale" del canale
+    Hide Channel Home: Nascondi la scheda Pagina iniziale del canale
     Show Added Items: Mostra elementi aggiunti
-    Hide Channel Courses: Nascondi la scheda "Corsi" del canale
-    Hide Channel Posts: Nascondi la scheda "Post" del canale
+    Hide Channel Courses: Nascondi la scheda Corsi del canale
+    Hide Channel Posts: Nascondi la scheda Post del canale
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
+    Add: Aggiungi
+    Remove: Rimuovi
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
@@ -582,6 +601,10 @@ Settings:
     UseDeArrowTitles: Usa i titoli dei video di DeArrow
     UseDeArrowThumbnails: Usa DeArrow per le miniature
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL dell'API del generatore di miniature DeArrow (l'impostazione predefinita è https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Alcuni canali sono stati esclusi tramite ID e non sono stati elaborati. La funzionalità è bloccata durante l'aggiornamento di tali ID
+      Excluded Channels: Canali esclusi
+      Tooltip: Inserisci l'ID del canale per disattivare SponsorBlock. I segmenti sponsorizzati nei video di questo canale non verranno saltati. L'ID del canale inserito deve corrispondere esattamente e distingue tra maiuscole e minuscole.
   External Player Settings:
     Custom External Player Arguments: Argomenti del lettore esterno personalizzato
     Custom External Player Executable: File eseguibile del lettore esterno personalizzato
@@ -603,6 +626,7 @@ Settings:
     Replace HTTP Cache: Sostituisci la cache HTTP
     Experimental Settings: Sperimentale
     Warning: Queste Impostazioni sono sperimentali, causano arresti anomali se abilitate. Si consiglia prima di fare un backup. Usare a proprio rischio!
+    Disable Hardware Acceleration: Disabilita l'accelerazione hardware
   Password Dialog:
     Enter Password To Unlock: Inserisci la password per sbloccare le Impostazioni
     Password: Password
@@ -632,7 +656,6 @@ About:
   room rules: regole stanza
   Chat on Matrix: Chatta su Matrix
   Mastodon: Mastodon
-  Email: E-mail
   Website: Sito web
   Please check for duplicates before posting: Controlla se ci sono duplicati prima di pubblicare
   Source code: Codice sorgente
@@ -649,11 +672,11 @@ Channel:
   Your search results have returned 0 results: 'La tua ricerca ha prodotto 0 risultati'
   Videos:
     Videos: 'Video'
-    This channel does not currently have any videos: 'Questo canale attualmente non ha alcun video'
     Sort Types:
       Newest: 'Più nuovi'
       Oldest: 'Più vecchi'
       Most Popular: 'Più popolari'
+    This channel has videos but none could be displayed, try fetching more: Questo canale contiene video, ma non è stato possibile visualizzarne alcuno; prova a caricarne altri
   Playlists:
     Playlists: 'Playlist'
     This channel does not currently have any playlists: 'Questo canale attualmente non ha alcuna playlist'
@@ -671,6 +694,7 @@ Channel:
     Details: Dettagli
     Joined: Iscrizione
     Location: Posizione
+    Links: Link
   Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
   Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione dagli altri canali di {count}
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle tue iscrizioni
@@ -703,6 +727,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Questo canale al momento non ha corsi
     Courses: Corsi
+  View All: Vedi tutto
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'
@@ -804,7 +829,7 @@ Video:
     Skipped segment: Segmento {segmentCategory} saltato
     Autoplay is off: La riproduzione automatica è disattivata
     Autoplay is on: La riproduzione automatica è attivata
-  IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video. Prova a passare a una VPN o a un proxy diverso.
+  IP block: YouTube ha bloccato il tuo indirizzo IP, impedendoti di guardare i video; in alternativa, il video potrebbe contenere materiale che vede protagonisti dei minori, per il quale YouTube limita l'accesso agli utenti non collegati al proprio account. Se si tratta di un blocco dell'indirizzo IP, prova a udare una VPN o un proxy diverso.
   Unlisted: Non elencato
   MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube, poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente che li ha caricati.
   AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età verificata.
@@ -820,6 +845,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Tempo di backoff SABR rimanente: {remindingTimeSeconds}s'
   Popout Live Chat: Chat popout
   Private: Su FreeTube non è possibile guardare video privati, poiché richiedono l'accesso tramite account Google e la proprietà del video.
+  Expand Playlist: Espandi la playlist
+  Collapse Playlist: Comprimi playlist
+  Station: Stazione
+  Playlist:
+    Unavailable videos are hidden: 1 video non disponibile è nascosto | {count} video non disponibili sono nascosti
+  Premiere: Première
+  Enable SponsorBlock on Channel: Attiva SponsorBlock sul canale
+  Disable SponsorBlock on Channel: Disabilita SponsorBlock sul canale
+  AI: IA
+  'AI: Content was made with AI': "IA: Il contenuto è stato creato con l'IA"
+  How this was made: Come è stato realizzato
+  Reload Page: Ricarica pagina
 Playlist:
   #& About
   View Full Playlist: 'Guarda playlist completa'
@@ -841,6 +878,7 @@ Playlist:
     VideoDurationDescending: Durata (più lunga)
     PublishedNewest: Data di pubblicazione (più recente)
     PublishedOldest: Data di pubblicazione (più vecchia)
+  Unavailable videos are hidden: I video non disponibili sono nascosti
 Change Format:
   Change Media Formats: 'Cambia formato video'
   Use Dash Formats: 'Usa i formati DASH'
@@ -887,6 +925,8 @@ Comments:
   Hide Replies: Nascondi la risposta | Nascondi le risposte
   View 1 reply from {channelName}: Visualizza 1 risposta da {channelName}
   View {replyCount} replies from {channelName} and others: Visualizza {replyCount} risposte da {channelName} e altri
+  Loading replies: Caricamento risposte...
+  Comments are turned off: I commenti sono disabilitati
 Up Next: 'Prossimi video'
 
 # Toast Messages
@@ -949,10 +989,11 @@ Profile:
   Profile Name: Nome del profilo
   Edit Profile Name: Modifica il nome del profilo
   Create Profile Name: Crea un nome per il profilo
+  Go To Profile Manager: Vai a Gestione dei profili
 This video is unavailable because of missing formats. This can happen due to country unavailability.: Questo video non è disponibile a causa di alcuni formati mancanti. Questo può succedere in caso di mancata disponibilità della nazione.
 Tooltips:
   Player Settings:
-    Default Video Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
+    Default Media Format: Imposta i formati usati quando un video viene riprodotto. I formati DASH possono riprodurre qualità maggiore. I formati compatibili sono limitati ad un massimo di 360p ma usano meno banda. I formati audio riproducono solo l'audio.
     Proxy Videos Through Invidious: Connessione a Invidious per riprodurre i video invece di una connessione diretta a YouTube.
     Scroll Playback Rate Over Video Player: Mentre il cursore si trova sul video, tieni premuto il tasto Control (Command su Mac) e ruota la rotellina del mouse in avanti o all'indietro per regolare la velocità di riproduzione. Tieni premuto il tasto Control (Command su Mac) e fai clic con il tasto sinistro del mouse per tornare rapidamente alla velocità di riproduzione predefinita (1x, a meno che non sia stata modificata nelle impostazioni).
     Skip by Scrolling Over Video Player: Usa la rotella di scorrimento per saltare il video, in stile MPV.
@@ -960,7 +1001,7 @@ Tooltips:
     Fetch Feeds from RSS: Se abilitato, FreeTube userà gli RSS invece del metodo standard per leggere le iscrizioni. Gli RSS sono più veloci e impediscono il blocco dell'IP, ma non forniscono determinate informazioni come la durata del video, lo stato dal vivo o i post
     Fetch Automatically: Se abilitato, FreeTube recupererà automaticamente il feed delle tue iscrizioni all'avvio e quando viene aperta una nuova finestra.
   General Settings:
-    Invidious Instance: Istanza Invidious che FreeTube usa per le chiamate API.
+    Invidious Instance: L'istanza di Invidious a cui FreeTube si connetterà per le chiamate API. Le modifiche a questa impostazione si applicano solo alla finestra corrente, a meno che non si imposti questa istanza come predefinita.
     Thumbnail Preference: Tutte le miniature su FreeTube verranno sostituite con un fotogramma del video, sfocato o nascosto al posto della miniatura predefinita.
     Fallback to Non-Preferred Backend on Failure: Quando le API preferite hanno un problema, FreeTube userà automaticamente le API secondarie come riserva (se abilitate).
     Preferred API Backend: Scegli il backend usato da FreeTube per ottenere i dati. Le API locali sono integrate nel programma. Le API Invidious richiedono un server Invidious al quale connettersi.
@@ -976,6 +1017,7 @@ Tooltips:
     Ignore Default Arguments: Non inviare argomenti predefiniti al lettore esterno oltre all'URL del video (ad esempio velocità di riproduzione, URL della playlist, ecc.). Gli argomenti personalizzati verranno comunque trasmessi.
   Experimental Settings:
     Replace HTTP Cache: Disabilita la cache HTTP basata su disco Electron e abilita una cache di immagini in memoria personalizzata. Comporta un aumento dell'uso della RAM.
+    Disable Hardware Acceleration: Disabilita l'accelerazione hardware della GPU. Potrebbe risolvere problemi grafici, ma probabilmente le prestazioni saranno inferiori.
   Distraction Free Settings:
     Hide Channels: Inserisci l'ID di un canale per impedire che tutti i video, le playlist e il canale stesso vengano visualizzati nelle ricerche, tendenze, più popolari e consigliati. Il nome del canale inserito deve avere una corrispondenza completa e fa distinzione tra maiuscole e minuscole.
     Hide Subscriptions Live: Questa impostazione è sovrascritta dall'impostazione "{appWideSetting}" a livello di app, nella sezione "{subsection}" di "{settingsSection}"
@@ -993,6 +1035,8 @@ Unknown YouTube url type, cannot be opened in app: Tipo di URL YouTube sconosciu
 Search Bar:
   Clear Input: Pulisci ricerca
   Remove: Rimuovi
+  Open Search Container: Contenitore Open Search
+  Search: Ricerca
 External link opening has been disabled in the general settings: L'apertura dei link esterni è stata disabilitata nelle Impostazioni generali
 Are you sure you want to open this link?: Sei sicuro di voler aprire questo link?
 Screenshot Success: Screenshot salvato
@@ -1119,3 +1163,5 @@ Expand side navigation: Espandi la navigazione laterale
 Compact side navigation: Compatta la navigazione laterale
 Screenshot Clipboard Success: Screenshot salvato negli appunti
 Screenshot Clipboard Error: Impossibile copiare lo screenshot negli appunti
+SponsorBlock Disabled on Channel: SponsorBlock disabilitato su {channel}
+SponsorBlock Enabled on Channel: SponsorBlock abilitato su {channel}

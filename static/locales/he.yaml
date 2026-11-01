@@ -379,8 +379,7 @@ Settings:
     Enable Theatre Mode by Default: 'הפעלת מצב קולנוע כברירת מחדל'
     Default Volume: 'ברירת המחדל לעוצמת השמע'
     Default Playback Rate: 'ברירת המחדל למהירות הצפייה'
-    Default Video Format:
-      Default Video Format: 'תצורת הסרטונים כברירת המחדל'
+    Default Media Format:
       Dash Formats: 'תצורות DASH'
       Legacy Formats: 'תצורות מיושנות'
       Audio Formats: 'תצורות שמע'
@@ -618,7 +617,6 @@ About:
   Website: אתר
   Credits: תודות
   FAQ: שו״ת
-  Email: דוא״ל
   Beta: בטא
   Donate: תרומה
   Help: עזרה
@@ -691,7 +689,6 @@ Channel:
   Your search results have returned 0 results: 'לא נמצאו תוצאות'
   Videos:
     Videos: 'סרטונים'
-    This channel does not currently have any videos: 'לערוץ זה אין סרטונים כרגע'
     Sort Types:
       Newest: 'הכי חדשים'
       Oldest: 'הכי ישנים'
@@ -957,7 +954,7 @@ Tooltips:
     Open Deep Links In New Window: כתובות שמועברות ל־FreeTube, כגון העברת הרחבות דפדפן או ארגומנטים בשורת הפקודה, תיפתחנה בחלון חדש.
   Player Settings:
     Proxy Videos Through Invidious: יתבצע חיבור ל־Invidious כדי להגיש סרטונים במקום להתחבר ישירות ל־YouTube.
-    Default Video Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־360 פיקסלים לכל היותר אך משתמשים בפחות רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
+    Default Media Format: קביעת התסדירים בעת ניגון סרטונים. תסדירי DASH יכולים להתנגן באיכויות גבוהות יותר. התסדירים המיושנים מוגבלים ל־360 פיקסלים לכל היותר אך משתמשים בפחות רוחב פס. תסדירי שמע הם הזרמות של שמע בלבד.
     Scroll Playback Rate Over Video Player: כאשר הסמן מעל הסרטון, יש ללחוץ ולהחזיק את מקש ה־Control (או Command ב־Mac) ולגלול עם גלגלת העכבר קדימה או אחורה כדי לשלוט בקצב הנגינה. לחיצה והחזקה של מקש Control (או Command ב־Mac) ולחיצה על הכפתור השמאלי בעכבר מחזירה במהירות לקצב הנגינה כברירת מחדל (1x אלמלא בוצע שינוי בהגדרות).
     Skip by Scrolling Over Video Player: ניתן להשתמש בגלגלת כדי לדלג בתוך הסרטון, כמו ב־MPV.
   Subscription Settings:

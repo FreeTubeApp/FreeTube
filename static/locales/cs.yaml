@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Všechny karty předplatného jsou skryté. Chcete-li zde zobrazit obsah, zrušte prosím skrytí některých záložek v sekci „{subsection}“ v „{settingsSection}“.
   Load More Posts: Načíst další příspěvky
   Empty Posts: Vaše odebírané kanály momentálně nemají žádné příspěvky.
+  Posts:
+    RSS Message: YouTube neposkytuje RSS kanály příspěvků. Zakažte nastavení „{rssSetting}“ pro zobrazení příspěvků nebo povolte nastavení „{hideSetting}“ pro skrytí této karty.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Tabulka trendů
@@ -194,6 +196,9 @@ User Playlists:
   The playlist has been successfully exported: Playlist byl úspěšně exportován
   TotalTimePlaylist: 'Celkový čas: {duration}'
   Export list of URLs: Exportovat seznam adres URL
+  Move Video to the Top: Přesunout video na začátek
+  Move Video to the Bottom: Přesunout video na konec
+  This playlist is private or does not exist.: Tento playlist je soukromý nebo neexistuje.
 History:
   # On History Page
   History: 'Historie'
@@ -381,11 +386,11 @@ Settings:
     Enable Theatre Mode by Default: 'Ve výchozím nastavení povolit režim kino'
     Default Volume: 'Výchozí hlasitost'
     Default Playback Rate: 'Výchozí rychlost přehrávání'
-    Default Video Format:
-      Default Video Format: 'Výchozí formát videa'
+    Default Media Format:
       Dash Formats: 'Formát DASH'
       Legacy Formats: 'Starší formáty'
       Audio Formats: 'Zvukové formáty'
+      Default Media Format: Výchozí formát médií
     Default Quality:
       Default Quality: 'Výchozí kvalita'
       Auto: 'Automaticky'
@@ -430,6 +435,9 @@ Settings:
       Full Screen: Celá obrazovka
       External Player: Externí přehrávač ({externalPlayerName})
       Picture in Picture: Obraz v obraze
+      Full Window (Always On): Celé okno (vždy zapnuto)
+      Full Screen (Always On): Celá obrazovka (vždy zapnuto)
+      Tooltip: Nejvíce výchozí režimy sledování jsou použity pouze na začátku každé relace sledování. Změny provedené během relace se zachovají do jejího konce. Režimy s popisem „vždy zapnuto“ budou použity vždy, když přepnete na nové video, nezávisle na změnách režimu sledování provedených během sledování předchozího videa.
   Privacy Settings:
     Privacy Settings: 'Soukromí'
     Remember History: 'Zapamatovat historii sledování'
@@ -511,6 +519,8 @@ Settings:
     Hide Channel Courses: Skrýt kartu „Kurzy“ u kanálů
     Hide Subscriptions Posts: Skrýt příspěvky odběrů
     Hide Channel Posts: Skrýt kartu „Příspěvky“ u kanálů
+    Add: Přidat
+    Remove: Odstranit
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -594,6 +604,10 @@ Settings:
     UseDeArrowTitles: Použít názvy videí z DeArrow
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': Adresa URL API generátoru náhledů DeArrow (výchozí je https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Použít službu DeArrow pro náhledy
+    Excluded Channels:
+      Disabled Message: Některé kanály byly vyloučeny pomocí ID a nebyly zpracovány. Funkce je během aktualizace těchto ID zablokována
+      Excluded Channels: Vyloučené kanály
+      Tooltip: Zadejte ID kanálu pro zakázání funkce SponsorBlock. Sponzorské segmenty ve videích od tohoto kanálu nebudou přeskočeny. ID kanálu musí přesně odpovídat a je závislé na velikosti písmen.
   External Player Settings:
     Custom External Player Arguments: Argumenty vlastního externího přehrávače
     Custom External Player Executable: Spustitelný vlastní externí přehrávač
@@ -615,6 +629,7 @@ Settings:
     Experimental Settings: Experimentální
     Warning: Tato nastavení jsou experimentální, při jejich aktivaci může docházet k pádům. Důrazně doporučujeme vytvářet zálohy. Používejte na vlastní nebezpečí!
     Replace HTTP Cache: Nahradit mezipaměť HTTP
+    Disable Hardware Acceleration: Zakázat hardwarovou akceleraci
   Password Dialog:
     Enter Password To Unlock: Pro odemknutí nastavení zadejte heslo
     Password: Heslo
@@ -639,7 +654,6 @@ About:
   room rules: pravidla místnosti
   Chat on Matrix: Chat na síti Matrix
   Mastodon: Mastodon
-  Email: E-mail
   Website: Webové stránky
   FAQ: Často kladené dotazy
   FreeTube Wiki: Wiki FreeTube
@@ -698,6 +712,7 @@ Profile:
   Profile Name: Jméno profilu
   Edit Profile Name: Upravit jméno profilu
   Create Profile Name: Vytvořit jméno profilu
+  Go To Profile Manager: Přejít na správce profilů
 Channel:
   Subscribe: 'Odebírat'
   Unsubscribe: 'Zrušit odběr'
@@ -708,11 +723,11 @@ Channel:
   Your search results have returned 0 results: 'Vaše vyhledávání přineslo 0 výsledků'
   Videos:
     Videos: 'Videa'
-    This channel does not currently have any videos: 'Tento kanál momentálně nemá žádné videa'
     Sort Types:
       Newest: 'Nejnovější'
       Oldest: 'Nejstarší'
       Most Popular: 'Populární'
+    This channel has videos but none could be displayed, try fetching more: Tento kanál má videa, ale žádná se nepodařilo zobrazit, zkuste načíst více
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál nemá žádné playlisty'
@@ -824,7 +839,7 @@ Video:
     OpeningTemplate: Otevřít {videoOrPlaylist} v {externalPlayer}...
     video: video
     OpenInTemplate: Otevřít v {externalPlayer}
-  Premieres: Premiéra
+  Premieres: Premiéry
   Show Super Chat Comment: Zobrazit komentář Super Chat
   Scroll to Bottom: Posunout dolů
   Upcoming: Nadcházející
@@ -877,6 +892,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zbývající čas pauzy SABR: {remindingTimeSeconds} s'
   Popout Live Chat: Vyskakovací chat
   Private: Soukromá videa nelze sledovat v aplikaci FreeTube, jelikož vyžadují přihlášení k účtu Google a vlastnictví videa.
+  Collapse Playlist: Sbalit playlist
+  Expand Playlist: Rozbalit playlist
+  Station: Stanice
+  Playlist:
+    Unavailable videos are hidden: Je skyto 1 nedostupné video | Je skryto {count} nedostupných videí
+  Premiere: Premiéra
+  Enable SponsorBlock on Channel: Povolit SponsorBlock u kanálu
+  Disable SponsorBlock on Channel: Zakázat SponsorBlock u kanálu
+  AI: AI
+  'AI: Content was made with AI': 'AI: Obsah byl vytvořen pomocí umělé inteligence'
+  How this was made: Jak byl tento obsah vytvořen
+  Reload Page: Znovu načíst stránku
 Playlist:
   #& About
   View Full Playlist: 'Zobrazit celý seznam skladeb'
@@ -898,6 +925,7 @@ Playlist:
     VideoDurationDescending: Doba trvání (nejdelší)
     PublishedOldest: Datum zveřejnění (nejstarší)
     PublishedNewest: Datum zveřejnění (nejnovější)
+  Unavailable videos are hidden: Nedostupná videa jsou skryta
 Change Format:
   Change Media Formats: 'Změnit formát videa'
   Use Dash Formats: 'Použít formáty DASH'
@@ -945,6 +973,8 @@ Comments:
   Hide Replies: Skrýt odpověď | Skrýt odpovědi
   View 1 reply from {channelName}: Zobrazit 1 odpověď od {channelName}
   View {replyCount} replies from {channelName} and others: Zobrazit {replyCount} odpovědí od {channelName} a dalších
+  Loading replies: Načítání odpovědí…
+  Comments are turned off: Komentáře jsou vypnuty
 Up Next: 'Další'
 
 #Tooltips
@@ -953,13 +983,13 @@ Tooltips:
     Preferred API Backend: 'Vyberte backend, který FreeTube používá k získávání informací. Místní API má integrovaný extraktor. Invidious API vyžaduje připojení k server Invidious.'
     Fallback to Non-Preferred Backend on Failure: 'Pokud má vaše preferované API problém, FreeTube se automaticky pokusí použít vaše nepreferované API jako záložní metodu, pokud je povoleno.'
     Thumbnail Preference: 'Všechny miniatury v celém FreeTube budou nahrazeny snímkem z videa, rozmazány nebo skryty namísto výchozí miniatury.'
-    Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem volání API.'
+    Invidious Instance: 'Instance Invidious, ke které se FreeTube připojí za účelem volání API. Změny tohoto nastavení se použijí pouze na toto okno, pokud nenastavíte tuto instanci jako výchozí.'
     Region for Trending: 'Oblast pro trendy vám umožní vybrat si zemi, ze které si přejete zobrazovat videa v trendech.'
     External Link Handling: "Zvolte výchozí chování při kliknutí na odkaz, který nelze otevřít ve FreeTube.\nVe výchozím nastavení otevře FreeTube odkaz ve vašem výchozím prohlížeči.\n"
     Open Deep Links In New Window: Adresy předané aplikaci FreeTube, například rozšířením pro prohlížeč nebo argumenty v příkazovém řádku, budou otevřeny v novém okně.
   Player Settings:
     Proxy Videos Through Invidious: 'Připojí se k Invidious, aby poskytoval videa namísto přímého připojení k YouTube.'
-    Default Video Format: 'Nastavte formáty použité při přehrávání videa. Formáty DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně 360p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující pouze audio.'
+    Default Media Format: 'Nastavte formáty použité při přehrávání videa. Formáty DASH umožní přehrávat vyšší kvality. Starší formáty jsou omezeny na maximálně 360p, ale používají menší šířku pásma. Zvukové formáty jsou streamy obsahující pouze audio.'
     Scroll Playback Rate Over Video Player: Když je kurzor na videu, stisknutím a podržením Ctrl (Command na Mac) a posouváním kolečka myši nahoru a dolu ovládejte rychlost přehrávání. Stisknutím a podržením Ctrl (Command na Mac) a stisknutím levého tlačítka myši se rychle vrátíte na výchozí rychlost přehrávání (1x, pokud není změněná v nastavení).
     Skip by Scrolling Over Video Player: Pomocí rolovacího kolečka můžete video přeskakovat ve stylu MPV.
   Subscription Settings:
@@ -976,6 +1006,7 @@ Tooltips:
     Ignore Default Arguments: Neodesílat externímu přehrávači žádné výchozí argumenty kromě adresy URL videa (např. rychlost přehrávání, adresu URL playlistu atd.). Tato možnost se nevztahuje na vlastní argumenty.
   Experimental Settings:
     Replace HTTP Cache: Zakáže mezipaměť HTTP Electronu a povolí vlastní mezipaměť pro obrázky v paměti. Povede to ke zvýšenému využití RAM.
+    Disable Hardware Acceleration: Zakáže GPU hardwarovou akceleraci. Může opravit grafické chyby, ale bude mít nejspíše horší výkon.
   Distraction Free Settings:
     Hide Channels: Zadejte ID kanálu pro skrytí všech videí, playlistů a samotného kanálu před zobrazením ve vyhledávání, trendech, nejpopulárnějších a doporučených. Zadané ID kanálu se musí zcela shodovat a rozlišují se v něm velká a malá písmena.
     Hide Subscriptions Live: Toto nastavení je nadřazeno nastavením celé aplikace „{appWideSetting}“ v části „{subsection}“ v části „{settingsSection}“
@@ -1010,6 +1041,8 @@ Default Invidious instance has been set to {instance}: Výchozí instance Invidi
 Search Bar:
   Clear Input: Vymazat
   Remove: Odstranit
+  Open Search Container: Otevřít kontejner vyhledávání
+  Search: Hledat
 External link opening has been disabled in the general settings: Otevírání externích odkazů bylo zakázáno v obecných nastaveních
 Are you sure you want to open this link?: Opravdu chcete otevřít tento dokaz?
 New Window: Nové okno
@@ -1136,3 +1169,5 @@ Compact side navigation: Kompaktní boční navigace
 Expand side navigation: Rozbalit boční navigaci
 Screenshot Clipboard Success: Snímek uložen do schránky
 Screenshot Clipboard Error: Nepodařilo se uložit snímek do schránky
+SponsorBlock Disabled on Channel: SponsorBlock zakázán u kanálu {channel}
+SponsorBlock Enabled on Channel: SponsorBlock povolen u kanálu {channel}

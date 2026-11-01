@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
+    Replies Remaining: "{' '}(1 hátralévő) | {' '}({count} hátralévő)"
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
 
@@ -105,6 +106,8 @@ Subscriptions:
   Subscriptions Tabs: Feliratkozások lapok
   Load More Posts: További bejegyzések betöltése
   Empty Posts: A feliratkozott csatornáinak jelenleg nincsenek bejegyzései.
+  Posts:
+    RSS Message: A YouTube nem biztosít RSS-hírcsatornákat a bejegyzésekhez. A bejegyzések megtekintéséhez tiltsa le a(z) „{rssSetting}” beállítást, vagy a lap elrejtéséhez engedélyezze a(z) „{hideSetting}” beállítást.
 Trending:
   Trending: 'Felkapott'
   Trending Tabs: Felkapott lapok
@@ -195,6 +198,9 @@ User Playlists:
   The playlist has been successfully exported: Lejátszási lista sikeresen exportálva lett
   TotalTimePlaylist: 'Teljes időtartam: {duration}'
   Export list of URLs: Webcímek listába történő exportálása
+  Move Video to the Top: Videó áthelyezése az elejére
+  Move Video to the Bottom: Videó áthelyezése a végére
+  This playlist is private or does not exist.: Ez a lejátszási lista privát vagy nem létezik.
 History:
   # On History Page
   History: 'Előzmények'
@@ -381,11 +387,11 @@ Settings:
     Enable Theatre Mode by Default: 'A mozimód bekapcsolása alapértelmezetten'
     Default Volume: 'Alapértelmezett hangerő'
     Default Playback Rate: 'Alapértelmezett lejátszási sebesség'
-    Default Video Format:
-      Default Video Format: 'Alapértelmezett videóformátum'
+    Default Media Format:
       Dash Formats: 'DASH-formátumok'
       Legacy Formats: 'Örökölt formátumok'
       Audio Formats: 'Hangformátumok'
+      Default Media Format: Alapértelmezett médiaformátum
     Default Quality:
       Default Quality: 'Alapértelmezett felbontás'
       Auto: 'Automatikus'
@@ -430,6 +436,9 @@ Settings:
       Picture in Picture: Kép a képben
       External Player: Külső lejátszó ({externalPlayerName})
       Default Viewing Mode: Alapértelmezett nézetmód
+      Full Window (Always On): Teljes ablak (mindig bekapcsolva)
+      Full Screen (Always On): Teljes képernyő (mindig bekapcsolva)
+      Tooltip: Az alapértelmezett megjelenítési módok többsége csak az egyes megtekintési munkamenetek kezdetén lesz alkalmazva. A munkamenet során végzett módosítások a munkamenet végéig érvényben maradnak. A mindig alkalmazott megjelenítési módok minden új videóra ismét érvényesülnek, függetlenül attól, hogy az előző videó megtekintése közben módosult-e a megjelenítési mód.
   Privacy Settings:
     Privacy Settings: 'Adatvédelem'
     Remember History: 'Megtekintési előzmények megjegyzése'
@@ -469,7 +478,7 @@ Settings:
     Import Subscriptions: 'Feliratkozások importálása'
     Export Subscriptions: 'Feliratkozások exportálása'
     Export FreeTube: 'FreeTube exportálása'
-    Export YouTube: 'YouTube exportálása'
+    Export YouTube: 'YouTube-formátumba exportálás'
     Export NewPipe: 'NewPipe exportálása'
     Import History: 'Előzmények importálása'
     Export History: 'Előzmények exportálása'
@@ -562,6 +571,8 @@ Settings:
     Hide Channel Courses: „Tanfolyamok” csatornalap elrejtése
     Hide Channel Posts: „Bejegyzések” csatornalap elrejtése
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
+    Add: Hozzáadás
+    Remove: Eltávolítás
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
@@ -595,6 +606,10 @@ Settings:
     UseDeArrowTitles: DeArrow-videócímek használata
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': 'DeArrow előnézet-előállító API webcíme (alapértelmezett: https://dearrow-thumb.ajay.app)'
     UseDeArrowThumbnails: DeArrow használata bélyegképekhez
+    Excluded Channels:
+      Disabled Message: Néhány csatorna azonosító (ID) alapján ki lett zárva, ezért nem lettek feldolgozva. A funkció le van tiltva, amíg ezek az azonosítók frissülnek
+      Excluded Channels: Kizárt csatornák
+      Tooltip: Adjon meg egy csatornaazonosítót (ID-t), amelynél le szeretné tiltani a SponsorBlockot. Az adott csatorna videóiban található szponzori szegmensek nem lesznek átugorva. A megadott csatornaazonosítónak teljes egyezésűnek kell lennie, és a kis- és nagybetűk különböznek.
   External Player Settings:
     Ignore Unsupported Action Warnings: Nem támogatott műveletek figyelmeztetéseinek mellőzése
     Custom External Player Arguments: Egyéni külső lejátszó argumentumok
@@ -616,6 +631,7 @@ Settings:
     Replace HTTP Cache: HTTP-gyorsítótár cseréje
     Experimental Settings: Kísérleti
     Warning: Ezek a beállítások kísérleti jellegűek, összeomlást okozhatnak, ha engedélyezve vannak. Erősen ajánlott biztonsági mentéseket készíteni. Csak saját felelősségre használja!
+    Disable Hardware Acceleration: Hardveres gyorsítás letiltása
   Password Dialog:
     Enter Password To Unlock: Jelszó megadása a beállítások feloldásához
     Password: Jelszó
@@ -637,15 +653,14 @@ About:
   Donate: Adakozás
   Credits: Köszönetnyilvánítások
   Translate: Fordítás
-  room rules: szobaszabályok
+  room rules: szobaszabályzat
   Chat on Matrix: Csevegés a Matrixon
   Mastodon: Mastodon
-  Email: E-mail
   Website: Weboldal
-  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már azonos
-  GitHub issues: GitHub hibajegyek
+  Please check for duplicates before posting: Beküldés előtt ellenőrizze, nincs-e már hasonló
+  GitHub issues: GitHub-hibajegyek
   Help: Súgó
-  GitHub releases: GitHub kiadások
+  GitHub releases: GitHub-kiadások
   Downloads / Changelog: Letöltések / Változáslista
   FreeTube Wiki: FreeTube Wiki
   Source code: Forráskód
@@ -656,7 +671,7 @@ About:
   AGPLv3: AGPLv3
   Licensed under the {licenseLink}: Licencelve a(z) {licenseLink} alatt
   Please read the {roomRulesLink}: 'Olvassa el a következőt: {roomRulesLink}'
-  FreeTube is made possible by {creditsPageLink}: A FreeTube a {creditsPageLink} jóvoltából jöhetett létre
+  FreeTube is made possible by {creditsPageLink}: A FreeTube {creditsPageLink} jóvoltából jöhetett létre
 Profile:
   Profile Select: 'Profil kiválasztása'
   All Channels: 'Összes csatorna'
@@ -699,6 +714,7 @@ Profile:
   Create Profile Name: Profilnév létrehozása
   Open Profile Dropdown: Profil legördülő menü megnyitása
   Close Profile Dropdown: Profil legördülő menü bezárása
+  Go To Profile Manager: Lépjen a Profilkezelőbe
 Channel:
   Subscribe: 'Feliratkozás'
   Unsubscribe: 'Leiratkozás'
@@ -709,11 +725,11 @@ Channel:
   Your search results have returned 0 results: 'Keresési eredmény: 0 találat'
   Videos:
     Videos: 'Videók'
-    This channel does not currently have any videos: 'Ebben a csatornában jelenleg nincsenek videók'
     Sort Types:
       Newest: 'Legújabb'
       Oldest: 'Legrégebbi'
       Most Popular: 'Legnépszerűbb'
+    This channel has videos but none could be displayed, try fetching more: Ez a csatorna tartalmaz videókat, de egyik sem jeleníthető meg, további videók lekérése
   Playlists:
     Playlists: 'Lejátszási listák'
     This channel does not currently have any playlists: 'Ennek a csatornának jelenleg nincsenek lejátszási listái'
@@ -731,6 +747,7 @@ Channel:
     Tags:
       Tags: Címkék
       Search for: „{tag}” címke keresése
+    Links: Hivatkozások
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Ez a csatorna korhatáros, és jelenleg nem tekinthető meg a FreeTube alkalmazásban.
   Channel Tabs: Csatornalapok
   Live:
@@ -862,7 +879,7 @@ Video:
     Playback will resume automatically when your connection comes back: A lejátszás automatikusan folytatódik, amikor a kapcsolat helyreáll.
     Autoplay is off: Az automatikus lejátszás ki van kapcsolva
     Autoplay is on: Az automatikus lejátszás be van kapcsolva
-  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg másik VPN-re vagy proxyra váltani.
+  IP block: A YouTube letiltotta az IP-címéről történő videómegtekintést, vagy előfordulhat, hogy a videó olyan tartalmat tartalmaz, amelyben kiskorúak szerepelnek, és amelyhez a YouTube korlátozza a hozzáférést a bejelentkezés nélkül használók számára. Ha IP-cím alapú tiltásról van szó, akkor próbáljon meg másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
   AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google-bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
   MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google-bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
@@ -878,6 +895,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Hátralévő SABR várakozási idő: {remindingTimeSeconds} mp'
   Popout Live Chat: Felugró csevegés
   Private: A privát videók nem tekinthetők meg a FreeTube-on, mivel a megtekintésükhöz Google-bejelentkezés és a videó tulajdonjoga szükséges.
+  Collapse Playlist: Lejátszási lista összecsukása
+  Expand Playlist: Lejátszási lista kibontása
+  Station: Állomás
+  Playlist:
+    Unavailable videos are hidden: 1 nem elérhető videó el van rejtve | {count} nem elérhető videó el van rejtve
+  Premiere: Premier
+  Enable SponsorBlock on Channel: SponsorBlock engedélyezése a csatornán
+  Disable SponsorBlock on Channel: SponsorBlock letiltása a csatornán
+  AI: MI
+  'AI: Content was made with AI': 'MI: A tartalom mesterséges intelligencia felhasználásával készült'
+  How this was made: Hogyan készült ez
+  Reload Page: Oldal újratöltése
 Playlist:
   #& About
   View Full Playlist: 'Teljes lejátszási lista megtekintése'
@@ -899,6 +928,7 @@ Playlist:
     VideoDurationDescending: Időtartam (leghosszabb)
     PublishedNewest: Közzététel dátuma (legújabb)
     PublishedOldest: Közzététel dátuma (legrégebbi)
+  Unavailable videos are hidden: A nem elérhető videók el vannak rejtve
 Change Format:
   Change Media Formats: 'Videóformátumok módosítása'
   Use Dash Formats: 'DASH-formátumok használata'
@@ -945,6 +975,9 @@ Comments:
   Hide {replyCount} replies: 1 válasz elrejtése | {replyCount} válasz elrejtése
   View 1 reply from {channelName}: 1 válasz megtekintése a(z) {channelName} csatornában
   View {replyCount} replies from {channelName} and others: '{replyCount} válasz megtekintése a(z) {channelName} és egyéb csatornákban'
+  Loading replies: Válaszok betöltése...
+  Hide Replies: Válasz elrejtése | Válaszok elrejtése
+  Comments are turned off: A hozzászólások ki vannak kapcsolva
 Up Next: 'Következő'
 
 # Toast Messages
@@ -969,7 +1002,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Invidious példány, amelyhez a FreeTube csatlakozni fog az API-hívásokhoz.
+    Invidious Instance: Az Invidious-példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
     Thumbnail Preference: A FreeTube-ban minden videó bélyegképe az alapértelmezett miniatűr helyett a videóból kiválasztott képkockára lesz cserélve, amely elmosódott vagy rejtett is lehet.
     Fallback to Non-Preferred Backend on Failure: Ha a választott API-val probléma adódik, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t használni tartalék módszerként, ha ez a funkció engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy olyan hivatkozásra kattint, amelyet FreeTube nem tud megnyitni.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
@@ -978,8 +1011,8 @@ Tooltips:
     Fetch Feeds from RSS: Amikor engedélyezve van, a FreeTube az RSS-t fogja használni az alapértelmezett módszer helyett a feliratkozási hírfolyam lekérdezéséhez. Az RSS gyorsabb és megakadályozza az IP-tiltást, de nem tartalmaz bizonyos információkat, például a videó időtartamát, az élő állapotot vagy a bejegyzéseket
     Fetch Automatically: Ha engedélyezve van, a FreeTube automatikusan lekéri a feliratkozási hírcsatornát indításkor, valamint új ablak megnyitásakor.
   Player Settings:
-    Default Video Format: A videóhoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
-    Proxy Videos Through Invidious: A videók lejátszásához a YouTube helyett az Invidioushoz csatlakozik.
+    Default Media Format: A videóhoz használt formátumok beállítása. A DASH-formátumok magasabb minőségű lejátszást tesznek lehetővé. A régebbi formátumok legfeljebb 360p felbontásúak, de kevesebb sávszélességet igényelnek. A hangformátumok kizárólag hangadatfolyamokat tartalmaznak.
+    Proxy Videos Through Invidious: A videók lejátszásához a YouTube helyett az Invidioust használja.
     Scroll Playback Rate Over Video Player: Amíg a kurzor a videó felett van, nyomja meg és tartsa lenyomva a Control billentyűt (Mac számítógépen a Command billentyű), és görgesse az egér görgőjét előre vagy hátra a lejátszási sebesség szabályozásához. Tartsa lenyomva a Control billentyűt (Mac számítógépen a Command billentyű), majd kattintson az egér bal gombjával az alapértelmezett lejátszási sebesség gyors visszatéréséhez (1x, hacsak nem módosították a beállításokban).
     Skip by Scrolling Over Video Player: Használja az egérgörgőt a videóban való előre- és visszaugráshoz, MPV-stílusban.
   External Player Settings:
@@ -991,6 +1024,7 @@ Tooltips:
     Ignore Default Arguments: Ne küldjön semmilyen alapértelmezett argumentumot a külső lejátszónak a videó webcímén kívül (pl. lejátszási sebesség, lejátszási lista webcíme stb.). Az egyéni argumentumok továbbra is átadásra kerülnek.
   Experimental Settings:
     Replace HTTP Cache: Letiltja az Electron lemezalapú HTTP-gyorsítótárát, és engedélyezi az egyéni memórián belüli képgyorsítótárat. Megnövekedett RAM-használathoz vezet.
+    Disable Hardware Acceleration: Letiltja a GPU hardveres gyorsítást. Megoldhatja a grafikai problémákat, de valószínűleg rosszabb teljesítményt eredményez.
   Distraction Free Settings:
     Hide Channels: Adjon meg egy csatornaazonosítót, hogy elrejtse az adott csatorna összes videóját, lejátszási listáját, valamint magát a csatornát is a keresési találatokból, a felkapottakból, a legnépszerűbbek közül és az ajánlottakból. A megadott csatornaazonosítónak pontos egyezésnek kell lennie, és kis- és nagybetűérzékeny.
     Hide Subscriptions Live: Ezt a beállítást felülírja az alkalmazásszintű „{appWideSetting}” beállítás a(z) „{settingsSection}” „{subsection}” szakaszában
@@ -1008,6 +1042,8 @@ Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidio
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
+  Open Search Container: Keresőmező megnyitása
+  Search: Keresés
 External link opening has been disabled in the general settings: A külső hivatkozás megnyitása le van tiltva az általános beállításokban
 Are you sure you want to open this link?: Biztosan megnyitja ezt a hivatkozást?
 New Window: Új ablak
@@ -1134,3 +1170,5 @@ Compact side navigation: Kompakt oldalsó navigáció
 Expand side navigation: Oldalsó navigáció kibontása
 Screenshot Clipboard Success: Képernyőkép mentve a vágólapra
 Screenshot Clipboard Error: Nem sikerült a képernyőképet a vágólapra másolni
+SponsorBlock Disabled on Channel: 'A SponsorBlock letiltva ennél a csatornánál: {channel}'
+SponsorBlock Enabled on Channel: 'A SponsorBlock engedélyezett ennél a csatornánál: {channel}'

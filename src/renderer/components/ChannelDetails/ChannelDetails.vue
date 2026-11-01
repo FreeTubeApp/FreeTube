@@ -240,6 +240,7 @@
           v-if="showSearchBar"
           ref="searchBar"
           :placeholder="$t('Channel.Search Channel')"
+          :action-button-label="$t('Search Bar.Search')"
           :value="query"
           :show-clear-text-button="true"
           class="channelSearch"
@@ -263,7 +264,7 @@ import FtInput from '../FtInput/FtInput.vue'
 
 import store from '../../store/index'
 
-import { ctrlFHandler, formatNumber } from '../../helpers/utils'
+import { ctrlFHandler, formatSubscriberCount } from '../../helpers/utils'
 
 const props = defineProps({
   id: {
@@ -337,7 +338,7 @@ const formattedSubCount = computed(() => {
   if (hideChannelSubscriptions.value) {
     return null
   }
-  return formatNumber(props.subCount)
+  return formatSubscriberCount(props.subCount)
 })
 
 function subscribed() {

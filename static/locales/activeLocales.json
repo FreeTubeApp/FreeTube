@@ -1,7 +1,9 @@
 [
   "en-US",
   "en-GB",
+  "af",
   "ar",
+  "az",
   "be",
   "bg",
   "br",
@@ -11,6 +13,7 @@
   "da",
   "de-DE",
   "el",
+  "eo",
   "es",
   "es-AR",
   "es-MX",
@@ -45,6 +48,7 @@
   "ta",
   "tr",
   "uk",
+  "ur",
   "vi",
   "zh-CN",
   "zh-TW"

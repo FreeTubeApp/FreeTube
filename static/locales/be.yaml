@@ -397,8 +397,7 @@ Settings:
     Default Playback Rate: 'Хуткасць прайгравання па змаўчанні'
     Max Video Playback Rate: 'Максімальная хуткасць прайгравання відэа'
     Video Playback Rate Interval: 'Інтэрвал хуткасці прайгравання відэа'
-    Default Video Format:
-      Default Video Format: 'Фармат відэа па змаўчанні'
+    Default Media Format:
       Dash Formats: 'Фарматы DASH'
       Legacy Formats: 'Састарэлыя фарматы'
       Audio Formats: 'Аўдыяфарматы'
@@ -624,7 +623,6 @@ About:
   GitHub issues: 'Праблемы на GitHub'
   Please check for duplicates before posting: 'Перад публікацыяй праверце наяўнасць дублікатаў'
   Website: 'Вэб-сайт'
-  Email: 'Электронная пошта'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Чат у Matrix'
   room rules: 'правілы пакоя'
@@ -690,7 +688,6 @@ Channel:
   Channel Tabs: 'Укладкі канала'
   Videos:
     Videos: 'Відэа'
-    This channel does not currently have any videos: 'Зараз на гэтым канале няма відэа'
     Sort Types:
       Newest: 'Самае новае'
       Oldest: 'Самае старое'
@@ -936,7 +933,7 @@ Tooltips:
     Open Deep Links In New Window: URL-адрасы, якія перадаюцца FreeTube, напрыклад, шляхам перанакіравання пашырэнняў браўзера або аргументаў каманднага радка, адкрываюцца ў новым акне.
   Player Settings:
     Proxy Videos Through Invidious: 'Будзе падключацца да Invidious для прагляду відэа замест прамога падключэння да YouTube.'
-    Default Video Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы абмежаваныя максімумам 360p, але выкарыстоўваюць меншую паласу прапускання. Аўдыяфарматы - гэта толькі аўдыяпатокі.'
+    Default Media Format: 'Задайце фарматы, якія выкарыстоўваюцца пры прайграванні відэа. Фарматы DASH могуць прайграваць больш высокія якасці. Састарэлыя фарматы абмежаваныя максімумам 360p, але выкарыстоўваюць меншую паласу прапускання. Аўдыяфарматы - гэта толькі аўдыяпатокі.'
     Scroll Playback Rate Over Video Player: 'Калі курсор знаходзіцца над відэа, націсніце і ўтрымлівайце клавішу Control (клавіша Command на Mac) і круціце кола мышы ўверх або ўніз, каб кіраваць хуткасцю прайгравання. Націсніце і ўтрымлівайце клавішу Control (клавіша Command на Mac) і націсніце левай кнопкай мышы, каб хутка вярнуцца да хуткасці прайгравання па змаўчанні (1x, калі яна не была зменена ў наладах).'
     Skip by Scrolling Over Video Player: 'Выкарыстоўваць кола мышы, каб прапускаць відэа як у MPV.'
   External Player Settings:

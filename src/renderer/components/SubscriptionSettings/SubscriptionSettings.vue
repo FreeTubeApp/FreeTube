@@ -38,7 +38,7 @@
             :default-value="onlyShowLatestFromChannelNumber"
             :disabled="!onlyShowLatestFromChannel"
             :min-value="1"
-            :max-value="30"
+            :max-value="useRssFeeds ? 15 : 30"
             :step="1"
             @change="updateOnlyShowLatestFromChannelNumber"
           />
@@ -75,6 +75,10 @@ const useRssFeeds = computed(() => store.getters.getUseRssFeeds)
  */
 function updateUseRssFeeds(value) {
   store.dispatch('updateUseRssFeeds', value)
+  const max = value ? 15 : 30
+  if (onlyShowLatestFromChannelNumber.value > max) {
+    updateOnlyShowLatestFromChannelNumber(max)
+  }
 }
 
 /** @type {import('vue').ComputedRef<boolean>} */

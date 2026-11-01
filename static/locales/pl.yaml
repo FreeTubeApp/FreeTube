@@ -38,6 +38,7 @@ Global:
     Watching Count: 1 oglądający | {count} oglądających
     Like Count: Jedno polubienie | {count} polubie(ń/nia)
     Comment Count: Jeden komentarz | {count} komentarz(e/y)
+    Replies Remaining: "{' '}(pozostało 1) | {' '}(pozostało {count})"
 Search / Go to URL: 'Szukaj / Przejdź do adresu URL'
   # In Filter Button
 Search Filters:
@@ -97,6 +98,8 @@ Subscriptions:
   Subscriptions Tabs: Karty subskrypcji
   Load More Posts: Załaduj więcej wpisów
   Empty Posts: Zasubskrybowane przez Ciebie kanały nie mają żadnych wpisów.
+  Posts:
+    RSS Message: Serwis YouTube nie udostępnia kanałów RSS dla postów. Wyłącz opcję " {rssSetting}" , aby wyświetlić posty, lub włącz opcję " {hideSetting}" , aby ukryć tę zakładkę.
 Trending:
   Trending: 'Na czasie'
   Trending Tabs: Karty „Na czasie”
@@ -187,6 +190,9 @@ User Playlists:
   The playlist has been successfully exported: Lista odtwarzania została pomyślnie wyeksportowana
   TotalTimePlaylist: 'Całkowita długość: {duration}'
   Export list of URLs: Eksportuj listę adresów URL
+  Move Video to the Top: Przenieś film na początek
+  Move Video to the Bottom: Przenieś film na koniec
+  This playlist is private or does not exist.: Ta playlista jest prywatna albo nie istnieje.
 History:
   # On History Page
   History: 'Historia'
@@ -373,11 +379,11 @@ Settings:
     Enable Theatre Mode by Default: 'Domyślnie włącz tryb kinowy'
     Default Volume: 'Domyślna głośność'
     Default Playback Rate: 'Domyślna szybkość odtwarzania'
-    Default Video Format:
-      Default Video Format: 'Domyślny format filmów'
+    Default Media Format:
       Dash Formats: 'Formaty DASH'
       Legacy Formats: 'Stare formaty'
       Audio Formats: 'Formaty audio'
+      Default Media Format: Domyślny format filmów
     Default Quality:
       Default Quality: 'Domyślna jakość'
       Auto: 'Auto'
@@ -422,6 +428,9 @@ Settings:
       External Player: Zewnętrzny odtwarzacz ({externalPlayerName})
       Default Viewing Mode: Domyślny tryb odtwarzania
       Full Screen: Cały ekran
+      Full Window (Always On): Pełne okno (zawsze włączone)
+      Full Screen (Always On): Pełny ekran (zawsze włączony)
+      Tooltip: Większość z domyślnych trybów wyświetlania jest stosowana na początku każdego seansu. Zmiany zastosowane podczas seansu obowiązują do jego końca. Tryby „zawsze włączone” są stosowane za każdym razem, gdy przełączysz się do nowego filmu, cofając każdą zmianę trybu wyświetlania zastosowaną w poprzednim filmie.
   Subscription Settings:
     Subscription Settings: 'Subskrypcje'
     Fetch Feeds from RSS: Pobierz subskrypcje z RSS
@@ -463,13 +472,13 @@ Settings:
     Unable to read file: Nie można odczytać pliku
     All watched history has been successfully exported: Cała historia oglądania została pomyślnie wyeksportowana
     All watched history has been successfully imported: Cała historia oglądania została pomyślnie zaimportowana
-    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą ilość danych, pomijam element
+    History object has insufficient data, skipping item: Obiekt historii ma niewystarczającą ilość danych. Pomijam element
     Subscriptions have been successfully exported: Subskrypcje zostały z powodzeniem wyeksportowane
     Invalid history file: Nieprawidłowy plik historii
     Invalid subscriptions file: Nieprawidłowy plik subskrypcji
     All subscriptions have been successfully imported: Wszystkie subskrypcje zostały z powodzeniem zaimportowane
     All subscriptions and profiles have been successfully imported: Wszystkie subskrypcje i profile zostały z powodzeniem zaimportowane
-    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą ilość danych, pomijam element
+    Profile object has insufficient data, skipping item: Obiekt profilu ma niewystarczającą ilość danych. Pomijam element
     Export History: Wyeksportuj historię
     Import History: Zaimportuj historię
     Export FreeTube: Eksport do FreeTube
@@ -482,7 +491,7 @@ Settings:
     Manage Subscriptions: Zarządzaj subskrypcjami
     Export Playlists: Wyeksportuj playlisty
     All playlists has been successfully exported: Wszystkie playlisty pomyślnie wyeksportowano
-    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”, pomijam element
+    Playlist insufficient data: Niewystarczająca ilość danych dla playlisty „{playlist}”. Pomijam element
     Import Playlists: Zaimportuj playlisty
     All playlists has been successfully imported: Wszystkie playlisty pomyślnie zaimportowano
     History File: Plik historii
@@ -497,6 +506,15 @@ Settings:
     Export search history: Wyeksportuj historię wyszukiwania
     All search history has been successfully imported: Cała historia wyszukiwania została pomyślnie zaimportowana
     All search history has been successfully exported: Cała historia wyszukiwania została pomyślnie wyeksportowana
+    Settings File: Plik ustawień
+    Import Settings: Zaimportuj ustawienia
+    Export Settings: Wyeksportuj ustawienia
+    Settings Tooltip: Ustawienia, które są specyficzne dla systemu albo dla każdego użytkownika, oraz ustawienie eksperymentalne, nie mogą zostać ani wyeksportowane, ani zaimportowane (n.p. ustawienia proxy, ustawienia zewnętrznego odtwarzacza, lokalizacja folderu zapisu zrzutów ekranu)
+    All settings have been successfully imported: Wszystkie ustawienia zostały z powodzeniem zaimportowane
+    All settings have been successfully exported: Wszystkie ustawienia zostały z powodzeniem wyeksportowane
+    Setting object has insufficient data, skipping item: Obiekt ustawień ma niewystarczającą ilość danych. Pomijam element
+    Unknown setting key: 'Nieznany klucz ustawień: {key}'
+    Non-transferable setting key: 'Klucz ustawień niepodlegający przeniesieniu: {key}'
   Distraction Free Settings:
     Distraction Free Settings: Skupienie uwagi
     Hide Live Chat: Schowaj czat na żywo
@@ -545,6 +563,8 @@ Settings:
     Hide Channel Courses: Ukryj kartę „Kursy” kanału
     Hide Channel Posts: Schowaj kartę kanału „Wpisy”
     Hide Subscriptions Posts: Schowaj wpisy z subskrypcji
+    Add: Dodaj
+    Remove: Usuń
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikacja musi zostać ponownie uruchomiona, aby zmiany zostały wprowadzone. Uruchomić ponownie i zastosować zmiany?
   Proxy Settings:
     Your Info: O Tobie
@@ -578,6 +598,10 @@ Settings:
     UseDeArrowTitles: Użyj tytułów filmów z DeArrow
     UseDeArrowThumbnails: Użyj DeArrow do miniaturek
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL do API generatora miniaturek DeArrow (Domyślny jest https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Niektóre kanały zostały wykluczone na podstawie identyfikatorów i nie zostały przetworzone. Funkcja jest zablokowana na czas aktualizacji tych identyfikatorów
+      Excluded Channels: Wykluczone Kanały
+      Tooltip: Wprowadź identyfikator kanału, aby wyłączyć funkcję SponsorBlock. Segmenty reklamowe w filmach z tego kanału nie będą pomijane. Wprowadzony identyfikator kanału musi być dokładnie taki sam, przy czym należy uwzględnić wielkość liter.
   External Player Settings:
     Custom External Player Arguments: Niestandardowe argumenty zewnętrznego odtwarzacza
     Custom External Player Executable: Niestandardowy plik wykonywalny zewnętrznego odtwarzacza
@@ -599,6 +623,7 @@ Settings:
     Replace HTTP Cache: Zastąp pamięć podręczną HTTP
     Experimental Settings: Eksperymentalne
     Warning: Te ustawienia są w fazie testów i po włączeniu mogą powodować wywalanie się programu. Zalecane jest stworzenie kopii zapasowej. Używaj na własne ryzyko!
+    Disable Hardware Acceleration: Wyłącz wspomaganie sprzętowe
   Password Dialog:
     Enter Password To Unlock: Wprowadź hasło, by odblokować ustawienia
     Password: Hasło
@@ -620,7 +645,6 @@ About:
   Website: Strona internetowa
   Credits: Zasługi
   FAQ: FAQ
-  Email: E-mail
   Beta: Beta
   Donate: Wesprzyj
   Help: Pomoc
@@ -648,11 +672,11 @@ Channel:
   Your search results have returned 0 results: 'Twoje zapytanie zwróciło 0 wyników'
   Videos:
     Videos: 'Filmy'
-    This channel does not currently have any videos: 'Ten kanał nie ma obecnie żadnych filmów'
     Sort Types:
       Newest: 'Najnowsze'
       Oldest: 'Najstarsze'
       Most Popular: 'Najpopularniejsze'
+    This channel has videos but none could be displayed, try fetching more: Ten kanał zawiera filmy, ale nie udało się wyświetlić żadnego z nich. Spróbuj pobrać więcej
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Ten kanał nie ma żadnych playlist'
@@ -702,6 +726,7 @@ Channel:
   Courses:
     Courses: Kursy
     This channel does not currently have any courses: Na tym kanale nie ma obecnie żadnych kursów
+  View All: Zobacz wszystkie
 Video:
   Mark As Watched: 'Oznacz jako obejrzany'
   Remove From History: 'Usuń z historii'
@@ -803,7 +828,7 @@ Video:
     Full Window: Pełne okno
     Autoplay is off: Autoodtwarzanie jest wyłączone
     Autoplay is on: Autoodtwarzanie jest włączone
-  IP block: YouTube uniemożliwił odtworzenie filmów blokując Twój adres IP. Możesz spróbować przełączyć się na inny, korzystając z VPN lub proxy.
+  IP block: Serwis YouTube zablokował Twój adres IP, uniemożliwiając oglądanie filmów, lub ten film może zawierać treści przedstawiające osoby niepełnoletnie, do których serwis YouTube ogranicza dostęp użytkownikom niezalogowanym. Jeśli jest to blokada adresu IP, spróbuj przełączyć się na inną sieć VPN lub serwer proxy.
   AgeRestricted: Filmy z ograniczeniem wiekowym nie mogą być odtwarzane przez FreeTube, ponieważ wymagają danych logowania do konta Google z potwierdzonym wiekiem użytkownika.
   MembersOnly: Filmy tylko dla wspierających nie mogą być odtwarzane przez FreeTube, ponieważ wymagają danych logowania do konta Googla oraz płatną subskrypcje kanału.
   Unlisted: Niepubliczny
@@ -819,6 +844,18 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Do końca reklamy z początku pozostało: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR – do przeczekania pozostało: {remindingTimeSeconds}s'
   Private: Prywatnych filmów nie można oglądać w serwisie FreeTube, ponieważ do oglądania filmu wymagane jest zalogowanie się przez Google i potwierdzenie, że jest się właścicielem filmu.
+  Collapse Playlist: Zwiń listę odtwarzania
+  Expand Playlist: Rozwiń listę odtwarzania
+  Station: Stacja
+  Premiere: Premiera
+  Playlist:
+    Unavailable videos are hidden: 1 niedostępny film został ukryty | Ukryto {count} film(y/ów), które są niedostępne
+  Enable SponsorBlock on Channel: Włącz funkcję SponsorBlock na kanale
+  Disable SponsorBlock on Channel: Wyłącz funkcję SponsorBlock na kanale
+  AI: AI
+  'AI: Content was made with AI': 'AI: Treść została stworzona przy użyciu sztucznej inteligencji'
+  How this was made: Jak to powstało
+  Reload Page: Przeładuj stronę
 Playlist:
   #& About
   View Full Playlist: 'Zobacz całą playlistę'
@@ -840,6 +877,7 @@ Playlist:
     VideoDurationAscending: Czasu trwania (od najkrótszych)
     PublishedNewest: Daty publikacji (od najświeższej)
     PublishedOldest: Daty publikacji (od najdawniejszej)
+  Unavailable videos are hidden: Niedostępne filmy zostały ukryte
 Change Format:
   Change Media Formats: 'Zmień formaty wideo'
   Use Dash Formats: 'Użyj formatów DASH'
@@ -886,6 +924,8 @@ Comments:
   Hide Replies: Ukryj odpowiedź | Ukryj odpowiedzi
   View 1 reply from {channelName}: Zobacz 1 odpowiedź od {channelName}
   View {replyCount} replies from {channelName} and others: Zobacz {replyCount} odpowiedzi od {channelName} i innych
+  Loading replies: Wczytywanie odpowiedzi...
+  Comments are turned off: Komentarze są wyłączone
 Up Next: 'Następne'
 
 # Toast Messages
@@ -946,6 +986,7 @@ Profile:
   Profile Name: Nazwa profilu
   Edit Profile Name: Edytuj nazwę profilu
   Create Profile Name: Nadaj nazwę profilowi
+  Go To Profile Manager: Przejdź do menadżera profili
 The playlist has been reversed: Playlista została odwrócona
 Download From Site: Pobierz ze strony
 Version {versionNumber} is now available!  Click for more details: Wersja {versionNumber} jest już dostępna!  Kliknij po więcej szczegółów
@@ -958,12 +999,12 @@ Tooltips:
     Fallback to Non-Preferred Backend on Failure: Po włączeniu, kiedy Twój preferowany API napotka problem, FreeTube automatycznie spróbuje użyć niepreferowanego API jako metody zapasowej.
     Preferred API Backend: Wybierz back-end , który FreeTube użyje do uzyskiwania danych. Lokalne API jest wbudowanym ekstraktorem. API Invidious wymaga połączenia z serwerem Invidious.
     Region for Trending: Obszar filmów „Na czasie” pozwala wybrać kraj, z którego chciałbyś zobaczyć filmy zdobywające popularność.
-    Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań API.
+    Invidious Instance: Serwer Invidious, którym FreeTube będzie się łączył do wywołań API. Zmiana tego ustawienia wpływa tylko na aktywne okno, chyba że instancja zostanie ustawiona jako domyślna.
     Thumbnail Preference: Wszystkie miniaturki na FreeTube zostaną ukryte, rozmazane albo zastąpione klatką z filmu zamiast miniaturki domyślnej.
     External Link Handling: "Wybierz domyślne zachowanie kiedy odnośnik, który nie może zostać otworzony w FreeTube, został kliknięty.\nDomyślnie FreeTube otworzy kliknięty odnośnik w domyślnej przeglądarce.\n"
     Open Deep Links In New Window: Odnośniki URL przekazane do FreeTube (np. przez rozszerzenie przeglądarki, albo argumenty linii komend) są otwierane w nowym oknie.
   Player Settings:
-    Default Video Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów. Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do 360p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
+    Default Media Format: Ustaw formaty, które zostaną użyte do odtwarzania filmów. Formaty DASH obsługują wyższe rozdzielczości. Stare formaty są ograniczone do 360p, ale zużywają mniej przepustowości. Formaty audio odtwarzają tylko dźwięk.
     Proxy Videos Through Invidious: Filmy dostarczane będą poprzez Invidious, a nie przez bezpośrednie połączenie z YouTube.
     Scroll Playback Rate Over Video Player: Umieść kursor nad odtwarzaczem, przytrzymaj klawisz „Ctrl” („Command” na Mac-u) i przewijaj kółkiem myszy w górę i w dół, aby kontrolować szybkość odtwarzania. Przytrzymaj klawisz „Ctrl” („Command” na Mac-u) i kliknij lewym przyciskiem myszy, by szybko powrócić do domyślnej wartości (1x, chyba że została zmieniona w ustawieniach).
     Skip by Scrolling Over Video Player: Użyj kółka myszy, by przewijać film tak jak w MPV.
@@ -976,6 +1017,7 @@ Tooltips:
     Ignore Default Arguments: Nie wysyłaj do zewnętrznego odtwarzacza żadnych domyślnych argumentów (takich jak prędkość odtwarzania, URL playlisty itp.), oprócz URL-u filmu. Niestandardowe argumenty zostaną wysłane.
   Experimental Settings:
     Replace HTTP Cache: Wyłącza opartą na przestrzeni dyskowej pamięć podręczną HTTP Electrona i włącza własny obraz pamięci podręcznej wewnątrz pamięci RAM. Spowoduje to większe użycie pamięci RAM.
+    Disable Hardware Acceleration: Wyłącza wspomaganie sprzętowe GPU. Być może naprawi to problemy z wyświetlaniem, ale prawdopodobnie pogorszy wydajność.
   Distraction Free Settings:
     Hide Channels: Wprowadź ID kanału, aby schować wszystkie filmy i playlisty tego kanału, oraz sam kanał z wyszukiwań, z zakładek „Na czasie” i „Popularne” oraz z polecanych. ID kanału musi być dokładnym dopasowaniem, z uwzględnieniem wielkości liter.
     Hide Subscriptions Live: Ta opcja została nadpisana opcją ogólną „{appWideSetting}” z podgrupy „{subsection}” grupy „{settingsSection}”
@@ -993,6 +1035,8 @@ Default Invidious instance has been set to {instance}: Domyślna instancja Invid
 Search Bar:
   Clear Input: Wyczyść pole
   Remove: Usuń
+  Search: Szukaj
+  Open Search Container: Otwórz pole wyszukiwania
 External link opening has been disabled in the general settings: Otwieranie zewnętrznych odnośników zostało wyłączone w ustawieniach ogólnych
 Are you sure you want to open this link?: Czy na pewno chcesz otworzyć ten link?
 Screenshot Error: Wykonanie zrzutu nie powiodło się. {error}
@@ -1119,3 +1163,5 @@ Compact side navigation: Skompresuj boczną nawigację
 Expand side navigation: Rozwiń boczną nawigację
 Screenshot Clipboard Success: Zapisano zrzut ekranu do schowka
 Screenshot Clipboard Error: Zapisanie kopii zrzutu do schowka nie powiodło się
+SponsorBlock Disabled on Channel: Funkcja SponsorBlock została wyłączona na kanale {channel}
+SponsorBlock Enabled on Channel: Funkcja SponsorBlock została włączona na kanale {channel}

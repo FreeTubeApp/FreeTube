@@ -34,6 +34,7 @@ Global:
     Watching Count: 1 sledujúci | {count} sledujúcich
     Like Count: 1 lajk | {count} lajkov
     Comment Count: 1 komentár | {count} komentárov
+    Replies Remaining: "{' '}(zostáva 1) | {' '}(zostáva {count})"
   Live: Naživo
   Posts: Príspevky
   Shorts: Krátke
@@ -97,6 +98,8 @@ Subscriptions:
   Error Channels: Kanály s chybami
   Empty Posts: Vaše odoberané kanály momentálne nemajú žiadne príspevky.
   Disabled Automatic Fetching: Vypli ste automatické načítanie odberov. Obnovte odbery, aby ste ich tu videli.
+  Posts:
+    RSS Message: YouTube neposkytuje RSS kanály pre príspevky. Ak chcete zobraziť príspevky, deaktivujte nastavenie „{rssSetting}“; ak chcete túto kartu skryť, aktivujte nastavenie „{hideSetting}“.
 Trending:
   Trending: 'Trendy'
   Trending Tabs: Karty trendov
@@ -187,6 +190,9 @@ User Playlists:
       Playlist {playlistName} has been successfully created.: Playlist {playlistName} bol úspešne vytvorený.
     New Playlist Name: Názov nového playlistu
   Export list of URLs: Exportovať zoznam adries URL
+  Move Video to the Top: Presunúť video na začiatok
+  Move Video to the Bottom: Presunúť video na koniec
+  This playlist is private or does not exist.: Tento playlist je súkromný alebo neexistuje.
 History:
   # On History Page
   History: 'História'
@@ -373,11 +379,11 @@ Settings:
     Enable Theatre Mode by Default: 'Predvolene zapínať Kino mód'
     Default Volume: 'Predvolená hlasitosť'
     Default Playback Rate: 'Predvolená rýchlosť prehrávania'
-    Default Video Format:
-      Default Video Format: 'Predvolený formát videa'
+    Default Media Format:
       Dash Formats: 'Formáty DASH'
       Legacy Formats: 'Staré formáty'
       Audio Formats: 'Zvukové formáty'
+      Default Media Format: Predvolený formát médií
     Default Quality:
       Default Quality: 'Predvolená kvalita'
       Auto: 'Automaticky'
@@ -422,6 +428,9 @@ Settings:
       Full Screen: Celá obrazovka
       Default Viewing Mode: Predvolený režim zobrazenia
       Theater: Kino
+      Full Window (Always On): Celé okno (vždy zapnuté)
+      Full Screen (Always On): Celá obrazovka (vždy zapnuté)
+      Tooltip: Väčšina predvolených režimov prehrávania sa uplatňuje len na začiatku každej relácie pozerania. Zmeny vykonané počas relácie zostávajú zachované až do jej ukončenia. Režimy prehrávania, ktoré sú vždy zapnuté, sa uplatňujú vždy, keď prejdete na nové video, bez ohľadu na akékoľvek zmeny režimu prehrávania vykonané pri pozeraní predchádzajúceho videa.
   Subscription Settings:
     Subscription Settings: 'Odber'
     Fetch Feeds from RSS: Načítať kanály z RSS
@@ -468,6 +477,15 @@ Settings:
     Playlist File: Súbor playlistov
     History File: Súbor histórie
     Subscription File: Súbor odberov
+    Settings File: Súbor nastavení
+    Import Settings: Importovať nastavenia
+    Export Settings: Exportovať nastavenia
+    All settings have been successfully imported: Všetky nastavenia boli úspešne importované
+    All settings have been successfully exported: Všetky nastavenia boli úspešne exportované
+    Settings Tooltip: Nastavenia, ktoré sú špecifické pre OS/používateľa, alebo sú experimentálne, nie je možné exportovať ani importovať (napr. proxy, externý prehrávač, priečinok so snímkami obrazovky...)
+    Setting object has insufficient data, skipping item: Objekt nastavenia nemá dostatočné údaje, položka sa preskočí
+    Unknown setting key: 'Neznámy kľúč nastavenia: {key}'
+    Non-transferable setting key: 'Neprenositeľný kľúč nastavenia: {key}'
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -516,6 +534,8 @@ Settings:
       Channel Page: Stránka kanála
       Subscriptions Page: Stránka odberov
       Side Bar: Bočná lišta
+    Add: Pridať
+    Remove: Odstrániť
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto sa nedá vrátiť späť.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
@@ -575,6 +595,10 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API generátora náhľadov DeArrow (predvolená adresa je https://dearrow-thumb.ajay.app)
     UseDeArrowThumbnails: Použiť DeArrow pre náhľady
     UseDeArrowTitles: Použiť titulky videa DeArrow
+    Excluded Channels:
+      Disabled Message: Niektoré kanály boli vylúčené pomocou ID a neboli spracované. Funkcia je zablokovaná, kým sa tieto ID aktualizujú
+      Excluded Channels: Vylúčené kanály
+      Tooltip: Zadajte ID kanála, aby bol SponsorBlock na ňom vypnutý. Sponzorské segmenty vo videách z tohto kanála sa nebudú preskakovať. Zadané ID kanála musí byť úplne zhodné a rozlišuje sa veľkosť písmen.
   External Player Settings:
     Custom External Player Arguments: Vlastné argumenty externého prehrávača
     External Player: Externý prehrávač
@@ -607,6 +631,7 @@ Settings:
     Warning: Tieto nastavenia sú experimentálne a môžu spôsobiť zlyhanie systému, ak sú aktivované. Dôrazne odporúčame vytvárať zálohy. Používate na vlastné riziko!
     Experimental Settings: Experimentálne
 
+    Disable Hardware Acceleration: Vypnúť hardvérovú akceleráciu
 About:
   #On About page
   About: 'O FreeTube'
@@ -628,7 +653,6 @@ About:
   room rules: pravidlá miestností
   Chat on Matrix: Napíšte nám na Matrix-e
   Mastodon: Komunikačná platforma Mastodon
-  Email: Elektronická pošta
   Website: Webstránka
   Please check for duplicates before posting: Pred odoslaním prosím skontrolujte duplicitné otázky
   Discussions: Diskusie
@@ -643,11 +667,11 @@ Channel:
   Your search results have returned 0 results: 'Vaše vyhľadávanie vrátilo 0 výsledkov'
   Videos:
     Videos: 'Videá'
-    This channel does not currently have any videos: 'Tento kanál momentálne nemá žiadne videá'
     Sort Types:
       Newest: 'Najnovšie'
       Oldest: 'Najstaršie'
       Most Popular: 'Najpopulárnejšie'
+    This channel has videos but none could be displayed, try fetching more: Tento kanál obsahuje videá, ale žiadne sa nepodarilo zobraziť. Skúste načítať ďalšie
   Playlists:
     Playlists: 'Playlisty'
     This channel does not currently have any playlists: 'Tento kanál momentálne nemá žiadne playlisty'
@@ -696,6 +720,7 @@ Channel:
   Channel Tabs: Karty kanálov
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Tento kanál je obmedzený vekom a momentálne nemôže byť pozeraný vo FreeTube.
   This channel does not exist: Tento kanál neexistuje
+  View All: Zobraziť všetko
 Video:
   Mark As Watched: 'Označiť ako pozerané'
   Remove From History: 'Odstrániť z histórie'
@@ -811,8 +836,20 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Zostávajúci čas pauzy SABR: {remindingTimeSeconds} s'
-  Popout Live Chat: Popout Chat
+  Popout Live Chat: Vyskakovací chat
   Private: Súkromné videá nie je možné pozerať vo FreeTube, pretože si vyžadujú prihlásenie cez Google a vlastníctvo daného videa.
+  Collapse Playlist: Zbaliť playlist
+  Expand Playlist: Rozbaliť playlist
+  Station: Stanica
+  Playlist:
+    Unavailable videos are hidden: 1 nedostupné video je skryté | {count} nedostupných videí je skrytých
+  Premiere: Premiéra
+  Enable SponsorBlock on Channel: Zapnúť SponsorBlock na kanáli
+  Disable SponsorBlock on Channel: Vypnúť SponsorBlock na kanáli
+  AI: AI
+  'AI: Content was made with AI': 'AI: Obsah bol vytvorený pomocou AI'
+  How this was made: Ako bolo toto urobené
+  Reload Page: Znovu načítať stránku
 Playlist:
   #& About
   View Full Playlist: 'Zobraziť celý playlist'
@@ -834,6 +871,7 @@ Playlist:
     PublishedNewest: Dátum publikovania (najnovšie)
     DateAddedOldest: Dátum pridania (najstaršie)
     DateAddedNewest: Dátum pridania (najnovšie)
+  Unavailable videos are hidden: Nedostupné videá sú skryté
 Change Format:
   Change Media Formats: 'Zmena formátov videa'
   Use Dash Formats: 'Použiť formáty DASH'
@@ -871,7 +909,7 @@ Comments:
   Newest first: Najnovšie prvé
   Top comments: Najlepšie komentáre
   Pinned by: Pripnuté od
-  Show More Replies: Zobraziť viac odpovedí
+  Show More Replies: Zobraziť ďalšie odpovede
   Hearted: Obľúbené
   Subscribed: Odoberané
   Member: Člen
@@ -880,6 +918,8 @@ Comments:
   View 1 reply from {channelName}: Zobraziť 1 odpoveď od {channelName}
   Hide Replies: Skryť odpoveď | Skryť odpovede
   View {replyCount} replies: Zobraziť 1 odpoveď | Zobraziť {replyCount} odpovedí
+  Loading replies: Načítanie odpovedí...
+  Comments are turned off: Komentáre sú vypnuté
 Up Next: 'Ďalšie'
 
 # Toast Messages
@@ -887,8 +927,8 @@ Local API Error (Click to copy): 'Chyba lokálneho API (kliknite pre kopírovani
 Invidious API Error (Click to copy): 'Chyba Invidious API (kliknite pre kopírovanie)'
 Falling back to Invidious API: 'Návrat k Invidious API'
 Falling back to Local API: 'Návrat k lokálnemu API'
-Loop is now disabled: 'Slučka je teraz vypnutá'
-Loop is now enabled: 'Slučka je teraz zapnutá'
+Loop is now disabled: 'Opakovanie videa je teraz vypnuté'
+Loop is now enabled: 'Opakovanie videa je teraz zapnuté'
 Shuffle is now disabled: 'Zamiešanie je teraz vypnuté'
 Shuffle is now enabled: 'Zamiešanie je teraz zapnuté'
 Playing Next Video: 'Prehrávanie nasledujúceho videa'
@@ -905,13 +945,13 @@ Tooltips:
     Fetch Feeds from RSS: Keď je zapnuté, FreeTube použije RSS namiesto predvolenej metódy na získanie vášho odoberaného kanála. RSS je rýchlejší a zabraňuje blokovaniu IP, ale neposkytuje určité informácie ako trvanie videa, stav naživo alebo príspevky
     Fetch Automatically: Keď je zapnuté, FreeTube automaticky načíta váš odoberaný kanál pri spustení a keď je otvorené nové okno.
   Player Settings:
-    Default Video Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
+    Default Media Format: Nastavte formáty používané pri prehrávaní videa. Formáty DASH umožňujú prehrávanie vo vyššej kvalite. Staršie formáty sú obmedzené na maximálne rozlíšenie 360p, ale využívajú menšiu šírku pásma. Formáty zvuku sú iba audio streamy.
     Proxy Videos Through Invidious: Pripojí sa k Invidious na poskytovanie videí namiesto priameho pripojenia k YouTube.
     Scroll Playback Rate Over Video Player: Keď je kurzor nad videom, stlačte a podržte kláves Control (kláves Command na Macu) a posúvaním kolieska myši dopredu alebo dozadu ovládajte rýchlosť prehrávania. Stlačte a podržte kláves Control (kláves Command na Macu) a kliknite ľavým tlačidlom myši pre rýchly návrat k predvolenej rýchlosti prehrávania (1x, ak nebola zmenená v nastaveniach).
     Skip by Scrolling Over Video Player: Použite koliesko myši na preskakovanie cez video v štýle MPV.
   General Settings:
     Region for Trending: Región trendov vám umožňuje zvoliť si krajinu pre trendové videá, ktoré chcete zobraziť.
-    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí pre volania API.
+    Invidious Instance: Inštancia Invidious, ku ktorej sa FreeTube pripojí na účely volania API. Zmeny tohto nastavenia sa vzťahujú len na aktuálne okno, pokiaľ túto inštanciu nenastavíte ako predvolenú.
     Thumbnail Preference: Všetky náhľady vo FreeTube budú nahradené snímkou z videa, ktorá bude rozmazaná alebo skrytá namiesto východzieho náhľadu.
     Fallback to Non-Preferred Backend on Failure: Keď má vaše preferované API problém, FreeTube sa automaticky pokúsi použiť vaše nepreferované API ako náhradnú metódu, ak je táto funkcia zapnutá.
     Preferred API Backend: Vyberte backend, ktorý FreeTube používa na získavanie údajov. Lokálne API je vstavaný extraktor. API Invidious vyžaduje pripojenie k serveru Invidious.
@@ -934,6 +974,7 @@ Tooltips:
     UseDeArrowTitles: Nahradí názvy videí názvami z DeArrow, ktoré zadali jeho používatelia.
   Experimental Settings:
     Replace HTTP Cache: Zakáže diskovú cache HTTP Electron a povolí vlastnú cache obrázkov v pamäti. Vedie k zvýšenému použitiu RAM.
+    Disable Hardware Acceleration: Vypne hardvérovú akceleráciu GPU. Môže vyriešiť grafické problémy, ale pravdepodobne sa zhorší výkon.
 Profile:
   Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: Naozaj chcete odstrániť vybrané kanály?  Týmto sa kanál neodstráni z žiadneho iného profilu.
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
@@ -975,6 +1016,7 @@ Profile:
   Create Profile Name: Vytvoriť názov profilu
   Edit Profile Name: Upraviť názov profilu
   Toggle Profile List: Prepnúť zoznam profilov
+  Go To Profile Manager: Prejsť do správcu profilov
 Download From Site: Stiahnuť zo stránky
 Version {versionNumber} is now available!  Click for more details: Verzia {versionNumber} je k dispozícii! Kliknite pre viac podrobností
 Locale Name: Slovenčina
@@ -986,6 +1028,8 @@ Default Invidious instance has been set to {instance}: Predvolená inštancia In
 Search Bar:
   Clear Input: Vyčistiť zadané údaje
   Remove: Odstrániť
+  Open Search Container: Otvoriť kontajner vyhľadávania
+  Search: Hľadať
 Default Invidious instance has been cleared: Predvolená inštancia Invidious bola vymazaná
 External link opening has been disabled in the general settings: Otváranie externých odkazov bolo zakázané vo všeobecných nastaveniach
 Are you sure you want to open this link?: Naozaj chcete otvoriť tento odkaz?
@@ -1113,3 +1157,5 @@ Compact side navigation: Kompaktná bočná navigácia
 Expand side navigation: Rozbaliť bočnú navigáciu
 Screenshot Clipboard Success: Snímka obrazovky uložená do schránky
 Screenshot Clipboard Error: Kopírovanie snímky obrazovky do schránky sa nepodarilo
+SponsorBlock Disabled on Channel: SponsorBlock vypnutý na {channel}
+SponsorBlock Enabled on Channel: SponsorBlock zapnutý na {channel}

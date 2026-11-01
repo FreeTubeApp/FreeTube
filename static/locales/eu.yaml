@@ -36,6 +36,7 @@ Global:
     View Count: Ikustaldi 1 | {count} ikustaldi
     Like Count: Atsegite 1 | {count} atsegite
     Comment Count: Iruzkin 1 | {count} iruzkin
+    Replies Remaining: "{' '}(1 geratzen da) | {' '}({count} geratzen dira)"
   Live: Zuzenean
   Shorts: Laburrak
   Posts: Argitalpenak
@@ -103,6 +104,8 @@ Subscriptions:
   Load More Posts: Kargatu mezu gehiago
   Subscriptions Tabs: Harpidetzen fitxak
   All Subscription Tabs Hidden: Harpidetza fitxa guztiak ezkutatuta daude. Hemen edukia ikusteko, erakutsi fitxa batzuk "{subsection}" ataleko "{settingsSection}"-ean.
+  Posts:
+    RSS Message: YouTube-k ez du mezuetarako RSS jariorik eskaintzen. Desgaitu "{rssSetting}" ezarpena mezuak ikusteko edo gaitu "{hideSetting}" ezarpena fitxa hau ezkutatzeko.
 More: 'Gehiago'
 Trending:
   Trending: 'Joerak'
@@ -194,6 +197,9 @@ User Playlists:
   The playlist has been successfully exported: Erreprodukzio-zerrenda ongi esportatu da
   TotalTimePlaylist: 'Denbora guztira: {duration}'
   Export list of URLs: Esportatu URLen zerrenda
+  Move Video to the Top: Eraman bideoa goialdera
+  Move Video to the Bottom: Eraman bideoa behealdera
+  This playlist is private or does not exist.: Erreprodukzio-zerrenda hau pribatua da edo ez da existitzen.
 History:
   # On History Page
   History: 'Historikoa'
@@ -381,11 +387,11 @@ Settings:
     Enable Theatre Mode by Default: 'Gaitu antzerki modua lehenespenez'
     Default Volume: 'Lehenetsitako bolumena'
     Default Playback Rate: 'Lehenetsitako erreprodukzio-tasa'
-    Default Video Format:
-      Default Video Format: 'Lehenetsitako bideo-formatua'
+    Default Media Format:
       Dash Formats: 'DASH formatuak'
       Legacy Formats: 'Formatu zaharrak'
       Audio Formats: 'Audio-formatuak'
+      Default Media Format: Multimedia-formatu lehenetsia
     Default Quality:
       Default Quality: 'Lehenetsitako kalitatea'
       Auto: 'Automatikoa'
@@ -430,6 +436,9 @@ Settings:
       Picture in Picture: Irudiz irudi
       External Player: Kanpoko erreproduzitzailea ({externalPlayerName})
       Theater: Antzokia
+      Full Window (Always On): Leiho osoa (beti aktiboa)
+      Full Screen (Always On): Pantaila osoa (beti aktiboa)
+      Tooltip: Ikusteko modu lehenetsi gehienak ikustaldi bakoitzaren hasieran soilik aplikatzen dira. Saioan egindako aldaketek iraun egiten dute amaitu arte. Beti aktibatuta dauden ikusteko moduak bideo berri batera aldatzen zaren bakoitzean aplikatzen dira, aurreko bideoa ikustean egindako ikusteko moduko aldaketak kontuan hartu gabe.
   Privacy Settings:
     Privacy Settings: 'Pribatutasuna'
     Remember History: 'Gogoratu ikusitakoaren historikoa'
@@ -511,6 +520,8 @@ Settings:
     Hide Channel Courses: Ezkutatu kanala "Ikastaroak" fitxa
     Hide Channel Posts: Ezkutatu kanalaren "Argitalpenak" fitxa
     Hide Subscriptions Posts: Ezkutatu harpidetza-argitalpenak
+    Add: Gehitu
+    Remove: Kendu
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -552,6 +563,15 @@ Settings:
     Export search history: Esportatu bilaketa-historia
     All search history has been successfully imported: Bilaketa-historia guztia behar bezala inportatu da
     All search history has been successfully exported: Bilaketa-historia guztia behar bezala esportatu da
+    Settings File: Ezarpenen fitxategia
+    Import Settings: Inportazio ezarpenak
+    Export Settings: Esportazio ezarpenak
+    Settings Tooltip: OS/erabiltzailearentzako edo esperimentalak diren ezarpenak ezin dira esportatu edo inportatu (adibidez, proxy, kanpoko erreproduzitzailea, pantaila-argazkien karpeta...)
+    All settings have been successfully imported: Ezarpen guztiak behar bezala inportatu dira
+    All settings have been successfully exported: Ezarpen guztiak behar bezala esportatu dira
+    Setting object has insufficient data, skipping item: Ezarpenen objektuak ez ditu datu nahikoak. Elementua saltatzen
+    Unknown setting key: 'Ezarpen-gako ezezaguna: {key}'
+    Non-transferable setting key: 'Transferitu ezina den ezarpen-gakoa: {key}'
   Proxy Settings:
     Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Gaitu Tor / Proxy-a'
@@ -594,6 +614,10 @@ Settings:
     UseDeArrowTitles: Erabili DeArrow bideo-izenburuak
     UseDeArrowThumbnails: Erabili DeArrow irudi txikietarako
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API URLa (lehenetsia https://dearrow-thumb.ajay.app da)
+    Excluded Channels:
+      Disabled Message: Kanal batzuk IDaren bidez baztertu dira eta ez dira prozesatu. Funtzioa blokeatuta dago ID horiek eguneratzen diren bitartean
+      Excluded Channels: Baztertutako kanalak
+      Tooltip: Idatzi kanal baten IDa SponsorBlock desgaitzeko. Kanal honetako bideoetako babesle-zatiak ez dira saltatuko. Idatzitako kanalaren IDak guztiz bat etorri behar du, eta maiuskulak eta minuskulak bereizten ditu.
   Parental Control Settings:
     Show Family Friendly Only: Erakutsi familientzat aproposa dena bakarrik
     Hide Unsubscribe Button: Ezkutatu harpidetza kentzeko botoia
@@ -608,6 +632,7 @@ Settings:
     Replace HTTP Cache: Ordeztu HTTP cachea
     Experimental Settings: Esperimentala
     Warning: Ezarpen hauek esperimentalak dira, aktibatuta dauden bitartean hutsegiteak eragin ditzakete. Oso gomendagarria da babeskopiak egitea. Erabili zure ardurapean!
+    Disable Hardware Acceleration: Desgaitu Hardware azelerazioa
   Password Settings:
     Password Settings: Pasahitza
     Set Password To Prevent Access: Ezarri pasahitz bat ezarpenetara sarbidea galarazteko
@@ -629,7 +654,6 @@ About:
   GitHub issues: 'Github-en gaiak'
   Please check for duplicates before posting: 'Mesedez, egiaztatu bikoiztutakoak ote dauden argitaratu aurretik'
   Website: 'Webgunea'
-  Email: 'Posta elektronikoa'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Matrix-en txata'
   room rules: 'Gelaren arauak'
@@ -685,6 +709,7 @@ Profile:
   Edit Profile Name: Editatu profil-izena
   Create Profile Name: Sortu profil-izena
   Profile Name: Profil-izena
+  Go To Profile Manager: Joan Profilen kudeatzailera
 Channel:
   Subscribe: 'Harpidetu'
   Unsubscribe: 'Kendu harpidetza'
@@ -695,11 +720,11 @@ Channel:
   Your search results have returned 0 results: 'Zure bilaketak 0 emaitza lortu ditu'
   Videos:
     Videos: 'Bideoak'
-    This channel does not currently have any videos: 'Kanal honek ez du bideorik'
     Sort Types:
       Newest: 'Berrienak'
       Oldest: 'Zaharrenak'
       Most Popular: 'Jarraituenak'
+    This channel has videos but none could be displayed, try fetching more: Kanal honek bideoak ditu, baina ezin izan da bat ere erakutsi; saiatu gehiago eskuratzen
   Playlists:
     Playlists: 'Erreprodukzio-zerrendak'
     This channel does not currently have any playlists: 'Kanal honek ez du erreprodukzio-zerrendarik'
@@ -717,6 +742,7 @@ Channel:
       Tags: Etiketak
       Search for: Bilatu "{tag}"
     Details: Xehetasunak
+    Links: Estekak
   This channel does not exist: Kanal hau ez da existitzen
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Kanal hau adin mugatuta dago eta une honetan ezin da ikusi FreeTuben.
   Shorts:
@@ -746,6 +772,7 @@ Channel:
   Courses:
     Courses: Ikastaroak
     This channel does not currently have any courses: Une honetan kanal honek ez du ikastarorik
+  View All: Ikusi dena
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Ezabatu historikotik'
@@ -850,7 +877,7 @@ Video:
   MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTuberekin ikusi, Googleren saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen baitute.
   Unlisted: Zerrendatu gabeak
   AgeRestricted: Adin muga duten bideoak ezin dira FreeTuberekin ikusi, Googlen saioa hasi eta adinak egiaztatutako YouTubeko kontu bat erabili behar delako.
-  IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu VPN edo proxy desberdin batera aldatzen.
+  IP block: YouTube-k zure IP helbidea blokeatu du bideoak ikus ez ditzazun, edo baliteke bideo honek adingabeak agertzen diren edukia izatea; YouTube-k eduki horretarako sarbidea mugatzen die saioa hasi ez duten erabiltzaileei. IP blokeo bat bada, saiatu beste VPN edo proxy bat erabiltzen.
   DeArrow:
     Show Original Details: Erakutsi jatorrizko xehetasunak
     Show Modified Details: Erakutsi aldatutako xehetasunak
@@ -863,6 +890,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'SABR atzerapen denbora geratzen da: {remindingTimeSeconds}s'
   Popout Live Chat: Erakutsi txata
   Private: Bideo pribatuak ezin dira ikusi FreeTube-n, Google-ren saioa irekitzea eta bideoaren jabetza behar baitute.
+  Collapse Playlist: Tolestu erreprodukzio-zerrenda
+  Expand Playlist: Zabaldu erreprodukzio-zerrenda
+  Premiere: Estreinaldia
+  Playlist:
+    Unavailable videos are hidden: Erabilgarri ez dagoen bideo 1 ezkutatuta dago | Erabilgarri ez dauden {count} bideo ezkutatuta daude
+  Enable SponsorBlock on Channel: Gaitu SponsorBlock kanalean
+  Disable SponsorBlock on Channel: Desgaitu SponsorBlock kanalean
+  AI: AA
+  'AI: Content was made with AI': 'AA: edukia adimen artifizialarekin egin da'
+  How this was made: Nola egin den
+  Station: Irratia
+  Reload Page: Freskatu orria
 Playlist:
   #& About
   View Full Playlist: 'Ikusi erreprodukzio-zerrenda osoa'
@@ -884,6 +923,7 @@ Playlist:
     VideoDurationAscending: Iraupena (Laburrena)
     PublishedNewest: Argitaratutako dataren arabera (Berriena)
     PublishedOldest: Argitaratutako dataren arabera (Zaharrena)
+  Unavailable videos are hidden: Erabilgarri ez dauden bideoak ezkutatuta daude
 Change Format:
   Change Media Formats: 'Aldatu multimedia-formatuak'
   Use Dash Formats: 'Erabili DASH formatuak'
@@ -931,6 +971,9 @@ Comments:
   Hide {replyCount} replies: Ezkutatu erantzun 1 | Ezkutatu {replyCount} erantzun
   View 1 reply from {channelName}: Ikusi {channelName}-ren erantzun bat
   View {replyCount} replies from {channelName} and others: Ikusi {channelName} eta beste batzuen {replyCount} erantzunak
+  Loading replies: Erantzunak kargatzen...
+  Hide Replies: Ezkutatu erantzuna | Ezkutatu erantzunak
+  Comments are turned off: Iruzkinak desaktibatuta daude
 Up Next: 'Hurrengoa'
 
 #Tooltips
@@ -939,13 +982,13 @@ Tooltips:
     Preferred API Backend: 'Aukeratu FreeTubek datuak lortzeko erabiltzen duen motorra. Tokiko APIa integratutako erauzgailua da. Invidious APIak Invidious zerbitzari bat behar du konektatzeko.'
     Fallback to Non-Preferred Backend on Failure: 'Zure hobetsitako APIak arazoren bat duenean, FreeTube automatikoki saiatuko da hobetsi ez den APIa erabiltzen ordezko metodo gisa, posible denean.'
     Thumbnail Preference: 'FreeTubeko miniatura guztiak bideoaren fotograma batekin ordezkatuko dira, lausotuta edo ezkutatuta, lehenetsitako miniaturaren ordez.'
-    Invidious Instance: 'API deietan Freetube konektatuko den Individious instantzia.'
+    Invidious Instance: 'FreeTube API deietarako konektatuko den Invidious instantzia. Ezarpen honen aldaketek uneko leihoari soilik eragiten diote, instantzia hau lehenetsi gisa ezartzen ez baduzu.'
     Region for Trending: 'Joeren eskualdeak aukera ematen dizu bistaratu nahi dituzun herrialdeko joerako bideoak hautatzeko.'
     External Link Handling: "Lehenetsitako portaera hautatu, Freetuben ireki ezin den esteka bat klikatua izan denean.\nLehentasunez, Freetubek lehenetsitako nabigatazailean irekiko du klikatutako esteka.\n"
     Open Deep Links In New Window: FreeTubera pasatzen diren URLak, birbideratzeko arakatzailearen luzapenek edo komando-lerroko argumentuek, leiho berri batean irekiko dira.
   Player Settings:
     Proxy Videos Through Invidious: 'Bideoak hornitzeko Invidiousera konektatuko da, YouTubera zuzeneko konexioa egin beharrean.'
-    Default Video Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak. DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute. Audio formatuak audio-jarioak soilik dira.'
+    Default Media Format: 'Ezarri bideo bat erreproduzitzean erabiliko diren formatuak. DASH formatuek kalitate handiagoak erreproduzi ditzakete. Legatu diren formatuek gehienez 360p-ra mugatuta daude, baina banda-zabalera gutxiago erabiltzen dute. Audio formatuak audio-jarioak soilik dira.'
     Scroll Playback Rate Over Video Player: Kursorea bideoaren gainean denean, kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta saguaren gurpila aurrera eta atzera mugiarazi erreprodukzio tasa kontrolatzeko. Kontrol tekla sakatu eta mantendu (Komando tekla MACetan) eta ondoren saguaren ezkerreko botoia sakatu, lehenetsitako erreprodukzio tasara itzultzeko (1x baldin eta ezarpenetan aldaketarik egin ez bada).
     Skip by Scrolling Over Video Player: Erabili korritze-gurpila bideoa saltatzeko, MPV estiloa.
   Subscription Settings:
@@ -967,6 +1010,7 @@ Tooltips:
     Hide Videos on Watch: Ikusitako bideoak ezkutatzen ditu Harpidetza eta Kanalen orrialdeetako Bideoak, Laburpenak eta Zuzeneko fitxetatik. Honek ez dio eragiten Kanalen orrialdeetako Hasiera fitxari
   Experimental Settings:
     Replace HTTP Cache: Electron-en diskoan oinarritutako HTTP cachea desgaitzen du eta memoriako irudien cache pertsonalizatua gaitu. RAM erabilera handitzea ekarriko du.
+    Disable Hardware Acceleration: GPU hardware azelerazioa desgaitzen du. Arazo grafikoak konpondu ditzake, baina okerragoa ikusiko da ziurrenik.
   SponsorBlock Settings:
     UseDeArrowThumbnails: Ordeztu bideoaren miniaturak DeArrow-en miniaturaz.
     UseDeArrowTitles: Ordeztu bideoen izenburuak DeArrow-en erabiltzaileek bidalitako tituluekin.
@@ -991,6 +1035,8 @@ No: 'Ez'
 Search Bar:
   Clear Input: Garbitu sarrera
   Remove: Kendu
+  Open Search Container: Ireki Bilaketen edukiontzia
+  Search: Bilatu
 Are you sure you want to open this link?: Ziur al zaude esteka hau ireki nahi duzula?
 Open New Window: Ireki leiho berria
 Default Invidious instance has been set to {instance}: 'Lehenetsitako Individious instantzia {instance} gisa ezarri da'
@@ -1121,3 +1167,5 @@ Compact side navigation: Trinkotu alboko nabigazioa
 Expand side navigation: Zabaldu alboko nabigazioa
 Screenshot Clipboard Success: Pantaila-argazkia arbelean gorde da
 Screenshot Clipboard Error: Pantaila-argazkia arbelean kopiatzeak huts egin du
+SponsorBlock Disabled on Channel: SponsorBlock desgaituta dago {channel} kanalean
+SponsorBlock Enabled on Channel: SponsorBlock gaituta dago {channel} kanalean

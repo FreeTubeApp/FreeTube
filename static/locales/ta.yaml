@@ -71,6 +71,7 @@ Search Filters:
   Search Filters: 'வடிப்பான்களைத் தேடுங்கள்'
   Prioritize:
     Most Relevant: 'மிகவும் பொருத்தமானது'
+    Popularity: பிரபலம்
   Time:
     Time: 'நேரம்'
     Any Time: 'எந்த நேரத்திலும்'
@@ -243,6 +244,8 @@ User Playlists:
       There was an issue with creating the playlist.: 'பிளேலிச்ட்டை உருவாக்குவதில் சிக்கல் இருந்தது.'
   TotalTimePlaylist: 'மொத்த நேரம்: {duration}'
   Export list of URLs: முகவரிகளின் பட்டியலை ஏற்றுமதி
+  Move Video to the Top: வீடியோவை மேலே நகர்த்தவும்
+  Move Video to the Bottom: வீடியோவை கீழே நகர்த்தவும்
 History:
   # On History Page
   History: 'வரலாறு'
@@ -441,8 +444,7 @@ Settings:
     Default Playback Rate: 'இயல்புநிலை பின்னணி வீதம்'
     Max Video Playback Rate: 'அதிகபட்ச வீடியோ பிளேபேக் வீதம்'
     Video Playback Rate Interval: 'வீடியோ பிளேபேக் வீத இடைவெளி'
-    Default Video Format:
-      Default Video Format: 'இயல்புநிலை வீடியோ வடிவம்'
+    Default Media Format:
       Dash Formats: 'கோடு வடிவங்கள்'
       Legacy Formats: 'மரபு வடிவங்கள்'
       Audio Formats: 'ஆடியோ வடிவங்கள்'
@@ -478,6 +480,8 @@ Settings:
       Full Screen: முழுத் திரை
       Picture in Picture: படத்தில் படம்
       External Player: வெளிப்புற பிளேயர் ({externalPlayerName})
+      Full Window (Always On): முழுச் சாளரம் (எப்போதும் இயங்கும்)
+      Full Screen (Always On): முழுத் திரை (எப்போதும் இயங்கும்)
   External Player Settings:
     External Player Settings: 'வெளிப்புற பிளேயர்'
     External Player: 'வெளிப்புற பிளேயர்'
@@ -683,7 +687,6 @@ About:
   GitHub issues: 'அறிவிலிமையம் சிக்கல்கள்'
   Please check for duplicates before posting: 'இடுகையிடுவதற்கு முன் நகல்களை சரிபார்க்கவும்'
   Website: 'வலைத்தளம்'
-  Email: 'மின்னஞ்சல்'
   Mastodon: 'மாச்டோடன்'
   Chat on Matrix: 'மேட்ரிக்சில் அரட்டை'
   room rules: 'அறை விதிகள்'
@@ -751,7 +754,6 @@ Channel:
   Channel Tabs: 'சேனல் தாவல்கள்'
   Videos:
     Videos: 'வீடியோக்கள்'
-    This channel does not currently have any videos: 'இந்த சேனலில் தற்போது எந்த வீடியோக்களும் இல்லை'
     Sort Types:
       Newest: 'புதியது'
       Oldest: 'பழமையானது'
@@ -1034,7 +1036,7 @@ Tooltips:
     Open Deep Links In New Window: முகவரி கள் ஃப்ரீட்யூப்பிற்கு அனுப்பப்பட்டன, அதாவது திருப்பி உலாவி நீட்டிப்புகள் அல்லது கட்டளை வரி வாதங்கள் போன்றவை புதிய சாளரத்தில் திறக்கப்படுகின்றன.
   Player Settings:
     Proxy Videos Through Invidious: 'YouTube உடன் நேரடி இணைப்பை உருவாக்குவதற்கு பதிலாக வீடியோக்களை வழங்குவதற்கு ஆக்கிரமிப்புடன் இணைக்கும்.'
-    Default Video Format: 'வீடியோ விளையாடும்போது பயன்படுத்தப்படும் வடிவங்களை அமைக்கவும். கோடு வடிவங்கள் அதிக குணங்களை விளையாடலாம். மரபு வடிவங்கள் அதிகபட்சம் 360p க்கு மட்டுப்படுத்தப்பட்டுள்ளன, ஆனால் குறைந்த அலைவரிசையைப் பயன்படுத்துகின்றன. ஆடியோ வடிவங்கள் ஆடியோ மட்டுமே ச்ட்ரீம்கள்.'
+    Default Media Format: 'வீடியோ விளையாடும்போது பயன்படுத்தப்படும் வடிவங்களை அமைக்கவும். கோடு வடிவங்கள் அதிக குணங்களை விளையாடலாம். மரபு வடிவங்கள் அதிகபட்சம் 360p க்கு மட்டுப்படுத்தப்பட்டுள்ளன, ஆனால் குறைந்த அலைவரிசையைப் பயன்படுத்துகின்றன. ஆடியோ வடிவங்கள் ஆடியோ மட்டுமே ச்ட்ரீம்கள்.'
     Scroll Playback Rate Over Video Player: 'கர்சர் வீடியோவின் மேல் இருக்கும்போது, கட்டுப்பாட்டு விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்து, பின்னணி விகிதத்தைக் கட்டுப்படுத்த சுட்டி சக்கரத்தை முன்னோக்கி அல்லது பின்னோக்கி உருட்டவும். கட்டுப்பாட்டு விசையை (மேக்கில் கட்டளை விசை) அழுத்திப் பிடித்துக் கொள்ளுங்கள் மற்றும் இயல்புநிலை பின்னணி விகிதத்திற்கு விரைவாக திரும்புவதற்கு சுட்டியைக் சொடுக்கு செய்க (அமைப்புகளில் மாற்றப்படாவிட்டால் 1x).'
     Skip by Scrolling Over Video Player: 'வீடியோ, எம்.பி.வி பாணி மூலம் தவிர்க்க உருள் சக்கரத்தைப் பயன்படுத்தவும்.'
   External Player Settings:
