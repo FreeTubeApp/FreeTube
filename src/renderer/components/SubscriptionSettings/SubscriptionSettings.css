@@ -1,4 +1,12 @@
 .onlyShowLatestFromChannelNumber {
-  inline-size: calc(100% - 10px);
-  padding-inline-start: 10px;
+  inline-size: calc(100% - 44px);
+  padding-inline-start: 44px;
+}
+
+.isSideNavOpen {
+  .switchColumnGrid {
+    @media only screen and (width <= 900px) {
+      grid-template-columns: auto;
+    }
+  }
 }
