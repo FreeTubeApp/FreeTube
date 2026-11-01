@@ -193,6 +193,14 @@
           </p>
         </FtFlexBox>
         <FtElementList
+          v-if="!hideChannelShows && currentTab === 'shows'"
+          id="showsPanel"
+          :data="latestShows"
+          :use-channels-hidden-preference="false"
+          role="tabpanel"
+          aria-labelledby="showsTab"
+        />
+        <FtElementList
           v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
           :data="latestPlaylists"
@@ -305,6 +313,7 @@ import {
   getInvidiousChannelPodcasts,
   getInvidiousChannelReleases,
   getInvidiousChannelCourses,
+  getInvidiousChannelShows,
   getInvidiousChannelShorts,
   getInvidiousChannelVideos,
   invidiousGetChannelId,
@@ -407,6 +416,7 @@ const SUPPORTED_CHANNEL_TABS = [
   'shorts',
   'live',
   'releases',
+  'shows',
   'podcasts',
   'courses',
   'playlists',
@@ -419,6 +429,7 @@ const channelTabs = shallowRef([
   'shorts',
   'live',
   'releases',
+  'shows',
   'podcasts',
   'courses',
   'playlists',
@@ -474,6 +485,9 @@ const hideChannelReleases = computed(() => store.getters.getHideChannelReleases)
 const hideChannelCourses = computed(() => store.getters.getHideChannelCourses)
 
 /** @type {import('vue').ComputedRef<boolean>} */
+const hideChannelShows = computed(() => store.getters.getHideChannelShows)
+
+/** @type {import('vue').ComputedRef<boolean>} */
 const hideChannelPlaylists = computed(() => store.getters.getHideChannelPlaylists)
 
 /** @type {import('vue').ComputedRef<boolean>} */
@@ -516,6 +530,10 @@ const tabInfoValues = computed(() => {
 
   if (hideChannelCourses.value) {
     removeFromArrayIfExists(values, 'courses')
+  }
+
+  if (hideChannelShows.value) {
+    removeFromArrayIfExists(values, 'shows')
   }
 
   return values
@@ -819,6 +837,11 @@ async function getChannelLocal() {
       getChannelReleasesLocal()
     }
 
+    if (!hideChannelCourses.value && channelInstance.has_shows) {
+      tabs.push('shows')
+      getChannelShowsLocal()
+    }
+
     if (!hideChannelCourses.value && channelInstance.has_courses) {
       tabs.push('courses')
       getChannelCoursesLocal()
@@ -1011,7 +1034,7 @@ async function getChannelInfoInvidious() {
     errorMessage.value = ''
 
     // some channels only have a few tabs
-    // here are all possible values: home, videos, shorts, streams, playlists, community, channels, about
+    // here are all possible values: home, videos, shorts, streams, playlists, podcasts, releases, courses, shows community, channels, about
 
     const tabs = ['about', ...response.tabs]
 
@@ -1043,6 +1066,10 @@ async function getChannelInfoInvidious() {
 
     if (!hideChannelCourses.value && tabs.includes('courses')) {
       channelInvidiousCourses()
+    }
+
+    if (!hideChannelShows.value && tabs.includes('shows')) {
+      channelInvidiousShows()
     }
 
     if (!hideChannelPlaylists.value && tabs.includes('playlists')) {
@@ -1959,6 +1986,101 @@ async function channelInvidiousCoursesMore() {
   }
 }
 
+const latestShows = shallowRef([])
+const showsContinuationData = shallowRef(null)
+
+async function getChannelShowsLocal() {
+  isElementListLoading.value = true
+  const expectedId = id.value
+
+  try {
+    await ensureChannelInstance()
+
+    const showsTab = await channelInstance.getShows()
+
+    if (expectedId !== id.value) {
+      return
+    }
+
+    latestShows.value = showsTab.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    showsContinuationData.value = showsTab.has_continuation ? showsTab : null
+    isElementListLoading.value = false
+  } catch (err) {
+    console.error(err)
+
+    const errorMessage = t('Local API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+
+    if (backendPreference.value === 'local' && backendFallback.value) {
+      showToast(t('Falling back to Invidious API'))
+      channelInvidiousShows()
+    } else {
+      isLoading.value = false
+    }
+  }
+}
+
+async function getChannelShowsLocalMore() {
+  try {
+    /**
+     * @type {import('youtubei.js').YT.ChannelListContinuation}
+     */
+    const continuation = await showsContinuationData.value.getContinuation()
+
+    const parsedShows = continuation.playlists.map(playlist => parseLocalListPlaylist(playlist, id.value, channelName.value))
+    latestShows.value = latestShows.value.concat(parsedShows)
+    showsContinuationData.value = continuation.has_continuation ? continuation : null
+  } catch (err) {
+    console.error(err)
+    const errorMessage = t('Local API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+  }
+}
+
+async function channelInvidiousShows() {
+  isElementListLoading.value = true
+
+  try {
+    const response = await getInvidiousChannelShows(id.value)
+    showsContinuationData.value = response.continuation || null
+    latestShows.value = response.playlists
+    isElementListLoading.value = false
+  } catch (err) {
+    console.error(err)
+
+    const errorMessage = t('Invidious API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+
+    if (process.env.SUPPORTS_LOCAL_API && backendPreference.value === 'invidious' && backendFallback.value) {
+      showToast(t('Falling back to Local API'))
+      getChannelShowsLocal()
+    } else {
+      isLoading.value = false
+    }
+  }
+}
+
+async function channelInvidiousShowsMore() {
+  try {
+    const response = await getInvidiousChannelShows(id.value, showsContinuationData.value)
+    showsContinuationData.value = response.continuation || null
+    latestShows.value = latestShows.value.concat(response.playlists)
+    isElementListLoading.value = false
+  } catch (err) {
+    console.error(err)
+    const errorMessage = t('Invidious API Error (Click to copy)')
+    showToast(`${errorMessage}: ${err}`, 10000, () => {
+      copyToClipboard(err)
+    })
+  }
+}
+
 const latestCommunityPosts = shallowRef([])
 const communityContinuationData = shallowRef(null)
 
@@ -2254,6 +2376,8 @@ const showFetchMoreButton = computed(() => {
       return !isNullOrEmpty(podcastContinuationData.value)
     case 'courses':
       return !isNullOrEmpty(coursesContinuationData.value)
+    case 'shows':
+      return !isNullOrEmpty(showsContinuationData.value)
     case 'playlists':
       return !isNullOrEmpty(playlistContinuationData.value)
     case 'community':
@@ -2311,6 +2435,13 @@ async function handleFetchMore() {
         await getChannelCoursesLocalMore()
       } else {
         await channelInvidiousCoursesMore()
+      }
+      break
+    case 'shows':
+      if (process.env.SUPPORTS_LOCAL_API && apiUsed === 'local') {
+        await getChannelShowsLocalMore()
+      } else {
+        await channelInvidiousShowsMore()
       }
       break
     case 'playlists':
