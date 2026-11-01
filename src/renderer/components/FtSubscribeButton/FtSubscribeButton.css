@@ -65,7 +65,7 @@
   display: inline;
   font-size: 12px;
   max-block-size: min(60vh, 500px);
-  margin-block: 4px 0;
+  margin-block: -7px 0;
   margin-inline: 5px 0;
   overflow-y: auto;
   position: absolute;
