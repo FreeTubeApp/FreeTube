@@ -11,7 +11,6 @@
 
 .switchRow {
   display: flex;
-  flex-wrap: wrap;
   gap: 10px;
   box-sizing: border-box;
   inline-size: 100%;
@@ -34,7 +33,9 @@
 }
 
 .settingsSearchDesktop {
-  inline-size: min(320px, 100%);
+  flex: 1;
+  min-inline-size: 140px;
+  max-inline-size: 320px;
 }
 
 .settingsSearchMobileCard {
@@ -216,6 +217,10 @@
 .settingsToggle {
   padding-block: 0;
   margin-block: 0;
+}
+
+.keyboardShortcutsButton {
+  flex-shrink: 0;
 }
 
 .section {

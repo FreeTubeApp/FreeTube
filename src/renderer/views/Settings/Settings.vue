@@ -60,17 +60,18 @@
             @input="updateSearchQuery"
             @clear="clearSearch"
           />
-          <FtButton
-            v-if="USING_ELECTRON"
-            :label="t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')"
-            :icon="['fas', 'keyboard']"
-            @click="showKeyboardShortcutPrompt"
-          />
           <FtToggleSwitch
             class="settingsToggle"
             :label="t('Settings.Sort Settings Sections (A-Z)')"
             :default-value="settingsSectionSortEnabled"
             @change="updateSettingsSectionSortEnabled"
+          />
+          <FtButton
+            v-if="USING_ELECTRON"
+            class="keyboardShortcutsButton"
+            :label="t('KeyboardShortcutPrompt.Show Keyboard Shortcuts')"
+            :icon="['fas', 'keyboard']"
+            @click="showKeyboardShortcutPrompt"
           />
         </div>
         <div
@@ -178,12 +179,13 @@ import FtButton from '../../components/FtButton/FtButton.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtInput from '../../components/FtInput/FtInput.vue'
 import FtSettingsMenu from '../../components/FtSettingsMenu/FtSettingsMenu.vue'
-import { ctrlFHandler } from '../../helpers/utils'
+import { ctrlFHandler, debounce } from '../../helpers/utils'
 
 import store from '../../store/index'
 
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
+const SETTINGS_SEARCH_DEBOUNCE_MS = 500
 
 const { locale, t } = useI18n()
 
@@ -191,8 +193,9 @@ const isInDesktopView = ref(true)
 const settingsSectionTypeOpenInMobile = ref(null)
 const activeSection = ref(null)
 const searchQuery = ref('')
+const settledSearchQuery = ref('')
 const searchEntries = shallowRef([])
-const isSearching = computed(() => searchQuery.value.trim().length > 0)
+const isSearching = computed(() => settledSearchQuery.value.trim().length > 0)
 const settingsSearchDesktopRef = useTemplateRef('settingsSearchDesktopRef')
 const settingsSearchMobileRef = useTemplateRef('settingsSearchMobileRef')
 const switchRowRef = useTemplateRef('switchRowRef')
@@ -200,6 +203,11 @@ const settingsSectionsRef = useTemplateRef('settingsSectionsRef')
 let searchObserver
 let highlightedElement
 let searchStartScrollY = null
+
+const updateSearchQueryDebounced = debounce(() => {
+  settledSearchQuery.value = searchQuery.value
+}, SETTINGS_SEARCH_DEBOUNCE_MS)
+const refreshSearchEntriesDebounced = debounce(refreshSearchEntries, SETTINGS_SEARCH_DEBOUNCE_MS)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const settingsSectionSortEnabled = computed(() => store.getters.getSettingsSectionSortEnabled)
@@ -317,7 +325,7 @@ const settingsSectionComponents = computed(() => {
 })
 
 const matchingSections = computed(() => {
-  const words = searchQuery.value.trim().toLocaleLowerCase(locale.value).split(/\s+/)
+  const words = settledSearchQuery.value.trim().toLocaleLowerCase(locale.value).split(/\s+/)
 
   return settingsSectionComponents.value.flatMap(section => {
     const results = searchEntries.value.filter(entry => {
@@ -376,7 +384,7 @@ function handleMounted() {
   document.addEventListener('scroll', markScrolledToSectionAsActive)
   document.addEventListener('keydown', handleSearchShortcut)
   refreshSearchEntries()
-  searchObserver = new MutationObserver(refreshSearchEntries)
+  searchObserver = new MutationObserver(refreshSearchEntriesDebounced)
   const observerOptions = {
     childList: true,
     subtree: true,
@@ -391,6 +399,8 @@ function handleMounted() {
 }
 
 function refreshSearchEntries() {
+  if (!settingsSectionsRef.value) return
+
   const controls = [
     ...settingsSectionsRef.value.querySelectorAll('[data-settings-search-label]'),
     ...switchRowRef.value.querySelectorAll('[data-settings-search-label]')
@@ -404,7 +414,7 @@ function refreshSearchEntries() {
 }
 
 function updateSearchQuery(value) {
-  if (!isSearching.value && value.trim()) {
+  if (!searchQuery.value.trim() && value.trim()) {
     if (searchStartScrollY === null) {
       searchStartScrollY = window.scrollY
     }
@@ -413,15 +423,17 @@ function updateSearchQuery(value) {
     }
   }
   searchQuery.value = value
-  if (!value.trim()) {
+  if (value.trim()) {
+    updateSearchQueryDebounced()
+  } else {
+    settledSearchQuery.value = ''
     restoreSearchScroll()
   }
 }
 
 function clearSearch() {
   const isDesktop = isInDesktopView.value
-  searchQuery.value = ''
-  restoreSearchScroll()
+  updateSearchQuery('')
   nextTick(() => {
     const searchRef = isDesktop ? settingsSearchDesktopRef.value : settingsSearchMobileRef.value
     const searchInput = searchRef?.$el.querySelector('input')
@@ -442,7 +454,7 @@ function restoreSearchScroll() {
   if (searchStartScrollY !== null && isInDesktopView.value) {
     const scrollY = searchStartScrollY
     nextTick(() => window.requestAnimationFrame(() => {
-      if (isSearching.value || !settingsSectionsRef.value?.isConnected) return
+      if (searchQuery.value.trim() || !settingsSectionsRef.value?.isConnected) return
       window.scrollTo(0, scrollY)
     }))
   }
@@ -451,7 +463,7 @@ function restoreSearchScroll() {
 
 async function selectSearchResult(result) {
   searchStartScrollY = null
-  searchQuery.value = ''
+  updateSearchQuery('')
   if (!isInDesktopView.value) {
     settingsSectionTypeOpenInMobile.value = result.sectionType
   }
@@ -507,9 +519,9 @@ const sectionRefs = useTemplateRef('sectionRefs')
  * @param {string} sectionType
  */
 function navigateToSection(sectionType) {
-  if (isSearching.value) {
+  if (searchQuery.value.trim()) {
     searchStartScrollY = null
-    searchQuery.value = ''
+    updateSearchQuery('')
   }
 
   if (isInDesktopView.value) {
@@ -574,7 +586,7 @@ function handleResize() {
   const wasNotInDesktopView = !isInDesktopView.value
   isInDesktopView.value = window.innerWidth > SETTINGS_MOBILE_WIDTH_THRESHOLD
 
-  if (isSearching.value) {
+  if (searchQuery.value.trim()) {
     if (isInDesktopView.value) settingsSectionTypeOpenInMobile.value = null
     return
   }
