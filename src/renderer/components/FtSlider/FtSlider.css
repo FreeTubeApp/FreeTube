@@ -153,7 +153,7 @@
   border: 0;
 }
 
-@media only screen and (width <= 680px) {
+@media only screen and (width <= 800px) {
   .pure-material-slider {
     inline-size: 100%;
   }

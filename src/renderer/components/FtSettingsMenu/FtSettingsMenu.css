@@ -57,6 +57,12 @@
   border-block-end: 4px solid transparent;
 }
 
+@media only screen and (width <= 1200px) {
+  .isSideNavOpen .settingsMenu {
+    display: none;
+  }
+}
+
 @media only screen and (width >= 1015px) {
   .settingsMenu {
     margin-block: 0;
@@ -112,6 +118,10 @@
   /* hide the settings icon on mobile to avoid confusion */
   .headingIcon {
     display: none;
+  }
+
+  .isSideNavOpen .settingsMenu {
+    display: unset;
   }
 }
 
