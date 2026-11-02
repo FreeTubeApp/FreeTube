@@ -15,6 +15,7 @@
 
 <script setup>
 import { computed } from 'vue'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import store from '../store/index'
 

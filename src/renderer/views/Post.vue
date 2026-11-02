@@ -12,6 +12,7 @@
         />
       </FtCard>
       <CommentSection
+        v-if="!hideComments"
         :id="post.postId"
         :channel-name="post.author"
         :post-author-id="authorId"
@@ -59,6 +60,11 @@ const backendPreference = computed(() => {
 /** @type {import('vue').ComputedRef<boolean>} */
 const backendFallback = computed(() => {
   return store.getters.getBackendFallback
+})
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const hideComments = computed(() => {
+  return store.getters.getHideComments
 })
 
 onMounted(async () => {

@@ -1,5 +1,5 @@
 # Put the name of your locale in the same language
-Locale Name: Português
+Locale Name: Português (Portugal)
 
 # Webkit Menu Bar
 File: Ficheiro
@@ -380,8 +380,7 @@ Settings:
     Enable Theatre Mode by Default: Ativar modo cinema por omissão
     Default Volume: Volume padrão
     Default Playback Rate: Velocidade de reprodução padrão
-    Default Video Format:
-      Default Video Format: Formato de vídeo padrão
+    Default Media Format:
       Dash Formats: Formatos DASH
       Legacy Formats: Formatos antigos
       Audio Formats: Formatos de áudio
@@ -623,12 +622,11 @@ About:
   GitHub releases: Versões do GitHub
   Help: Ajuda
   FreeTube Wiki: Wiki FreeTube
-  FAQ: FAQ
+  FAQ: Perguntas frequentes
   Report a problem: Reportar um problema
   GitHub issues: Problemas no GitHub
   Please check for duplicates before posting: Antes de reportar verifique se alguém já reportou o mesmo problema
   Website: Página web
-  Email: E-mail
   Mastodon: Mastodon
   Chat on Matrix: Conversa no Matrix
   room rules: regras da sala de conversa
@@ -693,7 +691,6 @@ Channel:
   Your search results have returned 0 results: A pesquisa devolveu 0 resultados
   Videos:
     Videos: Vídeos
-    This channel does not currently have any videos: Atualmente, este canal não tem vídeos
     Sort Types:
       Newest: Recentes
       Oldest: Antigos
@@ -942,7 +939,7 @@ Tooltips:
     Open Deep Links In New Window: Os URLs passados para o FreeTube, como por extensões de navegador de redirecionamento ou argumentos de linha de comando, são abertos numa nova janela.
   Player Settings:
     Proxy Videos Through Invidious: Estabelece uma conexão ao Invidious para obter vídeos em vez de fazer uma conexão direta ao YouTube.
-    Default Video Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir em qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para reproduções de áudio (sem vídeo).
+    Default Media Format: Define os formatos usados quando um vídeo é reproduzido. Os formatos DASH podem reproduzir em qualidades mais altas. Os formatos antigos estão limitados a um máximo de 360p, mas usam menos largura de banda. Os formatos de áudio são apenas para reproduções de áudio (sem vídeo).
     Scroll Playback Rate Over Video Player: Com o cursor sobre o vídeo, prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e desloque a roda do rato para controlar a velocidade de reprodução. Prima e mantenha premida a tecla Ctrl (tecla Comando em Mac) e clique com o botão esquerdo do rato para voltar rapidamente à velocidade de reprodução padrão (1 a não ser que tenha sido alterada nas definições).
     Skip by Scrolling Over Video Player: Utilizar roda do rato para avançar ou recuar o vídeo, estilo MPV.
   Subscription Settings:

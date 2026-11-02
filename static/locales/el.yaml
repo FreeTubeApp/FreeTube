@@ -41,6 +41,7 @@ Global:
     Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
     Comment Count: 1 σχόλιο | {count} σχόλια
     Like Count: 1 Μου αρρέσει | {count} Μου αρρέσει
+    Replies Remaining: "{' '}(1 απομένει) | {' '}({count} απομένουν)"
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:
@@ -100,6 +101,8 @@ Subscriptions:
   All Subscription Tabs Hidden: Όλες οι καρτέλες Συνδρομών είναι κρυμμένες. Για να δείτε περιεχόμενο εδώ, εμφανίστε ορισμένες καρτέλες στην ενότητα "{subsection}" στο "{settingsSection}".
   Load More Posts: Φόρτωση Περισσότερων Αναρτήσεων
   Empty Posts: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν αναρτήσεις.
+  Posts:
+    RSS Message: Το YouTube δεν παρέχει RSS feed για δημοσιεύσεις. Απενεργοποιήστε την ρύθμιση "{rssSetting}" για να δείτε δημοσιεύσεις ή ενεργοποιήστε την ρύθμιση "{hideSetting}" για να κρύψετε αυτή την καρτέλα.
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -190,6 +193,8 @@ User Playlists:
       There was an issue with creating the playlist.: Υπήρχε ένα πρόβλημα με τη δημιουργία της λίστας αναπαραγωγής.
     Create: Δημιουργία
   Export list of URLs: Εξαγωγή λίστας URL
+  Move Video to the Top: Μετακίνηση βίντεο προς τα πάνω
+  Move Video to the Bottom: Μετακίνηση βίντεο προς τα κάτω
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -376,8 +381,7 @@ Settings:
     Enable Theatre Mode by Default: 'Ενεργοποίηση λειτουργίας κινηματογράφου από προεπιλογή'
     Default Volume: 'Προεπιλεγμένο επίπεδο έντασης'
     Default Playback Rate: 'Προεπιλεγμένη ταχύτητα αναπαραγωγής'
-    Default Video Format:
-      Default Video Format: 'Προεπιλεγμένη μορφή βίντεο'
+    Default Media Format:
       Dash Formats: 'Dash Μορφή'
       Legacy Formats: 'Παλαιότερες Μορφές Αναπαρωγής'
       Audio Formats: 'Μορφές Ήχου'
@@ -408,11 +412,14 @@ Settings:
       Quality Label: Ποιότητα Στιγμιότυπου Οθόνης
       Modes:
         Ask Path: Ερώτηση για Αποθήκευση Φακέλου
+        Save To Folder: Αποθήκευση σε Φάκελο
+        Clipboard: Αντιγραφή στο Clipboard
       Folder Button: Επιλέξτε φάκελο
       Folder Label: Φάκελος Στιγμιότυπου Οθόνης
       File Name Label: Μοτίβο ονόματος αρχείου
       File Name Tooltip: Μπορείτε να χρησιμοποιήσετε μεταβλητές παρακάτω. %Y Έτος 4 ψηφία. %M Μήνας 2 ψηφία. %D ψηφία ημέρας 2. %H Ώρα 2 ψηφία. %N Λεπτά 2 ψηφία. %S Δεύτερα 2 ψηφία. %T χιλιοστού του δευτερολέπτου 3 ψηφία. %s Βίντεο δεύτερο. %t Βίντεο χιλιοστού του δευτερολέπτου 3 ψηφία. %i Αναγνωριστικό Βίντεο.
       Format Label: Μορφή Στιγμιότυπου Οθόνης
+      Mode: Λειτουργία Στιγμιότυπου Οθόνης
     Skip by Scrolling Over Video Player: Παράλειψη με Κύλιση στο Πρόγραμμα Αναπαραγωγής Βίντεο
     Enter Fullscreen on Display Rotate: Μετάβαση στην Πλήρη Οθόνη κατά την Περιστροφή Οθόνης
     Default Viewing Mode:
@@ -421,6 +428,8 @@ Settings:
       Theater: Θέατρο
       Default Viewing Mode: Προεπιλεγμένη λειτουργία προβολής
       External Player: Εξωτερικός αναπαραγωγέας ({externalPlayerName})
+      Full Window (Always On): Πλήρες Παράθυρο (Πάντα Ενεργοποιημένο)
+      Full Screen (Always On): Πλήρης Οθόνη (Πάντα Ενεργοποιημένο)
     Autoplay Interruption Timer: Χρονοδιακόπτης διακοπής αυτόματης αναπαραγωγής
   Privacy Settings:
     Privacy Settings: 'Ιδιωτικότητα'
@@ -497,6 +506,15 @@ Settings:
     Export search history: Εξαγωγή ιστορικού αναζήτησης
     All search history has been successfully imported: Όλο το ιστορικό αναζήτησης έχει εισαχθεί με επιτυχία
     All search history has been successfully exported: Όλο το ιστορικό αναζήτησης έχει εξαχθεί με επιτυχία
+    Settings File: Αρχείο Ρυθμίσεων
+    Import Settings: Εισαγωγή Ρυθμίσεων
+    Export Settings: Εξαγωγή Ρυθμίσεων
+    Settings Tooltip: Ρυθμίσεις που εξαρτώνται από τον χρήστη/το λειρουργικό σύστημα ή είναι πειραματικές δεν μπορούν να εισαχθούν ή εξαχθούν (π.χ. proxy, external player, φάκελος στιγμιότυπων)
+    All settings have been successfully imported: Όλες οι ρυθμίσεις εισήχθηκαν με επιτυχία
+    All settings have been successfully exported: Όλες οι ρυθμίσεις εξήχθηκαν με επιτυχία
+    Setting object has insufficient data, skipping item: Ρύθμιση αντικειμένου έχει ανεπαρκή δεδομένα, παράλειψη στοιχείου
+    Unknown setting key: 'Άγνωστο κλειδί ρύθμισης: {key}'
+    Non-transferable setting key: 'Μη μεταβιβάσιμο κλειδί ρύθμισης: {key}'
   Distraction Free Settings:
     Distraction Free Settings: Χωρίς απόσπαση
     Hide Live Chat: Απόκρυψη Ζωντανής συνομιλίας
@@ -545,6 +563,8 @@ Settings:
     Show Added Items: Εμφάνιση προστιθέμενων στοιχείων
     Hide Subscriptions Posts: Απόκρυψη αναρτήσεων συνδρομών
     Hide Channel Posts: Απόκρυψη καρτέλας "Αναρτήσεις" καναλιού
+    Add: Προσθήκη
+    Remove: Αφαίρεση
   The app needs to restart for changes to take effect. Restart and apply change?: Η εφαρμογή πρέπει να κάνει επανεκκίνηση για να εφαρμοστούν οι αλλαγές. Επανεκκίνηση και εφαρμογή αλλαγών;
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Σφάλμα κατά τη λήψη πληροφοριών δικτύου. Ο διακομιστής μεσολάβησης έχει ρυθμιστεί σωστά;
@@ -619,7 +639,6 @@ About:
   room rules: κανόνες δωματίου
   Chat on Matrix: Συνομιλία στο Matrix
   Mastodon: Μάστοντον
-  Email: Ηλεκτρονικό ταχυδρομείο
   Website: Ιστότοπος
   Please check for duplicates before posting: Παρακαλώ ελέγξτε για διπλότυπα πριν δημοσιεύσετε
   GitHub issues: Προβλήματα GitHub
@@ -688,7 +707,6 @@ Channel:
   Your search results have returned 0 results: 'Τα αποτελέσματα της αναζήτησής σας έχουν επιστρέψει 0 αποτελέσματα'
   Videos:
     Videos: 'Βίντεο'
-    This channel does not currently have any videos: 'Αυτό το κανάλι δε διαθέτει προς το παρόν κάποιο βίντεο'
     Sort Types:
       Newest: 'Νεότερο'
       Oldest: 'Παλαιότερο'
@@ -949,7 +967,7 @@ Tooltips:
     Fetch Feeds from RSS: Όταν ενεργοποιηθεί, το FreeTube θα χρησιμοποιήσει RSS αντί για την προεπιλεγμένη μέθοδο για να αρπάξει τη ροή συνδρομής σας. Το RSS είναι ταχύτερο και αποτρέπει τον αποκλεισμό IP, αλλά δεν παρέχει ορισμένες πληροφορίες, όπως διάρκεια βίντεο, ζωντανή κατάσταση ή αναρτήσεις
     Fetch Automatically: Όταν ενεργοποιηθεί, το FreeTube θα ανακτήσει αυτόματα τη ροή συνδρομής σας κατά την εκκίνηση και όταν ανοίξει ένα νέο παράθυρο.
   Player Settings:
-    Default Video Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή ενός βίντεο. Οι μορφές DASH μπορούν να αναπαράγουν υψηλότερες ποιότητες. Οι μορφές παλαιού τύπου περιορίζονται σε μέγιστο 360p, αλλά χρησιμοποιούν μικρότερο εύρος ζώνης. Οι μορφές ήχου είναι ροές μόνο ήχου.
+    Default Media Format: Ορίστε τις μορφές που χρησιμοποιούνται κατά την αναπαραγωγή ενός βίντεο. Οι μορφές DASH μπορούν να αναπαράγουν υψηλότερες ποιότητες. Οι μορφές παλαιού τύπου περιορίζονται σε μέγιστο 360p, αλλά χρησιμοποιούν μικρότερο εύρος ζώνης. Οι μορφές ήχου είναι ροές μόνο ήχου.
     Proxy Videos Through Invidious: Θα συνδεθεί με το Invidious για να εξυπηρετήσει τα βίντεο αντί να κάνει μια άμεση σύνδεση με το YouTube.
     Scroll Playback Rate Over Video Player: Ενώ ο δρομέας βρίσκεται πάνω από το βίντεο, πατήστε και κρατήστε πατημένο το πλήκτρο Control (Command Key σε Mac) και μετακινηθείτε με τον τροχό του ποντικιού προς τα εμπρός ή προς τα πίσω για να ελέγξετε το ρυθμό αναπαραγωγής. Πατήστε παρατεταμένα το πλήκτρο Control (Command Key σε Mac) και κάντε αριστερό κλικ στο ποντίκι για να επιστρέψετε γρήγορα στον προεπιλεγμένο ρυθμό αναπαραγωγής (1x εκτός αν έχει αλλάξει στις ρυθμίσεις).
     Skip by Scrolling Over Video Player: Χρησιμοποιήστε τον τροχό κύλισης για να παρακάμψετε το βίντεο, στυλ MPV.
@@ -984,6 +1002,8 @@ Unknown YouTube url type, cannot be opened in app: Άγνωστος τύπος �
 Search Bar:
   Clear Input: Εκκαθάριση εισαγωγής
   Remove: Αφαίρεση
+  Open Search Container: Άνοιγμα Δοχείου Αναζήτησης
+  Search: Αναζήτηση
 Open New Window: Άνοιγμα Νέου παραθύρου
 Default Invidious instance has been set to {instance}: Το προεπιλεγμένο στιγμιότυπο Invidious έχει οριστεί σε {instance}
 Default Invidious instance has been cleared: Το προεπιλεγμένο στιγμιότυπο Invidious έχει διαγραφεί

@@ -29,7 +29,6 @@
         class="selectTooltip"
         :position="tooltipPosition"
         :tooltip="tooltip"
-        :allow-newlines="tooltipAllowNewlines"
       />
     </label>
   </div>
@@ -64,10 +63,6 @@ const props = defineProps({
   tooltipPosition: {
     type: String,
     default: 'bottom-left'
-  },
-  tooltipAllowNewlines: {
-    type: Boolean,
-    default: false,
   },
 })
 

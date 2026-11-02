@@ -98,8 +98,8 @@
   border-block-end: 3px solid transparent;
 }
 
-.tab:hover,
-.tab:focus {
+.tab:focus-visible,
+.tab:hover:not(.selectedTab) {
   font-weight: bold;
   border-block-end: 3px solid var(--tertiary-text-color);
 }

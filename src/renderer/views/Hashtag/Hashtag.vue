@@ -39,8 +39,7 @@
           role="button"
           tabindex="0"
           @click="handleFetchMore"
-          @keydown.space.prevent="handleFetchMore"
-          @keydown.enter.prevent="handleFetchMore"
+          @keydown.enter.space.prevent="handleFetchMore"
         >
           <FontAwesomeIcon :icon="['fas', 'search']" /> {{ $t("Search Filters.Fetch more results") }}
         </div>

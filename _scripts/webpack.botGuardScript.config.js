@@ -15,9 +15,7 @@ module.exports = {
     path: path.join(__dirname, '../dist'),
     library: {
       type: 'modern-module'
-    }
-  },
-  experiments: {
-    outputModule: true
+    },
+    module: true
   }
 }

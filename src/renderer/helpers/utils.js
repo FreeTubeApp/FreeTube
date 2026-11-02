@@ -9,6 +9,8 @@ export const CHANNEL_HANDLE_REGEX = /^@[\w.-]{3,30}$/
 
 const PUBLISHED_TEXT_REGEX = /(\d+)\s?([a-z]+)/i
 
+export const MIME_TYPE_CODECS_REGEX = /codecs="?([^"]+)"?/
+
 /**
  * @param {string} sortPreference
  * @returns {string[]}
@@ -751,6 +753,31 @@ export function formatNumber(number, options = undefined) {
   return Intl.NumberFormat([i18n.global.locale.value, 'en'], options).format(number)
 }
 
+export function isNumberRounded(number) {
+  switch (number.toString().length) {
+    case 11:
+    case 10:
+      return number % 100000000 === 0
+    case 9:
+    case 8:
+      return number % 1000000 === 0
+    case 7:
+      return number % 100000 === 0
+    case 6:
+    case 5:
+      return number % 1000 === 0
+    case 4:
+      return number % 100 === 0
+    default:
+      return false
+  }
+}
+
+export function formatSubscriberCount(number) {
+  // aligns with subscriber count precision outlined here: https://support.google.com/youtube/answer/6051134
+  return formatNumber(number, number >= 1000 ? { notation: 'compact', maximumSignificantDigits: 3 } : undefined)
+}
+
 export function getTodayDateStrLocalTimezone() {
   const timeNow = new Date()
   // `Date#getTimezoneOffset` returns the difference, in minutes
@@ -760,6 +787,24 @@ export function getTodayDateStrLocalTimezone() {
   // e.g. 2011-10-05T14:48:00.000Z
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString
   return timeNowStr.split('T')[0]
+}
+
+// Some locales are considered as supported by Chromium but are not translated.
+// This results in "-1 d" being returned instead of "1 day ago".
+// In those cases, force the use of the locale fallback.
+// See https://issues.chromium.org/issues/396060189
+const LOCALES_REQUIRING_FALLBACK = ['az']
+const FALLBACK_LOCALE = 'en'
+const FALLBACK_LOCALES = [FALLBACK_LOCALE]
+
+/**
+ * @param {string} locale
+ * @returns {string[]}
+ */
+export function getLocalesWithFallback(locale) {
+  return LOCALES_REQUIRING_FALLBACK.includes(locale)
+    ? FALLBACK_LOCALES
+    : [locale, FALLBACK_LOCALE]
 }
 
 /**
@@ -819,9 +864,10 @@ export function getRelativeTimeFromDate(date, hideSeconds = false, useThirtyDayM
     timeUnit = 'year'
   }
 
+  const locales = getLocalesWithFallback(i18n.global.locale.value)
   // Using `Math.ceil` so that -1.x days ago displayed as 1 day ago
   // Notice that the value is turned to negative to be displayed as "ago"
-  return new Intl.RelativeTimeFormat([i18n.global.locale.value, 'en']).format(Math.ceil(-timeDiffFromNow), timeUnit)
+  return new Intl.RelativeTimeFormat(locales).format(Math.ceil(-timeDiffFromNow), timeUnit)
 }
 
 /**

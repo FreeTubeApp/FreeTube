@@ -98,6 +98,8 @@ Subscriptions:
   All Subscription Tabs Hidden: 所有訂閱分頁均已隱藏。要檢視此處的內容，請取消隱藏「{settingsSection}」中「{subsection}」區塊中的一些分頁。
   Load More Posts: 載入更多影片
   Empty Posts: 您訂閱的頻道目前沒有任何影片。
+  Posts:
+    RSS Message: YouTube 並未提供貼文的 RSS feed。請停用「{rssSetting}」設定以檢視貼文，或啟用「{hideSetting}」設定以隱藏此分頁。
 Trending:
   Trending: '發燒影片'
   Trending Tabs: 熱門分頁
@@ -188,6 +190,9 @@ User Playlists:
   The playlist has been successfully exported: 播放清單已成功匯出
   TotalTimePlaylist: '總時長: {duration}'
   Export list of URLs: 匯出 URL 清單
+  Move Video to the Top: 將影片移至頂部
+  Move Video to the Bottom: 將影片移至底部
+  This playlist is private or does not exist.: 此播放清單為私人或不存在。
 History:
   # On History Page
   History: '觀看紀錄'
@@ -374,11 +379,11 @@ Settings:
     Enable Theatre Mode by Default: '預設開啟劇場模式'
     Default Volume: '預設音量'
     Default Playback Rate: '預設播放速度'
-    Default Video Format:
-      Default Video Format: '預設影片格式'
+    Default Media Format:
       Dash Formats: 'DASH 格式'
       Legacy Formats: '傳統格式'
       Audio Formats: '音訊格式'
+      Default Media Format: 預設媒體格式
     Default Quality:
       Default Quality: '預設畫質'
       Auto: '自動'
@@ -423,6 +428,9 @@ Settings:
       Full Screen: 全螢幕
       Picture in Picture: 畫中畫
       External Player: 外部播放器（{externalPlayerName}）
+      Full Window (Always On): 全視窗（一律開啟）
+      Full Screen (Always On): 全螢幕（一律開啟）
+      Tooltip: 大多數預設觀看模式僅在每次觀看工作階段開始時套用。在該工作階段期間所做的變更將持續生效，直到工作階段結束為止。而「一律開啟」的觀看模式則會在您切換至新影片時自動套用，無論您在觀看前一部影片時曾如何變更觀看模式。
   Subscription Settings:
     Subscription Settings: '訂閱'
     Fetch Feeds from RSS: 從RSS擷取推送
@@ -473,9 +481,9 @@ Settings:
     Profile object has insufficient data, skipping item: 設定檔物件資料不足，正在跳過項目
     Export History: 匯出觀看紀錄
     Import History: 匯入觀看紀錄
-    Export NewPipe: 匯出NewPipe
-    Export YouTube: 匯出YouTube
-    Export FreeTube: 匯出FreeTube
+    Export NewPipe: 匯出 NewPipe
+    Export YouTube: 匯出 YouTube
+    Export FreeTube: 匯出 FreeTube
     Export Subscriptions: 匯出訂閱
     Import Subscriptions: 匯入訂閱
     Select Export Type: 選取匯出類型
@@ -498,6 +506,15 @@ Settings:
     Export search history: 匯出搜尋歷史紀錄
     All search history has been successfully imported: 已成功匯入所有搜尋歷史紀錄
     All search history has been successfully exported: 已成功匯出所有搜尋歷史紀錄
+    Settings File: 設定檔
+    Import Settings: 匯入設定
+    Export Settings: 匯出設定
+    Settings Tooltip: 特定於作業系統或使用者，或是實驗性的設定無法匯出或匯入（例如：代理伺服器、外部播放器、螢幕截圖資料夾⋯⋯）
+    All settings have been successfully imported: 所有設定皆已成功匯入
+    All settings have been successfully exported: 所有設定皆已成功匯出
+    Setting object has insufficient data, skipping item: 設定物件的資料不足，將跳過該項目
+    Unknown setting key: 未知的設定鍵：{key}
+    Non-transferable setting key: 無法轉移的設定鍵：{key}
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾
@@ -546,6 +563,8 @@ Settings:
     Hide Channel Courses: 隱藏頻道“課程”標籤
     Hide Channel Posts: 隱藏頻道「貼文」分頁
     Hide Subscriptions Posts: 隱藏訂閱貼文
+    Add: 新增
+    Remove: 移除
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
@@ -579,6 +598,10 @@ Settings:
     UseDeArrowTitles: 使用 DeArrow 影片標題
     UseDeArrowThumbnails: 使用 DeArrow 製作縮圖
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow 縮圖產生器 API（預設值為 https://dearrow-thumb.ajay.app）
+    Excluded Channels:
+      Disabled Message: 部分頻道是根據 ID 被排除在外的，因此未經處理。當這些 ID 正在更新時，該功能將被暫停
+      Excluded Channels: 已排除的頻道
+      Tooltip: 請輸入頻道 ID 以停用 SponsorBlock 功能。來自此頻道的影片中的贊助商片段將不會被跳過。輸入的頻道 ID 必須完全相符，且區分大小寫。
   External Player Settings:
     Custom External Player Arguments: 自訂外部播放程式參數
     Custom External Player Executable: 自訂外部播放程式可執行檔
@@ -600,6 +623,7 @@ Settings:
     Replace HTTP Cache: 取代 HTTP 快取
     Warning: 這些設定是實驗性的，它們啟用時可能會導致當機。強烈建議做好備份。使用時風險自負！
     Experimental Settings: 實驗
+    Disable Hardware Acceleration: 停用硬體加速
   Password Settings:
     Set Password To Prevent Access: 設定密碼以防止存取設定
     Remove Password: 移除密碼
@@ -621,7 +645,6 @@ About:
   Website: 網站
   Credits: 貢獻者
   FAQ: 常見問題
-  Email: 電子郵件
   Beta: 測試版
   Donate: 捐款
   Help: 說明
@@ -649,11 +672,11 @@ Channel:
   Your search results have returned 0 results: '搜尋結果為零'
   Videos:
     Videos: '影片'
-    This channel does not currently have any videos: '這個頻道目前沒有任何影片'
     Sort Types:
       Newest: '最新'
       Oldest: '最舊'
       Most Popular: '最熱門'
+    This channel has videos but none could be displayed, try fetching more: 此頻道有影片，但均無法顯示，請嘗試載入更多影片
   Playlists:
     Playlists: '播放清單'
     This channel does not currently have any playlists: '這個頻道目前沒有任何播放清單'
@@ -703,6 +726,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: 該頻道目前還沒有任何課程
     Courses: 課程
+  View All: 檢視全部
 Video:
   Open in YouTube: '在 YouTube 中開啟'
   Copy YouTube Link: '複製 YouTube 連結'
@@ -804,7 +828,7 @@ Video:
     Skipped segment: 已跳過 {segmentCategory} 段
     Autoplay is on: 自動播放已開啟
     Autoplay is off: 自動播放已關閉
-  IP block: YouTube 已封鎖您的 IP 位址，因此無法觀看影片。請嘗試切換到其他 VPN 或代理伺服器。
+  IP block: YouTube 已封鎖您的 IP 位址，使其無法觀看影片；或者，這支影片可能包含涉及未成年人的內容，而 YouTube 會限制未登入帳號的使用者觀看此類內容。若這是 IP 封鎖，請嘗試切換至其他 VPN 或代理伺服器。
   MembersOnly: 會員專屬影片無法使用 FreeTube 觀看，因為這些影片需要 Google 登入並且必須訂閱上傳者的付費頻道。
   AgeRestricted: 由於需要 Google 登入並使用經過年齡驗證的 YouTube 帳戶，FreeTube 無法觀看有限制年齡的影片。
   Unlisted: 未公開
@@ -820,6 +844,18 @@ Video:
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 剩餘 SABR 後退時間：{remindingTimeSeconds}秒
   Popout Live Chat: 彈出式聊天
   Private: 無法在 FreeTube 觀看私人影片，因為觀看私人影片需要 Google 登入和影片所有權。
+  Collapse Playlist: 折疊播放清單
+  Expand Playlist: 展開播放清單
+  Station: 站台
+  Premiere: 首映
+  Playlist:
+    Unavailable videos are hidden: 1 部無法觀看的影片已被隱藏 | {count} 部無法觀看的影片已被隱藏
+  Enable SponsorBlock on Channel: 在頻道啟用 SponsorBlock
+  Disable SponsorBlock on Channel: 在頻道停用 SponsorBlock
+  AI: 人工智慧
+  'AI: Content was made with AI': 人工智慧：內容使用人工智慧製作
+  How this was made: 這部作品的製作過程
+  Reload Page: 重新載入頁面
 Playlist:
   #& About
   View Full Playlist: '觀看完整播放清單'
@@ -841,6 +877,7 @@ Playlist:
     VideoDurationAscending: 持續時間（最短）
     PublishedOldest: 發佈日期（最舊）
     PublishedNewest: 發佈日期（最新）
+  Unavailable videos are hidden: 無法播放的影片會被隱藏
 Change Format:
   Change Media Formats: '變更影片格式'
   Use Dash Formats: '使用 DASH 格式'
@@ -887,6 +924,8 @@ Comments:
   Hide Replies: 隱藏回覆
   View 1 reply from {channelName}: 檢視來自 {channelName} 的 1 則回覆
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
+  Loading replies: 正在載入回覆⋯⋯
+  Comments are turned off: 留言已關閉
 Up Next: '觀看其他類似影片'
 
 # Toast Messages
@@ -947,6 +986,7 @@ Profile:
   Profile Name: 設定檔名稱
   Edit Profile Name: 修改設定檔名稱
   Create Profile Name: 建立設定檔名稱
+  Go To Profile Manager: 前往設定檔管理程式
 The playlist has been reversed: 播放清單已反轉
 Download From Site: 從網站下載
 Version {versionNumber} is now available!  Click for more details: 有新版本！最新版本是 {versionNumber} ！按此取得更多資訊
@@ -956,12 +996,12 @@ Tooltips:
     Fetch Feeds from RSS: 啟用後，FreeTube 將使用 RSS 替代其預設方法來擷取您的訂閱 feed。RSS 的速度較快，而且可以防止 IP 封鎖，但它可能不會提供某些資訊，例如影片長度、直播狀態或貼文
     Fetch Automatically: 啟用後，FreeTube 將會在啟動時和開啟新視窗時自動擷取您的訂閱 feed。
   Player Settings:
-    Default Video Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 360p 但頻寬需求更低。音訊格式為僅有音訊的串流。
+    Default Media Format: 設定要用於影片播放的格式。DASH 格式有更高的畫質。傳統格式會限制在 360p 但頻寬需求更低。音訊格式為僅有音訊的串流。
     Proxy Videos Through Invidious: 將連線到 Invidious 而非直接連線到 YouTube 來提供影片。
     Scroll Playback Rate Over Video Player: 當游標停在影片上時，按住 Ctrl 鍵（Mac 的話則是 Command 鍵），然後向前或向後滾動滑鼠滾輪來控制播放速度。按住 Ctrl 鍵（Mac 的話則是 Command 鍵）並點擊滑鼠左鍵以快速回到預設的播放速度（1x，除非在設定中更改）。
     Skip by Scrolling Over Video Player: 使用滾輪跳過影片，MPV 風格。
   General Settings:
-    Invidious Instance: FreeTube 將連線到 Invidious 站台進行 API 呼叫。
+    Invidious Instance: FreeTube 將用於進行 API 呼叫的 Invidious 站台。除非您將此站台設為預設值，否則此設定的變更僅適用於目前的視窗。
     Thumbnail Preference: FreeTube 中所有縮圖都會被替換為經過模糊處理或隱藏的影片畫面而非預設縮圖。
     Fallback to Non-Preferred Backend on Failure: 當您的偏好 API 有問題時，FreeTube 將自動嘗試使用您的非偏好 API 作為汰退方案。
     Preferred API Backend: 選擇 FreeTube 要用於取得YouTube資料的伺服器。本地 API 是內建擷取器。Invidious API 需要 Invidious 伺服器才能連線。
@@ -977,6 +1017,7 @@ Tooltips:
     Ignore Default Arguments: 除了影片 URL 之外，不要向外部播放器傳送任何預設引數（例如播放速率、播放清單 URL 等）。 自訂引數仍會被傳遞。
   Experimental Settings:
     Replace HTTP Cache: 停用 Electron 以磁碟為基礎的 HTTP 快取並啟用自訂的記憶體圖片快取。會導致記憶體使用量增加。
+    Disable Hardware Acceleration: 停用 GPU 硬體加速。此舉可能會解決圖形問題，但效能可能會變差。
   Distraction Free Settings:
     Hide Channels: 輸入頻道 ID 以隱藏所有影片、播放清單與頻道本身，使其完全不出現在搜尋、趨勢、熱門與建議中。輸入的頻道 ID 必須完全符合，且區分大小寫。
     Hide Subscriptions Live: 此設定會被「{settingsSection}」的「{subsection}」部分中應用程式範圍的「{appWideSetting}」設定覆寫
@@ -994,6 +1035,8 @@ Default Invidious instance has been set to {instance}: 預設 Invidious 站台�
 Search Bar:
   Clear Input: 清除輸入
   Remove: 移除
+  Open Search Container: 開放搜尋容器
+  Search: 搜尋
 External link opening has been disabled in the general settings: 已在一般設定中停用外部連結開啟
 Are you sure you want to open this link?: 您確定您想要開啟此連結嗎？
 Screenshot Success: 已儲存螢幕截圖
@@ -1120,3 +1163,5 @@ Compact side navigation: 簡潔側邊導航
 Expand side navigation: 展開側邊導航
 Screenshot Clipboard Success: 儲存螢幕截圖至剪貼簿
 Screenshot Clipboard Error: 複製螢幕截圖到剪貼簿失敗
+SponsorBlock Disabled on Channel: SponsorBlock 已於 {channel} 停用
+SponsorBlock Enabled on Channel: SponsorBlock 已於 {channel} 啟用

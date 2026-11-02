@@ -36,6 +36,7 @@ Global:
     Watching Count: 1 sedang menonton | {count} sedang menonton
     Comment Count: 1 komentar | {count} komentar
     Like Count: 1 suka | {count} suka
+    Replies Remaining: "{' '}(1 tersisa) | {' '}({count} tersisa)"
   Posts: Postingan
   Live: Siaran Langsung
   Shorts: Video Singkat
@@ -103,6 +104,8 @@ Subscriptions:
   Disabled Automatic Fetching: Anda telah mematikan pengambilan langganan otomatis. Muat ulang langganan untuk melihat mereka.
   Error Channels: Kanal dengan Galat
   All Subscription Tabs Hidden: Semua tab langganan disembunyikan. Untuk melihat konten di sini, harap tampilkan beberapa tab di bagian "{subsection}" di "{settingsSection}".
+  Posts:
+    RSS Message: YouTube tidak menyediakan RSS feed untuk postingan. Nonaktifkan pengaturan "{rssSetting}" untuk melihat postingan atau aktifkan pengaturan "{hideSetting}" untuk menyembunyikan tab ini.
 Trending:
   Trending: 'Sedang Tren'
   Gaming: Bermain game
@@ -193,6 +196,8 @@ User Playlists:
   Enable Quick Bookmark With This Playlist: Aktifkan Bookmark Cepat Dengan Daftar Putar Ini
   TotalTimePlaylist: Total Waktu :{duration}
   Export list of URLs: Ekspor daftar URL
+  Move Video to the Top: Pindahkan Video ke Paling Atas
+  Move Video to the Bottom: Pindahkan Video ke Paling Bawah
 History:
   # On History Page
   History: 'Riwayat'
@@ -379,8 +384,7 @@ Settings:
     Enable Theatre Mode by Default: 'Aktifkan Mode Teater'
     Default Volume: 'Volume Bawaan'
     Default Playback Rate: 'Laju Pemutaran Bawaan'
-    Default Video Format:
-      Default Video Format: 'Format Video Bawaan'
+    Default Media Format:
       Dash Formats: 'Format DASH'
       Legacy Formats: 'Format Lama'
       Audio Formats: 'Format Audio'
@@ -427,6 +431,9 @@ Settings:
       Full Screen: Layar Penuh
       Picture in Picture: Gambar dalam Gambar
       External Player: Pemain Eksternal ({externalPlayerName})
+      Full Window (Always On): Jendela Penuh (Selalu Aktif)
+      Full Screen (Always On): Layar Penuh (Selalu Aktif)
+      Tooltip: Sebagian besar mode tampilan default hanya diterapkan pada awal setiap sesi menonton. Perubahan yang dilakukan selama sesi akan tetap berlaku hingga sesi berakhir. Mode tampilan selalu aktif diterapkan setiap kali Anda beralih ke video baru, terlepas dari perubahan mode tampilan yang dilakukan saat menonton video sebelumnya.
     Autoplay Interruption Timer: Pengatur Waktu Interupsi Putar Otomatis
   Privacy Settings:
     Privacy Settings: 'Privasi'
@@ -503,6 +510,15 @@ Settings:
     Export search history: Ekspor riwayat pencarian
     All search history has been successfully imported: Semua riwayat pencarian telah berhasil diimpor
     All search history has been successfully exported: Semua riwayat pencarian telah berhasil diekspor
+    Settings File: File Pengaturan
+    Import Settings: Impor Pengaturan
+    Export Settings: Ekspor Pengaturan
+    Settings Tooltip: Pengaturan yang khusus untuk OS/pengguna atau bersifat eksperimental tidak dapat diekspor atau diimpor (misalnya proxy, pemutar eksternal, folder tangkapan layar...)
+    All settings have been successfully imported: Semua pengaturan berhasil diimpor
+    All settings have been successfully exported: Semua pengaturan berhasil diekspor
+    Setting object has insufficient data, skipping item: Objek pengaturan tidak memiliki data yang cukup, item dilewati
+    Unknown setting key: 'Kunci pengaturan tidak dikenal: {key}'
+    Non-transferable setting key: 'Kunci pengaturan yang tidak dapat ditransfer: {key}'
   Distraction Free Settings:
     Hide Comment Likes: Sembunyikan Jumlah Suka pada Komentar
     Hide Channel Subscribers: Sembunyikan Jumlah Pelanggan Kanal
@@ -551,6 +567,8 @@ Settings:
     Hide Channel Courses: Sembunyikan Tab "Kursus" Saluran
     Hide Channel Posts: Sembunyikan Tab "Postingan" Saluran
     Hide Subscriptions Posts: Sembunyikan Postingan dalam Langganan
+    Add: Tambah
+    Remove: Hapus
   The app needs to restart for changes to take effect. Restart and apply change?: Aplikasi butuh dimulai ulang agar perbubahan diterapkan. Mulai ulang dan terapkan perubahan?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Galat mendapatkan informasi jaringan. Apakah proksi Anda dikonfigurasi dengan benar?
@@ -598,6 +616,7 @@ Settings:
     Experimental Settings: Eksperimental
     Replace HTTP Cache: Ganti Tembolok HTTP
     Warning: Pengaturan ini masih bersifat eksperimental, dan dapat menyebabkan crash saat diaktifkan. Sangat disarankan untuk membuat cadangan. Gunakan dengan risiko Anda sendiri!
+    Disable Hardware Acceleration: Nonaktifkan Akselerasi Perangkat Keras
   Password Settings:
     Set Password To Prevent Access: Tetapkan sandi untuk mencegah akses ke pengaturan
     Password Settings: Sandi
@@ -626,7 +645,6 @@ About:
   room rules: aturan kamar
   Chat on Matrix: Mengobrol di Matrix
   Mastodon: mastodon
-  Email: Surel
   Website: Situs web
   Please check for duplicates before posting: Silakan periksa duplikat sebelum melaporkan
   GitHub issues: Isu GitHub
@@ -685,6 +703,7 @@ Profile:
   Close Profile Dropdown: Tutup Profil Dropdown
   Open Profile Dropdown: Buka Menu Dropdown Profil
   Toggle Profile List: Beralih Daftar Profil
+  Go To Profile Manager: Buka Pengelola Profil
 Channel:
   Subscribe: 'Langganan'
   Unsubscribe: 'Berhenti Berlangganan'
@@ -695,7 +714,6 @@ Channel:
   Your search results have returned 0 results: 'Hasil pencarian Anda memberikan 0 hasil'
   Videos:
     Videos: 'Video'
-    This channel does not currently have any videos: 'Kanal ini belum memiliki video apa pun'
     Sort Types:
       Newest: 'Terbaru'
       Oldest: 'Terlawas'
@@ -746,6 +764,7 @@ Channel:
   Courses:
     This channel does not currently have any courses: Saluran ini saat ini tidak memiliki kursus apa pun
     Courses: kursus
+  View All: Lihat Semua
 Video:
   Mark As Watched: 'Tandai Sudah Ditonton'
   Remove From History: 'Hapus dari Riwayat'
@@ -863,6 +882,12 @@ Video:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Waktu iklan pra-putar yang tersisa: {remindingTimeSeconds}detik'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Waktu tunggu SABR yang tersisa: {remindingTimeSeconds}detik'
   Private: Video pribadi tidak dapat ditonton di FreeTube karena memerlukan login Google dan hak kepemilikan atas video tersebut.
+  Collapse Playlist: Ciutkan Playlist
+  Expand Playlist: Perluas Playlist
+  Station: Stasiun
+  Premiere: Penayangan Perdana
+  Playlist:
+    Unavailable videos are hidden: 1 video tidak tersedia disembunyikan | {count} video tidak tersedia disembunyikan
 Playlist:
   #& About
   View Full Playlist: 'Tampilkan Daftar Putar Penuh'
@@ -884,6 +909,7 @@ Playlist:
     VideoDurationDescending: Durasi (Terpanjang)
     VideoTitleDescending: Judul (Z-A)
     AuthorDescending: Penulis (Z-A)
+  Unavailable videos are hidden: Video yang tidak tersedia disembunyikan
 Change Format:
   Change Media Formats: 'Ubah Format Video'
   Use Dash Formats: 'Gunakan Format DASH'
@@ -920,7 +946,7 @@ Comments:
   Newest first: Terbaru
   Top comments: Komentar teratas
   There are no more comments for this video: Tidak ada komentar lagi untuk video ini
-  Show More Replies: Tampilkan Lebih Banyak Balasan
+  Show More Replies: Tampilkan lebih banyak balasan
   Pinned by: Disematkan oleh
   Member: Anggota
   View {replyCount} replies: Lihat 1 balasan | Lihat {replyCount} balasan
@@ -930,6 +956,9 @@ Comments:
   Hide {replyCount} replies: Sembunyikan 1 balasan | Sembunyikan {replyCount} balasan
   View 1 reply from {channelName}: Lihat 1 balasan dari {channelName}
   View {replyCount} replies from {channelName} and others: Lihat {replyCount} balasan dari {channelName} dan lainnya
+  Hide Replies: Sembunyikan balasan | Sembunyikan balasan
+  Loading replies: Memuat balasan...
+  Comments are turned off: Komentar dinonaktifkan
 Up Next: 'Akan Datang'
 
 # Toast Messages
@@ -955,14 +984,14 @@ Tooltips:
     Fetch Feeds from RSS: Saat diaktifkan, FreeTube akan menggunakan RSS, bukan metode default untuk mengambil umpan langganan Anda. RSS lebih cepat dan mencegah pemblokiran IP, tetapi tidak memberikan informasi tertentu seperti durasi video, status langsung, atau postingan komunitas
     Fetch Automatically: Ketika dinyalakan, FreeTube akan mengambil secara otomatis umpan langganan Anda saat memulai ketika jendala baru dibuka.
   Player Settings:
-    Default Video Format: Atur format ketika video dimainkan. Format DASH dapat memutar kualitas yang lebih tinggi. Format lama terbatas ke maksimum 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi aliran audio.
+    Default Media Format: Atur format ketika video dimainkan. Format DASH dapat memutar kualitas yang lebih tinggi. Format lama terbatas ke maksimum 720p tetapi dengan bandwidth yang lebih rendah. Format audio hanya berisi aliran audio.
     Proxy Videos Through Invidious: Akan menyambung ke Invidious daripada YouTube.
     Scroll Playback Rate Over Video Player: Ketika kursor berada di atas video, tekan dan tahan tombol Control (tombol Command di Mac) dan scroll roda mouse ke depan atau ke belakang untuk mengontrol laju pemutaran. Tekan dan tahan tombol Control (tombol Command di Mac) dan klik kiri mouse untuk dengan cepat kembali ke laju pemutaran default (1x kecuali telah diubah dalam pengaturan).
     Allow DASH AV1 formats: Format DASH AV1 mungkin terlihat lebih baik daripada format DASH H.264. Format DASH AV1 memerlukan lebih banyak energi untuk pemutaran! Format itu juga tidak tersedia di semua video, yang mana pemutar akan menggunakan format DASH H.264.
     Skip by Scrolling Over Video Player: Gunakan guliran tetikus untuk melewati lewat video, seperti MPV.
   General Settings:
     Region for Trending: Wilayah tren memungkinkan Anda memilih video yang sedang ngetren dari negara tersebut untuk ditampilkan.
-    Invidious Instance: Situs Invidious yang akan tersambung dengan FreeTube untuk panggilan API.
+    Invidious Instance: Instance Invidious yang akan dihubungkan oleh FreeTube untuk panggilan API. Perubahan pada pengaturan ini hanya berlaku untuk jendela saat ini, kecuali Anda menetapkan instance ini sebagai default.
     Thumbnail Preference: Semua gambar mini di dalam aplikasi FreeTube akan diganti dengan frame dari video, diburamkan atau disembunyikan alih-alih menggunakan gambar mini bawaan.
     Fallback to Non-Preferred Backend on Failure: Ketika API yang Anda pilih memiliki masalah, FreeTube akan secara otomatis menggunakan layanan API lainnya sebagai cadangan jika diaktifkan.
     Preferred API Backend: Pilih layanan yang digunakan oleh FreeTube untuk mengambil data. API lokal adalah ekstraktor bawaan. API Invidious membutuhkan sambungan ke server Invidious.
@@ -985,6 +1014,7 @@ Tooltips:
     Hide Videos on Watch: Menyembunyikan video yang telah ditonton dari Tab Video, Video Pendek, dan Langsung pada Halaman Langganan dan Kanal. Hal tersebut tidak mempengaruhi Tab Beranda pada Halaman Kanal
   Experimental Settings:
     Replace HTTP Cache: Menonaktifkan cache HTTP berbasis disk Electron dan mengaktifkan cache gambar dalam memori khusus. Akan menyebabkan peningkatan penggunaan RAM.
+    Disable Hardware Acceleration: Menonaktifkan akselerasi perangkat keras GPU. Dapat memperbaiki masalah grafis, tetapi kemungkinan kinerjanya akan lebih buruk.
 Playing Next Video Interval: Langsung putar video berikutnya. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan. | Putar video berikutnya dalam {nextVideoInterval} detik. Klik untuk membatalkan.
 More: Lebih banyak
 Unknown YouTube url type, cannot be opened in app: Tipe URL YouTube tidak dikenal, tidak bisa dibuka di aplikasi
@@ -992,6 +1022,8 @@ Open New Window: Buka Jendela Baru
 Search Bar:
   Clear Input: Hapus Masukan
   Remove: Buang
+  Open Search Container: Buka Kontainer Pencarian
+  Search: Cari
 External link opening has been disabled in the general settings: Pembukaan tautan eksternal telah dimatikan pada pengaturan umum
 Are you sure you want to open this link?: Yakin ingin membuka tautan ini?
 Default Invidious instance has been set to {instance}: 'Situs Invidious baku telah di atur ke {instance}'

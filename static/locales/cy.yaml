@@ -48,12 +48,15 @@ Global:
 # Search Bar
     Like Count: 1 hoffi | {count} hoffi
     Comment Count: 1 sylw | {count} sylw
+    Replies Remaining: "{' '}(1 yn weddill) | {' '}({count} yn weddill)"
   Posts: Postiadau
 Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:
   Clear Input: 'Clirio Mewnbwn'
   # In Filter Button
   Remove: Tynnu
+  Open Search Container: Agor Cynhwysydd Chwilio
+  Search: Chwilio
 Search Filters:
   Search Filters: 'Hidlyddion Chwilio'
   Prioritize:
@@ -113,6 +116,8 @@ Subscriptions:
   Load More Posts: 'Llwytho Mwy o Bostiadau'
   Subscriptions Tabs: 'Tabiau Tanysgrifio'
   All Subscription Tabs Hidden: 'Mae pob tab tanysgrifio wedi''i guddio. I weld cynnwys yma, dadguddiwch rhai tabiau yn yr adran "{subsection}" yn "{settingsSection}".'
+  Posts:
+    RSS Message: Dyw YouTube ddim yn darparu ffrydiau RSS ar gyfer postiadau. Analluogwch y gosodiad "{rssSetting}"i weld postiadau neu alluogi gosodiad "{hideSetting}" i guddio'r tab hwn.
 More: 'Rhagor'
 Channels:
   Channels: 'Sianeli'
@@ -211,6 +216,8 @@ User Playlists:
   Remove Duplicate Videos: Dileu Fideos Dyblyg
   TotalTimePlaylist: 'Cyfanswm amser: {duration}'
   Export list of URLs: Allforio'r rhestr o URLau
+  Move Video to the Top: Symud Fideo i'r Brig
+  Move Video to the Bottom: Symud Fideo i'r Gwaelod
 History:
   # On History Page
   History: 'Hanes'
@@ -407,8 +414,7 @@ Settings:
     Default Playback Rate: 'Cyfradd Chwarae Rhagosodedig'
     Max Video Playback Rate: 'Cyfradd Uchaf Chwarae Fideo'
     Video Playback Rate Interval: 'Ysbaid Cyfradd Chwarae Fideo'
-    Default Video Format:
-      Default Video Format: 'Fformat Fideo Rhagosodedig'
+    Default Media Format:
       Dash Formats: 'Fformatau DASH'
       Legacy Formats: 'Hen Fformatau'
       Audio Formats: 'Fformatau Sain'
@@ -447,6 +453,9 @@ Settings:
       Picture in Picture: Llun mewn Llun
       External Player: Chwaraewr Allanol ({externalPlayerName})
       Theater: Theatr
+      Full Window (Always On): Ffenestr Lawn (Ymlaen o Hyd)
+      Full Screen (Always On): Sgrin Lawn (Ymlaen o Hyd)
+      Tooltip: Mae'r rhan fwyaf o foddau gwylio arferol yn cael eu gosod ar ddechrau pob sesiwn gwylio. Bydd newidiadau sy'n cael eu gwneud yn ystod y sesiwn yn parhau tan ei ddiwedd. Mae moddau gwylio ymlaen o hyd yn cael eu gosod pryd bynnag fyddwch yn newid i fideo newydd, beth bynnag am unrhyw newidiadau moddau gwylio sydd wedi'u gwneud wrth wylio'r fideo blaenorol.
   External Player Settings:
     External Player Settings: 'Chwaraewr Allanol'
     External Player: 'Chwaraewr Allanol'
@@ -538,6 +547,8 @@ Settings:
     Hide Channel Courses: Cuddio Tab "Cyrsiau" Sianel
     Hide Channel Posts: Cuddio Tab Sianel "Postiadau"
     Hide Subscriptions Posts: Cuddio Tabiau Tanysgrifiadau
+    Add: Ychwanegu
+    Remove: Tynnu
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Dewis y Math o Allforio'
@@ -579,6 +590,15 @@ Settings:
     Export search history: Allforio hanes chwilio
     All search history has been successfully imported: Mae'r holl hanes chwilio wedi'i fewnforio'n llwyddiannus
     All search history has been successfully exported: Mae'r holl hanes chwilio wedi'i allforio'n llwyddiannus
+    Settings File: Ffeil Gosodiadau
+    Import Settings: Gosodiadau Mewnforio
+    Export Settings: Gosodiadau Allforio
+    Settings Tooltip: Does dim modd allforio neu fewnforio gosodiadau sy'n benodol i system weithredu/unigolyn neu arbrofol (e.e., dirprwy, chwaraewr allanol, ffolder llun sgrin...)
+    All settings have been successfully imported: Mae'r holl osodiadau wedi'u mewnforio'n llwyddiannus
+    All settings have been successfully exported: Mae'r holl osodiadau wedi'u allforio'n llwyddiannus
+    Setting object has insufficient data, skipping item: Does gan wrthrych y gosodiad ddim ddigon o ddata, yn ei hepgor
+    Unknown setting key: 'Allwedd gosodiad anhysbys: {key}'
+    Non-transferable setting key: 'Allwedd gosodiad anhrosglwyddadwy: {key}'
   Proxy Settings:
     Proxy Settings: 'Dirprwy'
     Enable Tor / Proxy: 'Galluogi Tor/Dirprwy'
@@ -611,6 +631,9 @@ Settings:
     Category Color: 'Lliw Categori'
     UseDeArrowThumbnails: Defnyddio DeArrow ar gyfer lluniau bach
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': DeArrow Thumbnail Generator API (Y rhagosodiad yw https://dearrow-thumb.ajay.app)
+    Excluded Channels:
+      Disabled Message: Cafodd rhai sianeli eu eithrio wrth ddefnyddio'r ID ac felly heb eu prosesu. Mae'r nodwedd wedi'i rwystro wrth ddiweddaru'r ID
+      Excluded Channels: Sianeli wedi'u Heithrio
   Parental Control Settings:
     Parental Control Settings: 'Rheolaeth Rhieni'
     Hide Unsubscribe Button: 'Cuddio Botwm Dad-danysgrifio'
@@ -647,7 +670,6 @@ About:
   GitHub issues: 'Materion GitHub'
   Please check for duplicates before posting: 'Gwirio am ddyblygiadau cyn postio'
   Website: 'Gwefan'
-  Email: 'E-bost'
   Mastodon: 'Mastodon'
   Chat on Matrix: 'Sgwrsio ar Matrix'
   room rules: 'rheolau ystafell'
@@ -716,7 +738,6 @@ Channel:
   Channel Tabs: 'Tabiau Sianel'
   Videos:
     Videos: 'Fideos'
-    This channel does not currently have any videos: 'Nid oes gan y sianel hon unrhyw fideos ar hyn o bryd'
     Sort Types:
       Newest: 'Diweddaraf'
       Oldest: 'Hynaf'
@@ -763,6 +784,7 @@ Channel:
   Courses:
     Courses: Cyrsiau
     This channel does not currently have any courses: Nid oes gan y sianel hon unrhyw gyrsiau ar hyn o bryd
+  View All: Gweld y Cyfan
 Video:
   Mark As Watched: 'Marcio wedi''i Wylio'
   Remove From History: 'Dileu o''r Hanes'
@@ -954,6 +976,7 @@ Comments:
   Hide {replyCount} replies: Cuddio 1 ateb | Cuddio {replyCount} ateb
   View 1 reply from {channelName}: Gweld 1 ateb gan {channelName}
   View {replyCount} replies from {channelName} and others: Gweld {replyCount} ateb gan {channelName} ac eraill
+  Loading replies: Yn llwytho atebion...
 Up Next: 'Nesaf'
 
 #Tooltips
@@ -970,7 +993,7 @@ Tooltips:
     Open Deep Links In New Window: Mae URLau wedi'u trosglwyddo i FreeTube, megis trwy ailgyfeirio estyniadau porwr neu ymresymiadau llinell orchymyn, yn cael eu hagor mewn ffenestr newydd.
   Player Settings:
     Proxy Videos Through Invidious: 'Bydd yn cysylltu ag Invidious i weini fideos yn lle gwneud cysylltiad uniongyrchol â YouTube.'
-    Default Video Format: 'Gosodwch y fformatau i''w defnyddio pan fydd fideo yn chwarae. Gall fformatau DASH chwarae ansoddau uwch. Mae hen fformatau wedi''u cyfyngu i uchafswm o 360p ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau sain yn unig.'
+    Default Media Format: 'Gosodwch y fformatau i''w defnyddio pan fydd fideo yn chwarae. Gall fformatau DASH chwarae ansoddau uwch. Mae hen fformatau wedi''u cyfyngu i uchafswm o 360p ond yn defnyddio llai o led band. Mae fformatau sain yn ffrydiau sain yn unig.'
     Scroll Playback Rate Over Video Player: 'Tra bod y cyrchwr dros y fideo, pwyswch a daliwch y fysell Control (Command Key ar Mac) a sgroliwch olwyn y llygoden ymlaen neu yn ôl i reoli''r gyfradd chwarae. Pwyswch a dal y fysell Rheoli (Command Key ar Mac) a chliciwch i''r chwith ar y llygoden i ddychwelyd yn gyflym i''r gyfradd chwarae rhagosodedig (1x oni bai ei fod wedi''i newid yn y gosodiadau).'
     Skip by Scrolling Over Video Player: 'Defnyddiwch yr olwyn sgrolio i symud yn gyflym trwy''r fideo, arddull MPV.'
   External Player Settings:

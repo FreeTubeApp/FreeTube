@@ -11,7 +11,23 @@
   user-select: none;
 
   // Space a bit from the thumbnail.
-  padding-block: 1em;
+  padding-block: ft-list-item.$grid-mode-grab-bar-padding;
+
+  svg {
+    // Make icon appears more centered from default `-0.125em` from FA style
+    vertical-align: -0.15em;
+  }
+}
+
+.ft-list-video:has(.grabBar) {
+  // Only grid mode has `.grabBar`
+  // Make top & bottom padding look consistent
+  padding-block-start: 0;
+}
+
+.grabBar.grabBarDisabled {
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 
 .draggable:not(.draggable:only-child):focus .grabBar,
@@ -84,4 +100,9 @@
 
 .deArrowToggleIcon {
   inline-size: 1em;
+}
+
+.musicIcon {
+  inline-size: 12px;
+  block-size: 12px;
 }

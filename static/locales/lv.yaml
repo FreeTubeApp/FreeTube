@@ -57,6 +57,8 @@ Search Filters:
   Search Filters: 'Meklēšanas atlase'
   Prioritize:
     Most Relevant: 'Visatbilstošākie'
+    Prioritize: Prioritātes
+    Popularity: Popularitāte
   Time:
     Time: 'Vecums'
     Any Time: 'Jebkurā laikā'
@@ -330,8 +332,7 @@ Settings:
     Default Playback Rate: 'Noklusējuma atskaņošanas ātrums'
     Max Video Playback Rate: 'Maksimālais video atskaņošanas ātrums'
     Video Playback Rate Interval: 'Video atskaņošanas ātruma intervāls'
-    Default Video Format:
-      Default Video Format: 'Noklusējuma video formāts'
+    Default Media Format:
       Dash Formats: 'DASH formāti'
       Legacy Formats: 'Mantojuma formāti'
       Audio Formats: 'Audio formāti'
@@ -534,7 +535,6 @@ About:
   GitHub issues: 'GitHub problēmas'
   Please check for duplicates before posting: 'Lūdzu pārbaudi dublikātus pirms publicēšanas'
   Website: 'Vietne'
-  Email: 'E-pasts'
   Mastodon: "Mastodon\uFEFF"
   Chat on Matrix: 'Tērzēt Matrixā'
   room rules: 'istabas noteikumi'
@@ -598,7 +598,6 @@ Channel:
   Channel Tabs: 'Kanāla cilnes'
   Videos:
     Videos: 'Video'
-    This channel does not currently have any videos: 'Šajā kanāla pašlaik nav video'
     Sort Types:
       Newest: 'Jaunākie augšgalā'
       Oldest: 'Vecākie augšgalā'
@@ -805,7 +804,7 @@ Tooltips:
     External Link Handling: |
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Default Media Format: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

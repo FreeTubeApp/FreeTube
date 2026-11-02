@@ -36,23 +36,43 @@
       </FtFlexBox>
       <FtFlexBox>
         <FtInput
+          ref="sponsorBlockUrlInput"
           :placeholder="$t('Settings.SponsorBlock Settings[\'SponsorBlock API Url (Default is https://sponsor.ajay.app)\']')"
           :show-action-button="false"
           :show-label="true"
           :value="sponsorBlockUrl"
-          @input="handleUpdateSponsorBlockUrl"
+          @blur="handleUpdateSponsorBlockUrl"
+        />
+      </FtFlexBox>
+      <FtFlexBox>
+        <FtInputTags
+          :disabled="sponsorBlockExcludedChannelsDisabled"
+          :disabled-msg="t('Settings.SponsorBlock Settings.Excluded Channels.Disabled Message')"
+          :label="t('Settings.SponsorBlock Settings.Excluded Channels.Excluded Channels')"
+          :tag-name-placeholder="t('Settings.Distraction Free Settings.Hide Channels Placeholder')"
+          :tag-list="sponsorBlockExcludedChannels"
+          :tooltip="t('Settings.SponsorBlock Settings.Excluded Channels.Tooltip')"
+          :validate-tag-name="checkYoutubeChannelId"
+          :find-tag-info="findChannelTagInfoWrapper"
+          :are-channel-tags="true"
+          :show-tags="sponsorBlockShowExcludedChannels"
+          @invalid-name="handleInvalidChannel"
+          @error-find-tag-info="handleChannelAPIError"
+          @change="handleSponsorBlockExcludedChannels"
+          @already-exists="handleChannelsExists"
+          @toggle-show-tags="handleSponsorBlockShowExcludedChannels"
         />
       </FtFlexBox>
       <FtFlexBox
         v-if="useDeArrowThumbnails"
       >
         <FtInput
-          v-if="useDeArrowThumbnails"
+          ref="deArrowThumbnailGeneratorUrl"
           :placeholder="$t('Settings.SponsorBlock Settings[\'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)\']')"
           :show-action-button="false"
           :show-label="true"
           :value="deArrowThumbnailGeneratorUrl"
-          @input="handleUpdateDeArrowThumbnailGeneratorUrl"
+          @blur="handleUpdateDeArrowThumbnailGeneratorUrl"
         />
       </FtFlexBox>
 
@@ -70,15 +90,22 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, ref, useTemplateRef, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
 import FtSettingsSection from './FtSettingsSection/FtSettingsSection.vue'
 import FtToggleSwitch from './FtToggleSwitch/FtToggleSwitch.vue'
 import FtInput from './FtInput/FtInput.vue'
 import FtFlexBox from './ft-flex-box/ft-flex-box.vue'
 import FtSponsorBlockCategory from './FtSponsorBlockCategory/FtSponsorBlockCategory.vue'
+import FtInputTags from './FtInputTags/FtInputTags.vue'
 
 import store from '../store/index'
+
+import { showToast } from '../helpers/utils'
+import { checkYoutubeChannelId, findChannelTagInfo } from '../helpers/channels.js'
+
+const { t } = useI18n()
 
 const CATEGORIES = [
   'sponsor',
@@ -90,6 +117,8 @@ const CATEGORIES = [
   'music offtopic',
   'filler'
 ]
+
+const sponsorBlockExcludedChannelsDisabled = ref(false)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
@@ -108,6 +137,41 @@ const useDeArrowThumbnails = computed(() => store.getters.getUseDeArrowThumbnail
 
 /** @type {import('vue').ComputedRef<string>} */
 const deArrowThumbnailGeneratorUrl = computed(() => store.getters.getDeArrowThumbnailGeneratorUrl)
+
+const sponsorBlockUrlInputRef = useTemplateRef('sponsorBlockUrlInput')
+const deArrowThumbnailGeneratorUrlRef = useTemplateRef('deArrowThumbnailGeneratorUrl')
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const sponsorBlockShowExcludedChannels = computed(() => store.getters.getSponsorBlockShowExcludedChannels)
+
+/** @type {import('vue').ComputedRef<'local' | 'invidious'>} */
+const backendPreference = computed(() => store.getters.getBackendPreference)
+
+/** @type {import('vue').ComputedRef<boolean>} */
+const backendFallback = computed(() => store.getters.getBackendFallback)
+
+const backendOptions = computed(() => ({
+  preference: backendPreference.value,
+  fallback: backendFallback.value
+}))
+
+onMounted(() => {
+  verifySponsorBlockExcludedChannels()
+})
+
+/**
+ * @param {any[]} value
+ */
+function handleSponsorBlockExcludedChannels(value) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(value))
+}
+
+function handleSponsorBlockShowExcludedChannels() {
+  store.dispatch('updateSponsorBlockShowExcludedChannels', !sponsorBlockShowExcludedChannels.value)
+}
 
 /**
  * @param {boolean} value
@@ -141,14 +205,36 @@ function handleUpdateSponsorBlockShowSkippedToast(value) {
  * @param {string} value
  */
 function handleUpdateSponsorBlockUrl(value) {
-  store.dispatch('updateSponsorBlockUrl', cleanupUrl(value))
+  const cleanValue = cleanupUrl(value)
+  store.dispatch('updateSponsorBlockUrl', cleanValue)
+
+  if (cleanValue !== value) {
+    sponsorBlockUrlInputRef.value?.setText(cleanValue)
+  }
 }
 
 /**
  * @param {string} value
  */
 function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
-  store.dispatch('updateDeArrowThumbnailGeneratorUrl', cleanupUrl(value))
+  const cleanValue = cleanupUrl(value)
+  store.dispatch('updateDeArrowThumbnailGeneratorUrl', cleanValue)
+
+  if (cleanValue !== value) {
+    deArrowThumbnailGeneratorUrlRef.value?.setText(cleanValue)
+  }
+}
+
+function handleInvalidChannel() {
+  showToast(t('Settings.Distraction Free Settings.Hide Channels Invalid'))
+}
+
+function handleChannelAPIError() {
+  showToast(t('Settings.Distraction Free Settings.Hide Channels API Error'))
+}
+
+function handleChannelsExists() {
+  showToast(t('Settings.Distraction Free Settings.Hide Channels Already Exists'))
 }
 
 /**
@@ -156,7 +242,43 @@ function handleUpdateDeArrowThumbnailGeneratorUrl(value) {
  */
 function cleanupUrl(url) {
   return url
-    .replace(/\/$/, '')
+    .replace(/\/+$/, '')
     .replace(/\/api$/, '')
 }
+
+/**
+ * @param {string} text
+ */
+async function findChannelTagInfoWrapper(text) {
+  return await findChannelTagInfo(text, backendOptions.value)
+}
+
+async function verifySponsorBlockExcludedChannels() {
+  const excludedChannelsCpy = [...sponsorBlockExcludedChannels.value]
+
+  for (let i = 0; i < excludedChannelsCpy.length; i++) {
+    const tag = excludedChannelsCpy[i]
+
+    // if channel has been processed and confirmed as non existent, skip
+    if (tag.invalid) continue
+
+    // process if no preferred name and is possibly a YouTube ID
+    if ((tag.preferredName === '' || !tag.icon) && checkYoutubeChannelId(tag.name)) {
+      sponsorBlockExcludedChannelsDisabled.value = true
+
+      const { preferredName, icon, iconHref, invalidId } = await findChannelTagInfoWrapper(tag.name)
+      if (invalidId) {
+        excludedChannelsCpy[i] = { name: tag.name, invalid: invalidId }
+      } else {
+        excludedChannelsCpy[i] = { name: tag.name, preferredName, icon, iconHref }
+      }
+
+      // update on every tag in case it closes
+      handleSponsorBlockExcludedChannels(excludedChannelsCpy)
+    }
+  }
+
+  sponsorBlockExcludedChannelsDisabled.value = false
+}
+
 </script>

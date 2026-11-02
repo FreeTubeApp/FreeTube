@@ -8,10 +8,24 @@
         {{ title }}
       </h1>
       <div
-        v-if="isUnlisted"
-        class="unlistedBadge"
+        v-if="isUnlisted || showAiBadge"
+        class="videoBadges"
       >
-        {{ t('Video.Unlisted') }}
+        <div
+          v-if="isUnlisted"
+          class="unlistedBadge"
+        >
+          {{ t('Video.Unlisted') }}
+        </div>
+        <div
+          v-if="showAiBadge"
+          class="aiBadge"
+          :title="t('Video.AI: Content was made with AI')"
+          :aria-label="t('Video.AI: Content was made with AI')"
+        >
+          <FontAwesomeIcon :icon="['fas', 'circle-info']" />
+          <span>{{ t('Video.AI') }}</span>
+        </div>
       </div>
     </div>
     <div class="videoMetrics">
@@ -119,6 +133,12 @@
             :dropdown-options="formatTypeOptions"
             @click="changeFormat"
           />
+          <FtIconButton
+            :title="t('Video.Reload Page')"
+            :icon="['fas', 'rotate-right']"
+            theme="secondary"
+            @click="reloadPlayer"
+          />
           <FtShareButton
             v-if="!hideSharingActions"
             :id="id"
@@ -143,7 +163,7 @@ import FtSubscribeButton from '../FtSubscribeButton/FtSubscribeButton.vue'
 
 import store from '../../store'
 
-import { formatNumber, showToast } from '../../helpers/utils'
+import { formatNumber, showToast, getLocalesWithFallback } from '../../helpers/utils'
 
 const props = defineProps({
   id: {
@@ -231,6 +251,10 @@ const props = defineProps({
     type: Boolean,
     required: false
   },
+  contentDisclosures: {
+    type: Array,
+    default: null
+  },
   canSaveWatchedProgress: {
     type: Boolean,
     required: true
@@ -241,11 +265,18 @@ const emit = defineEmits([
   'change-format',
   'pause-player',
   'save-watched-progress',
+  'reload-player',
 ])
 
 const USING_ELECTRON = process.env.IS_ELECTRON
 
 const { locale, t } = useI18n()
+
+const showAiBadge = computed(() => {
+  const LABEL_REGEX = /\b(ai|artificial intelligence|altered|synthetic)\b/i
+
+  return props.contentDisclosures?.some(item => LABEL_REGEX.test(item.label)) || false
+})
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const hideSharingActions = computed(() => store.getters.getHideSharingActions)
@@ -279,7 +310,8 @@ const parsedViewCount = computed(() => {
 })
 
 const dateString = computed(() => {
-  const formatter = new Intl.DateTimeFormat([locale.value, 'en'], { dateStyle: 'medium' })
+  const locales = getLocalesWithFallback(locale.value)
+  const formatter = new Intl.DateTimeFormat(locales, { dateStyle: 'medium' })
   const localeDateString = formatter.format(props.published)
   // replace spaces with no break spaces to make the date act as a single entity while wrapping
   return localeDateString.replaceAll(' ', '\u00A0')
@@ -315,6 +347,10 @@ const formatTypeOptions = computed(() => [
  */
 function changeFormat(value) {
   emit('change-format', value)
+}
+
+function reloadPlayer() {
+  emit('reload-player')
 }
 
 const watchedProgressSavingInSemiAutoMode = computed(() => {

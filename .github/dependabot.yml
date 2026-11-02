@@ -9,10 +9,6 @@ updates:
       - "PR: dependencies"
     open-pull-requests-limit: 15
     groups:
-      babel:
-        patterns:
-          - "@babel/*"
-          - "babel-*"
       eslint:
         patterns:
           - "eslint"
@@ -22,6 +18,7 @@ updates:
           - "neostandard"
           - "@intlify/eslint-plugin-vue-i18n"
           - "@stylistic/eslint-plugin"
+          - "globals"
       stylelint:
         patterns:
           - "stylelint"
@@ -34,6 +31,7 @@ updates:
           - "@fortawesome/*"
       webpack:
         patterns:
+          - "cssnano"
           - "css-loader"
           - "mini-css-extract-plugin"
           - "sass"

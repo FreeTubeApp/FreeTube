@@ -37,6 +37,14 @@ class History {
     )
   }
 
+  static unsetLastViewedPlaylistForVideos(videoIds, lastViewedPlaylistId) {
+    return window.ftElectron.dbHistory(DBActions.HISTORY.UNSET_PLAYLIST_FOR_VIDEOS, { videoIds, lastViewedPlaylistId })
+  }
+
+  static unsetLastViewedPlaylists(lastViewedPlaylistIds) {
+    return window.ftElectron.dbHistory(DBActions.HISTORY.UNSET_PLAYLISTS, lastViewedPlaylistIds)
+  }
+
   static delete(videoId) {
     return window.ftElectron.dbHistory(DBActions.GENERAL.DELETE, videoId)
   }

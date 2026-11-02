@@ -22,10 +22,20 @@
   gap: 10px;
 }
 
-.unlistedBadge {
+.videoBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-block-start: 4px;
+}
+
+.unlistedBadge,
+.aiBadge {
   background-color: var(--secondary-card-bg-color);
   border-radius: 5px;
-  display: inline;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   padding-inline: 5px;
   padding-block: 2px;
   white-space: nowrap;

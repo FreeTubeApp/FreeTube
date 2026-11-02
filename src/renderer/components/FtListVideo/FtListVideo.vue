@@ -11,6 +11,9 @@
     <div
       v-if="showGrabBar"
       class="grabBar"
+      :class="{
+        grabBarDisabled: !grabBarEnabled,
+      }"
     >
       <FontAwesomeIcon
         :icon="['fas', 'fa-bars']"
@@ -25,7 +28,7 @@
         class="thumbnailLink"
         tabindex="-1"
         :to="watchVideoRouterLink"
-        @click="handleWatchPageLinkClick"
+        @click.capture="handleWatchPageLinkClick"
       >
         <img
           :src="thumbnail"
@@ -35,14 +38,38 @@
         >
       </RouterLink>
       <div
-        v-if="isLive || isUpcoming || (displayDuration !== '' && displayDuration !== '0:00')"
+        v-if="isLive || isUpcoming || isStation || (displayDuration !== '' && displayDuration !== '0:00')"
         class="videoDuration"
         :class="{
-          live: isLive,
+          live: (isLive || isStation ),
           upcoming: isUpcoming
         }"
       >
-        {{ isLive ? t("Video.Live") : (isUpcoming ? t("Video.Upcoming") : displayDuration) }}
+        <template v-if="isLive">
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ isPremiere ? t("Video.Premiere") : t("Video.Live") }}
+        </template>
+        <template v-else-if="isUpcoming">
+          {{ t("Video.Upcoming") }}
+        </template>
+        <template v-else-if="isStation">
+          <FontAwesomeIcon
+            :icon="['fa', 'tower-broadcast']"
+            class="liveIcon"
+          />
+          {{ t("Video.Station") }}
+        </template>
+        <template v-else>
+          <FontAwesomeIcon
+            v-if="isMusic"
+            :icon="['fa', 'music']"
+            class="musicIcon"
+          />
+          {{ displayDuration }}
+        </template>
       </div>
       <FtIconButton
         v-if="externalPlayer !== '' && !externalPlayerIsDefaultViewingMode"
@@ -133,7 +160,7 @@
       <RouterLink
         class="title"
         :to="watchVideoRouterLink"
-        @click="handleWatchPageLinkClick"
+        @click.capture="handleWatchPageLinkClick"
       >
         <h3
           class="h3Title"
@@ -143,31 +170,30 @@
         </h3>
       </RouterLink>
       <div class="infoLine">
-        <component
-          :is="disableChannelLinks ? 'span' : 'router-link'"
-          v-if="channelId !== null"
+        <RouterLink
+          v-if="!disableChannelLinks && channelId !== null"
           class="channelName"
           dir="auto"
           :to="`/channel/${channelId}`"
         >
           {{ channelName }}
-        </component>
+        </RouterLink>
         <bdi v-else-if="channelName !== null">
           {{ channelName }}
         </bdi>
         <span
-          v-if="!isLive && !isUpcoming && !isPremium && !hideViews && viewCount != null"
+          v-if="!isLive && !isUpcoming && !isPremium && !isStation && !hideViews && viewCount != null"
           class="viewCount"
         >
           <template v-if="channelId !== null || channelName !== null"> • </template>
-          {{ t('Global.Counts.View Count', { count: parsedViewCount }, viewCount) }}
+          {{ t('Global.Counts.View Count', { count: formattedViewCount }, viewCount) }}
         </span>
         <span
-          v-if="uploadedTime !== '' && !isLive"
+          v-if="uploadedTime !== '' && !isLive && !isStation"
           class="uploadedTime"
         > • {{ uploadedTime }}</span>
         <span
-          v-if="isLive && !hideViews"
+          v-if="(isLive || isStation) && !hideViews"
           class="viewCount"
         > • {{ t('Global.Counts.Watching Count', { count: parsedViewCount }, viewCount) }}</span>
       </div>
@@ -289,6 +315,7 @@ import {
   formatDurationAsTimestamp,
   formatNumber,
   getRelativeTimeFromDate,
+  isNumberRounded,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
@@ -371,9 +398,20 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  grabBarEnabled: {
+    type: Boolean,
+    default: false,
+  },
 })
 
-const emit = defineEmits(['move-video-down', 'move-video-up', 'pause-player', 'remove-from-playlist'])
+const emit = defineEmits([
+  'move-video-down',
+  'move-video-up',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'pause-player',
+  'remove-from-playlist'
+])
 
 const { locale, t } = useI18n()
 const route = useRoute()
@@ -382,6 +420,7 @@ const id = ref('')
 const title = ref('')
 const channelName = ref(null)
 const channelId = ref(null)
+const collaborators = ref([])
 const viewCount = ref(0)
 const parsedViewCount = ref('')
 const uploadedTime = ref('')
@@ -398,6 +437,9 @@ const isVr360 = ref(false)
 const is3D = ref(false)
 const hasCaptions = ref(false)
 const isUpcoming = ref(false)
+const isStation = ref(false)
+const isPremiere = ref(false)
+const isMusic = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -467,6 +509,12 @@ const progressPercentage = computed(() => {
 /** @type {import('vue').ComputedRef<any[]>} */
 const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
 
+/** @type {import('vue').ComputedRef<boolean>} */
+const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
+
+/** @type {import('vue').ComputedRef<any[]>} */
+const sponsorBlockExcludedChannels = computed(() => JSON.parse(store.getters.getSponsorBlockExcludedChannels))
+
 const playlistSharable = computed(() => {
   // `playlistId` can be undefined
   // User playlist ID should not be shared
@@ -486,8 +534,27 @@ const dropdownOptions = computed(() => {
         ? t('Video.Remove From History')
         : t('Video.Mark As Watched'),
       value: 'history'
-    }
+    },
   ]
+  if (inUserPlaylist.value) {
+    if (props.canMoveVideoUp || props.canMoveVideoDown) {
+      options.push({
+        type: 'divider'
+      })
+    }
+    if (props.canMoveVideoUp) {
+      options.push({
+        label: t('User Playlists.Move Video to the Top'),
+        value: 'moveVideoTop'
+      })
+    }
+    if (props.canMoveVideoDown) {
+      options.push({
+        label: t('User Playlists.Move Video to the Bottom'),
+        value: 'moveVideoBottom'
+      })
+    }
+  }
   if (!hideSharingActions.value) {
     options.push(
       {
@@ -557,24 +624,46 @@ const dropdownOptions = computed(() => {
     }
   }
 
-  if (channelId.value !== null && !inSubscriptions.value) {
-    const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+  if (channelId.value !== null) {
+    if (!inSubscriptions.value) {
+      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
 
-    options.push(
-      {
-        type: 'divider'
-      },
+      options.push(
+        {
+          type: 'divider'
+        },
 
-      channelShouldBeHidden
-        ? {
-            label: t('Video.Unhide Channel'),
-            value: 'unhideChannel'
-          }
-        : {
-            label: t('Video.Hide Channel'),
-            value: 'hideChannel'
-          }
-    )
+        channelShouldBeHidden
+          ? {
+              label: t('Video.Unhide Channel'),
+              value: 'unhideChannel'
+            }
+          : {
+              label: t('Video.Hide Channel'),
+              value: 'hideChannel'
+            }
+      )
+    }
+
+    if (useSponsorBlock.value) {
+      const isSponsorBlockChannelExcluded = sponsorBlockExcludedChannels.value.some(c => c.name === channelId.value)
+
+      options.push(
+        {
+          type: 'divider'
+        },
+
+        isSponsorBlockChannelExcluded
+          ? {
+              label: t('Video.Enable SponsorBlock on Channel'),
+              value: 'enableSponsorBlockOnChannel'
+            }
+          : {
+              label: t('Video.Disable SponsorBlock on Channel'),
+              value: 'disableSponsorBlockOnChannel'
+            }
+      )
+    }
   }
 
   return options
@@ -614,12 +703,18 @@ function handleOptionsClick(option) {
         markAsWatched()
       }
       break
+    case 'moveVideoTop':
+      moveVideoToTheTop()
+      break
+    case 'moveVideoBottom':
+      moveVideoToTheBottom()
+      break
     case 'copyYoutube': {
       let videoUrl = `https://youtu.be/${id.value}`
 
       if (playlistSharable.value) {
         // `index` seems can be ignored
-        videoUrl += `&list=${playlistIdFinal.value}`
+        videoUrl += `?list=${playlistIdFinal.value}`
       }
 
       copyToClipboard(videoUrl, { messageOnSuccess: t('Share.YouTube URL copied to clipboard') })
@@ -660,11 +755,21 @@ function handleOptionsClick(option) {
     case 'openInvidiousChannel':
       openExternalLink(getInvidiousChannelUrl())
       break
-    case 'hideChannel':
-      hideChannel(channelName.value, channelId.value)
+    case 'hideChannel': {
+      const name = collaborators.value.length > 0 ? collaborators.value[0].name : channelName.value
+      hideChannel(name, channelId.value)
       break
-    case 'unhideChannel':
-      unhideChannel(channelName.value, channelId.value)
+    }
+    case 'unhideChannel': {
+      const name = collaborators.value.length > 0 ? collaborators.value[0].name : channelName.value
+      unhideChannel(name, channelId.value)
+      break
+    }
+    case 'disableSponsorBlockOnChannel':
+      disableSponsorBlockOnChannel(channelName.value, channelId.value)
+      break
+    case 'enableSponsorBlockOnChannel':
+      enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
   }
 }
@@ -831,17 +936,10 @@ const watchPageLinkQuery = computed(() => {
   return query
 })
 
-const watchVideoRouterLink = computed(() => {
-  // For `router-link` attribute `to`
-  if (!externalPlayerIsDefaultViewingMode.value) {
-    return {
-      path: `/watch/${id.value}`,
-      query: watchPageLinkQuery.value,
-    }
-  } else {
-    return {}
-  }
-})
+const watchVideoRouterLink = computed(() => ({
+  path: `/watch/${id.value}`,
+  query: watchPageLinkQuery.value,
+}))
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useDeArrowTitles = computed(() => store.getters.getUseDeArrowTitles)
@@ -865,8 +963,12 @@ const deArrowCache = computed(() => store.getters.getDeArrowCache[id.value])
 
 const disableChannelLinks = computed(() => store.getters.getDisableChannelLinks)
 
-function handleWatchPageLinkClick() {
+/**
+ * @param {PointerEvent} event
+ */
+function handleWatchPageLinkClick(event) {
   if (externalPlayerIsDefaultViewingMode.value) {
+    event.preventDefault()
     handleExternalPlayer()
   }
 }
@@ -968,7 +1070,16 @@ function parseVideoData() {
   title.value = props.data.title
 
   channelName.value = props.data.author ?? null
-  channelId.value = props.data.authorId ?? null
+  collaborators.value = props.data.collaborators ?? []
+
+  if (props.data.authorId) {
+    channelId.value = props.data.authorId
+  } else if (collaborators.value.length > 0) {
+    // When video has collaborators, authorId is null and the first element in the collaborator array is the main author
+    channelId.value = collaborators.value[0].id
+  } else {
+    channelId.value = null
+  }
 
   if ((props.data.lengthSeconds === '' || props.data.lengthSeconds === '0:00') && historyEntryExists.value) {
     lengthSeconds.value = historyEntry.value.lengthSeconds
@@ -979,8 +1090,11 @@ function parseVideoData() {
   }
 
   description.value = props.data.description
-  isLive.value = props.data.liveNow || props.data.lengthSeconds === undefined
+  isStation.value = props.data.isStation === true
+  isPremiere.value = props.data.isPremiere === true
+  isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
+  isMusic.value = props.data.isMusic === true
   is4k.value = props.data.is4k
   is8k.value = props.data.is8k
   isNew.value = props.data.isNew
@@ -1003,7 +1117,7 @@ function parseVideoData() {
   } else if (props.data.premiereTimestamp !== undefined) {
     uploadedTime.value = new Date(props.data.premiereTimestamp * 1000).toLocaleString([locale.value, 'en'])
     published.value = props.data.premiereTimestamp * 1000
-  } else if (typeof props.data.published === 'number' && !isLive.value) {
+  } else if (typeof props.data.published === 'number' && !isLive.value && !isStation.value) {
     published.value = props.data.published
 
     if (inHistory.value) {
@@ -1025,6 +1139,14 @@ function parseVideoData() {
   }
 }
 
+const formattedViewCount = computed(() => {
+  if (isNumberRounded(viewCount.value)) {
+    return formatNumber(viewCount.value, { notation: 'compact' })
+  } else {
+    return parsedViewCount.value
+  }
+})
+
 function markAsWatched() {
   const videoData = {
     videoId: id.value,
@@ -1038,6 +1160,8 @@ function markAsWatched() {
     watchProgress: 0,
     timeWatched: Date.now(),
     isLive: false,
+    isStation: false,
+    isPremiere: false,
     type: 'video'
   }
 
@@ -1052,6 +1176,14 @@ function removeFromWatched() {
   store.dispatch('removeFromHistory', id.value)
 
   showToast(t('Video.Video has been removed from your history'))
+}
+
+function moveVideoToTheTop() {
+  emit('move-video-to-the-top', id.value, props.playlistItemId)
+}
+
+function moveVideoToTheBottom() {
+  emit('move-video-to-the-bottom', id.value, props.playlistItemId)
 }
 
 function togglePlaylistPrompt() {
@@ -1091,6 +1223,28 @@ function unhideChannel(channelName, channelId) {
   store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function disableSponsorBlockOnChannel(channelName, channelId) {
+  const newExcludedChannels = [...sponsorBlockExcludedChannels.value, { name: channelId, preferredName: channelName }]
+
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(newExcludedChannels))
+
+  showToast(t('SponsorBlock Disabled on Channel', { channel: channelName }))
+}
+
+/**
+ * @param {string} channelName
+ * @param {string} channelId
+ */
+function enableSponsorBlockOnChannel(channelName, channelId) {
+  store.dispatch('updateSponsorBlockExcludedChannels', JSON.stringify(sponsorBlockExcludedChannels.value.filter(c => c.name !== channelId)))
+
+  showToast(t('SponsorBlock Enabled on Channel', { channel: channelName }))
 }
 
 function toggleQuickBookmarked() {

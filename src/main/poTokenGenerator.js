@@ -110,11 +110,13 @@ async function sharedInit() {
       requestHeaders['Accept-Language'] = '*'
     }
 
+    // eslint-disable-next-line n/no-callback-literal
     callback({ requestHeaders })
   })
 
   theSession.webRequest.onHeadersReceived({ urls: ['https://*/*'] }, ({ responseHeaders }, callback) => {
     if (responseHeaders) {
+      // eslint-disable-next-line n/no-callback-literal
       callback({
         responseHeaders: {
           ...responseHeaders,
@@ -126,6 +128,7 @@ async function sharedInit() {
   })
 
   theSession.webRequest.onBeforeRequest({ urls: ['<all_urls>'], types: ['cspReport', 'ping'] }, (details, callback) => {
+    // eslint-disable-next-line n/no-callback-literal
     callback({ cancel: true })
   })
 

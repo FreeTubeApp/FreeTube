@@ -86,11 +86,11 @@
         @change="updateDefaultViewingMode"
       />
       <FtSelect
-        :placeholder="t('Settings.Player Settings.Default Video Format.Default Video Format')"
+        :placeholder="t('Settings.Player Settings.Default Media Format.Default Media Format')"
         :value="defaultVideoFormat"
         :select-names="formatNames"
         :select-values="FORMAT_VALUES"
-        :tooltip="t('Tooltips.Player Settings.Default Video Format')"
+        :tooltip="t('Tooltips.Player Settings.Default Media Format')"
         :icon="['fas', 'file-video']"
         @change="updateDefaultVideoFormat"
       />
@@ -459,9 +459,9 @@ function updateDefaultViewingMode(value) {
 const FORMAT_VALUES = ['dash', 'legacy', 'audio']
 
 const formatNames = computed(() => [
-  t('Settings.Player Settings.Default Video Format.Dash Formats'),
-  t('Settings.Player Settings.Default Video Format.Legacy Formats'),
-  t('Settings.Player Settings.Default Video Format.Audio Formats')
+  t('Settings.Player Settings.Default Media Format.Dash Formats'),
+  t('Settings.Player Settings.Default Media Format.Legacy Formats'),
+  t('Settings.Player Settings.Default Media Format.Audio Formats')
 ])
 
 /** @type {import('vue').ComputedRef<'dash' | 'audio' |' legacy'>} */

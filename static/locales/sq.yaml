@@ -72,6 +72,8 @@ Search Filters:
   Search Filters: 'Filtra të kërkimit'
   Prioritize:
     Most Relevant: 'Më të përshtatshmet'
+    Prioritize: Jepi përparësi
+    Popularity: Popullaritetit
   Time:
     Time: 'Koha'
     Any Time: 'Përherë'
@@ -137,6 +139,7 @@ Trending:
   Trending: 'Në trend'
   Gaming: 'Lojëra'
   Trending Tabs: 'Skeda në trend'
+  Sports: Sporte
 Most Popular: 'Më populloret'
 Feed:
   Feed Last Updated: 'Feed-i {feedName} u rifreskua për here të fundit në: {date}'
@@ -253,7 +256,7 @@ History:
   Case Sensitive Search: ''
 Settings:
   # On Settings Page
-  Settings: ''
+  Settings: 'Cilësimet'
   Sort Settings Sections (A-Z): ''
   Return to Settings Menu: ''
   The app needs to restart for changes to take effect. Restart and apply change?: ''
@@ -441,8 +444,8 @@ Settings:
     Default Playback Rate: ''
     Max Video Playback Rate: ''
     Video Playback Rate Interval: ''
-    Default Video Format:
-      Default Video Format: ''
+    Default Media Format:
+      Default Media Format: ''
       Dash Formats: ''
       Legacy Formats: ''
       Audio Formats: ''
@@ -658,7 +661,6 @@ About:
   GitHub issues: ''
   Please check for duplicates before posting: ''
   Website: ''
-  Email: ''
   Mastodon: ''
   Chat on Matrix: ''
   room rules: ''
@@ -723,7 +725,6 @@ Channel:
   Channel Tabs: ''
   Videos:
     Videos: ''
-    This channel does not currently have any videos: ''
     Sort Types:
       Newest: ''
       Oldest: ''
@@ -750,7 +751,7 @@ Channel:
     Releases: ''
     This channel does not currently have any releases: ''
   Courses:
-    Courses: ''
+    Courses: 'Kurse'
     This channel does not currently have any courses: ''
   About:
     About: ''
@@ -970,7 +971,7 @@ Tooltips:
     Open Deep Links In New Window: ''
   Player Settings:
     Proxy Videos Through Invidious: ''
-    Default Video Format: ''
+    Default Media Format: ''
     Scroll Playback Rate Over Video Player: ''
     Skip by Scrolling Over Video Player: ''
   External Player Settings:

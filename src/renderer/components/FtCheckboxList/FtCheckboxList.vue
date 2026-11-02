@@ -1,5 +1,5 @@
 <template>
-  <div class="pure-checkbox filter">
+  <div>
     <h3 class="checkboxTitle">
       {{ title }}
     </h3>
@@ -17,6 +17,7 @@
         type="checkbox"
       >
       <label
+        class="label"
         :for="id + values[index]"
       >
         {{ label }}

@@ -30,10 +30,6 @@ if (platform === 'darwin') {
     arch = Arch.arm64
   }
 
-  if (args[2] === 'arm32') {
-    arch = Arch.armv7l
-  }
-
   targets = Platform.LINUX.createTarget(['deb', 'zip', '7z', 'rpm', 'AppImage', 'pacman'], arch)
 }
 

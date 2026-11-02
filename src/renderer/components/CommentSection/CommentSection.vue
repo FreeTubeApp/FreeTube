@@ -12,8 +12,7 @@
         role="button"
         tabindex="0"
         @click="showComments = false"
-        @keydown.space.prevent="showComments = false"
-        @keydown.enter.prevent="showComments = false"
+        @keydown.enter.space.prevent="showComments = false"
       >
         {{ $t("Comments.Hide Comments") }}
       </span>
@@ -24,8 +23,7 @@
       role="button"
       tabindex="0"
       @click="getCommentData"
-      @keydown.space.prevent="getCommentData"
-      @keydown.enter.prevent="getCommentData"
+      @keydown.enter.space.prevent="getCommentData"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -35,8 +33,7 @@
       role="button"
       tabindex="0"
       @click="showComments = true"
-      @keydown.space.prevent="showComments = true"
-      @keydown.enter.prevent="showComments = true"
+      @keydown.enter.space.prevent="showComments = true"
     >
       {{ $t("Comments.Click to View Comments") }}
     </h4>
@@ -70,7 +67,13 @@
       v-else-if="showComments && !isLoading"
     >
       <h3
-        v-if="isPostComments"
+        v-if="areCommentsDisabled"
+        class="noCommentMsg"
+      >
+        {{ $t("Comments.Comments are turned off") }}
+      </h3>
+      <h3
+        v-else-if="isPostComments"
         class="noCommentMsg"
       >
         {{ $t("Comments.There are no comments available for this post") }}
@@ -88,8 +91,7 @@
       role="button"
       tabindex="0"
       @click="getMoreComments"
-      @keydown.space.prevent="getMoreComments"
-      @keydown.enter.prevent="getMoreComments"
+      @keydown.enter.space.prevent="getMoreComments"
     >
       {{ $t("Comments.Load More Comments") }}
     </h4>
@@ -109,6 +111,7 @@
 <script setup>
 import { computed, ref, shallowRef } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import FtCard from '../ft-card/ft-card.vue'
 import FtComment from '../FtComment/FtComment.vue'
@@ -170,6 +173,7 @@ function onTimestamp(timestamp) {
 const isLoading = ref(false)
 const isMoreCommentsLoading = ref(false)
 const showComments = ref(false)
+const areCommentsDisabled = ref(false)
 const nextPageToken = shallowRef(null)
 
 /** @type {import('vue').ShallowRef<import('../FtComment/FtComment.vue').Comment[]>} */
@@ -259,6 +263,7 @@ function handleSortChange() {
 
 function getCommentData() {
   isLoading.value = true
+  areCommentsDisabled.value = false
 
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     if (!props.isPostComments) {
@@ -339,6 +344,7 @@ async function getCommentDataLocal(more = false) {
       nextPageToken.value = null
       isLoading.value = false
       showComments.value = true
+      areCommentsDisabled.value = true
       localCommentsInstance = undefined
       return
     }
@@ -385,6 +391,7 @@ async function getCommentDataInvidious() {
       nextPageToken.value = null
       isLoading.value = false
       showComments.value = true
+      areCommentsDisabled.value = true
       return
     }
     // endregion No comment detection
@@ -417,6 +424,15 @@ async function getPostCommentsInvidious() {
     isLoading.value = false
     showComments.value = true
   } catch (err) {
+    if (err.message.includes('Comments not found')) {
+      commentData.value = []
+      nextPageToken.value = null
+      isLoading.value = false
+      showComments.value = true
+      areCommentsDisabled.value = true
+      return
+    }
+
     console.error(err)
     const errorMessage = t('Invidious API Error (Click to copy)')
     showToast(`${errorMessage}: ${err}`, 10000, () => {

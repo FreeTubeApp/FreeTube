@@ -376,8 +376,7 @@ Settings:
     Enable Theatre Mode by Default: 'فعّل وضع المسرح بشكل افتراضي'
     Default Volume: 'مستوى الصوت الافتراضي'
     Default Playback Rate: 'معدّل سرعة التشغيل الافتراضية'
-    Default Video Format:
-      Default Video Format: 'تنسيق الفيديو الافتراضي'
+    Default Media Format:
       Dash Formats: 'تنسيقات DASH'
       Legacy Formats: 'تنسيقات قديمة'
       Audio Formats: 'تنسيقات الصوت'
@@ -619,7 +618,6 @@ About:
   Translate: ساعدنا في ترجمة Freetube
   Chat on Matrix: الدردشة على ماتريكس
   Mastodon: ماستدون
-  Email: البريد الإلكتروني
   Website: موقع الويب
   Report a problem: الإبلاغ عن مشكلة
   FAQ: الأسئلة المتداولة
@@ -688,7 +686,6 @@ Channel:
   Your search results have returned 0 results: 'لم تُعد نتيجة بحثك أي نتائج'
   Videos:
     Videos: 'الفيديوهات'
-    This channel does not currently have any videos: 'لا تحتوي هذه القناة على أي فيديوهات حالياً'
     Sort Types:
       Newest: 'الأحدث'
       Oldest: 'الأقدم'
@@ -957,7 +954,7 @@ Tooltips:
     Open Deep Links In New Window: يتم فتح عناوين URL التي تم تمريرها إلى FreeTube، مثل إعادة توجيه ملحقات المتصفح أو حجج سطر الأوامر، في نافذة جديدة.
   Player Settings:
     Proxy Videos Through Invidious: سيتم الاتصال بـ Invidious لعرض مقاطع الفيديو بدلاً من إجراء اتصال مباشر بـ YouTube.
-    Default Video Format: حدّد التنسيقات المستخدمة عند تشغيل الفيديو. تنسيق داش (التدفق الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى. التنسيقات القديمة محدودة بجودة 360p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق. التنسيقات الصوتية هي للتدفق الصوتي فقط.
+    Default Media Format: حدّد التنسيقات المستخدمة عند تشغيل الفيديو. تنسيق داش (التدفق الميكانيكي المتكيّف عبر بروتوكول نقل النص التشعبي) يمكنها أن تُشغِّل جودات أعلى. التنسيقات القديمة محدودة بجودة 360p كحدّ أقصى لكنها تستخدم عرضًا أقل للنطاق. التنسيقات الصوتية هي للتدفق الصوتي فقط.
     Scroll Playback Rate Over Video Player: أثناء وجود المؤشر فوق الفيديو، اضغط مع الاستمرار على مفتاح التحكم (مفتاح القيادة على Mac) ومرر عجلة الماوس للأمام أو للخلف للتحكم في معدل التشغيل. اضغط مع الاستمرار على مفتاح التحكم (مفتاح الأوامر على Mac) ثم انقر فوق الماوس للعودة بسرعة إلى معدل التشغيل الافتراضي (1x ما لم يتم تغييره في الإعدادات).
     Skip by Scrolling Over Video Player: استخدم عجلة التمرير لتخطي الفيديو بنمط MPV.
   Subscription Settings:

@@ -10,8 +10,6 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { register as registerSwiper } from 'swiper/element'
 
-import { ObserveVisibility } from 'vue-observe-visibility'
-
 // Please keep the list of constants sorted by name
 // to avoid code conflict and duplicate entries
 import {
@@ -65,6 +63,7 @@ import {
   faGamepad,
   faGauge,
   faGlobe,
+  faGraduationCap,
   faGrip,
   faHashtag,
   faHeart,
@@ -81,6 +80,7 @@ import {
   faLock,
   faMessage,
   faMoneyCheckDollar,
+  faMusic,
   faNetworkWired,
   faPalette,
   faPhotoFilm,
@@ -90,6 +90,7 @@ import {
   faQuestionCircle,
   faRandom,
   faRetweet,
+  faRotateRight,
   faRss,
   faSatelliteDish,
   faSave,
@@ -190,6 +191,7 @@ library.add(
   faGamepad,
   faGauge,
   faGlobe,
+  faGraduationCap,
   faGrip,
   faHashtag,
   faHeart,
@@ -206,6 +208,7 @@ library.add(
   faLock,
   faMessage,
   faMoneyCheckDollar,
+  faMusic,
   faNetworkWired,
   faPalette,
   faPhotoFilm,
@@ -215,6 +218,7 @@ library.add(
   faQuestionCircle,
   faRandom,
   faRetweet,
+  faRotateRight,
   faRss,
   faSatelliteDish,
   faSave,
@@ -269,7 +273,6 @@ app.config.performance = process.env.NODE_ENV === 'development'
 app
   .component('FontAwesomeIcon', FontAwesomeIcon)
   .component('FontAwesomeLayers', FontAwesomeLayers)
-  .directive('observe-visibility', ObserveVisibility)
 
   .use(router)
   .use(store)

@@ -1,5 +1,4 @@
-/* stylelint-disable no-descending-specificity */
-.pure-checkbox input[type='checkbox'] {
+.checkbox {
   border: 0;
   clip-path: circle(0);
   block-size: 1px;
@@ -10,14 +9,7 @@
   inline-size: 1px;
 }
 
-.pure-checkbox input[type='checkbox']:focus + label::before,
-.pure-checkbox input[type='checkbox']:hover + label::before {
-  border: 2px solid var(--primary-color);
-}
-
-.pure-checkbox input[type='checkbox']:active + label::before { transition-duration: 0s; }
-
-.pure-checkbox input[type='checkbox'] + label {
+.label {
   position: relative;
   padding-inline-start: 2em;
   user-select: none;
@@ -26,7 +18,7 @@
   margin-block-start: 10px;
 }
 
-.pure-checkbox input[type='checkbox'] + label::before {
+.label::before {
   box-sizing: content-box;
   content: '';
   color: var(--primary-text-color);
@@ -41,7 +33,7 @@
   transition: all 0.4s ease;
 }
 
-.pure-checkbox input[type='checkbox'] + label::after {
+.label::after {
   box-sizing: content-box;
   border-style: solid;
   border-image: none;
@@ -59,25 +51,40 @@
   transition: transform 200ms ease-out;
 }
 
-.pure-checkbox input[type='checkbox']:disabled + label::before { border-color: #ccc; }
+.checkbox:focus + .label::before,
+.checkbox:hover + .label::before {
+  border: 2px solid var(--primary-color);
+}
 
-.pure-checkbox input[type='checkbox']:disabled:focus + label::before,
-.pure-checkbox input[type='checkbox']:disabled:hover + label::before { background-color: inherit; }
+.checkbox:active + .label::before {
+  transition-duration: 0s;
+}
 
-.pure-checkbox input[type='checkbox']:disabled:checked + label::before { background-color: #ccc; }
+.checkbox:disabled + .label::before {
+  border-color: #ccc;
+}
 
-.pure-checkbox input[type='checkbox']:checked + label::after {
+.checkbox:checked + .label::before {
+  animation: borderscale 200ms ease-in;
+}
+
+.checkbox:disabled:focus + .label::before,
+.checkbox:disabled:hover + .label::before {
+  background-color: inherit;
+}
+
+.checkbox:disabled:checked + .label::before {
+  background-color: #ccc;
+}
+
+.checkbox:checked + .label::after {
   content: '';
   transform: rotate(-45deg) scale(1);
   transition: transform 200ms ease-out;
 }
 
-.pure-checkbox input[type='checkbox']:checked + label::before {
-  animation: borderscale 200ms ease-in;
-}
-
-@keyframes
-  borderscale {  50% {
+@keyframes borderscale {
+  50% {
     box-shadow: 0 0 0 2px var(--primary-text-color);
   }
 }
@@ -87,7 +94,7 @@
 }
 
 @media only screen and (width <= 680px) {
-  .pure-checkbox input[type='checkbox'] + label {
+  .label {
     margin-block-start: 3px;
   }
 }

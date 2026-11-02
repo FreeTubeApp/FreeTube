@@ -92,11 +92,6 @@ const chunks = computed(() => [
     content: '<a href="https://freetubeapp.io/">https://freetubeapp.io/</a>',
   },
   {
-    icon: ['fas', 'envelope'],
-    title: t('About.Email'),
-    content: '<a href="mailto:FreeTubeApp@protonmail.com">FreeTubeApp@protonmail.com</a>',
-  },
-  {
     icon: ['fab', 'mastodon'],
     title: t('About.Mastodon'),
     content: '<a href="https://fosstodon.org/@FreeTube">@FreeTube@fosstodon.org</a>',
@@ -105,7 +100,7 @@ const chunks = computed(() => [
     icon: ['fab', 'matrix'],
     title: t('About.Chat on Matrix'),
     content: [
-      '<a href="https://matrix.to/#/#freetube:matrix.org">#freetube:matrix.org</a>',
+      '<a href="https://matrix.to/#/#freetubeapp:matrix.org">#freetubeapp:matrix.org</a>',
       t('About.Please read the {roomRulesLink}', {
         roomRulesLink: `<a href="https://docs.freetubeapp.io/community/matrix/">${t('About.room rules')}</a>`,
       }),

@@ -84,8 +84,19 @@ export default {
     return ipcRenderer.invoke(IpcChannels.GET_REPLACE_HTTP_CACHE)
   },
 
+  /**
+   * @returns {Promise<boolean>}
+   */
+  getDisableHardwareAcceleration: () => {
+    return ipcRenderer.invoke(IpcChannels.GET_DISABLE_HARDWARE_ACCELERATION)
+  },
+
   toggleReplaceHttpCache: () => {
     ipcRenderer.send(IpcChannels.TOGGLE_REPLACE_HTTP_CACHE)
+  },
+
+  toggleDisableHardwareAcceleration: () => {
+    ipcRenderer.send(IpcChannels.TOGGLE_DISABLE_HARDWARE_ACCELERATION)
   },
 
   // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.

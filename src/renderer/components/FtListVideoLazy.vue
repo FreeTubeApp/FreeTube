@@ -22,6 +22,8 @@
       :can-move-video-up="canMoveVideoUp"
       :can-move-video-down="canMoveVideoDown"
       :can-remove-from-playlist="canRemoveFromPlaylist"
+      @move-video-to-the-top="moveVideoToTheTop"
+      @move-video-to-the-bottom="moveVideoToTheBottom"
       @pause-player="pausePlayer"
       @move-video-up="moveVideoUp"
       @move-video-down="moveVideoDown"
@@ -32,6 +34,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import FtListVideo from './FtListVideo/FtListVideo.vue'
 
@@ -141,7 +144,7 @@ const shouldBeVisible = computed(() => {
   const lowerCaseTitle = props.data.title?.toLowerCase()
   const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-  return !(channelsHidden.value.some(ch => ch.name === props.data.authorId) ||
+  return !(channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaborators?.length > 0 && ch.name === props.data.collaborators[0].id)) ||
     channelsHidden.value.some(ch => ch.name === props.data.author) ||
     (lowerCaseTitle && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
     (hideChannelsBasedOnText.value && lowerCaseAuthor && forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text))))
@@ -158,10 +161,33 @@ function onVisibilityChanged(isVisible) {
   }
 }
 
-const emit = defineEmits(['pause-player', 'move-video-up', 'move-video-down', 'remove-from-playlist'])
+const emit = defineEmits([
+  'pause-player',
+  'move-video-up',
+  'move-video-down',
+  'move-video-to-the-top',
+  'move-video-to-the-bottom',
+  'remove-from-playlist'
+])
 
 function pausePlayer() {
   emit('pause-player')
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheTop(videoId, playlistItemId) {
+  emit('move-video-to-the-top', videoId, playlistItemId)
+}
+
+/**
+ * @param {string} videoId
+ * @param {string} playlistItemId
+ */
+function moveVideoToTheBottom(videoId, playlistItemId) {
+  emit('move-video-to-the-bottom', videoId, playlistItemId)
 }
 
 /**

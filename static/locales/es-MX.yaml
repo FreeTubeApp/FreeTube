@@ -286,8 +286,7 @@ Settings:
     Enable Theatre Mode by Default: 'Activar modo teatro por defecto'
     Default Volume: 'Volumen predeterminado'
     Default Playback Rate: 'Velocidad de reproducción predeterminada'
-    Default Video Format:
-      Default Video Format: 'Formato de video predeterminado'
+    Default Media Format:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos heredados'
       Audio Formats: 'Formatos de audio'
@@ -433,7 +432,6 @@ About:
   #& About
 #On Channel Page
   Website: Sitio web
-  Email: Correo electrónico
   Mastodon: Mastodon
   Source code: Código fuente
   Beta: Beta
@@ -458,7 +456,6 @@ Channel:
   Your search results have returned 0 results: 'Los resultados de su búsqueda han arrojado 0 resultados'
   Videos:
     Videos: 'Videos'
-    This channel does not currently have any videos: 'Este canal no tiene ningun video actualmente'
     Sort Types:
       Newest: 'Mas nuevo'
       Oldest: 'Mas viejo'
@@ -665,7 +662,7 @@ Tooltips:
     Ignore Warnings: Ignorar advertencias en caso de que el reproductor externo sea incompatible con la acción solicitada (p. ej. revertir listas de reproducción, etc.).
   Player Settings:
     Proxy Videos Through Invidious: Se conectará a Invidious para obtener videos en lugar de conectarse directamente a YouTube.
-    Default Video Format: Establezca los formatos a usar cuando reproduce un video. Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de banda. Los formatos de audio permiten escuchar solamente el audio.
+    Default Media Format: Establezca los formatos a usar cuando reproduce un video. Los formatos DASH pueden alcanzar mejores calidades. Los formatos heredados están limitados a un máximo de 720 píxeles de ancho, pero usan menos ancho de banda. Los formatos de audio permiten escuchar solamente el audio.
     Scroll Playback Rate Over Video Player: Mientras el cursor esté sobre el video, mantenga presionada la tecla Ctrl (tecla Comando en Mac) y use la rueda del ratón hacia adelante o atrás para controlar la velocidad de reproducción. Mantenga presionada la tecla Ctrl (tecla Comando en Mac) y haga clic izquierdo para reestablecer la velocidad de reproducción predeterminada (que es de 1x, a menos que la haya cambiado en configuración).
   Subscription Settings:
     Fetch Feeds from RSS: Si se habilita, FreeTube usará RSS en lugar del método predeterminado para recibir videos de sus suscripciones. RSS es más rápido y previene que bloqueen su IP, pero no es capaz de proveer ciertos datos del video, como su duración, o si está en directo

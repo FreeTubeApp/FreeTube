@@ -11,8 +11,7 @@
       :aria-controls="id + 'list'"
       @click="toggleProfileList"
       @mousedown="handleIconMouseDown"
-      @keydown.space.prevent="toggleProfileList"
-      @keydown.enter.prevent="toggleProfileList"
+      @keydown.enter.space.prevent="toggleProfileList"
     >
       <div
         class="initial"
@@ -39,6 +38,7 @@
       <FtIconButton
         class="profileSettings"
         :icon="['fas', 'sliders-h']"
+        :title="$t('Profile.Go To Profile Manager')"
         @click="openProfileSettings"
       />
       <div
