@@ -16,9 +16,14 @@ import {
   deduplicateAudioTracks,
   findMostSimilarAudioBandwidth,
   getSponsorBlockSegments,
+  hlsProxiedUrlReplacer,
   logShakaError,
+  manifestPreprocessorTXml,
   patchLiveHlsMainManifest,
-  repairInvidiousManifest,
+  PLAYER_LOCALE_MAPPINGS,
+  requestFilter,
+  SHAKA_CONTROL_KEYS_TO_SHORTCUTS,
+  stopPowerSaveBlocker,
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
 import {
@@ -44,26 +49,6 @@ const RequestType = shaka.net.NetworkingEngine.RequestType
 const AdvancedRequestType = shaka.net.NetworkingEngine.AdvancedRequestType
 const TrackLabelFormat = shaka.ui.Overlay.TrackLabelFormat
 const { Severity: ErrorSeverity, Category: ErrorCategory, Code: ErrorCode } = shaka.util.Error
-
-/*
-  Mapping of Shaka localization keys for control labels to FreeTube shortcuts.
-  See: https://github.com/shaka-project/shaka-player/blob/main/ui/locales/en.json
-*/
-const shakaControlKeysToShortcuts = {
-  MUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
-  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
-  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
-  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
-  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
-  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
-  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
-  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
-  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
-  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
-}
-
-/** @type {Map<string, string>} */
-const LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
 
 export default defineComponent({
   name: 'FtShakaVideoPlayer',
@@ -642,7 +627,7 @@ export default defineComponent({
           // makes captions work for live streams and doesn't seem to have any negative affect on VOD videos
           segmentRelativeVttTiming: true,
           dash: {
-            manifestPreprocessorTXml: manifestPreprocessorTXml
+            manifestPreprocessorTXml
           },
         },
         abr: {
@@ -662,149 +647,6 @@ export default defineComponent({
         // "CHUNK_DEMUXER_ERROR_APPEND_FAILED: Projection element is incomplete; ProjectionPoseYaw required."
         // So use the AV1 and h264 codecs instead which it doesn't reject
         preferredVideo: typeof props.vrProjection === 'string' ? [{ codec: 'av01' }, { codec: 'avc1' }] : []
-      }
-    }
-
-    /**
-     * @param {shaka.extern.xml.Node} mpdNode
-     */
-    function manifestPreprocessorTXml(mpdNode) {
-      /** @type {shaka.extern.xml.Node[]} */
-      const periods = mpdNode.children?.filter(child => typeof child !== 'string' && child.tagName === 'Period') ?? []
-
-      sortAdapationSetsByCodec(periods)
-      sortAudioAdaptationSetsByBitrate(periods)
-
-      if (mpdNode.attributes.type === 'dynamic') {
-        // fix live stream loading issues
-        // YouTube uses a 12 second delay on the official website for normal streams
-        // and a shorter one for low latency streams
-        // If we don't add a little bit of a delay, we get presented with a loading symbol every 5 seconds,
-        // while shaka-player processes the new manifest and segments
-        const minimumUpdatePeriod = parseFloat(mpdNode.attributes.minimumUpdatePeriod.match(/^PT(\d+(?:\.\d+)?)S$/)[1])
-        mpdNode.attributes.suggestedPresentationDelay = `PT${(minimumUpdatePeriod * 2).toFixed(3)}S`
-
-        // fix live streams with subtitles having duplicate Representation ids
-        // shaka-player throws DASH_DUPLICATE_REPRESENTATION_ID if we don't fix it
-
-        for (const period of periods) {
-          /** @type {shaka.extern.xml.Node[]} */
-          const representations = []
-
-          for (const periodChild of period.children) {
-            if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
-              for (const adaptationSetChild of periodChild.children) {
-                if (typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation') {
-                  representations.push(adaptationSetChild)
-                }
-              }
-            }
-          }
-
-          const knownIds = new Set()
-          let counter = 0
-          for (const representation of representations) {
-            const id = representation.attributes.id
-
-            if (knownIds.has(id)) {
-              const newId = `${id}-ft-fix-${counter}`
-
-              representation.attributes.id = newId
-              knownIds.add(newId)
-              counter++
-            } else {
-              knownIds.add(id)
-            }
-          }
-        }
-      } else if (!process.env.SUPPORTS_LOCAL_API) {
-        repairInvidiousManifest(periods)
-      }
-    }
-
-    /**
-     * @param {shaka.extern.xml.Node[]} periods
-     */
-    function sortAdapationSetsByCodec(periods) {
-      /** @param {shaka.extern.xml.Node} adaptationSet */
-      const getCodecsPrefix = (adaptationSet) => {
-        const codecs = adaptationSet.attributes.codecs ??
-          adaptationSet.children
-            .find(child => typeof child !== 'string' && child.tagName === 'Representation').attributes.codecs
-
-        return codecs.split('.')[0]
-      }
-
-      const codecPriorities = [
-        // audio
-        'opus',
-        'mp4a',
-        'ec-3',
-        'ac-3',
-
-        // video
-        'av01',
-        'vp09',
-        'vp9',
-        'avc1'
-      ]
-
-      for (const period of periods) {
-        period.children
-          ?.sort((
-            /** @type {shaka.extern.xml.Node | string} */ a,
-            /** @type {shaka.extern.xml.Node | string} */ b
-          ) => {
-            if (typeof a === 'string' || a.tagName !== 'AdaptationSet' ||
-              typeof b === 'string' || b.tagName !== 'AdaptationSet') {
-              return 0
-            }
-
-            const typeA = a.attributes.contentType || a.attributes.mimeType.split('/')[0]
-            const typeB = b.attributes.contentType || b.attributes.mimeType.split('/')[0]
-
-            // always place image and text tracks AdaptionSets last in the manifest
-
-            if (typeA !== 'video' && typeA !== 'audio') {
-              return 1
-            }
-            if (typeB !== 'video' && typeB !== 'audio') {
-              return -1
-            }
-
-            const codecsPrefixA = getCodecsPrefix(a)
-            const codecsPrefixB = getCodecsPrefix(b)
-
-            return codecPriorities.indexOf(codecsPrefixA) - codecPriorities.indexOf(codecsPrefixB)
-          })
-      }
-    }
-
-    /**
-     * Sort audio AdaptationSets so that streams with higher bitrates come first.
-     * Workaround that makes the player select high-quality audio.
-     * @param {shaka.extern.xml.Node[]} periods
-     */
-    function sortAudioAdaptationSetsByBitrate(periods) {
-      for (const period of periods) {
-        period.children
-          ?.filter(child => typeof child !== 'string' && child.tagName === 'AdaptationSet' &&
-            (child.attributes.contentType === 'audio' || child.attributes.mimeType.startsWith('audio/')))
-          .forEach(adaptationSet => {
-            adaptationSet.children.sort((a, b) => {
-              if (a.tagName === 'AudioChannelConfiguration' && b.tagName !== 'AudioChannelConfiguration') {
-                // Push AudioChannelConfiguration to the front (where it seems to already be) so that it doesn't
-                // block sorting Representations if it's in the middle instead
-                return -1
-              } else if (b.tagName === 'AudioChannelConfiguration' && a.tagName !== 'AudioChannelConfiguration') {
-                return 1
-              } else if (a.tagName === 'Representation' && b.tagName === 'Representation') {
-                return b.attributes.bandwidth - a.attributes.bandwidth
-              } else {
-                return 0
-              }
-            })
-          })
       }
     }
 
@@ -1146,7 +988,7 @@ export default defineComponent({
       // For most of FreeTube's locales, there is an equivalent one in shaka-player,
       // however if there isn't one we should fall back to US English.
       // At the time of writing "et", "eu", "gl", "is" don't have any translations
-      const shakaLocale = LOCALE_MAPPINGS.get(locale) ?? 'en'
+      const shakaLocale = PLAYER_LOCALE_MAPPINGS.get(locale) ?? 'en'
 
       const localization = ui.getControls().getLocalization()
 
@@ -1167,7 +1009,7 @@ export default defineComponent({
       // Add the keyboard shortcut to the label for the default Shaka controls
 
       const shakaControlKeysToShortcutLocalizations = new Map()
-      Object.entries(shakaControlKeysToShortcuts).forEach(([shakaControlKey, shortcut]) => {
+      Object.entries(SHAKA_CONTROL_KEYS_TO_SHORTCUTS).forEach(([shakaControlKey, shortcut]) => {
         const originalLocalization = localization.resolve(shakaControlKey)
         if (originalLocalization === '') {
           // e.g., A Shaka localization key in shakaControlKeysToShortcuts has fallen out of date and need to be updated
@@ -1192,26 +1034,12 @@ export default defineComponent({
 
     // #endregion player locales
 
-    // #region power save blocker
-
-    function startPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON) {
-        window.ftElectron.startPowerSaveBlocker()
-      }
-    }
-
-    function stopPowerSaveBlocker() {
-      if (process.env.IS_ELECTRON) {
-        window.ftElectron.stopPowerSaveBlocker()
-      }
-    }
-
-    // #endregion power save blocker
-
     // #region video event handlers
 
     function handlePlay() {
-      startPowerSaveBlocker()
+      if (process.env.IS_ELECTRON) {
+        window.ftElectron.startPowerSaveBlocker()
+      }
 
       if ('mediaSession' in navigator) {
         navigator.mediaSession.playbackState = 'playing'
@@ -1367,27 +1195,6 @@ export default defineComponent({
 
     // #region request/response filters
 
-    /** @type {shaka.extern.RequestFilter} */
-    function requestFilter(type, request, _context) {
-      if (type === RequestType.SEGMENT) {
-        const url = new URL(request.uris[0])
-
-        // only when we aren't proxying through Invidious,
-        // it doesn't like the range param and makes get requests to youtube anyway
-        if (url.protocol !== 'sabr:' && url.hostname.endsWith('.googlevideo.com') && url.pathname === '/videoplayback') {
-          request.method = 'POST'
-          request.body = new Uint8Array([0x78, 0]) // protobuf: { 15: 0 } (no idea what it means but this is what YouTube uses)
-
-          if (request.headers.Range) {
-            request.uris[0] += `&range=${request.headers.Range.split('=')[1]}`
-            delete request.headers.Range
-          }
-
-          request.uris[0] += '&alr=yes'
-        }
-      }
-    }
-
     /** @type {shaka.extern.ResponseFilter} */
     async function responseFilter(type, response, context) {
       if (type === RequestType.SEGMENT) {
@@ -1460,33 +1267,6 @@ export default defineComponent({
           response.data = new TextEncoder().encode(modifiedText).buffer
         }
       }
-    }
-
-    /**
-     * @param {string} match
-     */
-    function hlsProxiedUrlReplacer(match) {
-      const url = new URL(match)
-
-      let fileValue
-      for (const [key, value] of url.searchParams) {
-        if (key === 'file') {
-          fileValue = value
-          continue
-        } else if (key === 'hls_chunk_host') {
-          // Add the host parameter so some Invidious instances stop complaining about the missing host parameter
-          // Replace .c.youtube.com with .googlevideo.com as the built-in Invidious video proxy only accepts host parameters with googlevideo.com
-          url.pathname += `/host/${encodeURIComponent(value.replace('.c.youtube.com', '.googlevideo.com'))}`
-        }
-
-        url.pathname += `/${key}/${encodeURIComponent(value)}`
-      }
-
-      // This has to be right at the end so that shaka-player can read the file extension
-      url.pathname += `/file/${encodeURIComponent(fileValue)}`
-
-      url.search = ''
-      return url.toString()
     }
 
     // #endregion request/response filters
@@ -3313,25 +3093,6 @@ export default defineComponent({
 
     // #region functions used by the watch page
 
-    function isPaused() {
-      return video.value.paused
-    }
-
-    function pause() {
-      video.value.pause()
-    }
-
-    function getCurrentTime() {
-      return video.value.currentTime
-    }
-
-    /**
-     * @param {number} time
-     */
-    function setCurrentTime(time) {
-      video.value.currentTime = time
-    }
-
     /**
      * Vue's lifecycle hooks are synchonous, so if we destroy the player in {@linkcode onBeforeUnmount},
      * it won't be finished in time, as the player destruction is asynchronous.
@@ -3385,10 +3146,15 @@ export default defineComponent({
     expose({
       hasLoaded,
 
-      isPaused,
-      pause,
-      getCurrentTime,
-      setCurrentTime,
+      isPaused: () => video.value.paused,
+      pause: () => video.value.pause(),
+      getCurrentTime: () => video.value.currentTime,
+      /**
+       * @param {number} time
+       */
+      setCurrentTime: (time) => {
+        video.value.currentTime = time
+      },
       destroyPlayer
     })
 
