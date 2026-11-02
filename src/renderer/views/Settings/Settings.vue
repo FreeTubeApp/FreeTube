@@ -185,7 +185,7 @@ import store from '../../store/index'
 
 const USING_ELECTRON = !!process.env.IS_ELECTRON
 const SETTINGS_MOBILE_WIDTH_THRESHOLD = 1015
-const SETTINGS_SEARCH_DEBOUNCE_MS = 500
+const SETTINGS_SEARCH_DEBOUNCE_MS = 150
 
 const { locale, t } = useI18n()
 

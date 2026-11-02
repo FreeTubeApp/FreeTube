@@ -30,6 +30,10 @@
     margin-block-start: -36px;
     z-index: 3;
   }
+
+  :global(.banner-wrapper + .settingsPage .switchRow) {
+    margin-block-start: 0;
+  }
 }
 
 .settingsSearchDesktop {
@@ -248,6 +252,10 @@
 }
 
 @media only screen and (width <= 1015px) {
+  :global(.banner-wrapper + .settingsPage .settingsSearchMobileCard) {
+    margin-block-start: 18px;
+  }
+
   /* Needed to overcome routerView styling for margin-block */
   .settingsPage.settingsPage {
     margin-block: 0;
@@ -317,4 +325,5 @@
   .settingsSearchMobileCard {
     margin-block-start: -18px;
   }
+
 }
