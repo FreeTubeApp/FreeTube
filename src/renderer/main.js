@@ -284,6 +284,10 @@ router.isReady().then(() => {
 
 // to avoid accessing electron api from web app build
 if (process.env.IS_ELECTRON) {
+  window.ftElectron.handleUpdateUiScale((value) => {
+    store.dispatch('updateUiScale', value)
+  })
+
   window.ftElectron.handleChangeView((route) => {
     router.push(route)
   })

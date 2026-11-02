@@ -39,6 +39,8 @@ const IpcChannels = {
   GET_DISABLE_HARDWARE_ACCELERATION: 'get-disable-hardware-acceleration',
   TOGGLE_DISABLE_HARDWARE_ACCELERATION: 'toggle-disable-hardware-acceleration',
 
+  UPDATE_UI_SCALE: 'update-ui-scale',
+
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
@@ -293,6 +295,12 @@ const DARK_BASE_THEMES = [
   'solarizedDark',
 ]
 
+const UI_SCALE = {
+  MIN: 50,
+  MAX: 300,
+  STEP: 5,
+}
+
 export {
   IpcChannels,
   DBActions,
@@ -309,4 +317,5 @@ export {
   ABOUT_BITCOIN_ADDRESS,
   LIGHT_BASE_THEMES,
   DARK_BASE_THEMES,
+  UI_SCALE,
 }
