@@ -171,6 +171,9 @@ const state = {
   defaultCaptionSettings: '{}',
   defaultInterval: 5,
   defaultPlayback: 1,
+  lastPlaybackRate: null,
+  lastVolume: null,
+  lastCaptionPreference: null,
   defaultProfile: MAIN_PROFILE_ID,
   defaultQuality: '720',
   defaultSkipInterval: 5,
@@ -467,6 +470,37 @@ const customGetters = {
 const customMutations = {}
 
 const customActions = {
+  updateDefaultPlayback: async ({ commit, dispatch }, value) => {
+    try {
+      await DBSettingHandlers.upsert('defaultPlayback', value)
+      await dispatch('updateLastPlaybackRate', value)
+      commit('setDefaultPlayback', value)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  updateDefaultVolume: async ({ commit, dispatch }, value) => {
+    try {
+      await DBSettingHandlers.upsert('defaultVolume', value)
+      await dispatch('triggerDefaultVolumeSideEffects', value)
+      await dispatch('updateLastVolume', { volume: value, muted: value === 0 })
+      commit('setDefaultVolume', value)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
+  updateEnableSubtitlesByDefault: async ({ commit, dispatch }, value) => {
+    try {
+      await DBSettingHandlers.upsert('enableSubtitlesByDefault', value)
+      await dispatch('updateLastCaptionPreference', { enabled: value, language: null })
+      commit('setEnableSubtitlesByDefault', value)
+    } catch (errMessage) {
+      console.error(errMessage)
+    }
+  },
+
   grabUserSettings: async ({ commit, dispatch, state }) => {
     try {
       const userSettings = await DBSettingHandlers.find()

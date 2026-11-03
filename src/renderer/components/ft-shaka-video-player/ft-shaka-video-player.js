@@ -22,6 +22,11 @@ import {
   translateSponsorBlockCategory
 } from '../../helpers/player/utils'
 import {
+  createCaptionPreferenceState,
+  createVolumePreference,
+  resolveVolumePreference
+} from '../../helpers/player/playbackPreferences'
+import {
   addKeyboardShortcutToActionTitle,
   showToast,
   writeFileWithPicker,
@@ -228,7 +233,10 @@ export default defineComponent({
     /** @type {number|null} */
     let restoreCaptionIndex = null
 
-    if (store.getters.getEnableSubtitlesByDefault && props.captions.length > 0) {
+    const captionPreferenceState = createCaptionPreferenceState(store.getters.getLastCaptionPreference)
+    let hasAppliedCaptionPreference = false
+
+    if (!captionPreferenceState.hasPreference() && store.getters.getEnableSubtitlesByDefault && props.captions.length > 0) {
       restoreCaptionIndex = 0
     }
 
@@ -1246,20 +1254,15 @@ export default defineComponent({
 
     function updateVolume() {
       const video_ = video.value
-      // https://docs.videojs.com/html5#volume
-      if (sessionStorage.getItem('muted') === 'false' && video_.volume === 0) {
-        // If video is muted by dragging volume slider, it doesn't change 'muted' in sessionStorage to true
-        // hence compare it with 'false' and set volume to defaultVolume.
-        const volume = parseFloat(sessionStorage.getItem('defaultVolume'))
-        const muted = true
-        sessionStorage.setItem('volume', volume.toString())
-        sessionStorage.setItem('muted', String(muted))
-      } else {
-        // If volume isn't muted by dragging the slider, muted and volume values are carried over to next video.
-        const volume = video_.volume
-        const muted = video_.muted
-        sessionStorage.setItem('volume', volume.toString())
-        sessionStorage.setItem('muted', String(muted))
+      const volumePreference = createVolumePreference(video_.volume, video_.muted)
+
+      if (volumePreference) {
+        sessionStorage.setItem('volume', String(volumePreference.volume))
+        sessionStorage.setItem('muted', String(volumePreference.muted))
+      }
+
+      if (hasLoaded.value && volumePreference) {
+        store.dispatch('updateLastVolume', volumePreference)
       }
 
       if (showStats.value) {
@@ -2791,16 +2794,18 @@ export default defineComponent({
     onMounted(async () => {
       const videoElement = video.value
 
-      const volume = sessionStorage.getItem('volume')
-      if (volume !== null) {
-        videoElement.volume = parseFloat(volume)
-      }
+      const volumePreference = resolveVolumePreference(
+        store.getters.getLastVolume,
+        sessionStorage.getItem('volume'),
+        sessionStorage.getItem('muted'),
+        store.getters.getDefaultVolume
+      )
 
-      const muted = sessionStorage.getItem('muted')
-      if (muted !== null) {
-        // as sessionStorage stores string values which are truthy by default so we must check with 'true'
-        // otherwise 'false' will be returned as true as well
-        videoElement.muted = (muted === 'true')
+      if (volumePreference) {
+        videoElement.volume = volumePreference.volume
+        videoElement.muted = volumePreference.muted
+        sessionStorage.setItem('volume', String(volumePreference.volume))
+        sessionStorage.setItem('muted', String(volumePreference.muted))
       }
 
       const localPlayer = new shaka.Player()
@@ -2827,6 +2832,15 @@ export default defineComponent({
 
       const controls = ui.getControls()
       player = controls.getPlayer()
+
+      player.addEventListener('textchanged', () => {
+        if (!hasAppliedCaptionPreference || restoreCaptionIndex !== null) {
+          return
+        }
+
+        const preference = captionPreferenceState.update(player.getTextTracks())
+        store.dispatch('updateLastCaptionPreference', preference)
+      })
 
       player.addEventListener('buffering', event => {
         isBuffering.value = event.buffering
@@ -3087,16 +3101,32 @@ export default defineComponent({
         await Promise.all(promises)
       }
 
-      if (restoreCaptionIndex !== null) {
+      const textTracks = player.getTextTracks()
+      const captionRestoration = captionPreferenceState.resolve(
+        textTracks,
+        store.getters.getEnableSubtitlesByDefault
+      )
+
+      if (captionPreferenceState.hasPreference()) {
+        if (captionRestoration.shouldApply) {
+          player.selectTextTrack(captionRestoration.track)
+        }
+
+        restoreCaptionIndex = null
+      } else if (restoreCaptionIndex !== null) {
         const index = restoreCaptionIndex
         restoreCaptionIndex = null
 
-        const textTrack = player.getTextTracks()[index]
+        const textTrack = textTracks[index]
 
         if (textTrack) {
           player.selectTextTrack(textTrack)
         }
+      } else if (captionRestoration.shouldApply) {
+        player.selectTextTrack(captionRestoration.track)
       }
+
+      hasAppliedCaptionPreference = true
 
       if (props.chapters.length > 0) {
         createChapterMarkers()

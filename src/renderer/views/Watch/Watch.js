@@ -42,6 +42,7 @@ import {
   youtubeImageUrlToInvidious
 } from '../../helpers/api/invidious'
 import { sortCaptions } from '../../helpers/player/utils'
+import { resolvePlaybackRate } from '../../helpers/player/playbackPreferences'
 import { MANIFEST_TYPE_SABR } from '../../helpers/player/SabrManifestParser'
 import { useI18n } from 'vue-i18n'
 
@@ -356,7 +357,7 @@ export default defineComponent({
     this.autoplayNextPlaylistVideo = this.autoplayNextPlaylistVideoByDefault
 
     this.checkIfTimestamp()
-    this.currentPlaybackRate = this.$store.getters.getDefaultPlayback
+    this.currentPlaybackRate = this.getRestoredPlaybackRate()
   },
   mounted: function () {
     this.onMountedDependOnLocalStateLoading()
@@ -372,6 +373,7 @@ export default defineComponent({
       // react to route changes...
       this.videoId = this.$route.params.id
       this.resetVideoState()
+      this.currentPlaybackRate = this.getRestoredPlaybackRate()
 
       this.firstLoad = true
       this.videoPlayerLoaded = false
@@ -436,6 +438,14 @@ export default defineComponent({
       this.videoGenreIsMusic = false
       this.streamingDataExpiryDate = null
       this.updateTitle()
+    },
+
+    getRestoredPlaybackRate() {
+      return resolvePlaybackRate(
+        this.$store.getters.getLastPlaybackRate,
+        this.$store.getters.getDefaultPlayback,
+        this.$store.getters.getMaxVideoPlaybackRate
+      )
     },
 
     onMountedDependOnLocalStateLoading() {
@@ -1959,6 +1969,7 @@ export default defineComponent({
 
     updatePlaybackRate(newRate) {
       this.currentPlaybackRate = newRate
+      this.$store.dispatch('updateLastPlaybackRate', newRate)
     },
 
     destroyPlayer: async function() {
