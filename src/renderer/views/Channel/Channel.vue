@@ -200,6 +200,13 @@
           role="tabpanel"
           aria-labelledby="showsTab"
         />
+        <FtFlexBox
+          v-if="!hideChannelShows && currentTab === 'shows' && latestShows.length === 0"
+        >
+          <p class="message">
+            {{ $t("Channel.Shows.This channel does not currently have any shows") }}
+          </p>
+        </FtFlexBox>
         <FtElementList
           v-if="!hideChannelPlaylists && currentTab === 'playlists'"
           id="playlistPanel"
