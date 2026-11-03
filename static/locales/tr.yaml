@@ -571,6 +571,7 @@ Settings:
     Hide Subscriptions Posts: Abonelik gönderilerini gizle
     Add: Ekle
     Remove: Kaldır
+    Hide Channel Shows: Kanalın "Programlar" sekmesini gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
@@ -776,6 +777,8 @@ Channel:
     Courses: Kurslar
     This channel does not currently have any courses: Bu kanalda şu anda herhangi bir kurs bulunmamaktadır
   View All: Tümünü Görüntüle
+  Shows:
+    Shows: Programlar
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişten Kaldır'
