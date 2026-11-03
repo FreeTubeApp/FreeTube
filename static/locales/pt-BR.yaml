@@ -99,7 +99,7 @@ Subscriptions:
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
   Posts:
-    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta aba.
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta guia.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -565,6 +565,7 @@ Settings:
     Hide Channel Posts: Ocultar a guia "Posts" do canal
     Add: Adicionar
     Remove: Remover
+    Hide Channel Shows: Ocultar a guia "Programas" do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -725,6 +726,8 @@ Channel:
     This channel does not currently have any courses: Este canal não tem nenhum curso no momento
     Courses: Cursos
   View All: Ver todos
+  Shows:
+    Shows: Programas
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'

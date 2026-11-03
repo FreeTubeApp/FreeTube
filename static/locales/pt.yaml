@@ -607,6 +607,7 @@ Settings:
     Hide Subscriptions Posts: Ocultar inscrições na guia de postagens
     Add: Adicionar
     Remove: Remover
+    Hide Channel Shows: Ocultar a guia "Programas" do canal
   External Player Settings:
     Custom External Player Arguments: Argumentos do player externo personalizados
     Custom External Player Executable: Executável do player externo personalizado
@@ -774,6 +775,8 @@ Channel:
     Courses: Cursos
     This channel does not currently have any courses: Este canal não tem nenhum curso no momento
   View All: Ver todos
+  Shows:
+    Shows: Programas
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
