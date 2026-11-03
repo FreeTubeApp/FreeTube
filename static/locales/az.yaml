@@ -538,6 +538,7 @@ Settings:
     Hide Subscriptions Live: Abunəliklər Canlı Yayımını Gizlət
     Add: Əlavə et
     Remove: Sil
+    Hide Channel Shows: Kanal "Verilişlər" Bölməsini Gizlət
   Data Settings:
     Data Settings: Məlumatlar
     Select Export Type: Köçürmə Növünü Seç
@@ -684,6 +685,9 @@ Channel:
     Reveal Answers: Cavabları Göstərin
     Hide Answers: Cavabları Gizlət
     Video hidden by FreeTube: FreeTube tərəfindən gizlədilən video
+  Shows:
+    Shows: Verilişlər
+    This channel does not currently have any shows: Bu kanalın hazırda heç bir verilişi yoxdur
 Video:
   External Player:
     OpenInTemplate: '{externalPlayer}-də Aç'
