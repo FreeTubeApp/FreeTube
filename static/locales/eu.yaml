@@ -522,6 +522,7 @@ Settings:
     Hide Subscriptions Posts: Ezkutatu harpidetza-argitalpenak
     Add: Gehitu
     Remove: Kendu
+    Hide Channel Shows: Ezkutatu kanalaren «Saioak» fitxa
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -773,6 +774,8 @@ Channel:
     Courses: Ikastaroak
     This channel does not currently have any courses: Une honetan kanal honek ez du ikastarorik
   View All: Ikusi dena
+  Shows:
+    Shows: Saioak
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Ezabatu historikotik'
