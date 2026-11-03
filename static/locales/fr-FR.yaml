@@ -565,6 +565,7 @@ Settings:
     Hide Subscriptions Posts: Masquer les posts des abonnements
     Add: Ajouter
     Remove: Supprimer
+    Hide Channel Shows: Masquer l'onglet « Émissions » de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -728,6 +729,8 @@ Channel:
     Courses: Cours
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
   View All: Tout afficher
+  Shows:
+    Shows: Spectacles
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Supprimer de l''historique'
