@@ -565,6 +565,7 @@ Settings:
     Hide Subscriptions Posts: 隐藏订阅者帖子
     Add: 添加
     Remove: 删除
+    Hide Channel Shows: 隐藏频道“综艺”选项卡
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -728,6 +729,8 @@ Channel:
     Courses: 课程
     This channel does not currently have any courses: 此频道当前没有任何课程
   View All: 查看全部
+  Shows:
+    Shows: 综艺
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
