@@ -573,6 +573,7 @@ Settings:
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
     Add: Hozzáadás
     Remove: Eltávolítás
+    Hide Channel Shows: A „Műsorok” lap elrejtése a csatornán
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
@@ -778,6 +779,8 @@ Channel:
     This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek tanfolyamok
     Courses: Tanfolyamok
   View All: Összes megtekintése
+  Shows:
+    Shows: Műsorok
 Video:
   Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'
