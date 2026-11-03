@@ -568,6 +568,7 @@ Settings:
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
     Add: Aggiungi
     Remove: Rimuovi
+    Hide Channel Shows: Nascondi la scheda "Serie" del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
@@ -728,6 +729,8 @@ Channel:
     This channel does not currently have any courses: Questo canale al momento non ha corsi
     Courses: Corsi
   View All: Vedi tutto
+  Shows:
+    Shows: Serie
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'
