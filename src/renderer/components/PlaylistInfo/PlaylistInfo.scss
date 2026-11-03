@@ -48,6 +48,16 @@
   overflow-y: auto;
   white-space: break-spaces;
   margin-inline: auto;
+  overflow-wrap: break-word;
+  max-inline-size: 24vw;
+
+  @media only screen and (width <= 850px) {
+    max-inline-size: 75vw;
+  }
+
+  @media only screen and (width <= 680px) {
+    max-inline-size: unset;
+  }
 
   @media only screen and (width <= 500px) {
     max-block-size: 10vh;
