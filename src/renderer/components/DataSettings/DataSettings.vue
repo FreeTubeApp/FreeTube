@@ -1070,9 +1070,9 @@ async function exportYouTubeWatchHistory() {
 const allPlaylists = computed(() => store.getters.getAllPlaylists)
 
 async function importPlaylists() {
-  let response
+  let playlists
   try {
-    response = await readFileWithPicker(
+    const response = await readFileWithPicker(
       t('Settings.Data Settings.Playlist File'),
       {
         'application/x-freetube-db': '.db'
@@ -1080,34 +1080,33 @@ async function importPlaylists() {
       IMPORT_DIRECTORY_ID,
       START_IN_DIRECTORY
     )
+
+    if (response === null) {
+      return
+    }
+
+    let data = response.content
+
+    // for the sake of backwards compatibility,
+    // check if this is the old JSON array export (used until version 0.19.1),
+    // that didn't match the actual database format
+    const trimmedData = data.trim()
+
+    if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
+      playlists = JSON.parse(trimmedData)
+    } else {
+      // otherwise assume this is the correct database format,
+      // which is also what we export now (used in 0.20.0 and later versions)
+      data = data.split('\n')
+      data.pop()
+
+      playlists = data.map(playlistJson => JSON.parse(playlistJson))
+    }
   } catch (err) {
+    console.error(err)
     const message = t('Settings.Data Settings.Unable to read file')
     showToast(`${message}: ${err}`)
     return
-  }
-
-  if (response === null) {
-    return
-  }
-
-  let data = response.content
-
-  let playlists
-
-  // for the sake of backwards compatibility,
-  // check if this is the old JSON array export (used until version 0.19.1),
-  // that didn't match the actual database format
-  const trimmedData = data.trim()
-
-  if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
-    playlists = JSON.parse(trimmedData)
-  } else {
-    // otherwise assume this is the correct database format,
-    // which is also what we export now (used in 0.20.0 and later versions)
-    data = data.split('\n')
-    data.pop()
-
-    playlists = data.map(playlistJson => JSON.parse(playlistJson))
   }
 
   const requiredKeys = [
