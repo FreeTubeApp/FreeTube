@@ -1152,6 +1152,7 @@ async function importPlaylists() {
   ]
 
   const newPlaylists = []
+  let importedPlaylistCount = 0
 
   playlists.forEach((playlistData) => {
     // We would technically already be done by the time the data is parsed,
@@ -1197,6 +1198,7 @@ async function importPlaylists() {
 
     if (existingPlaylist === undefined) {
       newPlaylists.push(playlistObject)
+      importedPlaylistCount++
       return
     }
 
@@ -1245,6 +1247,7 @@ async function importPlaylists() {
         playlistVideos.push(video)
       }
     })
+
     // Update playlist's `lastUpdatedAt` & other attributes
     store.dispatch('updatePlaylist', {
       _id: existingPlaylist._id,
@@ -1253,13 +1256,14 @@ async function importPlaylists() {
       description: playlistObject.description,
       videos: playlistVideos
     })
+    importedPlaylistCount++
   })
 
   if (newPlaylists.length > 0) {
     store.dispatch('addPlaylists', newPlaylists)
   }
 
-  showToast(t('Settings.Data Settings.All playlists has been successfully imported'))
+  showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount }, importedPlaylistCount))
 }
 
 async function exportPlaylists() {

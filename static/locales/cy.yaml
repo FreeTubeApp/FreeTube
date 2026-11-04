@@ -574,7 +574,6 @@ Settings:
     All watched history has been successfully imported: 'Mae''r holl hanes gwylio wedi''i fewnforio''n llwyddiannus'
     All watched history has been successfully exported: 'Mae''r holl hanes gwylio wedi''i allforio''n llwyddiannus'
     Playlist insufficient data: 'Dim digon o ddata ar gyfer rhestr chwarae "{playlist}", hepgor eitem'
-    All playlists has been successfully imported: 'Mae''r holl restrau chwarae wedi''u mewnforio yn llwyddiannus'
     All playlists has been successfully exported: 'Mae''r holl restrau chwarae wedi''u hallforio''n llwyddiannus'
     Unable to read file: 'Methu darllen ffeil'
     Unable to write file: 'Methu ysgrifennu ffeil'

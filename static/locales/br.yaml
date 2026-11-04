@@ -629,7 +629,6 @@ Settings:
     All watched history has been successfully imported: 'Enporzhiet eo bet roll istor ar videoioù lennet gant berzh'
     All watched history has been successfully exported: 'Ezporzhiet eo bet roll istor ar videoioù lennet gant berzh'
     Playlist insufficient data: 'Diouer a roadennoù evit ar roll-videoioù "{playlist}", o leuskel an elfenn a-gostez'
-    All playlists has been successfully imported: 'Enporzhiet eo bet an holl rolloù-videoioù gant berzh'
     All playlists has been successfully exported: 'Ezporzhiet eo bet an holl rolloù-videoioù gant berzh'
     Unable to read file: 'Ne c''haller ket lenn ar restr'
     Unable to write file: 'N''haller ket skrivañ ar restr'

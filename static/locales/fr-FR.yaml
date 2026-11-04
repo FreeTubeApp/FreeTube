@@ -492,7 +492,6 @@ Settings:
     Import Playlists: Importer les playlists
     Export Playlists: Exporter les playlists
     Playlist insufficient data: Données insuffisantes pour la playlist « {playlist} », saut de l'élément
-    All playlists has been successfully imported: Toutes les playlists ont été importées avec succès
     All playlists has been successfully exported: Toutes les playlists ont été exportées avec succès
     History File: Fichier d'historique
     Subscription File: Fichier d'abonnements

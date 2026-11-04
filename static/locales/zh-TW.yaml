@@ -490,7 +490,6 @@ Settings:
     Data Settings: 資料
     Manage Subscriptions: 管理訂閱
     Import Playlists: 匯入播放清單
-    All playlists has been successfully imported: 所有播放清單都已成功匯入
     Export Playlists: 匯出播放清單
     Playlist insufficient data: 「{playlist}」播放清單的資料不足，正在略過項目
     All playlists has been successfully exported: 所有播放清單都已成功匯出
