@@ -1160,7 +1160,6 @@ async function importPlaylists() {
 
     const playlistObject = {}
     const videoIdToBeAddedSet = new Set()
-    let countRequiredKeysPresent = 0
 
     Object.keys(playlistData).forEach((key) => {
       if (!knownKeys.includes(key)) {
@@ -1179,21 +1178,13 @@ async function importPlaylists() {
         })
 
         playlistObject.videos = videoArray
-
-        if (requiredKeys.includes(key)) {
-          countRequiredKeysPresent++
-        }
       } else if (!ignoredKeys.includes(key)) {
         // Do nothing for keys to be ignored
         playlistObject[key] = playlistData[key]
-
-        if (requiredKeys.includes(key)) {
-          countRequiredKeysPresent++
-        }
       }
     })
 
-    if (countRequiredKeysPresent !== requiredKeys.length) {
+    if (!requiredKeys.every(k => k in playlistObject)) {
       const message = t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
       showToast(message)
       return
