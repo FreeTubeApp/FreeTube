@@ -75,6 +75,8 @@ const searchPage = ref(1)
 const nextPageRef = shallowRef(null)
 const shownResults = shallowRef([])
 const lastSearchHasSomeValidResults = ref(true)
+// Only used for Invidious
+const lastSearchHasSomeRawResults = ref(true)
 
 const query = ref('')
 const processedQuery = computed(() => query.value.trim())
@@ -98,7 +100,7 @@ const rememberSearchHistory = computed(() => store.getters.getRememberSearchHist
 const nextPagePossible = computed(() => {
   if (apiUsed.value === 'local') { return nextPageRef.value != null }
 
-  return true
+  return lastSearchHasSomeRawResults.value
 })
 
 watch(route, () => {
@@ -306,6 +308,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
     const {
       results,
       validResultsCount,
+      rawResultsCount,
     } = await getInvidiousSearchResults(payload.query, searchPage.value, payload.searchSettings)
     if (!results) {
       return
@@ -319,6 +322,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
       shownResults.value = results
     }
     lastSearchHasSomeValidResults.value = validResultsCount > 0
+    lastSearchHasSomeRawResults.value = rawResultsCount > 0
 
     isLoading.value = false
 
@@ -335,6 +339,10 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
     store.commit('addToSessionSearchHistory', historyPayload)
 
     updateSubscriptionDetails(results)
+
+    if (rawResultsCount === 0) {
+      showToast(t('Search Filters.There are no more results for this search'))
+    }
   } catch (err) {
     console.error(err)
 

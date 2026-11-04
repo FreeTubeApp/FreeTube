@@ -636,9 +636,11 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
     return {
       results: null,
       validResultsCount: 0,
+      rawResultsCount: 0,
     }
   }
 
+  const rawResultsCount = results.length
   results = results.filter((item) => {
     return item.type === 'video' || item.type === 'channel' || item.type === 'playlist' || item.type === 'hashtag'
   })
@@ -653,6 +655,7 @@ export async function getInvidiousSearchResults(query, page, searchSettings) {
   return {
     results,
     validResultsCount: results.length,
+    rawResultsCount,
   }
 }
 
