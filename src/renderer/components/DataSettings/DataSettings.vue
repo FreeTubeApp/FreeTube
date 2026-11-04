@@ -1265,7 +1265,7 @@ async function importPlaylists() {
   }
 
   if (importedPlaylistCount > 0) {
-    showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount }, importedPlaylistCount))
+    showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount, total: playlists.length }, importedPlaylistCount))
   }
 }
 
