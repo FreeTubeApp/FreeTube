@@ -1135,7 +1135,7 @@ async function importPlaylists() {
     'videoCount',
   ]
 
-  const knownKeys = [...requiredKeys, ...optionalKeys, ...ignoredKeys]
+  const knownKeys = new Set([...requiredKeys, ...optionalKeys, ...ignoredKeys])
 
   const requiredVideoKeys = [
     'videoId',
@@ -1162,7 +1162,7 @@ async function importPlaylists() {
     const videoIdToBeAddedSet = new Set()
 
     Object.keys(playlistData).forEach((key) => {
-      if (!knownKeys.includes(key)) {
+      if (!knownKeys.has(key)) {
         const message = `${t('Settings.Data Settings.Unknown data key')}: ${key}`
         showToast(message)
       } else if (key === 'videos') {
