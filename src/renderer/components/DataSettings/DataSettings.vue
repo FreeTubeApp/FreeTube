@@ -1241,7 +1241,7 @@ async function importPlaylists() {
             return x.videoId === video.videoId && x.timeAdded === video.timeAdded
           })
         }
-      } else if (existingVideoIdSet !== undefined) {
+      } else {
         // Disallow duplicate (by videoId) videos to be added
 
         if (existingVideoIdSet.has(video.videoId)) {
@@ -1249,11 +1249,6 @@ async function importPlaylists() {
         } else {
           existingVideoIdSet.add(video.videoId)
         }
-      } else {
-        videoExists = playlistVideos.some((x) => {
-          // Disallow duplicate (by videoId) videos to be added
-          return x.videoId === video.videoId
-        })
       }
 
       if (!videoExists) {
