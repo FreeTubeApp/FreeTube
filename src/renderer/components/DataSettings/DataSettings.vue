@@ -1168,10 +1168,7 @@ async function importPlaylists() {
       } else if (key === 'videos') {
         const videoArray = []
         playlistData.videos.forEach((video) => {
-          const videoPropertyKeys = Object.keys(video)
-          const videoObjectHasAllRequiredKeys = requiredVideoKeys.every((k) => videoPropertyKeys.includes(k))
-
-          if (videoObjectHasAllRequiredKeys) {
+          if (requiredVideoKeys.every((k) => Object.hasOwn(video, k))) {
             videoArray.push(video)
             videoIdToBeAddedSet.add(video.videoId)
           }
@@ -1184,7 +1181,7 @@ async function importPlaylists() {
       }
     })
 
-    if (!requiredKeys.every(k => k in playlistObject)) {
+    if (!requiredKeys.every((k) => Object.hasOwn(playlistObject, k))) {
       const message = t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
       showToast(message)
       return
