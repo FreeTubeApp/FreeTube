@@ -1182,7 +1182,8 @@ async function importPlaylists() {
       }
     })
 
-    if (!requiredKeys.every((k) => Object.hasOwn(playlistObject, k))) {
+    const allVideosSkipped = playlistData.videos?.length > 0 && playlistObject.videos.length === 0
+    if (!requiredKeys.every((k) => Object.hasOwn(playlistObject, k)) || allVideosSkipped) {
       const message = t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
       showToast(message)
       return
@@ -1263,7 +1264,9 @@ async function importPlaylists() {
     store.dispatch('addPlaylists', newPlaylists)
   }
 
-  showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount }, importedPlaylistCount))
+  if (importedPlaylistCount > 0) {
+    showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount }, importedPlaylistCount))
+  }
 }
 
 async function exportPlaylists() {
