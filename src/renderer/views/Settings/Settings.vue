@@ -30,6 +30,7 @@
             :show-clear-text-button="true"
             @input="updateSearchQuery"
             @clear="clearSearch"
+            @keydown.arrow-down.exact="focusFirstSearchResult"
           />
         </div>
       </FtCard>
@@ -59,6 +60,7 @@
             :show-clear-text-button="true"
             @input="updateSearchQuery"
             @clear="clearSearch"
+            @keydown.arrow-down.exact="focusFirstSearchResult"
           />
           <FtToggleSwitch
             class="settingsToggle"
@@ -117,6 +119,8 @@
                 :key="index"
                 class="settingsSearchResult"
                 @click="selectSearchResult(result)"
+                @keydown.arrow-up.exact.stop.prevent="navigateSearchResults($event, -1)"
+                @keydown.arrow-down.exact.stop.prevent="navigateSearchResults($event, 1)"
               >
                 <span class="settingsSearchResultText">
                   <span>{{ result.label }}</span>
@@ -459,6 +463,31 @@ function restoreSearchScroll() {
     }))
   }
   searchStartScrollY = null
+}
+
+function focusFirstSearchResult(event) {
+  if (!event.target.matches('input') || event.isComposing) return
+
+  const result = event.currentTarget.closest('.settingsPage').querySelector('.settingsSearchResult')
+  if (!result) return
+
+  event.preventDefault()
+  event.stopPropagation()
+  result.focus({ preventScroll: true })
+  result.scrollIntoView({ block: 'nearest' })
+}
+
+function navigateSearchResults(event, direction) {
+  const results = Array.from(event.currentTarget.closest('.settingsSearchResults').querySelectorAll('.settingsSearchResult'))
+  const index = results.indexOf(event.currentTarget)
+  if (index === 0 && direction === -1) {
+    const searchRef = isInDesktopView.value ? settingsSearchDesktopRef.value : settingsSearchMobileRef.value
+    searchRef.focus()
+    return
+  }
+  const nextResult = results[index + direction]
+  nextResult?.focus({ preventScroll: true })
+  nextResult?.scrollIntoView({ block: 'nearest' })
 }
 
 async function selectSearchResult(result) {

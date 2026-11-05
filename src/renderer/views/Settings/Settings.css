@@ -126,6 +126,7 @@
 }
 
 .settingsSearchResult {
+  scroll-margin-block: 140px 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -252,6 +253,10 @@
 }
 
 @media only screen and (width <= 1015px) {
+  .settingsSearchResult {
+    scroll-margin-block-start: 70px;
+  }
+
   :global(.banner-wrapper + .settingsPage .settingsSearchMobileCard) {
     margin-block-start: 18px;
   }
