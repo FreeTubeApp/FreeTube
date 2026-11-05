@@ -2368,7 +2368,7 @@ function runApp() {
     browserWindow.webContents.send(IpcChannels.CHANGE_VIEW, path)
   }
 
-  function handleZoom(browserWindow, action) {
+  async function handleZoom(browserWindow, action) {
     if (browserWindow == null || !isFreeTubeUrl(browserWindow.webContents.getURL())) {
       return
     }
@@ -2390,7 +2390,23 @@ function runApp() {
         return
     }
 
-    browserWindow.webContents.send(IpcChannels.UPDATE_UI_SCALE, percent)
+    const settingId = 'uiScale'
+
+    await baseHandlers.settings.upsert(settingId, percent)
+
+    const syncPayload = {
+      event: SyncEvents.GENERAL.UPSERT,
+      data: {
+        _id: settingId,
+        value: percent
+      }
+    }
+
+    BrowserWindow.getAllWindows().forEach((window) => {
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      }
+    })
   }
 
   async function setMenu() {
@@ -2500,54 +2516,54 @@ function runApp() {
           {
             label: 'Reset Zoom',
             accelerator: 'CmdOrCtrl+0',
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'reset')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'reset')
             }
           },
           {
             label: 'Reset Zoom',
             accelerator: 'CmdOrCtrl+num0',
             visible: false,
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'reset')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'reset')
             }
           },
           {
             label: 'Zoom In',
             accelerator: 'CmdOrCtrl+Plus',
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'in')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
             }
           },
           {
             label: 'Zoom In',
             accelerator: 'CmdOrCtrl+=',
             visible: false,
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'in')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
             }
           },
           {
             label: 'Zoom In',
             accelerator: 'CmdOrCtrl+numadd',
             visible: false,
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'in')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
             }
           },
           {
             label: 'Zoom Out',
             accelerator: 'CmdOrCtrl+-',
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'out')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'out')
             }
           },
           {
             label: 'Zoom Out',
             accelerator: 'CmdOrCtrl+numsub',
             visible: false,
-            click: (_menuItem, browserWindow, _event) => {
-              handleZoom(browserWindow, 'out')
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'out')
             }
           },
           { type: 'separator' },

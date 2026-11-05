@@ -99,15 +99,6 @@ export default {
     ipcRenderer.send(IpcChannels.TOGGLE_DISABLE_HARDWARE_ACCELERATION)
   },
 
-  /**
-   * @param {(value: number) => void} handler
-   */
-  handleUpdateUiScale: (handler) => {
-    ipcRenderer.on(IpcChannels.UPDATE_UI_SCALE, (_, value) => {
-      handler(value)
-    })
-  },
-
   // Allows programmatic toggling of picture-in-picture mode without accompanying user interaction.
   // See: https://developer.mozilla.org/en-US/docs/Web/Security/User_activation#transient_activation
   requestPiP: () => {

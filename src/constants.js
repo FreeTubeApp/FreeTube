@@ -39,8 +39,6 @@ const IpcChannels = {
   GET_DISABLE_HARDWARE_ACCELERATION: 'get-disable-hardware-acceleration',
   TOGGLE_DISABLE_HARDWARE_ACCELERATION: 'toggle-disable-hardware-acceleration',
 
-  UPDATE_UI_SCALE: 'update-ui-scale',
-
   PLAYER_CACHE_GET: 'player-cache-get',
   PLAYER_CACHE_SET: 'player-cache-set',
 
