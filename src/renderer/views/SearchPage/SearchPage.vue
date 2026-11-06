@@ -226,7 +226,8 @@ async function performSearchLocal(payload) {
       data: shownResults.value,
       searchSettings: searchSettings.value,
       nextPageRef: nextPageRef.value ? extractLocalCacheableSearchContinuation(nextPageRef.value) : null,
-      apiUsed: apiUsed.value
+      apiUsed: apiUsed.value,
+      lastSearchHasSomeValidResults: lastSearchHasSomeValidResults.value,
     }
 
     store.commit('addToSessionSearchHistory', historyPayload)
@@ -253,22 +254,19 @@ async function getNextpageLocal(payload) {
   try {
     const { results, continuationData, validResultsCount } = await getLocalSearchContinuation(payload.options.nextPageRef)
 
-    if (validResultsCount === 0) {
-      lastSearchHasSomeValidResults.value = false
-      return
-    }
-
     apiUsed.value = 'local'
 
     shownResults.value = shownResults.value.concat(results)
     nextPageRef.value = continuationData
+    lastSearchHasSomeValidResults.value = validResultsCount > 0
 
     const historyPayload = {
       query: payload.query,
       data: shownResults.value,
       searchSettings: searchSettings.value,
       nextPageRef: nextPageRef.value ? extractLocalCacheableSearchContinuation(nextPageRef.value) : null,
-      apiUsed: apiUsed.value
+      apiUsed: apiUsed.value,
+      lastSearchHasSomeValidResults: lastSearchHasSomeValidResults.value,
     }
 
     store.commit('addToSessionSearchHistory', historyPayload)
@@ -333,7 +331,8 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
       data: shownResults.value,
       searchSettings: searchSettings.value,
       searchPage: searchPage.value,
-      apiUsed: apiUsed.value
+      apiUsed: apiUsed.value,
+      lastSearchHasSomeValidResults: lastSearchHasSomeValidResults.value,
     }
 
     store.commit('addToSessionSearchHistory', historyPayload)
@@ -389,6 +388,7 @@ function replaceShownResults(history) {
   shownResults.value = history.data
   searchSettings.value = history.searchSettings
   apiUsed.value = history.apiUsed
+  lastSearchHasSomeValidResults.value = history.lastSearchHasSomeValidResults
 
   if (history.nextPageRef != null) {
     nextPageRef.value = history.nextPageRef
