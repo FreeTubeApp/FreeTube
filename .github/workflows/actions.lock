@@ -43,6 +43,8 @@ workflows:
         - 'actions/stale@v11.0.0'
     '.github/workflows/updateSite.yml':
         - 'actions/checkout@v7.0.1'
+    '.github/workflows/verify-lockfile.yml':
+        - 'actions/checkout@v7.0.1'
 dependencies:
     'actions-rust-lang/setup-rust-toolchain@v2.0.1':
         ref: 'v2.0.1'
