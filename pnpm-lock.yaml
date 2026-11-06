@@ -55,8 +55,8 @@ importers:
         specifier: ^5.3.3
         version: 5.3.3
       swiper:
-        specifier: ^14.3.0
-        version: 14.3.0
+        specifier: ^14.4.0
+        version: 14.4.0
       vue:
         specifier: ^3.5.44
         version: 3.5.44(typescript@6.0.3)
@@ -3985,8 +3985,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  swiper@14.3.0:
-    resolution: {integrity: sha512-qw0Xv1+sylM8KCQxWxV2iYAK2G6XjFGPZ/8F1baEsY8DK4A3sTnLx6jUJ0G71rDbVQ05JHMWkcWmJ5NvlxZO0w==}
+  swiper@14.4.0:
+    resolution: {integrity: sha512-6axnAuBsttFJe0gwsM5tT203/Bts0vcI+FwIX6dqFE4pUFVW6qrdRprNFQVxOYMW7V0S6A/KIqJ6JaPpNN2MCw==}
     engines: {node: '>= 4.7.0'}
 
   synckit@0.11.13:
@@ -8553,7 +8553,7 @@ snapshots:
       sax: 1.6.1
     optional: true
 
-  swiper@14.3.0: {}
+  swiper@14.4.0: {}
 
   synckit@0.11.13:
     dependencies:
