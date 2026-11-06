@@ -77,8 +77,8 @@ importers:
         version: 18.3.0
     devDependencies:
       '@double-great/stylelint-a11y':
-        specifier: ^3.8.1
-        version: 3.8.1(stylelint@17.16.0)
+        specifier: ^3.8.3
+        version: 3.8.3(stylelint@17.16.0)
       '@eslint/js':
         specifier: ^10.0.1
         version: 10.0.1(eslint@10.13.0)
@@ -301,8 +301,8 @@ packages:
     resolution: {integrity: sha512-Xc3VhU02wqZ1HvHRJUwL09HkZSTvidqY5Ya0NXBSYOxAp+Ln9dcJr9fySI+CkONzP3PekQo9WdzCv0PGER/mOA==}
     engines: {node: '>=14.17.0'}
 
-  '@double-great/stylelint-a11y@3.8.1':
-    resolution: {integrity: sha512-UpqFwJJXFBVevkQg2PpgiieTiwCR86y3q5AlW5eq+n5EdibjHISb4Iah4+ywVSUsLEMwKUH8m5ny+tDp+EV3Hw==}
+  '@double-great/stylelint-a11y@3.8.3':
+    resolution: {integrity: sha512-mSRv32ygqKXLJSvJd8xjol2q9TBwWA7D3Cukk2xrpCME+BZ/oIv5lSA+MWn1yqZ7QP9/puiORLX/E02QVBZd+w==}
     engines: {node: '>=22.0.0'}
     peerDependencies:
       stylelint: '>=16.7.0'
@@ -4591,7 +4591,7 @@ snapshots:
 
   '@discoveryjs/json-ext@1.1.0': {}
 
-  '@double-great/stylelint-a11y@3.8.1(stylelint@17.16.0)':
+  '@double-great/stylelint-a11y@3.8.3(stylelint@17.16.0)':
     dependencies:
       postcss: 8.5.32
       postcss-selector-parser: 7.1.6

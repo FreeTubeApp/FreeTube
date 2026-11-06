@@ -70,7 +70,7 @@
     "youtubei.js": "^18.3.0"
   },
   "devDependencies": {
-    "@double-great/stylelint-a11y": "^3.8.1",
+    "@double-great/stylelint-a11y": "^3.8.3",
     "@eslint/js": "^10.0.1",
     "@intlify/eslint-plugin-vue-i18n": "^4.5.1",
     "@magda/tree-kill": "1.2.3",
