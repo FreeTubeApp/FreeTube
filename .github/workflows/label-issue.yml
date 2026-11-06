@@ -15,7 +15,7 @@ jobs:
       issues: write
 
     steps:
-    - uses: github/issue-labeler@ccca1e16fcb66762200e616fc29b57b940c1cb67 #v3.5
+    - uses: github/issue-labeler@v3.5
       with:
         configuration-path: .github/issue-labeler.yml
         enable-versioned-regex: 0

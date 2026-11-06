@@ -25,25 +25,25 @@ jobs:
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
 
       - name: Setup Rust
-        uses: actions-rust-lang/setup-rust-toolchain@a188e68d0fd2bd36ad51dccb2b07ba6e75105f30 # v2.0.1
+        uses: actions-rust-lang/setup-rust-toolchain@v2.0.1
 
       - name: Install Oxipng
         run: cargo install oxipng
         shell: bash
 
       - name: Use Node.js 24.x
-        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        uses: actions/setup-node@v7.1.0
         with:
           node-version: 24.x
           package-manager-cache: false
 
       - name: Install pnpm
-        uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 # v6.1.1
+        uses: pnpm/action-setup@v6.1.1
         with:
           version: 11
           cache: false
@@ -59,13 +59,13 @@ jobs:
 
       - name: Generate File Diff Content
         id: file_diff
-        uses: PikachuEXE/file-size-diff@c623d1e49f0b19ecb006caf05522f9756561052b
+        uses: PikachuEXE/file-size-diff@master
         with:
           target_branch: ${{ github.event.repository.default_branch }}
           dir_glob: "**/*.png,**/*.svg"
 
       - name: Create New Pull Request If Needed
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           title: Compressed Images
           branch-suffix: timestamp
