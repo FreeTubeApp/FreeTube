@@ -520,6 +520,7 @@ Settings:
     Show Added Items: Montri aldonitajn elementojn
     Add: Aldoni
     Remove: Forigi
+    Hide Channel Shows: Kaŝi serio-langeton de kanaloj
   Data Settings:
     Data Settings: Datumoj
     Select Export Type: Elekti elportotipon
@@ -660,6 +661,7 @@ Channel:
     Joined: Enskribiĝis
     Location: Loko
     Featured Channels: Rekomenditaj kanaloj
+    Links: Ligiloj
   Videos:
     Videos: Videaĵoj
     Sort Types:
@@ -710,8 +712,11 @@ Channel:
     Hide Answers: Kaŝi respondojn
     Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
   View All: Montri ĉion
+  Shows:
+    Shows: Serioj
+    This channel does not currently have any shows: Tiu ĉi kanalo aktuale ne havas iun ajn serion
 Video:
-  IP block: YouTube blokis vian IP-adreson por spekti videaĵojn. Bonvolu provi ŝanĝiĝi de VPN aŭ prokurilo.
+  IP block: YouTube blokis vian IP-adreson por spekti videaĵojn, aŭ tiu ĉi videaĵo eble montras enhavon kun infanoj, ke bezonas ensaluton. Se via IP-adreso estis blokita, provu ŝanĝiĝi de VPN aŭ prokurilo.
   MembersOnly: Videaĵoj nur por membroj ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj pagitan membrecon de la publikiganta kanalo.
   AgeRestricted: Videaĵoj limigitaj de aĝo ne spekteblas per FreeTube ĉar ili postulas ensaluton de Google kaj konton de YouTube kun konfirmita aĝo.
   DRMProtected: Videaĵoj protektitaj de DRM ne spekteblas per FreeTube, ĉar ili postulas proprietajn fermitkodajn komponaĵojn. Se vi volas spekti ĉi tiun videaĵon, bonvolu spekti ĝin per la oficiala retejo de YouTube en retumilo kiu subtenas DRM.
