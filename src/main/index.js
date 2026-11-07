@@ -16,6 +16,7 @@ import {
   SEARCH_CHAR_LIMIT,
   LIGHT_BASE_THEMES,
   DARK_BASE_THEMES,
+  UI_SCALE,
 } from '../constants'
 import * as baseHandlers from '../datastores/handlers/base'
 import { extractExpiryTimestamp, ImageCache } from './ImageCache'
@@ -2361,6 +2362,47 @@ function runApp() {
     browserWindow.webContents.send(IpcChannels.CHANGE_VIEW, path)
   }
 
+  async function handleZoom(browserWindow, action) {
+    if (browserWindow == null || !isFreeTubeUrl(browserWindow.webContents.getURL())) {
+      return
+    }
+
+    const currentPercent = Math.round(browserWindow.webContents.getZoomFactor() * 100)
+
+    let percent
+    switch (action) {
+      case 'in':
+        percent = Math.min(UI_SCALE.MAX, currentPercent + UI_SCALE.STEP)
+        break
+      case 'out':
+        percent = Math.max(UI_SCALE.MIN, currentPercent - UI_SCALE.STEP)
+        break
+      case 'reset':
+        percent = 100
+        break
+      default:
+        return
+    }
+
+    const settingId = 'uiScale'
+
+    await baseHandlers.settings.upsert(settingId, percent)
+
+    const syncPayload = {
+      event: SyncEvents.GENERAL.UPSERT,
+      data: {
+        _id: settingId,
+        value: percent
+      }
+    }
+
+    BrowserWindow.getAllWindows().forEach((window) => {
+      if (isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(IpcChannels.SYNC_SETTINGS, syncPayload)
+      }
+    })
+  }
+
   async function setMenu() {
     const sidenavSettings = baseHandlers.settings._findSidenavSettings()
     const hideTrendingVideos = (await sidenavSettings.hideTrendingVideos)?.value
@@ -2465,13 +2507,59 @@ function runApp() {
             }
           },
           { type: 'separator' },
-          { role: 'resetzoom' },
-          { role: 'resetzoom', accelerator: 'CmdOrCtrl+num0', visible: false },
-          { role: 'zoomin', accelerator: 'CmdOrCtrl+Plus' },
-          { role: 'zoomin', accelerator: 'CmdOrCtrl+=', visible: false },
-          { role: 'zoomin', accelerator: 'CmdOrCtrl+numadd', visible: false },
-          { role: 'zoomout' },
-          { role: 'zoomout', accelerator: 'CmdOrCtrl+numsub', visible: false },
+          {
+            label: 'Reset Zoom',
+            accelerator: 'CmdOrCtrl+0',
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'reset')
+            }
+          },
+          {
+            label: 'Reset Zoom',
+            accelerator: 'CmdOrCtrl+num0',
+            visible: false,
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'reset')
+            }
+          },
+          {
+            label: 'Zoom In',
+            accelerator: 'CmdOrCtrl+Plus',
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
+            }
+          },
+          {
+            label: 'Zoom In',
+            accelerator: 'CmdOrCtrl+=',
+            visible: false,
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
+            }
+          },
+          {
+            label: 'Zoom In',
+            accelerator: 'CmdOrCtrl+numadd',
+            visible: false,
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'in')
+            }
+          },
+          {
+            label: 'Zoom Out',
+            accelerator: 'CmdOrCtrl+-',
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'out')
+            }
+          },
+          {
+            label: 'Zoom Out',
+            accelerator: 'CmdOrCtrl+numsub',
+            visible: false,
+            click: async (_menuItem, browserWindow, _event) => {
+              await handleZoom(browserWindow, 'out')
+            }
+          },
           { type: 'separator' },
           { role: 'togglefullscreen' },
           { type: 'separator' },
