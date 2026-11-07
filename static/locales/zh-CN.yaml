@@ -492,7 +492,6 @@ Settings:
     Import Playlists: 导入播放列表
     Export Playlists: 导出播放列表
     Playlist insufficient data: '"{playlist}" 播放列表数据不足，正在跳过'
-    All playlists has been successfully imported: 已成功导入所有播放列表
     All playlists has been successfully exported: 所有播放列表已成功导出
     Playlist File: 播放列表文件
     Subscription File: 订阅文件

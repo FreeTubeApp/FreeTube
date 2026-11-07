@@ -495,7 +495,6 @@ Settings:
     How do I import my subscriptions?: 'Kuidas ma saan oma tellimusi importida?'
     Manage Subscriptions: Halda tellimusi
     Export Playlists: Ekspordi esitusloendeid
-    All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
     All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
     Import Playlists: Impordi esitusloendeid
     Playlist insufficient data: „{playlist}“ esitusloendi kohta pole piisavalt andmeid, jätame vahele

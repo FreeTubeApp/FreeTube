@@ -639,8 +639,7 @@ Settings:
     All watched history has been successfully exported: All watched history has been
       successfully exported
     Playlist insufficient data: Insufficient data for "{playlist}" playlist, skipping item
-    All playlists has been successfully imported: All playlists has been
-      successfully imported
+    Playlists have been successfully imported: 1/1 playlist has been successfully imported | {count}/{total} playlists have been successfully imported
     All playlists has been successfully exported: All playlists has been
       successfully exported
     All search history has been successfully imported: All search history has been

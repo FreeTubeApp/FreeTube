@@ -551,7 +551,6 @@ Settings:
     All watched history has been successfully imported: 'Уся гісторыя праглядаў была паспяхова імпартавана'
     All watched history has been successfully exported: 'Уся гісторыя праглядаў была паспяхова экспартавана'
     Playlist insufficient data: 'Недастаткова даных для плэй-ліста "{playlist}", пропуск элемента'
-    All playlists has been successfully imported: 'Усе плэй-лісты былі паспяхова імпартаваны'
     All playlists has been successfully exported: 'Усе плэй-лісты былі паспяхова экспартаваны'
     Unable to read file: 'Немагчыма прачытаць файл'
     Unable to write file: 'Немагчыма запісаць файл'
