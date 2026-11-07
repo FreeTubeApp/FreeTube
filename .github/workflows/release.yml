@@ -56,19 +56,19 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+    - uses: actions/checkout@v7.0.1
       with:
         persist-credentials: false
 
     # Do not restore the pnpm cache, to avoid cache poisoning affecting releases
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 #v7.1.0
+      uses: actions/setup-node@v7.1.0
       with:
         node-version: ${{ matrix.node-version }}
         package-manager-cache: false
 
     - name: Install pnpm
-      uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 #v6.1.1
+      uses: pnpm/action-setup@v6.1.1
       with:
         version: 11
         cache: false
@@ -121,7 +121,7 @@ jobs:
         zsyncmake -u "freetube-${VERSION}-beta-${APPIMAGE_ARCH}.AppImage" ./FreeTube-${VERSION}*.AppImage
 
     - name: Upload Linux .zip x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -132,7 +132,7 @@ jobs:
         asset_content_type: application/zip
 
     - name: Upload Linux .7z x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -143,7 +143,7 @@ jobs:
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Linux .zip ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -154,7 +154,7 @@ jobs:
         asset_content_type: application/zip
 
     - name: Upload Linux .7z ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -165,7 +165,7 @@ jobs:
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Linux .deb x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -176,7 +176,7 @@ jobs:
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload Linux .deb ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -187,7 +187,7 @@ jobs:
         asset_content_type: application/vnd.debian.binary-package
 
     - name: Upload AppImage x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -198,7 +198,7 @@ jobs:
         asset_content_type: application/vnd.appimage
 
     - name: Upload AppImage .zsync x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -209,7 +209,7 @@ jobs:
         asset_content_type: application/x-zsync
 
     - name: Upload AppImage ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -220,7 +220,7 @@ jobs:
         asset_content_type: application/vnd.appimage
 
     - name: Upload AppImage .zsync ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -231,7 +231,7 @@ jobs:
         asset_content_type: application/x-zsync
 
     - name: Upload Linux .rpm x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -242,7 +242,7 @@ jobs:
         asset_content_type: application/x-rpm
 
     - name: Upload Linux .rpm ARM64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -253,7 +253,7 @@ jobs:
         asset_content_type: application/x-rpm
 
     - name: Upload Pacman .pacman x64 Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'ubuntu') && startsWith(matrix.runtime, 'linux-x64')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -264,7 +264,7 @@ jobs:
         asset_content_type: application/x-zstd-compressed-tar
 
     - name: Upload Windows x64 .exe Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -275,7 +275,7 @@ jobs:
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows x64 portable Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -286,7 +286,7 @@ jobs:
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows x64 .zip Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -297,7 +297,7 @@ jobs:
         asset_content_type: application/zip
 
     - name: Upload Windows x64 .7z Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -308,7 +308,7 @@ jobs:
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Windows arm64 .exe Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -319,7 +319,7 @@ jobs:
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows arm64 portable Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -330,7 +330,7 @@ jobs:
         asset_content_type: application/x-ms-dos-executable
 
     - name: Upload Windows arm64 .zip Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -341,7 +341,7 @@ jobs:
         asset_content_type: application/zip
 
     - name: Upload Windows arm64 .7z Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'windows') && startsWith(matrix.runtime, 'win-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -352,7 +352,7 @@ jobs:
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Mac x64 .dmg Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -363,7 +363,7 @@ jobs:
         asset_content_type: application/x-apple-diskimage
 
     - name: Upload Mac x64 .zip Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -374,7 +374,7 @@ jobs:
         asset_content_type: application/zip
 
     - name: Upload Mac x64 .7z Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-x64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -385,7 +385,7 @@ jobs:
         asset_content_type: application/x-7z-compressed
 
     - name: Upload Mac arm64 .dmg Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -396,7 +396,7 @@ jobs:
         asset_content_type: application/x-apple-diskimage
 
     - name: Upload Mac arm64 .zip Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -407,7 +407,7 @@ jobs:
         asset_content_type: application/x-apple-diskimage
 
     - name: Upload Mac arm64 .7z Release
-      uses: actions/upload-release-asset@e8f9f06c4b078e705bd2ea027f0926603fc9b4d5 #v1.0.2
+      uses: actions/upload-release-asset@v1.0.2
       if: startsWith(matrix.os, 'macos') && startsWith(matrix.runtime, 'osx-arm64')
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

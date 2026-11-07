@@ -25,7 +25,7 @@ jobs:
 
     steps:
       - name: check if prs are dirty
-        uses: eps1lon/actions-label-merge-conflict@0273be72a0bbd58fcd71d0d6c02c209b50d1e5e1 #v3.1.0
+        uses: eps1lon/actions-label-merge-conflict@v3.1.0
         with:
           dirtyLabel: "PR: merge conflicts / rebase needed"
           removeOnDirtyLabel: "PR: waiting for review"

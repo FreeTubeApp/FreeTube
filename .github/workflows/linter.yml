@@ -20,18 +20,18 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
+    - uses: actions/checkout@v7.0.1
       with:
         persist-credentials: false
 
     - name: Use Node.js 24.x
-      uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 #v7.1.0
+      uses: actions/setup-node@v7.1.0
       with:
         node-version: 24.x
         package-manager-cache: false
 
     - name: Install pnpm
-      uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115 #v6.1.1
+      uses: pnpm/action-setup@v6.1.1
       with:
         version: 11
         cache: false
@@ -48,7 +48,7 @@ jobs:
 
     - name: Restore pnpm cache
       id: restore_cache
-      uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 #v6.1.0
+      uses: actions/cache/restore@v6.1.0
       with:
         key: ${{ format('node-cache-{0}-{1}-pnpm-{2}', runner.os, runner.arch, hashFiles('pnpm-lock.yaml')) }}
         path: ${{ steps.cache_dir.outputs.cache_dir }}
