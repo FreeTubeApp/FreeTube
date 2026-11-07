@@ -1,6 +1,7 @@
 <template>
   <div
     class="switch-ctn"
+    :data-settings-search-label="label"
     :class="{
       compact,
       disabled: disabled,
