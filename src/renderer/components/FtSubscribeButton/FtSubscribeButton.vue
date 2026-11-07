@@ -80,6 +80,7 @@
           <p
             :id="id + '-' + index"
             class="profileName"
+            :title="profile.name"
             dir="auto"
           >
             {{ profile.name }}
