@@ -41,7 +41,7 @@ Global:
     Like Count: 1 вподобання | {count} вподобань
     Comment Count: 1 коментар | {count} коментарів
 Version {versionNumber} is now available!  Click for more details: 'Доступна нова версія {versionNumber}!  Натисніть, щоб переглянути подробиці'
-Download From Site: 'Завантажити з сайту'
+Download From Site: 'Звантажити з мережі'
 
 # Search Bar
 Search / Go to URL: 'Пошук / Перейти по URL'
@@ -619,22 +619,22 @@ About:
   Donate: Підтримати
   these people and projects: цим людям та проєктам
   Credits: Про авторів
-  Translate: Перекласти
+  Translate: Переклад
   room rules: правила кімнати
   Chat on Matrix: Чат у Matrix
   Mastodon: Mastodon
-  Website: Вебсайт
-  Please check for duplicates before posting: Будь ласка, перевірте наявність повторів перед публікацією
-  GitHub issues: Проблеми на GitHub
-  Report a problem: Повідомити про проблему
+  Website: Сайт
+  Please check for duplicates before posting: Перевірте, чи подібне звернення ще не створено
+  GitHub issues: Створити звернення на GitHub
+  Report a problem: Повідомити про ваду
   FAQ: ЧаПи
   FreeTube Wiki: Вікі FreeTube
   Help: Довідка
-  GitHub releases: Релізи GitHub
-  Downloads / Changelog: Завантаження / Журнал змін
+  GitHub releases: Останні випуски на GitHub
+  Downloads / Changelog: Звантаження / Журнал змін
   Source code: Джерельний код
   Beta: Бета
-  Discussions: Обговорення
+  Discussions: Питання
   AGPLv3: AGPLv3
   Licensed under the {licenseLink}: Ліцензовано за ліцензією {licenseLink}
   Please read the {roomRulesLink}: Будь ласка, прочитайте {roomRulesLink}
@@ -849,7 +849,7 @@ Video:
     Show Original Details: Показати оригінальні деталі
     Show Modified Details: Показати змінені деталі
   MembersOnly: Відео, доступні лише для учасників, не можна переглядати за допомогою FreeTube, оскільки вони вимагають входу через Google та платної підписки на канал завантажувача.
-  DRMProtected: Відео, захищені DRM, неможливо відтворити у FreeTube, оскільки для цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути це відео, скористайтеся офіційним сайтом YouTube у веб-браузері з підтримкою DRM.
+  DRMProtected: Відео, захищені DRM, неможливо відтворити у FreeTube, оскільки для цього потрібні пропрієтарні компоненти з закритим вихідним кодом. Щоб переглянути це відео, скористайтеся сайтом YouTube у веббраузері із підтримкою DRM.
 #& Playlists
   Save Watched Progress: Зберегти переглянутий прогрес
   Watched Progress Saved: Переглянутий прогрес збережено
@@ -1065,10 +1065,10 @@ KeyboardShortcutPrompt:
   Sections:
     Video:
       Playback: 'Відео: Відтворення'
-      General: 'Відео: Загальні'
+      General: 'Відео: Загальне'
     App:
       Situational: 'Програма: Ситуаційне'
-      General: 'Додаток: Загальне'
+      General: 'Програма: Загальне'
   Show Keyboard Shortcuts: Показати клавіатурні скорочення
   History Backward: Повернутися на одну сторінку назад
   History Forward: Перейти на одну сторінку вперед
@@ -1112,7 +1112,7 @@ KeyboardShortcutPrompt:
   Skip to Previous Video: Пеерейти до минулого відео у списку відтворенн
   Home: Перейти на початок відео
 shortcutLabelSeparator: ｜
-Compact side navigation: Компактна бічна навігація
-Expand side navigation: Розгорнути бічну навігацію
+Compact side navigation: Згорнути бічну панель
+Expand side navigation: Розгорнути бічну панель
 Screenshot Clipboard Success: Знімок екрану збережено до буферу обміну
 Screenshot Clipboard Error: Не вдалося скопіювати знімок екрана в буфер обміну
