@@ -565,7 +565,7 @@ Settings:
     Hide Channel Posts: Ocultar a guia "Posts" do canal
     Add: Adicionar
     Remove: Remover
-    Hide Channel Shows: Ocultar a guia "Programas" do canal
+    Hide Channel Shows: Ocultar a guia "Programas de TV" do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -727,8 +727,8 @@ Channel:
     Courses: Cursos
   View All: Ver todos
   Shows:
-    Shows: Programas
-    This channel does not currently have any shows: Este canal não possui programas no momento
+    Shows: Programas de TV
+    This channel does not currently have any shows: Este canal não possui programas de TV no momento
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
