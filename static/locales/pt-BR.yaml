@@ -93,13 +93,13 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Este perfil tem um grande número de inscrições. Forçando RSS para evitar limitação de rede
   Error Channels: Canais com erros
   Disabled Automatic Fetching: Você desabilitou a busca automática de inscrições. Atualize as inscrições para vê-las aqui.
-  Empty Channels: Atualmente, os canais em que você está inscrito não possuem vídeos.
+  Empty Channels: Os canais em que você está inscrito não possuem vídeos no momento.
   Subscriptions Tabs: Guias de inscrições
   All Subscription Tabs Hidden: Todas as guias de inscrição estão ocultas. Para ver o conteúdo aqui, desoculte algumas guias na seção "{subsection}" em "{settingsSection}".
   Load More Posts: Carregar mais postagens
   Empty Posts: Atualmente, os canais em que você está inscrito não possuem postagens.
   Posts:
-    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta aba.
+    RSS Message: O YouTube não disponibiliza feeds RSS para postagens. Desabilite a configuração "{rssSetting}" para visualizar as postagens ou habilitar a configuração "{hideSetting}" para ocultar esta guia.
 Trending:
   Trending: 'Em alta'
   Trending Tabs: Guias em destaque
@@ -190,8 +190,9 @@ User Playlists:
   Export Playlist: Exportar esta playlist
   TotalTimePlaylist: 'Tempo total: {duration}'
   Export list of URLs: Exportar lista de URLs
-  Move Video to the Top: Mover Vídeo Pro Topo
-  Move Video to the Bottom: Mover Vídeo pro Final
+  Move Video to the Top: Mover vídeo para o início
+  Move Video to the Bottom: Mover vídeo para o final
+  This playlist is private or does not exist.: Esta playlist não é pública ou não existe.
 History:
   # On History Page
   History: 'Histórico'
@@ -382,6 +383,7 @@ Settings:
       Dash Formats: 'Formatos DASH'
       Legacy Formats: 'Formatos antigos'
       Audio Formats: 'Formato de áudio'
+      Default Media Format: Formato de mídia padrão
     Default Quality:
       Default Quality: 'Qualidade'
       Auto: 'Auto'
@@ -426,8 +428,8 @@ Settings:
       Full Screen: Tela cheia
       Picture in Picture: Picture in Picture (PiP)
       External Player: Player externo ({externalPlayerName})
-      Full Window (Always On): Janela Cheia (Sempre Ativa)
-      Full Screen (Always On): Tela Cheia (Sempre Ativa)
+      Full Window (Always On): Modo preencher janela (sempre ativo)
+      Full Screen (Always On): Modo tela cheia (sempre ativo)
       Tooltip: A maioria dos modos de exibição padrão é aplicada apenas no início de cada sessão de reprodução. As alterações feitas durante a sessão permanecem até que ela termine. Os modos de exibição sempre ativos são aplicados sempre que você alterna para um novo vídeo, independentemente de quaisquer alterações no modo de exibição feitas ao assistir ao vídeo anterior.
   Subscription Settings:
     Subscription Settings: 'Inscrições'
@@ -563,6 +565,7 @@ Settings:
     Hide Channel Posts: Ocultar a guia "Posts" do canal
     Add: Adicionar
     Remove: Remover
+    Hide Channel Shows: Ocultar a guia "Programas de TV" do canal
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -616,7 +619,7 @@ Settings:
     Parental Control Settings: Controle dos Pais
     Hide Unsubscribe Button: Ocultar botão "Cancelar inscrição"
     Hide Uploader on Watch page: Ocultar o nome do autor na página de reprodução
-    Disable Channel Links: Desabilitar Links de Canais
+    Disable Channel Links: Desabilitar links do canal
   Experimental Settings:
     Experimental Settings: Experimental
     Warning: Essas configurações são experimentais, elas podem causar travamentos enquanto habilitadas. Fazer backups é altamente recomendado. Use por sua conta e risco!
@@ -689,6 +692,7 @@ Channel:
     Details: Detalhes
     Location: Localização
     Joined: Inscrito
+    Links: Links
   Added channel to your subscriptions: Canal adicionado às suas inscrições
   Removed subscription from {count} other channel(s): Inscrição removida de outros {count} canais
   Channel has been removed from your subscriptions: O canal foi removido de suas inscrições
@@ -721,7 +725,10 @@ Channel:
   Courses:
     This channel does not currently have any courses: Este canal não tem nenhum curso no momento
     Courses: Cursos
-  View All: Ver Todos
+  View All: Ver todos
+  Shows:
+    Shows: Programas de TV
+    This channel does not currently have any shows: Este canal não possui programas de TV no momento
 Video:
   Mark As Watched: 'Marcar como assistido'
   Remove From History: 'Remover do histórico'
@@ -823,7 +830,7 @@ Video:
     Exit Full Window: Sair do preenchimento de janela
     Autoplay is off: A reprodução automática está desativada
     Autoplay is on: A reprodução automática está ativada
-  IP block: O YouTube bloqueou seu endereço IP para assistir a vídeos. Tente mudar para uma VPN ou proxy diferente.
+  IP block: O YouTube bloqueou seu endereço IP, impedindo que você assista a vídeos, ou este vídeo pode conter conteúdo com menores de idade, cujo acesso é restrito pelo YouTube para usuários que não estiverem conectados. Se for um bloqueio de IP, tente usar uma VPN ou um proxy diferente.
   Unlisted: Não listado
   MembersOnly: Vídeos exclusivos para membros não podem ser assistidos com o FreeTube, pois exigem login do Google e assinatura paga do canal do remetente.
   AgeRestricted: Vídeos com restrição de idade não podem ser assistidos com o FreeTube, pois exigem login do Google e uso de uma conta do YouTube com verificação de idade.

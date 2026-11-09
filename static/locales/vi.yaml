@@ -40,6 +40,7 @@ Global:
     Watching Count: 1 lượt xem | {count} lượt xem
     Like Count: '{count} lượt thích'
     Comment Count: '{count} bình luận'
+    Replies Remaining: "{' '}(còn {count})"
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:
@@ -95,10 +96,12 @@ Subscriptions:
   Error Channels: Các kênh có lỗi
   Subscriptions Tabs: Trang đăng ký
   Disabled Automatic Fetching: Bạn đã vô hiệu hóa tự động tải đăng ký. Hãy tải lại danh sách đăng ký để xem chúng tại đây.
-  All Subscription Tabs Hidden: Tất cả các trang đăng ký đăng bị ẩn. Để xem nội dung ở đây, vui lòng bỏ ẩn một số trang ở trong mục "{subsection}" của "{settingsSection}".
+  All Subscription Tabs Hidden: Tất cả các trang đăng ký đang bị ẩn. Để xem nội dung ở đây, vui lòng bỏ ẩn một số trang ở trong mục "{subsection}" của "{settingsSection}".
   Load More Posts: Tải thêm bài đăng
   Empty Channels: Các kênh bạn đăng ký hiện chưa đăng video nào.
   Empty Posts: Các kênh bạn đăng ký hiện chưa đăng bài đăng nào.
+  Posts:
+    RSS Message: YouTube hiện chưa cung cấp bảng tin RSS cho bài đăng cộng đồng. Vui lòng tắt cài đặt "{rssSetting}" để xem các bài đăng hoặc bật "{hideSetting}" để ẩn tab này.
 Trending:
   Trending: 'Xu hướng'
   Gaming: Trò chơi
@@ -189,6 +192,9 @@ User Playlists:
   The playlist has been successfully exported: Đã xuất thành công danh sách phát này
   TotalTimePlaylist: 'Tổng thời lượng: {duration}'
   Export list of URLs: Xuất danh sách URL
+  This playlist is private or does not exist.: Danh sách phát này là riêng tư hoặc không tồn tại.
+  Move Video to the Top: Chuyển video lên trên cùng
+  Move Video to the Bottom: Chuyển video xuống dưới cùng
 History:
   # On History Page
   History: 'Lịch sử'
@@ -379,6 +385,7 @@ Settings:
       Dash Formats: 'Định dạng DASH'
       Legacy Formats: 'Định dạng Legacy'
       Audio Formats: 'Định dạng âm thanh'
+      Default Media Format: Định dạng xem mặc định
     Default Quality:
       Default Quality: 'Chất lượng mặc định'
       Auto: 'Tự động'
@@ -422,6 +429,9 @@ Settings:
       Full Screen: Toàn màn hình
       Picture in Picture: Hình trong hình
       External Player: Trình phát ngoài ({externalPlayerName})
+      Full Window (Always On): Toàn cửa sổ (luôn bật)
+      Full Screen (Always On): Toàn màn hình (luôn bật)
+      Tooltip: Phần lớn chế độ xem mặc định chỉ được áp dụng khi bạn mở một phiên xem mới. Nếu bạn chuyển sang chế độ xem mới trong lúc xem video thì chế độ đó sẽ được áp dụng cho đến khi bạn tắt FreeTube, trừ khi bạn chọn chế độ xem được đánh dấu là luôn bật, thì chúng sẽ luôn được áp dụng cho các video mới.
     Autoplay Interruption Timer: Bộ đếm thời gian ngắt tự động phát
   Subscription Settings:
     Subscription Settings: 'Đăng ký'
@@ -471,6 +481,12 @@ Settings:
     All search history has been successfully imported: Tất cả lịch sử tìm kiếm đã được nhập thành công
     All search history has been successfully exported: Toàn bộ lịch sử tìm kiếm đã được xuất thành công
     Search history file: Tập tin lịch sử tìm kiếm
+    Settings File: Tệp cài đặt
+    Import Settings: Nhập cài đặt
+    Export Settings: Xuất cài đặt
+    Settings Tooltip: Một số cài đặt phụ thuộc đến hệ điều hành/từng người xem hoặc đang thử nghiệm sẽ không thể được xuất hoặc nhập (ví dụ như cài đặt proxy, trình phát bên ngoài, thư mục chụp ảnh...)
+    All settings have been successfully imported: Tất cả cài đặt đã được nhập thành công
+    All settings have been successfully exported: Tất cả cài đặt đã được xuất thành công
   Distraction Free Settings:
     Hide Live Chat: Ẩn chat trực tiếp
     Hide Popular Videos: Ẩn video phổ biến
@@ -519,6 +535,8 @@ Settings:
     Hide Channel Courses: Ẩn Tab "Khóa học" của Kênh
     Hide Subscriptions Posts: Ẩn bài đăng đăng ký
     Hide Channel Posts: Ẩn tab "Bài đăng" của kênh
+    Add: Thêm
+    Remove: Xóa
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Bạn có muốn xóa toàn bộ đăng ký và hồ sơ không? Điều này không thể phục hồi.
     Remove All Subscriptions / Profiles: Xóa tất cả đăng ký / hồ sơ
@@ -578,6 +596,9 @@ Settings:
     'DeArrow Thumbnail Generator API Url (Default is https://dearrow-thumb.ajay.app)': URL API ảnh xem trước DeArrow (Mặc định là https://dearrow-thumb.ajay.app)
     UseDeArrowTitles: Dùng tiêu đề video từ DeArrow
     UseDeArrowThumbnails: Dùng ảnh xem trước từ DeArrow
+    Excluded Channels:
+      Excluded Channels: Bỏ qua các kênh sau
+      Tooltip: Nhập ID của một kênh để vô hiệu hóa SponsorBlock cho kênh đó. Video từ các kênh này sẽ không tự động bỏ qua phân đoạn nhà tài trợ. ID của kênh phân biệt hoa thường và phải khớp hoàn toàn.
   External Player Settings:
     External Player Settings: Trình phát video bên ngoài
     External Player: Trình phát video bên ngoài
@@ -607,6 +628,7 @@ Settings:
     Warning: Những cài đặt này đều đang trong quá trình thử nghiệm, bật các tùy chọn cài đặt này có thể gây ra hoạt động bất ổn định. Hãy tạo phương án dự phòng trước khi bật!
     Experimental Settings: Thử nghiệm
     Replace HTTP Cache: Thay thế bộ đệm HTTP
+    Disable Hardware Acceleration: Vô hiệu hóa tăng tốc phần cứng
   Return to Settings Menu: Quay lại menu Cài đặt
   Sort Settings Sections (A-Z): Sắp xếp các mục cài đặt (A-Z)
 About:
@@ -648,6 +670,7 @@ Channel:
       Newest: 'Mới nhất'
       Oldest: 'Cũ nhất'
       Most Popular: 'Phổ biến nhất'
+    This channel has videos but none could be displayed, try fetching more: Kênh này có video nhưng không có video nào có thể được hiển thị, có thể thử tải thêm
   Playlists:
     Playlists: 'Danh sách phát'
     This channel does not currently have any playlists: 'Kênh này hiện chưa có danh sách phát'
@@ -665,6 +688,7 @@ Channel:
     Joined: Đã tham gia
     Location: Vị trí
     Details: Chi tiết
+    Links: Liên kết
   Added channel to your subscriptions: Đã thêm kênh vào đăng ký của bạn
   Removed subscription from {count} other channel(s): Đã xóa đăng ký từ {count} các kênh khác
   Channel has been removed from your subscriptions: Kênh đã được xóa khỏi đăng ký của bạn
@@ -698,6 +722,7 @@ Channel:
   Courses:
     Courses: Các khóa học
     This channel does not currently have any courses: Kênh này hiện không có khóa học nào
+  View All: Xem tất cả
 Video:
   Open in YouTube: 'Mở trong Youtube'
   Copy YouTube Link: 'Sao chép liên kết Youtube'
@@ -810,11 +835,17 @@ Video:
   DRMProtected: Không thể phát video được bảo vệ DRM trong FreeTube vì chúng yêu cầu các thành phần nguồn đóng độc quyền. Nếu bạn muốn xem video này, vui lòng xem trên trang web chính thức của YouTube trong trình duyệt web hỗ trợ DRM.
   Save Watched Progress: Lưu tiến trình đã xem
   Watched Progress Saved: Xem tiến trình đã lưu
-  Popout Live Chat: Trò chuyện bật lên
+  Popout Live Chat: Chat nổi
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Thời gian quảng cáo đầu video còn lại: {remindingTimeSeconds}s'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Thời gian chờ SABR còn lại: {remindingTimeSeconds}s'
   Private: Video riêng tư không thể xem trên FreeTube vì chúng có đăng nhập tài khoản Google và sở hữu video đó.
+  Enable SponsorBlock on Channel: Bật SponsorBlock cho kênh này
+  Disable SponsorBlock on Channel: Tắt SponsorBlock cho kênh này
+  AI: AI
+  'AI: Content was made with AI': 'AI: Nội dung được tạo bởi AI'
+  Station: Trạm phát
+  Premiere: Sắp diễn ra
 Playlist:
   #& About
   View Full Playlist: 'Xem danh sách phát hoàn chỉnh'
@@ -943,12 +974,15 @@ Profile:
   Open Profile Dropdown: Mở danh sách hồ sơ
   Create Profile Name: Tạo tên hồ sơ
   Close Profile Dropdown: Đóng danh sách hồ sơ
+  Go To Profile Manager: Đi đến trình quản lí hồ sơ
 Download From Site: Tải từ website
 Version {versionNumber} is now available!  Click for more details: Phiên bản {versionNumber} đã có! Click để xem chi tiết
 Open New Window: Mở cửa sổ mới
 Search Bar:
   Clear Input: Xóa đầu vào
   Remove: Xóa bỏ
+  Search: Tìm kiếm
+  Open Search Container: Mở thanh tìm kiếm
 More: Thêm
 Are you sure you want to open this link?: Bạn có chắc là bạn muốn mở liên kết này không?
 New Window: Cửa sổ mới

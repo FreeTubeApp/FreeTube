@@ -239,9 +239,9 @@ Settings:
       Blur: Elhomályosítás
     Region for Trending: 'Felkapottak régiója'
         #! List countries
-    View all Invidious instance information: Invidious példányok listájának megtekintése
+    View all Invidious instance information: Invidious-példányok listájának megtekintése
     System Default: Rendszer alapértelmezett
-    Current Invidious Instance: Jelenlegi Invidious példány
+    Current Invidious Instance: Jelenlegi Invidious-példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
     Set Current Instance as Default: Jelenlegi példány beállítása alapértelmezettként
     Current instance will be randomized on startup: Véletlenszerű jelenlegi példány használata indításkor
@@ -573,6 +573,7 @@ Settings:
     Hide Subscriptions Posts: Feliratkozási bejegyzések elrejtése
     Add: Hozzáadás
     Remove: Eltávolítás
+    Hide Channel Shows: A „Műsorok” lap elrejtése a csatornán
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység
@@ -747,6 +748,7 @@ Channel:
     Tags:
       Tags: Címkék
       Search for: „{tag}” címke keresése
+    Links: Hivatkozások
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Ez a csatorna korhatáros, és jelenleg nem tekinthető meg a FreeTube alkalmazásban.
   Channel Tabs: Csatornalapok
   Live:
@@ -777,6 +779,9 @@ Channel:
     This channel does not currently have any courses: Ezen a csatornán jelenleg nincsenek tanfolyamok
     Courses: Tanfolyamok
   View All: Összes megtekintése
+  Shows:
+    Shows: Műsorok
+    This channel does not currently have any shows: Ezen a csatornán jelenleg nincsenek műsorok
 Video:
   Mark As Watched: 'Megjelölés megtekintettként'
   Remove From History: 'Eltávolítás az előzményekből'
@@ -878,7 +883,7 @@ Video:
     Playback will resume automatically when your connection comes back: A lejátszás automatikusan folytatódik, amikor a kapcsolat helyreáll.
     Autoplay is off: Az automatikus lejátszás ki van kapcsolva
     Autoplay is on: Az automatikus lejátszás be van kapcsolva
-  IP block: A YouTube letiltotta az IP-címét a videók megtekintéséhez. Próbáljon meg másik VPN-re vagy proxyra váltani.
+  IP block: A YouTube letiltotta az IP-címéről történő videómegtekintést, vagy előfordulhat, hogy a videó olyan tartalmat tartalmaz, amelyben kiskorúak szerepelnek, és amelyhez a YouTube korlátozza a hozzáférést a bejelentkezés nélkül használók számára. Ha IP-cím alapú tiltásról van szó, akkor próbáljon meg másik VPN-re vagy proxyra váltani.
   Unlisted: Listázatlan
   AgeRestricted: A FreeTube-on nem lehet korhatáros videókat megtekinteni, mivel ezekhez Google-bejelentkezés és korhatár-ellenőrzött YouTube-fiók használata szükséges.
   MembersOnly: A csak tagoknak szóló videók nem tekinthetők meg a FreeTube-on, mivel ezekhez Google-bejelentkezés és fizetett tagság szükséges a feltöltő csatornájához.
@@ -1036,8 +1041,8 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
 More: Több
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
-Default Invidious instance has been cleared: Alapértelmezett Invidious példány eltávolítva
-Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious példány {instance} beállítva'
+Default Invidious instance has been cleared: Alapértelmezett Invidious-példány eltávolítva
+Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious-példány {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás

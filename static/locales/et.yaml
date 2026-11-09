@@ -570,6 +570,7 @@ Settings:
     Hide Channel Posts: Peida kanalite vahekaart „Postitused“
     Add: Lisa
     Remove: Eemalda
+    Hide Channel Shows: Peida kanalite vahekaart „Sarjad“
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
     City: Linn
@@ -741,6 +742,7 @@ Channel:
       Search for: Otsi silti „{tag}“
       Tags: Sildid
     Joined: Liitunud
+    Links: Lingid
   This channel does not allow searching: See kanal ei luba otsingu kasutamist
   Channel Tabs: Kanali kaardid
   Shorts:
@@ -771,6 +773,9 @@ Channel:
     Courses: Kursused
     This channel does not currently have any courses: Sellel kanalil pole hetkel kursuseid
   View All: Vaata kõiki
+  Shows:
+    Shows: Sarjad
+    This channel does not currently have any shows: Selles kanalis pole hetkel ühtegi sarja
 Video:
   Mark As Watched: 'Märgi vaadatuks'
   Remove From History: 'Kustuta ajaloost'
@@ -872,7 +877,7 @@ Video:
     You appear to be offline: Sa ei tundu olema võrgus.
     Autoplay is off: Automaatne esitamine on kasutusel
     Autoplay is on: Automaatne esitamine pole kasutusel
-  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise. Palun kasuta mõnda muud lahendust, nagu VPN-teenust või puhverserverit.
+  IP block: YouTube on blokeerinud sinu nutiseadme IP-aadressilt videote vaatamise või videos on sellist sisu, mida autentimata kasutajad vaadata ei saa. Kui tegemist on IP-aadressi blokeerimisega, siis palun kasuta mõnda muud lahendust, nagu VPN-teenust või puhverserverit.
   MembersOnly: Kuna vajalik on sisselogimine Google'i kontoga ja tasuline liikmelisus üleslaadija kanalis, siis ainult liikmetele mõeldud videoid ei saa FreeTube'is vaadata.
   AgeRestricted: Kuna vajalik on sisselogimine Google'i kontoga, kus vanus on kontrollitud, siis vanusepiiranguga videoid ei saa FreeTube'is vaadata.
   Unlisted: Registriväline

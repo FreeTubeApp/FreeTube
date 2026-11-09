@@ -565,6 +565,7 @@ Settings:
     Hide Subscriptions Posts: 隐藏订阅者帖子
     Add: 添加
     Remove: 删除
+    Hide Channel Shows: 隐藏频道 "Shows" 选项卡
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
@@ -694,6 +695,7 @@ Channel:
     Details: 详情
     Joined: 已加入
     Location: 位置
+    Links: 链接
   Removed subscription from {count} other channel(s): 从{count}个其他频道移除订阅
   Added channel to your subscriptions: 已新增频道至您的订阅
   Channel has been removed from your subscriptions: 频道已从您的订阅中移除
@@ -727,6 +729,9 @@ Channel:
     Courses: 课程
     This channel does not currently have any courses: 此频道当前没有任何课程
   View All: 查看全部
+  Shows:
+    Shows: Shows
+    This channel does not currently have any shows: 此频道当前没有任何 shows
 Video:
   Open in YouTube: '在YouTube中打开'
   Copy YouTube Link: '复制YouTube链接'
@@ -828,7 +833,7 @@ Video:
     Skipped segment: 跳过了 {segmentCategory} 部分
     Autoplay is off: 自动播放关闭
     Autoplay is on: 自动播放开启
-  IP block: 你的 IP 地址被 Youtube 禁止观看视频。请试着切换到不同的 VPN 或代理。
+  IP block: 你的 IP 地址被 Youtube 禁止观看视频。或者该视频可能包含 YouTube 限制未登录用户访问的主打未成年人的内容。如果这是 IP 封锁，试着切换到不同的 VPN 或代理。
   MembersOnly: 无法用 FreeTube 观看仅供会员的视频，因这些视频需要 Google 登录以及上传者频道的付费会员身份。
   AgeRestricted: 无法用 FreeTube 观看受限年龄的视频，因这些视频需要 Google 登录并使用验证过年龄的 YouTube 账户。
   Unlisted: 不公开列出的视频

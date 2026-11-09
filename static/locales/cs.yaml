@@ -521,6 +521,7 @@ Settings:
     Hide Channel Posts: Skrýt kartu „Příspěvky“ u kanálů
     Add: Přidat
     Remove: Odstranit
+    Hide Channel Shows: Skrýt kartu „Seriály“ u kanálů
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -745,6 +746,7 @@ Channel:
     Details: Podrobnosti
     Joined: Připojeno
     Location: Umístění
+    Links: Odkazy
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Tento kanál je věkově omezen a v současné době jej nelze procházet na FreeTube.
   This channel does not exist: Tento kanál neexistuje
   This channel does not allow searching: Tento kanál neumožňuje vyhledávání
@@ -775,6 +777,9 @@ Channel:
     Courses: Kurzy
     This channel does not currently have any courses: Tento kanál momentálně nemá žádné kurzy
   View All: Zobrazit vše
+  Shows:
+    Shows: Seriály
+    This channel does not currently have any shows: Tento kanál momentálně nemá žádné seriály
 Video:
   Mark As Watched: 'Označit jako zhlédnuto'
   Remove From History: 'Odstranit z historie'
@@ -876,7 +881,7 @@ Video:
     Playback will resume automatically when your connection comes back: Přehrávání bude automaticky pokračovat, jakmile budete opět připojeni.
     Autoplay is off: Automatické přehrávání je vypnuto
     Autoplay is on: Automatické přehrávání je zapnuto
-  IP block: YouTube zablokoval sledování videí z vaší IP adresy. Zkuste prosím přepnout na jinou VPN nebo proxy.
+  IP block: YouTube zablokoval sledování videí z vaší IP adresy, nebo toto video obsahuje obsah s mladistvými, který YouTube pro odhlášené uživatele omezuje. Pokud se jedná o blokaci IP adresy, zkuste přepnout na jinou VPN nebo proxy.
   Unlisted: Neveřejné
   MembersOnly: Videa určená pouze pro členy nelze na FreeTube sledovat, protože vyžadují přihlášení k účtu Google a placené členství v kanálu nahrávajícího.
   AgeRestricted: Videa s věkovým omezením nelze na FreeTube sledovat, protože vyžadují přihlášení ke službě Google a použití účtu YouTube s ověřeným věkem.

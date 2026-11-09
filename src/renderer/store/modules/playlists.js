@@ -197,7 +197,7 @@ const actions = {
 
       const newVideoObjects = videos.map((video) => {
         // Create a new object to prevent changing existing values outside
-        const videoData = Object.assign({}, video)
+        const videoData = deepCopy(video)
         if (videoData.timeAdded == null) {
           videoData.timeAdded = currentTime
         }

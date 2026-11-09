@@ -565,6 +565,7 @@ Settings:
     Hide Subscriptions Posts: Masquer les posts des abonnements
     Add: Ajouter
     Remove: Supprimer
+    Hide Channel Shows: Masquer l'onglet « Émissions » de la chaîne
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -694,6 +695,7 @@ Channel:
     Details: Détails
     Joined: Inscrit(e)
     Location: Emplacement
+    Links: Liens
   Added channel to your subscriptions: Chaîne ajoutée à vos abonnements
   Removed subscription from {count} other channel(s): Abonnement supprimé de {count} autre(s) chaîne(s)
   Channel has been removed from your subscriptions: La chaîne a été retirée de vos abonnements
@@ -727,6 +729,9 @@ Channel:
     Courses: Cours
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
   View All: Tout afficher
+  Shows:
+    Shows: Spectacles
+    This channel does not currently have any shows: Cette chaîne ne propose actuellement aucune émission
 Video:
   Mark As Watched: 'Marquer comme vu'
   Remove From History: 'Supprimer de l''historique'
@@ -828,7 +833,7 @@ Video:
     Playback will resume automatically when your connection comes back: La lecture reprendra automatiquement quand votre connexion reviendra.
     Autoplay is on: La lecture automatique est activée
     Autoplay is off: La lecture automatique est désactivée
-  IP block: YouTube a bloqué votre adresse IP pour le visionnage de vidéos. Veuillez essayer de changer de VPN ou de proxy.
+  IP block: YouTube a bloqué votre adresse IP et vous empêche de regarder des vidéos, ou bien cette vidéo contient peut-être du contenu mettant en scène des mineurs, dont YouTube interdit l'accès pour utilisateurs non connectés. S'il s'agit d'un blocage d'adresse IP, essayez de changer de VPN ou de proxy.
   Unlisted: Non répertorié
   AgeRestricted: Les vidéos soumises à des restrictions d'âge ne peuvent pas être regardées avec FreeTube car elles nécessitent une connexion Google et l'utilisation d'un compte YouTube dont l'âge a été vérifié.
   MembersOnly: Les vidéos réservées aux membres ne peuvent pas être visionnées avec FreeTube, car elles nécessitent une connexion Google et une adhésion payante à la chaîne du vidéaste.

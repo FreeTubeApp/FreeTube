@@ -63,6 +63,11 @@
           {{ t("Video.Station") }}
         </template>
         <template v-else>
+          <FontAwesomeIcon
+            v-if="isMusic"
+            :icon="['fa', 'music']"
+            class="musicIcon"
+          />
           {{ displayDuration }}
         </template>
       </div>
@@ -310,6 +315,7 @@ import {
   formatDurationAsTimestamp,
   formatNumber,
   getRelativeTimeFromDate,
+  isNumberRounded,
   openExternalLink,
   showToast,
   toDistractionFreeTitle,
@@ -433,6 +439,7 @@ const hasCaptions = ref(false)
 const isUpcoming = ref(false)
 const isStation = ref(false)
 const isPremiere = ref(false)
+const isMusic = ref(false)
 const isPremium = ref(false)
 const hideViews = ref(false)
 const deArrowTogglePinned = ref(false)
@@ -1087,6 +1094,7 @@ function parseVideoData() {
   isPremiere.value = props.data.isPremiere === true
   isLive.value = !isStation.value && (props.data.liveNow || props.data.lengthSeconds === undefined)
   isUpcoming.value = props.data.isUpcoming || props.data.premiere
+  isMusic.value = props.data.isMusic === true
   is4k.value = props.data.is4k
   is8k.value = props.data.is8k
   isNew.value = props.data.isNew
@@ -1138,26 +1146,6 @@ const formattedViewCount = computed(() => {
     return parsedViewCount.value
   }
 })
-
-function isNumberRounded(number) {
-  switch (number.toString().length) {
-    case 11:
-    case 10:
-      return number % 100000000 === 0
-    case 9:
-    case 8:
-      return number % 1000000 === 0
-    case 7:
-      return number % 100000 === 0
-    case 6:
-    case 5:
-      return number % 1000 === 0
-    case 4:
-      return number % 100 === 0
-    default:
-      return false
-  }
-}
 
 function markAsWatched() {
   const videoData = {

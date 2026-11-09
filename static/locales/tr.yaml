@@ -571,6 +571,7 @@ Settings:
     Hide Subscriptions Posts: Abonelik gönderilerini gizle
     Add: Ekle
     Remove: Kaldır
+    Hide Channel Shows: Kanalın "Programlar" sekmesini gizle
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
@@ -745,6 +746,7 @@ Channel:
     Details: Ayrıntılar
     Joined: Katıldı
     Location: Konum
+    Links: Bağlantılar
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Bu kanal yaş sınırlamasına tabidir ve şu anda FreeTube'da görüntülenememektedir.
   Channel Tabs: Kanal Sekmeleri
   This channel does not allow searching: Bu kanal aramaya izin vermiyor
@@ -775,6 +777,9 @@ Channel:
     Courses: Kurslar
     This channel does not currently have any courses: Bu kanalda şu anda herhangi bir kurs bulunmamaktadır
   View All: Tümünü Görüntüle
+  Shows:
+    Shows: Programlar
+    This channel does not currently have any shows: Bu kanalda şu anda herhangi bir program yok
 Video:
   Mark As Watched: 'İzlendi Olarak İşaretle'
   Remove From History: 'Geçmişten Kaldır'
@@ -876,7 +881,7 @@ Video:
     Skipped segment: '{segmentCategory} bölümü atlandı'
     Autoplay is off: Otomatik Oynat Kapalı
     Autoplay is on: Otomatik Oynat Açık
-  IP block: YouTube, IP adresinizin video izlemesini engelledi. Lütfen farklı bir VPN veya vekil sunucuya geçmeyi deneyin.
+  IP block: YouTube, IP adresinizin videoları izlemesini engelledi, veya bu videoda, YouTube'un oturumu kapalı kullanıcılar için erişimini kısıtladığı, reşit olmayan kişilerin yer aldığı içerik bulunabilir. Eğer bu bir IP engeli ise, farklı bir VPN veya vekil sunucu kullanmayı deneyin.
   Unlisted: Listelenmemiş
   AgeRestricted: Yaş sınırlamalı videolar, Google hesabına giriş ve yaş doğrulaması yapılmış bir YouTube hesabının kullanımını gerektirdiği için FreeTube üzerinden izlenemez.
   MembersOnly: Sadece üyelere özel videolar, Google hesabına giriş ve yükleyicinin kanalına ücretli abonelik gerektirdiği için FreeTube üzerinden izlenemez.

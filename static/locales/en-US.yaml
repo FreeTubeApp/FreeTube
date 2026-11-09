@@ -128,7 +128,7 @@ Subscriptions:
     profile has a large number of subscriptions.  Forcing RSS to avoid rate limiting
   'Your Subscription list is currently empty. Start adding subscriptions to see them here.': Your Subscription list is currently empty. If you want to import your subscriptions you can go to Data Settings and select Import Subscriptions or you can search for a channel and subscribe to them.
   Disabled Automatic Fetching: You have disabled automatic subscription fetching. Refresh subscriptions to see them here.
-  Empty Channels: Your subscribed channels currently does not have any videos.
+  Empty Channels: Your subscribed channels currently do not have any videos.
   Empty Posts: Your subscribed channels currently do not have any posts.
   Load More Videos: Load More Videos
   Load More Posts: Load More Posts
@@ -592,6 +592,7 @@ Settings:
     Hide Channel Podcasts: Hide Channel "Podcasts" Tab
     Hide Channel Releases: Hide Channel "Releases" Tab
     Hide Channel Courses: Hide Channel "Courses" Tab
+    Hide Channel Shows: Hide Channel "Shows" Tab
     Hide Videos, Playlists and Channels Containing Text: Hide Videos, Playlists and Channels Containing Text
     Hide Videos, Playlists and Channels Containing Text Placeholder: Word, Word Fragment, or Phrase
     Hide Subscriptions Videos: Hide Subscriptions Videos
@@ -842,6 +843,9 @@ Channel:
   Courses:
     Courses: Courses
     This channel does not currently have any courses: This channel does not currently have any courses
+  Shows:
+    Shows: Shows
+    This channel does not currently have any shows: This channel does not currently have any shows
   About:
     About: About
     Channel Description: Channel Description
@@ -852,6 +856,7 @@ Channel:
     Joined: Joined
     Location: Location
     Featured Channels: Featured Channels
+    Links: Links
   Posts:
     This channel currently does not have any posts: This channel currently does not have any posts
     votes: '{votes} votes'
@@ -860,7 +865,7 @@ Channel:
     Hide Answers: Hide Answers
     Video hidden by FreeTube: Video hidden by FreeTube
 Video:
-  IP block: 'YouTube has blocked your IP address from watching videos. Please try switching to a different VPN or proxy.'
+  IP block: 'YouTube has blocked your IP address from watching videos, or this video may contain content featuring minors that YouTube restricts access to for signed-out users. If this is an IP block, try switching to a different VPN or proxy.'
   MembersOnly: Members-only videos cannot be watched with FreeTube as they require Google login and paid membership to the uploader's channel.
   AgeRestricted: Age-restricted videos cannot be watched with FreeTube as they require Google login and using an age-verified YouTube account.
   DRMProtected: DRM protected videos cannot be played in FreeTube, as they require proprietary, closed source components. If you want to watch this video please watch it on the official YouTube website in a DRM enabled web browser.

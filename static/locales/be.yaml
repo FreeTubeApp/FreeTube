@@ -188,14 +188,14 @@ User Playlists:
   Delete Playlist: Выдаліць плэй-ліст
   Are you sure you want to delete this playlist? This cannot be undone: Сапраўды выдаліць плэй-ліст? Гэта дзеянне нельга адмяніць.
   Sort By:
-    EarliestPlayedFirst: Раней прайгравалі
+    EarliestPlayedFirst: Дата прайгравання (са старэйшых)
     NameDescending: Я-А
-    LatestCreatedFirst: Нядаўна створаны
-    EarliestCreatedFirst: Створаныя раней
+    LatestCreatedFirst: Дата стварэння (з навейшых)
+    EarliestCreatedFirst: Дата стварэння (са старэйшых)
     NameAscending: А-Я
-    LatestUpdatedFirst: Нядаўна абноўлены
-    EarliestUpdatedFirst: Раней абноўленыя
-    LatestPlayedFirst: Нядаўна прайгравалі
+    LatestUpdatedFirst: Дата абнаўлення (з навейшых)
+    EarliestUpdatedFirst: Дата абнаўлення (са старэйшых)
+    LatestPlayedFirst: Дата прайгравання (з навейшых)
   Quick Bookmark Enabled: Хуткая закладка ўключана
   Cannot delete the quick bookmark target playlist.: Немагчыма выдаліць мэтавы плэй-ліст хуткай закладкі.
   This playlist currently has no videos.: Зараз у гэтым плэй-лісце няма відэа.
@@ -285,12 +285,13 @@ Settings:
       Gruvbox Dark: Gruvbox цёмная
       Catppuccin Frappe: Catppuccin Frappe
       Gruvbox Light: Gruvbox светлая
-      Everforest Dark Hard: Эверфорэст Дарк Хард
-      Everforest Dark Medium: Эверфорэст Дарк Хард
-      Everforest Dark Low: Эверфорэст Дарк Хард
-      Everforest Light Hard: Эверфорэст Лігхт Хард
-      Everforest Light Medium: Эверфорэст Лігхт Медыум
-      Everforest Light Low: Эверфорэст Лігхт Лоў
+      Everforest Dark Hard: Everforest Густы цёмны
+      Everforest Dark Medium: Everforest Умераны цёмны
+      Everforest Dark Low: Everforest Бляклы цёмны
+      Everforest Light Hard: Everforest Густы светлы
+      Everforest Light Medium: Everforest Умераны светлы
+      Everforest Light Low: Everforest Бляклы светлы
+      Catppuccin Latte: Catppuccin Latte
     Main Color Theme:
       Main Color Theme: 'Асноўны колер тэмы'
       Red: 'Чырвоны'
@@ -376,6 +377,7 @@ Settings:
       Everforest Light Aqua: Everforest Светлая Аква
       Everforest Light Blue: Everforest Светла-сіні
       Everforest Light Purple: Everforest Светла-фіялетавы
+      Catppuccin Latte Red: Catppuccin Latte Чырвоны
     Secondary Color Theme: 'Другасны колер тэмы'
         #* Main Color Theme
   Player Settings:
@@ -614,7 +616,7 @@ About:
   Beta: 'Бэта-версія'
   Source code: 'Зыходны код'
   Downloads / Changelog: 'Спампоўванне / Журнал змяненняў'
-  GitHub releases: 'Выпускі GitHub'
+  GitHub releases: 'Выпускі на GitHub'
   Help: 'Даведка'
   FreeTube Wiki: 'FreeTube Вікі'
   FAQ: 'Частыя пытанні'
@@ -756,7 +758,7 @@ Video:
   Loop Playlist: 'Зацыкліць плэй-ліст'
   Shuffle Playlist: 'Перамяшаць плэй-ліст'
   Reverse Playlist: 'Перавернуць плэй-ліст'
-  Previous: 'Назад'
+  Previous: 'Папярэдняе'
   Next: 'Наступнае'
   Watched: 'Прагледжанае'
   Autoplay: 'Аўтапрайграванне'
@@ -846,6 +848,8 @@ Video:
   DRMProtected: Відэа, абароненыя DRM, нельга прайграваць у FreeTube, бо для іх патрэбны прапрыетарныя кампаненты з закрытым зыходным кодам. Калі вы хочаце паглядзець гэтае відэа, праглядзіце яго на афіцыйным сайце YouTube у вэб-браўзеры з падтрымкай DRM.
   Save Watched Progress: Захаваць назіраны прагрэс
   Watched Progress Saved: Працэс захаваны
+  Collapse Playlist: Згарнуць плэй-ліст
+  Expand Playlist: Разгарнуць плэй-ліст
 Playlist:
   #& About
   Playlist: 'Плэй-ліст'
@@ -859,14 +863,14 @@ Playlist:
     AuthorAscending: Аўтар (А-Я)
     Custom: Карыстальніцкі
     AuthorDescending: Аўтар (Я-А)
-    DateAddedNewest: Новыя спачатку
-    DateAddedOldest: Старыя спачатку
+    DateAddedNewest: Дата дадавання (з навейшых)
+    DateAddedOldest: Дата дадавання (са старэйшых)
     VideoTitleAscending: Назва (А-Я)
     VideoTitleDescending: Назва (Я-А)
-    VideoDurationAscending: Працягласць (спачатку кароткія)
-    VideoDurationDescending: Працягласць (спачатку доўгія)
-    PublishedNewest: Апошнія апублікаваныя спачатку
-    PublishedOldest: Раней апублікаваныя спачатку
+    VideoDurationAscending: Працягласць (з карацейшых)
+    VideoDurationDescending: Працягласць (з даўжэйшых)
+    PublishedNewest: Дата публікацыі (з навейшых)
+    PublishedOldest: Дата публікацыі (са старэйшых)
 Change Format:
   Change Media Formats: 'Змяніць фарматы медыя'
   Use Dash Formats: 'Выкарыстоўваць фарматы DASH'

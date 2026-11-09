@@ -1,30 +1,6 @@
 [
   {
-    "url": "https://iv.ggtyler.dev",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.nerdvpn.de",
-    "cors": true
-  },
-  {
-    "url": "https://inv.nadeko.net",
-    "cors": false
-  },
-  {
-    "url": "https://invidious.jing.rocks",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.perennialte.ch",
-    "cors": true
-  },
-  {
-    "url": "https://invidious.reallyaweso.me",
-    "cors": false
-  },
-  {
-    "url": "https://invidious.privacyredirect.com",
+    "url": "https://yt.chocolatemoo53.com",
     "cors": true
   }
 ]

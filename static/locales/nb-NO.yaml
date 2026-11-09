@@ -96,13 +96,13 @@ Subscriptions:
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Denne profilen har mange abonnementer. Tvinger bruk av RSS for å unngå adgangsbegrensning
   Error Channels: Kanaler med feil
   Disabled Automatic Fetching: Du har skrudd av automatisk innhenting av abonnementer. Gjenoppfrisk abonnementer for å se dem her.
-  Empty Channels: De kanalene du abonnerer på har for øyeblikket ingen videoer.
+  Empty Channels: Kanalene du abonnerer på har for øyeblikket ingen videoer.
   Subscriptions Tabs: Abonnementsfaner
   All Subscription Tabs Hidden: Alle abonnementsfaner er skjult. For å vise innhold her, opphev skjuling av noen faner i «{subsection}»-delen av «{settingsSection}».
   Empty Posts: Kanalene du abonnerer på, har ikke noen innlegg for øyeblikket.
   Load More Posts: Last inn flere poster
   Posts:
-    RSS Message: YouTube tilbyr ikke RSS-feeder for innlegg. Deaktiver innstillingen"{rssSetting}" for å se innlegg, eller aktiver innstillingen "{hideSetting}" for å skjule denne fanen.
+    RSS Message: YouTube tilbyr ikke RSS-feeder for innlegg. Deaktiver innstillingen «{rssSetting}» for å se innlegg, eller aktiver innstillingen «{hideSetting}» for å skjule denne fanen.
 Trending:
   Trending: 'På vei opp'
   Trending Tabs: På vei opp-faner
@@ -585,6 +585,7 @@ Settings:
     Hide Channel Posts: Skjul «Innlegg»-fanen i kanaler
     Add: Legg til
     Remove: Fjern
+    Hide Channel Shows: Skjul «Serier»-fanen i kanaler
   The app needs to restart for changes to take effect. Restart and apply change?: Start programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet over
@@ -694,6 +695,7 @@ Channel:
     Details: Detaljer
     Joined: Registrert
     Location: Posisjon
+    Links: Lenker
   Added channel to your subscriptions: Lagt kanal til i dine abonnenter
   Removed subscription from {count} other channel(s): Fjernet abonnement fra {count} andre kanal(er)
   Channel has been removed from your subscriptions: Kanalen har blitt fjernet fra dine abonnement
@@ -727,6 +729,9 @@ Channel:
     Courses: Kurs
     This channel does not currently have any courses: Denne kanalen har ingen kurs
   View All: Vis alt
+  Shows:
+    Shows: Serier
+    This channel does not currently have any shows: Denne kanalen har ingen serier for øyeblikket
 Video:
   Mark As Watched: 'Marker som sett'
   Remove From History: 'Fjern fra historikk'
@@ -832,7 +837,7 @@ Video:
   Hide Channel: Skjul kanal
   AgeRestricted: Videoer med aldersbegrensning kan ikke bli sett med FreeTube ettersom det kreves en Google-pålogging og at man bruker en YouTube-bruker med verifisert alder.
   MembersOnly: Videoer kun for medlemmer kan ikke bli sett med FreeTube ettersom de krever en Google-pålogging og et betalt medlemsskap i opplasterens kanal.
-  IP block: YouTube har blokkert din IP adresse fra å se videoer. Prøv å bytte til en annen VPN eller mellomtjener.
+  IP block: YouTube har blokkert din IP adresse fra å se videoer, eller så avbilder denne videoen mindreårige, som gjør at YouTube begrenser tilgang til videoen til innloggede brukere. Hvis dette er en IP-blokkering, prøv å bytte til en annen VPN eller mellomtjener.
   DRMProtected: Kopibeskyttede videoer kan ikke bli avspilt i FreeTube, ettersom det krever proprietære komponenter med lukket kildekode. Gå til den offisielle YouTube-nettsiden i en støttet nettleser for å spille av denne videoen.
   Save Watched Progress: Lagre sted i videoen
   Watched Progress Saved: Sted i videoen lagret

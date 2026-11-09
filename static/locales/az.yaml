@@ -91,7 +91,7 @@ Subscriptions:
   Load More Posts: Daha Çox Post Yüklə
   Subscriptions Tabs: Abunəliklər Səhifələri
   All Subscription Tabs Hidden: Bütün abunəlik səhifələri gizlidir. Məzmunu burada görmək üçün "{settingsSection}" bölməsində "{subsection}"-da bəzi səhifələri gizlətməyin.
-  Empty Channels: Abunə olduğunuz kanallarda hazırda heç bir video yoxdur.
+  Empty Channels: Abunə olduğunuz kanalların hazırda heç bir videosu yoxdur.
   Empty Posts: Abunə olduğunuz kanallarda hazırda heç bir post yoxdur.
   Disabled Automatic Fetching: Siz avtomatik abunəlik əldə etməyi bağlamısız. Abunəlikləri burada görmək üçün yeniləyin.
   Posts:
@@ -538,6 +538,7 @@ Settings:
     Hide Subscriptions Live: Abunəliklər Canlı Yayımını Gizlət
     Add: Əlavə et
     Remove: Sil
+    Hide Channel Shows: Kanal "Verilişlər" Bölməsini Gizlət
   Data Settings:
     Data Settings: Məlumatlar
     Select Export Type: Köçürmə Növünü Seç
@@ -676,6 +677,7 @@ Channel:
     Joined: Qoşuldu
     Location: Məkan
     Featured Channels: Seçilmiş Kanallar
+    Links: Linklər
   Posts:
     This channel currently does not have any posts: Bu kanalda hazırda heç bir post yoxdur
     votes: '{votes} səs'
@@ -683,6 +685,9 @@ Channel:
     Reveal Answers: Cavabları Göstərin
     Hide Answers: Cavabları Gizlət
     Video hidden by FreeTube: FreeTube tərəfindən gizlədilən video
+  Shows:
+    Shows: Verilişlər
+    This channel does not currently have any shows: Bu kanalın hazırda heç bir verilişi yoxdur
 Video:
   External Player:
     OpenInTemplate: '{externalPlayer}-də Aç'
@@ -698,7 +703,7 @@ Video:
       reversing playlists: pleylistləri tərs çevirir
       shuffling playlists: pleylistləri qarışdırır
       looping playlists: pleylistləri təkrarlayır
-  IP block: YouTube video izləməyinizə mane olmaq üçün IP ünvanınızı bloklayıb. Zəhmət olmasa, başqa VPN və ya proksiyə keçməyə cəhd edin.
+  IP block: YouTube IP ünvanınızı video izləməkdən bloklayıb və ya bu video YouTube-un daxil olmamış istifadəçilər üçün məhdudlaşdırdığı yeniyetmələrin yer aldığı məzmun ehtiva edə bilər. Əgər bu IP blokudursa, başqa VPN və ya proksiyə keçməyə cəhd edin.
   MembersOnly: Şəxsi üzvlük videoları Google ilə daxil olmağı və kanal sahibinə üzvlük ödənişi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
   AgeRestricted: Yaş məhdudiyyəti olan videolar Google ilə daxil olmağı və yaşı təsdiqlənmiş YouTube hesabın istifadə etməyi tələb etdiyi üçün FreeTube vasitəsilə izlənilə bilməz.
   DRMProtected: DRM ilə qorunan videolar xüsusi, qapalı mənbəli komponentlər tələb etdiyindən FreeTube vasitəsilə oynadıla bilmir. Əgər bu videoya baxmaq istəyirsinizsə, xahiş olunur DRM aktivləşdirilmiş veb brauzerdə rəsmi YouTube veb saytın istifadə edəsiniz.

@@ -568,6 +568,7 @@ Settings:
     Hide Subscriptions Posts: Nascondi i post delle iscrizioni
     Add: Aggiungi
     Remove: Rimuovi
+    Hide Channel Shows: Nascondi la scheda "Serie" del canale
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
@@ -694,6 +695,7 @@ Channel:
     Details: Dettagli
     Joined: Iscrizione
     Location: Posizione
+    Links: Link
   Added channel to your subscriptions: Il canale è stato aggiunto alle tue iscrizioni
   Removed subscription from {count} other channel(s): È stata rimossa l'iscrizione dagli altri canali di {count}
   Channel has been removed from your subscriptions: Il canale è stato rimosso dalle tue iscrizioni
@@ -727,6 +729,9 @@ Channel:
     This channel does not currently have any courses: Questo canale al momento non ha corsi
     Courses: Corsi
   View All: Vedi tutto
+  Shows:
+    Shows: Serie
+    This channel does not currently have any shows: Questo canale non ha attualmente nessuna serie
 Video:
   Mark As Watched: 'Contrassegna come guardato'
   Remove From History: 'Rimuovi dalla Cronologia'
@@ -828,7 +833,7 @@ Video:
     Skipped segment: Segmento {segmentCategory} saltato
     Autoplay is off: La riproduzione automatica è disattivata
     Autoplay is on: La riproduzione automatica è attivata
-  IP block: YouTube ha bloccato il tuo indirizzo IP impedendogli di guardare i video. Prova a passare a una VPN o a un proxy diverso.
+  IP block: YouTube ha bloccato il tuo indirizzo IP, impedendoti di guardare i video; in alternativa, il video potrebbe contenere materiale che vede protagonisti dei minori, per il quale YouTube limita l'accesso agli utenti non collegati al proprio account. Se si tratta di un blocco dell'indirizzo IP, prova a udare una VPN o un proxy diverso.
   Unlisted: Non elencato
   MembersOnly: I video riservati agli abbonati non possono essere guardati con FreeTube, poiché richiedono l'accesso a Google e l'iscrizione a pagamento al canale dell'utente che li ha caricati.
   AgeRestricted: I video con limiti di età non possono essere guardati con FreeTube poiché richiedono l'accesso a Google e l'utilizzo di un account YouTube con età verificata.

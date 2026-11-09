@@ -1,6 +1,7 @@
 import shaka from 'shaka-player'
 import { parseWebmSegmentIndex } from './WebmSegmentIndexParser'
 import { parseMp4SegmentIndex } from './Mp4SegmentIndexParser'
+import { MIME_TYPE_CODECS_REGEX } from '../utils.js'
 
 /**
  * @typedef {{
@@ -72,8 +73,6 @@ import { parseMp4SegmentIndex } from './Mp4SegmentIndexParser'
 const NetworkingEngine = shaka.net.NetworkingEngine
 
 export const MANIFEST_TYPE_SABR = 'application/sabr+json'
-
-const CODECS_REGEX = /codecs="?([^"]+)"?/
 
 const VIDEO_CODEC_PRIORITIES = [
   'av01',
@@ -354,7 +353,7 @@ function createAudioStream(
     id,
     originalId: buildFormatId(format),
     mimeType: format.mimeType.split(';', 1)[0],
-    codecs: format.mimeType.match(CODECS_REGEX)[1],
+    codecs: format.mimeType.match(MIME_TYPE_CODECS_REGEX)[1],
     fullMimeTypes: new Set([format.mimeType]),
     bandwidth: format.bitrate,
     audioSamplingRate: format.audioSampleRate ?? null,
@@ -425,7 +424,7 @@ function createVideoStream(format, id, presentationTimeline, networkingEngine) {
     id,
     originalId: buildFormatId(format),
     mimeType: format.mimeType.split(';', 1)[0],
-    codecs: format.mimeType.match(CODECS_REGEX)[1],
+    codecs: format.mimeType.match(MIME_TYPE_CODECS_REGEX)[1],
     fullMimeTypes: new Set([format.mimeType]),
     bandwidth: format.bitrate,
     width: format.width,

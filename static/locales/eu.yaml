@@ -522,6 +522,7 @@ Settings:
     Hide Subscriptions Posts: Ezkutatu harpidetza-argitalpenak
     Add: Gehitu
     Remove: Kendu
+    Hide Channel Shows: Ezkutatu kanalaren «Saioak» fitxa
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -742,6 +743,7 @@ Channel:
       Tags: Etiketak
       Search for: Bilatu "{tag}"
     Details: Xehetasunak
+    Links: Estekak
   This channel does not exist: Kanal hau ez da existitzen
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Kanal hau adin mugatuta dago eta une honetan ezin da ikusi FreeTuben.
   Shorts:
@@ -772,6 +774,9 @@ Channel:
     Courses: Ikastaroak
     This channel does not currently have any courses: Une honetan kanal honek ez du ikastarorik
   View All: Ikusi dena
+  Shows:
+    Shows: Saioak
+    This channel does not currently have any shows: Une honetan kanal honek ez du saiorik
 Video:
   Mark As Watched: 'Ikusitako gisa jarri'
   Remove From History: 'Ezabatu historikotik'
@@ -876,7 +881,7 @@ Video:
   MembersOnly: Kideentzat baino ez diren bideoak ezin dira FreeTuberekin ikusi, Googleren saioa hastea eta eduki sortzailearen kanalari ordaindutako bazkidetza eskatzen baitute.
   Unlisted: Zerrendatu gabeak
   AgeRestricted: Adin muga duten bideoak ezin dira FreeTuberekin ikusi, Googlen saioa hasi eta adinak egiaztatutako YouTubeko kontu bat erabili behar delako.
-  IP block: YouTubek bideoak ikusteko zure IP helbidea blokeatu du. Mesedez, saiatu VPN edo proxy desberdin batera aldatzen.
+  IP block: YouTube-k zure IP helbidea blokeatu du bideoak ikus ez ditzazun, edo baliteke bideo honek adingabeak agertzen diren edukia izatea; YouTube-k eduki horretarako sarbidea mugatzen die saioa hasi ez duten erabiltzaileei. IP blokeo bat bada, saiatu beste VPN edo proxy bat erabiltzen.
   DeArrow:
     Show Original Details: Erakutsi jatorrizko xehetasunak
     Show Modified Details: Erakutsi aldatutako xehetasunak
