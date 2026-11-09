@@ -1967,7 +1967,7 @@ const VIEWS_OR_WATCHING_REGEX = /\d+(?:\.\d+)?\s?(?:[bkm]|thousand|[bm]illion)?\
 const VIEWS_IN_NUMBER_ONLY = /^\d+(\.\d)?[bkm]?$/i
 const PREMIERES_TIME_REGEX = /^(premieres|scheduled for) /i
 // Sometimes got `Streamed N (unit) ago`
-const PUBLISH_TIME_REGEX = /^(streamed )?\d+ ?\w+? ago/i
+const PUBLISH_TIME_REGEX = /^(streamed\s)?\d+\s?\w+?\sago/i
 
 /**
  * @param {string | undefined} text
