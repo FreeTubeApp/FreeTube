@@ -509,7 +509,7 @@ Settings:
     Settings File: Fichier de paramètres
     Import Settings: Importer les paramètres
     Export Settings: Exporter les paramètres
-    Settings Tooltip: "Les paramètres spécifiques au système d'exploitation ou à l'utilisateur, ou encore ceux de nature expérimentale, ne peuvent être ni exportés ni importés (par exemple : proxy, lecteur externe, dossier de captures d'écran...)"
+    Settings Tooltip: "Les paramètres spécifiques au système d'exploitation ou à l'utilisateur, ou encore ceux de nature expérimentale, ne peuvent être ni exportés ni importés (par exemple : proxy, lecteur externe, dossier de captures d'écran…)"
     All settings have been successfully imported: Tous les paramètres ont été importés avec succès
     All settings have been successfully exported: Tous les paramètres ont été exportés avec succès
     Setting object has insufficient data, skipping item: Les données de l'objet de configuration sont insuffisantes ; l'élément est ignoré
@@ -730,7 +730,7 @@ Channel:
     This channel does not currently have any courses: Cette chaîne n'a actuellement pas de cours
   View All: Tout afficher
   Shows:
-    Shows: Spectacles
+    Shows: Émissions
     This channel does not currently have any shows: Cette chaîne ne propose actuellement aucune émission
 Video:
   Mark As Watched: 'Marquer comme vu'
@@ -1022,7 +1022,7 @@ Tooltips:
     Ignore Default Arguments: Ne pas envoyer d'arguments par défaut au lecteur externe en dehors de l'URL de la vidéo (par exemple, la vitesse de lecture, l'URL de la playlist, etc.). Les arguments personnalisés seront toujours transmis.
   Experimental Settings:
     Replace HTTP Cache: Désactive le cache HTTP d'Electron basé sur le disque et active un cache d'image personnalisé en mémoire. Ceci entraînera une augmentation de l'utilisation de la mémoire vive.
-    Disable Hardware Acceleration: Désactive l'accélération matérielle par GPU. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
+    Disable Hardware Acceleration: Désactive l'accélération matérielle par processeur graphique. Peut résoudre des problèmes d'affichage, mais diminuera probablement les performances.
   Distraction Free Settings:
     Hide Channels: Entrez un identifiant de chaîne pour empêcher toutes les vidéos, les playlists et la chaîne elle-même d'apparaître dans les recherches, dans les catégories Tendances, Plus populaires et Recommandés. L'identifiant de la chaîne entré doit correspondre exactement et est sensible aux majuscules.
     Hide Subscriptions Live: Ce paramètre est remplacé par le paramètre « {appWideSetting} » applicable à l'ensemble de l'application, dans la section « {subsection} » de la section « {settingsSection} »

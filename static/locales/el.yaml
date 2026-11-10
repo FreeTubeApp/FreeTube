@@ -102,7 +102,7 @@ Subscriptions:
   Load More Posts: Φόρτωση Περισσότερων Αναρτήσεων
   Empty Posts: Τα εγγεγραμμένα κανάλια σας προς το παρόν δεν έχουν αναρτήσεις.
   Posts:
-    RSS Message: Το YouTube δεν παρέχει RSS feed για δημοσιεύσεις. Απενεργοποιήστε την ρύθμιση "{rssSetting}" για να δείτε δημοσιεύσεις ή ενεργοποιήστε την ρύθμιση "{hideSetting}" για να κρύψετε αυτή την καρτέλα.
+    RSS Message: Το YouTube δεν παρέχει ροές RSS για τις αναρτήσεις. Απενεργοποιήστε τη ρύθμιση «{rssSetting}» για να δείτε τις αναρτήσεις ή ενεργοποιήστε τη ρύθμιση «{hideSetting}» για να αποκρύψετε αυτήν την καρτέλα.
 Trending:
   Trending: 'Τάσεις'
   Gaming: Παιχνίδια
@@ -195,6 +195,7 @@ User Playlists:
   Export list of URLs: Εξαγωγή λίστας URL
   Move Video to the Top: Μετακίνηση βίντεο προς τα πάνω
   Move Video to the Bottom: Μετακίνηση βίντεο προς τα κάτω
+  This playlist is private or does not exist.: Αυτή η λίστα αναπαραγωγής είναι ιδιωτική ή δεν υπάρχει.
 History:
   # On History Page
   History: 'Ιστορικό'
@@ -385,6 +386,7 @@ Settings:
       Dash Formats: 'Dash Μορφή'
       Legacy Formats: 'Παλαιότερες Μορφές Αναπαρωγής'
       Audio Formats: 'Μορφές Ήχου'
+      Default Media Format: Προεπιλεγμένη μορφή πολυμέσων
     Default Quality:
       Default Quality: 'Προεπιλεγμένη ποιότητα ήχου'
       Auto: 'Αυτόματα'
@@ -413,7 +415,7 @@ Settings:
       Modes:
         Ask Path: Ερώτηση για Αποθήκευση Φακέλου
         Save To Folder: Αποθήκευση σε Φάκελο
-        Clipboard: Αντιγραφή στο Clipboard
+        Clipboard: Αντιγραφή στο πρόχειρο
       Folder Button: Επιλέξτε φάκελο
       Folder Label: Φάκελος Στιγμιότυπου Οθόνης
       File Name Label: Μοτίβο ονόματος αρχείου
@@ -430,6 +432,7 @@ Settings:
       External Player: Εξωτερικός αναπαραγωγέας ({externalPlayerName})
       Full Window (Always On): Πλήρες Παράθυρο (Πάντα Ενεργοποιημένο)
       Full Screen (Always On): Πλήρης Οθόνη (Πάντα Ενεργοποιημένο)
+      Tooltip: Οι περισσότερες προεπιλεγμένες λειτουργίες προβολής εφαρμόζονται μόνο στην αρχή κάθε συνεδρίας παρακολούθησης. Οι αλλαγές που γίνονται κατά τη διάρκεια της συνεδρίας παραμένουν σε ισχύ μέχρι τη λήξη της. Οι λειτουργίες προβολής που παραμένουν πάντα ενεργές εφαρμόζονται κάθε φορά που μεταβαίνετε σε ένα νέο βίντεο, ανεξάρτητα από τυχόν αλλαγές στη λειτουργία προβολής που έγιναν κατά την παρακολούθηση του προηγούμενου βίντεο.
     Autoplay Interruption Timer: Χρονοδιακόπτης διακοπής αυτόματης αναπαραγωγής
   Privacy Settings:
     Privacy Settings: 'Ιδιωτικότητα'
@@ -507,7 +510,7 @@ Settings:
     All search history has been successfully imported: Όλο το ιστορικό αναζήτησης έχει εισαχθεί με επιτυχία
     All search history has been successfully exported: Όλο το ιστορικό αναζήτησης έχει εξαχθεί με επιτυχία
     Settings File: Αρχείο Ρυθμίσεων
-    Import Settings: Εισαγωγή Ρυθμίσεων
+    Import Settings: Εισαγωγή ρυθμίσεων
     Export Settings: Εξαγωγή Ρυθμίσεων
     Settings Tooltip: Ρυθμίσεις που εξαρτώνται από τον χρήστη/το λειρουργικό σύστημα ή είναι πειραματικές δεν μπορούν να εισαχθούν ή εξαχθούν (π.χ. proxy, external player, φάκελος στιγμιότυπων)
     All settings have been successfully imported: Όλες οι ρυθμίσεις εισήχθηκαν με επιτυχία
@@ -697,6 +700,7 @@ Profile:
   Create Profile Name: Δημιουργία ονόματος προφίλ
   Open Profile Dropdown: Ανοίξτε το αναπτυσσόμενο μενού προφίλ
   Close Profile Dropdown: Κλείστε το αναπτυσσόμενο μενού προφίλ
+  Go To Profile Manager: Μετάβαση στη Διαχείριση προφίλ
 Channel:
   Subscribe: 'Εγγραφή'
   Unsubscribe: 'Απεγγραφή'
@@ -711,6 +715,7 @@ Channel:
       Newest: 'Νεότερο'
       Oldest: 'Παλαιότερο'
       Most Popular: 'Τα πιο δημοφιλή'
+    This channel has videos but none could be displayed, try fetching more: Αυτό το κανάλι περιέχει βίντεο, αλλά δεν ήταν δυνατή η προβολή κανενός. Δοκιμάστε να ανακτήσετε περισσότερα
   Playlists:
     Playlists: 'Λίστες αναπαραγωγής'
     This channel does not currently have any playlists: 'Αυτό το κανάλι δε διαθέτει προς το παρόν κάποια λίστα αναπαραγωγής'
@@ -728,6 +733,7 @@ Channel:
     Details: Λεπτομέριες
     Location: Τοποθεσία
     Joined: Εγγράφηκαν
+    Links: Σύνδεσμοι
   This channel does not allow searching: Αυτό το κανάλι δεν επιτρέπει την αναζήτηση
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Αυτό το κανάλι έχει περιορισμό ηλικίας και προς το παρόν δεν μπορεί να προβληθεί στο FreeTube.
   Channel Tabs: Καρτέλες Καναλιών
@@ -757,6 +763,7 @@ Channel:
   Home:
     View Playlist: Προβολή λίστας αναπαραγωγής
     Home: Αρχική σελίδα
+  View All: Προβολή όλων
 Video:
   Mark As Watched: 'Επισήμανση ως παρακολουθημένο'
   Remove From History: 'Κατάργηση από το ιστορικό'
@@ -873,6 +880,15 @@ Video:
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Υπόλοιπος χρόνος διαφήμισης πριν το βίντεο: {remindingTimeSeconds} δευτερόλεπτα'
     'Remaining SABR backoff time: {remindingTimeSeconds}s': 'Υπόλοιπος χρόνος αναμονής SABR: {remindingTimeSeconds} δευτερόλεπτα'
+  AI: ΤΝ
+  'AI: Content was made with AI': 'ΤΝ: Το περιεχόμενο δημιουργήθηκε με τη χρήση τεχνητής νοημοσύνης'
+  How this was made: Πώς δημιουργήθηκε αυτό
+  Station: Σταθμός
+  Collapse Playlist: Σύμπτυξη λίστας αναπαραγωγής
+  Expand Playlist: Επέκταση λίστας αναπαραγωγής
+  Reload Page: Ανανέωση σελίδας
+  Playlist:
+    Unavailable videos are hidden: 1 βίντεο που δεν είναι διαθέσιμο έχει αποκρυφθεί | {count} βίντεο που δεν είναι διαθέσιμα έχουν αποκρυφθεί
 Playlist:
   #& About
   View Full Playlist: 'Προβολή πλήρους λίστας αναπαραγωγής'
@@ -894,6 +910,7 @@ Playlist:
     Custom: Προσαρμοσμένη
     PublishedOldest: Ημερομηνία δημοσίευσης (Παλαιότερη)
     PublishedNewest: Ημερομηνία δημοσίευσης (Πρόσφατη)
+  Unavailable videos are hidden: Τα βίντεο που δεν είναι διαθέσιμα εμφανίζονται κρυμμένα
 Change Format:
   Change Media Formats: 'Αλλαγή μορφής του βίντεο'
   Use Dash Formats: 'Χρησιμοποίηση μορφών Dash'
@@ -940,6 +957,8 @@ Comments:
   Hide {replyCount} replies: Απόκρυψη 1 απάντησης | Απόκρυψη {replyCount} απαντήσεων
   View 1 reply from {channelName}: Δείτε 1 απάντηση από το {channelName}
   View {replyCount} replies from {channelName} and others: Δείτε {replyCount} απαντήσεις από το {channelName} και άλλους
+  Hide Replies: Απόκρυψη απάντησης | Απόκρυψη απαντήσεων
+  Comments are turned off: Τα σχόλια είναι απενεργοποιημένα
 Up Next: 'Επόμενο'
 
 # Toast Messages
@@ -988,6 +1007,7 @@ Tooltips:
     Ignore Default Arguments: Μην στέλνετε προεπιλεγμένα ορίσματα στην εξωτερική συσκευή αναπαραγωγής εκτός από τη διεύθυνση URL του βίντεο (π.χ. ρυθμός αναπαραγωγής, διεύθυνση URL λίστας αναπαραγωγής κ.λπ.). Τα προσαρμοσμένα ορίσματα θα εξακολουθήσουν να διαβιβάζονται.
   Experimental Settings:
     Replace HTTP Cache: Απενεργοποιεί το Electron's disk-based HTTP cache και ενεργοποιεί μια προσαρμοσμένη προσωρινή μνήμη εικόνων στη μνήμη. Θα οδηγήσει σε αυξημένη χρήση RAM.
+    Disable Hardware Acceleration: Απενεργοποιεί την επιτάχυνση μέσω υλικού της μονάδας επεξεργασίας γραφικών. Μπορεί να επιλύσει προβλήματα με τα γραφικά, αλλά πιθανότατα θα μειωθεί η απόδοση.
   Distraction Free Settings:
     Hide Channels: Εισαγάγετε ένα αναγνωριστικό καναλιού για να αποκρύψετε όλα τα βίντεο, τις λίστες αναπαραγωγής και το ίδιο το κανάλι, ώστε να μην εμφανίζονται στην αναζήτηση, τα ανερχόμενα, τα πιο δημοφιλή και προτεινόμενα. Το αναγνωριστικό καναλιού που καταχωρίσατε πρέπει να αντιστοιχεί πλήρως και να κάνει διάκριση πεζών-κεφαλαίων.
     Hide Subscriptions Live: Αυτή η ρύθμιση παρακάμπτεται από τη ρύθμιση "{appWideSetting}" σε όλη την εφαρμογή, στην ενότητα "{subsection}" του "{settingsSection}"
@@ -1131,3 +1151,5 @@ Yes, Restart: Ναι, Επανεκκίνηση
 shortcutLabelSeparator: ｜
 Compact side navigation: Συμπαγής πλευρική πλοήγηση
 Expand side navigation: Επέκταση της πλευρικής πλοήγησης
+Screenshot Clipboard Success: Το στιγμιότυπο οθόνης αποθηκεύτηκε στο πρόχειρο
+Screenshot Clipboard Error: Η αντιγραφή του στιγμιότυπου οθόνης στο πρόχειρο απέτυχε

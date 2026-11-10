@@ -419,7 +419,7 @@ Settings:
         Forbidden Characters: Unerlaubte Zeichen
         Empty File Name: Leerer Dateiname
       File Name Tooltip: Du kannst die folgenden Variablen verwenden. %Y Jahr 4-stellig. %M Monat 2 Ziffern. %D Tag 2 Ziffern. %H Stunde 2 Ziffern. %N Minute 2 Ziffern. %S Sekunde 2 Ziffern. %T Millisekunde 3 Ziffern. %s Video-Sekunde. %t Video Millisekunde 3 Ziffern. %i Video-ID.
-      Mode: Screenshot-Modus
+      Mode: Bildschirmfoto-Modus
     Enter Fullscreen on Display Rotate: Beim Drehen des Bildschirms zu Vollbild wechseln
     Skip by Scrolling Over Video Player: Überspringen durch Scrollen
     Autoplay Interruption Timer: Abbruch-Timer für Automatische Wiedergabe
