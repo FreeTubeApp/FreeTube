@@ -82,7 +82,7 @@ export function calculatePublishedDate(publishedText, isLive = false, isUpcoming
 
   if (timeFrame.startsWith('second') || timeFrame === 's') {
     timeSpan = timeAmount * 1000
-  } else if (timeFrame.startsWith('minute') || timeFrame === 'm') {
+  } else if (timeFrame.startsWith('minute') || timeFrame === 'm' || timeFrame === 'min') {
     timeSpan = timeAmount * 60000
   } else if (timeFrame.startsWith('hour') || timeFrame === 'h') {
     timeSpan = timeAmount * 3600000
