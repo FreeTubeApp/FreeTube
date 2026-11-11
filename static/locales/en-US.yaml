@@ -599,6 +599,7 @@ Settings:
     Show Added Items: Show Added Items
     Add: Add
     Remove: Remove
+    More Items Count: '+{count} more…'
   Data Settings:
     Data Settings: Data
     Select Export Type: Select Export Type
