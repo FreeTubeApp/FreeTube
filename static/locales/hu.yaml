@@ -239,9 +239,9 @@ Settings:
       Blur: Elhomályosítás
     Region for Trending: 'Felkapottak régiója'
         #! List countries
-    View all Invidious instance information: Invidious-példányok listájának megtekintése
+    View all Invidious instance information: Invidious példányok listájának megtekintése
     System Default: Rendszer alapértelmezett
-    Current Invidious Instance: Jelenlegi Invidious-példány
+    Current Invidious Instance: Jelenlegi Invidious példány
     Clear Default Instance: Alapértelmezett példány eltávolítása
     Set Current Instance as Default: Jelenlegi példány beállítása alapértelmezettként
     Current instance will be randomized on startup: Véletlenszerű jelenlegi példány használata indításkor
@@ -1006,7 +1006,7 @@ Tooltips:
   General Settings:
     Preferred API Backend: Válassza ki a háttéralkalmazást, amelyet a FreeTube használ az adatok megszerzéséhez. A helyi API egy beépített kinyerő. Az Invidious API használatához Invidious-kiszolgáló szükséges.
     Region for Trending: A felkapottak régiója lehetővé teszi a választást, hogy melyik ország felkapott videóit szeretné megtekinteni.
-    Invidious Instance: Az Invidious-példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
+    Invidious Instance: Az Invidious példány, amelyhez a FreeTube API-hívások céljából kapcsolódik. A beállítás módosításai csak a jelenlegi ablakra vonatkoznak, kivéve, ha ezt a példányt alapértelmezettként állítja be.
     Thumbnail Preference: A FreeTube-ban minden videó bélyegképe az alapértelmezett miniatűr helyett a videóból kiválasztott képkockára lesz cserélve, amely elmosódott vagy rejtett is lehet.
     Fallback to Non-Preferred Backend on Failure: Ha a választott API-val probléma adódik, a FreeTube automatikusan megpróbálja a nem előnyben részesített API-t használni tartalék módszerként, ha ez a funkció engedélyezve van.
     External Link Handling: "Válassza ki az alapértelmezett viselkedést, amikor egy olyan hivatkozásra kattint, amelyet FreeTube nem tud megnyitni.\nA FreeTube alapértelmezés szerint megnyitja a kattintott hivatkozást az alapértelmezett böngészőben.\n"
@@ -1041,8 +1041,8 @@ Playing Next Video Interval: A következő videó lejátszása folyamatban van. 
 More: Több
 Unknown YouTube url type, cannot be opened in app: Ismeretlen YouTube-webcím, nem nyitható meg az alkalmazásban
 Open New Window: Új ablak megnyitása
-Default Invidious instance has been cleared: Alapértelmezett Invidious-példány eltávolítva
-Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious-példány {instance} beállítva'
+Default Invidious instance has been cleared: Alapértelmezett Invidious példány eltávolítva
+Default Invidious instance has been set to {instance}: 'Alapértelmezett Invidious példány {instance} beállítva'
 Search Bar:
   Clear Input: Bemenet törlése
   Remove: Eltávolítás
