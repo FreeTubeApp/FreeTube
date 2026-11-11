@@ -2,8 +2,31 @@ import shaka from 'shaka-player'
 import i18n from '../../i18n/index'
 import { sponsorBlockSkipSegments } from '../sponsorblock'
 import { MIME_TYPE_CODECS_REGEX } from '../utils'
+import { KeyboardShortcuts } from '../../../constants.js'
 
 /** @typedef {import('../sponsorblock').SponsorBlockCategory} SponsorBlockCategory */
+
+const RequestType = shaka.net.NetworkingEngine.RequestType
+
+/** @type {Map<string, string>} */
+export const PLAYER_LOCALE_MAPPINGS = new Map(process.env.SHAKA_LOCALE_MAPPINGS)
+
+/*
+  Mapping of Shaka localization keys for control labels to FreeTube shortcuts.
+  See: https://github.com/shaka-project/shaka-player/blob/main/ui/locales/en.json
+*/
+export const SHAKA_CONTROL_KEYS_TO_SHORTCUTS = {
+  MUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  UNMUTE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.MUTE,
+  PLAY: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PAUSE: KeyboardShortcuts.VIDEO_PLAYER.PLAYBACK.PLAY,
+  PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  ENTER_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  EXIT_PICTURE_IN_PICTURE: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.PICTURE_IN_PICTURE,
+  CAPTIONS: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.CAPTIONS,
+  FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN,
+  EXIT_FULL_SCREEN: KeyboardShortcuts.VIDEO_PLAYER.GENERAL.FULLSCREEN
+}
 
 /**
  * @param {shaka.util.Error} error
@@ -468,4 +491,203 @@ SAMPLE-RATE=${sampleRate}`
   }
 
   return data
+}
+
+/**
+ * @param {string} match
+ */
+export function hlsProxiedUrlReplacer(match) {
+  const url = new URL(match)
+
+  let fileValue
+  for (const [key, value] of url.searchParams) {
+    if (key === 'file') {
+      fileValue = value
+      continue
+    } else if (key === 'hls_chunk_host') {
+      // Add the host parameter so some Invidious instances stop complaining about the missing host parameter
+      // Replace .c.youtube.com with .googlevideo.com as the built-in Invidious video proxy only accepts host parameters with googlevideo.com
+      url.pathname += `/host/${encodeURIComponent(value.replace('.c.youtube.com', '.googlevideo.com'))}`
+    }
+
+    url.pathname += `/${key}/${encodeURIComponent(value)}`
+  }
+
+  // This has to be right at the end so that shaka-player can read the file extension
+  url.pathname += `/file/${encodeURIComponent(fileValue)}`
+
+  url.search = ''
+  return url.toString()
+}
+
+/**
+ * @param {shaka.extern.xml.Node} adaptationSet
+ */
+function getCodecsPrefix(adaptationSet) {
+  const codecs = adaptationSet.attributes.codecs ??
+    adaptationSet.children
+      .find(child => typeof child !== 'string' && child.tagName === 'Representation').attributes.codecs
+
+  return codecs.split('.')[0]
+}
+
+/**
+ * @param {shaka.extern.xml.Node[]} periods
+ */
+function sortAdapationSetsByCodec(periods) {
+  const codecPriorities = [
+    // audio
+    'opus',
+    'mp4a',
+    'ec-3',
+    'ac-3',
+
+    // video
+    'av01',
+    'vp09',
+    'vp9',
+    'avc1'
+  ]
+
+  for (const period of periods) {
+    period.children
+      ?.sort((
+        /** @type {shaka.extern.xml.Node | string} */ a,
+        /** @type {shaka.extern.xml.Node | string} */ b
+      ) => {
+        if (typeof a === 'string' || a.tagName !== 'AdaptationSet' ||
+          typeof b === 'string' || b.tagName !== 'AdaptationSet') {
+          return 0
+        }
+
+        const typeA = a.attributes.contentType || a.attributes.mimeType.split('/')[0]
+        const typeB = b.attributes.contentType || b.attributes.mimeType.split('/')[0]
+
+        // always place image and text tracks AdaptionSets last in the manifest
+
+        if (typeA !== 'video' && typeA !== 'audio') {
+          return 1
+        }
+        if (typeB !== 'video' && typeB !== 'audio') {
+          return -1
+        }
+
+        const codecsPrefixA = getCodecsPrefix(a)
+        const codecsPrefixB = getCodecsPrefix(b)
+
+        return codecPriorities.indexOf(codecsPrefixA) - codecPriorities.indexOf(codecsPrefixB)
+      })
+  }
+}
+
+/**
+ * Sort audio AdaptationSets so that streams with higher bitrates come first.
+ * Workaround that makes the player select high-quality audio.
+ * @param {shaka.extern.xml.Node[]} periods
+ */
+function sortAudioAdaptationSetsByBitrate(periods) {
+  for (const period of periods) {
+    period.children
+      ?.filter(child => typeof child !== 'string' && child.tagName === 'AdaptationSet' &&
+        (child.attributes.contentType === 'audio' || child.attributes.mimeType.startsWith('audio/')))
+      .forEach(adaptationSet => {
+        adaptationSet.children.sort((a, b) => {
+          if (a.tagName === 'AudioChannelConfiguration' && b.tagName !== 'AudioChannelConfiguration') {
+            // Push AudioChannelConfiguration to the front (where it seems to already be) so that it doesn't
+            // block sorting Representations if it's in the middle instead
+            return -1
+          } else if (b.tagName === 'AudioChannelConfiguration' && a.tagName !== 'AudioChannelConfiguration') {
+            return 1
+          } else if (a.tagName === 'Representation' && b.tagName === 'Representation') {
+            return b.attributes.bandwidth - a.attributes.bandwidth
+          } else {
+            return 0
+          }
+        })
+      })
+  }
+}
+
+/**
+ * @param {shaka.extern.xml.Node} mpdNode
+ */
+export function manifestPreprocessorTXml(mpdNode) {
+  /** @type {shaka.extern.xml.Node[]} */
+  const periods = mpdNode.children?.filter(child => typeof child !== 'string' && child.tagName === 'Period') ?? []
+
+  sortAdapationSetsByCodec(periods)
+  sortAudioAdaptationSetsByBitrate(periods)
+
+  if (mpdNode.attributes.type === 'dynamic') {
+    // fix live stream loading issues
+    // YouTube uses a 12 second delay on the official website for normal streams
+    // and a shorter one for low latency streams
+    // If we don't add a little bit of a delay, we get presented with a loading symbol every 5 seconds,
+    // while shaka-player processes the new manifest and segments
+    const minimumUpdatePeriod = parseFloat(mpdNode.attributes.minimumUpdatePeriod.match(/^PT(\d+(?:\.\d+)?)S$/)[1])
+    mpdNode.attributes.suggestedPresentationDelay = `PT${(minimumUpdatePeriod * 2).toFixed(3)}S`
+
+    // fix live streams with subtitles having duplicate Representation ids
+    // shaka-player throws DASH_DUPLICATE_REPRESENTATION_ID if we don't fix it
+
+    for (const period of periods) {
+      /** @type {shaka.extern.xml.Node[]} */
+      const representations = []
+
+      for (const periodChild of period.children) {
+        if (typeof periodChild !== 'string' && periodChild.tagName === 'AdaptationSet') {
+          for (const adaptationSetChild of periodChild.children) {
+            if (typeof adaptationSetChild !== 'string' && adaptationSetChild.tagName === 'Representation') {
+              representations.push(adaptationSetChild)
+            }
+          }
+        }
+      }
+
+      const knownIds = new Set()
+      let counter = 0
+      for (const representation of representations) {
+        const id = representation.attributes.id
+
+        if (knownIds.has(id)) {
+          const newId = `${id}-ft-fix-${counter}`
+
+          representation.attributes.id = newId
+          knownIds.add(newId)
+          counter++
+        } else {
+          knownIds.add(id)
+        }
+      }
+    }
+  } else if (!process.env.SUPPORTS_LOCAL_API) {
+    repairInvidiousManifest(periods)
+  }
+}
+
+/** @type {shaka.extern.RequestFilter} */
+export function requestFilter(type, request, _context) {
+  if (type === RequestType.SEGMENT) {
+    const url = new URL(request.uris[0])
+
+    // only when we aren't proxying through Invidious,
+    // it doesn't like the range param and makes get requests to youtube anyway
+    if (url.protocol !== 'sabr:' && url.hostname.endsWith('.googlevideo.com') && url.pathname === '/videoplayback') {
+      request.method = 'POST'
+      request.body = new Uint8Array([0x78, 0]) // protobuf: { 15: 0 } (no idea what it means but this is what YouTube uses)
+
+      if (request.headers.Range) {
+        request.uris[0] += `&range=${request.headers.Range.split('=')[1]}`
+        delete request.headers.Range
+      }
+
+      request.uris[0] += '&alr=yes'
+    }
+  }
+}
+
+export function stopPowerSaveBlocker() {
+  if (process.env.IS_ELECTRON) {
+    window.ftElectron.stopPowerSaveBlocker()
+  }
 }
