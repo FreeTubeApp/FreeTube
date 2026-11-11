@@ -2,6 +2,7 @@
   <label
     class="pure-material-slider"
     :for="id"
+    :data-settings-search-label="label"
   >
     <input
       :id="id"
