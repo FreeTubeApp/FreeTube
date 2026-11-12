@@ -11,7 +11,6 @@ import {
   SabrContextUpdate,
   SabrContextWritePolicy,
   NextRequestPolicy,
-  PlaybackCookie,
   ReloadPlaybackContext,
 } from 'googlevideo/protos'
 import shaka from 'shaka-player'
@@ -89,7 +88,7 @@ function formatIdFromString(str) {
   return {
     itag: parseInt(videoFormatIdParts[0]),
     lastModified: videoFormatIdParts[1],
-    xtags: videoFormatIdParts[2]
+    xtags: videoFormatIdParts[2].length === 0 ? undefined : videoFormatIdParts[2]
   }
 }
 
@@ -373,9 +372,9 @@ async function doRequest(
                 mediaHeader.formatId.lastModified === lastModified &&
                 mediaHeader.formatId.xtags === xtags
               ) {
-                if (operationInputs.isInit && mediaHeader.isInitSeg) {
+                if (operationInputs.isInit && mediaHeader.isInitializationSegment) {
                   mediaHeaderId = mediaHeader.headerId
-                } else if (!operationInputs.isInit && mediaHeader.sequenceNumber === operationInputs.sequenceNumber) {
+                } else if (!operationInputs.isInit && mediaHeader.segmentNum === operationInputs.sequenceNumber) {
                   mediaHeaderId = mediaHeader.headerId
                 }
               }
@@ -404,7 +403,7 @@ async function doRequest(
             shouldRetryDueToNextRequestPolicy = true
 
             currentState.sabrStreamState.nextRequestPolicy = nextRequestPolicy
-            currentState.abrRequest.streamerContext.playbackCookie = nextRequestPolicy?.playbackCookie ? PlaybackCookie.encode(nextRequestPolicy.playbackCookie).finish() : undefined
+            currentState.abrRequest.streamerContext.playbackCookie = nextRequestPolicy?.playbackCookie
 
             currentState.abrRequest.streamerContext.backoffTimeMs = nextRequestPolicy?.backoffTimeMs
             break
@@ -730,18 +729,19 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
         clientViewportHeight: playerHeight.value,
         clientViewportIsFlexible: false
       },
-      preferredAudioFormatIds: [audioFormatId],
-      preferredVideoFormatIds: [videoFormatId],
-      preferredSubtitleFormatIds: [],
-      selectedFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
+      selectedAudioFormatIds: [audioFormatId],
+      selectedVideoFormatIds: [videoFormatId],
+      selectedCaptionFormatIds: [],
+      initializationFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
         poToken,
         clientInfo,
         sabrContexts,
         unsentSabrContexts,
-        playbackCookie: sabrStreamState.nextRequestPolicy?.playbackCookie ? PlaybackCookie.encode(sabrStreamState.nextRequestPolicy.playbackCookie).finish() : undefined,
+        playbackCookie: sabrStreamState.nextRequestPolicy?.playbackCookie,
       },
+      ssapPlaybackInfos: [],
       field1000: [],
       videoPlaybackUstreamerConfig,
     }
