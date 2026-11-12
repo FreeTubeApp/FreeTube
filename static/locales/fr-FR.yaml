@@ -638,6 +638,9 @@ Settings:
   SABR:
     Label: Activer SABR comme backend DASH
     Tooltip: SABR deviendra le seul moteur DASH dans les prochaines versions et ne pourra pas être désactivé. Cette option est disponible au cas où une implémentation préliminaire présenterait des problèmes irrémédiables.
+  Search Settings: Paramètres de recherche
+  Settings found: 1 paramètre trouvé | {count} paramètres trouvés
+  No Matching Settings: Aucun paramètre ne correspond à votre recherche.
 About:
   #On About page
   About: 'À propos'
