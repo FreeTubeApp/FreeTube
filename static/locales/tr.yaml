@@ -644,6 +644,9 @@ Settings:
   SABR:
     Label: DASH arka ucu olarak SABR etkinleştir
     Tooltip: SABR, gelecek sürümlerde tek DASH arka ucu olacak ve devre dışı bırakılamayacaktır. Bu seçenek, erken uygulamada kurtarılamaz sorunlar olması ihtimaline karşı sunulmaktadır.
+  Search Settings: Ayarlarda Ara
+  Settings found: 1 ayar bulundu | {count} ayar bulundu
+  No Matching Settings: Aramanızla eşleşen ayar bulunamadı.
 About:
   #On About page
   About: 'Hakkında'
