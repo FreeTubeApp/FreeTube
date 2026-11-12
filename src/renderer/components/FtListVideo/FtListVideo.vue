@@ -506,8 +506,8 @@ const progressPercentage = computed(() => {
   return Math.min(percentage, 100)
 })
 
-/** @type {import('vue').ComputedRef<any[]>} */
-const hiddenChannels = computed(() => JSON.parse(store.getters.getChannelsHidden))
+/** @type {import('vue').ComputedRef<Set<string>>} */
+const hiddenChannelsIdSet = computed(() => store.getters.getChannelsHiddenIdSet)
 
 /** @type {import('vue').ComputedRef<boolean>} */
 const useSponsorBlock = computed(() => store.getters.getUseSponsorBlock)
@@ -626,7 +626,7 @@ const dropdownOptions = computed(() => {
 
   if (channelId.value !== null) {
     if (!inSubscriptions.value) {
-      const channelShouldBeHidden = hiddenChannels.value.some(c => c.name === channelId.value)
+      const channelShouldBeHidden = hiddenChannelsIdSet.value.has(channelId.value)
 
       options.push(
         {
@@ -1208,7 +1208,7 @@ function togglePlaylistPrompt() {
  * @param {string} channelId
  */
 function hideChannel(channelName, channelId) {
-  const newHiddenChannels = [...hiddenChannels.value, { name: channelId, preferredName: channelName }]
+  const newHiddenChannels = [...JSON.parse(store.getters.getChannelsHidden), { name: channelId, preferredName: channelName }]
 
   store.dispatch('updateChannelsHidden', JSON.stringify(newHiddenChannels))
 
@@ -1220,7 +1220,7 @@ function hideChannel(channelName, channelId) {
  * @param {string} channelId
  */
 function unhideChannel(channelName, channelId) {
-  store.dispatch('updateChannelsHidden', JSON.stringify(hiddenChannels.value.filter(c => c.name !== channelId)))
+  store.dispatch('updateChannelsHidden', JSON.stringify(JSON.parse(store.getters.getChannelsHidden).filter(c => c.name !== channelId)))
 
   showToast(t('Channel Unhidden', { channel: channelName }))
 }

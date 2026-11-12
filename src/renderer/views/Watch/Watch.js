@@ -271,14 +271,8 @@ export default defineComponent({
     hideChapters: function () {
       return this.$store.getters.getHideChapters
     },
-    channelsHidden() {
-      return JSON.parse(this.$store.getters.getChannelsHidden).map((ch) => {
-        // Legacy support
-        if (typeof ch === 'string') {
-          return { name: ch, preferredName: '', icon: '' }
-        }
-        return ch
-      })
+    channelsHiddenIdSet() {
+      return this.$store.getters.getChannelsHiddenIdSet
     },
     forbiddenTitles() {
       return JSON.parse(this.$store.getters.getForbiddenTitles.toLowerCase())
@@ -297,7 +291,7 @@ export default defineComponent({
     },
     nextRecommendedVideo: function () {
       return this.recommendedVideos.find((video) =>
-        !this.isHiddenVideo(this.forbiddenTitles, this.channelsHidden, video)
+        !this.isHiddenVideo(this.forbiddenTitles, this.channelsHiddenIdSet, video)
       )
     },
     startTimeSeconds: function () {
@@ -1926,9 +1920,10 @@ export default defineComponent({
       this.setAppTitle(this.videoTitle)
     },
 
-    isHiddenVideo: function (forbiddenTitles, channelsHidden, video) {
-      return channelsHidden.some(ch => ch.name === video.authorId || (video.collaborators?.length > 0 && ch.name === video.collaborators[0].id)) ||
-        channelsHidden.some(ch => ch.name === video.author) ||
+    isHiddenVideo: function (forbiddenTitles, channelsHiddenIdSet, video) {
+      return channelsHiddenIdSet.has(video.authorId) ||
+      (video.collaborators?.length > 0 && channelsHiddenIdSet.has(video.collaborators[0].id)) ||
+        channelsHiddenIdSet.has(video.author) ||
         forbiddenTitles.some((text) => video.title?.toLowerCase().includes(text)) ||
         forbiddenTitles.some((text) => video.author?.toLowerCase().includes(text))
     },
