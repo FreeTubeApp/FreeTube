@@ -641,6 +641,9 @@ Settings:
     Set Password: Ezarri pasahitza
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
   Return to Settings Menu: Itzuli ezarpenen menura
+  Search Settings: Bilatu ezarpenak
+  Settings found: '"Ezarpen 1 aurkitu da | {count} ezarpen aurkitu dira"'
+  No Matching Settings: Ez dago zure bilaketarekin bat datorren ezarpenik.
 About:
   #On About page
   About: 'Honi buruz'
