@@ -646,6 +646,9 @@ Settings:
   SABR:
     Label: SABR engedélyezése mint DASH-háttérprogram
     Tooltip: A SABR lesz az egyetlen DASH-háttérprogram a jövőbeli kiadásokban, és nem lehet majd letiltani. Ez a kapcsoló arra az esetre szolgál, ha a korai megvalósítása helyrehozhatatlan problémákat okozna.
+  Search Settings: Keresési beállítások
+  Settings found: 1 beállítás található | {count} beállítás található
+  No Matching Settings: Nem található a keresésnek megfelelő beállítás.
 About:
   #On About page
   About: 'Névjegy'
