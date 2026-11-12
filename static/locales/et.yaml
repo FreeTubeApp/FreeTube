@@ -640,6 +640,9 @@ Settings:
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
   Return to Settings Menu: Tagasi seadistuste menüü juurde
+  Search Settings: Otsi seadistustest
+  Settings found: Leidus üks seadistus | Leidus {count} seadistust
+  No Matching Settings: Sinu otsingule ei vasta ükski seadistus.
 About:
   #On About page
   About: 'Teave'
