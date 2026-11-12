@@ -634,6 +634,9 @@ Settings:
     Password: パスワード
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
   Return to Settings Menu: 設定に戻る
+  Search Settings: 設定の検索
+  Settings found: 1件の設定が見つかりました | {count} 件の設定が見つかりました
+  No Matching Settings: 検索条件に一致する設定はありません。
 About:
   #On About page
   About: 'FreeTube について'
