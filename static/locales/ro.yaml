@@ -197,6 +197,7 @@ User Playlists:
   Move Video to the Top: Mută videoclipul sus
   Move Video to the Bottom: Mută videoclipul jos
   Export list of URLs: Exportare listă de URLuri
+  This playlist is private or does not exist.: Această listă de redare este privată sau nu există.
 History:
   # On History Page
   History: 'Istoric'
@@ -387,6 +388,7 @@ Settings:
       Dash Formats: 'Formate DASH'
       Legacy Formats: 'Formate vechi'
       Audio Formats: 'Formate audio'
+      Default Media Format: Format Media Implicit
     Default Quality:
       Default Quality: 'Calitate implicită'
       Auto: 'Automat'
@@ -588,7 +590,7 @@ Settings:
     City: Oraș
     Region: Regiune
     Country: Țară
-    Ip: IP
+    Ip: Ip
     Your Info: Informațiile tale
     Clicking on Test Proxy will send a request to: Făcând clic pe Testați Proxy se va trimite o cerere către
     Test Proxy: Testați Proxy
@@ -1007,7 +1009,7 @@ Clipboard:
 Hashtag:
   Hashtag: Hashtag
   This hashtag does not currently have any videos: Acest hashtag nu are momentan niciun videoclip
-Ok: OK
+Ok: Ok
 Go to page: Mergeți la {page}
 Close Banner: Închideți bannerul
 Age Restricted:
