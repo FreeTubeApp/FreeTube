@@ -638,6 +638,9 @@ Settings:
   SABR:
     Label: 启用 SABR 为 DASH 后端
     Tooltip: SABR 在未来版本中将成为唯一后端，无法禁用。提供此开关是以防提早实实施有不可恢复的问题。
+  Search Settings: 搜索设置
+  Settings found: 找到了 1 个设置 | 找到了 {count} 个设置
+  No Matching Settings: 没有设置匹配你的搜索。
 About:
   #On About page
   About: '关于'
