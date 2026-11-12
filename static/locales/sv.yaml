@@ -641,6 +641,9 @@ Settings:
     Disable Hardware Acceleration: Inaktivera maskinvaruacceleration
   Return to Settings Menu: Återgå till inställningsmenyn
   Sort Settings Sections (A-Z): Sortera inställningsavsnitt (A–Ö)
+  Search Settings: Sök inställningar
+  Settings found: 1 inställning hittades | {count} inställningar hittades
+  No Matching Settings: Inga inställningar matchar din sökning.
 About:
   #On About page
   About: 'Om'
