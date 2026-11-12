@@ -638,6 +638,9 @@ Settings:
     Password: Passord
   Return to Settings Menu: Gå tilbake til menyen med innstillinger
   Sort Settings Sections (A-Z): Sorter innstillingsseksjonene (A-Å)
+  Search Settings: Søkeinnstillinger
+  Settings found: 1 innstilling funnet | {count} innstillinger funnet
+  No Matching Settings: Ingen innstillinger samsvarer med søket ditt.
 About:
   #On About page
   About: 'Om'
