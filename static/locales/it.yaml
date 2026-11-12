@@ -638,6 +638,9 @@ Settings:
     Remove Password: Rimuovi password
   Sort Settings Sections (A-Z): Ordina le sezioni delle Impostazioni (A-Z)
   Return to Settings Menu: Torna al menu Impostazioni
+  Search Settings: Impostazioni di ricerca
+  Settings found: 1 impostazione trovata | {count} impostazioni trovate
+  No Matching Settings: Nessuna impostazione corrisponde alla tua ricerca.
 About:
   #On About page
   About: 'Informazioni'
