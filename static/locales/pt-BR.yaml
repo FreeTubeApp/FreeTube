@@ -635,6 +635,9 @@ Settings:
     Enter Password To Unlock: Digite a senha para desbloquear as configurações
   Sort Settings Sections (A-Z): Classificar seções de configurações (A-Z)
   Return to Settings Menu: Retornar ao menu de configurações
+  Search Settings: Configurações de busca
+  Settings found: 1 configuração encontrada | {count} configurações encontradas
+  No Matching Settings: Nenhuma configuração corresponde à sua busca.
 About:
   #On About page
   About: 'Sobre'
