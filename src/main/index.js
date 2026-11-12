@@ -2599,6 +2599,8 @@ function runApp() {
     ]
 
     const menu = Menu.buildFromTemplate(template)
-    Menu.setApplicationMenu(menu)
+    if (process.platform !== 'linux') {
+      Menu.setApplicationMenu(menu)
+    }
   }
 }
