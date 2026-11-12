@@ -636,6 +636,9 @@ Settings:
     Set Password: Passwort festlegen
   Sort Settings Sections (A-Z): Einstellungsabschnitte sortieren (A–Z)
   Return to Settings Menu: Zurück zum Einstellungsmenü
+  Search Settings: Einstellungen durchsuchen
+  Settings found: 1 Einstellung gefunden | {count} Einstellungen gefunden
+  No Matching Settings: Es wurden keine Einstellungen gefunden, die Ihrer Suche entsprechen.
 About:
   #On About page
   About: Über
