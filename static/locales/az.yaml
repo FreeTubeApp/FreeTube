@@ -623,6 +623,9 @@ Settings:
     Set Password To Prevent Access: Tənzimləmələrə girişi məhdudlaşdırmaq üçün parol təyin et
     Set Password: Parol Təyin Et
     Remove Password: Parolu Sil
+  Search Settings: Tənzimləmələri Axtar
+  Settings found: 1 tənzimləmə tapıldı | {count} tənzimləmə tapıldı
+  No Matching Settings: Axtarışınıza uyğun heç bir tənzimləmə yoxdur.
 Channel:
   Videos:
     Videos: Videolar
