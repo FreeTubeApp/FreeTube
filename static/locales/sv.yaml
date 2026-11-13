@@ -572,6 +572,7 @@ Settings:
     Hide Channel Shows: Dölj kanalfliken ”Serier”
     Add: Lägg till
     Remove: Ta bort
+    More Items Count: +{count} mer…
   The app needs to restart for changes to take effect. Restart and apply change?: Appen måste startas om för att ändringarna ska träda i kraft. Vill du starta om den nu?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Det gick inte att hämta nätverksinformationen. Är proxyn korrekt konfigurerad?
