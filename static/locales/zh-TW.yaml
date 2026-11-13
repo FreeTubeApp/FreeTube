@@ -566,6 +566,7 @@ Settings:
     Add: 新增
     Remove: 移除
     Hide Channel Shows: 隱藏頻道「節目」分頁
+    More Items Count: 以及 {count} 個等⋯⋯
   The app needs to restart for changes to take effect. Restart and apply change?: 必須重新啟動應用程式以生效。重新啟動並套用變更嗎？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: 取得網路資訊時發生錯誤。您的代理伺服器設定正確嗎？
