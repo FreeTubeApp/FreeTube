@@ -569,6 +569,7 @@ Settings:
     Add: Aggiungi
     Remove: Rimuovi
     Hide Channel Shows: Nascondi la scheda "Serie" del canale
+    More Items Count: +{count} altri
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy
