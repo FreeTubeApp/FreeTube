@@ -519,6 +519,7 @@ Settings:
     Setting object has insufficient data, skipping item: Seadistuste objekti andmed on puudulikud ja jäävad vahele
     Unknown setting key: 'Tundmatu seadistuste võti: {key}'
     Non-transferable setting key: 'Mitteedastatav seadistuste võti: {key}'
+    Playlists have been successfully imported: Õnnestus ühe esitusloendi importimine {total}-st | Õnnestus {count} esitusloendi importimine {total}-st
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -570,6 +571,7 @@ Settings:
     Add: Lisa
     Remove: Eemalda
     Hide Channel Shows: Peida kanalite vahekaart „Sarjad“
+    More Items Count: Veel {count}…
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
     City: Linn
