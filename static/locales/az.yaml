@@ -586,6 +586,7 @@ Settings:
     Non-transferable setting key: 'Köçürülə bilməyən tənzimləmə açarı: {key}'
     How do I import my subscriptions?: Abunəliklərimi necə idxal edə bilərəm?
     Manage Subscriptions: Abunəlikləri İdarə Et
+    Playlists have been successfully imported: 1/{total} pleylist uğurla idxal edildi | {count}/{total} pleylist uğurla idxal edildi
   Proxy Settings:
     Proxy Settings: Proksi
     Proxy Warning: FreeTube tərkibində daxili proksi yoxdur, lakin cihazınızda icra olunan Tor və ya bəzi VPN-lərin təqdim etdiyi SOCKS5 kimi xarici proksiyə qoşula bilir. Aktivdirsə, proksi/Tor tənzimləmələrinin doğruluğunu yoxlayın, əks halda FreeTube hər hansı məlumat əldə edə bilməyəcək.
