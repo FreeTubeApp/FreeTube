@@ -520,6 +520,7 @@ Settings:
     Setting object has insufficient data, skipping item: O objeto de configuração possui dados insuficientes, ignorando o item
     Unknown setting key: 'Chave de configuração desconhecida: {key}'
     Non-transferable setting key: 'Chave de configuração não transferível: {key}'
+    Playlists have been successfully imported: 1/{total} playlist importada com sucesso | {count}/{total} playlists importadas com sucesso
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Notificar quando vídeos publicitários for ignorado
     'SponsorBlock API Url (Default is https://sponsor.ajay.app)': URL da API SponsorBlock (o padrão é https://sponsor.ajay.app)
