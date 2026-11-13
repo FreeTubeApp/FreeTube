@@ -158,11 +158,11 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.5.32)
       sass:
-        specifier: ^1.107.1
-        version: 1.107.1
+        specifier: ^1.108.1
+        version: 1.108.1
       sass-loader:
         specifier: ^17.1.0
-        version: 17.1.0(sass@1.107.1)(webpack@5.112.2)
+        version: 17.1.0(sass@1.108.1)(webpack@5.112.2)
       stylelint:
         specifier: ^17.16.0
         version: 17.16.0(supports-color@10.2.2)(typescript@6.0.3)
@@ -3705,8 +3705,8 @@ packages:
       webpack:
         optional: true
 
-  sass@1.107.1:
-    resolution: {integrity: sha512-aJ1/LvxOOb04YhmiBjzZn3jVwdHKol+OVhoMV6fFl02fF9T3i+5Mg9l/CnzqtM+NX5Jn5o3lAbs/ZJivTCLHfQ==}
+  sass@1.108.1:
+    resolution: {integrity: sha512-sIYgSvOPeD9wABwDS/ofNjHASSck+7h3jLkk7wG1NPFL3XeS6vOQjBlAFSmRV09kZr1yt/Tuayt6kKtBbLjHNQ==}
     engines: {node: '>=20.19.0'}
     hasBin: true
 
@@ -8230,12 +8230,12 @@ snapshots:
     dependencies:
       truncate-utf8-bytes: 1.0.2
 
-  sass-loader@17.1.0(sass@1.107.1)(webpack@5.112.2):
+  sass-loader@17.1.0(sass@1.108.1)(webpack@5.112.2):
     optionalDependencies:
-      sass: 1.107.1
+      sass: 1.108.1
       webpack: 5.112.2(clean-css@5.3.3)(cssnano@9.9.0)(csso@5.0.5)(html-minifier-terser@6.1.0)(postcss@8.5.32)(svgo@4.1.0)(webpack-cli@7.3.1)
 
-  sass@1.107.1:
+  sass@1.108.1:
     dependencies:
       chokidar: 5.0.0
       immutable: 5.1.9
