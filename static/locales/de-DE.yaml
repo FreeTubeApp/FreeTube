@@ -567,6 +567,7 @@ Settings:
     Add: Hinzufügen
     Remove: Entfernen
     Hide Channel Shows: Kanal "Shows" Tab ausblenden
+    More Items Count: +{count} weitere…
   The app needs to restart for changes to take effect. Restart and apply change?: Die App muss neu gestartet werden, damit die Änderungen wirksam werden. Neu starten und Änderung übernehmen?
   Proxy Settings:
     Ip: IP-Adresse
