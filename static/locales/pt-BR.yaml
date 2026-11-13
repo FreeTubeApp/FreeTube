@@ -533,7 +533,7 @@ Settings:
     Hide Comments: Ocultar comentários
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
-    Hide Upcoming Premieres: Ocultar próximas estréias
+    Hide Upcoming Premieres: Ocultar próximas estreias
     Hide Channels Placeholder: ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem capitalização excessiva nem pontuação
     Hide Channels: Ocultar vídeos de canais
@@ -797,7 +797,7 @@ Video:
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
     OpenInTemplate: Abrir em {externalPlayer}
     video: vídeo
-  Premieres: Estreia
+  Premieres: Estreias
   Scroll to Bottom: Ir para o final
   Show Super Chat Comment: Mostrar comentários de Super Chat
   Upcoming: Em breve
@@ -855,7 +855,7 @@ Video:
   Station: Estação
   Playlist:
     Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
-  Premiere: Premiere
+  Premiere: Estreia
   Enable SponsorBlock on Channel: Habilitar SponsorBlock neste canal
   Disable SponsorBlock on Channel: Desabilitar SponsorBlock neste canal
   AI: IA
