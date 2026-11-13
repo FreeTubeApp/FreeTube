@@ -566,6 +566,7 @@ Settings:
     Add: Ajouter
     Remove: Supprimer
     Hide Channel Shows: Masquer l'onglet « Émissions » de la chaîne
+    More Items Count: +{nombre} de plus …
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
@@ -680,7 +681,7 @@ Channel:
       Newest: 'Plus récent'
       Oldest: 'Plus anciennes'
       Most Popular: 'Les plus populaires'
-    This channel has videos but none could be displayed, try fetching more: Cette chaîne a des vidéos mais aucune n'a pu être affichée, tenter d'en récupérer davantage
+    This channel has videos but none could be displayed, try fetching more: Cette chaîne contient des vidéos mais aucune n'a pu être affichée, tenter d'en récupérer davantage
   Playlists:
     Playlists: 'Playlists'
     This channel does not currently have any playlists: 'Cette chaîne n’a pas encore de playlist'
@@ -816,7 +817,7 @@ Video:
     Hide Stats: Masquer les stats
     Stats:
       Stats: Stats
-      Video ID: 'Identifiant de la vidéo : {videoId}'
+      Video ID: 'Identifiant de la vidéo : {videoId}'
       Media Formats: 'Formats du média : {formats}'
       Resolution: 'Résolution : {width}×{height}{''@''}{frameRate}'
       Player Dimensions: 'Dimensions du lecteur : {width}×{height}'
