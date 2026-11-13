@@ -24,11 +24,18 @@
 .select {
   position: relative;
   inline-size: 200px;
-  margin-block-start: 30px;
+  margin-block-start: auto;
+  padding-block-start: 0.5em;
+}
+
+.select-header {
+  display: flex;
+  align-items: center;
+  margin-block-end: 3px;
+  min-block-size: 20px;
 }
 
 .select-text {
-  position: relative;
   font-family: inherit;
   background-color: var(--search-bar-color);
   color: var(--primary-text-color);
@@ -57,9 +64,9 @@
   padding-inline-end: 1.5rem;
 }
 
-.iconSelect {
+.select-down-icon {
   position: absolute;
-  inset-block-start: 10px;
+  margin-block-start: 10px;
   inset-inline-end: 10px;
 
   /* Styling the down arrow */
@@ -72,44 +79,32 @@
 }
 
 .disabled,
-.disabled + .iconSelect {
+.disabled + .select-down-icon {
   opacity: 0.4;
   cursor: not-allowed;
 }
 
 .selectTooltip {
-  position: absolute;
-  inset-block-start: -22px;
-  inset-inline-end: 10px;
+  margin-inline: auto 10px;
+  padding-inline-start: 5px;
   border-inline-end: 6px solid transparent;
 }
 
-
 /* LABEL ======================================= */
 .select-label {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
-  position: absolute;
   display: flex;
   column-gap: 6px;
   inset-inline-start: 0;
-  inset-block-start: 10px;
+  inset-block-start: -20px;
   transition: 0.2s ease all;
-  color: var(--tertiary-text-color);
+  color: var(--accent-color);
 }
 
 .select-icon {
   inline-size: 14px;
   block-size: 14px;
-}
-
-/* active state */
-.select-text:focus ~ .select-label,
-.select-text:valid ~ .select-label {
-  color: var(--accent-color);
-  inset-block-start: -20px;
-  transition: 0.2s ease all;
-  font-size: 14px;
 }
 
 /* BOTTOM BARS ================================= */
