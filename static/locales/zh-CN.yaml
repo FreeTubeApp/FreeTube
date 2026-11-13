@@ -566,6 +566,7 @@ Settings:
     Add: 添加
     Remove: 删除
     Hide Channel Shows: 隐藏频道 "Shows" 选项卡
+    More Items Count: + 另外 {count} 个 …
   The app needs to restart for changes to take effect. Restart and apply change?: 应用需要重启让修改生效。重启以应用修改？
   Proxy Settings:
     Proxy Protocol: 代理协议
