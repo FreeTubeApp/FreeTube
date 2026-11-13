@@ -586,6 +586,7 @@ Settings:
     Add: Legg til
     Remove: Fjern
     Hide Channel Shows: Skjul «Serier»-fanen i kanaler
+    More Items Count: +{count} flere…
   The app needs to restart for changes to take effect. Restart and apply change?: Start programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet over
