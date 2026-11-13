@@ -1070,9 +1070,9 @@ async function exportYouTubeWatchHistory() {
 const allPlaylists = computed(() => store.getters.getAllPlaylists)
 
 async function importPlaylists() {
-  let response
+  let playlists
   try {
-    response = await readFileWithPicker(
+    const response = await readFileWithPicker(
       t('Settings.Data Settings.Playlist File'),
       {
         'application/x-freetube-db': '.db'
@@ -1080,34 +1080,33 @@ async function importPlaylists() {
       IMPORT_DIRECTORY_ID,
       START_IN_DIRECTORY
     )
+
+    if (response === null) {
+      return
+    }
+
+    let data = response.content
+
+    // for the sake of backwards compatibility,
+    // check if this is the old JSON array export (used until version 0.19.1),
+    // that didn't match the actual database format
+    const trimmedData = data.trim()
+
+    if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
+      playlists = JSON.parse(trimmedData)
+    } else {
+      // otherwise assume this is the correct database format,
+      // which is also what we export now (used in 0.20.0 and later versions)
+      data = data.split('\n')
+      data.pop()
+
+      playlists = data.map(playlistJson => JSON.parse(playlistJson))
+    }
   } catch (err) {
+    console.error(err)
     const message = t('Settings.Data Settings.Unable to read file')
     showToast(`${message}: ${err}`)
     return
-  }
-
-  if (response === null) {
-    return
-  }
-
-  let data = response.content
-
-  let playlists
-
-  // for the sake of backwards compatibility,
-  // check if this is the old JSON array export (used until version 0.19.1),
-  // that didn't match the actual database format
-  const trimmedData = data.trim()
-
-  if (trimmedData[0] === '[' && trimmedData[trimmedData.length - 1] === ']') {
-    playlists = JSON.parse(trimmedData)
-  } else {
-    // otherwise assume this is the correct database format,
-    // which is also what we export now (used in 0.20.0 and later versions)
-    data = data.split('\n')
-    data.pop()
-
-    playlists = data.map(playlistJson => JSON.parse(playlistJson))
   }
 
   const requiredKeys = [
@@ -1136,7 +1135,7 @@ async function importPlaylists() {
     'videoCount',
   ]
 
-  const knownKeys = [...requiredKeys, ...optionalKeys, ...ignoredKeys]
+  const knownKeys = new Set([...requiredKeys, ...optionalKeys, ...ignoredKeys])
 
   const requiredVideoKeys = [
     'videoId',
@@ -1153,6 +1152,7 @@ async function importPlaylists() {
   ]
 
   const newPlaylists = []
+  let importedPlaylistCount = 0
 
   playlists.forEach((playlistData) => {
     // We would technically already be done by the time the data is parsed,
@@ -1161,40 +1161,29 @@ async function importPlaylists() {
 
     const playlistObject = {}
     const videoIdToBeAddedSet = new Set()
-    let countRequiredKeysPresent = 0
 
     Object.keys(playlistData).forEach((key) => {
-      if (!knownKeys.includes(key)) {
+      if (!knownKeys.has(key)) {
         const message = `${t('Settings.Data Settings.Unknown data key')}: ${key}`
         showToast(message)
       } else if (key === 'videos') {
         const videoArray = []
         playlistData.videos.forEach((video) => {
-          const videoPropertyKeys = Object.keys(video)
-          const videoObjectHasAllRequiredKeys = requiredVideoKeys.every((k) => videoPropertyKeys.includes(k))
-
-          if (videoObjectHasAllRequiredKeys) {
+          if (requiredVideoKeys.every((k) => Object.hasOwn(video, k))) {
             videoArray.push(video)
             videoIdToBeAddedSet.add(video.videoId)
           }
         })
 
         playlistObject.videos = videoArray
-
-        if (requiredKeys.includes(key)) {
-          countRequiredKeysPresent++
-        }
       } else if (!ignoredKeys.includes(key)) {
         // Do nothing for keys to be ignored
         playlistObject[key] = playlistData[key]
-
-        if (requiredKeys.includes(key)) {
-          countRequiredKeysPresent++
-        }
       }
     })
 
-    if (countRequiredKeysPresent !== requiredKeys.length) {
+    const allVideosSkipped = playlistData.videos?.length > 0 && playlistObject.videos.length === 0
+    if (!requiredKeys.every((k) => Object.hasOwn(playlistObject, k)) || allVideosSkipped) {
       const message = t('Settings.Data Settings.Playlist insufficient data', { playlist: playlistData.playlistName })
       showToast(message)
       return
@@ -1210,6 +1199,7 @@ async function importPlaylists() {
 
     if (existingPlaylist === undefined) {
       newPlaylists.push(playlistObject)
+      importedPlaylistCount++
       return
     }
 
@@ -1242,7 +1232,7 @@ async function importPlaylists() {
             return x.videoId === video.videoId && x.timeAdded === video.timeAdded
           })
         }
-      } else if (existingVideoIdSet !== undefined) {
+      } else {
         // Disallow duplicate (by videoId) videos to be added
 
         if (existingVideoIdSet.has(video.videoId)) {
@@ -1250,11 +1240,6 @@ async function importPlaylists() {
         } else {
           existingVideoIdSet.add(video.videoId)
         }
-      } else {
-        videoExists = playlistVideos.some((x) => {
-          // Disallow duplicate (by videoId) videos to be added
-          return x.videoId === video.videoId
-        })
       }
 
       if (!videoExists) {
@@ -1263,6 +1248,7 @@ async function importPlaylists() {
         playlistVideos.push(video)
       }
     })
+
     // Update playlist's `lastUpdatedAt` & other attributes
     store.dispatch('updatePlaylist', {
       _id: existingPlaylist._id,
@@ -1271,13 +1257,16 @@ async function importPlaylists() {
       description: playlistObject.description,
       videos: playlistVideos
     })
+    importedPlaylistCount++
   })
 
   if (newPlaylists.length > 0) {
     store.dispatch('addPlaylists', newPlaylists)
   }
 
-  showToast(t('Settings.Data Settings.All playlists has been successfully imported'))
+  if (importedPlaylistCount > 0) {
+    showToast(t('Settings.Data Settings.Playlists have been successfully imported', { count: importedPlaylistCount, total: playlists.length }, importedPlaylistCount))
+  }
 }
 
 async function exportPlaylists() {

@@ -549,7 +549,6 @@ Settings:
     Manage Subscriptions: 'Kudeatu harpidetzak'
     Import Playlists: Inportatu erreprodukzio-zerrendak
     Export Playlists: Esportatu erreprodukzio-zerrendak
-    All playlists has been successfully imported: Erreprodukzio-zerrenda guztiak ongi inportatu dira
     All playlists has been successfully exported: Erreprodukzio-zerrenda guztiak ongi esportatu dira
     Playlist insufficient data: Ez dago datu nahikorik "{playlist}" erreprodukzio-zerrendarentzat, elementua saltatzen
     History File: Historikoaren fitxategia

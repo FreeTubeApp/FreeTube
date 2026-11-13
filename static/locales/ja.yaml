@@ -489,7 +489,6 @@ Settings:
     Data Settings: データ
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
-    All playlists has been successfully imported: すべての再生リストが正常にインポートされました
     All playlists has been successfully exported: すべての再生リストが正常にエクスポートされました
     Import Playlists: 再生リストのインポート
     Export Playlists: 再生リストのエクスポート

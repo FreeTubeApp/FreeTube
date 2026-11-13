@@ -580,7 +580,6 @@ Settings:
     All watched history has been successfully imported: 'Alle gekykte geskiedenis is suksesvol ingevoer'
     All watched history has been successfully exported: 'Alle gekykte geskiedenis is suksesvol uitgestuur'
     Playlist insufficient data: 'Onvoldoende data vir “{playlist}”-afspeellys, item word oorgeslaan'
-    All playlists has been successfully imported: 'Alle afspeellyste is suksesvol ingevoer'
     All playlists has been successfully exported: 'Alle afspeellyste is suksesvol uitgestuur'
     Unable to read file: 'Kan nie lêer lees nie'
     Unable to write file: 'Kan nie lêer skryf nie'

@@ -505,7 +505,6 @@ Settings:
     Import Playlists: Import playlists
     Export Playlists: Export playlists
     Playlist insufficient data: Insufficient data for ‘{playlist}’ playlist, skipping item
-    All playlists has been successfully imported: All playlists has been successfully imported
     All playlists has been successfully exported: All playlists has been successfully exported
     Playlist File: Playlist file
     Subscription File: Subscription file
