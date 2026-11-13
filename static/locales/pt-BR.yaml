@@ -514,6 +514,7 @@ Settings:
     Setting object has insufficient data, skipping item: O objeto de configuração possui dados insuficientes, ignorando o item
     Unknown setting key: 'Chave de configuração desconhecida: {key}'
     Non-transferable setting key: 'Chave de configuração não transferível: {key}'
+    Playlists have been successfully imported: 1/{total} playlist importada com sucesso | {count}/{total} playlists importadas com sucesso
   Distraction Free Settings:
     Hide Live Chat: Ocultar chat ao vivo
     Hide Popular Videos: Ocultar vídeos populares
