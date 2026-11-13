@@ -292,6 +292,12 @@ const DARK_BASE_THEMES = [
   'solarizedDark',
 ]
 
+const UI_SCALE = {
+  MIN: 50,
+  MAX: 300,
+  STEP: 5,
+}
+
 export {
   IpcChannels,
   DBActions,
@@ -308,4 +314,5 @@ export {
   ABOUT_BITCOIN_ADDRESS,
   LIGHT_BASE_THEMES,
   DARK_BASE_THEMES,
+  UI_SCALE,
 }
