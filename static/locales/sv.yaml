@@ -520,6 +520,7 @@ Settings:
     Setting object has insufficient data, skipping item: Inställningsposten saknar nödvändiga uppgifter och hoppas över
     Unknown setting key: 'Okänd inställningsnyckel: {key}'
     Non-transferable setting key: 'Inställningsnyckel som inte kan överföras: {key}'
+    Playlists have been successfully imported: 1/{total} spellista har importerats framgångsrikt | {count}/{total} spellistor har importerats framgångsrikt
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj populära videor
