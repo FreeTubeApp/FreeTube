@@ -55,6 +55,7 @@ const ShakaError = shaka.util.Error
  * @property {number} cumulativeBackOffTimeMs
  * @property {number} cumulativeBackOffRequested
  * @property {number} cumulativeRetryDueToNextRequestPolicy
+ * @property {number} sentPoTokenGeneration
  */
 /**
  * @typedef SabrStreamState
@@ -65,6 +66,14 @@ const ShakaError = shaka.util.Error
  * @property {?NextRequestPolicy} nextRequestPolicy
  * @property {boolean} playerReloadRequested
  * @property {number} requestNumber
+ * @property {Uint8Array} poToken
+ * @property {number} poTokenGeneration
+ * @property {boolean} poTokenRefreshing
+ * @property {Promise<void> | undefined} poTokenRefreshPromise
+ * @property {number} poTokenRefreshes
+ * @property {(() => Promise<string>) | undefined} refreshPoToken
+ * @property {boolean} disposed
+ * @property {number | undefined} protectionStatus
  */
 /**
  * @typedef TimeoutController
@@ -279,6 +288,61 @@ function createTimeoutController(callback, timeoutMs) {
 }
 
 /**
+ * Refresh a rejected streaming token without rebuilding the player.
+ * Concurrent audio/video responses share one bounded refresh operation.
+ * @param {CurrentState} currentState
+ */
+function refreshPoTokenFor(currentState) {
+  const state = currentState.sabrStreamState
+  if (state.disposed || !state.refreshPoToken || state.poTokenRefreshing ||
+      state.poTokenRefreshes >= 3 || currentState.sentPoTokenGeneration !== state.poTokenGeneration) {
+    return
+  }
+  state.poTokenRefreshing = true
+  state.poTokenRefreshes++
+  console.warn('SABR: refreshing rejected streaming token', state.poTokenRefreshes)
+  state.poTokenRefreshPromise = state.refreshPoToken()
+    .then((token) => {
+      if (state.disposed) return
+      state.poToken = base64ToU8(token)
+      state.poTokenGeneration++
+    })
+    .catch((error) => console.error('SABR: token refresh failed', error))
+    .finally(() => { state.poTokenRefreshing = false })
+}
+
+/**
+ * Stop waiting when this request is aborted without cancelling the shared refresh.
+ * @param {OperationInputs} operationInputs
+ * @param {CurrentState} currentState
+ */
+async function waitForPoTokenRefresh(operationInputs, currentState) {
+  const { signal } = currentState.abortController
+  const abortError = () => createRecoverableNetworkError(
+    currentState.abortStatus.timedOut && !currentState.abortStatus.cancelled
+      ? ShakaError.Code.TIMEOUT
+      : ShakaError.Code.OPERATION_ABORTED,
+    operationInputs.uri,
+    operationInputs.requestType
+  )
+  let onAbort
+
+  try {
+    await Promise.race([
+      currentState.sabrStreamState.poTokenRefreshPromise,
+      new Promise((_resolve, reject) => {
+        onAbort = () => reject(abortError())
+        if (signal.aborted) onAbort()
+        else signal.addEventListener('abort', onAbort, { once: true })
+      })
+    ])
+    if (signal.aborted) throw abortError()
+  } finally {
+    signal.removeEventListener('abort', onAbort)
+  }
+}
+
+/**
  * @param {OperationInputs} operationInputs - readonly
  * @param {CurrentState} currentState - can be updated
  */
@@ -360,6 +424,15 @@ async function doRequest(
             const streamProtectionStatus = decodePart(part, StreamProtectionStatus)
             if (!streamProtectionStatus) break
 
+            if (streamProtectionStatus.status === 1 &&
+                currentState.sabrStreamState.protectionStatus !== 1 &&
+                currentState.sabrStreamState.poTokenRefreshes > 0) {
+              console.warn('SABR: replacement streaming token accepted')
+            }
+            currentState.sabrStreamState.protectionStatus = streamProtectionStatus.status
+            if (streamProtectionStatus.status === 2 || streamProtectionStatus.status === 3) {
+              refreshPoTokenFor(currentState)
+            }
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
@@ -539,8 +612,14 @@ async function doRequest(
       currentState.cumulativeRetryDueToNextRequestPolicy += 1
     }
 
+    // Do not exhaust the retry guard while a replacement token is being minted.
+    // Audio and video requests share this promise so both retry with the fresh token.
+    await waitForPoTokenRefresh(operationInputs, currentState)
+
     const { sabrContexts, unsentSabrContexts } = prepareSabrContexts(currentState.sabrStreamState)
 
+    currentState.abrRequest.streamerContext.poToken = currentState.sabrStreamState.poToken
+    currentState.sentPoTokenGeneration = currentState.sabrStreamState.poTokenGeneration
     currentState.abrRequest.streamerContext.sabrContexts = sabrContexts
     currentState.abrRequest.streamerContext.unsentSabrContexts = unsentSabrContexts
 
@@ -635,7 +714,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    */
   const initDataCache = new Map()
 
-  const poToken = base64ToU8(sabrData.poToken)
   const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
   const clientInfo = deepCopy(sabrData.clientInfo)
 
@@ -647,6 +725,12 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     nextRequestPolicy: undefined,
     playerReloadRequested: false,
     requestNumber: 0,
+    poToken: base64ToU8(sabrData.poToken),
+    poTokenGeneration: 0,
+    poTokenRefreshing: false,
+    poTokenRefreshes: 0,
+    refreshPoToken: sabrData.refreshPoToken,
+    disposed: false,
   }
 
   shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, _progressUpdated, headersReceived, _config) => {
@@ -746,7 +830,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       selectedFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
-        poToken,
+        poToken: sabrStreamState.poToken,
         clientInfo,
         sabrContexts,
         unsentSabrContexts,
@@ -831,6 +915,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       cumulativeBackOffTimeMs: 0,
       cumulativeBackOffRequested: 0,
       cumulativeRetryDueToNextRequestPolicy: 0,
+      sentPoTokenGeneration: sabrStreamState.poTokenGeneration,
     }
 
     const pendingRequest = doRequest(opInputs, currentState)
@@ -851,6 +936,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
   })
 
   const cleanup = () => {
+    sabrStreamState.disposed = true
     shaka.net.NetworkingEngine.unregisterScheme('sabr')
     initDataCache.clear()
   }

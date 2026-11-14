@@ -460,6 +460,20 @@ async function getHTMLPage(url, kind) {
 
 /**
  * @param {string} videoId
+ * @returns {Promise<string>}
+ */
+export async function generateFreshContentPoToken(videoId) {
+  const htmlExtracts = await getWatchHTMLWatchPage(videoId, fetch)
+  return await window.ftElectron.generatePoToken(
+    videoId,
+    JSON.stringify(htmlExtracts.session.context),
+    JSON.stringify(htmlExtracts.initialAttestationData),
+    JSON.stringify(htmlExtracts.ytConfig)
+  )
+}
+
+/**
+ * @param {string} videoId
  * @param {(input, init) => Promise<Response>} fetchFunc
  */
 async function getWatchHTMLWatchPage(videoId, fetchFunc) {
