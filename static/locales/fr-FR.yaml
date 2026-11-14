@@ -514,6 +514,7 @@ Settings:
     Setting object has insufficient data, skipping item: Les données de l'objet de configuration sont insuffisantes ; l'élément est ignoré
     Unknown setting key: 'Clé de paramètre inconnue : {key}'
     Non-transferable setting key: 'Clé de configuration non transférable : {key}'
+    Playlists have been successfully imported: 1/{total} liste de lecture a été importée avec succès | {count}/{total} listes de lecture ont été importées avec succès
   Distraction Free Settings:
     Hide Video Likes And Dislikes: Masquer les J’aime et Je n’aime pas des vidéos
     Hide Comment Likes: Masquer les J’aime dans les commentaires
