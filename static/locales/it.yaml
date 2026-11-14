@@ -517,6 +517,7 @@ Settings:
     Setting object has insufficient data, skipping item: L'oggetto delle impostazioni ha dati insufficienti, elemento saltato
     Unknown setting key: 'Chiave delle impostazioni sconosciuta: {key}'
     Non-transferable setting key: 'Chiave delle impostazioni non trasferibile: {key}'
+    Playlists have been successfully imported: 1/{total} playlist è stata importata correttamente | {count}/{total} playlist sono state importate correttamente
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
