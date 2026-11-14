@@ -520,6 +520,7 @@ Settings:
     Setting object has insufficient data, skipping item: Ayar nesnesinde yeterli veri yok, öge atlanıyor
     Unknown setting key: 'Bilinmeyen ayar anahtarı: {key}'
     Non-transferable setting key: 'Aktarılamayan ayar anahtarı: {key}'
+    Playlists have been successfully imported: 1/{total} oynatma listesi başarıyla içe aktarıldı | {count}/{total} oynatma listesi başarıyla içe aktarıldı
   Distraction Free Settings:
     Hide Live Chat: Canlı Sohbeti Gizle
     Hide Popular Videos: Popüler Videoları Gizle
@@ -571,6 +572,7 @@ Settings:
     Add: Ekle
     Remove: Kaldır
     Hide Channel Shows: Kanalın "Programlar" sekmesini gizle
+    More Items Count: +{count} daha…
   The app needs to restart for changes to take effect. Restart and apply change?: Değişikliklerin etkili olması için uygulamanın yeniden başlatılması gerekiyor. Yeniden başlatılsın ve değişiklikler uygulansın mı?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Ağ bilgileri alınırken hata oluştu. Vekil sunucunuz doğru yapılandırıldı mı?
