@@ -489,7 +489,6 @@ Settings:
     Data Settings: データ
     Manage Subscriptions: 登録チャンネルの管理
     Playlist insufficient data: 再生リスト「{playlist}」のデータが不十分なため、項目をスキップします
-    All playlists has been successfully imported: すべての再生リストが正常にインポートされました
     All playlists has been successfully exported: すべての再生リストが正常にエクスポートされました
     Import Playlists: 再生リストのインポート
     Export Playlists: 再生リストのエクスポート
@@ -514,6 +513,7 @@ Settings:
     Setting object has insufficient data, skipping item: 設定オブジェクトのデータが不十分です。この項目をスキップします
     Unknown setting key: '不明な設定キー : {key}'
     Non-transferable setting key: '転送できない設定キー : {key}'
+    Playlists have been successfully imported: 1/{total} プレイリストのインポートに成功しました | {count}/{total} プレイリストのインポートに成功しました
   Distraction Free Settings:
     Hide Live Chat: ライブチャットの非表示
     Hide Popular Videos: 人気動画の非表示
@@ -565,6 +565,7 @@ Settings:
     Add: 追加
     Remove: 削除
     Hide Channel Shows: 「番組」タブを非表示にする
+    More Items Count: +{count} 件以上…
   The app needs to restart for changes to take effect. Restart and apply change?: 変更の反映には、アプリの再起動が必要です。再起動して変更を適用しますか？
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: ネットワーク情報の取得中にエラーが発生しました。プロキシーを正しく設定してますか?
@@ -634,6 +635,9 @@ Settings:
     Password: パスワード
   Sort Settings Sections (A-Z): 設定項目の並べ替え（A-Z）
   Return to Settings Menu: 設定に戻る
+  Search Settings: 設定の検索
+  Settings found: 1件の設定が見つかりました | {count} 件の設定が見つかりました
+  No Matching Settings: 検索条件に一致する設定はありません。
 About:
   #On About page
   About: 'FreeTube について'

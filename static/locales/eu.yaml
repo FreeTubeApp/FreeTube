@@ -549,7 +549,6 @@ Settings:
     Manage Subscriptions: 'Kudeatu harpidetzak'
     Import Playlists: Inportatu erreprodukzio-zerrendak
     Export Playlists: Esportatu erreprodukzio-zerrendak
-    All playlists has been successfully imported: Erreprodukzio-zerrenda guztiak ongi inportatu dira
     All playlists has been successfully exported: Erreprodukzio-zerrenda guztiak ongi esportatu dira
     Playlist insufficient data: Ez dago datu nahikorik "{playlist}" erreprodukzio-zerrendarentzat, elementua saltatzen
     History File: Historikoaren fitxategia
@@ -641,6 +640,9 @@ Settings:
     Set Password: Ezarri pasahitza
   Sort Settings Sections (A-Z): Ordenatu ezarpenen atalak (A-Z)
   Return to Settings Menu: Itzuli ezarpenen menura
+  Search Settings: Bilatu ezarpenak
+  Settings found: '"Ezarpen 1 aurkitu da | {count} ezarpen aurkitu dira"'
+  No Matching Settings: Ez dago zure bilaketarekin bat datorren ezarpenik.
 About:
   #On About page
   About: 'Honi buruz'

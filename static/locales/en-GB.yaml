@@ -104,6 +104,8 @@ Subscriptions:
   All Subscription Tabs Hidden: All subscription tabs are hidden. To see content here, please unhide some tabs in the ‘{subsection}’ section in ‘{settingsSection}’.
   Empty Posts: Your subscribed channels currently do not have any posts.
   Load More Posts: Load more posts
+  Posts:
+    RSS Message: YouTube does not provide RSS feeds for posts. Disable the "{rssSetting}" setting to view posts or enable the "{hideSetting}" setting to hide this tab.
 Trending:
   Trending: 'Trending'
   Trending Tabs: Trending Tabs
@@ -197,6 +199,7 @@ User Playlists:
   Export list of URLs: Export list of URLs
   Move Video to the Top: Move Video to the Top
   Move Video to the Bottom: Move Video to the Bottom
+  This playlist is private or does not exist.: This playlist is private or does not exist.
 History:
   # On History Page
   History: 'History'
@@ -505,7 +508,6 @@ Settings:
     Import Playlists: Import playlists
     Export Playlists: Export playlists
     Playlist insufficient data: Insufficient data for ‘{playlist}’ playlist, skipping item
-    All playlists has been successfully imported: All playlists has been successfully imported
     All playlists has been successfully exported: All playlists has been successfully exported
     Playlist File: Playlist file
     Subscription File: Subscription file
@@ -631,6 +633,8 @@ Settings:
     Set Password: Set password
   Sort Settings Sections (A-Z): Sort settings sections (A-Z)
   Return to Settings Menu: Return to Settings Menu
+  Search Settings: Search Settings
+  Settings found: 1 setting found | {count} settings found
 About:
   #On About page
   About: About
@@ -1012,6 +1016,8 @@ Default Invidious instance has been set to {instance}: Default Invidious instanc
 Search Bar:
   Clear Input: Clear input
   Remove: Remove
+  Open Search Container: Open Search Container
+  Search: Search
 External link opening has been disabled in the general settings: External link opening has been disabled in the general settings
 Are you sure you want to open this link?: Are you sure you want to open this link?
 Screenshot Error: Screenshot failed. {error}

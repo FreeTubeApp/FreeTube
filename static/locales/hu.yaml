@@ -500,7 +500,6 @@ Settings:
     Export Playlists: Lejátszási listák exportálása
     Import Playlists: Lejátszási listák importálása
     All playlists has been successfully exported: Az összes lejátszási lista exportálása sikeresen megtörtént
-    All playlists has been successfully imported: Az összes lejátszási lista importálása sikeresen megtörtént
     Subscription File: Feliratkozás-fájl
     History File: Előzményfájl
     Playlist File: Lejátszási lista fájl
@@ -523,6 +522,7 @@ Settings:
     Setting object has insufficient data, skipping item: Az objektum beállításához nincs elegendő adat, elem kihagyása
     Unknown setting key: 'Ismeretlen beállítási kulcs: {key}'
     Non-transferable setting key: 'Nem átruházható beállítási kulcs: {key}'
+    Playlists have been successfully imported: Az 1/{total} lejátszási lista sikeresen importálva lett | {count}/{total} lejátszási lista sikeresen importálva lett
   Distraction Free Settings:
     Hide Live Chat: Élő csevegés elrejtése
     Hide Popular Videos: Népszerű videók elrejtése
@@ -574,6 +574,7 @@ Settings:
     Add: Hozzáadás
     Remove: Eltávolítás
     Hide Channel Shows: A „Műsorok” lap elrejtése a csatornán
+    More Items Count: +{count} további…
   The app needs to restart for changes to take effect. Restart and apply change?: Az alkalmazásnak újra kell indulnia, hogy a változtatások életbe lépjenek. Induljon újra és alkalmazza a módosítást?
   Proxy Settings:
     City: Helység

@@ -12,7 +12,7 @@
     >
       <FontAwesomeIcon :icon="['fas', 'question-circle']" />
     </button>
-    <Teleport to=".app">
+    <Teleport to=".app" defer>
       <p
         :id="id"
         ref="tooltipRef"

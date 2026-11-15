@@ -495,7 +495,6 @@ Settings:
     Import Playlists: Importa playlist
     Export Playlists: Esporta playlist
     Playlist insufficient data: Dati insufficienti per la playlist "{playlist}", elemento saltato
-    All playlists has been successfully imported: Tutte le playlist sono state importate correttamente
     All playlists has been successfully exported: Tutte le playlist sono state esportate correttamente
     History File: File della Cronologia
     Subscription File: File delle iscrizioni
@@ -518,6 +517,7 @@ Settings:
     Setting object has insufficient data, skipping item: L'oggetto delle impostazioni ha dati insufficienti, elemento saltato
     Unknown setting key: 'Chiave delle impostazioni sconosciuta: {key}'
     Non-transferable setting key: 'Chiave delle impostazioni non trasferibile: {key}'
+    Playlists have been successfully imported: 1/{total} playlist è stata importata correttamente | {count}/{total} playlist sono state importate correttamente
   Distraction Free Settings:
     Hide Popular Videos: Nascondi i video più popolari
     Hide Trending Videos: Nascondi le tendenze
@@ -569,6 +569,7 @@ Settings:
     Add: Aggiungi
     Remove: Rimuovi
     Hide Channel Shows: Nascondi la scheda "Serie" del canale
+    More Items Count: +{count} altri…
   The app needs to restart for changes to take effect. Restart and apply change?: L'app deve essere riavviata affinché le modifiche abbiano effetto. Riavviare e applicare la modifica?
   Proxy Settings:
     Proxy Protocol: Protocollo Proxy

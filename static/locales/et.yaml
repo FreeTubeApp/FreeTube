@@ -495,7 +495,6 @@ Settings:
     How do I import my subscriptions?: 'Kuidas ma saan oma tellimusi importida?'
     Manage Subscriptions: Halda tellimusi
     Export Playlists: Ekspordi esitusloendeid
-    All playlists has been successfully imported: Kõikide esitusloendite import õnnestus
     All playlists has been successfully exported: Kõikide esitusloendite eksport õnnestus
     Import Playlists: Impordi esitusloendeid
     Playlist insufficient data: „{playlist}“ esitusloendi kohta pole piisavalt andmeid, jätame vahele
@@ -520,6 +519,7 @@ Settings:
     Setting object has insufficient data, skipping item: Seadistuste objekti andmed on puudulikud ja jäävad vahele
     Unknown setting key: 'Tundmatu seadistuste võti: {key}'
     Non-transferable setting key: 'Mitteedastatav seadistuste võti: {key}'
+    Playlists have been successfully imported: Õnnestus ühe esitusloendi importimine {total}-st | Õnnestus {count} esitusloendi importimine {total}-st
   Distraction Free Settings:
     Hide Active Subscriptions: Peida aktiivsed tellimused
     Hide Live Chat: Peida veebivestlused
@@ -571,6 +571,7 @@ Settings:
     Add: Lisa
     Remove: Eemalda
     Hide Channel Shows: Peida kanalite vahekaart „Sarjad“
+    More Items Count: Veel {count}…
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Võrguteavet ei õnnestu leida. Kas sa oled puhverserveri ikka korralikult seadistanud?
     City: Linn
@@ -640,6 +641,9 @@ Settings:
     Set Password To Prevent Access: Vältimaks ligipääsu seadistustele määra salasõna
   Sort Settings Sections (A-Z): Järjesta seadistused (A-Z)
   Return to Settings Menu: Tagasi seadistuste menüü juurde
+  Search Settings: Otsi seadistustest
+  Settings found: Leidus üks seadistus | Leidus {count} seadistust
+  No Matching Settings: Sinu otsingule ei vasta ükski seadistus.
 About:
   #On About page
   About: 'Teave'

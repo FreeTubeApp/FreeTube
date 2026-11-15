@@ -370,7 +370,6 @@ Settings:
     Import Playlists: Importar listas de reproducción
     Export Playlists: Exportar listas de reproducción
     All playlists has been successfully exported: Todas sus listas de reproducción han sido exportadas con éxito
-    All playlists has been successfully imported: Todas sus listas han sido importadas con éxito
     Playlist insufficient data: Datos insuficientes de la lista "{playlist}", omitiendo
     Manage Subscriptions: Administrar suscripciones
   The app needs to restart for changes to take effect. Restart and apply change?: El programa requiere reiniciarse para que los cambios hagan efecto. ¿Desea reiniciar para aplicar los cambios?

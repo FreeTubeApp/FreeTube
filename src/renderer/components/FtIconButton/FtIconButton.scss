@@ -178,6 +178,7 @@
     margin: 0;
     padding-block: 8px;
     padding-inline: 10px;
+    text-align: start;
     transition: background 0.2s ease-out;
     white-space: nowrap;
 
@@ -206,9 +207,8 @@
   .listItemDivider {
     border-block-start: 1px solid var(--tertiary-text-color);
     margin-block: 1px;
-    margin-inline: auto;
     // Too "visible" with current color
     opacity: 0.5;
-    inline-size: 95%;
+    inline-size: 100%;
   }
 }

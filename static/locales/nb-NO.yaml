@@ -492,7 +492,6 @@ Settings:
     Import Subscriptions: Importer abonnementer
     Select Export Type: Velg eksporttype
     Data Settings: Data
-    All playlists has been successfully imported: Alle spillelister har blitt importert
     Subscription File: Abonnementsfil
     History File: Historikkfil
     Playlist File: Spillelistefil
@@ -518,6 +517,7 @@ Settings:
     Setting object has insufficient data, skipping item: Innstillingsobjektet har utilstrekkelige data, hopper over komponenten
     Unknown setting key: 'Ukjent innstillingsnøkkel: {key}'
     Non-transferable setting key: 'Uoverførbar innstillingsnøkkel: {key}'
+    Playlists have been successfully imported: 1/{total} spilleliste har blitt importert | {count}/{total} spillelister har blitt importert
   Proxy Settings:
     Region: Region
     Clicking on Test Proxy will send a request to: Klikk på «Test mellomtjener» for å sende en forespørsel til
@@ -586,6 +586,7 @@ Settings:
     Add: Legg til
     Remove: Fjern
     Hide Channel Shows: Skjul «Serier»-fanen i kanaler
+    More Items Count: +{count} flere…
   The app needs to restart for changes to take effect. Restart and apply change?: Start programmet på nytt for å ta i bruk endringene?
   SponsorBlock Settings:
     Notify when sponsor segment is skipped: Gi beskjed når sponsordelen blir hoppet over

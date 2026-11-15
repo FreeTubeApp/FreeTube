@@ -493,7 +493,6 @@ Settings:
     Export Playlists: Exportar playlists
     Playlist insufficient data: Dados insuficientes para a playlist "{playlist}", ignorando item
     All playlists has been successfully exported: Todas as playlists foram exportadas com sucesso
-    All playlists has been successfully imported: Todas as playlists foram importadas com sucesso
     Subscription File: Arquivo de inscrições
     History File: Arquivo de histórico
     Playlist File: Arquivo de playlist
@@ -515,6 +514,7 @@ Settings:
     Setting object has insufficient data, skipping item: O objeto de configuração possui dados insuficientes, ignorando o item
     Unknown setting key: 'Chave de configuração desconhecida: {key}'
     Non-transferable setting key: 'Chave de configuração não transferível: {key}'
+    Playlists have been successfully imported: 1/{total} playlist importada com sucesso | {count}/{total} playlists importadas com sucesso
   Distraction Free Settings:
     Hide Live Chat: Ocultar chat ao vivo
     Hide Popular Videos: Ocultar vídeos populares
@@ -533,7 +533,7 @@ Settings:
     Hide Comments: Ocultar comentários
     Hide Live Streams: Ocultar transmissões ao vivo
     Hide Chapters: Ocultar capítulos
-    Hide Upcoming Premieres: Ocultar próximas estréias
+    Hide Upcoming Premieres: Ocultar próximas estreias
     Hide Channels Placeholder: ID do canal
     Display Titles Without Excessive Capitalisation: Mostrar títulos sem capitalização excessiva nem pontuação
     Hide Channels: Ocultar vídeos de canais
@@ -566,6 +566,7 @@ Settings:
     Add: Adicionar
     Remove: Remover
     Hide Channel Shows: Ocultar a guia "Programas de TV" do canal
+    More Items Count: mais {count}…
   The app needs to restart for changes to take effect. Restart and apply change?: O aplicativo necessita reiniciar para as mudanças fazerem efeito. Reiniciar e aplicar mudança?
   Proxy Settings:
     Country: País
@@ -796,7 +797,7 @@ Video:
     OpeningTemplate: Abrindo {videoOrPlaylist} em {externalPlayer}...
     OpenInTemplate: Abrir em {externalPlayer}
     video: vídeo
-  Premieres: Estreia
+  Premieres: Estreias
   Scroll to Bottom: Ir para o final
   Show Super Chat Comment: Mostrar comentários de Super Chat
   Upcoming: Em breve
@@ -854,7 +855,7 @@ Video:
   Station: Estação
   Playlist:
     Unavailable videos are hidden: 1 vídeo indisponível está oculto | {count} vídeos indisponíveis estão ocultos
-  Premiere: Premiere
+  Premiere: Estreia
   Enable SponsorBlock on Channel: Habilitar SponsorBlock neste canal
   Disable SponsorBlock on Channel: Desabilitar SponsorBlock neste canal
   AI: IA

@@ -210,18 +210,12 @@ const hideUpcomingPremieres = computed(() => {
   return store.getters.getHideUpcomingPremieres
 })
 
-/** @type {import('vue').ComputedRef<{name : string, preferredName: string, icon: string}[]>} */
-const channelsHidden = computed(() => {
+/** @type {import('vue').ComputedRef<Set<string>>} */
+const channelsHiddenIdSet = computed(() => {
   // Some component users like channel view will have this disabled
-  if (!props.useChannelsHiddenPreference) { return [] }
+  if (!props.useChannelsHiddenPreference) { return new Set() }
 
-  return JSON.parse(store.getters.getChannelsHidden).map((ch) => {
-    // Legacy support
-    if (typeof ch === 'string') {
-      return { name: ch, preferredName: '', icon: '' }
-    }
-    return ch
-  })
+  return store.getters.getChannelsHiddenIdSet
 })
 
 /** @type {string[]} */
@@ -260,9 +254,12 @@ const showResult = computed(() => {
 
     const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-    if (channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaborators?.length > 0 && ch.name === props.data.collaborators[0].id)) ||
-    channelsHidden.value.some(ch => ch.name === props.data.author) ||
-    (lowerCaseAuthor != null && forbiddenTitles.value.some(text => lowerCaseAuthor.includes(text)))) {
+    if (
+      channelsHiddenIdSet.value.has(props.data.authorId) ||
+      (props.data.collaborators?.length > 0 && channelsHiddenIdSet.value.has(props.data.collaborators[0].id)) ||
+      channelsHiddenIdSet.value.has(props.data.author) ||
+      (lowerCaseAuthor != null && forbiddenTitles.value.some(text => lowerCaseAuthor.includes(text)))
+    ) {
       // hide videos by author
       return false
     }
@@ -285,7 +282,7 @@ const showResult = computed(() => {
 
     const lowerCaseName = props.data.name?.toLowerCase()
 
-    if ((attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) ||
+    if ((attrsToCheck.some(a => a != null && channelsHiddenIdSet.value.has(a))) ||
       (lowerCaseName != null && forbiddenTitles.value.some((text) => lowerCaseName.includes(text)))) {
       // hide channels by author
       return false
@@ -309,7 +306,7 @@ const showResult = computed(() => {
       props.data.authorId,
     ]
 
-    if (attrsToCheck.some(a => a != null && channelsHidden.value.some(ch => ch.name === a))) {
+    if (attrsToCheck.some(a => a != null && channelsHiddenIdSet.value.has(a))) {
       // hide playlists by author
       return false
     }

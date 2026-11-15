@@ -498,7 +498,6 @@ Settings:
     Subscription File: Prenumerationsfil
     Playlist File: Spellistefil
     Export Playlists: Exportera spellistor
-    All playlists has been successfully imported: Alla spellistor har importerats
     All playlists has been successfully exported: Alla spellistor har exporterats
     Import Playlists: Importera spellistor
     Playlist insufficient data: Spellistan ”{playlist}” saknar nödvändiga uppgifter och hoppas över
@@ -521,6 +520,7 @@ Settings:
     Setting object has insufficient data, skipping item: Inställningsposten saknar nödvändiga uppgifter och hoppas över
     Unknown setting key: 'Okänd inställningsnyckel: {key}'
     Non-transferable setting key: 'Inställningsnyckel som inte kan överföras: {key}'
+    Playlists have been successfully imported: 1/{total} spellista har importerats framgångsrikt | {count}/{total} spellistor har importerats framgångsrikt
   Distraction Free Settings:
     Hide Live Chat: Dölj livechatt
     Hide Popular Videos: Dölj populära videor
@@ -572,6 +572,7 @@ Settings:
     Hide Channel Shows: Dölj kanalfliken ”Serier”
     Add: Lägg till
     Remove: Ta bort
+    More Items Count: +{count} mer…
   The app needs to restart for changes to take effect. Restart and apply change?: Appen måste startas om för att ändringarna ska träda i kraft. Vill du starta om den nu?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Det gick inte att hämta nätverksinformationen. Är proxyn korrekt konfigurerad?

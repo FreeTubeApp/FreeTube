@@ -521,6 +521,7 @@ Settings:
     Hide Subscriptions Posts: Fela áskriftarfærslur
     Add: Bæta við
     Remove: Fjarlægja
+    Hide Channel Shows: Fela rásarflipann "Þættir"
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
@@ -548,7 +549,6 @@ Settings:
     Import Playlists: Flytja inn spilunarlista
     Export Playlists: Flytja út spilunarlista
     Playlist insufficient data: Ónóg gögn fyrir "{playlist}" spilunarlista, sleppi atriðinu
-    All playlists has been successfully imported: Tekist hefur að flytja inn alla spilunarlista
     All playlists has been successfully exported: Tekist hefur að flytja út alla spilunarlista
     Subscription File: Skrá með áskriftum
     History File: Skrá með atvikaferli
@@ -636,6 +636,9 @@ Settings:
     Password Settings: Lykilorð
   Sort Settings Sections (A-Z): Röðun stillingahluta (A-Ö)
   Return to Settings Menu: Fara aftur í stillingavalmynd
+  Search Settings: Leita að stillingum
+  Settings found: 1 stilling fannst | {count} stillingar fundust
+  No Matching Settings: Engar stillingar samsvöruðu leitinni þinni.
 About:
   #On About page
   About: 'Um hugbúnaðinn'
@@ -738,6 +741,7 @@ Channel:
     Details: Nánar
     Joined: Skráði sig
     Location: Staðsetning
+    Links: Tenglar
   This channel does not exist: Þessi rás er ekki til
   This channel does not allow searching: Þessi rás gefur ekki kost á að leita
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Þessi rás er með aldurstakmark og er í augnablikinu ekki hægt að skoða í FreeTube.
@@ -768,6 +772,9 @@ Channel:
     Courses: Kennsluefni
     This channel does not currently have any courses: Þessi rás er ekki með neitt kennsluefni
   View All: Skoða allt
+  Shows:
+    Shows: Þættir
+    This channel does not currently have any shows: Þessi rás er ekki með neina þætti
 Video:
   Mark As Watched: 'Merkja sem búið að horfa á'
   Remove From History: 'Fjarlægja úr áhorfsferli'
@@ -872,7 +879,7 @@ Video:
   Unlisted: Óskráð
   MembersOnly: Ekki er hægt að horfa á myndskeið einungis fyrir meðlimi með FreeTube þar sem þau krefjast innskráningar á Google og greiddu þátttökugjaldi á rás innsendandans.
   AgeRestricted: Ekki er hægt að horfa á aldurstakmörkuð myndskeið með FreeTube þar sem þau krefjast innskráningar á Google og notkunar á aldursvottuðum YouTube-reikningi.
-  IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið. Prófaðu að skipta yfir á annan VPN eða milliþjón.
+  IP block: YouTube hefur útilokað IP-vistfang þitt frá því að horfa á myndskeið, nú eða að myndskeiðið inniheldur efni með börnum undir lögaldri sem YouTube takmarkar aðgang að fyrir notendur sem ekki eru skráðir inn. Ef þetta er útilokun á IP-vistfangi skaltu prófa að skipta yfir á annan VPN eða milliþjón.
   DeArrow:
     Show Original Details: Birta upprunalegar nánari upplýsingar
     Show Modified Details: Birta breyttar nánari upplýsingar
@@ -1000,6 +1007,7 @@ Tooltips:
     Ignore Default Arguments: Ekki senda nein sjálfgefin viðföng til utanaðkomandi spilarans önnur en URL-slóð myndskeiðs (t.d. afspilunarhraða, slóð spilunarlista, o.s.frv.). Sérsniðin viðföng verða send eftir sem áður.
   Experimental Settings:
     Replace HTTP Cache: Gerir HTTP-skyndiminni Electron óvirkt og virkjar sérsniðna minnislæga skyndiminnis-diskmynd. Veldur aukinni notkun á vinnsluminni.
+    Disable Hardware Acceleration: Gerir vélbúnaðarhröðun á skjákorti óvirka. Gæti lagað vandamál í myndmerki, en mun líklega hamla afköstum.
   Distraction Free Settings:
     Hide Channels: Settu inn auðkenni rásar til að fela öll myndskeið, spilunarlista og sjálfa rásina við leit eða því sem er vinsælast, mest skoðað og mælt með. Auðkenni rásarinnar sem sett er inn þarf að vera nákvæmlega stafrétt og tekur tillit til hástafa/lágstafa.
     Hide Subscriptions Live: Þessa stillingu er hægt að taka yfir með "{appWideSetting}" stillingunni fyrir allt forritið, í "{subsection}" hlutanum í "{settingsSection}"

@@ -118,17 +118,12 @@ const props = defineProps({
 const visible = ref(props.initialVisibleState)
 const display = ref('block')
 
-const channelsHidden = computed(() => {
+/** @type {import('vue').ComputedRef<Set<string>>} */
+const channelsHiddenIdSet = computed(() => {
   // Some component users like channel view will have this disabled
-  if (!props.useChannelsHiddenPreference) { return [] }
+  if (!props.useChannelsHiddenPreference) { return new Set() }
 
-  return JSON.parse(store.getters.getChannelsHidden).map((ch) => {
-    // Legacy support
-    if (typeof ch === 'string') {
-      return { name: ch, preferredName: '', icon: '' }
-    }
-    return ch
-  })
+  return store.getters.getChannelsHiddenIdSet
 })
 
 const forbiddenTitles = computed(() => {
@@ -144,8 +139,9 @@ const shouldBeVisible = computed(() => {
   const lowerCaseTitle = props.data.title?.toLowerCase()
   const lowerCaseAuthor = props.data.author?.toLowerCase()
 
-  return !(channelsHidden.value.some(ch => ch.name === props.data.authorId || (props.data.collaborators?.length > 0 && ch.name === props.data.collaborators[0].id)) ||
-    channelsHidden.value.some(ch => ch.name === props.data.author) ||
+  return !(channelsHiddenIdSet.value.has(props.data.authorId) ||
+    (props.data.collaborators?.length > 0 && channelsHiddenIdSet.value.has(props.data.collaborators[0].id)) ||
+    channelsHiddenIdSet.value.has(props.data.author) ||
     (lowerCaseTitle && forbiddenTitles.value.some((text) => lowerCaseTitle.includes(text))) ||
     (hideChannelsBasedOnText.value && lowerCaseAuthor && forbiddenTitles.value.some((text) => lowerCaseAuthor.includes(text))))
 })
