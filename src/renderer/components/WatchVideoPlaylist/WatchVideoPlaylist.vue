@@ -1,13 +1,22 @@
 <template>
   <FtCard
+    ref="playlistPanel"
     class="relative"
     :class="{ isCollapsed }"
   >
+    <!-- announce playlist moves to screen reader users -->
+    <div
+      class="moveAnnouncement"
+      role="status"
+    >
+      {{ moveAnnouncement }}
+    </div>
     <FtLoader
       v-if="isLoading"
     />
     <div
       v-else
+      ref="playlistContent"
     >
       <div class="playlistHeader">
         <h3
@@ -152,11 +161,11 @@
         v-show="!isCollapsed"
         ref="playlistItemsWrapper"
         class="playlistItemsWrapper"
+        :class="{ isDragging: !!draggedItem, dragOutside }"
       >
         <FtListVideoNumbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
-          ref="playlistItem"
           class="playlistItem"
           :data="item"
           :playlist-id="playlistId"
@@ -169,7 +178,16 @@
           :video-index="index"
           :is-current-video="currentVideoIndexZeroBased === index"
           appearance="watchPlaylistItem"
+          :data-index="index"
           :initial-visible-state="index < (currentVideoIndexZeroBased + 4) && index > (currentVideoIndexZeroBased - 4)"
+          :whole-row-draggable="canReorder"
+          :can-move-video-up="canReorder && index > 0"
+          :can-move-video-down="canReorder && index < playlistItems.length - 1"
+          :is-video-dragging="dragImageReady"
+          :dragged-video="draggedItem || emptyDraggedVideo"
+          @dragstart="startDrag"
+          @move-video-to-the-top="movePlaylistItemToTop"
+          @move-video-to-the-bottom="movePlaylistItemToBottom"
           @pause-player="pausePlayer"
         />
         <p
@@ -193,8 +211,9 @@ import FtCard from '../ft-card/ft-card.vue'
 import FtListVideoNumbered from '../FtListVideoNumbered/FtListVideoNumbered.vue'
 
 import store from '../../store/index'
+import { usePlaylistDrag } from '../../composables/usePlaylistDrag'
 
-import { copyToClipboard, showToast, extractNumberFromString } from '../../helpers/utils'
+import { copyToClipboard, deepCopy, showToast, extractNumberFromString } from '../../helpers/utils'
 import {
   getLocalCachedFeedContinuation,
   getLocalPlaylist,
@@ -227,7 +246,7 @@ const props = defineProps({
   },
 })
 
-const emit = defineEmits(['pause-player'])
+const emit = defineEmits(['pause-player', 'dragging-change'])
 
 const { locale, t } = useI18n()
 const router = useRouter()
@@ -243,6 +262,10 @@ const playlistTitle = ref('')
 const playlistTotalVideoCount = ref(0)
 const playlistItems = shallowRef([])
 const randomizedPlaylistItems = shallowRef([])
+
+const emptyDraggedVideo = { videoId: null, playlistItemId: null }
+const moveAnnouncement = ref('')
+
 const showProgressBarPreview = ref(false)
 const previewPosition = ref(0)
 const previewVideoIndex = ref(1)
@@ -312,6 +335,30 @@ const playlistPageLinkTo = computed(() => ({
 const userPlaylistSortOrder = computed(() => store.getters.getUserPlaylistSortOrder)
 
 const sortOrder = computed(() => isUserPlaylist.value ? userPlaylistSortOrder.value : SORT_BY_VALUES.Custom)
+const canReorder = computed(() => isUserPlaylist.value && sortOrder.value === SORT_BY_VALUES.Custom &&
+  !shuffleEnabled.value && (!props.watchViewLoading || !!draggedItem.value) && playlistItems.value.length > 1)
+
+const playlistItemsWrapper = useTemplateRef('playlistItemsWrapper')
+const playlistContent = useTemplateRef('playlistContent')
+const playlistPanel = useTemplateRef('playlistPanel')
+const {
+  draggedItem,
+  dragImageReady,
+  dragOutside,
+  startDrag,
+  cancelDrag
+} = usePlaylistDrag({
+  items: playlistItems,
+  listRef: playlistItemsWrapper,
+  contentRef: playlistContent,
+  getPanelBounds: () => playlistPanel.value.getBounds(),
+  canReorder,
+  onMove(items, item, position) {
+    saveOrder(items)
+    announceMove(item, position)
+  },
+  onDraggingChange: dragging => emit('dragging-change', dragging)
+})
 
 const previewTransformXPercentage = computed(() => {
   // Breakpoint for single-column-template
@@ -365,6 +412,14 @@ watch(selectedUserPlaylistLastUpdatedAt, () => {
   parseUserPlaylist(selectedUserPlaylist.value)
 })
 
+watch(sortOrder, () => {
+  if (selectedUserPlaylist.value) { parseUserPlaylist(selectedUserPlaylist.value) }
+})
+
+watch(canReorder, allowed => {
+  if (!allowed) { cancelDrag() }
+})
+
 watch(() => props.videoId, (newId, oldId) => {
   if (!isCollapsed.value) {
     nextTick(scrollToCurrentVideo)
@@ -412,6 +467,7 @@ watch(isLoading, (newVal, oldVal) => {
 })
 
 watch(() => props.playlistId, () => {
+  cancelDrag()
   if (!process.env.SUPPORTS_LOCAL_API || backendPreference.value === 'invidious') {
     getPlaylistInformationInvidious()
   } else {
@@ -485,6 +541,46 @@ function getPlaylistInfoWithDelay() {
   }
 }
 
+function movePlaylistItemToTop(videoId, playlistItemId) {
+  movePlaylistItem(videoId, playlistItemId, 'top')
+}
+
+function movePlaylistItemToBottom(videoId, playlistItemId) {
+  movePlaylistItem(videoId, playlistItemId, 'bottom')
+}
+
+function movePlaylistItem(videoId, playlistItemId, position) {
+  cancelDrag()
+
+  const sourceIndex = playlistItems.value.findIndex(item => item.videoId === videoId && item.playlistItemId === playlistItemId)
+  if (sourceIndex < 0) { return }
+
+  const targetIndex = position === 'top' ? 0 : playlistItems.value.length - 1
+
+  if (targetIndex === sourceIndex) { return }
+
+  const items = playlistItems.value.slice()
+  const item = items.splice(sourceIndex, 1)[0]
+  items.splice(targetIndex, 0, item)
+  playlistItems.value = items
+
+  saveOrder(items)
+  announceMove(item, targetIndex + 1)
+}
+
+async function announceMove(item, position) {
+  moveAnnouncement.value = ''
+  await nextTick()
+  moveAnnouncement.value = t('User Playlists.Video Moved', { title: item.title, position, total: playlistItems.value.length })
+}
+
+function saveOrder(items) {
+  store.dispatch('updatePlaylist', deepCopy({
+    ...selectedUserPlaylist.value,
+    videos: reversePlaylist.value ? items.toReversed() : items
+  }))
+}
+
 function saveScrollState() {
   if (playlistItemsWrapper.value) {
     savedScrollTop = playlistItemsWrapper.value.scrollTop
@@ -523,6 +619,7 @@ function toggleLoop() {
 }
 
 function toggleShuffle() {
+  cancelDrag()
   if (shuffleEnabled.value) {
     shuffleEnabled.value = false
     showToast(t('Shuffle is now disabled'))
@@ -534,6 +631,7 @@ function toggleShuffle() {
 }
 
 function toggleReversePlaylist() {
+  cancelDrag()
   isLoading.value = true
   showToast(t('The playlist has been reversed'))
 
@@ -744,6 +842,7 @@ async function getPlaylistInformationInvidious() {
 }
 
 function parseUserPlaylist(playlist) {
+  cancelDrag()
   playlistTitle.value = playlist.playlistName
   channelName.value = ''
   channelId.value = ''
@@ -788,8 +887,6 @@ function shufflePlaylistItems() {
   randomizedPlaylistItems.value = items
 }
 
-const playlistItemsWrapper = useTemplateRef('playlistItemsWrapper')
-
 /**
  * @param {number} index
  */
@@ -807,7 +904,7 @@ function scrollToVideo(index) {
 }
 
 function scrollToCurrentVideo() {
-  if (isCollapsed.value) return
+  if (isCollapsed.value || draggedItem.value) return
   scrollToVideo(currentVideoIndexZeroBased.value)
 }
 
