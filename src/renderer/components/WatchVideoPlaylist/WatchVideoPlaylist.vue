@@ -166,6 +166,14 @@
         <FtListVideoNumbered
           v-for="(item, index) in playlistItems"
           :key="item.playlistItemId || item.videoId"
+          v-memo="[
+            item, index, playlistId, playlistType, reversePlaylist, shuffleEnabled, loopEnabled,
+            reversePlaylist ? playlistItems.length : 0,
+            currentVideoIndexZeroBased === index,
+            index < currentVideoIndexZeroBased + 4 && index > currentVideoIndexZeroBased - 4,
+            canReorder, index === playlistItems.length - 1,
+            dragImageReady && draggedItem === item
+          ]"
           class="playlistItem"
           :data="item"
           :playlist-id="playlistId"
@@ -183,8 +191,8 @@
           :whole-row-draggable="canReorder"
           :can-move-video-up="canReorder && index > 0"
           :can-move-video-down="canReorder && index < playlistItems.length - 1"
-          :is-video-dragging="dragImageReady"
-          :dragged-video="draggedItem || emptyDraggedVideo"
+          :is-video-dragging="dragImageReady && draggedItem === item"
+          :dragged-video="item"
           @dragstart="startDrag"
           @move-video-to-the-top="movePlaylistItemToTop"
           @move-video-to-the-bottom="movePlaylistItemToBottom"
@@ -202,7 +210,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, useTemplateRef, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, toRaw, useTemplateRef, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 
@@ -263,7 +271,6 @@ const playlistTotalVideoCount = ref(0)
 const playlistItems = shallowRef([])
 const randomizedPlaylistItems = shallowRef([])
 
-const emptyDraggedVideo = { videoId: null, playlistItemId: null }
 const moveAnnouncement = ref('')
 
 const showProgressBarPreview = ref(false)
@@ -576,8 +583,8 @@ async function announceMove(item, position) {
 
 function saveOrder(items) {
   store.dispatch('updatePlaylist', deepCopy({
-    ...selectedUserPlaylist.value,
-    videos: reversePlaylist.value ? items.toReversed() : items
+    ...toRaw(selectedUserPlaylist.value),
+    videos: (reversePlaylist.value ? items.toReversed() : items).map(toRaw)
   }))
 }
 
