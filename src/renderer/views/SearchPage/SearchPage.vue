@@ -18,6 +18,13 @@
       <FtElementList
         :data="shownResults"
       />
+      <FtFlexBox
+        v-if="shownResults.length === 0"
+      >
+        <p class="message">
+          {{ t("Search Filters.No results found") }}
+        </p>
+      </FtFlexBox>
       <FtAutoLoadNextPageWrapper
         v-if="!isNextPageLoading && nextPagePossible"
         :enabled="lastSearchHasSomeValidResults"
@@ -47,6 +54,7 @@ import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import store from '../../store'
 
