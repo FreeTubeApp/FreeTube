@@ -628,15 +628,11 @@ export function showExternalPlayerUnsupportedActionToast(externalPlayer, action)
   showToast(message)
 }
 
-export function getVideoParamsFromUrl(url) {
-  /** @type {URL} */
-  let urlObject
+/**
+ * @param {URL} urlObject
+ */
+export function getVideoParamsFromUrl(urlObject) {
   const paramsObject = { videoId: null, timestamp: null, playlistId: null }
-  try {
-    urlObject = new URL(url)
-  } catch {
-    return paramsObject
-  }
 
   function extractParams(videoId) {
     paramsObject.videoId = videoId

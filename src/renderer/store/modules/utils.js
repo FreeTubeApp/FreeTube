@@ -355,16 +355,6 @@ const actions = {
       urlStr = `https://www.youtube.com/${urlStr}`
     }
 
-    const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(urlStr)
-    if (videoId) {
-      return {
-        urlType: 'video',
-        videoId,
-        playlistId,
-        timestamp
-      }
-    }
-
     let url
     try {
       url = new URL(urlStr)
@@ -374,6 +364,28 @@ const actions = {
       }
     }
     let urlType = 'unknown'
+
+    // youtu.be
+    if (url.host === 'youtu.be' && /^\/[\w-]{11,}/.test(url.pathname)) {
+      const response = await fetch(url, { method: 'HEAD' })
+      try {
+        url = new URL(response.url)
+      } catch {
+        return {
+          urlType: 'invalid_url'
+        }
+      }
+    }
+
+    const { videoId, timestamp, playlistId } = getVideoParamsFromUrl(url)
+    if (videoId) {
+      return {
+        urlType: 'video',
+        videoId,
+        playlistId,
+        timestamp
+      }
+    }
 
     const channelPattern =
       /^\/(?:(?:channel|user|c)\/)?(?<channelId>[^/]+)(?:\/(?<tab>join|featured|videos|shorts|live|streams|podcasts|releases|courses|shows|playlists|about|community|channels))?\/?$/

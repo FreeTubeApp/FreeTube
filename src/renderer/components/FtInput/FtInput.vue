@@ -346,6 +346,7 @@ async function handleActionIconChange() {
         break
 
       case 'invalid_url':
+      case 'unknown':
       default: {
         // isYoutubeLink is already `false`
       }
