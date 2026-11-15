@@ -522,6 +522,7 @@ Settings:
     Add: Přidat
     Remove: Odstranit
     Hide Channel Shows: Skrýt kartu „Seriály“ u kanálů
+    More Items Count: +{count} dalších…
   Data Settings:
     Data Settings: 'Data'
     Select Export Type: 'Vybrat typ exportu'
@@ -572,6 +573,7 @@ Settings:
     Setting object has insufficient data, skipping item: Objekt nastavení nemá dostatek dat, přeskakování položky
     Unknown setting key: 'Neznámý klíč nastavení: {key}'
     Non-transferable setting key: 'Nepřenositelný klíč nastavení: {key}'
+    Playlists have been successfully imported: Úspěšně importován 1/{total} playlistů | Úspěšně importováno {count}/{total} playlistů
   Proxy Settings:
     Proxy Settings: Proxy
     City: Město
@@ -643,6 +645,9 @@ Settings:
   SABR:
     Label: Povolti SABR jako backend DASH
     Tooltip: SABR se v budoucím vydání stane jediným backendem DASH a nelze jej zakázat. Tento přepínač je poskytnut v případě, že má raná implementace závažné problémy.
+  Search Settings: Hledat nastavení
+  Settings found: Nalezeno 1 nastavení | Nalezeno {count} nastavení
+  No Matching Settings: Vašemu hledání neodpovídají žádná nastavení.
 About:
   #On About page
   About: 'O aplikaci'
