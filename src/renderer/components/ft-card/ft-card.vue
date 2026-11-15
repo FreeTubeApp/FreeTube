@@ -1,5 +1,6 @@
 <template>
   <div
+    ref="card"
     class="ft-card"
   >
     <slot />
