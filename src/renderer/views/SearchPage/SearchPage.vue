@@ -223,7 +223,7 @@ async function performSearchLocal(payload) {
     shownResults.value = results
     nextPageRef.value = continuationData
     lastSearchHasSomeValidResults.value = validResultsCount > 0
-    if (validResultsCount === 0) {
+    if (validResultsCount === 0 && shownResults.value.length > 0) {
       showToast(t('Search Filters.There are no more results for this search'))
     }
 
@@ -347,7 +347,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
 
     updateSubscriptionDetails(results)
 
-    if (rawResultsCount === 0) {
+    if (rawResultsCount === 0 && shownResults.value.length > 0) {
       showToast(t('Search Filters.There are no more results for this search'))
     }
   } catch (err) {
