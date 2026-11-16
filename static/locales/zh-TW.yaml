@@ -514,6 +514,7 @@ Settings:
     Setting object has insufficient data, skipping item: 設定物件的資料不足，將跳過該項目
     Unknown setting key: 未知的設定鍵：{key}
     Non-transferable setting key: 無法轉移的設定鍵：{key}
+    Playlists have been successfully imported: 已成功匯入 1 個播放清單，共 {total} 個 | 已成功匯入 {count} 個播放清單，共 {total} 個
   Distraction Free Settings:
     Hide Video Likes And Dislikes: 隱藏影片喜歡與不喜歡
     Distraction Free Settings: 勿擾
