@@ -566,7 +566,7 @@ Settings:
     Add: Ajouter
     Remove: Supprimer
     Hide Channel Shows: Masquer l'onglet « Émissions » de la chaîne
-    More Items Count: +{nombre} de plus …
+    More Items Count: +{nombre} de plus…
   The app needs to restart for changes to take effect. Restart and apply change?: L'application doit être redémarrée pour que les changements prennent effet. Redémarrer et appliquer les changements ?
   Proxy Settings:
     Error getting network information. Is your proxy configured properly?: Erreur lors de l'obtention des informations sur le réseau. Votre proxy est-il correctement configuré ?
