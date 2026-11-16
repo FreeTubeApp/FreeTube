@@ -4,6 +4,7 @@ import {
   CHANNEL_HANDLE_REGEX,
   createWebURL,
   getVideoParamsFromUrl,
+  isShortLinkDomainUrl,
   replaceFilenameForbiddenChars,
   searchFiltersMatch,
 } from '../../helpers/utils'
@@ -366,7 +367,7 @@ const actions = {
     let urlType = 'unknown'
 
     // youtu.be
-    if (url.host === 'youtu.be' && /^\/[\w-]{11,}/.test(url.pathname)) {
+    if (isShortLinkDomainUrl(url)) {
       const response = await fetch(url, { method: 'HEAD' })
       try {
         url = new URL(response.url)

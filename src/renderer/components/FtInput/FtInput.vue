@@ -129,6 +129,7 @@ import FtTooltip from '../FtTooltip/FtTooltip.vue'
 import store from '../../store/index'
 
 import { isKeyboardEventKeyPrintableChar, isNullOrEmpty } from '../../helpers/strings'
+import { isShortLinkDomainUrl } from '../../helpers/utils.js'
 
 const { t } = useI18n()
 
@@ -325,30 +326,34 @@ async function handleActionIconChange() {
 
   // Update action button icon according to input
   try {
-    const result = await store.dispatch('getYoutubeUrlInfo', inputData.value)
-
     let isYoutubeLink = false
 
-    switch (result.urlType) {
-      case 'video':
-      case 'playlist':
-      case 'show':
-      case 'search':
-      case 'channel':
-      case 'hashtag':
-      case 'post':
-      case 'trending':
-      case 'subscriptions':
-      case 'history':
-      case 'userplaylists':
-      case 'clip':
-        isYoutubeLink = true
-        break
+    // 'getYoutubeUrlInfo' may do a request to resolve redirection but we don't need to know the exact url type
+    if (isShortLinkDomainUrl(inputData.value)) {
+      isYoutubeLink = true
+    } else {
+      const result = await store.dispatch('getYoutubeUrlInfo', inputData.value)
+      switch (result.urlType) {
+        case 'video':
+        case 'playlist':
+        case 'show':
+        case 'search':
+        case 'channel':
+        case 'hashtag':
+        case 'post':
+        case 'trending':
+        case 'subscriptions':
+        case 'history':
+        case 'userplaylists':
+        case 'clip':
+          isYoutubeLink = true
+          break
 
-      case 'invalid_url':
-      case 'unknown':
-      default: {
-        // isYoutubeLink is already `false`
+        case 'invalid_url':
+        case 'unknown':
+        default: {
+          // isYoutubeLink is already `false`
+        }
       }
     }
 

@@ -629,6 +629,21 @@ export function showExternalPlayerUnsupportedActionToast(externalPlayer, action)
 }
 
 /**
+ * @param {string | URL} url
+ * @returns {boolean}
+ */
+export function isShortLinkDomainUrl(url) {
+  try {
+    const parsed = typeof url === 'string' ? new URL(url) : url
+    return (parsed.protocol === 'https:' || parsed.protocol === 'http:') &&
+      parsed.hostname === 'youtu.be' &&
+      /^\/[\w-]{11,}\/?$/.test(parsed.pathname)
+  } catch {
+    return false
+  }
+}
+
+/**
  * @param {URL} urlObject
  */
 export function getVideoParamsFromUrl(urlObject) {
