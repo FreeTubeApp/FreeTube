@@ -18,6 +18,13 @@
       <FtElementList
         :data="shownResults"
       />
+      <FtFlexBox
+        v-if="shownResults.length === 0"
+      >
+        <p class="message">
+          {{ t("Search Filters.No results found") }}
+        </p>
+      </FtFlexBox>
       <FtAutoLoadNextPageWrapper
         v-if="!isNextPageLoading && nextPagePossible"
         :enabled="lastSearchHasSomeValidResults"
@@ -47,6 +54,7 @@ import FtLoader from '../../components/FtLoader/FtLoader.vue'
 import FtCard from '../../components/ft-card/ft-card.vue'
 import FtElementList from '../../components/FtElementList/FtElementList.vue'
 import FtAutoLoadNextPageWrapper from '../../components/FtAutoLoadNextPageWrapper.vue'
+import FtFlexBox from '../../components/ft-flex-box/ft-flex-box.vue'
 
 import store from '../../store'
 
@@ -215,7 +223,7 @@ async function performSearchLocal(payload) {
     shownResults.value = results
     nextPageRef.value = continuationData
     lastSearchHasSomeValidResults.value = validResultsCount > 0
-    if (validResultsCount === 0) {
+    if (validResultsCount === 0 && shownResults.value.length > 0) {
       showToast(t('Search Filters.There are no more results for this search'))
     }
 
@@ -339,7 +347,7 @@ async function performSearchInvidious(payload, options = { resetSearchPage: fals
 
     updateSubscriptionDetails(results)
 
-    if (rawResultsCount === 0) {
+    if (rawResultsCount === 0 && shownResults.value.length > 0) {
       showToast(t('Search Filters.There are no more results for this search'))
     }
   } catch (err) {
