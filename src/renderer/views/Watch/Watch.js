@@ -183,6 +183,8 @@ export default defineComponent({
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
+
+      isReloadingView: false,
     }
   },
   computed: {
@@ -357,6 +359,10 @@ export default defineComponent({
   },
   methods: {
     async reloadView() {
+      if (this.isReloadingView) { return }
+
+      this.isReloadingView = true
+
       await this.handleRouteChange()
 
       if (this.$refs.player) {
@@ -383,6 +389,8 @@ export default defineComponent({
           this.getVideoInformationInvidious()
           break
       }
+
+      this.isReloadingView = false
     },
 
     resetVideoState: function () {
