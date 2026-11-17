@@ -85,6 +85,7 @@ Search Filters:
     Creative Commons: Creative-Commons
     Location: Region
   Clear Filters: Suchfilter zurücksetzen
+  No results found: Keine Ergebnisse gefunden. Probieren Sie verschiedene Schlüsselwörter aus oder passen Sie die Suchfilter an
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: Abos
@@ -515,6 +516,7 @@ Settings:
     Setting object has insufficient data, skipping item: Das Objekt enthält unzureichende Daten, Element wird übersprungen
     Unknown setting key: 'Unbekannter Einstellungsschlüssel: {key}'
     Non-transferable setting key: 'Nicht übertragbarer Einstellungsschlüssel: {key}'
+    Playlists have been successfully imported: 1/{total} Wiedergabeliste wurde erfolgreich importiert | {count}/{total} Wiedergabelisten wurden erfolgreich importiert
   Distraction Free Settings:
     Hide Live Chat: Live-Chat ausblenden
     Hide Popular Videos: Beliebte Videos ausblenden
