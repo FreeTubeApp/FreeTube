@@ -66,6 +66,7 @@
             v-if="!isUpcoming || playabilityStatus !== 'OK'"
             :src="thumbnail"
             class="videoThumbnail"
+            :class="{ 'videoThumbnailBorder': thumbnailOnly }"
             alt=""
           >
           <div
@@ -127,7 +128,7 @@
       class="ageRestricted"
     />
     <div
-      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="!thumbnailOnly && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="infoArea"
     >
       <watch-video-info
@@ -193,7 +194,7 @@
       />
     </div>
     <div
-      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="!thumbnailOnly && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="sidebarArea"
     >
       <watch-video-live-chat

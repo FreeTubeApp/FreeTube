@@ -86,6 +86,11 @@
 
       .videoThumbnail {
         inline-size: 100%;
+
+        &.videoThumbnailBorder {
+          box-shadow: 0 0 0 1px var(--accent-color-opacity3);
+          box-sizing: border-box;
+        }
       }
 
       .errorContainer {
