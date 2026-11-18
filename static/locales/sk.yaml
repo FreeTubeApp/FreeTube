@@ -85,6 +85,7 @@ Search Filters:
     HDR: HDR
     VR180: VR180
   Clear Filters: Vyčistiť filtre
+  No results found: Nenašli sa žiadne výsledky. Skúste použiť iné kľúčové slová alebo upravte filtre vyhľadávania
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Odbery'
@@ -485,6 +486,7 @@ Settings:
     Setting object has insufficient data, skipping item: Objekt nastavenia nemá dostatočné údaje, položka sa preskočí
     Unknown setting key: 'Neznámy kľúč nastavenia: {key}'
     Non-transferable setting key: 'Neprenositeľný kľúč nastavenia: {key}'
+    Playlists have been successfully imported: 1/{total} playlist bol úspešne importovaný | Boli úspešne importované playlisty {count}/{total}
   Distraction Free Settings:
     Hide Live Chat: Skryť živý chat
     Hide Popular Videos: Skryť populárne videá
@@ -535,6 +537,8 @@ Settings:
       Side Bar: Bočná lišta
     Add: Pridať
     Remove: Odstrániť
+    Hide Channel Shows: Skryť kartu kanálov „Relácie“
+    More Items Count: '+ďalšie: {count}…'
   Privacy Settings:
     Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: Naozaj chcete odstrániť všetky odbery a profily? Toto sa nedá vrátiť späť.
     Remove All Subscriptions / Profiles: Odstrániť všetky odbery / profily
@@ -631,6 +635,9 @@ Settings:
     Experimental Settings: Experimentálne
 
     Disable Hardware Acceleration: Vypnúť hardvérovú akceleráciu
+  Search Settings: Nastavenia vyhľadávania
+  Settings found: 'Našlo sa 1 nastavenie | Našli sa nastavenia: {count}'
+  No Matching Settings: Žiadne nastavenia nezodpovedajú vášmu vyhľadávaniu.
 About:
   #On About page
   About: 'O FreeTube'
@@ -688,6 +695,7 @@ Channel:
     Location: Lokácia
     Joined: Pripojený
     Details: Podrobnosti
+    Links: Odkazy
   Added channel to your subscriptions: Kanál bol pridaný k vašim odberom
   Channel has been removed from your subscriptions: Kanál bol odstránený z vašich odberov
   Removed subscription from {count} other channel(s): Odstránený odber z {count} iných kanálov
@@ -720,6 +728,9 @@ Channel:
   This channel is age-restricted and currently cannot be viewed in FreeTube.: Tento kanál je obmedzený vekom a momentálne nemôže byť pozeraný vo FreeTube.
   This channel does not exist: Tento kanál neexistuje
   View All: Zobraziť všetko
+  Shows:
+    Shows: Relácie
+    This channel does not currently have any shows: Tento kanál momentálne nemá žiadne relácie
 Video:
   Mark As Watched: 'Označiť ako pozerané'
   Remove From History: 'Odstrániť z histórie'
@@ -830,7 +841,7 @@ Video:
   DRMProtected: Videá chránené DRM nemôžu byť prehrávané vo FreeTube, pretože vyžadujú proprietárne, uzavreté zdrojové komponenty. Ak chcete pozerať toto video, prosím pozrite si ho na oficiálnej stránke YouTube vo webovom prehliadači s povoleným DRM.
   AgeRestricted: Videá obmedzené vekom nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a použitie vekovo overeného účtu YouTube.
   MembersOnly: Videá len pre členov nemôžu byť pozerané vo FreeTube, pretože vyžadujú prihlásenie Google a platené členstvo v kanáli nahrávača.
-  IP block: YouTube zablokoval pozeranie videa z vašej IP adresy. Prosím skúste prepnúť na inú VPN alebo proxy.
+  IP block: YouTube zablokoval vašu IP adresu a znemožnil vám prehrávanie videí, alebo toto video môže obsahovať obsah s neplnoletými osobami, ku ktorému YouTube obmedzuje prístup pre neprihlásených používateľov. Ak ide o blokáciu IP adresy, skúste prepnúť na inú VPN alebo proxy.
   Scroll to Bottom: Posunúť na koniec
   Watch:
     'Remaining preroll-ad time: {remindingTimeSeconds}s': 'Zostávajúci čas prvotnej reklamy: {remindingTimeSeconds}s'
