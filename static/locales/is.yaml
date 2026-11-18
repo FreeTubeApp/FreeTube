@@ -91,6 +91,7 @@ Search Filters:
     VR180: VR180
     Features: Eiginleikar
   Clear Filters: Hreinsa síur
+  No results found: Engar niðurstöður fundust. Prófaðu önnur leitarorð eða breyttu leitasíum
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Áskriftir'
@@ -522,6 +523,7 @@ Settings:
     Add: Bæta við
     Remove: Fjarlægja
     Hide Channel Shows: Fela rásarflipann "Þættir"
+    More Items Count: +{count} til viðbótar…
   Data Settings:
     Data Settings: 'Gögn'
     Select Export Type: 'Veldu tegund útflutnings'
