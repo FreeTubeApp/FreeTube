@@ -14,7 +14,7 @@
   @include single-column-template;
 
   display: inline-block;
-  max-inline-size: calc(80vh * 1.78);
+  max-inline-size: calc(80vb * 1.78);
 
   @media only screen and (width >= 1051px) {
     inline-size: 300%;
@@ -81,7 +81,7 @@
       grid-column: 1;
       margin-block: 0;
       margin-inline: auto;
-      max-inline-size: calc(80vh * 1.78);
+      max-inline-size: calc(80vb * 1.78);
       position: relative;
 
       .videoThumbnail {

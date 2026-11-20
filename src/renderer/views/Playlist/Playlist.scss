@@ -97,7 +97,7 @@
 
     .playlistInfoContainer {
       background-color: var(--card-bg-color);
-      block-size: calc(100vh - 132px);
+      block-size: calc(100vb - 132px);
       inline-size: 30%;
       inset-block-start: 96px;
       position: sticky;
@@ -149,7 +149,7 @@
 
 .loadNextPageWrapper {
   /* about the same height as the button */
-  max-block-size: 7vh;
+  max-block-size: 7vb;
 }
 
 .sortSelect {

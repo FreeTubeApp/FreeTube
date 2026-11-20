@@ -280,7 +280,7 @@ $grid-mode-grab-bar-padding: 1em;
       font-size: 14px;
       grid-area: description;
       max-block-size: 50px;
-      overflow-y: hidden;
+      overflow-block: hidden;
 
       @include low-contrast-when-watched(var(--secondary-text-color));
     }
@@ -309,20 +309,20 @@ $grid-mode-grab-bar-padding: 1em;
       .thumbnailLink,
       .thumbnailImage {
         inline-size: 336px;
-        max-inline-size: 25vw;
+        max-inline-size: 25vi;
 
         @media only screen and (width <= 680px) {
-          max-inline-size: 30vw;
+          max-inline-size: 30vi;
         }
       }
 
       .channelImage {
-        max-inline-size: 25vw;
-        max-block-size: 25vw;
+        max-inline-size: 25vi;
+        max-block-size: 25vi;
 
         @media only screen and (width <= 680px) {
-          max-inline-size: 30vw;
-          max-block-size: 30vw;
+          max-inline-size: 30vi;
+          max-block-size: 30vi;
         }
       }
     }

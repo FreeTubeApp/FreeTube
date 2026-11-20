@@ -38,21 +38,21 @@
     // For unknown reason class `routerView` is in 2 containers
     // padding for `playlistInfo` is 10px x2 = 20px
     // Also scrollbar got unknown width so using 95vw instead of 100vw
-    max-inline-size: calc(95vw - 32px - 20px);
+    max-inline-size: calc(95vi - 32px - 20px);
     text-overflow: ellipsis;
   }
 }
 
 .playlistDescription {
-  max-block-size: 20vh;
-  overflow-y: auto;
+  max-block-size: 20vb;
+  overflow-block: auto;
   white-space: break-spaces;
   margin-inline: auto;
   overflow-wrap: break-word;
-  max-inline-size: 24vw;
+  max-inline-size: 24vi;
 
   @media only screen and (width <= 850px) {
-    max-inline-size: 75vw;
+    max-inline-size: 75vi;
   }
 
   @media only screen and (width <= 680px) {
@@ -60,7 +60,7 @@
   }
 
   @media only screen and (width <= 500px) {
-    max-block-size: 10vh;
+    max-block-size: 10vb;
   }
 }
 
@@ -125,7 +125,7 @@
 
   .playlistTitle,
   .playlistDescription {
-    overflow-x: hidden;
+    overflow-inline: hidden;
     text-align: center;
     text-overflow: ellipsis;
     max-inline-size: 750px;

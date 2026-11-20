@@ -59,7 +59,7 @@
 .superChatComments {
   inline-size: 100%;
   block-size: 50px;
-  overflow-x: auto;
+  overflow-inline: auto;
   white-space: nowrap;
 }
 
@@ -180,7 +180,7 @@
 
 .liveChatComments {
   inline-size: 100%;
-  overflow-y: auto;
+  overflow-block: auto;
 }
 
 .chatContent {

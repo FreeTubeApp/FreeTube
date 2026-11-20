@@ -1,8 +1,8 @@
 .bannerContainer {
   background: center / cover no-repeat var(--banner-url, transparent);
-  block-size: 13vw;
+  block-size: 13vi;
   min-block-size: 110px;
-  max-block-size: 32vh;
+  max-block-size: 32vb;
   inline-size: 100%;
 }
 

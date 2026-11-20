@@ -1,5 +1,5 @@
 .videoChapters {
-  overflow-y: hidden;
+  overflow-block: hidden;
 }
 
 .chaptersSummary {
@@ -19,7 +19,7 @@
 .chaptersWrapper {
   margin-block-start: 15px;
   max-block-size: 250px;
-  overflow-y: scroll;
+  overflow-block: scroll;
   display: flex;
   flex-direction: column;
   gap: 8px;

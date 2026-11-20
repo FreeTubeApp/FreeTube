@@ -43,8 +43,8 @@
 }
 
 .changeLogText {
-  overflow-y: scroll;
-  block-size: 40vh;
+  overflow-block: scroll;
+  block-size: 40vb;
   display: block;
   padding-inline: 16px;
   margin-block-end: 16px;
@@ -77,6 +77,6 @@
   }
 
   .changeLogText {
-    block-size: 65vh;
+    block-size: 65vb;
   }
 }

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  min-block-size: 100vh;
+  min-block-size: 100vb;
   color: var(--primary-text-color);
   background-color: var(--bg-color);
 

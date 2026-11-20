@@ -16,7 +16,7 @@
 }
 
 .promptCard {
-  overflow-y: scroll;
+  overflow-block: scroll;
   max-block-size: 95%;
 }
 

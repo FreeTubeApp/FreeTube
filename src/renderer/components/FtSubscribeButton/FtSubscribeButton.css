@@ -72,7 +72,7 @@
   max-block-size: 200px;
   margin-block: -10px 0;
   margin-inline: 5px 0;
-  overflow-y: scroll;
+  overflow-block: scroll;
   position: absolute;
   text-align: center;
   user-select: none;
