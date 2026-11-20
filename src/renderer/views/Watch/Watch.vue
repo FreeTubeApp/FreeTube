@@ -194,11 +194,11 @@
       />
     </div>
     <div
-      v-if="!thumbnailOnly && (isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
+        v-if="!isLoading && !thumbnailOnly && !hideLiveChat && (isLive || isUpcoming)"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"
@@ -219,7 +219,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
-        v-if="!isLoading && !hideRecommendedVideos"
+        v-if="!isLoading && !thumbnailOnly && !hideRecommendedVideos"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
