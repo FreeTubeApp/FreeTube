@@ -43,7 +43,7 @@
     block-size: 60px;
     inline-size: 100%;
     inset-block: auto 0;
-    overflow-y: inherit;
+    overflow-block: inherit;
   }
 
   .navOption,

@@ -191,7 +191,7 @@
 }
 
 .playlistItemsWrapper {
-  overflow-y: auto;
+  overflow-block: auto;
   block-size: 360px;
 }
 

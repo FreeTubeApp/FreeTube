@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  overflow-block: auto;
   max-block-size: 20lh;
 }
 

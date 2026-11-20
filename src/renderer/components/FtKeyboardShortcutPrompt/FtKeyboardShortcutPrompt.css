@@ -81,7 +81,7 @@ h3 {
 }
 
 :deep(.promptCard) {
-  overflow-x: hidden;
+  overflow-inline: hidden;
 }
 
 @media only screen and (width <= 600px) {

@@ -55,7 +55,7 @@
 
   /* Use remaining height */
   flex-grow: 1;
-  overflow-y: scroll;
+  overflow-block: scroll;
 }
 
 .playlist-selector-container:not(.disabled) {
