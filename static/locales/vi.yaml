@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 lượt xem | {count} lượt xem
     Like Count: '{count} lượt thích'
     Comment Count: '{count} bình luận'
-    Replies Remaining: "{' '}(còn {count})"
 Search / Go to URL: 'Tìm kiếm / Đi đến URL'
   # In Filter Button
 Search Filters:

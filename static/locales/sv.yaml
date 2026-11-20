@@ -40,7 +40,6 @@ Global:
     Channel Count: 1 kanal | {count} kanaler
     Like Count: 1 gillamarkering | {count} gillamarkeringar
     Comment Count: 1 kommentar | {count} kommentarer
-    Replies Remaining: "{' '}(1 kvar) | {' '}({count} kvar)"
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} är nu tillgänglig! Klicka för mer information'
 Download From Site: 'Ladda ned från webbplatsen'
 
