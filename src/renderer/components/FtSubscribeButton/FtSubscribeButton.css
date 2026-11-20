@@ -125,6 +125,17 @@
   text-overflow: ellipsis;
 }
 
+@media only screen and (width <= 680px) {
+  .profileDropdown {
+    inline-size: max(calc(100% - 10px), 180px);
+  }
+
+  .profileName {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 .profile.subscribed {
   background-color: var(--primary-color);
 }
