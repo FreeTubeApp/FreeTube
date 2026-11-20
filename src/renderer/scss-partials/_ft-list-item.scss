@@ -63,7 +63,7 @@ $grid-mode-grab-bar-padding: 1em;
 
     .thumbnailImage {
       opacity: 0.3;
-      /* stylelint-disable-next-line declaration-property-value-no-unknown */
+      /* stylelint-disable-next-line value-no-invalid */
       transition: opacity $watched-transition-duration;
     }
 
