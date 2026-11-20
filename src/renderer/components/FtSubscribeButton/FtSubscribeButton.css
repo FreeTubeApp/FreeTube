@@ -134,6 +134,12 @@
     white-space: normal;
     overflow-wrap: anywhere;
   }
+
+  .profile {
+    block-size: auto;
+    align-items: flex-start;
+    overflow: hidden;
+  }
 }
 
 .profile.subscribed {
