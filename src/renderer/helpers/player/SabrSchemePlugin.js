@@ -17,6 +17,8 @@ import shaka from 'shaka-player'
 
 import { deepCopy } from '../utils'
 
+const MAX_RETRIES_WITHOUT_MEDIA = 20
+
 const AbortableOperation = shaka.util.AbortableOperation
 const ShakaError = shaka.util.Error
 
@@ -64,6 +66,9 @@ const ShakaError = shaka.util.Error
  * @property {?NextRequestPolicy} nextRequestPolicy
  * @property {boolean} playerReloadRequested
  * @property {number} requestNumber
+ * @property {Uint8Array} poToken
+ * @property {?Promise<void>} poTokenRefreshPromise
+ * @property {() => Promise<string>} refreshPoToken
  */
 /**
  * @typedef TimeoutController
@@ -278,6 +283,30 @@ function createTimeoutController(callback, timeoutMs) {
 }
 
 /**
+ * @param {CurrentState} currentState
+ */
+function refreshPoTokenFor(currentState) {
+  const sabrState = currentState.sabrStreamState
+
+  if (sabrState.poTokenRefreshPromise || currentState.abrRequest.streamerContext.poToken !== sabrState.poToken) {
+    return
+  }
+
+  console.warn('PO token not accepted. Trying to refresh...')
+
+  sabrState.poTokenRefreshPromise = sabrState.refreshPoToken()
+    .then((token) => {
+      sabrState.poToken = base64ToU8(token)
+    })
+    .catch((error) => {
+      console.error('Minting a replacement PO token failed', error)
+    })
+    .finally(() => {
+      sabrState.poTokenRefreshPromise = null
+    })
+}
+
+/**
  * @param {OperationInputs} operationInputs - readonly
  * @param {CurrentState} currentState - can be updated
  */
@@ -292,7 +321,8 @@ async function doRequest(
   let shouldRetry = false
   let shouldRetryDueToNextRequestPolicy = false
 
-  let invalidPoToken = false
+  let poTokenPending = false
+  let poTokenRejected = false
   let error
 
   if (currentState.sabrStreamState.playerReloadRequested) {
@@ -323,7 +353,7 @@ async function doRequest(
         shouldReloadDueToBackoffLoop = true
       }
     }
-    if (shouldReloadDueToBackoffLoop || currentState.cumulativeRetryDueToNextRequestPolicy >= 100) {
+    if (shouldReloadDueToBackoffLoop || currentState.cumulativeRetryDueToNextRequestPolicy >= MAX_RETRIES_WITHOUT_MEDIA) {
       // Fire fake reload event due to detecting retry loop
       currentState.sabrStreamState.playerReloadRequested = true
       if (!currentState.abortController.signal.aborted) {
@@ -342,9 +372,9 @@ async function doRequest(
             const streamProtectionStatus = decodePart(data, StreamProtectionStatus)
             if (!streamProtectionStatus) break
 
-            if (streamProtectionStatus.status === 3) {
-              invalidPoToken = true
-            }
+            poTokenPending = streamProtectionStatus.status === 2
+            poTokenRejected = streamProtectionStatus.status === 3
+
             break
           }
           case UMPPartId.SABR_ERROR: {
@@ -528,8 +558,21 @@ async function doRequest(
       currentState.cumulativeRetryDueToNextRequestPolicy += 1
     }
 
+    if (poTokenPending || poTokenRejected) {
+      refreshPoTokenFor(currentState)
+    }
+
+    const abortSignal = currentState.abortController.signal
+    if (currentState.sabrStreamState.poTokenRefreshPromise && !abortSignal.aborted) {
+      await new Promise((resolve, reject) => {
+        currentState.sabrStreamState.poTokenRefreshPromise.then(resolve)
+        abortSignal.addEventListener('abort', reject)
+      })
+    }
+
     const { sabrContexts, unsentSabrContexts } = prepareSabrContexts(currentState.sabrStreamState)
 
+    currentState.abrRequest.streamerContext.poToken = currentState.sabrStreamState.poToken
     currentState.abrRequest.streamerContext.sabrContexts = sabrContexts
     currentState.abrRequest.streamerContext.unsentSabrContexts = unsentSabrContexts
 
@@ -556,7 +599,7 @@ async function doRequest(
 
     currentState.abortStatus.finished = false
     return doRequest(operationInputs, currentState)
-  } else if (invalidPoToken) {
+  } else if (poTokenRejected) {
     throw new ShakaError(
       ShakaError.Severity.CRITICAL,
       ShakaError.Category.NETWORK,
@@ -624,7 +667,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    */
   const initDataCache = new Map()
 
-  const poToken = base64ToU8(sabrData.poToken)
   const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
   const clientInfo = deepCopy(sabrData.clientInfo)
 
@@ -636,6 +678,9 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     nextRequestPolicy: undefined,
     playerReloadRequested: false,
     requestNumber: 0,
+    poToken: base64ToU8(sabrData.poToken),
+    poTokenRefreshPromise: null,
+    refreshPoToken: sabrData.refreshPoToken,
   }
 
   shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, _progressUpdated, headersReceived, _config) => {
@@ -735,7 +780,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       initializationFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
-        poToken,
+        poToken: sabrStreamState.poToken,
         clientInfo,
         sabrContexts,
         unsentSabrContexts,

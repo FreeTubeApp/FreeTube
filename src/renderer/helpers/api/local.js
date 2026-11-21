@@ -524,6 +524,34 @@ async function getWatchHTMLWatchPage(videoId, fetchFunc) {
 }
 
 /**
+ * @param {string} videoId
+ * @param {Awaited<ReturnType<typeof getWatchHTMLWatchPage>>} htmlExtracts
+ * @returns {Promise<string>}
+ */
+function generateContentPoToken(videoId, htmlExtracts) {
+  return window.ftElectron.generatePoToken(
+    videoId,
+    JSON.stringify(htmlExtracts.session.context),
+    JSON.stringify(htmlExtracts.initialAttestationData),
+    JSON.stringify(htmlExtracts.ytConfig)
+  )
+}
+
+/**
+ * @param {string} videoId
+ * @returns {Promise<string>}
+ */
+export async function generateFreshContentPoToken(videoId) {
+  if (!process.env.IS_ELECTRON) {
+    throw new Error('PO token generation is only available in Electron')
+  }
+
+  const htmlExtracts = await getWatchHTMLWatchPage(videoId, (input, init) => fetch(input, init))
+
+  return generateContentPoToken(videoId, htmlExtracts)
+}
+
+/**
  * @param {object} ytConfig
  * @param {(input, init) => Promise<Response>} fetchFunc
  */
@@ -662,12 +690,7 @@ export async function getLocalVideoInfo(id) {
 
   if (process.env.IS_ELECTRON) {
     try {
-      contentPoToken = await window.ftElectron.generatePoToken(
-        id,
-        JSON.stringify(htmlExtracts.session.context),
-        JSON.stringify(htmlExtracts.initialAttestationData),
-        JSON.stringify(htmlExtracts.ytConfig)
-      )
+      contentPoToken = await generateContentPoToken(id, htmlExtracts)
 
       player.po_token = contentPoToken
     } catch (error) {
