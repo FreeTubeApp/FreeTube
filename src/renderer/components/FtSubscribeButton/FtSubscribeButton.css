@@ -137,8 +137,7 @@
 
   .profile {
     block-size: auto;
-    align-items: flex-start;
-    overflow: hidden;
+    min-block-size: 50px;
   }
 }
 
