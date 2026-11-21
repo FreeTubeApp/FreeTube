@@ -206,6 +206,13 @@
 
 .playlistItemsWrapper.isDragging {
   overflow-anchor: none;
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
+
+:global(html:has(.playlistItemsWrapper.isDragging)) {
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
 }
 
 .playlistItemsWrapper.isDragging :deep(.sortableRow:hover .grabBar) {

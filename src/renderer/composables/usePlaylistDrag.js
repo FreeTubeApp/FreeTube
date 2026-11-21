@@ -2,7 +2,7 @@ import { onBeforeUnmount, ref, shallowRef } from 'vue'
 
 import { translateBounds, boundsOverlap, getVerticalScrollSpeed, hasCrossedVerticalMidpoint } from '../helpers/dragGeometry'
 
-const DRAG_SCROLL = { intervalMs: 25, edgeRatio: 0.2, slowSpeed: 1.5, fastSpeed: 10 }
+const DRAG_SCROLL = { intervalMs: 25, edgeRatio: 0.2, viewportEdgeSize: 16, slowSpeed: 120, fastSpeed: 1480 }
 
 /**
  * @template {{ playlistItemId: string }} T
@@ -31,8 +31,10 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
   let orderBeforeDrag = null
   let draggedIndex = -1
   let dragPointerY = 0
+  let dragPointerInViewport = false
   let dragScrollSpeed = 0
   let dragScrollInterval = null
+  let previousScrollHeight = null
 
   function startDrag(event, item, thumbnailBounds) {
     if (!canReorder.value) {
@@ -51,11 +53,13 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
     event.dataTransfer.setDragImage(event.currentTarget, -rowPointerOffsets.left, -rowPointerOffsets.top)
 
     draggedItem.value = item
+    dragPointerInViewport = true
     onDraggingChange(true)
 
     document.addEventListener('drag', updateDragScroll, true)
     // a live reorder can change the target before the next dragover
-    document.addEventListener('dragenter', acceptDrop, true)
+    document.addEventListener('dragenter', enterViewport, true)
+    document.addEventListener('dragleave', leaveViewport, true)
     document.addEventListener('dragover', updateDragScroll, true)
     document.addEventListener('drop', dropDrag, true)
     document.addEventListener('dragend', cancelDrag, true)
@@ -79,7 +83,7 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
   }
 
   function updateDragScroll(event) {
-    if (!draggedItem.value) { return }
+    if (!draggedItem.value || !dragPointerInViewport) { return }
 
     dragPointerY = event.clientY
     const list = listRef.value
@@ -87,17 +91,20 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
     if (event.type === 'dragover') { acceptDrop(event) }
 
     const bounds = list.getBoundingClientRect()
+    const viewportHeight = window.innerHeight
     const visibleBounds = {
       left: bounds.left,
       right: bounds.right,
       top: Math.max(0, bounds.top),
-      bottom: Math.min(window.innerHeight, bounds.bottom)
+      bottom: Math.min(viewportHeight, bounds.bottom)
     }
 
     const thumbnailBounds = translateBounds(thumbnailPointerOffsets, event.clientX, event.clientY)
     const draggedBounds = translateBounds(rowPointerOffsets, event.clientX, event.clientY)
     dragOutside.value = !boundsOverlap(thumbnailBounds, visibleBounds)
-    dragScrollSpeed = getVerticalScrollSpeed(draggedBounds, visibleBounds, DRAG_SCROLL)
+    dragScrollSpeed = getVerticalScrollSpeed(draggedBounds, visibleBounds, dragPointerY, viewportHeight, DRAG_SCROLL)
+
+    if (dragScrollSpeed !== -DRAG_SCROLL.fastSpeed) { previousScrollHeight = null }
 
     if (!dragScrollSpeed) {
       stopDragScroll()
@@ -123,8 +130,14 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
 
   function scrollDuringDrag() {
     const list = listRef.value
-    const rowHeight = rowPointerOffsets.bottom - rowPointerOffsets.top
-    list.scrollTop += dragScrollSpeed * rowHeight * DRAG_SCROLL.intervalMs / 1000
+    let offset = dragScrollSpeed * DRAG_SCROLL.intervalMs / 1000
+    if (dragScrollSpeed === -DRAG_SCROLL.fastSpeed) {
+      // compensate for rows expanding above the viewport as they load
+      const scrollHeight = list.scrollHeight
+      if (previousScrollHeight !== null) { offset += Math.max(0, scrollHeight - previousScrollHeight) }
+      previousScrollHeight = scrollHeight
+    }
+    list.scrollTop += offset
 
     if (dragOutside.value || Math.abs(dragScrollSpeed) > DRAG_SCROLL.slowSpeed) { return }
     previewAdjacentDrag(Math.sign(dragScrollSpeed))
@@ -141,6 +154,23 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
     clearInterval(dragScrollInterval)
     dragScrollInterval = null
     dragScrollSpeed = 0
+    previousScrollHeight = null
+  }
+
+  function enterViewport(event) {
+    acceptDrop(event)
+
+    if (dragPointerInViewport) { return }
+
+    dragPointerInViewport = true
+    updateDragScroll(event)
+  }
+
+  function leaveViewport(event) {
+    if (event.relatedTarget) { return }
+
+    dragPointerInViewport = false
+    stopDragScroll()
   }
 
   function acceptDrop(event) {
@@ -205,7 +235,8 @@ export function usePlaylistDrag({ items, listRef, contentRef, getPanelBounds, ca
     const wasDragging = !!draggedItem.value
 
     document.removeEventListener('drag', updateDragScroll, true)
-    document.removeEventListener('dragenter', acceptDrop, true)
+    document.removeEventListener('dragenter', enterViewport, true)
+    document.removeEventListener('dragleave', leaveViewport, true)
     document.removeEventListener('dragover', updateDragScroll, true)
     document.removeEventListener('drop', dropDrag, true)
     document.removeEventListener('dragend', cancelDrag, true)

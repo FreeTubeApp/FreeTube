@@ -26,10 +26,12 @@ export function boundsOverlap(first, second) {
 /**
  * @param {VerticalBounds} dragged
  * @param {VerticalBounds} container
- * @param {{ edgeRatio: number, slowSpeed: number, fastSpeed: number }} options
+ * @param {number} pointerY
+ * @param {number} viewportHeight
+ * @param {{ edgeRatio: number, viewportEdgeSize: number, slowSpeed: number, fastSpeed: number }} options
  * @returns {number}
  */
-export function getVerticalScrollSpeed(dragged, container, { edgeRatio, slowSpeed, fastSpeed }) {
+export function getVerticalScrollSpeed(dragged, container, pointerY, viewportHeight, { edgeRatio, viewportEdgeSize, slowSpeed, fastSpeed }) {
   const topGap = dragged.top - container.top
   const bottomGap = container.bottom - dragged.bottom
   const edgeZone = (container.bottom - container.top) * edgeRatio
@@ -37,9 +39,11 @@ export function getVerticalScrollSpeed(dragged, container, { edgeRatio, slowSpee
   if (Math.min(topGap, bottomGap) >= edgeZone) { return 0 }
 
   const midpoint = (dragged.top + dragged.bottom) / 2
-  const midpointOutside = midpoint <= container.top || midpoint >= container.bottom
-  const direction = topGap < bottomGap ? -1 : 1
-  return direction * (midpointOutside ? fastSpeed : slowSpeed)
+  if (topGap < bottomGap) {
+    return midpoint <= container.top || pointerY <= viewportEdgeSize ? -fastSpeed : -slowSpeed
+  }
+
+  return midpoint >= container.bottom || pointerY >= viewportHeight - viewportEdgeSize ? fastSpeed : slowSpeed
 }
 
 /**
