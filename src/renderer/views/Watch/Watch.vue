@@ -2,13 +2,13 @@
   <div
     class="videoLayout"
     :class="{
-      isLoading,
-      useTheatreMode: useTheatreMode && !isLoading,
+      isLoading: isLoading && !isPlaylistDragging,
+      useTheatreMode: useTheatreMode && (!isLoading || isPlaylistDragging),
       noSidebar: !theatrePossible
     }"
   >
     <ft-loader
-      v-if="isLoading"
+      v-if="isLoading && !isPlaylistDragging"
       :fullscreen="true"
     />
     <div
@@ -16,6 +16,10 @@
       class="videoArea"
     >
       <div class="videoAreaMargin">
+        <ft-loader
+          v-if="isLoading && isPlaylistDragging"
+          :fullscreen="true"
+        />
         <ft-shaka-video-player
           v-if="!isLoading && (!isUpcoming || playabilityStatus === 'OK') && !errorMessage"
           ref="player"
@@ -206,7 +210,7 @@
       />
       <watch-video-playlist
         v-if="watchingPlaylist"
-        v-show="!isLoading"
+        v-show="!isLoading || isPlaylistDragging"
         ref="watchVideoPlaylist"
         :watch-view-loading="isLoading"
         :playlist-id="playlistId"
@@ -216,6 +220,7 @@
         class="watchVideoSideBar watchVideoPlaylist"
         :class="{ theatrePlaylist: useTheatreMode }"
         @pause-player="pausePlayer"
+        @dragging-change="isPlaylistDragging = $event"
       />
       <watch-video-recommendations
         v-if="!isLoading && !hideRecommendedVideos"

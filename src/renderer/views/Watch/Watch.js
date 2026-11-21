@@ -105,6 +105,7 @@ export default defineComponent({
       startNextVideoInFullwindow: false,
       startNextVideoInPip: false,
       isLoading: true,
+      isPlaylistDragging: false,
       firstLoad: true,
       useTheatreMode: false,
       videoPlayerLoaded: false,

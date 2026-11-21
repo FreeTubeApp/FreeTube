@@ -5,6 +5,7 @@
     @focusout="handleDropdownFocusOut"
   >
     <button
+      ref="button"
       class="iconButton"
       :aria-label="title"
       :title="title"
@@ -70,6 +71,7 @@
         ref="dropdown"
         tabindex="-1"
         class="iconDropdown"
+        draggable="true"
         :class="{
           left: dropdownPositionX === 'left',
           right: dropdownPositionX === 'right',
@@ -78,6 +80,7 @@
           top: dropdownPositionY === 'top'
         }"
         @keydown.esc.stop="handleDropdownEscape"
+        @dragstart.prevent.stop
       >
         <slot>
           <ul
@@ -206,6 +209,7 @@ if (props.dropdownModalOnMobile) {
 }
 
 const dropdown = useTemplateRef('dropdown')
+const button = useTemplateRef('button')
 
 /**
  * @param {PointerEvent | null} e
@@ -296,6 +300,7 @@ function handleResize() {
 }
 
 defineExpose({
+  focus: () => button.value?.focus(),
   dropdownShown: computed(() => dropdownShown.value),
 
   hideDropdown: () => {
