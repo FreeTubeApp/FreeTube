@@ -321,7 +321,8 @@ async function doRequest(
   let shouldRetry = false
   let shouldRetryDueToNextRequestPolicy = false
 
-  let invalidPoToken = false
+  let poTokenPending = false
+  let poTokenRejected = false
   let error
 
   if (currentState.sabrStreamState.playerReloadRequested) {
@@ -371,13 +372,9 @@ async function doRequest(
             const streamProtectionStatus = decodePart(data, StreamProtectionStatus)
             if (!streamProtectionStatus) break
 
-            if (streamProtectionStatus.status === 2 || streamProtectionStatus.status === 3) {
-              refreshPoTokenFor(currentState)
-            }
+            poTokenPending = streamProtectionStatus.status === 2
+            poTokenRejected = streamProtectionStatus.status === 3
 
-            if (streamProtectionStatus.status === 3) {
-              invalidPoToken = true
-            }
             break
           }
           case UMPPartId.SABR_ERROR: {
@@ -561,6 +558,10 @@ async function doRequest(
       currentState.cumulativeRetryDueToNextRequestPolicy += 1
     }
 
+    if (poTokenPending || poTokenRejected) {
+      refreshPoTokenFor(currentState)
+    }
+
     const abortSignal = currentState.abortController.signal
     if (currentState.sabrStreamState.poTokenRefreshPromise && !abortSignal.aborted) {
       await new Promise((resolve, reject) => {
@@ -598,7 +599,7 @@ async function doRequest(
 
     currentState.abortStatus.finished = false
     return doRequest(operationInputs, currentState)
-  } else if (invalidPoToken) {
+  } else if (poTokenRejected) {
     throw new ShakaError(
       ShakaError.Severity.CRITICAL,
       ShakaError.Category.NETWORK,
