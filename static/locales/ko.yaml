@@ -40,7 +40,6 @@ Global:
     Channel Count: 1개 채널 | {count}개 채널
     Comment Count: 1개 댓글 | {count}개 댓글
     Like Count: 1개 좋아요 | {count}개 좋아요
-    Replies Remaining: "{' '}(1개 남음) | {' '}({count}개 남음)"
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} 버전이 사용가능합니다! 클릭하여 자세한 정보를 확인하세요'
 Download From Site: '사이트로부터 다운로드'
 

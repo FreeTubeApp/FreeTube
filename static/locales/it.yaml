@@ -41,7 +41,6 @@ Global:
     Watching Count: 1 spettatore | {count} spettatori
     Comment Count: 1 commento | {count} commenti
     Like Count: 1 mi piace | {count} mi piace
-    Replies Remaining: "{' '}(1 rimanente) | {' '}({count} rimanenti)"
 Search / Go to URL: 'Ricerca o aggiungi URL YouTube'
   # In Filter Button
 Search Filters:

@@ -41,7 +41,6 @@ Global:
     Watching Count: 1 παρακολούθηση | {count} παρακολουθούν
     Comment Count: 1 σχόλιο | {count} σχόλια
     Like Count: 1 Μου αρρέσει | {count} Μου αρρέσει
-    Replies Remaining: "{' '}(1 απομένει) | {' '}({count} απομένουν)"
 Search / Go to URL: 'Αναζήτηση/Μετάβαση σε URL'
   # In Filter Button
 Search Filters:

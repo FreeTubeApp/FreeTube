@@ -40,7 +40,6 @@ Global:
     Channel Count: 1 channel | {count} channels
     Like Count: 1 like | {count} likes
     Comment Count: 1 comment | {count} comments
-    Replies Remaining: "{' '}(1 remaining) | {' '}({count} remaining)"
 Version {versionNumber} is now available!  Click for more details: 'Version {versionNumber} is now available!  Click for more details'
 Download From Site: 'Download From Site'
 
