@@ -178,6 +178,7 @@ export default defineComponent({
       errorMessage: null,
       /** @type {string[]|null} */
       customErrorIcon: null,
+      thumbnailOnly: false,
       videoGenreIsMusic: false,
       contentDisclosures: null,
       /** @type {Date|null} */
@@ -436,6 +437,7 @@ export default defineComponent({
       this.playabilityStatus = ''
       this.adEndTimeUnixMs = 0
       this.errorMessage = null
+      this.thumbnailOnly = false
       this.customErrorIcon = null
       this.videoGenreIsMusic = false
       this.streamingDataExpiryDate = null
@@ -525,6 +527,7 @@ export default defineComponent({
           // Private videos cannot be played in FreeTube, as they require to be logged as the owner of the video
           // so there is no point continuing or trying any other backends as it will always fail
           this.errorMessage = this.t('Video.Private')
+          this.thumbnailOnly = true
           this.thumbnail = this.getUnavailableVideoThumbnail()
           this.isLoading = false
           this.updateTitle()

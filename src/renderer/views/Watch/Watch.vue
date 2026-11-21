@@ -66,6 +66,7 @@
             v-if="!isUpcoming || playabilityStatus !== 'OK'"
             :src="thumbnail"
             class="videoThumbnail"
+            :class="{ 'videoThumbnailBorder': thumbnailOnly }"
             alt=""
           >
           <div
@@ -127,7 +128,7 @@
       class="ageRestricted"
     />
     <div
-      v-if="(isFamilyFriendly || !showFamilyFriendlyOnly)"
+      v-if="!thumbnailOnly && (isFamilyFriendly || !showFamilyFriendlyOnly)"
       class="infoArea"
     >
       <watch-video-info
@@ -197,7 +198,7 @@
       class="sidebarArea"
     >
       <watch-video-live-chat
-        v-if="!isLoading && !hideLiveChat && (isLive || isUpcoming)"
+        v-if="!isLoading && !thumbnailOnly && !hideLiveChat && (isLive || isUpcoming)"
         :live-chat="liveChat"
         :video-id="videoId"
         :channel-id="channelId"
@@ -218,7 +219,7 @@
         @pause-player="pausePlayer"
       />
       <watch-video-recommendations
-        v-if="!isLoading && !hideRecommendedVideos"
+        v-if="!isLoading && !thumbnailOnly && !hideRecommendedVideos"
         :data="recommendedVideos"
         class="watchVideoSideBar watchVideoRecommendations"
         :class="{
