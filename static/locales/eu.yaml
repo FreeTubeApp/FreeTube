@@ -91,6 +91,7 @@ Search Filters:
     HDR: HDR
     VR180: VR180
   Clear Filters: Garbitu iragazkiak
+  No results found: Ez da emaitzarik aurkitu. Probatu gako-hitz desberdinak edo egokitu bilaketa-iragazkiak
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Harpidetzak'
@@ -523,6 +524,7 @@ Settings:
     Add: Gehitu
     Remove: Kendu
     Hide Channel Shows: Ezkutatu kanalaren «Saioak» fitxa
+    More Items Count: +{count} gehiago…
   Data Settings:
     Data Settings: 'Datuak'
     Select Export Type: 'Hautatu esportazio mota'
@@ -572,6 +574,7 @@ Settings:
     Setting object has insufficient data, skipping item: Ezarpenen objektuak ez ditu datu nahikoak. Elementua saltatzen
     Unknown setting key: 'Ezarpen-gako ezezaguna: {key}'
     Non-transferable setting key: 'Transferitu ezina den ezarpen-gakoa: {key}'
+    Playlists have been successfully imported: 1/{total} erreprodukzio-zerrenda behar bezala inportatu da | {count}/{total} erreprodukzio-zerrenda behar bezala inportatu dira
   Proxy Settings:
     Proxy Settings: 'Proxy-a'
     Enable Tor / Proxy: 'Gaitu Tor / Proxy-a'
