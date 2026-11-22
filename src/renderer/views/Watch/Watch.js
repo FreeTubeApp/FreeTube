@@ -183,6 +183,8 @@ export default defineComponent({
       /** @type {Date|null} */
       streamingDataExpiryDate: null,
       currentPlaybackRate: null,
+
+      isReloadingView: false,
     }
   },
   computed: {
@@ -357,31 +359,39 @@ export default defineComponent({
   },
   methods: {
     async reloadView() {
-      await this.handleRouteChange()
+      if (this.isReloadingView) { return }
 
-      if (this.$refs.player) {
-        await this.destroyPlayer()
-      }
+      try {
+        this.isReloadingView = true
 
-      // react to route changes...
-      this.videoId = this.$route.params.id
-      this.resetVideoState()
+        await this.handleRouteChange()
 
-      this.firstLoad = true
-      this.videoPlayerLoaded = false
-      this.activeFormat = this.defaultVideoFormat
+        if (this.$refs.player) {
+          await this.destroyPlayer()
+        }
 
-      this.checkIfTimestamp()
-      this.checkIfPlaylist()
-      this.setViewingModeOnRouteChange()
+        // react to route changes...
+        this.videoId = this.$route.params.id
+        this.resetVideoState()
 
-      switch (this.backendPreference) {
-        case 'local':
-          await this.getVideoInformationLocal()
-          break
-        case 'invidious':
-          this.getVideoInformationInvidious()
-          break
+        this.firstLoad = true
+        this.videoPlayerLoaded = false
+        this.activeFormat = this.defaultVideoFormat
+
+        this.checkIfTimestamp()
+        this.checkIfPlaylist()
+        this.setViewingModeOnRouteChange()
+
+        switch (this.backendPreference) {
+          case 'local':
+            await this.getVideoInformationLocal()
+            break
+          case 'invidious':
+            this.getVideoInformationInvidious()
+            break
+        }
+      } finally {
+        this.isReloadingView = false
       }
     },
 
