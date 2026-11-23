@@ -224,6 +224,7 @@ function onVisibilityChanged(isVisible) {
 
 function onRowDragStart(event) {
   if (!props.wholeRowDraggable || event.defaultPrevented) { return }
+  if (event.target.closest('a.title, a.channelName')) { return }
 
   emit('dragstart', event, props.data, video.value?.getThumbnailBounds())
 }
