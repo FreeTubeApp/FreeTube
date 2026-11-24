@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 vaatamas | {count} vaatamas
     Like Count: 1 meeldimine | {count} meeldimist
     Comment Count: 1 kommentaar | {count} kommentaari
-    Replies Remaining: "{' '}(1 jäänud) | {' '}({count} jäänud)"
 Version {versionNumber} is now available!  Click for more details: 'Versioon {versionNumber} in nüüd saadaval! Lisateavet leiad siit'
 Download From Site: 'Laadi veebisaidist alla'
 

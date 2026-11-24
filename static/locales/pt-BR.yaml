@@ -38,7 +38,6 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
     Like Count: 1 curtida | {count} curtidas
     Comment Count: 1 comentário | {count} comentários
-    Replies Remaining: "{' '}(1 restante) | {' '}({count} restantes)"
 Search / Go to URL: 'Buscar ou digite um URL'
   # In Filter Button
 Search Filters:

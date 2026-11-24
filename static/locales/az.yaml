@@ -867,7 +867,6 @@ Global:
     Channel Count: 1 kanal | {count} kanal
     Like Count: 1 bəyənmə | {count} bəyənmə
     Comment Count: 1 şərh | {count} şərh
-    Replies Remaining: "{' '}(1 qaldı) | {' '}({count} qaldı)"
   Videos: Videolar
   Live: Canlı
   Posts: Postlar

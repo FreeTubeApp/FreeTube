@@ -48,7 +48,6 @@ Global:
 # Search Bar
     Like Count: 1 hoffi | {count} hoffi
     Comment Count: 1 sylw | {count} sylw
-    Replies Remaining: "{' '}(1 yn weddill) | {' '}({count} yn weddill)"
   Posts: Postiadau
 Search / Go to URL: 'Chwilio / Mynd i URL'
 Search Bar:

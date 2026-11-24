@@ -100,7 +100,7 @@
         />
       </span>
       <span
-        v-if="showReplies || comment.numReplies > 0 && !repliesLoading"
+        v-if="showReplies || hasReplies && !repliesLoading"
         class="commentMoreReplies"
         role="button"
         tabindex="0"
@@ -112,7 +112,7 @@
         </span>
       </span>
       <span
-        v-else-if="comment.numReplies > 0 && repliesLoading"
+        v-else-if="hasReplies && repliesLoading"
         class="commentLoadingMoreReplies"
         tabindex="0"
       >
@@ -145,7 +145,7 @@
         @click="getCommentReplies"
         @keydown.enter.space.prevent="getCommentReplies"
       >
-        <span>{{ t('Comments.Show More Replies') }}{{ numRepliesRemainingText }}</span>
+        <span>{{ t('Comments.Show More Replies') }}</span>
       </div>
       <div
         v-else-if="replyToken && repliesLoading"
@@ -259,21 +259,19 @@ function isSubscribedToChannel(channelId) {
   return subscribedChannelIds.value.has(channelId)
 }
 
-const numRepliesRemainingText = computed(() => {
-  if (props.comment.numReplies >= 1000) return ''
-  const numLoadedReplies = replies.value.reduce((sum, reply) => sum + 1 + reply.numReplies, 0)
-  const count = props.comment.numReplies - numLoadedReplies
-  return t('Global.Counts.Replies Remaining', { count }, count)
-})
-
 const toggleCommentRepliesText = computed(() => {
   const channelName = props.channelName
+  const replyCount = props.comment.numReplies
 
   if (showReplies.value) {
-    return t('Comments.Hide Replies')
+    // When the reply count is unknown, show plural form
+    return t('Comments.Hide Replies', replyCount == null ? Number.MAX_VALUE : replyCount)
   }
 
-  const replyCount = props.comment.numReplies
+  if (replyCount == null) {
+    return t('Comments.Show Replies')
+  }
+
   const formattedReplyCount = isNumberRounded(replyCount) ? formatNumber(replyCount, { notation: 'compact' }) : replyCount
 
   if (props.comment.hasOwnerReplied) {
@@ -287,8 +285,12 @@ const toggleCommentRepliesText = computed(() => {
   return t('Comments.View {replyCount} replies', { replyCount: formattedReplyCount }, replyCount)
 })
 
+const hasReplies = computed(() => {
+  return props.comment.hasReplyToken || props.comment.numReplies > 0
+})
+
 onMounted(() => {
-  if (!props.autoloadThisReplyLevel || !props.comment.numReplies) return
+  if (!props.autoloadThisReplyLevel || !hasReplies.value) return
   toggleCommentReplies()
 })
 

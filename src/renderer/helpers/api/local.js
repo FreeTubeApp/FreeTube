@@ -2517,7 +2517,7 @@ export function mapLocalLegacyFormat(format) {
  * @property {(YTNodes.CommentThread | Misc.CommentsContinuation)?} replyToken
  * @property {number} replyLevel
  * @property {string} memberIconUrl
- * @property {number} numReplies
+ * @property {number | null} numReplies
  */
 /**
  * @param {import('youtubei.js').YTNodes.CommentView} comment
@@ -2534,6 +2534,10 @@ export function parseLocalComment(comment, commentThread = undefined) {
     hasOwnerReplied = !!commentThread.comment_replies_data?.has_channel_owner_replied
     hasReplyToken = true
     numReplies = parseLocalSubscriberCount(commentThread.comment_replies_data?.view_replies?.text || '0')
+    if (Number.isNaN(numReplies)) {
+      // There are replies, but we don't know how many, YouTube only shows "View replies"
+      numReplies = null
+    }
   }
 
   const commentTextRuns = comment.voice_reply_container?.transcript_text?.runs ?? comment.content?.runs ?? []
