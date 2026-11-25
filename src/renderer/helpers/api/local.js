@@ -2647,7 +2647,7 @@ function parseLocalCommunityPost(post) {
   })
 
   return {
-    postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16)),
+    postText: post.content.isEmpty() ? '' : Autolinker.link(parseLocalTextRuns(post.content.runs, 16, { looseChannelNameDetection: true })),
     postId: post.id,
     authorThumbnails,
     publishedTime: calculatePublishedDate(post.published.text),
