@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 assistindo | {count} assistindo
     Like Count: 1 curtida | {count} curtidas
     Comment Count: 1 comentário | {count} comentários
-    Replies Remaining: "{' '}(1 restante) | {' '}({count} restantes)"
 Version {versionNumber} is now available!  Click for more details: 'A versão {versionNumber} já está disponível! Clique para mais detalhes'
 Download From Site: 'Faça o download no site'
 

@@ -41,7 +41,6 @@ Global:
     Watching Count: 1 espectador | {count} espectadores
     Comment Count: 1 comentario | {count} comentarios
     Like Count: 1 me gusta | {count} me gustan
-    Replies Remaining: "{' '}(queda 1) | {' '}(quedan {count})"
 Search / Go to URL: 'Buscar / Ir a la URL'
   # In Filter Button
 Search Filters:

@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 néző | {count} néző
     Like Count: 1 embernek tetszik | {count} embernek tetszik
     Comment Count: 1 hozzászólás | {count} hozzászólás
-    Replies Remaining: "{' '}(1 hátralévő) | {' '}({count} hátralévő)"
 Version {versionNumber} is now available!  Click for more details: 'A(z) {versionNumber} verzió már elérhető! Kattintson a további részletekért'
 Download From Site: 'Letöltés a webhelyről'
 

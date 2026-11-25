@@ -38,7 +38,6 @@ Global:
     Watching Count: 1 個正在觀看 | {count} 個正在觀看
     Comment Count: 1 則留言 | {count} 則留言
     Like Count: 1 個喜歡 | {count} 個喜歡
-    Replies Remaining: （還有 1 則）|（還有 {count} 則）
 Search / Go to URL: '搜尋/ 前往網址'
   # In Filter Button
 Search Filters:
@@ -936,6 +935,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: 檢視來自 {channelName} 與其他頻道的 {replyCount} 則回覆
   Loading replies: 正在載入回覆⋯⋯
   Comments are turned off: 留言已關閉
+  Show Replies: 顯示回覆
 Up Next: '觀看其他類似影片'
 
 # Toast Messages

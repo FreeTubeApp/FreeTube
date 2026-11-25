@@ -40,7 +40,6 @@ Global:
     Watching Count: 1 izliyor | {count} izliyor
     Like Count: 1 beğenme | {count} beğenme
     Comment Count: 1 yorum | {count} yorum
-    Replies Remaining: "{' '}(1 kaldı) | {' '}({count} kaldı)"
 Version {versionNumber} is now available!  Click for more details: '{versionNumber} sürümü çıktı!  Daha fazla ayrıntı için tıklayın'
 Download From Site: 'Siteden indir'
 
@@ -985,6 +984,7 @@ Comments:
   Loading replies: Yanıtlar yükleniyor...
   Hide Replies: Yanıtı gizle | Yanıtları gizle
   Comments are turned off: Yorumlar kapalı
+  Show Replies: Yanıtları göster
 Up Next: 'Sonraki'
 
 # Toast Messages
