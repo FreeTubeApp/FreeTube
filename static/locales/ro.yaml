@@ -12,7 +12,7 @@ Copy: 'Copiere'
 Paste: 'Lipire'
 Delete: 'Ștergeți'
 Select all: 'Selectați toate'
-Toggle Developer Tools: 'Comutați instrumentele pentru dezvoltatori'
+Toggle Developer Tools: 'Comută instrumentele pentru dezvoltatori'
 Actual size: 'Mărimea actuală'
 Zoom in: 'Mărire'
 Zoom out: 'Micșorare'
@@ -96,7 +96,7 @@ Subscriptions:
   Load More Videos: Încarcă mai mult
   This profile has a large number of subscriptions. Forcing RSS to avoid rate limiting: Acest profil are un număr mare de abonamente.  Se forțează RSS pentru a evita limitarea vitezei
   Error Channels: Canale cu erori
-  Empty Channels: Canalele la care sunteți abonat(ă) nu au în prezent clipuri video.
+  Empty Channels: Canalele abonate nu conțin momentan niciun videoclip.
   Disabled Automatic Fetching: Ați dezactivat preluarea automată a abonamentelor. Reîmprospătați abonamentele pentru a le vedea aici.
   Subscriptions Tabs: Filele Abonamente
   All Subscription Tabs Hidden: Toate filele de abonament sunt ascunse. Pentru a vedea conținutul aici, vă rugăm să afișați unele file din secțiunea "{subsection}” din "{settingsSection}”.
