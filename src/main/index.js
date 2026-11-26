@@ -2173,12 +2173,10 @@ function runApp() {
   // *********** //
 
   function syncOtherWindows(channel, event, payload) {
-    const otherWindows = BrowserWindow.getAllWindows().filter((window) => {
-      return window.webContents.id !== event.sender.id && isFreeTubeUrl(window.webContents.getURL())
-    })
-
-    for (const window of otherWindows) {
-      window.webContents.send(channel, payload)
+    for (const window of BrowserWindow.getAllWindows()) {
+      if (window.webContents.id !== event.sender.id && isFreeTubeUrl(window.webContents.getURL())) {
+        window.webContents.send(channel, payload)
+      }
     }
   }
 

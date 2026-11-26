@@ -92,9 +92,10 @@ function setupNotifyLocaleUpdate(compiler, devServer) {
   }
 
   compiler.options.plugins
-    .filter(plugin => plugin instanceof ProcessLocalesPlugin)
-    .forEach((/** @type {ProcessLocalesPlugin} */plugin) => {
-      plugin.notifyLocaleChange = notifyLocaleChange
+    .forEach((plugin) => {
+      if (plugin instanceof ProcessLocalesPlugin) {
+        plugin.notifyLocaleChange = notifyLocaleChange
+      }
     })
 }
 
