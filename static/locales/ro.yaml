@@ -155,7 +155,7 @@ User Playlists:
   Playlist Description: Descrierea listei de redare
   Save Changes: Salvați modificările
   Delete Playlist: Ștergeți lista de redare
-  Are you sure you want to delete this playlist? This cannot be undone: Sunteți sigur că doriți să ștergeți această listă de redare? Acest lucru nu poate fi anulat.
+  Are you sure you want to delete this playlist? This cannot be undone: Sigur vrei să ștergi această listă de redare? Această acțiune nu poate fi anulată.
   CreatePlaylistPrompt:
     Toast:
       Playlist {playlistName} has been successfully created.: Lista de redare {playlistName} a fost creată cu succes.
@@ -186,7 +186,7 @@ User Playlists:
       This playlist is already being used for quick bookmark.: Această listă de redare este deja folosită pentru marcaj rapid.
     Search for Videos: Căutați videoclipuri
   Remove Duplicate Videos: Șterge videoclipurile duplicate
-  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sunteți sigur(ă) că doriți să ștergeți 1 videoclip vizualizat din această lista de redare? Această acțiune este definitivă. | Sunteți sigur(ă) că doriți să ștergeți {playlistItemCount} videoclip vizualizat din această lista de redare? Această acțiune este definitivă.
+  Are you sure you want to remove {playlistItemCount} watched videos from this playlist? This cannot be undone: Sigur vrei să elimini 1 videoclip vizionat din această listă de redare? Această acțiune nu poate fi anulată. | Sigur vrei să elimini {playlistItemCount} videoclipuri vizionate din această listă de redare? Această acțiune nu poate fi anulată.
   Are you sure you want to remove {playlistItemCount} duplicate videos from this playlist? This cannot be undone: Sunteți sigur că vrei să ștergeți 1 videoclip duplicat din această listă de redare? Această acțiune nu poate fi anulată. | Sunteți sigur că vreți să ștergeți {playlistItemCount} videoclipuri duplicate din această listă? Această acțiune nu poate fi anulată.
   Export Playlist: Exportă această listă de redare
   Cannot delete the quick bookmark target playlist.: Nu se poate șterge listă de redare țintă marcajului rapid.
@@ -255,7 +255,7 @@ Settings:
     Minimize to system tray: Minimizare în bara de sistem
   Theme Settings:
     Theme Settings: 'Setări temă'
-    Match Top Bar with Main Color: 'Potriviți bara de sus cu culoarea principală'
+    Match Top Bar with Main Color: 'Potrivește bara de sus cu culoarea principală'
     Base Theme:
       Base Theme: 'Tema de bază'
       Black: 'Neagră'
@@ -436,7 +436,7 @@ Settings:
     Autoplay Interruption Timer: Temporizator de întrerupere a redării automate
   Privacy Settings:
     Privacy Settings: 'Confidențialitate'
-    Remember History: 'Amintiți-vă Istoricul vizionărilor'
+    Remember History: 'Păstrează istoricul de vizionare'
     Save Watched Progress: 'Salvați progresul de vizionare'
     Clear Search Cache: 'Sterge Cache-ul Căutărilor'
     Are you sure you want to clear out your search cache?: 'Sunteți sigur că doriți să ștergeți memoria cache de căutare?'
@@ -445,13 +445,13 @@ Settings:
     Are you sure you want to remove your entire watch history?: 'Esti sigur ca doresti sa stergi intreg istoricul cautarilor tale ?'
     Watch history has been cleared: 'Istoricul vizionărilor a fost șters'
     Remove All Subscriptions / Profiles: 'Eliminați toate Abonamentele / Profilurile'
-    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sunteți sigur că doriți să eliminați toate abonamentele și profilurile?  Acest lucru nu poate fi anulat.'
+    Are you sure you want to remove all subscriptions and profiles?  This cannot be undone.: 'Sigur vrei să elimini toate abonamentele și profilurile?  Această acțiune nu poate fi anulată.'
     Save Watched Videos With Last Viewed Playlist: Salvați videoclipurile vizionate cu ultima listă de redare vizualizată
     Are you sure you want to remove all your playlists?: Sunteți sigur(ă) că doriț să ștergeți toate listele dvs. de redare?
     Remove All Playlists: Eliminați toate listele de redare
     All playlists have been removed: Toate listele de redare au fost eliminate
     Search history and cache have been cleared: Istoricul căutărilor și memoria cache au fost șterse
-    Are you sure you want to clear out your search history and cache?: Sunteți sigur că doriți să ștergeți istoricul căutărilor și memoria cache?
+    Are you sure you want to clear out your search history and cache?: Sigur vrei să cureți istoricul de căutare și memoria cache?
     Remember Search History: Reține istoricul căutărilor
     Clear Search History and Cache: Ștergeți istoricul căutărilor și memoria cache
     Watched Progress Saving Mode:
@@ -509,7 +509,7 @@ Settings:
     Import Settings: Importă Setări
     Export Settings: Exportă Setările
     Settings Tooltip: Setările care sunt specifice sistemului/utilizatorului sau experimentale nu pot fi importate sau exportate (ex. proxy, player extern, folder pentru capturi de ecran)
-  The app needs to restart for changes to take effect. Restart and apply change?: Aplicația trebuie repornită pentru ca modificările să intre în vigoare. Reporniți și aplicați modificările?
+  The app needs to restart for changes to take effect. Restart and apply change?: Aplicația trebuie repornită pentru ca modificările să aibă efect. Repornești și aplici modificarea?
   External Player Settings:
     Custom External Player Arguments: Argumente personalizate pentru playerul extern
     Custom External Player Executable: Executabilul personalizat al playerului extern
@@ -614,7 +614,7 @@ Settings:
     Set Password: Setați parola
   Experimental Settings:
     Warning: Aceste setări sunt experimentale, ele pot cauza blocări atunci când sunt activate. Este foarte recomandat să faceți copii de rezervă. Folosiți pe propria răspundere!
-    Replace HTTP Cache: Înlocuiți cache HTTP
+    Replace HTTP Cache: Înlocuiește memoria cache HTTP
     Experimental Settings: experimental
   Sort Settings Sections (A-Z): Setări Sortare Secțiuni (A-Z)
   Return to Settings Menu: Întoarcere la Meniul de Setări
@@ -655,7 +655,7 @@ Profile:
   Update Profile: 'Actualizați profilul'
   Make Default Profile: 'Faceți profilul implicit'
   Delete Profile: 'Ștergeți profilul'
-  Are you sure you want to delete this profile?: 'Sunteți sigur că doriți să ștergeți acest profil?'
+  Are you sure you want to delete this profile?: 'Sigur vrei să ștergi acest profil?'
   All subscriptions will also be deleted.: 'De asemenea, toate abonamentele vor fi șterse.'
   Your profile name cannot be empty: 'Numele profilului nu poate fi gol'
   Profile has been created: 'Profilul a fost creat'
@@ -673,8 +673,8 @@ Profile:
   Add Selected To Profile: 'Adaugă selectate la profil'
   No channel(s) have been selected: 'Nu a fost selectat niciun canal(e)'
   ? This is your primary profile.  Are you sure you want to delete the selected channels?  The same channels will be deleted in any profile they are found in.
-  : 'Acesta este profilul dvs. principal.  Sunteți sigur că doriți să ștergeți canalele selectate?  Aceleași canale vor fi șterse în orice profil în care se regăsesc.'
-  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sunteți sigur că doriți să ștergeți canalele selectate?  Acest lucru nu va șterge canalul din niciun alt profil.'
+  : 'Acesta este profilul tău principal.  Sigur vrei să ștergi canalele selectate?  Aceleași canale vor fi șterse din orice profil în care apar.'
+  Are you sure you want to delete the selected channels?  This will not delete the channel from any other profile.: 'Sigur vrei să ștergi canalele selectate?  Acest lucru nu va șterge canalul din niciun alt profil.'
 #On Channel Page
   Profile Filter: Filtru profil
   Profile Settings: profil
@@ -834,7 +834,7 @@ Video:
       Stats: Statistici
       Video ID: 'ID videoclip: {videoId}'
       Media Formats: 'Formate media: {formats}'
-      Bitrate: 'Rată de biți: {bitrate} kbps'
+      Bitrate: 'Rata de biți: {bitrate} kbps'
       Volume: 'Volum: {volumePercentage}%'
       Bandwidth: 'Lățime de bandă: {bandwidth} kbps'
       Buffered: 'Descărcat: {bufferedPercentage}%'
@@ -845,7 +845,7 @@ Video:
     Skipped segment: Segment {segmentCategory} omis
     TranslatedCaptionTemplate: '{language} (tradus din „{originalLanguage}”)'
     Full Window: Fereastra plină
-    Exit Full Window: Ieșiți din fereastra completă
+    Exit Full Window: Ieși din fereastra completă
   More Options: Mai multe opțiuni
   AgeRestricted: Videoclipurile cu restricții de vârstă nu pot fi vizionate cu FreeTube, deoarece necesită autentificare la Google și utilizarea unui cont YouTube verificat în funcție de vârstă.
   Unlisted: nelistate
@@ -946,7 +946,7 @@ Search Bar:
   Remove: Șterge
   Open Search Container: Deschide containerul de căutare
   Search: Căutare
-Are you sure you want to open this link?: Sunteți sigur că doriți să deschideți acest link?
+Are you sure you want to open this link?: Sigur vrei să deschizi acest link?
 Open New Window: Deschide fereastră nouă
 Default Invidious instance has been cleared: Instanța implicită Invidious a fost eliminată
 Default Invidious instance has been set to {instance}: Instanța implicită Invidious a fost setată la {instance}
@@ -964,13 +964,13 @@ Tooltips:
     DefaultCustomArgumentsTemplate: "(Implicit: '{defaultCustomArguments}')"
     Ignore Default Arguments: Nu trimiteți niciun argument implicit către playerul extern în afară de URL-ul video (de exemplu, rata de redare, URL-ul listei de redare etc.). Argumentele personalizate vor fi transmise în continuare.
   Player Settings:
-    Default Media Format: Setați formatele utilizate la redarea unui videoclip. Formatele DASH pot reda calități superioare. Formatele tradiționale sunt limitate la maximum 360p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri audio.
+    Default Media Format: Setează formatele utilizate la redarea unui videoclip. Formatele DASH pot reda calități mai mari. Formatele tradiționale sunt limitate la maximum 360p, dar utilizează mai puțină lățime de bandă. Formatele audio sunt doar fluxuri audio.
     Proxy Videos Through Invidious: Se va conecta la Invidious pentru a servi videoclipuri în loc să facă o conexiune directă la YouTube.
     Scroll Playback Rate Over Video Player: În timp ce cursorul se află deasupra videoclipului, țineți apăsată tasta Control (tasta Command pe Mac) și derulați rotița mouse-ului înainte sau înapoi pentru a controla rata de redare. Țineți apăsată tasta Control (tasta Command pe Mac) și faceți clic cu butonul stâng al mouse-ului pentru a reveni rapid la rata de redare implicită (1x, cu excepția cazului în care aceasta a fost modificată în setări).
     Skip by Scrolling Over Video Player: Utilizați rotița de derulare pentru a trece prin videoclip, stil MPV.
   General Settings:
     External Link Handling: "Alegeți comportamentul implicit atunci când faceți clic pe un link care nu poate fi deschis în FreeTube.\nÎn mod implicit, FreeTube va deschide linkul accesat în browserul dvs. implicit.\n"
-    Region for Trending: Regiunea de tendințe vă permite să alegeți ce videoclipuri în tendințe din fiecare țară doriți să fie afișate.
+    Region for Trending: Regiunea pentru tendințe îți permite să alegi țara a cărei videoclipuri în tendințe vrei să fie afișate.
     Invidious Instance: Instanța Invidious la care FreeTube se va conecta pentru apelurile API.
     Thumbnail Preference: Toate miniaturile din FreeTube vor fi înlocuite cu un cadru al videoclipului, încețoșat sau ascuns în loc de miniatura implicită.
     Fallback to Non-Preferred Backend on Failure: Atunci când API-ul preferat are o problemă, FreeTube va încerca automat să utilizeze API-ul nepreferat ca metodă de rezervă, atunci când este activat.
@@ -984,8 +984,8 @@ Tooltips:
   Experimental Settings:
     Replace HTTP Cache: Dezactivează memoria cache HTTP bazată pe disc Electron și activează un cache de imagini personalizat în memorie. Va duce la o utilizare crescută a memoriei RAM.
   SponsorBlock Settings:
-    UseDeArrowTitles: Înlocuiți titlurile video cu titluri trimise de utilizator de la DeArrow.
-    UseDeArrowThumbnails: Înlocuiți miniaturile video cu miniaturi de la DeArrow.
+    UseDeArrowTitles: Înlocuiește titlurile videoclipurilor cu titluri trimise de utilizatori de la DeArrow.
+    UseDeArrowThumbnails: Înlocuiește miniaturile video cu miniaturi de la DeArrow.
 External link opening has been disabled in the general settings: Deschiderea linkurilor externe a fost dezactivată în setările generale
 New Window: Fereastră nouă
 Channels:
