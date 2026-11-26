@@ -706,7 +706,7 @@ Channel:
   Posts:
     This channel currently does not have any posts: Este canal atualmente não tem nenhuma postagem
     votes: '{votes} voto(s)'
-    Reveal Answers: Mostrar respostas
+    Reveal Answers: Revelar respostas
     Hide Answers: Ocultar respostas
     Video hidden by FreeTube: Vídeo escondido pelo FreeTube
     View Full Post: Ver postagem completa
@@ -932,6 +932,7 @@ Comments:
   View {replyCount} replies from {channelName} and others: Mostrar {replyCount} respostas de {channelName} e outros
   Loading replies: Carregando respostas...
   Comments are turned off: Os comentários estão desativados
+  Show Replies: Mostrar respostas
 Up Next: 'Próximo'
 
 # Toast Messages
