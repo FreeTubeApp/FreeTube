@@ -515,7 +515,6 @@ export default defineComponent({
       try {
         const videoInfo = await getLocalVideoInfo(this.videoId)
         const { info: result, poToken, clientInfo, adEndTimeUnixMs, contentDisclosures } = videoInfo
-        this.contentDisclosures = contentDisclosures || null
 
         const playabilityStatus = result.playability_status
         this.playabilityStatus = playabilityStatus.status
@@ -530,6 +529,16 @@ export default defineComponent({
           this.updateTitle()
           return
         }
+
+        // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
+        const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
+
+        if (playabilityStatus.status === 'LOGIN_REQUIRED' && !result.primary_info && playabilityStatus.reason === BOT_MESSAGE) {
+          // Full captcha page, nothing usable was returned
+          throw new Error(this.t('Video.IP block'))
+        }
+
+        this.contentDisclosures = contentDisclosures || null
 
         this.adEndTimeUnixMs = adEndTimeUnixMs
 
@@ -686,9 +695,6 @@ export default defineComponent({
         this.videoChaptersKind = chaptersKind
         this.hlsAudioMetadata = []
 
-        // The apostrophe is intentionally that one (char code 8217), because that is the one YouTube uses
-        const BOT_MESSAGE = 'Sign in to confirm you’re not a bot'
-
         const isDrmProtected = result.streaming_data?.adaptive_formats.some(format => format.drm_families || format.drm_track_type)
 
         if (playabilityStatus.status === 'UNPLAYABLE' || playabilityStatus.status === 'LOGIN_REQUIRED' || isDrmProtected) {
@@ -729,14 +735,7 @@ export default defineComponent({
             }
           }
 
-          if (this.backendFallback) {
-            throw new Error(errorText)
-          } else {
-            this.errorMessage = errorText
-            this.isLoading = false
-            this.updateTitle()
-            return
-          }
+          throw new Error(errorText)
         }
 
         if (!this.hideLiveChat && (this.isLive || this.isUpcoming) && result.livechat) {
@@ -960,6 +959,7 @@ export default defineComponent({
           this.getVideoInformationInvidious()
         } else {
           this.isLoading = false
+          this.updateTitle()
 
           if (!this.thumbnail) {
             this.thumbnail = this.getUnavailableVideoThumbnail()
