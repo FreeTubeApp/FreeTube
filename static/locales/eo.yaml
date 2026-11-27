@@ -83,6 +83,7 @@ Search Filters:
   Fetch more results: Venigi pli da rezultoj
   There are no more results for this search: Ne estas pli da rezultoj por tiu ĉi serĉo
   Clear Filters: Viŝi filtrilojn
+  No results found: Neniu rezulto trovita. Provu aliajn ŝlosilvortojn aŭ modifu la serĉofiltrojn
 Subscriptions:
     # On Subscriptions Page
   Subscriptions: 'Abonoj'
@@ -520,6 +521,7 @@ Settings:
     Add: Aldoni
     Remove: Forigi
     Hide Channel Shows: Kaŝi serio-langeton de kanaloj
+    More Items Count: +{count} pli…
   Data Settings:
     Data Settings: Datumoj
     Select Export Type: Elekti elportotipon
@@ -566,6 +568,7 @@ Settings:
     Setting object has insufficient data, skipping item: Agorda objekto havas nesufiĉajn datumojn, elemento estos saltita
     Unknown setting key: 'Nekonata agorda ŝlosilo: {key}'
     Non-transferable setting key: 'Netransdonebla agorda ŝlosilo: {key}'
+    Playlists have been successfully imported: 1/{total} ludlisto estis sukcese enportita | {count}/{total} ludlistoj estis sukcese enportitaj
   Proxy Settings:
     Proxy Settings: Prokurilo
     Proxy Warning: FreeTube ne provizas prokurilon, sed ĝi kapablas konektiĝi al ekstera prokurilo, ekzemple prokurilo sur via maŝino kiel Tor aŭ ekstera prokurilo kiel SOCKS5 provizita de kelkaj VPR-oj. Se ŝaltita, certigu ke via prokurilo/Tor estas ĝuste agordita, aŭ FreeTube ne povos venigi iun ajn datumon.
@@ -622,6 +625,9 @@ Settings:
     Set Password To Prevent Access: Difini pasvorton por malebligi atingon al agordoj
     Set Password: Difini pasvorton
     Remove Password: Forigi pasvorton
+  Search Settings: Serĉi agordojn
+  Settings found: 1 agordo trovita | {count} agordoj trovitaj
+  No Matching Settings: Neniu agordo kongruas al via serĉo.
 About:
   #On About page
   Website: Retejo
@@ -706,7 +712,7 @@ Channel:
     This channel currently does not have any posts: Tiu ĉi kanalo aktuale ne havas iun ajn afiŝon
     votes: '{votes} voĉdonoj'
     View Full Post: Vidi tutan afiŝon
-    Reveal Answers: Montri respondojn
+    Reveal Answers: Riveli respondojn
     Hide Answers: Kaŝi respondojn
     Video hidden by FreeTube: Videaĵo kaŝita de FreeTube
   View All: Montri ĉion
@@ -1039,6 +1045,7 @@ Comments:
   Hearted: Koro
   Loading replies: Ŝargado de respondoj...
   Comments are turned off: La komentoj estas malŝaltitaj
+  Show Replies: Montri respondojn
 Up Next: Sekve
 Description:
   Expand Description: '...pli'
