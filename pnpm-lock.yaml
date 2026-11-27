@@ -46,8 +46,8 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1
       marked:
-        specifier: ^18.2.1
-        version: 18.2.1
+        specifier: ^18.3.0
+        version: 18.3.0
       process:
         specifier: ^0.11.10
         version: 0.11.10
@@ -2985,8 +2985,8 @@ packages:
   magic-string@1.4.5:
     resolution: {integrity: sha512-oLLC2+YvQUfAa+vxoufE/yc1icb87M9iXIRqAoR/2EhE/8cb3SF/+Gi0c2By1B+5Vz2e2vQtUvHiu1+63Znh+w==}
 
-  marked@18.2.1:
-    resolution: {integrity: sha512-ii4bxCTCqqwpT86XZWgJNs+ZnAIZksmLGYMViWA7PDIXYIeNo1x6cDdX3JOip9NM/cI6p8z57FxliACboTruMA==}
+  marked@18.3.0:
+    resolution: {integrity: sha512-ed8zmPXlBb3UfGXN5iHMQyMhFpdqLgoV5umUXx/Q1R+FW3q8VpqpyoKUwlENL9appo2UMvNLURDVaT3AMOryGA==}
     engines: {node: '>= 20'}
     hasBin: true
 
@@ -7521,7 +7521,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.6.0
 
-  marked@18.2.1: {}
+  marked@18.3.0: {}
 
   matcher@3.0.0:
     dependencies:
