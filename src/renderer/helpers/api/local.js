@@ -2415,12 +2415,16 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             break
           case 'WEB_PAGE_TYPE_CHANNEL': {
             const trimmedText = text.trim()
+            // Descriptions shows channel mentions as a chip whose text is "/ @handle"
+            // drop the leading slash so that only the @handle is displayed
+            const linkText = trimmedText.replace(/^\/\s*/, '')
+
             // In comments, mention can be `@Channel Name` (not handle, but name)
-            if (CHANNEL_HANDLE_REGEX.test(trimmedText) || options.looseChannelNameDetection) {
+            if (CHANNEL_HANDLE_REGEX.test(linkText) || options.looseChannelNameDetection) {
               // Note that in regex `\s` must be used since the text contain non-default space (the half-width space char when we press spacebar)
               const spacesBefore = (spacesBeforeRegex.exec(text) || [''])[0]
               const spacesAfter = (spacesAfterRegex.exec(text) || [''])[0]
-              parsedRuns.push(`${spacesBefore}<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${trimmedText}</a>${spacesAfter}`)
+              parsedRuns.push(`${spacesBefore}<a href="https://www.youtube.com/channel/${endpoint.payload.browseId}">${linkText}</a>${spacesAfter}`)
             } else {
               parsedRuns.push(`https://www.youtube.com${endpoint.metadata.url}`)
             }
