@@ -37,7 +37,8 @@
   box-sizing: content-box;
   border-style: solid;
   border-image: none;
-  border-width: 0 0 3px 3px;
+  border-block-width: 0 3px;
+  border-inline-width: 3px 0;
   content: '';
   background-color: transparent;
   position: absolute;

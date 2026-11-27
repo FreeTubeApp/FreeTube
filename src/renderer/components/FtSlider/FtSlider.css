@@ -94,7 +94,6 @@
 }
 
 .input::-moz-range-track {
-  margin-block: 0;
   margin: 17px;
   border-radius: 1px;
   inline-size: 100%;

@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   padding-inline-start: 0;
-  block-size: calc(85vh - 96px);
+  block-size: calc(85vb - 96px);
   max-block-size: 600px;
 }
 
@@ -41,7 +41,7 @@
 
 
 .iconAndTitleText {
-  overflow-x: hidden;
+  overflow-inline: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 
@@ -108,7 +108,7 @@
 
   .title {
     inline-size: fit-content;
-    max-inline-size: 90vw;
+    max-inline-size: 90vi;
   }
 
   .header {

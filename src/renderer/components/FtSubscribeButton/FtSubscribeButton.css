@@ -64,10 +64,10 @@
   color: var(--secondary-text-color);
   display: inline;
   font-size: 12px;
-  max-block-size: min(60vh, 500px);
+  max-block-size: min(60vb, 500px);
   margin-block: -7px 0;
   margin-inline: 5px 0;
-  overflow-y: auto;
+  overflow-block: auto;
   position: absolute;
   text-align: center;
   user-select: none;

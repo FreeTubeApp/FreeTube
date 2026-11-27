@@ -105,11 +105,12 @@
   margin-inline-start: $effect-distance;
 
   &.filterChanged {
-    /* stylelint-disable-next-line declaration-property-value-no-unknown */
+    /* stylelint-disable-next-line value-no-invalid */
     box-shadow: 0 0 $effect-distance var(--primary-color);
     color: var(--primary-color);
 
     @include top-nav-is-colored {
+      /* stylelint-disable-next-line value-no-invalid */
       box-shadow: 0 0 $effect-distance var(--text-with-main-color);
       color: var(--text-with-main-color);
     }

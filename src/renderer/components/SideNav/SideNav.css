@@ -1,8 +1,8 @@
 .sideNav {
   display: block;
-  block-size: calc(100vh - 60px);
+  block-size: calc(100vb - 60px);
   inline-size: 80px;
-  overflow-x: hidden;
+  overflow-inline: hidden;
   position: sticky;
   inset-inline-start: 0;
   inset-block-start: 60px;
@@ -18,7 +18,8 @@
 .inner {
   block-size: 100%;
   inline-size: 80px;
-  overflow: hidden auto;
+  overflow-block: auto;
+  overflow-inline: hidden;
 }
 
 .topNavOption {
@@ -242,7 +243,7 @@
     block-size: 60px;
     inline-size: 100%;
     inset-block: auto 0;
-    overflow-y: hidden;
+    overflow-block: hidden;
   }
 
   .topNavOption {
