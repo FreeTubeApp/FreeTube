@@ -65,6 +65,11 @@
   transition: background 0.2s ease-in;
 }
 
+.navOption.router-link-active {
+  background-color: var(--side-nav-current-color);
+  color: var(--side-nav-current-text-color);
+}
+
 .navIcon {
   block-size: 1em;
   inline-size: 100%;

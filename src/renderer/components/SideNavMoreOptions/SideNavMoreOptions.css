@@ -23,6 +23,11 @@
   transition: background 0.2s ease-in;
 }
 
+.navOption.router-link-active {
+  background-color: var(--side-nav-current-color);
+  color: var(--side-nav-active-text-color);
+}
+
 .moreOptionContainer {
   position: fixed;
   background-color: var(--side-nav-color);
