@@ -2414,10 +2414,9 @@ export function parseLocalTextRuns(runs, emojiSize = 16, options = { looseChanne
             }
             break
           case 'WEB_PAGE_TYPE_CHANNEL': {
-            const trimmedText = text.trim()
             // Descriptions show channel mentions as a chip whose text is "/ @handle"
             // drop the leading slash so that only the @handle is displayed
-            const linkText = trimmedText.replace(/^\/\s*/, '')
+            const linkText = text.trim().replace(/^\/\s*/, '')
 
             // In comments, mention can be `@Channel Name` (not handle, but name)
             if (CHANNEL_HANDLE_REGEX.test(linkText) || options.looseChannelNameDetection) {
