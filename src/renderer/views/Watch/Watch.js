@@ -27,6 +27,7 @@ import {
   showToast
 } from '../../helpers/utils'
 import {
+  generateNewSabrPoToken,
   getLocalVideoInfo,
   mapLocalLegacyFormat,
   parseLocalSubscriberCount,
@@ -55,7 +56,8 @@ import { useI18n } from 'vue-i18n'
  *     clientVersion: string,
  *     osName: string,
  *     osVersion: string
- *   }
+ *   },
+ *   refreshPoToken: () => Promise<string>
  * }} SabrData
  */
 
@@ -1677,12 +1679,14 @@ export default defineComponent({
       const url = new URL(videoInfo.streaming_data.server_abr_streaming_url)
       url.searchParams.set('alr', 'yes')
       url.searchParams.set('cpn', videoInfo.cpn)
+      const videoId = this.videoId
 
       this.sabrData = {
         url: url.toString(),
         poToken,
         ustreamerConfig: videoInfo.player_config.media_common_config.media_ustreamer_request_config.video_playback_ustreamer_config,
-        clientInfo
+        clientInfo,
+        refreshPoToken: () => generateNewSabrPoToken(videoId)
       }
 
       /** @type {import('../../helpers/player/SabrManifestParser').SabrManifest} */

@@ -21,6 +21,17 @@ const AbortableOperation = shaka.util.AbortableOperation
 const ShakaError = shaka.util.Error
 
 /**
+ * How many answers in a row may come without media while the stream protection status is 2 or 3
+ * before a new PO token is generated
+ */
+const REJECTED_RESPONSES_BEFORE_PO_TOKEN_REFRESH = 3
+
+/**
+ * How many times the PO token may be replaced for one video before falling back to reloading the player
+ */
+const MAX_PO_TOKEN_REFRESHES = 5
+
+/**
  * @typedef OperationInputs
  * @type {object}
  * @property {string} uri
@@ -64,6 +75,11 @@ const ShakaError = shaka.util.Error
  * @property {?NextRequestPolicy} nextRequestPolicy
  * @property {boolean} playerReloadRequested
  * @property {number} requestNumber
+ * @property {Uint8Array} poToken
+ * @property {(() => Promise<string>) | undefined} refreshPoToken
+ * @property {?Promise<void>} poTokenRefresh
+ * @property {number} poTokenRefreshes
+ * @property {number} rejectedResponses
  */
 /**
  * @typedef TimeoutController
@@ -194,6 +210,46 @@ function fillBufferedRanges(player, manifest, audioFormatsActive, streamIsVideo,
 }
 
 /**
+ * YouTube keeps answering without media once it stops accepting the PO token
+ * (stream protection status 2 or 3, usually after about a minute of buffered media).
+ * Retrying with the same token doesn't help, a new token does, so after a few of those answers a new one is generated.
+ * Concurrent requests share the same refresh.
+ * @param {SabrStreamState} sabrStreamState
+ * @returns {Promise<boolean>} whether the token was replaced and the request should be retried
+ */
+async function refreshPoTokenIfRejected(sabrStreamState) {
+  if (!sabrStreamState.refreshPoToken || sabrStreamState.poTokenRefreshes >= MAX_PO_TOKEN_REFRESHES) {
+    return false
+  }
+
+  if (!sabrStreamState.poTokenRefresh) {
+    sabrStreamState.rejectedResponses += 1
+
+    if (sabrStreamState.rejectedResponses < REJECTED_RESPONSES_BEFORE_PO_TOKEN_REFRESH) {
+      return false
+    }
+
+    sabrStreamState.poTokenRefresh = (async () => {
+      try {
+        sabrStreamState.poToken = base64ToU8(await sabrStreamState.refreshPoToken())
+        sabrStreamState.poTokenRefreshes += 1
+      } finally {
+        sabrStreamState.rejectedResponses = 0
+        sabrStreamState.poTokenRefresh = null
+      }
+    })()
+  }
+
+  try {
+    await sabrStreamState.poTokenRefresh
+    return true
+  } catch (error) {
+    console.error('Failed to generate a new PO token for SABR', error)
+    return false
+  }
+}
+
+/**
  * @param {string} uri
  * @param {shaka.extern.Request} request
  * @param {Uint8Array} data
@@ -293,6 +349,7 @@ async function doRequest(
   let shouldRetryDueToNextRequestPolicy = false
 
   let invalidPoToken = false
+  let protectionStatus
   let error
 
   if (currentState.sabrStreamState.playerReloadRequested) {
@@ -342,6 +399,8 @@ async function doRequest(
             const streamProtectionStatus = decodePart(data, StreamProtectionStatus)
             if (!streamProtectionStatus) break
 
+            protectionStatus = streamProtectionStatus.status
+
             if (streamProtectionStatus.status === 3) {
               invalidPoToken = true
             }
@@ -385,6 +444,7 @@ async function doRequest(
           case UMPPartId.MEDIA: {
             if (mediaHeaderId === data.getUint8(0)) {
               responseDataChunks.push(...data.split(1).remainingBuffer.chunks)
+              currentState.sabrStreamState.rejectedResponses = 0
             }
             break
           }
@@ -505,6 +565,20 @@ async function doRequest(
     throw createRecoverableNetworkError(ShakaError.Code.TIMEOUT, operationInputs.uri, operationInputs.requestType)
   }
 
+  if (
+    !segmentComplete &&
+    responseDataChunks.length === 0 &&
+    (protectionStatus === 2 || protectionStatus === 3) &&
+    !currentState.sabrStreamState.playerReloadRequested &&
+    await refreshPoTokenIfRejected(currentState.sabrStreamState)
+  ) {
+    // Retry the same segment with the new PO token instead of reloading the player
+    shouldRetry = true
+    shouldRetryDueToNextRequestPolicy = false
+    invalidPoToken = false
+    currentState.cumulativeRetryDueToNextRequestPolicy = 0
+  }
+
   if (responseDataChunks.length > 0 && segmentComplete) {
     const data = /** @__NOINLINE__ */ concatenateChunks(responseDataChunks)
 
@@ -532,6 +606,7 @@ async function doRequest(
 
     currentState.abrRequest.streamerContext.sabrContexts = sabrContexts
     currentState.abrRequest.streamerContext.unsentSabrContexts = unsentSabrContexts
+    currentState.abrRequest.streamerContext.poToken = currentState.sabrStreamState.poToken
 
     let body
 
@@ -624,7 +699,6 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
    */
   const initDataCache = new Map()
 
-  const poToken = base64ToU8(sabrData.poToken)
   const videoPlaybackUstreamerConfig = base64ToU8(sabrData.ustreamerConfig)
   const clientInfo = deepCopy(sabrData.clientInfo)
 
@@ -636,6 +710,11 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
     nextRequestPolicy: undefined,
     playerReloadRequested: false,
     requestNumber: 0,
+    poToken: base64ToU8(sabrData.poToken),
+    refreshPoToken: sabrData.refreshPoToken,
+    poTokenRefresh: null,
+    poTokenRefreshes: 0,
+    rejectedResponses: 0,
   }
 
   shaka.net.NetworkingEngine.registerScheme('sabr', (uri, request, requestType, _progressUpdated, headersReceived, _config) => {
@@ -735,7 +814,7 @@ export function setupSabrScheme(sabrData, getPlayer, getManifest, playerWidth, p
       initializationFormatIds: isInit ? [] : [audioFormatId, videoFormatId],
       bufferedRanges,
       streamerContext: {
-        poToken,
+        poToken: sabrStreamState.poToken,
         clientInfo,
         sabrContexts,
         unsentSabrContexts,

@@ -607,6 +607,28 @@ function createWatchNextRequestBody(videoId) {
 }
 
 /**
+ * Generates a new content-bound PO token, for when YouTube stops accepting the one a SABR stream started with.
+ * Uses the home page for the BotGuard challenge, so the video and player don't need to be fetched again.
+ * @param {string} videoId
+ * @returns {Promise<string>}
+ */
+export async function generateNewSabrPoToken(videoId) {
+  if (!process.env.IS_ELECTRON) {
+    throw new Error('PO tokens can only be generated in the Electron build')
+  }
+
+  const { ytConfig, initialAttestationData } = await getHTMLPage('https://www.youtube.com', 'home')
+  const session = buildSessionFromYtConfig(ytConfig, (input, init) => fetch(input, init))
+
+  return await window.ftElectron.generatePoToken(
+    videoId,
+    JSON.stringify(session.context),
+    JSON.stringify(initialAttestationData),
+    JSON.stringify(ytConfig)
+  )
+}
+
+/**
  * @param {string} id
  * @returns {Promise<{
  *   info: import('youtubei.js').YT.VideoInfo,
