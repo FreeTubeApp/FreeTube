@@ -591,7 +591,7 @@ export default defineComponent({
 
         if (result.secondary_info?.description.runs) {
           try {
-            this.videoDescription = parseLocalTextRuns(result.secondary_info.description.runs)
+            this.videoDescription = parseLocalTextRuns(result.secondary_info.description.runs, undefined, { looseChannelNameDetection: true })
           } catch (error) {
             console.error('Failed to extract the localised description, falling back to the standard one.', error, JSON.stringify(result.secondary_info.description.runs))
             this.videoDescription = result.basic_info.short_description
