@@ -79,6 +79,49 @@ const ShakaError = shaka.util.Error
  * @property {() => void | undefined} cleanup
  */
 
+/** @typedef {'SABR_ERROR' | 'SABR_REDIRECT' | 'RELOAD_PLAYER_RESPONSE' | 'STREAM_PROTECTION_STATUS' | 'RELOAD_DUE_TO_BACKOFF' | 'RELOAD_DUE_TO_BACKOFF' | 'BACKOFF_DETECTED'} SabrDebugMsgType */
+
+/**
+ * @param {SabrDebugMsgType} messageType
+ */
+// Use `sessionStorage.setItem('sabrDebugMessageTypes', 'ALL')` to get all debug messages
+// or only some of them via values like 'BACKOFF_DETECTED,RELOAD_DUE_TO_BACKOFF' (comma separated
+function debugMessageEnabled(messageType) {
+  const sabrDebugMessageTypesStr = sessionStorage.getItem('sabrDebugMessageTypes')
+  if (typeof sabrDebugMessageTypesStr !== 'string') { return false }
+  if (sabrDebugMessageTypesStr === 'ALL') { return true }
+
+  const sabrDebugMessageTypes = sabrDebugMessageTypesStr.split(',')
+  return sabrDebugMessageTypes.includes(messageType)
+}
+
+/**
+ * @param {SabrDebugMsgType} messageType
+ * @param {...any} args
+ */
+function logDebugMessage(messageType, ...args) {
+  if (!debugMessageEnabled(messageType)) { return }
+
+  switch (messageType) {
+    case 'SABR_ERROR':
+    case 'SABR_REDIRECT':
+    case 'RELOAD_PLAYER_RESPONSE':
+    case 'STREAM_PROTECTION_STATUS':
+    case 'RELOAD_DUE_TO_BACKOFF': {
+      console.warn(...args)
+      break
+    }
+    case 'BACKOFF_DETECTED': {
+      // eslint-disable-next-line no-console
+      console.info(...args)
+      break
+    }
+    default: {
+      console.error(`logDebugMessage received with messageType: <${messageType}>`, ...args)
+    }
+  }
+}
+
 /**
  * @param {string} str
  */
@@ -303,7 +346,9 @@ async function doRequest(
   try {
     let shouldReloadDueToBackoffLoop = false
     if ((currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs || 0) > 0) {
+      logDebugMessage('BACKOFF_DETECTED', 'currentState.sabrStreamState.nextRequestPolicy?.backoffTimeMs > 0')
       const currentBackoffTimeMs = currentState.sabrStreamState.nextRequestPolicy.backoffTimeMs
+      logDebugMessage('BACKOFF_DETECTED', 'currentBackoffTimeMs: ', currentBackoffTimeMs)
       currentState.eventEmitter.emit('backoff-requested', { backoffMs: currentBackoffTimeMs })
       // Wait but can be aborted
       await new Promise((resolve, reject) => {
@@ -315,11 +360,20 @@ async function doRequest(
       // i.e. backoff time parts received will not reset timeout - counted as video loading issue
       currentState.timeoutController?.resetTimeoutOnce()
 
-      currentState.cumulativeBackOffTimeMs += currentState.sabrStreamState.nextRequestPolicy.backoffTimeMs
+      currentState.cumulativeBackOffTimeMs += currentBackoffTimeMs
       currentState.cumulativeBackOffRequested += 1
       const timeoutMs = operationInputs.request.retryParameters.timeout
       // Detect infinite backoff loop by no. of times requested and cumulative time approaching timeout
-      if (currentState.cumulativeBackOffRequested >= 3 || (timeoutMs > 0 && timeoutMs <= (currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs))) {
+      if (currentState.cumulativeBackOffRequested >= 3) {
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'shouldReloadDueToBackoffLoop, cumulativeBackOffRequested >= 3')
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'cumulativeBackOffRequested: ', currentState.cumulativeBackOffRequested)
+        shouldReloadDueToBackoffLoop = true
+      } else if (timeoutMs > 0 && timeoutMs <= (currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs)) {
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'shouldReloadDueToBackoffLoop, operationInputs.request.retryParameters.timeout exceeded')
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'operationInputs.request.retryParameters.timeout: ', timeoutMs)
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'currentState.cumulativeBackOffTimeMs: ', currentState.cumulativeBackOffTimeMs)
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'currentBackoffTimeMs: ', currentBackoffTimeMs)
+        logDebugMessage('RELOAD_DUE_TO_BACKOFF', 'currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs: ', currentState.cumulativeBackOffTimeMs + currentBackoffTimeMs)
         shouldReloadDueToBackoffLoop = true
       }
     }
@@ -342,7 +396,11 @@ async function doRequest(
             const streamProtectionStatus = decodePart(data, StreamProtectionStatus)
             if (!streamProtectionStatus) break
 
+            if (streamProtectionStatus.status === 2) {
+              logDebugMessage('STREAM_PROTECTION_STATUS', `STREAM_PROTECTION_STATUS, status: ATTESTATION_PENDING, maxRetries: ${streamProtectionStatus.maxRetries}`)
+            }
             if (streamProtectionStatus.status === 3) {
+              logDebugMessage('STREAM_PROTECTION_STATUS', `STREAM_PROTECTION_STATUS, status: ATTESTATION_REQUIRED, maxRetries: ${streamProtectionStatus.maxRetries}`)
               invalidPoToken = true
             }
             break
@@ -352,6 +410,7 @@ async function doRequest(
             if (!sabrError) break
 
             error = `SABR Error: type: ${sabrError.type}, code: ${sabrError.code}`
+            logDebugMessage('SABR_ERROR', 'SABR_ERROR, sabrError: ', sabrError)
             break
           }
           case UMPPartId.SABR_REDIRECT: {
@@ -359,6 +418,7 @@ async function doRequest(
             if (!sabrRedirect?.url) break
 
             currentState.sabrStreamState.sabrUrl = sabrRedirect.url
+            logDebugMessage('SABR_REDIRECT', 'SABR_REDIRECT, url: ', sabrRedirect.url)
             shouldRetry = true
             break
           }
@@ -458,6 +518,7 @@ async function doRequest(
             const reloadPlaybackContext = decodePart(data, ReloadPlaybackContext)
             if (!reloadPlaybackContext) break
 
+            logDebugMessage('RELOAD_PLAYER_RESPONSE', 'RELOAD_PLAYER_RESPONSE')
             // Whole video cannot be played
             currentState.sabrStreamState.playerReloadRequested = true
             if (!currentState.abortController.signal.aborted) {
