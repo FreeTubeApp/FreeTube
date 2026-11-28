@@ -49,9 +49,10 @@ export async function sponsorBlockSkipSegments(videoId, categories) {
     }
 
     const json = await response.json()
+
+    const emptyArray = []
     return json
-      .filter((result) => result.videoID === videoId)
-      .flatMap((result) => result.segments)
+      .flatMap((result) => result.videoID === videoId ? result.segments : emptyArray)
   } catch (error) {
     console.error('failed to fetch SponsorBlock segments', requestUrl, error)
     throw error

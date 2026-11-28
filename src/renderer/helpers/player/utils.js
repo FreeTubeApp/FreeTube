@@ -588,22 +588,25 @@ function sortAdapationSetsByCodec(periods) {
 function sortAudioAdaptationSetsByBitrate(periods) {
   for (const period of periods) {
     period.children
-      ?.filter(child => typeof child !== 'string' && child.tagName === 'AdaptationSet' &&
-        (child.attributes.contentType === 'audio' || child.attributes.mimeType.startsWith('audio/')))
-      .forEach(adaptationSet => {
-        adaptationSet.children.sort((a, b) => {
-          if (a.tagName === 'AudioChannelConfiguration' && b.tagName !== 'AudioChannelConfiguration') {
-            // Push AudioChannelConfiguration to the front (where it seems to already be) so that it doesn't
-            // block sorting Representations if it's in the middle instead
-            return -1
-          } else if (b.tagName === 'AudioChannelConfiguration' && a.tagName !== 'AudioChannelConfiguration') {
-            return 1
-          } else if (a.tagName === 'Representation' && b.tagName === 'Representation') {
-            return b.attributes.bandwidth - a.attributes.bandwidth
-          } else {
-            return 0
-          }
-        })
+      ?.forEach(child => {
+        if (
+          typeof child !== 'string' && child.tagName === 'AdaptationSet' &&
+          (child.attributes.contentType === 'audio' || child.attributes.mimeType.startsWith('audio/'))
+        ) {
+          child.children.sort((a, b) => {
+            if (a.tagName === 'AudioChannelConfiguration' && b.tagName !== 'AudioChannelConfiguration') {
+              // Push AudioChannelConfiguration to the front (where it seems to already be) so that it doesn't
+              // block sorting Representations if it's in the middle instead
+              return -1
+            } else if (b.tagName === 'AudioChannelConfiguration' && a.tagName !== 'AudioChannelConfiguration') {
+              return 1
+            } else if (a.tagName === 'Representation' && b.tagName === 'Representation') {
+              return b.attributes.bandwidth - a.attributes.bandwidth
+            } else {
+              return 0
+            }
+          })
+        }
       })
   }
 }
