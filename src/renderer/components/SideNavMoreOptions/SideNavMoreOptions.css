@@ -11,6 +11,11 @@
   display: block;
 }
 
+.navOption.router-link-active {
+  background-color: var(--side-nav-current-color);
+  color: var(--side-nav-current-text-color);
+}
+
 .navOption:hover {
   background-color: var(--side-nav-hover-color);
   color: var(--side-nav-hover-text-color);

@@ -51,6 +51,11 @@
   text-decoration: inherit;
 }
 
+.navOption.router-link-active {
+  background-color: var(--side-nav-current-color);
+  color: var(--side-nav-current-text-color);
+}
+
 .navOption:hover,
 .navChannel:hover {
   background-color: var(--side-nav-hover-color);

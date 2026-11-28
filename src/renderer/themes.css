@@ -9,6 +9,8 @@ body {
     are replaced before the expressions are evaluated
   */
   --accent-color: rgb(var(--accent-color-rgb));
+  --side-nav-current-color: var(--side-nav-active-color);
+  --side-nav-current-text-color: var(--side-nav-active-text-color);
   --accent-color-opacity1: rgb(var(--accent-color-rgb) / 4%);
   --accent-color-opacity2: rgb(var(--accent-color-rgb) / 12%);
   --accent-color-opacity3: rgb(var(--accent-color-rgb) / 16%);
@@ -182,6 +184,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-color: #fff;
   --side-nav-hover-color: #e0e0e0;
   --side-nav-active-color: #757575;
+  --side-nav-current-color: #d0d0d0;
   --search-bar-color: #f5f5f5;
 }
 
@@ -255,6 +258,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-hover-color: #fff;
   --side-nav-hover-text-color: #000;
   --side-nav-active-color: #959595;
+  --side-nav-current-color: #f56cb8;
   --side-nav-active-text-color: #000;
   --search-bar-color: #9c2d5d;
   --logo-icon: url('../../_icons/iconWhiteSmall.svg');
@@ -295,6 +299,8 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-color: #ffd1dc;
   --side-nav-hover-color: #cef4f1;
   --side-nav-active-color: #3124e7;
+  --side-nav-current-color: #f4a6bd;
+  --side-nav-current-text-color: var(--primary-text-color);
   --side-nav-active-text-color: #ffff;
   --search-bar-color: #fff0dd;
   --logo-icon: url('../../_icons/iconBlackSmall.svg');
@@ -372,6 +378,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-color: #eee8d5;
   --side-nav-hover-color: #fdf6e3;
   --side-nav-active-color: #839496;
+  --side-nav-current-color: #ddd6c1;
   --search-bar-color: #c9c8b5;
   --logo-icon: url('../../_icons/iconSolarizedDarkSmall.svg');
   --logo-text: url('../../_icons/textSolarizedDarkSmall.svg');
@@ -391,6 +398,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-color: #504945;
   --side-nav-hover-color: #665c54;
   --side-nav-active-color: #504945;
+  --side-nav-current-color: #665c54;
   --search-bar-color: #1d2021;
   --logo-icon: url('../../_icons/iconGruvboxLightSmall.svg');
   --logo-text: url('../../_icons/textGruvboxLightSmall.svg');
@@ -410,6 +418,7 @@ it can be safely elided. This looks quite pleasant on this theme. */
   --side-nav-color: #ebdbb2;
   --side-nav-hover-color: #bdae93;
   --side-nav-active-color: #ebdbb2;
+  --side-nav-current-color: #d5c4a1;
   --search-bar-color: #a89984;
   --logo-icon: url('../../_icons/iconGruvboxDarkSmall.svg');
   --logo-text: url('../../_icons/textGruvboxDarkSmall.svg');
