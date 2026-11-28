@@ -35,4 +35,6 @@
   line-height: 1.5em;
   overflow: hidden;
   text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

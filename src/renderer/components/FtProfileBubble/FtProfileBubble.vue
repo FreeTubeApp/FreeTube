@@ -20,6 +20,7 @@
     </div>
     <div
       :id="id"
+      :title="translatedProfileName"
       class="profileName"
       dir="auto"
     >
