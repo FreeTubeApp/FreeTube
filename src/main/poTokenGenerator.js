@@ -1,4 +1,4 @@
-import { session, WebContentsView } from 'electron'
+import { app, session, WebContentsView } from 'electron'
 import { readFile } from 'fs/promises'
 import { join } from 'path'
 
@@ -90,7 +90,10 @@ async function sharedInit() {
   // eslint-disable-next-line n/no-callback-literal
   theSession.setPermissionRequestHandler((webContents, permission, callback) => callback(false))
 
-  theSession.setUserAgent(session.defaultSession.getUserAgent())
+  // Use Electron's own user agent here instead of the one from the default session with Electron removed from it.
+  // BotGuard can tell that it's running in Electron, so when the user agent claims plain Chrome,
+  // YouTube hands out PO tokens about half of the time that it doesn't accept (stream protection status 2)
+  theSession.setUserAgent(app.userAgentFallback)
 
   theSession.webRequest.onBeforeSendHeaders({
     urls: ['https://www.google.com/js/*', 'https://www.youtube.com/youtubei/*']
