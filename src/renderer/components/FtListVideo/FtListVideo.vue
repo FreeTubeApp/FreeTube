@@ -20,6 +20,7 @@
       />
     </div>
     <div
+      ref="thumbnailElement"
       class="videoThumbnail"
       draggable="true"
       @dragstart="onDragStart"
@@ -113,7 +114,7 @@
           @click="toggleQuickBookmarked"
         />
         <FtIconButton
-          v-if="inUserPlaylist && canMoveVideoUp"
+          v-if="inUserPlaylist && canMoveVideoUp && !allowRowDrag"
           :title="t('User Playlists.Move Video Up')"
           :icon="effectiveListTypeIsList ? ['fas', 'arrow-up'] : ['fas', 'arrow-left']"
           class="upArrowIcon"
@@ -122,7 +123,7 @@
           @click="moveVideoUp"
         />
         <FtIconButton
-          v-if="inUserPlaylist && canMoveVideoDown"
+          v-if="inUserPlaylist && canMoveVideoDown && !allowRowDrag"
           :title="t('User Playlists.Move Video Down')"
           :icon="effectiveListTypeIsList ? ['fas', 'arrow-down'] : ['fas', 'arrow-right']"
           class="downArrowIcon"
@@ -260,6 +261,7 @@
       </div>
       <div class="buttonStack">
         <FtIconButton
+          ref="optionsButton"
           class="optionsButton"
           :icon="['fas', 'ellipsis-v']"
           :title="t('Video.More Options')"
@@ -301,7 +303,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref } from 'vue'
+import { computed, ref, useTemplateRef } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 
@@ -326,6 +328,7 @@ import { deArrowData, deArrowThumbnail } from '../../helpers/sponsorblock.js'
 import thumbnailPlaceholder from '../../assets/img/thumbnail_placeholder.svg'
 
 const props = defineProps({
+  allowRowDrag: { type: Boolean, default: false },
   data: {
     type: Object,
     required: true
@@ -771,6 +774,11 @@ function handleOptionsClick(option) {
     case 'enableSponsorBlockOnChannel':
       enableSponsorBlockOnChannel(channelName.value, channelId.value)
       break
+  }
+
+  if (props.allowRowDrag && (option === 'moveVideoTop' || option === 'moveVideoBottom')) {
+    // wait until Enter has finished being handled before focusing the menu button
+    requestAnimationFrame(() => optionsButton.value?.focus())
   }
 }
 
@@ -1308,6 +1316,7 @@ function removeFromPlaylist() {
  * @param {DragEvent} event
  */
 function onDragStart(event) {
+  if (props.allowRowDrag) { return }
   // Prevent drag event except links
   if (event.target.tagName !== 'A') {
     event.preventDefault()
@@ -1327,6 +1336,13 @@ if ((showDeArrowTitle.value || showDeArrowThumbnail.value) && !deArrowCache.valu
 if (showDeArrowThumbnail.value && deArrowCache.value && deArrowCache.value.thumbnail == null) {
   debounceGetDeArrowThumbnail()
 }
+
+const optionsButton = useTemplateRef('optionsButton')
+const thumbnailElement = useTemplateRef('thumbnailElement')
+
+defineExpose({
+  getThumbnailBounds: () => thumbnailElement.value?.getBoundingClientRect()
+})
 </script>
 
 <style scoped src="./FtListVideo.scss" lang="scss" />

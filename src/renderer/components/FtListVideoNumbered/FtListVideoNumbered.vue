@@ -5,11 +5,13 @@
     }"
     :class="{
       placeholder: !visible,
-      draggable: canBecomeDraggable,
+      draggable: rowDraggable && !props.wholeRowDraggable,
+      wholeRowDraggable: wholeRowDraggable,
+      sortableRow: rowDraggable,
       draggedVideo: isVideoDragging && draggedVideo.videoId === data.videoId && draggedVideo.playlistItemId === data.playlistItemId,
     }"
-    :draggable="canBecomeDraggable"
-    v-on="canBecomeDraggable ? draggableEventHandlers : {}"
+    :draggable="rowDraggable"
+    v-on="props.wholeRowDraggable ? wholeRowDragEventHandlers : canBecomeDraggable ? draggableEventHandlers : emptyDragEventHandlers"
   >
     <template
       v-if="visible"
@@ -17,6 +19,11 @@
       <p
         class="videoIndexArea"
       >
+        <FontAwesomeIcon
+          v-if="rowDraggable"
+          class="grabBar"
+          :icon="['fas', 'fa-bars']"
+        />
         <FontAwesomeIcon
           v-if="isCurrentVideo"
           class="videoIndexIcon"
@@ -26,12 +33,6 @@
         <template
           v-else
         >
-          <FontAwesomeIcon
-            v-if="canBecomeDraggable"
-            class="grabBar"
-            :icon="['fas', 'fa-bars']"
-          />
-
           <span
             class="videoIndex"
           >
@@ -40,7 +41,9 @@
         </template>
       </p>
       <FtListVideo
+        ref="video"
         :data="data"
+        :allow-row-drag="wholeRowDraggable"
         :playlist-id="playlistId"
         :playlist-type="playlistType"
         :playlist-index="playlistIndex"
@@ -68,7 +71,7 @@
 
 <script setup>
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, useTemplateRef } from 'vue'
 import { ObserveVisibility as vObserveVisibility } from 'vue-observe-visibility'
 
 import { handleDragAndDrop } from '../../helpers/dragAndDrop'
@@ -76,6 +79,7 @@ import { handleDragAndDrop } from '../../helpers/dragAndDrop'
 import FtListVideo from '../FtListVideo/FtListVideo.vue'
 
 const props = defineProps({
+  wholeRowDraggable: { type: Boolean, default: false },
   data: {
     type: Object,
     required: true
@@ -159,6 +163,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits([
+  'dragstart',
   'move-dragged-video',
   'move-video-down',
   'move-video-up',
@@ -169,11 +174,18 @@ const emit = defineEmits([
   'drag-video',
   'drag-video-end'
 ])
+
 const visible = ref(props.initialVisibleState)
+const video = useTemplateRef('video')
 
 const inUserPlaylist = props.playlistType === 'user'
 const canBecomeDraggable = computed(() => inUserPlaylist && props.isSortOrderCustom && (props.canMoveVideoUp || props.canMoveVideoDown))
+const rowDraggable = computed(() => canBecomeDraggable.value || props.wholeRowDraggable)
 const { dragVideo, moveDraggedVideo, afterDrag } = handleDragAndDrop(emit)
+const emptyDragEventHandlers = {}
+const wholeRowDragEventHandlers = {
+  dragstart: onRowDragStart
+}
 const draggableEventHandlers = {
   dragstart: onDragVideo,
   dragover: event => event.preventDefault(),
@@ -208,6 +220,13 @@ function onVisibilityChanged(isVisible) {
       stopWatchingInitialVisibleState = null
     }
   }
+}
+
+function onRowDragStart(event) {
+  if (!props.wholeRowDraggable || event.defaultPrevented) { return }
+  if (event.target.closest('a.title, a.channelName')) { return }
+
+  emit('dragstart', event, props.data, video.value?.getThumbnailBounds())
 }
 
 function pausePlayer() {

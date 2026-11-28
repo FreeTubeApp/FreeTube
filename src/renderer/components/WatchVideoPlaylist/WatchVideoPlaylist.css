@@ -1,3 +1,12 @@
+.moveAnnouncement {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .playlistTitle {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -193,6 +202,32 @@
 .playlistItemsWrapper {
   overflow-y: auto;
   block-size: 360px;
+}
+
+.playlistItemsWrapper.isDragging {
+  overflow-anchor: none;
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
+
+:global(html:has(.playlistItemsWrapper.isDragging)) {
+  overflow-y: hidden;
+  scrollbar-gutter: stable;
+}
+
+.playlistItemsWrapper.isDragging :deep(.sortableRow:hover .grabBar) {
+  opacity: 0;
+}
+
+.playlistItemsWrapper.isDragging :deep(.sortableRow:hover .videoIndex),
+.playlistItemsWrapper.isDragging :deep(.sortableRow:hover .videoIndexIcon) {
+  opacity: 1;
+}
+
+.dragOutside .playlistItem.draggedVideo {
+  block-size: 0;
+  margin-block: 0;
+  overflow: hidden;
 }
 
 .playlistItem {
