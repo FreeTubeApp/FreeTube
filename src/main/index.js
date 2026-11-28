@@ -88,7 +88,7 @@ function runApp() {
       : []),
   ])
 
-  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080' : 'app://bundle/index.html'
+  const ROOT_APP_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:9080/index.html' : 'app://bundle/index.html'
 
   let backendPreference = 'local'
   let backendFallback = true
@@ -497,6 +497,14 @@ function runApp() {
 
       // eslint-disable-next-line n/no-callback-literal
       callback(details.isDirectory ? 'deny' : 'allow')
+    })
+
+    session.defaultSession.registerPreloadScript({
+      type: 'frame',
+      matches: [ROOT_APP_URL],
+      filePath: process.env.NODE_ENV === 'development'
+        ? path.resolve(__dirname, '../../dist/preload.js')
+        : path.resolve(__dirname, 'preload.js')
     })
 
     let docArray
@@ -1032,9 +1040,6 @@ function runApp() {
       webPreferences: {
         webSecurity: false,
         backgroundThrottling: false,
-        preload: process.env.NODE_ENV === 'development'
-          ? path.resolve(__dirname, '../../dist/preload.js')
-          : path.resolve(__dirname, 'preload.js')
       },
       minWidth: 340,
       minHeight: 380,
