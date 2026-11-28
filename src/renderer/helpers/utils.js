@@ -628,15 +628,26 @@ export function showExternalPlayerUnsupportedActionToast(externalPlayer, action)
   showToast(message)
 }
 
-export function getVideoParamsFromUrl(url) {
-  /** @type {URL} */
-  let urlObject
-  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
+/**
+ * @param {string | URL} url
+ * @returns {boolean}
+ */
+export function isShortLinkDomainUrl(url) {
   try {
-    urlObject = new URL(url)
+    const parsed = typeof url === 'string' ? new URL(url) : url
+    return (parsed.protocol === 'https:' || parsed.protocol === 'http:') &&
+      parsed.hostname === 'youtu.be' &&
+      /^\/[\w-]{11,}\/?$/.test(parsed.pathname)
   } catch {
-    return paramsObject
+    return false
   }
+}
+
+/**
+ * @param {URL} urlObject
+ */
+export function getVideoParamsFromUrl(urlObject) {
+  const paramsObject = { videoId: null, timestamp: null, playlistId: null }
 
   function extractParams(videoId) {
     paramsObject.videoId = videoId
